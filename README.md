@@ -23,6 +23,8 @@ Optimizer is recommended after a fresh, clean installation of Windows to achieve
 
 ## Compatibility: ##
  
+.NET Framework 4.5
+ 
 Compatible with Windows 7, 8, 8.1, 10
 
 Also compatible with Windows Server 2008, 2012, 2016
