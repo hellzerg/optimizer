@@ -23,7 +23,12 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Add items in desktop right-click menu
 * Define custom commands for run dialog
 
+## Downloads: ##
+https://github.com/hellzerg/optimizer/releases
+
 ## Compatibility: ##
+
+.NET Framework 4.5
  
 Compatible with Windows 7, 8, 8.1, 10
 
@@ -31,7 +36,7 @@ Also compatible with Windows Server 2008, 2012, 2016
 
 Does not work with Windows XP or Vista or Windows Server 2003
 
-## Version: ##
+## Details: ##
 
 Latest version: 3.1
 
