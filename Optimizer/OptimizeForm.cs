@@ -88,6 +88,8 @@ namespace Optimizer
                         Optimize.DisableSyncProviderNotifications();
                         Optimize.DisableStartMenuAds();
                         Optimize.DisableSilentAppInstall();
+                        Optimize.DisableMyPeople();
+                        Optimize.ExcludeDrivers();
                     }
                 }
                 catch //(Exception error)

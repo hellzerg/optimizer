@@ -33,6 +33,6 @@ Does not work with Windows XP or Vista or Windows Server 2003
 
 ## Version: ##
 
-Latest version: 3.0
+Latest version: 3.1
 
-Released: June 28, 2017
+Released: September 26, 2017

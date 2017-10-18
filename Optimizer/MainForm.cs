@@ -1483,5 +1483,17 @@ namespace Optimizer
             Optimize.DisableSilentAppInstall();
             button67.Enabled = false;
         }
+
+        private void button69_Click(object sender, EventArgs e)
+        {
+            Optimize.DisableMyPeople();
+            button69.Enabled = false;
+        }
+
+        private void button70_Click(object sender, EventArgs e)
+        {
+            Optimize.ExcludeDrivers();
+            button70.Enabled = false;
+        }
     }
 }
