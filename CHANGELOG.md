@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2] - 2017-10-18
+- Compatible with Windows 10 Fall Creators Update
+- Improved Disable Xbox Live & Disable Cortana options
+- Added option to remove My People from taskbar
+- Added option to exclude drivers from Windows Update
+
 ## [3.1] - 2017-09-26
 - Disable Start Menu ads on Windows 10
 - Prevent reinstalling Modern Apps on Windows 10

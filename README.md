@@ -38,6 +38,6 @@ Does not work with Windows XP or Vista or Windows Server 2003
 
 ## Details: ##
 
-Latest version: 3.1
+Latest version: 3.2
 
-Released: September 26, 2017
+Released: October 18, 2017
