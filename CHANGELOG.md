@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [3.3] - 2017-10-22
+## [3.3] - 2017-10-21
 - Improved Disable Privacy Options
 - Added option to disable Windows Ink & suggestions
 - Added options to disable Spelling & Typing features

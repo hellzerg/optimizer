@@ -40,4 +40,4 @@ Does not work with Windows XP or Vista or Windows Server 2003
 
 Latest version: 3.3
 
-Released: October 22, 2017
+Released: October 21, 2017
