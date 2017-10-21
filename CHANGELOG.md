@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.3] - 2017-10-22
+- Improved Disable Privacy Options
+- Added option to disable Windows Ink & suggestions
+- Added options to disable Spelling & Typing features
+
 ## [3.2] - 2017-10-18
 - Compatible with Windows 10 Fall Creators Update
 - Improved Disable Xbox Live & Disable Cortana options

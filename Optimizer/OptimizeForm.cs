@@ -90,6 +90,8 @@ namespace Optimizer
                         Optimize.DisableSilentAppInstall();
                         Optimize.DisableMyPeople();
                         Optimize.ExcludeDrivers();
+                        Optimize.DisableWindowsInk();
+                        Optimize.DisableSpellingAndTypingFeatures();
                     }
                 }
                 catch //(Exception error)

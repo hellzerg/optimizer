@@ -380,11 +380,6 @@ namespace Optimizer
                 aio.TabPages.Remove(tab7);
                 aio.TabPages.Remove(tab8);
             }
-
-            //foreach (string s in Integrator.GetCustomCommands())
-            //{
-            //    MessageBox.Show(s);
-            //}
         }
 
         private void GetDesktopItems()
@@ -1494,6 +1489,18 @@ namespace Optimizer
         {
             Optimize.ExcludeDrivers();
             button70.Enabled = false;
+        }
+
+        private void button71_Click(object sender, EventArgs e)
+        {
+            Optimize.DisableWindowsInk();
+            button71.Enabled = false;
+        }
+
+        private void button72_Click(object sender, EventArgs e)
+        {
+            Optimize.DisableSpellingAndTypingFeatures();
+            button72.Enabled = false;
         }
     }
 }

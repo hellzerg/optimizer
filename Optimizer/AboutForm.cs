@@ -150,7 +150,7 @@ namespace Optimizer
 
         private void l2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("http://5.249.159.211/deadmoon");
+            Process.Start("https://carcinos.eu/deadmoon");
         }
     }
 }
