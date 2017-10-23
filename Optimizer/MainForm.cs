@@ -21,71 +21,44 @@ namespace Optimizer
 {
     public partial class MainForm : Form
     {
-        ListViewColumnSorter columnSorter;
+        ListViewColumnSorter _columnSorter;
 
-        internal static WindowsVersion wv = WindowsVersion.Unsupported;
-        List<StartupItem> items = new List<StartupItem>();
-        List<string> entries = new List<string>();
-        List<string> customCommands = new List<string>();
-        List<string> synapses = new List<string>();
-        DesktopItemType SynapseSelectedType = DesktopItemType.Program;
-        DesktopTypePosition SynapseSelectedPosition = DesktopTypePosition.Top;
+        List<StartupItem> _startUpItems = new List<StartupItem>();
+        List<string> _hostsEntries = new List<string>();
+        List<string> _customCommands = new List<string>();
+        List<string> _desktopItems = new List<string>();
 
-        readonly string blockip = "127.0.0.1";
+        DesktopItemType _desktopItemType = DesktopItemType.Program;
+        DesktopTypePosition _desktopItemPosition = DesktopTypePosition.Top;
 
-        readonly string restartmsg = "Restart to apply changes?";
-        readonly string removeallmsg = "Are you sure you want to delete all startup items?";
-        readonly string removeentriesmsg = "Are you sure you want to delete all hosts entries?";
-        readonly string removedesktopitemsmsg = "Are you sure you want to delete all desktop items?";
+        readonly string _blockedIP = "127.0.0.1";
 
-        private delegate void SetControlPropertyThreadSafeDelegate(
-    Control control,
-    string propertyName,
-    object propertyValue);
-
-        public static void SetControlPropertyThreadSafe(
-            Control control,
-            string propertyName,
-            object propertyValue)
-        {
-            if (control.InvokeRequired)
-            {
-                control.Invoke(new SetControlPropertyThreadSafeDelegate
-                (SetControlPropertyThreadSafe),
-                new object[] { control, propertyName, propertyValue });
-            }
-            else
-            {
-                control.GetType().InvokeMember(
-                    propertyName,
-                    BindingFlags.SetProperty,
-                    null,
-                    control,
-                    new object[] { propertyValue });
-            }
-        }
+        readonly string _restartMessage = "Restart to apply changes?";
+        readonly string _removeStartupItemsMessage = "Are you sure you want to delete all startup items?";
+        readonly string _removeHostsEntriesMessage = "Are you sure you want to delete all hosts entries?";
+        readonly string _removeDesktopItemsMessage = "Are you sure you want to delete all desktop items?";
 
         private void LoadSettings()
         {
             switch (Options.CurrentOptions.Color)
             {
                 case Theme.Caramel:
-                    carameltheme.Checked = true;
+                    radioCaramel.Checked = true;
                     break;
                 case Theme.Lime:
-                    limetheme.Checked = true;
+                    radioLime.Checked = true;
                     break;
                 case Theme.Magma:
-                    magmatheme.Checked = true;
+                    radioMagma.Checked = true;
                     break;
                 case Theme.Minimal:
-                    minimaltheme.Checked = true;
+                    radioMinimal.Checked = true;
                     break;
                 case Theme.Ocean:
-                    oceantheme.Checked = true;
+                    radioOcean.Checked = true;
                     break;
                 case Theme.Zerg:
-                    zergtheme.Checked = true;
+                    radioZerg.Checked = true;
                     break;
             }
         }
@@ -95,42 +68,30 @@ namespace Optimizer
             InitializeComponent();
             Options.ApplyTheme(this);
 
-            columnSorter = new ListViewColumnSorter();
-            listStartupItems.ListViewItemSorter = columnSorter;
+            _columnSorter = new ListViewColumnSorter();
+            listStartupItems.ListViewItemSorter = _columnSorter;
         }
 
         private void ApplyAll()
         {
-            if (wv != WindowsVersion.Unsupported)
+            if (Utilities.CurrentWindowsVersion != WindowsVersion.Unsupported)
             {
-                string msg = "";
+                string message = string.Empty;
 
-                if (wv == WindowsVersion.Windows7)
+                if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
                 {
-                    msg = "This will apply every option in Universal and Windows 7 tab. Continue?";
+                    message = "This will apply every option in Universal and Windows 7 tab. Continue?";
                 }
-                if (wv == WindowsVersion.Windows8)
+                if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
                 {
-                    msg = "This will apply every option in Universal and Windows 8.1 tab. Continue?";
+                    message = "This will apply every option in Universal and Windows 8.1 tab. Continue?";
                 }
-                if (wv == WindowsVersion.Windows10)
+                if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
                 {
-                    msg = "This will apply every option in Universal and Windows 10 tab. Continue?";
-                }
-                if (wv == WindowsVersion.WindowsServer2008)
-                {
-                    msg = "This will apply every option in Universal and Windows Server 2008 tab. Continue?";
-                }
-                if (wv == WindowsVersion.WindowsServer2012)
-                {
-                    msg = "This will apply every option in Universal and Windows Server 2012 tab. Continue?";
-                }
-                if (wv == WindowsVersion.WindowsServer2016)
-                {
-                    msg = "This will apply every option in Universal and Windows Server 2016 tab. Continue?";
+                    message = "This will apply every option in Universal and Windows 10 tab. Continue?";
                 }
 
-                MessagerForm r = new MessagerForm(this, MessagerType.Optimize, msg);
+                MessagerForm r = new MessagerForm(this, MessageType.Optimize, message);
                 r.ShowDialog(this);
             }
         }
@@ -139,72 +100,72 @@ namespace Optimizer
         {
             try
             {
-                if (tempfiles.Checked)
+                if (checkTemp.Checked)
                 {
-                    CleanHelper.CleanTemp();
+                    CleanHelper.CleanTemporaries();
                 }
-                if (utorrentcache.Checked)
+                if (checkUTorrent.Checked)
                 {
                     CleanHelper.CleanUTorrent();
                 }
-                if (ftpservers.Checked)
+                if (checkFileZilla.Checked)
                 {
                     CleanHelper.CleanFileZilla();
                 }
-                if (bsoddumps.Checked)
+                if (checkMiniDumps.Checked)
                 {
                     CleanHelper.CleanMiniDumps();
                 }
-                if (prefetchcache.Checked)
+                if (checkPrefetch.Checked)
                 {
                     CleanHelper.CleanPrefetch();
                 }
-                if (mediaplayercache.Checked)
+                if (checkMediaCache.Checked)
                 {
                     CleanHelper.CleanMediaPlayersCache();
                 }
-                if (logfiles.Checked)
+                if (checkLogs.Checked)
                 {
                     CleanHelper.CleanLogs();
                 }
-                if (emptytrash.Checked)
-                {
-                    CleanHelper.EmptyRecycleBin();
-                }
-                if (errorreports.Checked)
+                if (checkErrorReports.Checked)
                 {
                     CleanHelper.CleanErrorReports();
+                }
+                if (checkBin.Checked)
+                {
+                    CleanHelper.EmptyRecycleBin();
                 }
             }
             catch { }
             finally
             {
-                CleanAnimation(false);
+                CleaningAnimation(false);
             }
         }
 
-        private void CleanAnimation(bool start)
+        private void CleaningAnimation(bool start)
         {
             if (start == true)
             {
-                SetControlPropertyThreadSafe(cleaningpanel, "Visible", true);
-                SetControlPropertyThreadSafe(progress2, "Visible", true);
-                SetControlPropertyThreadSafe(progress2, "Style", ProgressBarStyle.Marquee);
-                SetControlPropertyThreadSafe(progress2, "MarqueeAnimationSpeed", 1);
-                SetControlPropertyThreadSafe(label4, "Visible", true);
-                SetControlPropertyThreadSafe(button20, "Enabled", false);
-                SetControlPropertyThreadSafe(panel1, "Enabled", false);
+                Utilities.SetControlPropertyThreadSafe(cleaningpanel, "Visible", true);
+                Utilities.SetControlPropertyThreadSafe(progress2, "Visible", true);
+                Utilities.SetControlPropertyThreadSafe(progress2, "Style", ProgressBarStyle.Marquee);
+                Utilities.SetControlPropertyThreadSafe(progress2, "MarqueeAnimationSpeed", 1);
+                Utilities.SetControlPropertyThreadSafe(label4, "Visible", true);
+                Utilities.SetControlPropertyThreadSafe(button20, "Enabled", false);
+                Utilities.SetControlPropertyThreadSafe(panel1, "Enabled", false);
             }
             else
             {
-                SetControlPropertyThreadSafe(cleaningpanel, "Visible", false);
-                SetControlPropertyThreadSafe(progress2, "Visible", false);
-                SetControlPropertyThreadSafe(progress2, "Value", 0);
-                SetControlPropertyThreadSafe(progress2, "Style", ProgressBarStyle.Blocks);
-                SetControlPropertyThreadSafe(progress2, "MarqueeAnimationSpeed", 1);
-                SetControlPropertyThreadSafe(label4, "Visible", false);
-                SetControlPropertyThreadSafe(button20, "Enabled", true);
-                SetControlPropertyThreadSafe(panel1, "Enabled", true);
+                Utilities.SetControlPropertyThreadSafe(cleaningpanel, "Visible", false);
+                Utilities.SetControlPropertyThreadSafe(progress2, "Visible", false);
+                Utilities.SetControlPropertyThreadSafe(progress2, "Value", 0);
+                Utilities.SetControlPropertyThreadSafe(progress2, "Style", ProgressBarStyle.Blocks);
+                Utilities.SetControlPropertyThreadSafe(progress2, "MarqueeAnimationSpeed", 1);
+                Utilities.SetControlPropertyThreadSafe(label4, "Visible", false);
+                Utilities.SetControlPropertyThreadSafe(button20, "Enabled", true);
+                Utilities.SetControlPropertyThreadSafe(panel1, "Enabled", true);
             }
         }
 
@@ -214,109 +175,58 @@ namespace Optimizer
 
             try
             {
-                if (wfirewall.Checked)
+                if (checkFirewall.Checked)
                 {
-                    CleanHelper.EnableFirewall();
+                    Utilities.EnableFirewall();
                     changeDetected = true;
                 }
-                if (cmdp.Checked)
+                if (checkCommandPrompt.Checked)
                 {
-                    CleanHelper.EnableCommandPrompt();
+                    Utilities.EnableCommandPrompt();
                     changeDetected = true;
                 }
-                if (controlp.Checked)
+                if (checkControlPanel.Checked)
                 {
-                    CleanHelper.EnableControlPanel();
+                    Utilities.EnableControlPanel();
                     changeDetected = true;
                 }
-                if (foldero.Checked)
+                if (checkFolderOptions.Checked)
                 {
-                    CleanHelper.EnableFolderOptions();
+                    Utilities.EnableFolderOptions();
                     changeDetected = true;
                 }
-                if (rundialog.Checked)
+                if (checkRunDialog.Checked)
                 {
-                    CleanHelper.EnableRunDialog();
+                    Utilities.EnableRunDialog();
                     changeDetected = true;
                 }
-                if (rightmenu.Checked)
+                if (checkContextMenu.Checked)
                 {
-                    CleanHelper.EnableContextMenu();
+                    Utilities.EnableContextMenu();
                     changeDetected = true;
                 }
-                if (taskmgr.Checked)
+                if (checkTaskManager.Checked)
                 {
-                    CleanHelper.EnableTaskManager();
+                    Utilities.EnableTaskManager();
                     changeDetected = true;
                 }
-                if (regeditor.Checked)
+                if (checkRegistryEditor.Checked)
                 {
-                    CleanHelper.EnableRegistryEditor();
+                    Utilities.EnableRegistryEditor();
                     changeDetected = true;
                 }
             }
-            catch
-            {
-                changeDetected = false;
-            }
+            catch { }
 
             return changeDetected;
-        }
-
-        private string GetOS()
-        {
-            string os = (string)Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "ProductName", "");
-
-            if (os.Contains("Windows 7"))
-            {
-                wv = WindowsVersion.Windows7;
-            }
-            if ((os.Contains("Windows 8")) || (os.Contains("Windows 8.1")))
-            {
-                wv = WindowsVersion.Windows8;
-            }
-            if (os.Contains("Windows 10"))
-            {
-                wv = WindowsVersion.Windows10;
-            }
-            if (os.Contains("Windows Server 2008"))
-            {
-                wv = WindowsVersion.WindowsServer2008;
-            }
-            if (os.Contains("Windows Server 2012"))
-            {
-                wv = WindowsVersion.WindowsServer2012;
-            }
-            if (os.Contains("Windows Server 2016"))
-            {
-                wv = WindowsVersion.WindowsServer2016;
-            }
-
-            return os;
-        }
-
-        private string GetBitness()
-        {
-            string bitness = "";
-
-            if (Environment.Is64BitOperatingSystem == true)
-            {
-                bitness = "You are working with 64-bit architecture";
-            }
-            else
-            {
-                bitness = "You are working with 32-bit architecture";
-            }
-
-            return bitness;
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
             CheckForIllegalCrossThreadCalls = false;
             
-            SynapseValidator.Start();
-            iRunValidator.Start();
+            integratorTimer.Start();
+            runDialogTime.Start();
 
             GetStartupItems();
             GetHostsEntries();
@@ -325,101 +235,80 @@ namespace Optimizer
 
             LoadSettings();
 
-            typeprogram.Checked = true;
-            topposition.Checked = true;
+            radioProgram.Checked = true;
+            radioTop.Checked = true;
 
-            label1.Text = "Version: " + Program.GetCurrentVersionToString();
-            Program.main = this;
+            txtVersion.Text = "Version: " + Program.GetCurrentVersion();
+            Program.MainForm = this;
             
-            ostxt.Text = "Microsoft " + GetOS();
-            bittxt.Text = GetBitness();   
+            txtOS.Text = "Microsoft " + Utilities.GetOS();
+            txtBitness.Text = Utilities.GetBitness();   
             
-            if (wv == WindowsVersion.Unsupported)
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
             {
-                aio.TabPages.Remove(universaltab);
-                aio.TabPages.Remove(tab7);
-                aio.TabPages.Remove(tab8);
-                aio.TabPages.Remove(tab10);
+                tabCollection.TabPages.Remove(universalTab);
+                tabCollection.TabPages.Remove(windowsVIITab);
+                tabCollection.TabPages.Remove(windowsVIIITab);
+                tabCollection.TabPages.Remove(windowsXTab);
             }   
 
-            if (wv == WindowsVersion.Windows7)
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
             {
-                aio.TabPages.Remove(tab8);
-                aio.TabPages.Remove(tab10);
+                tabCollection.TabPages.Remove(windowsVIIITab);
+                tabCollection.TabPages.Remove(windowsXTab);
             }
 
-            if (wv == WindowsVersion.Windows8)
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
             {
-                aio.TabPages.Remove(tab7);
-                aio.TabPages.Remove(tab10);
+                tabCollection.TabPages.Remove(windowsVIITab);
+                tabCollection.TabPages.Remove(windowsXTab);
             }
 
-            if (wv == WindowsVersion.Windows10)
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
             {
-                aio.TabPages.Remove(tab7);
-                aio.TabPages.Remove(tab8);
-            }
-
-            if (wv == WindowsVersion.WindowsServer2008)
-            {
-                tab7.Text = "Windows Server 2008";
-                aio.TabPages.Remove(tab8);
-                aio.TabPages.Remove(tab10);
-            }
-
-            if (wv == WindowsVersion.WindowsServer2012)
-            {
-                tab8.Text = "Windows Server 2012";
-                aio.TabPages.Remove(tab7);
-                aio.TabPages.Remove(tab10);
-            }
-
-            if (wv == WindowsVersion.WindowsServer2016)
-            {
-                tab10.Text = "Windows Server 2016";
-                aio.TabPages.Remove(tab7);
-                aio.TabPages.Remove(tab8);
+                tabCollection.TabPages.Remove(windowsVIITab);
+                tabCollection.TabPages.Remove(windowsVIIITab);
             }
         }
 
         private void GetDesktopItems()
         {
-            synapses = Integrator.GetDesktopItems();
+            _desktopItems = Integrator.GetDesktopItems();
             listDesktopItems.Items.Clear();
 
-            for (int i = 0; i < synapses.Count; i++)
+            for (int i = 0; i < _desktopItems.Count; i++)
             {
-                if (!string.IsNullOrEmpty(synapses[i]))
+                if (!string.IsNullOrEmpty(_desktopItems[i]))
                 {
-                    listDesktopItems.Items.Add(synapses[i]);
+                    listDesktopItems.Items.Add(_desktopItems[i]);
                 }
             }
         }
 
         private void GetHostsEntries()
         {
-            entries = HostsHelper.GetEntries();
-            hl.Items.Clear();
+            _hostsEntries = HostsHelper.GetHostsEntries();
+            listHostEntries.Items.Clear();
            
-            for (int i = 0; i < entries.Count; i++)
+            for (int i = 0; i < _hostsEntries.Count; i++)
             {
-                if (!string.IsNullOrEmpty(entries[i]))
+                if (!string.IsNullOrEmpty(_hostsEntries[i]))
                 {
-                    hl.Items.Add(entries[i]);
+                    listHostEntries.Items.Add(_hostsEntries[i]);
                 }
             }
         }
 
         private void GetStartupItems()
         {
-            items = CleanHelper.GetStartupItems();
+            _startUpItems = Utilities.GetStartupItems();
             listStartupItems.Items.Clear();
 
-            for (int i = 0; i < items.Count; i++)
+            for (int i = 0; i < _startUpItems.Count; i++)
             {
-                ListViewItem list = new ListViewItem(items[i].Name);
-                list.SubItems.Add(items[i].Location);
-                list.SubItems.Add(items[i].ToString());
+                ListViewItem list = new ListViewItem(_startUpItems[i].Name);
+                list.SubItems.Add(_startUpItems[i].FileLocation);
+                list.SubItems.Add(_startUpItems[i].ToString());
 
                 listStartupItems.Items.Add(list);
             }
@@ -427,10 +316,10 @@ namespace Optimizer
 
         private void GetCustomCommands()
         {
-            customCommands = Integrator.GetCustomCommands();
+            _customCommands = Integrator.GetCustomCommands();
             listCustomCommands.Items.Clear();
 
-            foreach (string s in customCommands)
+            foreach (string s in _customCommands)
             {
                 listCustomCommands.Items.Add(s);
             }
@@ -443,25 +332,25 @@ namespace Optimizer
 
         private void button39_Click(object sender, EventArgs e)
         {
-            MessagerForm f = new MessagerForm(this, MessagerType.Restart, restartmsg);
+            MessagerForm f = new MessagerForm(this, MessageType.Restart, _restartMessage);
             f.ShowDialog();
         }
 
         private void button43_Click(object sender, EventArgs e)
         {
-            MessagerForm f = new MessagerForm(this, MessagerType.Restart, restartmsg);
+            MessagerForm f = new MessagerForm(this, MessageType.Restart, _restartMessage);
             f.ShowDialog();
         }
 
         private void button44_Click(object sender, EventArgs e)
         {
-            MessagerForm f = new MessagerForm(this, MessagerType.Restart, restartmsg);
+            MessagerForm f = new MessagerForm(this, MessageType.Restart, _restartMessage);
             f.ShowDialog();
         }
 
         private void button45_Click(object sender, EventArgs e)
         {
-            MessagerForm f = new MessagerForm(this, MessagerType.Restart, restartmsg);
+            MessagerForm f = new MessagerForm(this, MessageType.Restart, _restartMessage);
             f.ShowDialog();
         }
 
@@ -531,7 +420,7 @@ namespace Optimizer
         {
             Task t = new Task(() => Optimize.UninstallOneDrive());
             t.Start();
-            Optimize.ActivateMain();
+            Utilities.ActivateMainForm();
             button29.Enabled = false;
         }
 
@@ -606,7 +495,7 @@ namespace Optimizer
         {
             Task t = new Task(() => Optimize.DisableTelemetryTasks());
             t.Start();
-            Optimize.ActivateMain();
+            Utilities.ActivateMainForm();
             button4.Enabled = false;
         }
 
@@ -614,7 +503,7 @@ namespace Optimizer
         {
             Task t = new Task(() => Optimize.DisableOfficeTelemetryTasks());
             t.Start();
-            Optimize.ActivateMain();
+            Utilities.ActivateMainForm();
             button5.Enabled = false;
         }
 
@@ -638,22 +527,22 @@ namespace Optimizer
             ApplyAll();
         }
 
-        private void selectall_CheckedChanged(object sender, EventArgs e)
+        private void checkSelectAll_CheckedChanged(object sender, EventArgs e)
         {
-            tempfiles.Checked = selectall.Checked;
-            utorrentcache.Checked = selectall.Checked;
-            ftpservers.Checked = selectall.Checked;
-            bsoddumps.Checked = selectall.Checked;
-            prefetchcache.Checked = selectall.Checked;
-            mediaplayercache.Checked = selectall.Checked;
-            logfiles.Checked = selectall.Checked;
-            emptytrash.Checked = selectall.Checked;
-            errorreports.Checked = selectall.Checked;
+            checkTemp.Checked = checkSelectAll.Checked;
+            checkUTorrent.Checked = checkSelectAll.Checked;
+            checkFileZilla.Checked = checkSelectAll.Checked;
+            checkMiniDumps.Checked = checkSelectAll.Checked;
+            checkPrefetch.Checked = checkSelectAll.Checked;
+            checkMediaCache.Checked = checkSelectAll.Checked;
+            checkLogs.Checked = checkSelectAll.Checked;
+            checkBin.Checked = checkSelectAll.Checked;
+            checkErrorReports.Checked = checkSelectAll.Checked;
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
-            CleanAnimation(true);
+            CleaningAnimation(true);
             Task t = new Task(() => CleanPC());
             t.Start();
         }
@@ -662,7 +551,7 @@ namespace Optimizer
         {
             if (listStartupItems.SelectedItems.Count == 1)
             {
-                items[listStartupItems.SelectedIndices[0]].Remove();
+                _startUpItems[listStartupItems.SelectedIndices[0]].Remove();
                 GetStartupItems();
             }
         }
@@ -671,7 +560,7 @@ namespace Optimizer
         {
             foreach (ListViewItem i in listStartupItems.Items)
             {
-                items[i.Index].Remove();
+                _startUpItems[i.Index].Remove();
             }
 
             GetStartupItems();
@@ -681,7 +570,7 @@ namespace Optimizer
         {
             if (listStartupItems.Items.Count > 0)
             {
-                MessagerForm r = new MessagerForm(this, MessagerType.Startup, removeallmsg);
+                MessagerForm r = new MessagerForm(this, MessageType.Startup, _removeStartupItemsMessage);
                 r.ShowDialog(this);
             } 
         }
@@ -690,20 +579,20 @@ namespace Optimizer
         {
             if (listStartupItems.SelectedItems.Count == 1)
             {
-                items[listStartupItems.SelectedIndices[0]].LocateFile();
+                _startUpItems[listStartupItems.SelectedIndices[0]].LocateFile();
             }
         }
 
-        private void enableall_CheckedChanged(object sender, EventArgs e)
+        private void checkEnableAll_CheckedChanged(object sender, EventArgs e)
         {
-            taskmgr.Checked = enableall.Checked;
-            cmdp.Checked = enableall.Checked;
-            controlp.Checked = enableall.Checked;
-            foldero.Checked = enableall.Checked;
-            rundialog.Checked = enableall.Checked;
-            rightmenu.Checked = enableall.Checked;
-            wfirewall.Checked = enableall.Checked;
-            regeditor.Checked = enableall.Checked;
+            checkTaskManager.Checked = checkEnableAll.Checked;
+            checkCommandPrompt.Checked = checkEnableAll.Checked;
+            checkControlPanel.Checked = checkEnableAll.Checked;
+            checkFolderOptions.Checked = checkEnableAll.Checked;
+            checkRunDialog.Checked = checkEnableAll.Checked;
+            checkContextMenu.Checked = checkEnableAll.Checked;
+            checkFirewall.Checked = checkEnableAll.Checked;
+            checkRegistryEditor.Checked = checkEnableAll.Checked;
         }
 
         private void button33_Click(object sender, EventArgs e)
@@ -714,9 +603,9 @@ namespace Optimizer
 
             if (flag)
             {
-                if (restartexplorer.Checked)
+                if (checkRestartExplorer.Checked)
                 {
-                    CleanHelper.RestartExplorer();
+                    Utilities.RestartExplorer();
                 }
 
                 panel2.Enabled = true;
@@ -765,22 +654,22 @@ namespace Optimizer
             {
                 string ip = txtIP.Text.Trim();
                 string domain = txtDomain.Text.Trim();
-                string recommendeddomain = string.Empty;
+                string recommendedDomain = string.Empty;
 
                 if (!domain.StartsWith("www."))
                 {
-                    recommendeddomain = "www." + domain;
+                    recommendedDomain = "www." + domain;
                 }
                 else
                 {
-                    recommendeddomain = domain.Replace("www.", string.Empty).Trim();
+                    recommendedDomain = domain.Replace("www.", string.Empty);
                 }
 
                 HostsHelper.AddEntry(HostsHelper.SanitizeEntry(ip) + " " + HostsHelper.SanitizeEntry(domain));
                 
-                if (!string.IsNullOrEmpty(recommendeddomain))
+                if (!string.IsNullOrEmpty(recommendedDomain))
                 {
-                    HostsHelper.AddEntry(HostsHelper.SanitizeEntry(ip) + " " + HostsHelper.SanitizeEntry(recommendeddomain));
+                    HostsHelper.AddEntry(HostsHelper.SanitizeEntry(ip) + " " + HostsHelper.SanitizeEntry(recommendedDomain));
                 }
 
                 GetHostsEntries();
@@ -799,20 +688,18 @@ namespace Optimizer
 
         private void button42_Click(object sender, EventArgs e)
         {
-            if (hl.SelectedItems.Count == 1)
+            if (listHostEntries.SelectedItems.Count == 1)
             {
-                string temp = hl.SelectedItem.ToString().Replace(" : ", " ");
-                HostsHelper.RemoveEntry(temp);
-
+                HostsHelper.RemoveEntry(listHostEntries.SelectedItem.ToString().Replace(" : ", " "));
                 GetHostsEntries();
             }
         }
 
         private void button46_Click(object sender, EventArgs e)
         {
-            if (hl.Items.Count > 0)
+            if (listHostEntries.Items.Count > 0)
             {
-                MessagerForm r = new MessagerForm(this, MessagerType.Hosts, removeentriesmsg);
+                MessagerForm r = new MessagerForm(this, MessageType.Hosts, _removeHostsEntriesMessage);
                 r.ShowDialog(this);
             }
         }
@@ -821,7 +708,7 @@ namespace Optimizer
         {
             List<string> collection = new List<string>();
 
-            foreach (string item in hl.Items)
+            foreach (string item in listHostEntries.Items)
             {
                 collection.Add(item.Replace(" : ", " "));
             }
@@ -832,7 +719,7 @@ namespace Optimizer
 
         private void aio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (aio.SelectedTab == tabPage1)
+            if (tabCollection.SelectedTab == hostsEditorTab)
             {
                 txtIP.Focus();
             }
@@ -840,17 +727,17 @@ namespace Optimizer
 
         private void button48_Click(object sender, EventArgs e)
         {
-            DefineCmdDialog.ShowDialog();
+            defineCommandDialog.ShowDialog();
         }
 
         private void button50_Click(object sender, EventArgs e)
         {
-            if ((runfile.Text != string.Empty) && (runkey.Text != string.Empty))
+            if ((txtRunFile.Text != string.Empty) && (txtRunKeyword.Text != string.Empty))
             {
-                Integrator.CreateCustomCommand(runfile.Text, runkey.Text);
+                Integrator.CreateCustomCommand(txtRunFile.Text, txtRunKeyword.Text);
 
-                runfile.Clear();
-                runkey.Clear();
+                txtRunFile.Clear();
+                txtRunKeyword.Clear();
 
                 GetCustomCommands();
             }
@@ -858,8 +745,8 @@ namespace Optimizer
 
         private void DefineCmd_FileOk(object sender, CancelEventArgs e)
         {
-            runfile.Text = DefineCmdDialog.FileName;
-            runkey.Text = Path.GetFileNameWithoutExtension(runfile.Text).ToLower();            
+            txtRunFile.Text = defineCommandDialog.FileName;
+            txtRunKeyword.Text = Path.GetFileNameWithoutExtension(txtRunFile.Text).ToLower();            
         }
 
         private void button58_Click(object sender, EventArgs e)
@@ -894,31 +781,31 @@ namespace Optimizer
 
         private void button59_Click(object sender, EventArgs e)
         {
-            Optimize.ImportRegistryScript(Required.ReadyMadeMenus + "\\PowerMenu.reg");
+            Utilities.ImportRegistryScript(Required.ReadyMadeMenus + "\\PowerMenu.reg");
             GetDesktopItems();
         }
 
         private void button53_Click(object sender, EventArgs e)
         {
-            Optimize.ImportRegistryScript(Required.ReadyMadeMenus + "\\SystemTools.reg");
+            Utilities.ImportRegistryScript(Required.ReadyMadeMenus + "\\SystemTools.reg");
             GetDesktopItems();
         }
 
         private void button54_Click(object sender, EventArgs e)
         {
-            Optimize.ImportRegistryScript(Required.ReadyMadeMenus + "\\WindowsApps.reg");
+            Utilities.ImportRegistryScript(Required.ReadyMadeMenus + "\\WindowsApps.reg");
             GetDesktopItems();
         }
 
         private void button51_Click(object sender, EventArgs e)
         {
-            Optimize.ImportRegistryScript(Required.ReadyMadeMenus + "\\SystemShortcuts.reg");
+            Utilities.ImportRegistryScript(Required.ReadyMadeMenus + "\\SystemShortcuts.reg");
             GetDesktopItems();
         }
 
         private void button57_Click(object sender, EventArgs e)
         {
-            Optimize.ImportRegistryScript(Required.ReadyMadeMenus + "\\DesktopShortcuts.reg");
+            Utilities.ImportRegistryScript(Required.ReadyMadeMenus + "\\DesktopShortcuts.reg");
             GetDesktopItems();
         }
 
@@ -953,149 +840,149 @@ namespace Optimizer
         {
             if (listDesktopItems.Items.Count > 0)
             {
-                MessagerForm r = new MessagerForm(this, MessagerType.Integrator, removedesktopitemsmsg);
+                MessagerForm r = new MessagerForm(this, MessageType.Integrator, _removeDesktopItemsMessage);
                 r.ShowDialog(this);
             }
         }
 
-        private void typeprogram_CheckedChanged(object sender, EventArgs e)
+        private void radioProgram_CheckedChanged(object sender, EventArgs e)
         {
-            if (typeprogram.Checked)
+            if (radioProgram.Checked)
             {
-                browseitem.Enabled = true;
-                itemtoadd.Clear();
-                defaulticon.Checked = true;
-                icontoadd.Enabled = false;
-                browseicon.Enabled = false;
+                btnBrowseItem.Enabled = true;
+                txtItem.Clear();
+                checkDefaultIcon.Checked = true;
+                txtIcon.Enabled = false;
+                btnBrowseIcon.Enabled = false;
                 itemtoaddgroup.Text = "Program to add:";
-                defaulticon.Visible = true;
-                defaulticon.Text = "Use program's icon";
-                itemname.Clear();
-                itemtoadd.ReadOnly = true;
-                icontoadd.ReadOnly = true;
-                SynapseSelectedType = DesktopItemType.Program;
+                checkDefaultIcon.Visible = true;
+                checkDefaultIcon.Text = "Use program's icon";
+                txtItemName.Clear();
+                txtItem.ReadOnly = true;
+                txtIcon.ReadOnly = true;
+                _desktopItemType = DesktopItemType.Program;
             }
         }
 
-        private void typefolder_CheckedChanged(object sender, EventArgs e)
+        private void radioFolder_CheckedChanged(object sender, EventArgs e)
         {
-            if (typefolder.Checked)
+            if (radioFolder.Checked)
             {
-                defaulticon.Checked = true;
-                browseitem.Enabled = true;
-                itemtoadd.Clear();
+                checkDefaultIcon.Checked = true;
+                btnBrowseItem.Enabled = true;
+                txtItem.Clear();
                 itemtoaddgroup.Text = "Folder to add:";
-                defaulticon.Text = "Use default folder icon";
-                itemname.Clear();
-                itemtoadd.ReadOnly = true;
-                icontoadd.ReadOnly = true;
-                SynapseSelectedType = DesktopItemType.Folder;
+                checkDefaultIcon.Text = "Use default folder icon";
+                txtItemName.Clear();
+                txtItem.ReadOnly = true;
+                txtIcon.ReadOnly = true;
+                _desktopItemType = DesktopItemType.Folder;
             }
         }
 
-        private void typeurl_CheckedChanged(object sender, EventArgs e)
+        private void radioLink_CheckedChanged(object sender, EventArgs e)
         {
-            if (typeurl.Checked)
+            if (radioLink.Checked)
             {
-                defaulticon.Checked = true;
-                defaulticon.Text = "Download website icon (favicon)";
-                browseitem.Enabled = false;
+                checkDefaultIcon.Checked = true;
+                checkDefaultIcon.Text = "Download website icon (favicon)";
+                btnBrowseItem.Enabled = false;
                 itemtoaddgroup.Text = "Web address to add:";
-                defaulticon.Visible = true;
-                itemtoadd.Text = "http://";
-                itemname.Clear();
-                itemtoadd.ReadOnly = false;
-                icontoadd.ReadOnly = true;
-                SynapseSelectedType = DesktopItemType.Link;
+                checkDefaultIcon.Visible = true;
+                txtItem.Text = "http://";
+                txtItemName.Clear();
+                txtItem.ReadOnly = false;
+                txtIcon.ReadOnly = true;
+                _desktopItemType = DesktopItemType.Link;
             }
         }
 
-        private void typefile_CheckedChanged(object sender, EventArgs e)
+        private void radioFile_CheckedChanged(object sender, EventArgs e)
         {
-            if (typefile.Checked)
+            if (radioFile.Checked)
             {
-                defaulticon.Checked = true;
-                defaulticon.Text = "No icon";
-                browseitem.Enabled = true;
+                checkDefaultIcon.Checked = true;
+                checkDefaultIcon.Text = "No icon";
+                btnBrowseItem.Enabled = true;
                 itemtoaddgroup.Text = "File to add:";
-                defaulticon.Visible = true;
-                itemtoadd.Clear();
-                itemname.Clear();
-                itemtoadd.ReadOnly = true;
-                icontoadd.ReadOnly = true;
-                SynapseSelectedType = DesktopItemType.File;
+                checkDefaultIcon.Visible = true;
+                txtItem.Clear();
+                txtItemName.Clear();
+                txtItem.ReadOnly = true;
+                txtIcon.ReadOnly = true;
+                _desktopItemType = DesktopItemType.File;
             }
         }
 
-        private void typecmd_CheckedChanged(object sender, EventArgs e)
+        private void radioCommand_CheckedChanged(object sender, EventArgs e)
         {
-            if (typecmd.Checked)
+            if (radioCommand.Checked)
             {
-                browseitem.Enabled = false;
-                itemtoadd.Clear();
-                defaulticon.Checked = true;
-                icontoadd.Enabled = false;
-                browseicon.Enabled = false;
+                btnBrowseItem.Enabled = false;
+                txtItem.Clear();
+                checkDefaultIcon.Checked = true;
+                txtIcon.Enabled = false;
+                btnBrowseIcon.Enabled = false;
                 itemtoaddgroup.Text = "Command to add:";
-                defaulticon.Visible = true;
-                defaulticon.Text = "No icon";
-                itemname.Clear();
-                itemtoadd.ReadOnly = false;
-                icontoadd.ReadOnly = true;
-                SynapseSelectedType = DesktopItemType.Command;
+                checkDefaultIcon.Visible = true;
+                checkDefaultIcon.Text = "No icon";
+                txtItemName.Clear();
+                txtItem.ReadOnly = false;
+                txtIcon.ReadOnly = true;
+                _desktopItemType = DesktopItemType.Command;
             }
         }
 
-        private void defaulticon_CheckedChanged(object sender, EventArgs e)
+        private void checkDefaultIcon_CheckedChanged(object sender, EventArgs e)
         {
-            if (defaulticon.Checked)
+            if (checkDefaultIcon.Checked)
             {
-                icontoadd.Clear();
-                icontoadd.Enabled = false;
-                browseicon.Enabled = false;
+                txtIcon.Clear();
+                txtIcon.Enabled = false;
+                btnBrowseIcon.Enabled = false;
             }
             else
             {
-                icontoadd.Clear();
-                icontoadd.Enabled = true;
-                browseicon.Enabled = true;
+                txtIcon.Clear();
+                txtIcon.Enabled = true;
+                btnBrowseIcon.Enabled = true;
             }
         }
 
-        private void browseitem_Click(object sender, EventArgs e)
+        private void btnBrowseItem_Click(object sender, EventArgs e)
         {
-            switch (SynapseSelectedType)
+            switch (_desktopItemType)
             {
                 case DesktopItemType.Program:
-                    DefineProgramDialog.ShowDialog();
+                    defineProgramDialog.ShowDialog();
                     break;
                 case DesktopItemType.Folder:
-                    DefineFolderDialog.ShowDialog();
-                    itemtoadd.Text = DefineFolderDialog.SelectedPath;
-                    int i = DefineFolderDialog.SelectedPath.LastIndexOf("\\");
-                    itemname.Text = DefineFolderDialog.SelectedPath.Remove(0, i + 1);
+                    defineFolderDialog.ShowDialog();
+                    txtItem.Text = defineFolderDialog.SelectedPath;
+                    int i = defineFolderDialog.SelectedPath.LastIndexOf("\\");
+                    txtItemName.Text = defineFolderDialog.SelectedPath.Remove(0, i + 1);
                     break;
                 case DesktopItemType.File:
-                    DefineFileDialog.ShowDialog();
+                    defineFileDialog.ShowDialog();
                     break;
             }
         }
 
         private void DefineProgramDialog_FileOk(object sender, CancelEventArgs e)
         {
-            itemtoadd.Text = DefineProgramDialog.FileName;
-            itemname.Text = DefineProgramDialog.SafeFileName.Replace(".exe", string.Empty);
+            txtItem.Text = defineProgramDialog.FileName;
+            txtItemName.Text = defineProgramDialog.SafeFileName.Replace(".exe", string.Empty);
         }
 
         private void DefineFileDialog_FileOk(object sender, CancelEventArgs e)
         {
-            itemtoadd.Text = DefineFileDialog.FileName;
-            itemname.Text = DefineFileDialog.SafeFileName;
+            txtItem.Text = defineFileDialog.FileName;
+            txtItemName.Text = defineFileDialog.SafeFileName;
         }
 
-        private void browseicon_Click(object sender, EventArgs e)
+        private void btnBrowseIcon_Click(object sender, EventArgs e)
         {
-            switch (SynapseSelectedType)
+            switch (_desktopItemType)
             {
                 case DesktopItemType.Program:
                     DefineProgramIconDialog.ShowDialog();
@@ -1117,262 +1004,224 @@ namespace Optimizer
 
         private void DefineProgramIconDialog_FileOk(object sender, CancelEventArgs e)
         {
-            icontoadd.Text = DefineProgramIconDialog.FileName;
+            txtIcon.Text = DefineProgramIconDialog.FileName;
 
-            if (icontoadd.Text.Contains(".exe"))
+            if (txtIcon.Text.Contains(".exe"))
             {
-                string iconpath = Integrator.ExtractIconFromExecutable(itemname.Text, DefineProgramIconDialog.FileName);
-                icontoadd.Text = iconpath;
+                string iconpath = Integrator.ExtractIconFromExecutable(txtItemName.Text, DefineProgramIconDialog.FileName);
+                txtIcon.Text = iconpath;
             }
         }
 
         private void DefineFolderIconDialog_FileOk(object sender, CancelEventArgs e)
         {
-            icontoadd.Text = DefineFolderIconDialog.FileName;
+            txtIcon.Text = DefineFolderIconDialog.FileName;
 
-            if (icontoadd.Text.Contains(".exe"))
+            if (txtIcon.Text.Contains(".exe"))
             {
-                string iconpath = Integrator.ExtractIconFromExecutable(itemname.Text, DefineFolderIconDialog.FileName);
-                icontoadd.Text = iconpath;
+                string iconpath = Integrator.ExtractIconFromExecutable(txtItemName.Text, DefineFolderIconDialog.FileName);
+                txtIcon.Text = iconpath;
             }
         }
 
         private void DefineURLIconDialog_FileOk(object sender, CancelEventArgs e)
         {
-            icontoadd.Text = DefineURLIconDialog.FileName;
+            txtIcon.Text = DefineURLIconDialog.FileName;
 
-            if (icontoadd.Text.Contains(".exe"))
+            if (txtIcon.Text.Contains(".exe"))
             {
-                string iconpath = Integrator.ExtractIconFromExecutable(itemname.Text, DefineURLIconDialog.FileName);
-                icontoadd.Text = iconpath;
+                string iconpath = Integrator.ExtractIconFromExecutable(txtItemName.Text, DefineURLIconDialog.FileName);
+                txtIcon.Text = iconpath;
             }
         }
 
         private void DefineFileIconDialog_FileOk(object sender, CancelEventArgs e)
         {
-            icontoadd.Text = DefineFileIconDialog.FileName;
+            txtIcon.Text = DefineFileIconDialog.FileName;
 
-            if (icontoadd.Text.Contains(".exe"))
+            if (txtIcon.Text.Contains(".exe"))
             {
-                string iconpath = Integrator.ExtractIconFromExecutable(itemname.Text, DefineFileIconDialog.FileName);
-                icontoadd.Text = iconpath;
+                string iconpath = Integrator.ExtractIconFromExecutable(txtItemName.Text, DefineFileIconDialog.FileName);
+                txtIcon.Text = iconpath;
             }
         }
 
         private void DefineCommandIconDialog_FileOk(object sender, CancelEventArgs e)
         {
-            icontoadd.Text = DefineCommandIconDialog.FileName;
+            txtIcon.Text = DefineCommandIconDialog.FileName;
 
-            if (icontoadd.Text.Contains(".exe"))
+            if (txtIcon.Text.Contains(".exe"))
             {
-                string iconpath = Integrator.ExtractIconFromExecutable(itemname.Text, DefineCommandIconDialog.FileName);
-                icontoadd.Text = iconpath;
+                string iconpath = Integrator.ExtractIconFromExecutable(txtItemName.Text, DefineCommandIconDialog.FileName);
+                txtIcon.Text = iconpath;
             }
         }
 
-        private void addmodifybtn_Click(object sender, EventArgs e)
+        private void btnAddItem_Click(object sender, EventArgs e)
         {
-            switch (SynapseSelectedType)
+            string icon = string.Empty;
+
+            switch (_desktopItemType)
             {
                 case DesktopItemType.Program:
-                    string program = itemtoadd.Text;
-                    string icon = "";
-
-                    if (defaulticon.Checked)
+                    if (checkDefaultIcon.Checked)
                     {
-                        icon = program;
+                        icon = txtItem.Text;
                     }
                     else
                     {
-                        icon = icontoadd.Text;
+                        icon = txtIcon.Text;
                     }
 
-                    bool shift = shiftkey.Checked;
-                    string nick = itemname.Text;
+                    Integrator.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.Program);
 
-                    Integrator.AddItem(nick, program, icon, SynapseSelectedPosition, shift, DesktopItemType.Program);
-                    GetDesktopItems();
-                    SynapseReset();
                     break;
                 case DesktopItemType.Folder:
-                    string folder = itemtoadd.Text;
-                    string icon2 = "";
-
-                    if (defaulticon.Checked)
+                    if (checkDefaultIcon.Checked)
                     {
-                        icon2 = Integrator.FolderDefaultIcon;
+                        icon = Integrator.FolderDefaultIcon;
                     }
                     else
                     {
-                        icon2 = icontoadd.Text;
+                        icon = txtIcon.Text;
                     }
 
-                    bool shift2 = shiftkey.Checked;
-                    string nick2 = itemname.Text;
+                    Integrator.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.Folder);
 
-                    Integrator.AddItem(nick2, folder, icon2, SynapseSelectedPosition, shift2, DesktopItemType.Folder);
-                    GetDesktopItems();
-                    SynapseReset();
                     break;
                 case DesktopItemType.Link:
-                    string link = itemtoadd.Text;
-                    string icon3 = "";
-                    string nick3 = itemname.Text;
-
-                    if (defaulticon.Checked)
+                    if (checkDefaultIcon.Checked)
                     {
-                        icon3 = Integrator.DownloadFavicon(link, nick3);
+                        icon = Integrator.DownloadFavicon(txtItem.Text, txtItemName.Text);
                     }
                     else
                     {
-                        icon3 = icontoadd.Text;
+                        icon = txtIcon.Text;
                     }
 
-                    bool shift3 = shiftkey.Checked;
-
-                    Integrator.AddItem(nick3, link, icon3, SynapseSelectedPosition, shift3, DesktopItemType.Link);
-                    GetDesktopItems();
-                    SynapseReset();
+                    Integrator.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.Link);
+                    
                     break;
                 case DesktopItemType.File:
-                    string file = itemtoadd.Text;
-                    string icon4 = "";
-                    string nick4 = itemname.Text;
-
-                    if (defaulticon.Checked)
+                    if (!checkDefaultIcon.Checked)
                     {
-                        icon4 = "";
-                    }
-                    else
-                    {
-                        icon4 = icontoadd.Text;
+                        icon = txtIcon.Text;
                     }
 
-                    bool shift4 = shiftkey.Checked;
-
-                    Integrator.AddItem(nick4, file, icon4, SynapseSelectedPosition, shift4, DesktopItemType.File);
-                    GetDesktopItems();
-                    SynapseReset();
+                    Integrator.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.File);
+                    
                     break;
                 case DesktopItemType.Command:
-                    string cmd = itemtoadd.Text;
-                    string icon5 = "";
-                    string nick5 = itemname.Text;
-
-                    if (defaulticon.Checked)
+                    if (!checkDefaultIcon.Checked)
                     {
-                        icon5 = "";
-                    }
-                    else
-                    {
-                        icon5 = icontoadd.Text;
+                        icon = txtIcon.Text;
                     }
 
-                    bool shift5 = shiftkey.Checked;
-
-                    Integrator.AddItem(nick5, cmd, icon5, SynapseSelectedPosition, shift5, DesktopItemType.Command);
-                    GetDesktopItems();
-                    SynapseReset();
+                    Integrator.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.Command);
+                    
                     break;
             }
+
+            GetDesktopItems();
+            ResetIntegratorForm();
         }
 
-        private void SynapseValidator_Tick(object sender, EventArgs e)
+        private void integratorTimer_Tick(object sender, EventArgs e)
         {
-            if ((itemtoadd.Text != "") && (itemname.Text != "") && (icontoadd.Text != "") && (!defaulticon.Checked))
+            if ((txtItem.Text != "") && (txtItemName.Text != "") && (txtIcon.Text != "") && (!checkDefaultIcon.Checked))
             {
-                addmodifybtn.Enabled = true;
+                btnAddItem.Enabled = true;
             }
-            else if ((itemtoadd.Text != "") && (itemname.Text != "") && (defaulticon.Checked))
+            else if ((txtItem.Text != "") && (txtItemName.Text != "") && (checkDefaultIcon.Checked))
             {
-                addmodifybtn.Enabled = true;
+                btnAddItem.Enabled = true;
             }
             else
             {
-                addmodifybtn.Enabled = false;
+                btnAddItem.Enabled = false;
             }
         }
 
-        private void iRunValidator_Tick(object sender, EventArgs e)
+        private void runDialogTimer_Tick(object sender, EventArgs e)
         {
-            if ((runfile.Text != "") && (runkey.Text != ""))
+            if ((txtRunFile.Text != "") && (txtRunKeyword.Text != ""))
             {
-                button50.Enabled = true;
+                btnCreateCustomCommand.Enabled = true;
             }
             else
             {
-                button50.Enabled = false;
+                btnCreateCustomCommand.Enabled = false;
             }
         }
 
-        private void topposition_CheckedChanged(object sender, EventArgs e)
+        private void radioTop_CheckedChanged(object sender, EventArgs e)
         {
-            if (topposition.Checked)
+            if (radioTop.Checked)
             {
-                SynapseSelectedPosition = DesktopTypePosition.Top;
+                _desktopItemPosition = DesktopTypePosition.Top;
             }
         }
 
-        private void midposition_CheckedChanged(object sender, EventArgs e)
+        private void radioMiddle_CheckedChanged(object sender, EventArgs e)
         {
-            if (midposition.Checked)
+            if (radioMiddle.Checked)
             {
-                SynapseSelectedPosition = DesktopTypePosition.Middle;
+                _desktopItemPosition = DesktopTypePosition.Middle;
             }
         }
 
-        private void botposition_CheckedChanged(object sender, EventArgs e)
+        private void radioBottom_CheckedChanged(object sender, EventArgs e)
         {
-            if (botposition.Checked)
+            if (radioBottom.Checked)
             {
-                SynapseSelectedPosition = DesktopTypePosition.Bottom;
+                _desktopItemPosition = DesktopTypePosition.Bottom;
             }
         }
 
-        private void SynapseReset()
+        private void ResetIntegratorForm()
         {
-            itemtoadd.Clear();
-            icontoadd.Clear();
-            defaulticon.Checked = true;
-            itemname.Clear();
+            txtItem.Clear();
+            txtIcon.Clear();
+            checkDefaultIcon.Checked = true;
+            txtItemName.Clear();
 
-            if (typeurl.Checked)
+            if (radioLink.Checked)
             {
-                itemtoadd.Text = "http://";
+                txtItem.Text = "http://";
             }
         }
 
-        private void oceantheme_CheckedChanged(object sender, EventArgs e)
+        private void radioOcean_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.Color = Theme.Ocean;
             Options.ApplyTheme(this);
         }
 
-        private void magmatheme_CheckedChanged(object sender, EventArgs e)
+        private void radioMagma_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.Color = Theme.Magma;
             Options.ApplyTheme(this);
         }
 
-        private void zergtheme_CheckedChanged(object sender, EventArgs e)
+        private void radioZerg_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.Color = Theme.Zerg;
             Options.ApplyTheme(this);
         }
 
-        private void minimaltheme_CheckedChanged(object sender, EventArgs e)
+        private void radioMinimal_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.Color = Theme.Minimal;
             Options.ApplyTheme(this);
         }
 
-        private void carameltheme_CheckedChanged(object sender, EventArgs e)
+        private void radioCaramel_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.Color = Theme.Caramel;
             Options.ApplyTheme(this);
         }
 
-        private void limetheme_CheckedChanged(object sender, EventArgs e)
+        private void radioLime_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.Color = Theme.Lime;
             Options.ApplyTheme(this);
@@ -1388,7 +1237,7 @@ namespace Optimizer
         {
             if (listStartupItems.SelectedItems.Count == 1)
             {
-                items[listStartupItems.SelectedIndices[0]].LocateKey();
+                _startUpItems[listStartupItems.SelectedIndices[0]].LocateKey();
             }
         }
 
@@ -1404,26 +1253,23 @@ namespace Optimizer
 
         private void listStartupItems_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            if (e.Column == columnSorter.SortColumn)
+            if (e.Column == _columnSorter.CurrentColumn)
             {
-                // Reverse the current sort direction for this column.
-                if (columnSorter.Order == SortOrder.Ascending)
+                if (_columnSorter.SortOrder == SortOrder.Ascending)
                 {
-                    columnSorter.Order = SortOrder.Descending;
+                    _columnSorter.SortOrder = SortOrder.Descending;
                 }
                 else
                 {
-                    columnSorter.Order = SortOrder.Ascending;
+                    _columnSorter.SortOrder = SortOrder.Ascending;
                 }
             }
             else
             {
-                // Set the column number that is to be sorted; default to ascending.
-                columnSorter.SortColumn = e.Column;
-                columnSorter.Order = SortOrder.Ascending;
+                _columnSorter.CurrentColumn = e.Column;
+                _columnSorter.SortOrder = SortOrder.Ascending;
             }
 
-            // Perform the sort with these new sort options.
             listStartupItems.Sort();
         }
 
@@ -1431,7 +1277,7 @@ namespace Optimizer
         {
             if (chkBlock.Checked)
             {
-                txtIP.Text = blockip;
+                txtIP.Text = _blockedIP;
                 txtIP.Enabled = false;
             }
             else

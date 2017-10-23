@@ -13,59 +13,60 @@ namespace Optimizer
     public partial class MessagerForm : System.Windows.Forms.Form
     {
         MainForm _main;
-        MessagerType mode;
+        MessageType _type;
 
         private void Confirm()
         {
-            if (mode == MessagerType.Error)
+            if (_type == MessageType.Error)
             {
                 this.Close();
             }
-            if (mode == MessagerType.Optimize)
+            if (_type == MessageType.Optimize)
             {
-                this.Hide();
                 OptimizeForm f = new OptimizeForm(!chkPrint.Checked, !chkSensors.Checked);
                 f.ShowDialog();
                 f.BringToFront();
+                this.Close();
             }
-            if (mode == MessagerType.Startup)
+            if (_type == MessageType.Startup)
             {
                 _main.RemoveAllStartupItems();
             }
-            if (mode == MessagerType.Restart)
+            if (_type == MessageType.Restart)
             {
-                Optimize.RebootPC();
+                Utilities.Reboot();
             }
-            if (mode == MessagerType.Hosts)
+            if (_type == MessageType.Hosts)
             {
                 _main.RemoveAllHostsEntries();
             }
-            if (mode == MessagerType.Integrator)
+            if (_type == MessageType.Integrator)
             {
                 _main.RemoveAllDesktopItems();
             }
         }
 
-        public MessagerForm(MainForm main, MessagerType m, string s)
+        internal MessagerForm(MainForm main, MessageType m, string text)
         {
             InitializeComponent();
             Options.ApplyTheme(this);
 
             _main = main;
-            mode = m;
-            msg.Text = s;
+            _type = m;
 
-            if (mode == MessagerType.Error)
+            lblMessage.Text = text;
+
+            if (_type == MessageType.Error)
             {
-                nobtn.Visible = false;
-                yesbtn.Text = "OK";
+                btnNo.Visible = false;
+                btnYes.Text = "OK";
 
-                this.AcceptButton = nobtn;
-                this.AcceptButton = yesbtn;
-                this.CancelButton = nobtn;
-                this.CancelButton = yesbtn;
+                this.AcceptButton = btnNo;
+                this.AcceptButton = btnYes;
+                this.CancelButton = btnNo;
+                this.CancelButton = btnYes;
             }
-            if (mode == MessagerType.Optimize)
+            if (_type == MessageType.Optimize)
             {
                 chkPrint.Checked = true;
                 chkPrint.Visible = true;
@@ -74,18 +75,18 @@ namespace Optimizer
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnNo_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button39_Click(object sender, EventArgs e)
+        private void btnYes_Click(object sender, EventArgs e)
         {
             Confirm();
             this.Close();
         }
 
-        private void Restarter_Load(object sender, EventArgs e)
+        private void Messager_Load(object sender, EventArgs e)
         {
             CheckForIllegalCrossThreadCalls = false;
             this.BringToFront();

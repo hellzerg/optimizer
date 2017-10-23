@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dotter = new System.Windows.Forms.Timer(this.components);
+            this.dotTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -57,17 +57,17 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "...";
             // 
-            // dotter
+            // dotTimer
             // 
-            this.dotter.Interval = 500;
-            this.dotter.Tick += new System.EventHandler(this.dotter_Tick);
+            this.dotTimer.Interval = 500;
+            this.dotTimer.Tick += new System.EventHandler(this.dotTimer_Tick);
             // 
-            // OptimizeHelper
+            // OptimizeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(340, 115);
+            this.ClientSize = new System.Drawing.Size(336, 111);
             this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -77,7 +77,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "OptimizeHelper";
+            this.Name = "OptimizeForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -91,6 +91,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Timer dotter;
+        private System.Windows.Forms.Timer dotTimer;
     }
 }

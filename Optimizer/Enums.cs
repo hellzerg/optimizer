@@ -6,24 +6,21 @@ using System.Threading.Tasks;
 
 namespace Optimizer
 {
-    public enum LogType
+    internal enum LogType
     {
         Information,
         Error,
     }
 
-    public enum WindowsVersion
+    internal enum WindowsVersion
     {
         Unsupported,
         Windows7,
         Windows8,
-        Windows10,
-        WindowsServer2008,
-        WindowsServer2012,
-        WindowsServer2016
+        Windows10
     }
 
-    public enum StartupItemLocation
+    internal enum StartupItemLocation
     {
         Folder,
         HKLM,
@@ -31,14 +28,14 @@ namespace Optimizer
         HKCU
     }
 
-    public enum StartupItemType
+    internal enum StartupItemType
     {
         None,
         Run,
         RunOnce
     }
 
-    public enum MessagerType
+    internal enum MessageType
     {
         Error,
         Optimize,
@@ -48,7 +45,7 @@ namespace Optimizer
         Integrator
     }
 
-    public enum DesktopItemType
+    internal enum DesktopItemType
     {
         Program,
         Folder,
@@ -57,14 +54,14 @@ namespace Optimizer
         Command
     }
 
-    public enum DesktopTypePosition
+    internal enum DesktopTypePosition
     {
         Top,
         Middle,
         Bottom
     }
 
-    public enum Theme
+    internal enum Theme
     {
         Zerg,
         Ocean,
@@ -74,10 +71,10 @@ namespace Optimizer
         Minimal
     }
 
-    public enum RecycleFlag : int
+    internal enum RecycleFlag : int
     {
-        SHERB_NOCONFIRMATION = 0x00000001, // No confirmation, when emptying
-        SHERB_NOPROGRESSUI = 0x00000001, // No progress tracking window during the emptying of the recycle bin
-        SHERB_NOSOUND = 0x00000004 // No sound when the emptying of the recycle bin is complete
+        SHERB_NOCONFIRMATION = 0x00000001,
+        SHERB_NOPROGRESSUI = 0x00000001,
+        SHERB_NOSOUND = 0x00000004
     }
 }

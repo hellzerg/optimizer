@@ -12,7 +12,7 @@ namespace Optimizer
 {
     public partial class HostsEditorForm : Form
     {
-        string[] toSave = null;
+        string[] _toSave = null;
 
         public HostsEditorForm()
         {
@@ -24,7 +24,7 @@ namespace Optimizer
         {
             foreach (string line in HostsHelper.ReadHosts())
             {
-                textBox1.Text += line + HostsHelper.nl;
+                textBox1.Text += line + HostsHelper.NewLine;
             }
 
             textBox1.Focus();
@@ -37,8 +37,8 @@ namespace Optimizer
 
         private void button7_Click(object sender, EventArgs e)
         {
-            toSave = textBox1.Lines;
-            HostsHelper.SaveHosts(toSave);
+            _toSave = textBox1.Lines;
+            HostsHelper.SaveHosts(_toSave);
 
             this.Close();
         }

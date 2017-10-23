@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public partial class InfoForm : System.Windows.Forms.Form
+    public partial class InfoForm : Form
     {
         public InfoForm(string info)
         {
@@ -20,7 +20,7 @@ namespace Optimizer
             msg.Text = info;
         }
 
-        private void yesbtn_Click(object sender, EventArgs e)
+        private void btnOK_Click(object sender, EventArgs e)
         {
             this.Close();
         }

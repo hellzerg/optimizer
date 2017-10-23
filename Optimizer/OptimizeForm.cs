@@ -12,19 +12,20 @@ namespace Optimizer
 {
     public partial class OptimizeForm : Form
     {
-        bool DisablePrintServices = false;
-        bool DisableSensorServices = false;
+        bool _disablePrintServices = false;
+        bool _disableSensorServices = false;
 
-        public OptimizeForm(bool flag, bool flag2)
+        public OptimizeForm(bool disablePrintServices, bool disableSensorServices)
         {
             InitializeComponent();
-            DisablePrintServices = flag;
-            DisableSensorServices = flag;
+
+            _disablePrintServices = disablePrintServices;
+            _disableSensorServices = disableSensorServices;
         }
 
         private void ApplyAll()
         {
-            if (MainForm.wv != WindowsVersion.Unsupported)
+            if (Utilities.CurrentWindowsVersion != WindowsVersion.Unsupported)
             {
                 try
                 {
@@ -34,7 +35,7 @@ namespace Optimizer
                     Optimize.DisableDefender();
                     Optimize.DisableSystemRestore();
 
-                    if (DisablePrintServices)
+                    if (_disablePrintServices)
                     {
                         Optimize.DisablePrintSpooler();
                     }
@@ -52,18 +53,22 @@ namespace Optimizer
                     Optimize.DisableOfficeTelemetryTasks();
 
                     // Windows-specific
-                    if ((MainForm.wv == WindowsVersion.Windows7) || (MainForm.wv == WindowsVersion.WindowsServer2008))
+
+                    // Windows 7
+                    if ((Utilities.CurrentWindowsVersion == WindowsVersion.Windows7))
                     {
                         Optimize.RemoveWindows10Icon();
                     }
 
-                    if ((MainForm.wv == WindowsVersion.Windows8) || (MainForm.wv == WindowsVersion.WindowsServer2012))
+                    // Windows 8 / 8.1
+                    if ((Utilities.CurrentWindowsVersion == WindowsVersion.Windows8))
                     {
                         Optimize.RemoveWindows10Icon();
                         Optimize.DisableOneDrive();
                     }
 
-                    if ((MainForm.wv == WindowsVersion.Windows10) || (MainForm.wv == WindowsVersion.WindowsServer2016))
+                    // Windows 10
+                    if ((Utilities.CurrentWindowsVersion == WindowsVersion.Windows10))
                     {
                         Optimize.RestoreLegacyVolumeSlider();
                         Optimize.DisableCortana();
@@ -73,7 +78,7 @@ namespace Optimizer
                         Optimize.DisableWAPPush();
                         Optimize.DisableDataTelemetry();
 
-                        if (DisableSensorServices)
+                        if (_disableSensorServices)
                         {
                             Optimize.DisableSensorServices();
                         }
@@ -112,13 +117,13 @@ namespace Optimizer
             CheckForIllegalCrossThreadCalls = false;
             Options.ApplyTheme(this);
 
-            dotter.Start();
+            dotTimer.Start();
 
             Task t = new Task(() => ApplyAll());
             t.Start();
         }
 
-        private void dotter_Tick(object sender, EventArgs e)
+        private void dotTimer_Tick(object sender, EventArgs e)
         {
             switch (label2.Text)
             {

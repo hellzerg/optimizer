@@ -20,45 +20,17 @@ namespace Optimizer
         internal readonly static float Major = 3;
         internal readonly static float Minor = 3;
 
-        /* END OF VERSION PROPERTIES */
-
-        internal static MainForm main;
-
-        private readonly static string noadminmsg = "Optimizer needs to be run as administrator!\nApp will now close...";
-        private readonly static string unsupportedmsg = "Optimizer works in Windows 7 or higher!\nApp will now close...";
-
-        internal static string GetCurrentVersionToString()
+        internal static string GetCurrentVersion()
         {
             return Major.ToString() + "." + Minor.ToString();
         }
 
-        internal static float GetCurrentVersion()
-        {
-            return float.Parse(GetCurrentVersionToString());
-        }
+        /* END OF VERSION PROPERTIES */
 
-        private static bool IsAdmin()
-        {
-            var identity = WindowsIdentity.GetCurrent();
-            var principal = new WindowsPrincipal(identity);
-            return principal.IsInRole(WindowsBuiltInRole.Administrator);
-        }
+        internal static MainForm MainForm;
 
-        private static bool IsSevenOrHigher()
-        {
-            string os = (string)Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "ProductName", "");
-            bool legit;
-
-            if ((os.Contains("XP")) || (os.Contains("Vista")) || os.Contains("Server 2003"))
-            {
-                legit = false;
-            }
-            else
-            {
-                legit = true;
-            }
-            return legit;
-        }
+        readonly static string _adminMissingMessage = "Optimizer needs to be run as administrator!\nApp will now close...";
+        readonly static string _unsupportedMessage = "Optimizer works in Windows 7 or higher!\nApp will now close...";
 
         [STAThread]
         static void Main()
@@ -66,16 +38,16 @@ namespace Optimizer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (IsAdmin() == false)
+            if (!Utilities.IsAdmin())
             {
-                MessagerForm f = new MessagerForm(null, MessagerType.Error, noadminmsg);
+                MessagerForm f = new MessagerForm(null, MessageType.Error, _adminMissingMessage);
                 f.ShowDialog();
 
                 Application.Exit();
             }
             else
             {
-                if (IsSevenOrHigher() == true)
+                if (Utilities.IsCompatible())
                 {
                     string resource = "Optimizer.Newtonsoft.Json.dll";
                     EmbeddedAssembly.Load(resource, "Newtonsoft.Json.dll");
@@ -102,7 +74,7 @@ namespace Optimizer
                 }
                 else
                 {
-                    MessagerForm f = new MessagerForm(null, MessagerType.Error, unsupportedmsg);
+                    MessagerForm f = new MessagerForm(null, MessageType.Error, _unsupportedMessage);
                     f.ShowDialog();
 
                     Application.Exit();

@@ -10,29 +10,29 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public class StartupItem
+    internal class StartupItem
     {
-        public string Name { get; set; }
-        public string Location { get; set; }
-        public StartupItemLocation RegistryLocation { get; set; }
-        public StartupItemType RegistryType { get; set; }
+        internal string Name { get; set; }
+        internal string FileLocation { get; set; }
+        internal StartupItemLocation RegistryLocation { get; set; }
+        internal StartupItemType StartupType { get; set; }
 
-        public virtual void Remove() { }
-        public virtual void LocateFile() { }
-        public virtual void LocateKey() { }
+        internal virtual void Remove() { }
+        internal virtual void LocateFile() { }
+        internal virtual void LocateKey() { }
 
         public override string ToString()
         {
             if (RegistryLocation == StartupItemLocation.Folder) return RegistryLocation.ToString();
-            return string.Format("{0}:{1}", RegistryLocation, RegistryType);
+            return string.Format("{0}:{1}", RegistryLocation, StartupType);
         }
     }
 
-    public class FolderStartupItem : StartupItem
+    internal class FolderStartupItem : StartupItem
     {
-        public string Shortcut { get; set; }
+        internal string Shortcut { get; set; }
 
-        public override void Remove()
+        internal override void Remove()
         {
             try
             {
@@ -44,31 +44,30 @@ namespace Optimizer
             catch { }
         }
 
-        public override void LocateFile()
+        internal override void LocateFile()
         {
             try
             {
-                CleanHelper.FindFile(Location);
+                Utilities.FindFile(FileLocation);
             }
             catch { }
         }
     }
 
-    public class RegistryStartupItem : StartupItem
+    internal class RegistryStartupItem : StartupItem
     {
-        public RegistryKey Key { get; set; }
+        internal RegistryKey Key { get; set; }
 
-        public override void LocateKey()
+        internal override void LocateKey()
         {
             try
             {
-                CleanHelper.FindKeyInRegistry(Key.ToString());
+                Utilities.FindKeyInRegistry(Key.ToString());
             }
             catch { }
-            //finally { Key.Close(); }
         }
 
-        public override void Remove()
+        internal override void Remove()
         {
             try
             {
@@ -78,16 +77,16 @@ namespace Optimizer
             finally { Key.Close(); }
         }
 
-        public override void LocateFile()
+        internal override void LocateFile()
         {
             try
             {
-                CleanHelper.FindFile(SanitizePath(Location));
+                Utilities.FindFile(SanitizePath(FileLocation));
             }
             catch { }
         }
 
-        private string SanitizePath(string s)
+        internal string SanitizePath(string s)
         {
             s = s.Replace("\"", string.Empty);
             int i;
@@ -103,36 +102,5 @@ namespace Optimizer
 
             return s.Trim();
         }
-
-        //private int CountOccurences(string data, string occurence)
-        //{
-        //    return (data.Length - data.Replace(occurence, string.Empty).Length) / occurence.Length;
-        //}
-
-        //private string SanitizePath(string s)
-        //{
-        //    string n = "";
-
-        //    Regex r = new Regex("\".*?\"");
-        //    var matches = r.Matches(s);
-
-        //    if (matches.Count > 0)
-        //    {
-        //        s = matches[0].ToString();
-        //    }
-
-        //    foreach (char c in s)
-        //    {
-        //        if (c != '"')
-        //        {
-        //            n += c;
-        //        }
-        //    }
-
-        //    int i = n.LastIndexOf(".exe");
-        //    n = n.Substring(0, i + 4);
-
-        //    return n;
-        //}
     }
 }

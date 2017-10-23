@@ -10,12 +10,12 @@ using Newtonsoft.Json;
 
 namespace Optimizer
 {
-    public class SettingsJson
+    internal class SettingsJson
     {
-        public Theme Color { get; set; }
+        internal Theme Color { get; set; }
     }
 
-    public static class Options
+    internal static class Options
     {
         readonly static string flag = "themeable";
         internal readonly static string SettingsFile = Required.CoreFolder + "\\Optimizer.json";
@@ -23,20 +23,7 @@ namespace Optimizer
         internal static SettingsJson CurrentOptions = new SettingsJson();
 
         // use this to determine if changes have been made
-        private static SettingsJson Flag = new SettingsJson();
-
-        internal static IEnumerable<Control> GetSelfAndChildrenRecursive(Control parent)
-        {
-            List<Control> controls = new List<Control>();
-
-            foreach (Control child in parent.Controls)
-            {
-                controls.AddRange(GetSelfAndChildrenRecursive(child));
-            }
-
-            controls.Add(parent);
-            return controls;
-        }
+        static SettingsJson Flag = new SettingsJson();
 
         internal static void ApplyTheme(Form f)
         {
@@ -65,19 +52,19 @@ namespace Optimizer
 
         private static void SetTheme(Form f, Color c1, Color c2)
         {
-            GetSelfAndChildrenRecursive(f).OfType<Button>().ToList().ForEach(b => b.BackColor = c1);
-            GetSelfAndChildrenRecursive(f).OfType<Button>().ToList().ForEach(b => b.FlatAppearance.BorderColor = c1);
-            GetSelfAndChildrenRecursive(f).OfType<Button>().ToList().ForEach(b => b.FlatAppearance.MouseDownBackColor = c2);
-            GetSelfAndChildrenRecursive(f).OfType<Button>().ToList().ForEach(b => b.FlatAppearance.MouseOverBackColor = c2);
+            Utilities.GetSelfAndChildrenRecursive(f).OfType<Button>().ToList().ForEach(b => b.BackColor = c1);
+            Utilities.GetSelfAndChildrenRecursive(f).OfType<Button>().ToList().ForEach(b => b.FlatAppearance.BorderColor = c1);
+            Utilities.GetSelfAndChildrenRecursive(f).OfType<Button>().ToList().ForEach(b => b.FlatAppearance.MouseDownBackColor = c2);
+            Utilities.GetSelfAndChildrenRecursive(f).OfType<Button>().ToList().ForEach(b => b.FlatAppearance.MouseOverBackColor = c2);
 
-            foreach (Label tmp in GetSelfAndChildrenRecursive(f).OfType<Label>().ToList())
+            foreach (Label tmp in Utilities.GetSelfAndChildrenRecursive(f).OfType<Label>().ToList())
             {
                 if ((string)tmp.Tag == flag)
                 {
                     tmp.ForeColor = c1;
                 }
             }
-            foreach (LinkLabel tmp in GetSelfAndChildrenRecursive(f).OfType<LinkLabel>().ToList())
+            foreach (LinkLabel tmp in Utilities.GetSelfAndChildrenRecursive(f).OfType<LinkLabel>().ToList())
             {
                 if ((string)tmp.Tag == flag)
                 {
@@ -86,7 +73,7 @@ namespace Optimizer
                     tmp.ActiveLinkColor = c2;
                 }
             }
-            foreach (CheckBox tmp in GetSelfAndChildrenRecursive(f).OfType<CheckBox>().ToList())
+            foreach (CheckBox tmp in Utilities.GetSelfAndChildrenRecursive(f).OfType<CheckBox>().ToList())
             {
                 if ((string)tmp.Tag == flag)
                 {
@@ -99,6 +86,7 @@ namespace Optimizer
         {
             if (File.Exists(SettingsFile))
             {
+                // compare with flag to determine if changes have been made
                 if (Flag.Color != CurrentOptions.Color)
                 {
                     using (FileStream fs = File.Open(SettingsFile, FileMode.OpenOrCreate))
@@ -110,10 +98,6 @@ namespace Optimizer
                         JsonSerializer serializer = new JsonSerializer();
                         serializer.Serialize(jw, CurrentOptions);
                     }
-                }
-                else
-                {
-                    // no changes have been made, no need to save
                 }
             }
         }

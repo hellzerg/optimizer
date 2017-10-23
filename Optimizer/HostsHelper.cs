@@ -9,9 +9,9 @@ using System.Text.RegularExpressions;
 
 namespace Optimizer
 {
-    public static class HostsHelper
+    internal static class HostsHelper
     {
-        internal static string nl = Environment.NewLine;
+        internal static string NewLine = Environment.NewLine;
         internal static readonly string HostsFile = CleanHelper.System32Folder + "\\drivers\\etc\\hosts";
 
         internal static void RestoreDefaultHosts()
@@ -35,7 +35,7 @@ namespace Optimizer
 
         internal static void LocateHosts()
         {
-            CleanHelper.FindFile(HostsFile);
+            Utilities.FindFile(HostsFile);
         }
 
         internal static void SaveHosts(string[] lines)
@@ -52,7 +52,7 @@ namespace Optimizer
             File.WriteAllLines(HostsFile, lines);
         }
 
-        internal static List<string> GetEntries()
+        internal static List<string> GetHostsEntries()
         {
             List<string> entries = new List<string>();
 
@@ -69,20 +69,20 @@ namespace Optimizer
             return entries;
         }
 
-        internal static void AddEntry(string ipdomain)
+        internal static void AddEntry(string entry)
         {
             try
             {
-                File.AppendAllText(HostsFile, nl + ipdomain);
+                File.AppendAllText(HostsFile, NewLine + entry);
             }
             catch { }
         }
 
-        internal static void RemoveEntry(string ipdomain)
+        internal static void RemoveEntry(string entry)
         {
             try
             {
-                File.WriteAllLines(HostsFile, File.ReadLines(HostsFile).Where(l => l != ipdomain).ToList());
+                File.WriteAllLines(HostsFile, File.ReadLines(HostsFile).Where(x => x != entry).ToList());
             }
             catch { }
         }

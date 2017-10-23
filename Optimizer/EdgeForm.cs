@@ -13,7 +13,7 @@ namespace Optimizer
 {
     public partial class EdgeForm : System.Windows.Forms.Form
     {
-        string errormsg = "This folder does not exist, choose a new one!";
+        string _errorMessage = "This folder does not exist, choose a new one!";
 
         public EdgeForm()
         {
@@ -25,7 +25,7 @@ namespace Optimizer
         {
             CheckForIllegalCrossThreadCalls = false;
 
-            textBox1.Text = Optimize.GetEdgeDownloadFolder();
+            textBox1.Text = Utilities.GetEdgeDownloadFolder();
             textBox1.Select(textBox1.Text.Length, 0);
         }
 
@@ -33,12 +33,12 @@ namespace Optimizer
         {
             if (Directory.Exists(textBox1.Text))
             {
-                Optimize.SetEdgeDownloadFolder(textBox1.Text);
+                Utilities.SetEdgeDownloadFolder(textBox1.Text);
                 this.Close();
             }
             else
             {
-                MessagerForm f = new MessagerForm(null, MessagerType.Error, errormsg);
+                MessagerForm f = new MessagerForm(null, MessageType.Error, _errorMessage);
                 f.ShowDialog();
             }
         }

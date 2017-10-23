@@ -20,26 +20,8 @@ namespace Optimizer
 {
     public static class Optimize
     {
-        internal readonly static string CompatTelRunnerFile = Path.GetPathRoot(Environment.SystemDirectory) + @"Windows\System32\CompatTelRunner.exe";
-        internal readonly static string CompatTelRunnerFileOff = "CompatTelRunner.exe.OFF";
-        internal readonly static string DefaultEdgeDownloadFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
-
-        internal static string GetEdgeDownloadFolder()
-        {
-            string current = "";
-
-            try
-            {
-                current = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Main", "Default Download Directory", DefaultEdgeDownloadFolder).ToString();
-            }
-            catch
-            {
-                current = DefaultEdgeDownloadFolder;
-                //MessageBox.Show("Registry key is missing!", "Windows Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-            return current;
-        }
+        readonly static string CompatTelRunnerFile = Path.GetPathRoot(Environment.SystemDirectory) + @"Windows\System32\CompatTelRunner.exe";
+        readonly static string CompatTelRunnerFileOff = "CompatTelRunner.exe.OFF";
 
         internal static void DisableTelemetryRunner()
         {
@@ -47,96 +29,13 @@ namespace Optimizer
             {
                 if (File.Exists(CompatTelRunnerFile))
                 {
-                    CleanHelper.RunCommand(string.Format("takeown /F {0}", CompatTelRunnerFile));
-                    CleanHelper.RunCommand(string.Format("icacls \"{0}\" /grant administrators:F", CompatTelRunnerFile));
+                    Utilities.RunCommand(string.Format("takeown /F {0}", CompatTelRunnerFile));
+                    Utilities.RunCommand(string.Format("icacls \"{0}\" /grant administrators:F", CompatTelRunnerFile));
 
                     FileSystem.RenameFile(CompatTelRunnerFile, CompatTelRunnerFileOff);
                 }
             }
             catch { }
-        }
-
-        internal static void RunBatchFile(string file)
-        {
-            try
-            {
-                Process cmd = new Process();
-
-                cmd.StartInfo.CreateNoWindow = true;
-                cmd.StartInfo.FileName = file;
-                cmd.StartInfo.UseShellExecute = false;
-
-                cmd.Start();
-                cmd.WaitForExit();
-                cmd.Close();
-            }
-            catch { }
-        }
-
-        internal static void SetEdgeDownloadFolder(string path)
-        {
-            Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Main", "Default Download Directory", path, RegistryValueKind.String);
-        }
-
-        internal static void ImportRegistryScript(string file)
-        {
-            string path = "\"" + file + "\"";
-
-            Process proc = new Process();
-            try
-            {
-                proc.StartInfo.FileName = "regedit.exe";
-                proc.StartInfo.UseShellExecute = false;
-
-                proc = Process.Start("regedit.exe", "/s " + path);
-
-                proc.WaitForExit();
-            }
-            catch (Exception)
-            {
-                proc.Dispose();
-            }
-        }
-
-        internal static bool DoesServiceExist(string sn)
-        {
-            return ServiceController.GetServices().Any(serviceController => serviceController.ServiceName.Equals(sn));
-        }
-
-        internal static void RebootPC()
-        {
-            Process.Start("shutdown", "/r /t 0");
-        }
-
-        internal static void ActivateMain()
-        {
-            Program.main.Activate();
-        }
-
-        internal static void StopService(string servicename)
-        {
-            if (DoesServiceExist(servicename) == true)
-            {
-                ServiceController sc = new ServiceController(servicename);
-                if (sc.CanStop)
-                {
-                    sc.Stop();
-                }
-            }
-        }
-
-        internal static void StartService(string servicename)
-        {
-            if (DoesServiceExist(servicename) == true)
-            {
-                ServiceController sc = new ServiceController(servicename);
-
-                try
-                {
-                    sc.Start();
-                }
-                catch { }
-            }
         }
 
         internal static void PerformanceTweaks()
@@ -156,9 +55,9 @@ namespace Optimizer
             Registry.SetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer", "NoInternetOpenWith", "00000001", RegistryValueKind.DWord);
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control", "WaitToKillServiceTimeout", "2000");
 
-            StopService("DiagTrack");
-            StopService("diagnosticshub.standardcollector.service");
-            StopService("dmwappushservice");
+            Utilities.StopService("DiagTrack");
+            Utilities.StopService("diagnosticshub.standardcollector.service");
+            Utilities.StopService("dmwappushservice");
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DiagTrack", "Start", "4", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service", "Start", "4", RegistryValueKind.DWord);
@@ -171,7 +70,7 @@ namespace Optimizer
 
         internal static void DisableMediaPlayerSharing()
         {
-            StopService("WMPNetworkSvc");
+            Utilities.StopService("WMPNetworkSvc");
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WMPNetworkSvc", "Start", "4", RegistryValueKind.DWord);
         }
@@ -180,7 +79,6 @@ namespace Optimizer
         {
             Int32 tempInt = Convert.ToInt32("ffffffff", 16);
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile", "NetworkThrottlingIndex", tempInt, RegistryValueKind.DWord);
-            //CleanHelper.RunCommand("netsh interface tcp set heuristics disabled");
         }
 
         internal static void BlockSkypeAds()
@@ -191,8 +89,8 @@ namespace Optimizer
 
         internal static void DisableHomeGroup()
         {
-            StopService("HomeGroupListener");
-            StopService("HomeGroupProvider");
+            Utilities.StopService("HomeGroupListener");
+            Utilities.StopService("HomeGroupProvider");
 
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\HomeGroupListener", "Start", "4", RegistryValueKind.DWord);
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\HomeGroupProvider", "Start", "4", RegistryValueKind.DWord);
@@ -200,22 +98,19 @@ namespace Optimizer
 
         internal static void DisablePrintSpooler()
         {
-            StopService("Spooler");
-
+            Utilities.StopService("Spooler");
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Spooler", "Start", "3", RegistryValueKind.DWord);
         }
 
         internal static void EnablePrintSpooler()
         {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Spooler", "Start", "2", RegistryValueKind.DWord);
-
-            StartService("Spooler");
+            Utilities.StartService("Spooler");
         }
 
         internal static void DisableSuperfetch()
         {
-            StopService("SysMain");
-
+            Utilities.StopService("SysMain");
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SysMain", "Start", "4", RegistryValueKind.DWord);
         }
 
@@ -223,27 +118,26 @@ namespace Optimizer
         {
             try
             {
-                Process cmd = new Process();
-                cmd.StartInfo.CreateNoWindow = true;
-                cmd.StartInfo.FileName = "vssadmin";
-                cmd.StartInfo.Arguments = "delete shadows /for=c: /all /quiet";
-                cmd.StartInfo.UseShellExecute = false;
-                //cmd.StartInfo.RedirectStandardOutput = true;
-                cmd.Start();
-                //MessageBox.Show(cmd.StandardOutput.ReadToEnd());
-                cmd.WaitForExit();
-                cmd.Close();
+                using (Process p = new Process())
+                {
+                    p.StartInfo.CreateNoWindow = true;
+                    p.StartInfo.FileName = "vssadmin";
+                    p.StartInfo.Arguments = "delete shadows /for=c: /all /quiet";
+                    p.StartInfo.UseShellExecute = false;
+                    
+                    p.Start();
+                    p.WaitForExit();
+                    p.Close();
+                }     
             }
             catch //(Exception ex)
             {
                 //MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            StopService("VSS");
+            Utilities.StopService("VSS");
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore", "DisableConfig", "00000001", RegistryValueKind.DWord);
-            //Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\VSS", "Start", "4", RegistryValueKind.DWord);
-
         }
 
         internal static void DisableDefender()
@@ -257,7 +151,7 @@ namespace Optimizer
 
         internal static void DisableErrorReporting()
         {
-            StopService("WerSvc");
+            Utilities.StopService("WerSvc");
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WerSvc", "Start", "4", RegistryValueKind.DWord);
         }
@@ -285,7 +179,7 @@ namespace Optimizer
 
         internal static void UninstallOneDrive()
         {
-            RunBatchFile(Required.RequiredFolder + "\\OneDrive_Uninstaller.cmd");
+            Utilities.RunBatchFile(Required.RequiredFolder + "\\OneDrive_Uninstaller.cmd");
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OneDrive", "DisableFileSyncNGSC", "1", RegistryValueKind.DWord);
         }
@@ -306,9 +200,9 @@ namespace Optimizer
 
         internal static void DisableDiagnosticsTracking()
         {
-            StopService("DiagTrack");
-            StopService("diagnosticshub.standardcollector.service");
-            StopService("dmwappushservice");
+            Utilities.StopService("DiagTrack");
+            Utilities.StopService("diagnosticshub.standardcollector.service");
+            Utilities.StopService("dmwappushservice");
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DiagTrack", "Start", "4", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service", "Start", "4", RegistryValueKind.DWord);
@@ -317,18 +211,18 @@ namespace Optimizer
 
         internal static void DisableWAPPush()
         {
-            StopService("dmwappushservice");
+            Utilities.StopService("dmwappushservice");
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\dmwappushservice", "Start", "4", RegistryValueKind.DWord);
         }
 
         internal static void DisableXboxLive()
         {
-            StopService("XboxNetApiSvc");
-            StopService("XblAuthManager");
-            StopService("XblGameSave");
-            StopService("XboxGipSvc");
-            StopService("xbgm");
+            Utilities.StopService("XboxNetApiSvc");
+            Utilities.StopService("XblAuthManager");
+            Utilities.StopService("XblGameSave");
+            Utilities.StopService("XboxGipSvc");
+            Utilities.StopService("xbgm");
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XboxNetApiSvc", "Start", "4", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XblAuthManager", "Start", "4", RegistryValueKind.DWord);
@@ -336,7 +230,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XboxGipSvc", "Start", "4", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\xbgm", "Start", "4", RegistryValueKind.DWord);
 
-            RunBatchFile(Required.RequiredFolder + "\\DisableXboxTasks.bat");
+            Utilities.RunBatchFile(Required.RequiredFolder + "\\DisableXboxTasks.bat");
         }
 
         internal static void DisableAutomaticUpdates()
@@ -365,16 +259,16 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SensrSvc", "Start", "2", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SensorService", "Start", "2", RegistryValueKind.DWord);
 
-            StartService("DcpSvc");
-            StartService("SensrSvc");
-            StartService("SensorService");
+            Utilities.StartService("DcpSvc");
+            Utilities.StartService("SensrSvc");
+            Utilities.StartService("SensorService");
         }
 
         internal static void DisableSensorServices()
         {
-            StopService("DcpSvc");
-            StopService("SensrSvc");
-            StopService("SensorService");
+            Utilities.StopService("DcpSvc");
+            Utilities.StopService("SensrSvc");
+            Utilities.StopService("SensorService");
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DcpSvc", "Start", "4", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SensrSvc", "Start", "4", RegistryValueKind.DWord);
@@ -384,15 +278,13 @@ namespace Optimizer
         internal static void DisableTelemetryTasks()
         {
             DisableTelemetryRunner();
-
-            RunBatchFile(Required.RequiredFolder + "\\DisableTelemetryTasks.bat");
+            Utilities.RunBatchFile(Required.RequiredFolder + "\\DisableTelemetryTasks.bat");
         }
 
         internal static void DisableOfficeTelemetryTasks()
         {
-            RunBatchFile(Required.RequiredFolder + "\\DisableOfficeTelemetryTasks.bat");
-
-            ImportRegistryScript(Required.RequiredFolder + "\\DisableOfficeTelemetryTasks.reg");
+            Utilities.RunBatchFile(Required.RequiredFolder + "\\DisableOfficeTelemetryTasks.bat");
+            Utilities.ImportRegistryScript(Required.RequiredFolder + "\\DisableOfficeTelemetryTasks.reg");
         }
 
         internal static void DisablePrivacyOptions()

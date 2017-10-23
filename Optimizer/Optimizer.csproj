@@ -131,6 +131,7 @@
     </Compile>
     <Compile Include="Required.cs" />
     <Compile Include="StartupItem.cs" />
+    <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>

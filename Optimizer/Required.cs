@@ -11,8 +11,6 @@ namespace Optimizer
 {
     public static class Required
     {
-        internal readonly static string LogFile = Application.StartupPath + "\\Optimizer.log";
-
         internal readonly static string CoreFolder = CleanHelper.ProgramData + "\\Optimizer\\";
         internal readonly static string ReadyMadeMenus = CleanHelper.ProgramData + "\\Optimizer\\ReadyMadeMenus\\";
         internal readonly static string RequiredFolder = CleanHelper.ProgramData + "\\Optimizer\\Required\\";
