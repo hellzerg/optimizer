@@ -17,13 +17,13 @@ namespace Optimizer
 
     internal static class Options
     {
-        readonly static string flag = "themeable";
+        readonly static string _themeFlag = "themeable";
         internal readonly static string SettingsFile = Required.CoreFolder + "\\Optimizer.json";
 
         internal static SettingsJson CurrentOptions = new SettingsJson();
 
         // use this to determine if changes have been made
-        static SettingsJson Flag = new SettingsJson();
+        static SettingsJson _flag = new SettingsJson();
 
         internal static void ApplyTheme(Form f)
         {
@@ -59,14 +59,14 @@ namespace Optimizer
 
             foreach (Label tmp in Utilities.GetSelfAndChildrenRecursive(f).OfType<Label>().ToList())
             {
-                if ((string)tmp.Tag == flag)
+                if ((string)tmp.Tag == _themeFlag)
                 {
                     tmp.ForeColor = c1;
                 }
             }
             foreach (LinkLabel tmp in Utilities.GetSelfAndChildrenRecursive(f).OfType<LinkLabel>().ToList())
             {
-                if ((string)tmp.Tag == flag)
+                if ((string)tmp.Tag == _themeFlag)
                 {
                     tmp.LinkColor = c1;
                     tmp.VisitedLinkColor = c1;
@@ -75,7 +75,7 @@ namespace Optimizer
             }
             foreach (CheckBox tmp in Utilities.GetSelfAndChildrenRecursive(f).OfType<CheckBox>().ToList())
             {
-                if ((string)tmp.Tag == flag)
+                if ((string)tmp.Tag == _themeFlag)
                 {
                     tmp.ForeColor = c1;
                 }
@@ -87,7 +87,7 @@ namespace Optimizer
             if (File.Exists(SettingsFile))
             {
                 // compare with flag to determine if changes have been made
-                if (Flag.Color != CurrentOptions.Color)
+                if (_flag.Color != CurrentOptions.Color)
                 {
                     using (FileStream fs = File.Open(SettingsFile, FileMode.OpenOrCreate))
                     using (StreamWriter sw = new StreamWriter(fs))
@@ -123,7 +123,7 @@ namespace Optimizer
                 CurrentOptions = JsonConvert.DeserializeObject<SettingsJson>(File.ReadAllText(SettingsFile));
 
                 // initialize flag
-                Flag.Color = CurrentOptions.Color;
+                _flag.Color = CurrentOptions.Color;
             }
         }
     }
