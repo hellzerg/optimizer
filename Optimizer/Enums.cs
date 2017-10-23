@@ -68,7 +68,7 @@ namespace Optimizer
         Bottom
     }
 
-    internal enum Theme
+    public enum Theme
     {
         Zerg,
         Ocean,

@@ -10,9 +10,9 @@ using Newtonsoft.Json;
 
 namespace Optimizer
 {
-    internal class SettingsJson
+    public class SettingsJson
     {
-        internal Theme Color { get; set; }
+        public Theme Color { get; set; }
     }
 
     internal static class Options
