@@ -74,7 +74,6 @@ namespace Optimizer
                 Key.DeleteValue(Name, false);
             }
             catch { }
-            finally { Key.Close(); }
         }
 
         internal override void LocateFile()

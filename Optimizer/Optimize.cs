@@ -71,7 +71,6 @@ namespace Optimizer
         internal static void DisableMediaPlayerSharing()
         {
             Utilities.StopService("WMPNetworkSvc");
-
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WMPNetworkSvc", "Start", "4", RegistryValueKind.DWord);
         }
 
@@ -152,7 +151,6 @@ namespace Optimizer
         internal static void DisableErrorReporting()
         {
             Utilities.StopService("WerSvc");
-
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WerSvc", "Start", "4", RegistryValueKind.DWord);
         }
 
@@ -180,7 +178,6 @@ namespace Optimizer
         internal static void UninstallOneDrive()
         {
             Utilities.RunBatchFile(Required.RequiredFolder + "\\OneDrive_Uninstaller.cmd");
-
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OneDrive", "DisableFileSyncNGSC", "1", RegistryValueKind.DWord);
         }
 
@@ -212,7 +209,6 @@ namespace Optimizer
         internal static void DisableWAPPush()
         {
             Utilities.StopService("dmwappushservice");
-
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\dmwappushservice", "Start", "4", RegistryValueKind.DWord);
         }
 

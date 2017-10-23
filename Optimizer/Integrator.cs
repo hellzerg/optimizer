@@ -50,14 +50,14 @@ namespace Optimizer
         internal static List<string> GetCustomCommands()
         {
             List<string> items = new List<string>();
-            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\");
 
-            foreach (string command in key.GetSubKeyNames())
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\"))
             {
-                items.Add(command);
+                foreach (string command in key.GetSubKeyNames())
+                {
+                    items.Add(command);
+                }
             }
-
-            key.Close();
 
             return items;
         }
@@ -69,27 +69,29 @@ namespace Optimizer
 
         private static void CreateDefaultCommand(string itemName)
         {
-            RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + itemName, true);
-            key.CreateSubKey("command", RegistryKeyPermissionCheck.Default);
-            key.Close();
+            using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + itemName, true))
+            {
+                key.CreateSubKey("command", RegistryKeyPermissionCheck.Default);
+            }        
         }
 
         internal static List<string> GetDesktopItems()
         {
             List<string> items = new List<string>();
-            RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", false);
 
-            foreach (string item in key.GetSubKeyNames())
+            using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", false))
             {
-                // filter the list, so the default items will not be visible
-                if (item.Contains("Gadgets")) continue;
-                if (item.Contains("Display")) continue;
-                if (item.Contains("Personalize")) continue;
+                foreach (string item in key.GetSubKeyNames())
+                {
+                    // filter the list, so the default items will not be visible
+                    if (item.Contains("Gadgets")) continue;
+                    if (item.Contains("Display")) continue;
+                    if (item.Contains("Personalize")) continue;
 
-                items.Add(item);
+                    items.Add(item);
+                }
             }
 
-            key.Close();
             return items;
         }
 
@@ -97,34 +99,30 @@ namespace Optimizer
         {
             try
             {
-                RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true);
-
-                try
+                using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true))
                 {
-                    key.DeleteSubKey(name + "\\command");
+                    try
+                    {
+                        key.DeleteSubKeyTree(name, false);
+                    }
+                    catch { }
                 }
-                catch { }
-                key.DeleteSubKey(name);
             }
             catch { }
         }
 
         internal static void RemoveAllItems(List<string> items)
         {
-            RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true);
-
-            foreach (string item in items)
+            using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true))
             {
-                try
+                foreach (string item in items)
                 {
                     try
                     {
-                        key.DeleteSubKey(item + "\\command");
+                        key.DeleteSubKeyTree(item, false);
                     }
                     catch { }
-                    key.DeleteSubKey(item);
                 }
-                catch { }
             }
         }
 
@@ -156,6 +154,7 @@ namespace Optimizer
                 if (url.HostNameType == UriHostNameType.Dns)
                 {
                     Image.FromStream(((HttpWebResponse)WebRequest.Create("http://" + url.Host + "/favicon.ico").GetResponse()).GetResponseStream()).Save(Required.FavIcons + name + ".ico", ImageFormat.Bmp);
+
                     favicon = Required.FavIcons + name + ".ico";
                 }
             }
@@ -166,119 +165,47 @@ namespace Optimizer
 
         internal static void AddItem(string name, string item, string icon, DesktopTypePosition position, bool shift, DesktopItemType type)
         {
+            using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true))
+            {
+                key.CreateSubKey(name, RegistryKeyPermissionCheck.Default);
+            }
+
+            CreateDefaultCommand(name);
+
+            if (shift)
+            {
+                Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Extended", "");
+            }
+            else
+            {
+                using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + name, true))
+                {
+                    key.CreateSubKey(name, RegistryKeyPermissionCheck.Default);
+                }
+            }
+
+            Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Icon", icon);
+            Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Position", position.ToString());
+
             switch (type)
             {
                 case DesktopItemType.Program:
-                    RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true);
-                    key.CreateSubKey(name, RegistryKeyPermissionCheck.Default);
-                    key.Close();
-                    CreateDefaultCommand(name);
-
                     Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name + "\\command", "", item);
-                    Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Icon", icon);
-                    Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Position", position.ToString());
-
-                    if (shift)
-                    {
-                        Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Extended", "");
-                    }
-                    else
-                    {
-                        RegistryKey key2 = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + name, true);
-                        key2.DeleteValue("Extended", false);
-                        key2.Close();
-                    }
-
                     break;
                 case DesktopItemType.Folder:
-                    RegistryKey key3 = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true);
-                    key3.CreateSubKey(name, RegistryKeyPermissionCheck.Default);
-                    key3.Close();
-                    CreateDefaultCommand(name);
-
                     Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name + "\\command", "", "explorer " + item);
-                    Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Icon", icon);
-                    Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Position", position.ToString());
-
-                    if (shift)
-                    {
-                        Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Extended", "");
-                    }
-                    else
-                    {
-                        RegistryKey key2 = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + name, true);
-                        key2.DeleteValue("Extended", false);
-                        key2.Close();
-                    }
-
                     break;
                 case DesktopItemType.Link:
-                    RegistryKey key4 = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true);
-                    key4.CreateSubKey(name, RegistryKeyPermissionCheck.Default);
-                    key4.Close();
-                    CreateDefaultCommand(name);
-
                     Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name + "\\command", "", "explorer " + item);
-                    Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Icon", icon);
-                    Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Position", position.ToString());
-
-                    if (shift)
-                    {
-                        Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Extended", "");
-                    }
-                    else
-                    {
-                        RegistryKey key2 = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + name, true);
-                        key2.DeleteValue("Extended", false);
-                        key2.Close();
-                    }
-
                     break;
                 case DesktopItemType.File:
-                    RegistryKey key5 = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true);
-                    key5.CreateSubKey(name, RegistryKeyPermissionCheck.Default);
-                    key5.Close();
-                    CreateDefaultCommand(name);
-                    string def = @"""";
-                    string def2 = "explorer.exe";
+                    string tmp = @"""";
+                    string tmp2 = "explorer.exe";
 
-                    Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name + "\\command", "", def2 + " " + def + item + def);
-                    Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Icon", icon);
-                    Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Position", position.ToString());
-
-                    if (shift)
-                    {
-                        Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Extended", "");
-                    }
-                    else
-                    {
-                        RegistryKey key2 = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + name, true);
-                        key2.DeleteValue("Extended", false);
-                        key2.Close();
-                    }
-
+                    Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name + "\\command", "", tmp2 + " " + tmp + item + tmp);
                     break;
                 case DesktopItemType.Command:
-                    RegistryKey key6 = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true);
-                    key6.CreateSubKey(name, RegistryKeyPermissionCheck.Default);
-                    key6.Close();
-                    CreateDefaultCommand(name);
-
                     Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name + "\\command", "", item);
-                    Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Icon", icon);
-                    Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Position", position.ToString());
-
-                    if (shift)
-                    {
-                        Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Extended", "");
-                    }
-                    else
-                    {
-                        RegistryKey key2 = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + name, true);
-                        key2.DeleteValue("Extended", false);
-                        key2.Close();
-                    }
-
                     break;
             }
         }

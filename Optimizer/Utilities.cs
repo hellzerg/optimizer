@@ -93,9 +93,7 @@ namespace Optimizer
 
         internal static bool IsAdmin()
         {
-            var identity = WindowsIdentity.GetCurrent();
-            var principal = new WindowsPrincipal(identity);
-            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+            return new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
         }
 
         internal static bool IsCompatible()
@@ -167,7 +165,7 @@ namespace Optimizer
 
                 p.WaitForExit();
             }
-            catch (Exception)
+            catch
             {
                 p.Dispose();
             }
@@ -218,200 +216,136 @@ namespace Optimizer
             }
         }
 
+        private static void GetRegistryStartupItemsHelper(ref List<StartupItem> list, StartupItemLocation location, StartupItemType type)
+        {
+            string keyPath = string.Empty;
+            RegistryKey hive = null;
+
+            if (location == StartupItemLocation.HKLM)
+            {
+                hive = Registry.LocalMachine;
+
+                if (type == StartupItemType.Run)
+                {
+                    keyPath = LocalMachineRun;
+                }
+                else if (type == StartupItemType.RunOnce)
+                {
+                    keyPath = LocalMachineRunOnce;
+                }
+            }
+            else if (location == StartupItemLocation.HKLMWoW)
+            {
+                hive = Registry.LocalMachine;
+
+                if (type == StartupItemType.Run)
+                {
+                    keyPath = LocalMachineRunWoW;
+                }
+                else if (type == StartupItemType.RunOnce)
+                {
+                    keyPath = LocalMachineRunOnceWow;
+                }
+            }
+            else if (location == StartupItemLocation.HKCU)
+            {
+                hive = Registry.CurrentUser;
+
+                if (type == StartupItemType.Run)
+                {
+                    keyPath = CurrentUserRun;
+                }
+                else if (type == StartupItemType.RunOnce)
+                {
+                    keyPath = CurrentUserRunOnce;
+                }
+            }
+
+            if (hive != null)
+            {
+                RegistryKey key = hive.OpenSubKey(keyPath, true);
+                
+                if (key != null)
+                {
+                    string[] valueNames = key.GetValueNames();
+
+                    foreach (string x in valueNames)
+                    {
+                        try
+                        {
+                            RegistryStartupItem item = new RegistryStartupItem();
+                            item.Name = x;
+                            item.FileLocation = key.GetValue(x).ToString();
+                            item.Key = key;
+                            item.RegistryLocation = location;
+                            item.StartupType = type;
+
+                            list.Add(item);
+                        }
+                        catch { }
+                    }
+                }
+            }
+        }
+
+        private static void GetFolderStartupItemsHelper(ref List<StartupItem> list, string[] files, string[] shortcuts)
+        {
+            foreach (string file in files)
+            {
+                try
+                {
+                    FolderStartupItem item = new FolderStartupItem();
+                    item.Name = Path.GetFileNameWithoutExtension(file);
+                    item.FileLocation = file;
+                    item.Shortcut = file;
+                    item.RegistryLocation = StartupItemLocation.Folder;
+
+                    list.Add(item);
+                }
+                catch { }
+            }
+
+            foreach (string shortcut in shortcuts)
+            {
+                try
+                {
+                    FolderStartupItem item = new FolderStartupItem();
+                    item.Name = Path.GetFileNameWithoutExtension(shortcut);
+                    item.FileLocation = GetShortcutTargetFile(shortcut);
+                    item.Shortcut = shortcut;
+                    item.RegistryLocation = StartupItemLocation.Folder;
+
+                    list.Add(item);
+                }
+                catch { }
+            }
+        }
+
         internal static List<StartupItem> GetStartupItems()
         {
-            List<StartupItem> collection = new List<StartupItem>();
-            RegistryKey registryKey = null;
+            List<StartupItem> startupItems = new List<StartupItem>();
 
-            // Get Local Machine Run startup items
-            try
+            GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKLM, StartupItemType.Run);
+            GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKLM, StartupItemType.RunOnce);
+
+            GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKCU, StartupItemType.Run);
+            GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKCU, StartupItemType.RunOnce);
+
+            if (Environment.Is64BitOperatingSystem)
             {
-                registryKey = Registry.LocalMachine.OpenSubKey(LocalMachineRun, true);
-                string[] valueNames = registryKey.GetValueNames();
-
-                foreach (string s in valueNames)
-                {
-                    RegistryStartupItem item = new RegistryStartupItem();
-                    item.Name = s;
-                    item.FileLocation = registryKey.GetValue(s).ToString();
-                    item.Key = registryKey;
-                    item.RegistryLocation = StartupItemLocation.HKLM;
-                    item.StartupType = StartupItemType.Run;
-
-                    collection.Add(item);
-                }
+                GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKLMWoW, StartupItemType.Run);
+                GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKLMWoW, StartupItemType.RunOnce);
             }
-            catch { }
 
-            // Get Local Machine Run Once startup items
-            try
-            {
-                registryKey = Registry.LocalMachine.OpenSubKey(LocalMachineRunOnce, true);
-                string[] valueNames = registryKey.GetValueNames();
+            string[] currentUserFiles = Directory.GetFiles(CurrentUserStartupFolder, "*.exe", SearchOption.AllDirectories);
+            string[] currentUserShortcuts = Directory.GetFiles(CurrentUserStartupFolder, "*.lnk", SearchOption.AllDirectories);
+            GetFolderStartupItemsHelper(ref startupItems, currentUserFiles, currentUserShortcuts);
 
-                foreach (string s in valueNames)
-                {
-                    RegistryStartupItem item = new RegistryStartupItem();
-                    item.Name = s;
-                    item.FileLocation = registryKey.GetValue(s).ToString();
-                    item.Key = registryKey;
-                    item.RegistryLocation = StartupItemLocation.HKLM;
-                    item.StartupType = StartupItemType.RunOnce;
+            string[] localMachineFiles = Directory.GetFiles(LocalMachineStartupFolder, "*.exe", SearchOption.AllDirectories);
+            string[] localMachineShortcuts = Directory.GetFiles(LocalMachineStartupFolder, "*.lnk", SearchOption.AllDirectories);
+            GetFolderStartupItemsHelper(ref startupItems, localMachineFiles, localMachineShortcuts);
 
-                    collection.Add(item);
-                }
-            }
-            catch { }
-
-            // Get Local Machine Run WoW startup items
-            try
-            {
-                registryKey = Registry.LocalMachine.OpenSubKey(LocalMachineRunWoW, true);
-                string[] valueNames2 = registryKey.GetValueNames();
-
-                foreach (string s in valueNames2)
-                {
-                    RegistryStartupItem item = new RegistryStartupItem();
-                    item.Name = s;
-                    item.FileLocation = registryKey.GetValue(s).ToString();
-                    item.Key = registryKey;
-                    item.RegistryLocation = StartupItemLocation.HKLMWoW;
-                    item.StartupType = StartupItemType.Run;
-
-                    collection.Add(item);
-                }
-            }
-            catch { }
-
-            // Get Local Machine Run Once WoW startup items
-            try
-            {
-                registryKey = Registry.LocalMachine.OpenSubKey(LocalMachineRunOnceWow, true);
-                string[] valueNames2 = registryKey.GetValueNames();
-
-                foreach (string s in valueNames2)
-                {
-                    RegistryStartupItem item = new RegistryStartupItem();
-                    item.Name = s;
-                    item.FileLocation = registryKey.GetValue(s).ToString();
-                    item.Key = registryKey;
-                    item.RegistryLocation = StartupItemLocation.HKLMWoW;
-                    item.StartupType = StartupItemType.RunOnce;
-
-                    collection.Add(item);
-                }
-            }
-            catch { }
-
-            // Get Current User Run startup items
-            try
-            {
-                registryKey = Registry.CurrentUser.OpenSubKey(CurrentUserRun, true);
-                string[] valueNames3 = registryKey.GetValueNames();
-
-                foreach (string s in valueNames3)
-                {
-                    RegistryStartupItem item = new RegistryStartupItem();
-                    item.Name = s;
-                    item.FileLocation = registryKey.GetValue(s).ToString();
-                    item.Key = registryKey;
-                    item.RegistryLocation = StartupItemLocation.HKCU;
-                    item.StartupType = StartupItemType.Run;
-
-                    collection.Add(item);
-                }
-            }
-            catch { }
-
-            // Get Current User Run Once startup items
-            try
-            {
-                registryKey = Registry.CurrentUser.OpenSubKey(CurrentUserRunOnce, true);
-                string[] valueNames3 = registryKey.GetValueNames();
-
-                foreach (string s in valueNames3)
-                {
-                    RegistryStartupItem item = new RegistryStartupItem();
-                    item.Name = s;
-                    item.FileLocation = registryKey.GetValue(s).ToString();
-                    item.Key = registryKey;
-                    item.RegistryLocation = StartupItemLocation.HKCU;
-                    item.StartupType = StartupItemType.RunOnce;
-
-                    collection.Add(item);
-                }
-            }
-            catch { }
-
-            registryKey.Dispose();
-
-            // Get Current User Startup folder startup items
-            try
-            {
-                // get shortcuts to files
-                string[] shortcuts = Directory.GetFiles(CurrentUserStartupFolder, "*.lnk", SearchOption.AllDirectories);
-
-                // get executables
-                string[] files = Directory.GetFiles(CurrentUserStartupFolder, "*.exe", SearchOption.AllDirectories);
-
-                foreach (string shortcut in shortcuts)
-                {
-                    FolderStartupItem item = new FolderStartupItem();
-                    item.Name = Path.GetFileNameWithoutExtension(shortcut);
-                    item.FileLocation = GetShortcutTargetFile(shortcut);
-                    item.Shortcut = shortcut;
-                    item.RegistryLocation = StartupItemLocation.Folder;
-
-                    collection.Add(item);
-                }
-
-                foreach (string file in files)
-                {
-                    FolderStartupItem item2 = new FolderStartupItem();
-                    item2.Name = Path.GetFileNameWithoutExtension(file);
-                    item2.FileLocation = file;
-                    item2.Shortcut = file;
-                    item2.RegistryLocation = StartupItemLocation.Folder;
-
-                    collection.Add(item2);
-                }
-            }
-            catch { }
-
-            // Get Local Machine Startup folder startup items
-            try
-            {
-                // get shortcuts to files
-                string[] shortcuts = Directory.GetFiles(LocalMachineStartupFolder, "*.lnk", SearchOption.AllDirectories);
-
-                // get executables
-                string[] files = Directory.GetFiles(LocalMachineStartupFolder, "*.exe", SearchOption.AllDirectories);
-
-                foreach (string shortcut in shortcuts)
-                {
-                    FolderStartupItem item = new FolderStartupItem();
-                    item.Name = Path.GetFileNameWithoutExtension(shortcut);
-                    item.FileLocation = GetShortcutTargetFile(shortcut);
-                    item.Shortcut = shortcut;
-                    item.RegistryLocation = StartupItemLocation.Folder;
-
-                    collection.Add(item);
-                }
-
-                foreach (string file in files)
-                {
-                    FolderStartupItem item2 = new FolderStartupItem();
-                    item2.Name = Path.GetFileNameWithoutExtension(file);
-                    item2.FileLocation = file;
-                    item2.Shortcut = file;
-                    item2.RegistryLocation = StartupItemLocation.Folder;
-
-                    collection.Add(item2);
-                }
-            }
-            catch { }
-
-            return collection;
+            return startupItems;
         }
 
         internal static void EnableFirewall()
@@ -421,51 +355,58 @@ namespace Optimizer
 
         internal static void EnableCommandPrompt()
         {
-            RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Policies\\Microsoft\\Windows\\System");
-            key.SetValue("DisableCMD", 0, RegistryValueKind.DWord);
-            key.Close();
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Policies\\Microsoft\\Windows\\System"))
+            {
+                key.SetValue("DisableCMD", 0, RegistryValueKind.DWord);
+            }
         }
 
         internal static void EnableControlPanel()
         {
-            RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer");
-            key.SetValue("NoControlPanel", 0, RegistryValueKind.DWord);
-            key.Close();
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer"))
+            {
+                key.SetValue("NoControlPanel", 0, RegistryValueKind.DWord);
+            }
         }
 
         internal static void EnableFolderOptions()
         {
-            RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer");
-            key.SetValue("NoFolderOptions", 0, RegistryValueKind.DWord);
-            key.Close();
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer"))
+            {
+                key.SetValue("NoFolderOptions", 0, RegistryValueKind.DWord);
+            }
         }
 
         internal static void EnableRunDialog()
         {
-            RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer");
-            key.SetValue("NoRun", 0, RegistryValueKind.DWord);
-            key.Close();
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer"))
+            {
+                key.SetValue("NoRun", 0, RegistryValueKind.DWord);
+            }
         }
 
         internal static void EnableContextMenu()
         {
-            RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer");
-            key.SetValue("NoViewContextMenu", 0, RegistryValueKind.DWord);
-            key.Close();
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer"))
+            {
+                key.SetValue("NoViewContextMenu", 0, RegistryValueKind.DWord);
+            }
         }
 
         internal static void EnableTaskManager()
         {
-            RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
-            key.SetValue("DisableTaskMgr", 0, RegistryValueKind.DWord);
-            key.Close();
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System"))
+            {
+                key.SetValue("DisableTaskMgr", 0, RegistryValueKind.DWord);
+            }
         }
 
         internal static void EnableRegistryEditor()
         {
-            RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
-            key.SetValue("DisableRegistryTools", 0, RegistryValueKind.DWord);
-            key.Close();
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System"))
+            {
+                key.SetValue("DisableRegistryTools", 0, RegistryValueKind.DWord);
+            }
         }
 
         internal static void RunCommand(string command)
