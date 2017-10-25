@@ -27,15 +27,11 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 https://github.com/hellzerg/optimizer/releases
 
 ## Compatibility: ##
-
-.NET Framework 4.5
  
-Compatible with Windows 7, 8, 8.1, 10
-
-Does not work with Windows XP or Vista
+* .NET Framework 4.5
+* Compatible with Windows 7, 8, 8.1, 10
 
 ## Details: ##
 
 Latest version: 3.4
-
 Released: October 25, 2017
