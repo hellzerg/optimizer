@@ -11,7 +11,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Speed up your system and network performance
 * Disable unnecessary Windows services
 * Disable Windows telemetry
-* Disable Office telemetry
+* Disable Office telemetry (works only with 2016)
 * Disable Cortana
 * Disable Windows 10 automatic updates
 * Block Skype ads
