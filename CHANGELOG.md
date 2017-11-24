@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 - Disable Windows Defender also removes tray icon now
 - Disable Start Menu ads & Silent App Install improved
 - Added option to restore Taskbar color
+- Minor visual changes
 - Hide Sync Provider ads renamed to Disable Quick Access History
    (disables used files and folders,
     File Explorer opens 'This PC' by default now,

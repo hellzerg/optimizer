@@ -368,8 +368,8 @@
             // 
             this.tabCollection.Controls.Add(this.universalTab);
             this.tabCollection.Controls.Add(this.windowsXTab);
-            this.tabCollection.Controls.Add(this.modernAppsTab);
             this.tabCollection.Controls.Add(this.windowsVIIITab);
+            this.tabCollection.Controls.Add(this.modernAppsTab);
             this.tabCollection.Controls.Add(this.windowsVIITab);
             this.tabCollection.Controls.Add(this.cleanerTab);
             this.tabCollection.Controls.Add(this.startupTab);
@@ -2711,7 +2711,7 @@
             this.panel5.Location = new System.Drawing.Point(11, 40);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(293, 433);
+            this.panel5.Size = new System.Drawing.Size(293, 435);
             this.panel5.TabIndex = 82;
             // 
             // listDesktopItems
@@ -2727,7 +2727,7 @@
             this.listDesktopItems.Location = new System.Drawing.Point(0, 0);
             this.listDesktopItems.Margin = new System.Windows.Forms.Padding(2);
             this.listDesktopItems.Name = "listDesktopItems";
-            this.listDesktopItems.Size = new System.Drawing.Size(291, 431);
+            this.listDesktopItems.Size = new System.Drawing.Size(291, 433);
             this.listDesktopItems.TabIndex = 78;
             // 
             // button60
@@ -3071,7 +3071,7 @@
             this.panel6.Location = new System.Drawing.Point(11, 210);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(271, 262);
+            this.panel6.Size = new System.Drawing.Size(271, 264);
             this.panel6.TabIndex = 84;
             // 
             // listCustomCommands
@@ -3087,7 +3087,7 @@
             this.listCustomCommands.Location = new System.Drawing.Point(0, 0);
             this.listCustomCommands.Margin = new System.Windows.Forms.Padding(2);
             this.listCustomCommands.Name = "listCustomCommands";
-            this.listCustomCommands.Size = new System.Drawing.Size(269, 260);
+            this.listCustomCommands.Size = new System.Drawing.Size(269, 262);
             this.listCustomCommands.TabIndex = 79;
             // 
             // button26
