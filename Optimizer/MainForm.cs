@@ -27,6 +27,7 @@ namespace Optimizer
         List<string> _hostsEntries = new List<string>();
         List<string> _customCommands = new List<string>();
         List<string> _desktopItems = new List<string>();
+        List<string> _modernApps = new List<string>();
 
         DesktopItemType _desktopItemType = DesktopItemType.Program;
         DesktopTypePosition _desktopItemPosition = DesktopTypePosition.Top;
@@ -37,6 +38,11 @@ namespace Optimizer
         readonly string _removeStartupItemsMessage = "Are you sure you want to delete all startup items?";
         readonly string _removeHostsEntriesMessage = "Are you sure you want to delete all hosts entries?";
         readonly string _removeDesktopItemsMessage = "Are you sure you want to delete all desktop items?";
+        readonly string _removeModernAppsMessage = "Are you sure you want to uninstall the following app(s)?";
+        readonly string _errorModernAppsMessage = "The following app(s) couldn't be uninstalled:\n";
+        readonly string _applyAllWindows7Message = "This will apply every option in Universal and Windows 7 tabs. Continue?";
+        readonly string _applyAllWindows8Message = "This will apply every option in Universal and Windows 8.1 tabs. Continue?";
+        readonly string _applyAllWindows10Message = "This will apply every option in Universal and Windows 10 tabs. Continue?";
 
         private void LoadSettings()
         {
@@ -80,18 +86,18 @@ namespace Optimizer
 
                 if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
                 {
-                    message = "This will apply every option in Universal and Windows 7 tab. Continue?";
+                    message = _applyAllWindows7Message;
                 }
                 if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
                 {
-                    message = "This will apply every option in Universal and Windows 8.1 tab. Continue?";
+                    message = _applyAllWindows8Message;
                 }
                 if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
                 {
-                    message = "This will apply every option in Universal and Windows 10 tab. Continue?";
+                    message = _applyAllWindows10Message;
                 }
 
-                MessagerForm r = new MessagerForm(this, MessageType.Optimize, message);
+                HelperForm r = new HelperForm(this, MessageType.Optimize, message);
                 r.ShowDialog(this);
             }
         }
@@ -232,6 +238,7 @@ namespace Optimizer
             GetHostsEntries();
             GetDesktopItems();
             GetCustomCommands();
+            GetModernApps();
 
             LoadSettings();
 
@@ -250,12 +257,14 @@ namespace Optimizer
                 tabCollection.TabPages.Remove(windowsVIITab);
                 tabCollection.TabPages.Remove(windowsVIIITab);
                 tabCollection.TabPages.Remove(windowsXTab);
+                tabCollection.TabPages.Remove(modernAppsTab);
             }   
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
             {
                 tabCollection.TabPages.Remove(windowsVIIITab);
                 tabCollection.TabPages.Remove(windowsXTab);
+                tabCollection.TabPages.Remove(modernAppsTab);
             }
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
@@ -314,6 +323,72 @@ namespace Optimizer
             }
         }
 
+        private void GetModernApps()
+        {
+            button74.Enabled = false;
+            button75.Enabled = false;
+            listModernApps.Enabled = false;
+
+            listModernApps.Items.Clear();
+            _modernApps = Utilities.GetModernApps();
+
+            foreach (string x in _modernApps)
+            {
+                listModernApps.Items.Add(x);
+            }
+
+            button74.Enabled = true;
+            button75.Enabled = true;
+            listModernApps.Enabled = true;
+        }
+
+        private async void UninstallModernApps()
+        {
+            string selectedApps = string.Empty;
+
+            if (listModernApps.CheckedItems.Count > 0)
+            {
+                foreach (string x in listModernApps.CheckedItems)
+                {
+                    if (string.IsNullOrEmpty(selectedApps))
+                    {
+                        selectedApps = x;
+                    }
+                    else
+                    {
+                        selectedApps += Environment.NewLine + x;
+                    }
+                }
+
+                if (MessageBox.Show(_removeModernAppsMessage + "\n\n" + selectedApps, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    button74.Enabled = false;
+                    button75.Enabled = false;
+                    listModernApps.Enabled = false;
+
+                    bool errorOccured = false;
+                    string failedApps = string.Empty;
+
+                    foreach (string app in listModernApps.CheckedItems)
+                    {
+                        await Task.Run(() => errorOccured = Utilities.UninstallModernApp(app));
+
+                        if (errorOccured)
+                        {
+                            failedApps += Environment.NewLine + app;
+                        }
+                    }
+
+                    if (!string.IsNullOrEmpty(failedApps))
+                    {
+                        MessageBox.Show(_errorModernAppsMessage + failedApps, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    GetModernApps();
+                }
+            }
+        }
+
         private void GetCustomCommands()
         {
             _customCommands = Integrator.GetCustomCommands();
@@ -332,25 +407,25 @@ namespace Optimizer
 
         private void button39_Click(object sender, EventArgs e)
         {
-            MessagerForm f = new MessagerForm(this, MessageType.Restart, _restartMessage);
+            HelperForm f = new HelperForm(this, MessageType.Restart, _restartMessage);
             f.ShowDialog();
         }
 
         private void button43_Click(object sender, EventArgs e)
         {
-            MessagerForm f = new MessagerForm(this, MessageType.Restart, _restartMessage);
+            HelperForm f = new HelperForm(this, MessageType.Restart, _restartMessage);
             f.ShowDialog();
         }
 
         private void button44_Click(object sender, EventArgs e)
         {
-            MessagerForm f = new MessagerForm(this, MessageType.Restart, _restartMessage);
+            HelperForm f = new HelperForm(this, MessageType.Restart, _restartMessage);
             f.ShowDialog();
         }
 
         private void button45_Click(object sender, EventArgs e)
         {
-            MessagerForm f = new MessagerForm(this, MessageType.Restart, _restartMessage);
+            HelperForm f = new HelperForm(this, MessageType.Restart, _restartMessage);
             f.ShowDialog();
         }
 
@@ -570,7 +645,7 @@ namespace Optimizer
         {
             if (listStartupItems.Items.Count > 0)
             {
-                MessagerForm r = new MessagerForm(this, MessageType.Startup, _removeStartupItemsMessage);
+                HelperForm r = new HelperForm(this, MessageType.Startup, _removeStartupItemsMessage);
                 r.ShowDialog(this);
             } 
         }
@@ -598,11 +673,12 @@ namespace Optimizer
         private void button33_Click(object sender, EventArgs e)
         {
             bool flag = FixRegistry();
-            panel2.Enabled = false;
-            button33.Enabled = false;
 
             if (flag)
             {
+                panel2.Enabled = false;
+                button33.Enabled = false;
+
                 if (checkRestartExplorer.Checked)
                 {
                     Utilities.RestartExplorer();
@@ -699,7 +775,7 @@ namespace Optimizer
         {
             if (listHostEntries.Items.Count > 0)
             {
-                MessagerForm r = new MessagerForm(this, MessageType.Hosts, _removeHostsEntriesMessage);
+                HelperForm r = new HelperForm(this, MessageType.Hosts, _removeHostsEntriesMessage);
                 r.ShowDialog(this);
             }
         }
@@ -840,7 +916,7 @@ namespace Optimizer
         {
             if (listDesktopItems.Items.Count > 0)
             {
-                MessagerForm r = new MessagerForm(this, MessageType.Integrator, _removeDesktopItemsMessage);
+                HelperForm r = new HelperForm(this, MessageType.Integrator, _removeDesktopItemsMessage);
                 r.ShowDialog(this);
             }
         }
@@ -1289,7 +1365,7 @@ namespace Optimizer
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Optimize.DisableSyncProviderNotifications();
+            Optimize.DisableQuickAccess();
             button7.Enabled = false;
         }
 
@@ -1347,6 +1423,22 @@ namespace Optimizer
         {
             Optimize.DisableSpellingAndTypingFeatures();
             button72.Enabled = false;
+        }
+
+        private void button73_Click(object sender, EventArgs e)
+        {
+            Optimize.RestoreTaskbarColor();
+            button73.Enabled = false;
+        }
+
+        private void button75_Click(object sender, EventArgs e)
+        {
+            GetModernApps();
+        }
+
+        private void button74_Click(object sender, EventArgs e)
+        {
+            UninstallModernApps();
         }
     }
 }

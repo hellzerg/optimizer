@@ -139,6 +139,15 @@
         VUrZey8AAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="label19.Text" xml:space="preserve">
+    <value>Items can have custom icons and position.
+They can also be hidden, accessible only
+by pressing the SHIFT key.
+
+Also, it can create custom commands
+for Run Dialog, making it easy to launch
+any application only by typing your desired keyword.</value>
+  </data>
   <metadata name="defineCommandDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

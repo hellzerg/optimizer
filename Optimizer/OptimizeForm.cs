@@ -90,13 +90,14 @@ namespace Optimizer
                         Optimize.UninstallOneDrive();
                         Optimize.DisablePrivacyOptions();
                         Optimize.DisableGameBar();
-                        Optimize.DisableSyncProviderNotifications();
+                        Optimize.DisableQuickAccess();
                         Optimize.DisableStartMenuAds();
                         Optimize.DisableSilentAppInstall();
                         Optimize.DisableMyPeople();
                         Optimize.ExcludeDrivers();
                         Optimize.DisableWindowsInk();
                         Optimize.DisableSpellingAndTypingFeatures();
+                        Optimize.RestoreTaskbarColor();
                     }
                 }
                 catch //(Exception error)

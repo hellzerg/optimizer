@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.5] - 2017-11-24
+- Added UWP app uninstaller
+- Disable Windows Defender also removes tray icon now
+- Disable Start Menu ads & Silent App Install improved
+- Added option to restore Taskbar color
+- Hide Sync Provider ads renamed to Disable Quick Access History
+   (disables used files and folders,
+    File Explorer opens 'This PC' by default now,
+	hides Sync Provider ads)
+
 ## [3.4] - 2017-10-25
 - Performance improvements
 - Startup crash on x86 systems fixed
@@ -40,7 +50,7 @@ All notable changes to this project will be documented in this file.
 - Minor visual fixes
 
 ## [2.5] - 2017-02-18
-- Removed ability to uninstall Modern Apps on Windows 10 due to bugs
+- Removed ability to uninstall Modern Apps due to several bugs
 
 ## [2.4] - 2017-02-17
 - Registry fixer improvements
@@ -61,19 +71,19 @@ All notable changes to this project will be documented in this file.
 - Cosmetic changes
 
 ## [1.9] - 2016-11-14
-- Further improved disable Office Telemetry option
+- Further improved Disable Office Telemetry
 
 ## [1.8] - 2016-10-27
-- Bug fixes
+- More Bug fixes
 
 ## [1.7] - 2016-10-23
-- Bug fixes
+- Minor Bug fixes
 
 ## [1.6] - 2016-10-20
 - Added option to disable Game Bar on Windows 10
 
 ## [1.5] - 2016-09-14
-- Bug fixes
+- Major Bug fixes
 
 ## [1.4] - 2016-09-12
 - Added Hosts editor
@@ -92,7 +102,7 @@ All notable changes to this project will be documented in this file.
 ## [1.1] - 2016-08-05
 - Added option to enable/disable Print Service
 - Improved disable Office Telemetry option
-- Minor bug fixes
+- Major bug fixes
 
 ## [1.0] - 2016-07-26
 - Initial release

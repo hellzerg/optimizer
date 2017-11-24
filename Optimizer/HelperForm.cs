@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public partial class MessagerForm : System.Windows.Forms.Form
+    public partial class HelperForm : System.Windows.Forms.Form
     {
         MainForm _main;
         MessageType _type;
@@ -46,7 +46,7 @@ namespace Optimizer
             }
         }
 
-        internal MessagerForm(MainForm main, MessageType m, string text)
+        internal HelperForm(MainForm main, MessageType m, string text)
         {
             InitializeComponent();
             Options.ApplyTheme(this);
@@ -70,7 +70,7 @@ namespace Optimizer
             {
                 chkPrint.Checked = true;
                 chkPrint.Visible = true;
-                chkSensors.Checked = false;
+                chkSensors.Checked = true;
                 chkSensors.Visible = true;
             }
         }

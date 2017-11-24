@@ -18,7 +18,7 @@ namespace Optimizer
 
         // Enter current version here
         internal readonly static float Major = 3;
-        internal readonly static float Minor = 4;
+        internal readonly static float Minor = 5;
 
         internal static string GetCurrentVersion()
         {
@@ -40,7 +40,7 @@ namespace Optimizer
 
             if (!Utilities.IsAdmin())
             {
-                MessagerForm f = new MessagerForm(null, MessageType.Error, _adminMissingMessage);
+                HelperForm f = new HelperForm(null, MessageType.Error, _adminMissingMessage);
                 f.ShowDialog();
 
                 Application.Exit();
@@ -74,7 +74,7 @@ namespace Optimizer
                 }
                 else
                 {
-                    MessagerForm f = new MessagerForm(null, MessageType.Error, _unsupportedMessage);
+                    HelperForm f = new HelperForm(null, MessageType.Error, _unsupportedMessage);
                     f.ShowDialog();
 
                     Application.Exit();

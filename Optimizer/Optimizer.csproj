@@ -123,11 +123,11 @@
     <Compile Include="Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MessagerForm.cs">
+    <Compile Include="HelperForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MessagerForm.Designer.cs">
-      <DependentUpon>MessagerForm.cs</DependentUpon>
+    <Compile Include="HelperForm.Designer.cs">
+      <DependentUpon>HelperForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Required.cs" />
     <Compile Include="StartupItem.cs" />
@@ -160,8 +160,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="MessagerForm.resx">
-      <DependentUpon>MessagerForm.cs</DependentUpon>
+    <EmbeddedResource Include="HelperForm.resx">
+      <DependentUpon>HelperForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest">
       <SubType>Designer</SubType>

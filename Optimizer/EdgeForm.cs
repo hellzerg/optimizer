@@ -38,7 +38,7 @@ namespace Optimizer
             }
             else
             {
-                MessagerForm f = new MessagerForm(null, MessageType.Error, _errorMessage);
+                HelperForm f = new HelperForm(null, MessageType.Error, _errorMessage);
                 f.ShowDialog();
             }
         }
