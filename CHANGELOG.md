@@ -8,10 +8,7 @@ All notable changes to this project will be documented in this file.
 - Disable Start Menu ads & Silent App Install improved
 - Added option to restore Taskbar color
 - Minor visual changes
-- Hide Sync Provider ads renamed to Disable Quick Access History
-   (disables used files and folders,
-    File Explorer opens 'This PC' by default now,
-	hides Sync Provider ads)
+- Hide Sync Provider ads renamed to Disable Quick Access History (disables used files and folders, File Explorer opens 'This PC' by default now, hides Sync Provider ads)
 
 ## [3.4] - 2017-10-25
 - Performance improvements
