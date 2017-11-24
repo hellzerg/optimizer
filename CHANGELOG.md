@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [3.5] - 2017-11-24
-- Added UWP app uninstaller
+- Added back UWP app uninstaller
 - Disable Windows Defender also removes tray icon now
 - Disable Start Menu ads & Silent App Install improved
 - Added option to restore Taskbar color
@@ -72,16 +72,16 @@ All notable changes to this project will be documented in this file.
 - Further improved Disable Office Telemetry
 
 ## [1.8] - 2016-10-27
-- More Bug fixes
+- More bug fixes
 
 ## [1.7] - 2016-10-23
-- Minor Bug fixes
+- Minor bug fixes
 
 ## [1.6] - 2016-10-20
 - Added option to disable Game Bar on Windows 10
 
 ## [1.5] - 2016-09-14
-- Major Bug fixes
+- Major bug fixes
 
 ## [1.4] - 2016-09-12
 - Added Hosts editor
@@ -99,7 +99,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.1] - 2016-08-05
 - Added option to enable/disable Print Service
-- Improved disable Office Telemetry option
+- Improved Disable Office Telemetry option
 - Major bug fixes
 
 ## [1.0] - 2016-07-26
