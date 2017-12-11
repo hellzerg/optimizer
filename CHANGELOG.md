@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.6] - 2017-12-11
+- Added Select All in UWP uninstaller
+- Improved Disable Telemetry Tasks
+- Changes to Disable Automatic Updates
+
 ## [3.5] - 2017-11-24
 - Added back UWP app uninstaller
 - Disable Windows Defender also removes tray icon now

@@ -76,18 +76,19 @@
             this.button21 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.windowsVIIITab = new System.Windows.Forms.TabPage();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button44 = new System.Windows.Forms.Button();
+            this.button35 = new System.Windows.Forms.Button();
+            this.button36 = new System.Windows.Forms.Button();
             this.modernAppsTab = new System.Windows.Forms.TabPage();
+            this.chkSelectAllModernApps = new System.Windows.Forms.CheckBox();
             this.label28 = new System.Windows.Forms.Label();
             this.button74 = new System.Windows.Forms.Button();
             this.button75 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelModernAppsList = new System.Windows.Forms.Panel();
             this.listModernApps = new System.Windows.Forms.CheckedListBox();
-            this.windowsVIIITab = new System.Windows.Forms.TabPage();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button44 = new System.Windows.Forms.Button();
-            this.button35 = new System.Windows.Forms.Button();
-            this.button36 = new System.Windows.Forms.Button();
             this.windowsVIITab = new System.Windows.Forms.TabPage();
             this.button19 = new System.Windows.Forms.Button();
             this.button45 = new System.Windows.Forms.Button();
@@ -248,9 +249,9 @@
             this.tabCollection.SuspendLayout();
             this.universalTab.SuspendLayout();
             this.windowsXTab.SuspendLayout();
+            this.windowsVIIITab.SuspendLayout();
             this.modernAppsTab.SuspendLayout();
             this.panelModernAppsList.SuspendLayout();
-            this.windowsVIIITab.SuspendLayout();
             this.windowsVIITab.SuspendLayout();
             this.cleanerTab.SuspendLayout();
             this.cleaningpanel.SuspendLayout();
@@ -458,7 +459,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(187, 31);
             this.button5.TabIndex = 32;
-            this.button5.Text = "Disable Office Telemetry";
+            this.button5.Text = "Disable Office 2016 Telemetry";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -1056,109 +1057,6 @@
             this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // modernAppsTab
-            // 
-            this.modernAppsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.modernAppsTab.Controls.Add(this.label28);
-            this.modernAppsTab.Controls.Add(this.button74);
-            this.modernAppsTab.Controls.Add(this.button75);
-            this.modernAppsTab.Controls.Add(this.label1);
-            this.modernAppsTab.Controls.Add(this.panelModernAppsList);
-            this.modernAppsTab.Location = new System.Drawing.Point(4, 24);
-            this.modernAppsTab.Name = "modernAppsTab";
-            this.modernAppsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.modernAppsTab.Size = new System.Drawing.Size(688, 513);
-            this.modernAppsTab.TabIndex = 11;
-            this.modernAppsTab.Text = "UWP Apps";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.Silver;
-            this.label28.Location = new System.Drawing.Point(503, 130);
-            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(160, 231);
-            this.label28.TabIndex = 51;
-            this.label28.Tag = "";
-            this.label28.Text = "IMPORTANT:\r\n\r\nIf you uninstall Store\r\nyou won\'t be able\r\nto install new apps!\r\n\r\n" +
-    "Also, some apps\r\ncan\'t be uninstalled.\r\n\r\nLike Microsoft Edge,\r\nSettings, etc.";
-            // 
-            // button74
-            // 
-            this.button74.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button74.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.button74.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.button74.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.button74.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button74.ForeColor = System.Drawing.Color.White;
-            this.button74.Location = new System.Drawing.Point(503, 76);
-            this.button74.Margin = new System.Windows.Forms.Padding(2);
-            this.button74.Name = "button74";
-            this.button74.Size = new System.Drawing.Size(169, 31);
-            this.button74.TabIndex = 50;
-            this.button74.Text = "Uninstall";
-            this.button74.UseVisualStyleBackColor = false;
-            this.button74.Click += new System.EventHandler(this.button74_Click);
-            // 
-            // button75
-            // 
-            this.button75.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button75.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.button75.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.button75.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.button75.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button75.ForeColor = System.Drawing.Color.White;
-            this.button75.Location = new System.Drawing.Point(503, 41);
-            this.button75.Margin = new System.Windows.Forms.Padding(2);
-            this.button75.Name = "button75";
-            this.button75.Size = new System.Drawing.Size(169, 31);
-            this.button75.TabIndex = 49;
-            this.button75.Text = "Refresh";
-            this.button75.UseVisualStyleBackColor = false;
-            this.button75.Click += new System.EventHandler(this.button75_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label1.Location = new System.Drawing.Point(6, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(291, 28);
-            this.label1.TabIndex = 47;
-            this.label1.Tag = "themeable";
-            this.label1.Text = "Uninstall unwanted UWP Apps";
-            // 
-            // panelModernAppsList
-            // 
-            this.panelModernAppsList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelModernAppsList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelModernAppsList.Controls.Add(this.listModernApps);
-            this.panelModernAppsList.Location = new System.Drawing.Point(11, 41);
-            this.panelModernAppsList.Name = "panelModernAppsList";
-            this.panelModernAppsList.Size = new System.Drawing.Size(487, 455);
-            this.panelModernAppsList.TabIndex = 0;
-            // 
-            // listModernApps
-            // 
-            this.listModernApps.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.listModernApps.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listModernApps.CheckOnClick = true;
-            this.listModernApps.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listModernApps.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listModernApps.ForeColor = System.Drawing.Color.White;
-            this.listModernApps.FormattingEnabled = true;
-            this.listModernApps.HorizontalScrollbar = true;
-            this.listModernApps.Location = new System.Drawing.Point(0, 0);
-            this.listModernApps.Name = "listModernApps";
-            this.listModernApps.Size = new System.Drawing.Size(485, 453);
-            this.listModernApps.Sorted = true;
-            this.listModernApps.TabIndex = 0;
-            // 
             // windowsVIIITab
             // 
             this.windowsVIIITab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -1241,6 +1139,124 @@
             this.button36.Text = "Disable OneDrive";
             this.button36.UseVisualStyleBackColor = false;
             this.button36.Click += new System.EventHandler(this.button36_Click);
+            // 
+            // modernAppsTab
+            // 
+            this.modernAppsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.modernAppsTab.Controls.Add(this.chkSelectAllModernApps);
+            this.modernAppsTab.Controls.Add(this.label28);
+            this.modernAppsTab.Controls.Add(this.button74);
+            this.modernAppsTab.Controls.Add(this.button75);
+            this.modernAppsTab.Controls.Add(this.label1);
+            this.modernAppsTab.Controls.Add(this.panelModernAppsList);
+            this.modernAppsTab.Location = new System.Drawing.Point(4, 24);
+            this.modernAppsTab.Name = "modernAppsTab";
+            this.modernAppsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.modernAppsTab.Size = new System.Drawing.Size(688, 513);
+            this.modernAppsTab.TabIndex = 11;
+            this.modernAppsTab.Text = "UWP Apps";
+            // 
+            // chkSelectAllModernApps
+            // 
+            this.chkSelectAllModernApps.AutoSize = true;
+            this.chkSelectAllModernApps.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkSelectAllModernApps.ForeColor = System.Drawing.Color.White;
+            this.chkSelectAllModernApps.Location = new System.Drawing.Point(503, 111);
+            this.chkSelectAllModernApps.Margin = new System.Windows.Forms.Padding(2);
+            this.chkSelectAllModernApps.Name = "chkSelectAllModernApps";
+            this.chkSelectAllModernApps.Size = new System.Drawing.Size(94, 25);
+            this.chkSelectAllModernApps.TabIndex = 52;
+            this.chkSelectAllModernApps.Text = "Select all";
+            this.chkSelectAllModernApps.UseVisualStyleBackColor = true;
+            this.chkSelectAllModernApps.CheckedChanged += new System.EventHandler(this.chkSelectAllModernApps_CheckedChanged);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.Silver;
+            this.label28.Location = new System.Drawing.Point(499, 158);
+            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(160, 231);
+            this.label28.TabIndex = 51;
+            this.label28.Tag = "";
+            this.label28.Text = "IMPORTANT:\r\n\r\nIf you uninstall Store\r\nyou won\'t be able\r\nto install new apps!\r\n\r\n" +
+    "Also, some apps\r\ncan\'t be uninstalled.\r\n\r\nLike Microsoft Edge,\r\nSettings, etc.";
+            // 
+            // button74
+            // 
+            this.button74.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button74.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button74.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.button74.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.button74.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button74.ForeColor = System.Drawing.Color.White;
+            this.button74.Location = new System.Drawing.Point(503, 76);
+            this.button74.Margin = new System.Windows.Forms.Padding(2);
+            this.button74.Name = "button74";
+            this.button74.Size = new System.Drawing.Size(169, 31);
+            this.button74.TabIndex = 50;
+            this.button74.Text = "Uninstall";
+            this.button74.UseVisualStyleBackColor = false;
+            this.button74.Click += new System.EventHandler(this.button74_Click);
+            // 
+            // button75
+            // 
+            this.button75.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button75.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button75.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.button75.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.button75.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button75.ForeColor = System.Drawing.Color.White;
+            this.button75.Location = new System.Drawing.Point(503, 41);
+            this.button75.Margin = new System.Windows.Forms.Padding(2);
+            this.button75.Name = "button75";
+            this.button75.Size = new System.Drawing.Size(169, 31);
+            this.button75.TabIndex = 49;
+            this.button75.Text = "Refresh";
+            this.button75.UseVisualStyleBackColor = false;
+            this.button75.Click += new System.EventHandler(this.button75_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label1.Location = new System.Drawing.Point(6, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(291, 28);
+            this.label1.TabIndex = 47;
+            this.label1.Tag = "themeable";
+            this.label1.Text = "Uninstall unwanted UWP Apps";
+            // 
+            // panelModernAppsList
+            // 
+            this.panelModernAppsList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelModernAppsList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelModernAppsList.Controls.Add(this.listModernApps);
+            this.panelModernAppsList.Location = new System.Drawing.Point(11, 41);
+            this.panelModernAppsList.Name = "panelModernAppsList";
+            this.panelModernAppsList.Size = new System.Drawing.Size(487, 455);
+            this.panelModernAppsList.TabIndex = 0;
+            // 
+            // listModernApps
+            // 
+            this.listModernApps.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.listModernApps.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listModernApps.CheckOnClick = true;
+            this.listModernApps.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listModernApps.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listModernApps.ForeColor = System.Drawing.Color.White;
+            this.listModernApps.FormattingEnabled = true;
+            this.listModernApps.HorizontalScrollbar = true;
+            this.listModernApps.Location = new System.Drawing.Point(0, 0);
+            this.listModernApps.Name = "listModernApps";
+            this.listModernApps.Size = new System.Drawing.Size(485, 453);
+            this.listModernApps.Sorted = true;
+            this.listModernApps.TabIndex = 0;
             // 
             // windowsVIITab
             // 
@@ -2711,7 +2727,7 @@
             this.panel5.Location = new System.Drawing.Point(11, 40);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(293, 435);
+            this.panel5.Size = new System.Drawing.Size(293, 441);
             this.panel5.TabIndex = 82;
             // 
             // listDesktopItems
@@ -2727,7 +2743,7 @@
             this.listDesktopItems.Location = new System.Drawing.Point(0, 0);
             this.listDesktopItems.Margin = new System.Windows.Forms.Padding(2);
             this.listDesktopItems.Name = "listDesktopItems";
-            this.listDesktopItems.Size = new System.Drawing.Size(291, 433);
+            this.listDesktopItems.Size = new System.Drawing.Size(291, 439);
             this.listDesktopItems.TabIndex = 78;
             // 
             // button60
@@ -3071,7 +3087,7 @@
             this.panel6.Location = new System.Drawing.Point(11, 210);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(271, 264);
+            this.panel6.Size = new System.Drawing.Size(271, 270);
             this.panel6.TabIndex = 84;
             // 
             // listCustomCommands
@@ -3087,7 +3103,7 @@
             this.listCustomCommands.Location = new System.Drawing.Point(0, 0);
             this.listCustomCommands.Margin = new System.Windows.Forms.Padding(2);
             this.listCustomCommands.Name = "listCustomCommands";
-            this.listCustomCommands.Size = new System.Drawing.Size(269, 262);
+            this.listCustomCommands.Size = new System.Drawing.Size(269, 268);
             this.listCustomCommands.TabIndex = 79;
             // 
             // button26
@@ -3437,10 +3453,10 @@
             this.tabCollection.ResumeLayout(false);
             this.universalTab.ResumeLayout(false);
             this.windowsXTab.ResumeLayout(false);
+            this.windowsVIIITab.ResumeLayout(false);
             this.modernAppsTab.ResumeLayout(false);
             this.modernAppsTab.PerformLayout();
             this.panelModernAppsList.ResumeLayout(false);
-            this.windowsVIIITab.ResumeLayout(false);
             this.windowsVIITab.ResumeLayout(false);
             this.cleanerTab.ResumeLayout(false);
             this.cleanerTab.PerformLayout();
@@ -3706,6 +3722,7 @@
         private System.Windows.Forms.Button button74;
         private System.Windows.Forms.Button button75;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.CheckBox chkSelectAllModernApps;
     }
 }
 

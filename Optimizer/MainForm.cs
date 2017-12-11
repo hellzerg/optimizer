@@ -1440,5 +1440,13 @@ namespace Optimizer
         {
             UninstallModernApps();
         }
+
+        private void chkSelectAllModernApps_CheckedChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listModernApps.Items.Count; i++)
+            {
+                listModernApps.SetItemChecked(i, chkSelectAllModernApps.Checked);
+            }
+        }
     }
 }

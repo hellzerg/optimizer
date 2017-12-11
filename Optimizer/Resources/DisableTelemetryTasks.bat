@@ -1,5 +1,7 @@
 schtasks /end /tn "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator"
 schtasks /change /tn "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator" /disable
+schtasks /end /tn "\Microsoft\Windows\Customer Experience Improvement Program\BthSQM"
+schtasks /change /tn "\Microsoft\Windows\Customer Experience Improvement Program\BthSQM" /disable
 schtasks /end /tn "\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask"
 schtasks /change /tn "\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask" /disable
 schtasks /end /tn "\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip"
