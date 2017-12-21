@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 - Every option can now be reverted back (toggles, finally)
 - Apply All button removed in favor of toggles
 - Added Enable Dark Theme toggle for Windows 10
-- Disable Diagnostics Tracking, WAP Push & Data Telemetry into one single toggle: Disable Telemetry
+- Disable Diagnostics Tracking, WAP Push & Data Telemetry into one single toggle: Disable Telemetry Services
 - Remove Get Windows 10 button removed as it is no longer needed
 - Various improvements
 - Added Reset Configuration button in Options
