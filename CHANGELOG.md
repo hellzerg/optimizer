@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.7] - UNRELEASED
+- Every option can now be reverted back (toggles, finally)
+- Added Enable Dark Theme toggle for Windows 10
+- Disable Diagnostics Tracking, WAP Push & Data Telemetry into one single toggle: Disable Telemetry
+- Remove Get Windows 10 button removed as it is no longer needed
+
 ## [3.6] - 2017-12-11
 - Added Select All in UWP uninstaller
 - Improved Disable Telemetry Tasks
