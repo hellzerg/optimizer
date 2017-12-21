@@ -135,10 +135,10 @@ namespace Optimizer
                 Icon ico = Icon.ExtractAssociatedIcon(fileName);
 
                 Clipboard.SetImage(ico.ToBitmap());
-                Clipboard.GetImage().Save(Required.ExtractedIcons + "\\" + itemName + ".ico", ImageFormat.Bmp);
+                Clipboard.GetImage().Save(Required.ExtractedIconsFolder + itemName + ".ico", ImageFormat.Bmp);
                 Clipboard.Clear();
 
-                iconPath = Required.ExtractedIcons + "\\" + itemName + ".ico";
+                iconPath = Required.ExtractedIconsFolder + itemName + ".ico";
             }
 
             return iconPath;
@@ -153,9 +153,9 @@ namespace Optimizer
                 Uri url = new Uri(link);
                 if (url.HostNameType == UriHostNameType.Dns)
                 {
-                    Image.FromStream(((HttpWebResponse)WebRequest.Create("http://" + url.Host + "/favicon.ico").GetResponse()).GetResponseStream()).Save(Required.FavIcons + name + ".ico", ImageFormat.Bmp);
+                    Image.FromStream(((HttpWebResponse)WebRequest.Create("http://" + url.Host + "/favicon.ico").GetResponse()).GetResponseStream()).Save(Required.FavIconsFolder + name + ".ico", ImageFormat.Bmp);
 
-                    favicon = Required.FavIcons + name + ".ico";
+                    favicon = Required.FavIconsFolder + name + ".ico";
                 }
             }
             catch { }
@@ -212,30 +212,30 @@ namespace Optimizer
 
         internal static void TakeOwnership(bool remove)
         {
-            if (!File.Exists(Required.ReadyMadeMenus + "\\InstallTakeOwnership.reg"))
+            if (!File.Exists(Required.ReadyMadeMenusFolder + "InstallTakeOwnership.reg"))
             {
                 try
                 {
-                    File.WriteAllText(Required.ReadyMadeMenus + "\\InstallTakeOwnership.reg", Properties.Resources.InstallTakeOwnership);
+                    File.WriteAllText(Required.ReadyMadeMenusFolder + "InstallTakeOwnership.reg", Properties.Resources.InstallTakeOwnership);
                 }
                 catch { }
             }
-            if (!File.Exists(Required.ReadyMadeMenus + "\\RemoveTakeOwnership.reg"))
+            if (!File.Exists(Required.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg"))
             {
                 try
                 {
-                    File.WriteAllText(Required.ReadyMadeMenus + "\\RemoveTakeOwnership.reg", Properties.Resources.RemoveTakeOwnership);
+                    File.WriteAllText(Required.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg", Properties.Resources.RemoveTakeOwnership);
                 }
                 catch { }
             }
             
             if (!remove)
             {
-                Utilities.ImportRegistryScript(Required.ReadyMadeMenus + "\\InstallTakeOwnership.reg");
+                Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "InstallTakeOwnership.reg");
             }
             else
             {
-                Utilities.ImportRegistryScript(Required.ReadyMadeMenus + "\\RemoveTakeOwnership.reg");
+                Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg");
             }
         }
     }

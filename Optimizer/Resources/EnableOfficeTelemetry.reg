@@ -1,0 +1,19 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Policies\microsoft\office\16.0\osm\preventedapplications]
+"accesssolution"=-
+"olksolution"=-
+"onenotesolution"=-
+"pptsolution"=-
+"projectsolution"=-
+"publishersolution"=-
+"visiosolution"=-
+"wdsolution"=-
+"xlsolution"=-
+ 
+[HKEY_CURRENT_USER\Software\Policies\microsoft\office\16.0\osm\preventedsolutiontypes]
+"agave"=-
+"appaddins"=-
+"comaddins"=-
+"documentfiles"=-
+"templatefiles"=-

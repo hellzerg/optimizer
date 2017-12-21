@@ -40,9 +40,42 @@ namespace Optimizer
         readonly string _removeDesktopItemsMessage = "Are you sure you want to delete all desktop items?";
         readonly string _removeModernAppsMessage = "Are you sure you want to uninstall the following app(s)?";
         readonly string _errorModernAppsMessage = "The following app(s) couldn't be uninstalled:\n";
-        readonly string _applyAllWindows7Message = "This will apply every option in Universal and Windows 7 tabs. Continue?";
-        readonly string _applyAllWindows8Message = "This will apply every option in Universal and Windows 8.1 tabs. Continue?";
-        readonly string _applyAllWindows10Message = "This will apply every option in Universal and Windows 10 tabs. Continue?";
+        readonly string _resetMessage = "Are you sure you want to reset configuration?\n\nThis will delete all your preferences, including any icons you extracted or downloaded using Integrator.";
+
+        private void EnableToggleEvents()
+        {
+            toggleSwitch12.Click += new EventHandler(toggleSwitch12_Click);
+            toggleSwitch11.Click += new EventHandler(toggleSwitch11_Click);
+            toggleSwitch10.Click += new EventHandler(toggleSwitch10_Click);
+            toggleSwitch9.Click += new EventHandler(toggleSwitch9_Click);
+            toggleSwitch8.Click += new EventHandler(toggleSwitch8_Click);
+            toggleSwitch7.Click += new EventHandler(toggleSwitch7_Click);
+            toggleSwitch6.Click += new EventHandler(toggleSwitch6_Click);
+            toggleSwitch5.Click += new EventHandler(toggleSwitch5_Click);
+            toggleSwitch4.Click += new EventHandler(toggleSwitch4_Click);
+            toggleSwitch1.Click += new EventHandler(toggleSwitch1_Click);
+            toggleSwitch3.Click += new EventHandler(toggleSwitch3_Click);
+            toggleSwitch2.Click += new EventHandler(toggleSwitch2_Click);
+            toggleSwitch27.Click += new EventHandler(toggleSwitch27_Click);
+            toggleSwitch28.Click += new EventHandler(toggleSwitch28_Click);
+            toggleSwitch29.Click += new EventHandler(toggleSwitch29_Click);
+            toggleSwitch30.Click += new EventHandler(toggleSwitch30_Click);
+            toggleSwitch22.Click += new EventHandler(toggleSwitch22_Click);
+            toggleSwitch20.Click += new EventHandler(toggleSwitch20_Click);
+            toggleSwitch21.Click += new EventHandler(toggleSwitch21_Click);
+            toggleSwitch23.Click += new EventHandler(toggleSwitch23_Click);
+            toggleSwitch24.Click += new EventHandler(toggleSwitch24_Click);
+            toggleSwitch25.Click += new EventHandler(toggleSwitch25_Click);
+            toggleSwitch26.Click += new EventHandler(toggleSwitch26_Click);
+            toggleSwitch17.Click += new EventHandler(toggleSwitch17_Click);
+            toggleSwitch16.Click += new EventHandler(toggleSwitch16_Click);
+            toggleSwitch15.Click += new EventHandler(toggleSwitch15_Click);
+            toggleSwitch14.Click += new EventHandler(toggleSwitch14_Click);
+            toggleSwitch13.Click += new EventHandler(toggleSwitch13_Click);
+            toggleSwitch31.Click += new EventHandler(toggleSwitch31_Click);
+            toggleSwitch18.Click += new EventHandler(toggleSwitch18_Click);
+            toggleSwitch19.Click += new EventHandler(toggleSwitch19_Click);
+        }
 
         private void LoadSettings()
         {
@@ -72,34 +105,63 @@ namespace Optimizer
         public MainForm()
         {
             InitializeComponent();
+            EnableToggleEvents();
+
+            CheckForIllegalCrossThreadCalls = false;
             Options.ApplyTheme(this);
+
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
+            {
+                tabCollection.TabPages.Remove(universalTab);
+                tabCollection.TabPages.Remove(windowsVIIITab);
+                tabCollection.TabPages.Remove(windowsXTab);
+                tabCollection.TabPages.Remove(modernAppsTab);
+            }
+
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
+            {
+                LoadUniversalToggleStates();
+                tabCollection.TabPages.Remove(windowsVIIITab);
+                tabCollection.TabPages.Remove(windowsXTab);
+                tabCollection.TabPages.Remove(modernAppsTab);
+            }
+
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
+            {
+                LoadUniversalToggleStates();
+                LoadWindowsVIIIToggleStates();
+                tabCollection.TabPages.Remove(windowsXTab);
+            }
+
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
+            {
+                LoadUniversalToggleStates();
+                LoadWindowsXToggleStates();
+                tabCollection.TabPages.Remove(windowsVIIITab);
+            }
 
             _columnSorter = new ListViewColumnSorter();
             listStartupItems.ListViewItemSorter = _columnSorter;
-        }
 
-        private void ApplyAll()
-        {
-            if (Utilities.CurrentWindowsVersion != WindowsVersion.Unsupported)
-            {
-                string message = string.Empty;
+            integratorTimer.Start();
+            runDialogTime.Start();
 
-                if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
-                {
-                    message = _applyAllWindows7Message;
-                }
-                if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
-                {
-                    message = _applyAllWindows8Message;
-                }
-                if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
-                {
-                    message = _applyAllWindows10Message;
-                }
+            GetStartupItems();
+            GetHostsEntries();
+            GetDesktopItems();
+            GetCustomCommands();
+            GetModernApps();
 
-                HelperForm r = new HelperForm(this, MessageType.Optimize, message);
-                r.ShowDialog(this);
-            }
+            LoadSettings();
+
+            radioProgram.Checked = true;
+            radioTop.Checked = true;
+
+            txtVersion.Text = "Version: " + Program.GetCurrentVersion();
+            Program.MainForm = this;
+
+            txtOS.Text = "Microsoft " + Utilities.GetOS();
+            txtBitness.Text = Utilities.GetBitness();
         }
 
         private void CleanPC()
@@ -152,7 +214,7 @@ namespace Optimizer
 
         private void CleaningAnimation(bool start)
         {
-            if (start == true)
+            if (start)
             {
                 Utilities.SetControlPropertyThreadSafe(cleaningpanel, "Visible", true);
                 Utilities.SetControlPropertyThreadSafe(progress2, "Visible", true);
@@ -227,57 +289,52 @@ namespace Optimizer
             return changeDetected;
         }
 
+        private void LoadUniversalToggleStates()
+        {
+            toggleSwitch1.Checked = Options.CurrentOptions.EnablePerformanceTweaks;
+            toggleSwitch2.Checked = Options.CurrentOptions.DisableNetworkThrottling;
+            toggleSwitch3.Checked = Options.CurrentOptions.DisableWindowsDefender;
+            toggleSwitch4.Checked = Options.CurrentOptions.DisableSystemRestore;
+            toggleSwitch5.Checked = Options.CurrentOptions.DisablePrintService;
+            toggleSwitch6.Checked = Options.CurrentOptions.DisableMediaPlayerSharing;
+            toggleSwitch7.Checked = Options.CurrentOptions.BlockSkypeAds;
+            toggleSwitch8.Checked = Options.CurrentOptions.DisableErrorReporting;
+            toggleSwitch9.Checked = Options.CurrentOptions.DisableHomeGroup;
+            toggleSwitch10.Checked = Options.CurrentOptions.DisableSuperfetch;
+            toggleSwitch11.Checked = Options.CurrentOptions.DisableTelemetryTasks;
+            toggleSwitch12.Checked = Options.CurrentOptions.DisableOffice2016Telemetry;
+        }
+
+        private void LoadWindowsVIIIToggleStates()
+        {
+            toggleSwitch31.Checked = Options.CurrentOptions.DisableOneDrive;
+        }
+
+        private void LoadWindowsXToggleStates()
+        {
+            toggleSwitch13.Checked = Options.CurrentOptions.EnableLegacyVolumeSlider;
+            toggleSwitch14.Checked = Options.CurrentOptions.UninstallOneDrive;
+            toggleSwitch15.Checked = Options.CurrentOptions.DisableGameBar;
+            toggleSwitch16.Checked = Options.CurrentOptions.DisableCortana;
+            toggleSwitch17.Checked = Options.CurrentOptions.DisableXboxLive;
+            toggleSwitch18.Checked = Options.CurrentOptions.DisableQuickAccessHistory;
+            toggleSwitch19.Checked = Options.CurrentOptions.EnableTaskbarColor;
+            toggleSwitch20.Checked = Options.CurrentOptions.DisableSensorServices;
+            toggleSwitch21.Checked = Options.CurrentOptions.DisablePrivacyOptions;
+            toggleSwitch22.Checked = Options.CurrentOptions.DisableSilentAppInstall;
+            toggleSwitch23.Checked = Options.CurrentOptions.DisableTelemetryServices;
+            toggleSwitch24.Checked = Options.CurrentOptions.DisableAutomaticUpdates;
+            toggleSwitch25.Checked = Options.CurrentOptions.DisableMyPeople;
+            toggleSwitch26.Checked = Options.CurrentOptions.DisableStartMenuAds;
+            toggleSwitch27.Checked = Options.CurrentOptions.EnableDarkTheme;
+            toggleSwitch28.Checked = Options.CurrentOptions.DisableSpellingTyping;
+            toggleSwitch29.Checked = Options.CurrentOptions.DisableWindowsInk;
+            toggleSwitch30.Checked = Options.CurrentOptions.ExcludeDrivers;
+        }
+
         private void Main_Load(object sender, EventArgs e)
         {
-            CheckForIllegalCrossThreadCalls = false;
             
-            integratorTimer.Start();
-            runDialogTime.Start();
-
-            GetStartupItems();
-            GetHostsEntries();
-            GetDesktopItems();
-            GetCustomCommands();
-            GetModernApps();
-
-            LoadSettings();
-
-            radioProgram.Checked = true;
-            radioTop.Checked = true;
-
-            txtVersion.Text = "Version: " + Program.GetCurrentVersion();
-            Program.MainForm = this;
-            
-            txtOS.Text = "Microsoft " + Utilities.GetOS();
-            txtBitness.Text = Utilities.GetBitness();   
-            
-            if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
-            {
-                tabCollection.TabPages.Remove(universalTab);
-                tabCollection.TabPages.Remove(windowsVIITab);
-                tabCollection.TabPages.Remove(windowsVIIITab);
-                tabCollection.TabPages.Remove(windowsXTab);
-                tabCollection.TabPages.Remove(modernAppsTab);
-            }   
-
-            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
-            {
-                tabCollection.TabPages.Remove(windowsVIIITab);
-                tabCollection.TabPages.Remove(windowsXTab);
-                tabCollection.TabPages.Remove(modernAppsTab);
-            }
-
-            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
-            {
-                tabCollection.TabPages.Remove(windowsVIITab);
-                tabCollection.TabPages.Remove(windowsXTab);
-            }
-
-            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
-            {
-                tabCollection.TabPages.Remove(windowsVIITab);
-                tabCollection.TabPages.Remove(windowsVIIITab);
-            }
         }
 
         private void GetDesktopItems()
@@ -429,177 +486,10 @@ namespace Optimizer
             f.ShowDialog();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Optimize.PerformanceTweaks();
-            button3.Enabled = false;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableNetworkThrottling();
-            button2.Enabled = false;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Task t = new Task(() => Optimize.DisableDefender());
-            t.Start();
-            button1.Enabled = false;
-        }
-
-        private void button17_Click(object sender, EventArgs e)
-        {
-            Task t = new Task(() => Optimize.DisableSystemRestore());
-            t.Start();
-            button17.Enabled = false;
-        }
-
-        private void button16_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableErrorReporting();
-            button16.Enabled = false;
-        }
-
-        private void button13_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableHomeGroup();
-            button13.Enabled = false;
-        }
-
-        private void button14_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableSuperfetch();
-            button14.Enabled = false;
-        }
-
-        private void button15_Click(object sender, EventArgs e)
-        {
-            Optimize.DisablePrintSpooler();
-            button15.Enabled = false;
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            Optimize.BlockSkypeAds();
-            button10.Enabled = false;
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            Optimize.RestoreLegacyVolumeSlider();
-            button9.Enabled = false;
-        }
-
-        private void button29_Click(object sender, EventArgs e)
-        {
-            Task t = new Task(() => Optimize.UninstallOneDrive());
-            t.Start();
-            Utilities.ActivateMainForm();
-            button29.Enabled = false;
-        }
-
-        private void button24_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableCortana();
-            button24.Enabled = false;
-        }
-
-        private void button21_Click(object sender, EventArgs e)
-        {
-            Task t = new Task(() => Optimize.DisableXboxLive());
-            t.Start();
-            button21.Enabled = false;
-        }
-
         private void button18_Click(object sender, EventArgs e)
         {
             EdgeForm f = new EdgeForm();
             f.ShowDialog();
-        }
-
-        private void button28_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableAutomaticUpdates();
-            button28.Enabled = false;
-        }
-
-        private void button27_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableDiagnosticsTracking();
-            button27.Enabled = false;
-        }
-
-        private void button25_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableWAPPush();
-            button25.Enabled = false;
-        }
-
-        private void button23_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableDataTelemetry();
-            button23.Enabled = false;
-        }
-
-        private void button30_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableSensorServices();
-            button30.Enabled = false;
-        }
-
-        private void button36_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableOneDrive();
-            button36.Enabled = false;
-        }
-
-        private void button35_Click(object sender, EventArgs e)
-        {
-            Optimize.RemoveWindows10Icon();
-            button35.Enabled = false;
-        }
-
-        private void button38_Click(object sender, EventArgs e)
-        {
-            Optimize.RemoveWindows10Icon();
-            button38.Enabled = false;
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Task t = new Task(() => Optimize.DisableTelemetryTasks());
-            t.Start();
-            Utilities.ActivateMainForm();
-            button4.Enabled = false;
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Task t = new Task(() => Optimize.DisableOfficeTelemetryTasks());
-            t.Start();
-            Utilities.ActivateMainForm();
-            button5.Enabled = false;
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            ApplyAll();
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            ApplyAll();
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            ApplyAll();
-        }
-
-        private void button19_Click(object sender, EventArgs e)
-        {
-            ApplyAll();
         }
 
         private void checkSelectAll_CheckedChanged(object sender, EventArgs e)
@@ -698,12 +588,6 @@ namespace Optimizer
         private void button37_Click(object sender, EventArgs e)
         {
             GetStartupItems();
-        }
-
-        private void button40_Click(object sender, EventArgs e)
-        {
-            Optimize.DisablePrivacyOptions();
-            button40.Enabled = false;
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -857,31 +741,31 @@ namespace Optimizer
 
         private void button59_Click(object sender, EventArgs e)
         {
-            Utilities.ImportRegistryScript(Required.ReadyMadeMenus + "\\PowerMenu.reg");
+            Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\PowerMenu.reg");
             GetDesktopItems();
         }
 
         private void button53_Click(object sender, EventArgs e)
         {
-            Utilities.ImportRegistryScript(Required.ReadyMadeMenus + "\\SystemTools.reg");
+            Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\SystemTools.reg");
             GetDesktopItems();
         }
 
         private void button54_Click(object sender, EventArgs e)
         {
-            Utilities.ImportRegistryScript(Required.ReadyMadeMenus + "\\WindowsApps.reg");
+            Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\WindowsApps.reg");
             GetDesktopItems();
         }
 
         private void button51_Click(object sender, EventArgs e)
         {
-            Utilities.ImportRegistryScript(Required.ReadyMadeMenus + "\\SystemShortcuts.reg");
+            Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\SystemShortcuts.reg");
             GetDesktopItems();
         }
 
         private void button57_Click(object sender, EventArgs e)
         {
-            Utilities.ImportRegistryScript(Required.ReadyMadeMenus + "\\DesktopShortcuts.reg");
+            Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\DesktopShortcuts.reg");
             GetDesktopItems();
         }
 
@@ -1303,12 +1187,6 @@ namespace Optimizer
             Options.ApplyTheme(this);
         }
 
-        private void button63_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableGameBar();
-            button63.Enabled = false;
-        }
-
         private void button64_Click(object sender, EventArgs e)
         {
             if (listStartupItems.SelectedItems.Count == 1)
@@ -1363,12 +1241,6 @@ namespace Optimizer
             }
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableQuickAccess();
-            button7.Enabled = false;
-        }
-
         private void button8_Click(object sender, EventArgs e)
         {
             GetCustomCommands();
@@ -1381,54 +1253,6 @@ namespace Optimizer
                 Integrator.DeleteCustomCommand(listCustomCommands.SelectedItem.ToString());
                 GetCustomCommands();
             }
-        }
-
-        private void button34_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableMediaPlayerSharing();
-            button34.Enabled = false;
-        }
-
-        private void button68_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableStartMenuAds();
-            button68.Enabled = false;
-        }
-
-        private void button67_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableSilentAppInstall();
-            button67.Enabled = false;
-        }
-
-        private void button69_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableMyPeople();
-            button69.Enabled = false;
-        }
-
-        private void button70_Click(object sender, EventArgs e)
-        {
-            Optimize.ExcludeDrivers();
-            button70.Enabled = false;
-        }
-
-        private void button71_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableWindowsInk();
-            button71.Enabled = false;
-        }
-
-        private void button72_Click(object sender, EventArgs e)
-        {
-            Optimize.DisableSpellingAndTypingFeatures();
-            button72.Enabled = false;
-        }
-
-        private void button73_Click(object sender, EventArgs e)
-        {
-            Optimize.RestoreTaskbarColor();
-            button73.Enabled = false;
         }
 
         private void button75_Click(object sender, EventArgs e)
@@ -1447,6 +1271,419 @@ namespace Optimizer
             {
                 listModernApps.SetItemChecked(i, chkSelectAllModernApps.Checked);
             }
+        }
+
+        private void btnResetConfig_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(_resetMessage, "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Utilities.ResetConfiguration();
+            }
+        }
+
+        private void toggleSwitch1_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch1.Checked)
+            {
+                Optimize.EnablePerformanceTweaks();
+            }
+            else
+            {
+                Optimize.DisablePerformanceTweaks();
+            }
+            Options.CurrentOptions.EnablePerformanceTweaks = !toggleSwitch1.Checked;
+        }
+
+        private void toggleSwitch2_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch2.Checked)
+            {
+                Optimize.DisableNetworkThrottling();
+            }
+            else
+            {
+                Optimize.EnableNetworkThrottling();
+            }
+            Options.CurrentOptions.DisableNetworkThrottling = !toggleSwitch2.Checked;
+        }
+
+        private void toggleSwitch3_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch3.Checked)
+            {
+                Optimize.DisableDefender();
+            }
+            else
+            {
+                Optimize.EnableDefender();
+            }
+            Options.CurrentOptions.DisableWindowsDefender = !toggleSwitch3.Checked;
+        }
+
+        private void toggleSwitch4_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch4.Checked)
+            {
+                Optimize.DisableSystemRestore();
+            }
+            else
+            {
+                Optimize.EnableSystemRestore();
+            }
+            Options.CurrentOptions.DisableSystemRestore = !toggleSwitch4.Checked;
+        }
+
+        private void toggleSwitch5_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch5.Checked)
+            {
+                Optimize.DisablePrintService();
+            }
+            else
+            {
+                Optimize.EnablePrintService();
+            }
+            Options.CurrentOptions.DisablePrintService = !toggleSwitch5.Checked;
+        }
+
+        private void toggleSwitch6_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch6.Checked)
+            {
+                Optimize.DisableMediaPlayerSharing();
+            }
+            else
+            {
+                Optimize.EnableMediaPlayerSharing();
+            }
+            Options.CurrentOptions.DisableMediaPlayerSharing = !toggleSwitch6.Checked;
+        }
+
+        private void toggleSwitch7_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch7.Checked)
+            {
+                Optimize.DisableSkypeAds();
+            }
+            else
+            {
+                Optimize.EnableSkypeAds();
+            }
+            Options.CurrentOptions.BlockSkypeAds = !toggleSwitch7.Checked;
+        }
+
+        private void toggleSwitch8_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch8.Checked)
+            {
+                Optimize.DisableErrorReporting();
+            }
+            else
+            {
+                Optimize.EnableErrorReporting();
+            }
+            Options.CurrentOptions.DisableErrorReporting = !toggleSwitch8.Checked;
+        }
+
+        private void toggleSwitch9_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch9.Checked)
+            {
+                Optimize.DisableHomeGroup();
+            }
+            else
+            {
+                Optimize.EnableHomeGroup();
+            }
+            Options.CurrentOptions.DisableHomeGroup = !toggleSwitch9.Checked;
+        }
+
+        private void toggleSwitch10_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch10.Checked)
+            {
+                Optimize.DisableSuperfetch();
+            }
+            else
+            {
+                Optimize.EnableSuperfetch();
+            }
+            Options.CurrentOptions.DisableSuperfetch = !toggleSwitch10.Checked;
+        }
+
+        private void toggleSwitch11_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch11.Checked)
+            {
+                Optimize.DisableTelemetryTasks();
+            }
+            else
+            {
+                Optimize.EnableTelemetryTasks();
+            }
+            Options.CurrentOptions.DisableTelemetryTasks = !toggleSwitch11.Checked;
+        }
+
+        private void toggleSwitch12_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch12.Checked)
+            {
+                Optimize.DisableOffice2016Telemetry();
+            }
+            else
+            {
+                Optimize.EnableOffice2016Telemetry();
+            }
+            Options.CurrentOptions.DisableOffice2016Telemetry = !toggleSwitch12.Checked;
+        }
+
+        private void toggleSwitch13_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch13.Checked)
+            {
+                Optimize.EnableLegacyVolumeSlider();
+            }
+            else
+            {
+                Optimize.DisableLegacyVolumeSlider();
+            }
+            Options.CurrentOptions.EnableLegacyVolumeSlider = !toggleSwitch13.Checked;
+        }
+
+        private void toggleSwitch19_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch19.Checked)
+            {
+                Optimize.EnableTaskbarColor();
+            }
+            else
+            {
+                Optimize.DisableTaskbarColor();
+            }
+            Options.CurrentOptions.EnableTaskbarColor = !toggleSwitch19.Checked;
+        }
+
+        private void toggleSwitch18_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch18.Checked)
+            {
+                Optimize.DisableQuickAccessHistory();
+            }
+            else
+            {
+                Optimize.EnableQuickAccessHistory();
+            }
+            Options.CurrentOptions.DisableQuickAccessHistory = !toggleSwitch18.Checked;
+        }
+
+        private void toggleSwitch26_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch26.Checked)
+            {
+                Optimize.DisableStartMenuAds();
+            }
+            else
+            {
+                Optimize.EnableStartMenuAds();
+            }
+            Options.CurrentOptions.DisableStartMenuAds = !toggleSwitch26.Checked;
+        }
+
+        private void toggleSwitch27_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch27.Checked)
+            {
+                Optimize.EnableDarkTheme();
+            }
+            else
+            {
+                Optimize.EnableLightTheme();
+            }
+            Options.CurrentOptions.EnableDarkTheme = !toggleSwitch27.Checked;
+        }
+
+        private void toggleSwitch14_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch14.Checked)
+            {
+                Task t = new Task(() => Optimize.UninstallOneDrive());
+                t.Start();
+            }
+            else
+            {
+                Task t = new Task(() => Optimize.InstallOneDrive());
+                t.Start();
+            }
+            Options.CurrentOptions.UninstallOneDrive = !toggleSwitch14.Checked;
+        }
+
+        private void toggleSwitch25_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch25.Checked)
+            {
+                Optimize.DisableMyPeople();
+            }
+            else
+            {
+                Optimize.EnableMyPeople();
+            }
+            Options.CurrentOptions.DisableMyPeople = !toggleSwitch25.Checked;
+        }
+
+        private void toggleSwitch24_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch24.Checked)
+            {
+                Optimize.DisableAutomaticUpdates();
+            }
+            else
+            {
+                Optimize.EnableAutomaticUpdates();
+            }
+            Options.CurrentOptions.DisableAutomaticUpdates = !toggleSwitch24.Checked;
+        }
+
+        private void toggleSwitch30_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch30.Checked)
+            {
+                Optimize.ExcludeDrivers();
+            }
+            else
+            {
+                Optimize.IncludeDrivers();
+            }
+            Options.CurrentOptions.ExcludeDrivers = !toggleSwitch30.Checked;
+        }
+
+        private void toggleSwitch23_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch23.Checked)
+            {
+                Optimize.DisableTelemetryServices();
+            }
+            else
+            {
+                Optimize.EnableTelemetryServices();
+            }
+            Options.CurrentOptions.DisableTelemetryServices = !toggleSwitch23.Checked;
+        }
+
+        private void toggleSwitch21_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch21.Checked)
+            {
+                Optimize.DisablePrivacyOptions();
+            }
+            else
+            {
+                Optimize.EnablePrivacyOptions();
+            }
+            Options.CurrentOptions.DisablePrivacyOptions = !toggleSwitch21.Checked;
+        }
+
+        private void toggleSwitch22_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch22.Checked)
+            {
+                Optimize.DisableSilentAppInstall();
+            }
+            else
+            {
+                Optimize.EnableSilentAppInstall();
+            }
+            Options.CurrentOptions.DisableSilentAppInstall = !toggleSwitch22.Checked;
+        }
+
+        private void toggleSwitch16_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch16.Checked)
+            {
+                Optimize.DisableCortana();
+            }
+            else
+            {
+                Optimize.EnableCortana();
+            }
+            Options.CurrentOptions.DisableCortana = !toggleSwitch16.Checked;
+        }
+
+        private void toggleSwitch20_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch20.Checked)
+            {
+                Optimize.DisableSensorServices();
+            }
+            else
+            {
+                Optimize.EnableSensorServices();
+            }
+            Options.CurrentOptions.DisableSensorServices = !toggleSwitch20.Checked;
+        }
+
+        private void toggleSwitch29_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch29.Checked)
+            {
+                Optimize.DisableWindowsInk();
+            }
+            else
+            {
+                Optimize.EnableWindowsInk();
+            }
+            Options.CurrentOptions.DisableWindowsInk = !toggleSwitch29.Checked;
+        }
+
+        private void toggleSwitch28_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch28.Checked)
+            {
+                Optimize.DisableSpellingAndTypingFeatures();
+            }
+            else
+            {
+                Optimize.EnableSpellingAndTypingFeatures();
+            }
+            Options.CurrentOptions.DisableSpellingTyping = !toggleSwitch28.Checked;
+        }
+
+        private void toggleSwitch17_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch17.Checked)
+            {
+                Optimize.DisableXboxLive();
+            }
+            else
+            {
+                Optimize.EnableXboxLive();
+            }
+            Options.CurrentOptions.DisableXboxLive = !toggleSwitch17.Checked;
+        }
+
+        private void toggleSwitch15_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch15.Checked)
+            {
+                Optimize.DisableGameBar();
+            }
+            else
+            {
+                Optimize.EnableGameBar();
+            }
+            Options.CurrentOptions.DisableGameBar = !toggleSwitch15.Checked;
+        }
+
+        private void toggleSwitch31_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch31.Checked)
+            {
+                Optimize.DisableOneDrive();
+            }
+            else
+            {
+                Optimize.EnableOneDrive();
+            }
+            Options.CurrentOptions.DisableOneDrive = !toggleSwitch31.Checked;
         }
     }
 }

@@ -13,6 +13,40 @@ namespace Optimizer
     public class SettingsJson
     {
         public Theme Color { get; set; }
+
+        public bool EnablePerformanceTweaks { get; set; }
+        public bool DisableNetworkThrottling { get; set; }
+        public bool DisableWindowsDefender { get; set; }
+        public bool DisableSystemRestore { get; set; }
+        public bool DisablePrintService { get; set; }
+        public bool DisableMediaPlayerSharing { get; set; }
+        public bool BlockSkypeAds { get; set; }
+        public bool DisableErrorReporting { get; set; }
+        public bool DisableHomeGroup { get; set; }
+        public bool DisableSuperfetch { get; set; }
+        public bool DisableTelemetryTasks { get; set; }
+        public bool DisableOffice2016Telemetry { get; set; }
+
+        public bool EnableLegacyVolumeSlider { get; set; }
+        public bool EnableTaskbarColor { get; set; }
+        public bool DisableQuickAccessHistory { get; set; }
+        public bool DisableStartMenuAds { get; set; }
+        public bool EnableDarkTheme { get; set; }
+        public bool UninstallOneDrive { get; set; }
+        public bool DisableMyPeople { get; set; }
+        public bool DisableAutomaticUpdates { get; set; }
+        public bool ExcludeDrivers { get; set; }
+        public bool DisableTelemetryServices { get; set; }
+        public bool DisablePrivacyOptions { get; set; }
+        public bool DisableSilentAppInstall { get; set; }
+        public bool DisableCortana { get; set; }
+        public bool DisableSensorServices { get; set; }
+        public bool DisableWindowsInk { get; set; }
+        public bool DisableSpellingTyping { get; set; }
+        public bool DisableXboxLive { get; set; }
+        public bool DisableGameBar { get; set; }
+
+        public bool DisableOneDrive { get; set; }
     }
 
     internal static class Options
@@ -21,9 +55,6 @@ namespace Optimizer
         internal readonly static string SettingsFile = Required.CoreFolder + "\\Optimizer.json";
 
         internal static SettingsJson CurrentOptions = new SettingsJson();
-
-        // use this to determine if changes have been made
-        static SettingsJson _flag = new SettingsJson();
 
         internal static void ApplyTheme(Form f)
         {
@@ -57,6 +88,13 @@ namespace Optimizer
             Utilities.GetSelfAndChildrenRecursive(f).OfType<Button>().ToList().ForEach(b => b.FlatAppearance.MouseDownBackColor = c2);
             Utilities.GetSelfAndChildrenRecursive(f).OfType<Button>().ToList().ForEach(b => b.FlatAppearance.MouseOverBackColor = c2);
 
+            foreach (ToggleSwitch tmp in Utilities.GetSelfAndChildrenRecursive(f).OfType<ToggleSwitch>().ToList())
+            {
+                if ((string)tmp.Tag == _themeFlag)
+                {
+                    tmp.SetRenderer(new ToggleSwitchRenderer());
+                }
+            }
             foreach (Label tmp in Utilities.GetSelfAndChildrenRecursive(f).OfType<Label>().ToList())
             {
                 if ((string)tmp.Tag == _themeFlag)
@@ -86,18 +124,16 @@ namespace Optimizer
         {
             if (File.Exists(SettingsFile))
             {
-                // compare with flag to determine if changes have been made
-                if (_flag.Color != CurrentOptions.Color)
-                {
-                    using (FileStream fs = File.Open(SettingsFile, FileMode.OpenOrCreate))
-                    using (StreamWriter sw = new StreamWriter(fs))
-                    using (JsonWriter jw = new JsonTextWriter(sw))
-                    {
-                        jw.Formatting = Formatting.Indented;
+                File.Delete(SettingsFile);
 
-                        JsonSerializer serializer = new JsonSerializer();
-                        serializer.Serialize(jw, CurrentOptions);
-                    }
+                using (FileStream fs = File.Open(SettingsFile, FileMode.OpenOrCreate))
+                using (StreamWriter sw = new StreamWriter(fs))
+                using (JsonWriter jw = new JsonTextWriter(sw))
+                {
+                    jw.Formatting = Formatting.Indented;
+
+                    JsonSerializer serializer = new JsonSerializer();
+                    serializer.Serialize(jw, CurrentOptions);
                 }
             }
         }
@@ -107,6 +143,40 @@ namespace Optimizer
             if (!File.Exists(SettingsFile))
             {
                 CurrentOptions.Color = Theme.Zerg;
+
+                CurrentOptions.EnablePerformanceTweaks = false;
+                CurrentOptions.DisableNetworkThrottling = false;
+                CurrentOptions.DisableWindowsDefender = false;
+                CurrentOptions.DisableSystemRestore = false;
+                CurrentOptions.DisablePrintService = false;
+                CurrentOptions.DisableMediaPlayerSharing = false;
+                CurrentOptions.BlockSkypeAds = false;
+                CurrentOptions.DisableErrorReporting = false;
+                CurrentOptions.DisableHomeGroup = false;
+                CurrentOptions.DisableSuperfetch = false;
+                CurrentOptions.DisableTelemetryTasks = false;
+                CurrentOptions.DisableOffice2016Telemetry = false;
+
+                CurrentOptions.EnableLegacyVolumeSlider = false;
+                CurrentOptions.EnableTaskbarColor = false;
+                CurrentOptions.DisableQuickAccessHistory = false;
+                CurrentOptions.DisableStartMenuAds = false;
+                CurrentOptions.EnableDarkTheme = false;
+                CurrentOptions.UninstallOneDrive = false;
+                CurrentOptions.DisableMyPeople = false;
+                CurrentOptions.DisableAutomaticUpdates = false;
+                CurrentOptions.ExcludeDrivers = false;
+                CurrentOptions.DisableTelemetryServices = false;
+                CurrentOptions.DisablePrivacyOptions = false;
+                CurrentOptions.DisableSilentAppInstall = false;
+                CurrentOptions.DisableCortana = false;
+                CurrentOptions.DisableSensorServices = false;
+                CurrentOptions.DisableWindowsInk = false;
+                CurrentOptions.DisableSpellingTyping = false;
+                CurrentOptions.DisableXboxLive = false;
+                CurrentOptions.DisableGameBar = false;
+
+                CurrentOptions.DisableOneDrive = false;
 
                 using (FileStream fs = File.Open(SettingsFile, FileMode.CreateNew))
                 using (StreamWriter sw = new StreamWriter(fs))
@@ -121,9 +191,6 @@ namespace Optimizer
             else
             {
                 CurrentOptions = JsonConvert.DeserializeObject<SettingsJson>(File.ReadAllText(SettingsFile));
-
-                // initialize flag
-                _flag.Color = CurrentOptions.Color;
             }
         }
     }

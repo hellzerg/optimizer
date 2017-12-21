@@ -107,12 +107,6 @@
     </Compile>
     <Compile Include="Integrator.cs" />
     <Compile Include="ListViewColumnSorter.cs" />
-    <Compile Include="OptimizeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OptimizeForm.Designer.cs">
-      <DependentUpon>OptimizeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +125,12 @@
     </Compile>
     <Compile Include="Required.cs" />
     <Compile Include="StartupItem.cs" />
+    <Compile Include="ToggleSwitch\ImageHelper.cs" />
+    <Compile Include="ToggleSwitch\ToggleSwitch.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToggleSwitch\ToggleSwitchRenderer.cs" />
+    <Compile Include="ToggleSwitch\ToggleSwitchRendererBase.cs" />
     <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
@@ -143,9 +143,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InfoForm.resx">
       <DependentUpon>InfoForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OptimizeForm.resx">
-      <DependentUpon>OptimizeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -177,6 +174,10 @@
     </Compile>
     <None Include="Resources\DesktopShortcuts.reg" />
     <None Include="Resources\DisableOfficeTelemetry.reg" />
+    <None Include="Resources\EnableOfficeTelemetry.reg" />
+    <None Include="Resources\EnableOfficeTelemetryTasks.bat" />
+    <None Include="Resources\EnableTelemetryTasks.bat" />
+    <None Include="Resources\EnableXboxTasks.bat" />
     <None Include="Resources\hosts" />
     <None Include="Resources\InstallTakeOwnership.reg" />
     <None Include="Resources\PowerMenu.reg" />

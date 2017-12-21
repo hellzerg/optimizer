@@ -45,7 +45,6 @@ namespace Optimizer
     internal enum MessageType
     {
         Error,
-        Optimize,
         Startup,
         Restart,
         Hosts,
@@ -83,5 +82,19 @@ namespace Optimizer
         SHERB_NOCONFIRMATION = 0x00000001,
         SHERB_NOPROGRESSUI = 0x00000001,
         SHERB_NOSOUND = 0x00000004
+    }
+
+    public enum ToggleSwitchAlignment
+    {
+        Near,
+        Center,
+        Far
+    }
+
+    public enum ToggleSwitchButtonAlignment
+    {
+        Left,
+        Center,
+        Right
     }
 }

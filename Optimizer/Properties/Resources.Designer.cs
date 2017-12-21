@@ -19,7 +19,7 @@ namespace Optimizer.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -121,10 +121,10 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized string similar to schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\Consolidator&quot;
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\Consolidator&quot; /disable
+        ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot;
+        ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot; /disable
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot;
-        ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot; /disable
-        ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip&quot;
-        ///schtasks /change /tn &quot;\M [rest of string was truncated]&quot;;.
+        ///schtasks /change /tn &quot;\Microsoft\ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableTelemetryTasks {
             get {
@@ -142,6 +142,70 @@ namespace Optimizer.Properties {
         internal static string DisableXboxTasks {
             get {
                 return ResourceManager.GetString("DisableXboxTasks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
+        ///
+        ///[HKEY_CURRENT_USER\Software\Policies\microsoft\office\16.0\osm\preventedapplications]
+        ///&quot;accesssolution&quot;=-
+        ///&quot;olksolution&quot;=-
+        ///&quot;onenotesolution&quot;=-
+        ///&quot;pptsolution&quot;=-
+        ///&quot;projectsolution&quot;=-
+        ///&quot;publishersolution&quot;=-
+        ///&quot;visiosolution&quot;=-
+        ///&quot;wdsolution&quot;=-
+        ///&quot;xlsolution&quot;=-
+        /// 
+        ///[HKEY_CURRENT_USER\Software\Policies\microsoft\office\16.0\osm\preventedsolutiontypes]
+        ///&quot;agave&quot;=-
+        ///&quot;appaddins&quot;=-
+        ///&quot;comaddins&quot;=-
+        ///&quot;documentfiles&quot;=-
+        ///&quot;templatefiles&quot;=-
+        ///.
+        /// </summary>
+        internal static string EnableOfficeTelemetry {
+            get {
+                return ResourceManager.GetString("EnableOfficeTelemetry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to schtasks /change /tn &quot;\Microsoft\Office\OfficeTelemetryAgentFallBack2016&quot; /enable
+        ///schtasks /change /tn &quot;\Microsoft\Office\OfficeTelemetryAgentLogOn2016&quot; /enable
+        ///.
+        /// </summary>
+        internal static string EnableOfficeTelemetryTasks {
+            get {
+                return ResourceManager.GetString("EnableOfficeTelemetryTasks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\Consolidator&quot; /enable
+        ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot; /enable
+        ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot; /enable
+        ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip&quot; /enable
+        ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\Uploader&quot; /enable
+        ///schta [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EnableTelemetryTasks {
+            get {
+                return ResourceManager.GetString("EnableTelemetryTasks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to schtasks /change /tn &quot;\Microsoft\XblGameSave\XblGameSaveTask&quot; /enable
+        ///schtasks /change /tn &quot;\Microsoft\XblGameSave\XblGameSaveTaskLogon&quot; /enable
+        ///.
+        /// </summary>
+        internal static string EnableXboxTasks {
+            get {
+                return ResourceManager.GetString("EnableXboxTasks", resourceCulture);
             }
         }
         

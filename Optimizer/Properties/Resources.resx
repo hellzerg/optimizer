@@ -119,13 +119,13 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="DisableOfficeTelemetryTasks" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DisableOfficeTelemetryTasks.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1253</value>
+    <value>..\Resources\DisableOfficeTelemetryTasks.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="DisableTelemetryTasks" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DisableTelemetryTasks.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1253</value>
+    <value>..\Resources\DisableTelemetryTasks.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="DisableXboxTasks" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DisableXboxTasks.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\DisableXboxTasks.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="OneDrive_Uninstaller" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OneDrive_Uninstaller.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -134,27 +134,39 @@
     <value>..\Resources\hosts;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DesktopShortcuts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DesktopShortcuts.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+    <value>..\Resources\DesktopShortcuts.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="PowerMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PowerMenu.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+    <value>..\Resources\PowerMenu.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="SystemShortcuts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SystemShortcuts.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+    <value>..\Resources\SystemShortcuts.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="SystemTools" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SystemTools.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+    <value>..\Resources\SystemTools.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="WindowsApps" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WindowsApps.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+    <value>..\Resources\WindowsApps.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="DisableOfficeTelemetry" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DisableOfficeTelemetry.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\DisableOfficeTelemetry.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="InstallTakeOwnership" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\InstallTakeOwnership.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\InstallTakeOwnership.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="RemoveTakeOwnership" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RemoveTakeOwnership.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+    <value>..\Resources\RemoveTakeOwnership.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EnableTelemetryTasks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnableTelemetryTasks.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EnableOfficeTelemetry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnableOfficeTelemetry.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EnableOfficeTelemetryTasks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnableOfficeTelemetryTasks.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EnableXboxTasks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnableXboxTasks.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

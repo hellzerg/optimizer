@@ -21,13 +21,6 @@ namespace Optimizer
             {
                 this.Close();
             }
-            if (_type == MessageType.Optimize)
-            {
-                OptimizeForm f = new OptimizeForm(!chkPrint.Checked, !chkSensors.Checked);
-                f.ShowDialog();
-                f.BringToFront();
-                this.Close();
-            }
             if (_type == MessageType.Startup)
             {
                 _main.RemoveAllStartupItems();
@@ -65,13 +58,6 @@ namespace Optimizer
                 this.AcceptButton = btnYes;
                 this.CancelButton = btnNo;
                 this.CancelButton = btnYes;
-            }
-            if (_type == MessageType.Optimize)
-            {
-                chkPrint.Checked = true;
-                chkPrint.Visible = true;
-                chkSensors.Checked = true;
-                chkSensors.Visible = true;
             }
         }
 
