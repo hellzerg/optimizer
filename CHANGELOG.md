@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [3.7] - UNRELEASED
+## [3.7] - 2017-12-22
 - Every option can now be reverted back (toggles, finally)
 - Apply All button removed in favor of toggles
 - Added Enable Dark Theme toggle for Windows 10

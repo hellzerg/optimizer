@@ -17,7 +17,7 @@ namespace Optimizer
             InitializeComponent();
             Options.ApplyTheme(this);
             
-            msg.Text = info;
+            txtInfo.Text = info;
         }
 
         private void btnOK_Click(object sender, EventArgs e)

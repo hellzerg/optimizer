@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnOK = new System.Windows.Forms.Button();
-            this.msg = new System.Windows.Forms.Label();
+            this.txtInfo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnOK
@@ -42,7 +42,7 @@
             this.btnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.ForeColor = System.Drawing.Color.White;
-            this.btnOK.Location = new System.Drawing.Point(379, 512);
+            this.btnOK.Location = new System.Drawing.Point(379, 442);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(120, 39);
             this.btnOK.TabIndex = 32;
@@ -51,14 +51,20 @@
             this.btnOK.UseVisualStyleBackColor = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // msg
+            // txtInfo
             // 
-            this.msg.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.msg.Location = new System.Drawing.Point(12, 9);
-            this.msg.Name = "msg";
-            this.msg.Size = new System.Drawing.Size(487, 500);
-            this.msg.TabIndex = 33;
-            this.msg.Text = "Integrator info";
+            this.txtInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txtInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInfo.ForeColor = System.Drawing.Color.White;
+            this.txtInfo.Location = new System.Drawing.Point(12, 12);
+            this.txtInfo.Multiline = true;
+            this.txtInfo.Name = "txtInfo";
+            this.txtInfo.ReadOnly = true;
+            this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtInfo.Size = new System.Drawing.Size(487, 414);
+            this.txtInfo.TabIndex = 33;
+            this.txtInfo.Text = "Integrator InfoBox";
             // 
             // InfoForm
             // 
@@ -67,8 +73,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnOK;
-            this.ClientSize = new System.Drawing.Size(511, 563);
-            this.Controls.Add(this.msg);
+            this.ClientSize = new System.Drawing.Size(511, 493);
+            this.Controls.Add(this.txtInfo);
             this.Controls.Add(this.btnOK);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
@@ -82,12 +88,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Info_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.Label msg;
+        private System.Windows.Forms.TextBox txtInfo;
     }
 }
