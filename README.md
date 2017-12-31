@@ -34,5 +34,5 @@ https://github.com/hellzerg/optimizer/releases
 
 ## Details: ##
 
-* Latest version: 3.7
-* Released: December 22, 2017
+* Latest version: 3.8
+* Released: December 31, 2017

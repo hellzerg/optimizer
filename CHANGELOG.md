@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8] - 2017-12-31
+- Windows 7 crashing fixed
+
 ## [3.7] - 2017-12-22
 - Every option can now be reverted back (toggles, finally)
 - Apply All button removed in favor of toggles
