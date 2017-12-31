@@ -131,6 +131,7 @@ namespace Optimizer
                 LoadUniversalToggleStates();
                 LoadWindowsVIIIToggleStates();
                 tabCollection.TabPages.Remove(windowsXTab);
+                GetModernApps();
             }
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
@@ -138,6 +139,7 @@ namespace Optimizer
                 LoadUniversalToggleStates();
                 LoadWindowsXToggleStates();
                 tabCollection.TabPages.Remove(windowsVIIITab);
+                GetModernApps();
             }
 
             _columnSorter = new ListViewColumnSorter();
@@ -150,7 +152,6 @@ namespace Optimizer
             GetHostsEntries();
             GetDesktopItems();
             GetCustomCommands();
-            GetModernApps();
 
             LoadSettings();
 
