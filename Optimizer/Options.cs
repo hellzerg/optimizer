@@ -26,6 +26,7 @@ namespace Optimizer
         public bool DisableSuperfetch { get; set; }
         public bool DisableTelemetryTasks { get; set; }
         public bool DisableOffice2016Telemetry { get; set; }
+        public bool DisableCompatibilityAssistant { get; set; }
 
         public bool EnableLegacyVolumeSlider { get; set; }
         public bool EnableTaskbarColor { get; set; }
@@ -156,6 +157,7 @@ namespace Optimizer
                 CurrentOptions.DisableSuperfetch = false;
                 CurrentOptions.DisableTelemetryTasks = false;
                 CurrentOptions.DisableOffice2016Telemetry = false;
+                CurrentOptions.DisableCompatibilityAssistant = false;
 
                 CurrentOptions.EnableLegacyVolumeSlider = false;
                 CurrentOptions.EnableTaskbarColor = false;

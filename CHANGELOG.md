@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [UNRELEASED] [3.9]
+- Added: Disable Program Compatibility Assistant Service
+
 ## [3.8] - 2017-12-31
 - Windows 7 crashing fixed
 

@@ -236,6 +236,18 @@ namespace Optimizer
             Utilities.StartService("SysMain");
         }
 
+        internal static void EnableCompatibilityAssistant()
+        {
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PcaSvc", "Start", "2", RegistryValueKind.DWord);
+            Utilities.StartService("PcaSvc");
+        }
+
+        internal static void DisableCompatibilityAssistant()
+        {
+            Utilities.StopService("PcaSvc");
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PcaSvc", "Start", "4", RegistryValueKind.DWord);
+        }
+
         internal static void DisableSystemRestore()
         {
             try

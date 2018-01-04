@@ -75,6 +75,7 @@ namespace Optimizer
             toggleSwitch31.Click += new EventHandler(toggleSwitch31_Click);
             toggleSwitch18.Click += new EventHandler(toggleSwitch18_Click);
             toggleSwitch19.Click += new EventHandler(toggleSwitch19_Click);
+            toggleSwitch32.Click += new EventHandler(toggleSwitch32_Click);
         }
 
         private void LoadSettings()
@@ -304,6 +305,7 @@ namespace Optimizer
             toggleSwitch10.Checked = Options.CurrentOptions.DisableSuperfetch;
             toggleSwitch11.Checked = Options.CurrentOptions.DisableTelemetryTasks;
             toggleSwitch12.Checked = Options.CurrentOptions.DisableOffice2016Telemetry;
+            toggleSwitch32.Checked = Options.CurrentOptions.DisableCompatibilityAssistant;
         }
 
         private void LoadWindowsVIIIToggleStates()
@@ -1685,6 +1687,19 @@ namespace Optimizer
                 Optimize.EnableOneDrive();
             }
             Options.CurrentOptions.DisableOneDrive = !toggleSwitch31.Checked;
+        }
+
+        private void toggleSwitch32_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch32.Checked)
+            {
+                Optimize.DisableCompatibilityAssistant();
+            }
+            else
+            {
+                Optimize.EnableCompatibilityAssistant();
+            }
+            Options.CurrentOptions.DisableCompatibilityAssistant = !toggleSwitch32.Checked;
         }
     }
 }
