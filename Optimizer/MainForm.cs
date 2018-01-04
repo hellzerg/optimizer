@@ -32,6 +32,12 @@ namespace Optimizer
         DesktopItemType _desktopItemType = DesktopItemType.Program;
         DesktopTypePosition _desktopItemPosition = DesktopTypePosition.Top;
 
+        readonly string _latestVersionLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/version.txt";
+        readonly string _releasesLink = "https://github.com/hellzerg/optimizer/releases";
+
+        readonly string _noNewVersionMessage = "You already have the latest version!";
+        readonly string _betaVersionMessage = "You are using an experimental version!";
+
         readonly string _blockedIP = "127.0.0.1";
 
         readonly string _restartMessage = "Restart to apply changes?";
@@ -41,6 +47,41 @@ namespace Optimizer
         readonly string _removeModernAppsMessage = "Are you sure you want to uninstall the following app(s)?";
         readonly string _errorModernAppsMessage = "The following app(s) couldn't be uninstalled:\n";
         readonly string _resetMessage = "Are you sure you want to reset configuration?\n\nThis will delete all your preferences, including any icons you extracted or downloaded using Integrator.";
+
+        private string NewVersionMessage(string latest)
+        {
+            return string.Format("There is a new version available!\n\nLatest version: {0}\nCurrent version: {1}\n\nDo you want to download it now?", latest, Program.GetCurrentVersionTostring());
+        }
+
+        private void CheckForUpdate()
+        {
+            WebClient client = new WebClient
+            {
+                Encoding = Encoding.UTF8
+            };
+
+            string latestVersion = client.DownloadString(_latestVersionLink);
+
+            if (float.Parse(latestVersion) > Program.GetCurrentVersion())
+            {
+                if (MessageBox.Show(NewVersionMessage(latestVersion), "Update available", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        Process.Start(_releasesLink);
+                    }
+                    catch { }
+                }
+            }
+            else if (float.Parse(latestVersion) == Program.GetCurrentVersion())
+            {
+                MessageBox.Show(_noNewVersionMessage, "No update available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(_betaVersionMessage, "No update available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
         private void EnableToggleEvents()
         {
@@ -159,7 +200,7 @@ namespace Optimizer
             radioProgram.Checked = true;
             radioTop.Checked = true;
 
-            txtVersion.Text = "Version: " + Program.GetCurrentVersion();
+            txtVersion.Text = "Version: " + Program.GetCurrentVersionTostring();
             Program.MainForm = this;
 
             txtOS.Text = "Microsoft " + Utilities.GetOS();
@@ -1700,6 +1741,11 @@ namespace Optimizer
                 Optimize.EnableCompatibilityAssistant();
             }
             Options.CurrentOptions.DisableCompatibilityAssistant = !toggleSwitch32.Checked;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            CheckForUpdate();
         }
     }
 }

@@ -39,6 +39,7 @@
             this.bpanel = new System.Windows.Forms.Panel();
             this.tabCollection = new System.Windows.Forms.TabControl();
             this.universalTab = new System.Windows.Forms.TabPage();
+            this.toggleSwitch32 = new Optimizer.ToggleSwitch();
             this.toggleSwitch12 = new Optimizer.ToggleSwitch();
             this.toggleSwitch11 = new Optimizer.ToggleSwitch();
             this.toggleSwitch10 = new Optimizer.ToggleSwitch();
@@ -216,6 +217,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.optionsTab = new System.Windows.Forms.TabPage();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnResetConfig = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.radioMinimal = new System.Windows.Forms.RadioButton();
@@ -235,7 +237,6 @@
             this.DefineCommandIconDialog = new System.Windows.Forms.OpenFileDialog();
             this.integratorTimer = new System.Windows.Forms.Timer(this.components);
             this.runDialogTime = new System.Windows.Forms.Timer(this.components);
-            this.toggleSwitch32 = new Optimizer.ToggleSwitch();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
@@ -403,10 +404,24 @@
             this.universalTab.TabIndex = 0;
             this.universalTab.Text = "Universal";
             // 
+            // toggleSwitch32
+            // 
+            this.toggleSwitch32.Location = new System.Drawing.Point(439, 16);
+            this.toggleSwitch32.Margin = new System.Windows.Forms.Padding(2);
+            this.toggleSwitch32.Name = "toggleSwitch32";
+            this.toggleSwitch32.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toggleSwitch32.OffForeColor = System.Drawing.Color.White;
+            this.toggleSwitch32.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toggleSwitch32.OnForeColor = System.Drawing.Color.White;
+            this.toggleSwitch32.OnText = "Disable Compatibility Assistant";
+            this.toggleSwitch32.Size = new System.Drawing.Size(208, 31);
+            this.toggleSwitch32.TabIndex = 47;
+            this.toggleSwitch32.Tag = "themeable";
+            // 
             // toggleSwitch12
             // 
             this.toggleSwitch12.Location = new System.Drawing.Point(227, 196);
-            this.toggleSwitch12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch12.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch12.Name = "toggleSwitch12";
             this.toggleSwitch12.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch12.OffForeColor = System.Drawing.Color.White;
@@ -420,7 +435,7 @@
             // toggleSwitch11
             // 
             this.toggleSwitch11.Location = new System.Drawing.Point(227, 160);
-            this.toggleSwitch11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch11.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch11.Name = "toggleSwitch11";
             this.toggleSwitch11.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch11.OffForeColor = System.Drawing.Color.White;
@@ -434,7 +449,7 @@
             // toggleSwitch10
             // 
             this.toggleSwitch10.Location = new System.Drawing.Point(227, 124);
-            this.toggleSwitch10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch10.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch10.Name = "toggleSwitch10";
             this.toggleSwitch10.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch10.OffForeColor = System.Drawing.Color.White;
@@ -448,7 +463,7 @@
             // toggleSwitch9
             // 
             this.toggleSwitch9.Location = new System.Drawing.Point(227, 88);
-            this.toggleSwitch9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch9.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch9.Name = "toggleSwitch9";
             this.toggleSwitch9.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch9.OffForeColor = System.Drawing.Color.White;
@@ -462,7 +477,7 @@
             // toggleSwitch8
             // 
             this.toggleSwitch8.Location = new System.Drawing.Point(227, 52);
-            this.toggleSwitch8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch8.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch8.Name = "toggleSwitch8";
             this.toggleSwitch8.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch8.OffForeColor = System.Drawing.Color.White;
@@ -476,7 +491,7 @@
             // toggleSwitch7
             // 
             this.toggleSwitch7.Location = new System.Drawing.Point(227, 16);
-            this.toggleSwitch7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch7.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch7.Name = "toggleSwitch7";
             this.toggleSwitch7.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch7.OffForeColor = System.Drawing.Color.White;
@@ -490,7 +505,7 @@
             // toggleSwitch6
             // 
             this.toggleSwitch6.Location = new System.Drawing.Point(14, 196);
-            this.toggleSwitch6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch6.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch6.Name = "toggleSwitch6";
             this.toggleSwitch6.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch6.OffForeColor = System.Drawing.Color.White;
@@ -504,7 +519,7 @@
             // toggleSwitch5
             // 
             this.toggleSwitch5.Location = new System.Drawing.Point(14, 160);
-            this.toggleSwitch5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch5.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch5.Name = "toggleSwitch5";
             this.toggleSwitch5.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch5.OffForeColor = System.Drawing.Color.White;
@@ -518,7 +533,7 @@
             // toggleSwitch4
             // 
             this.toggleSwitch4.Location = new System.Drawing.Point(14, 124);
-            this.toggleSwitch4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch4.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch4.Name = "toggleSwitch4";
             this.toggleSwitch4.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch4.OffForeColor = System.Drawing.Color.White;
@@ -532,7 +547,7 @@
             // toggleSwitch1
             // 
             this.toggleSwitch1.Location = new System.Drawing.Point(14, 16);
-            this.toggleSwitch1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch1.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch1.Name = "toggleSwitch1";
             this.toggleSwitch1.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch1.OffForeColor = System.Drawing.Color.White;
@@ -546,7 +561,7 @@
             // toggleSwitch3
             // 
             this.toggleSwitch3.Location = new System.Drawing.Point(14, 88);
-            this.toggleSwitch3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch3.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch3.Name = "toggleSwitch3";
             this.toggleSwitch3.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch3.OffForeColor = System.Drawing.Color.White;
@@ -560,7 +575,7 @@
             // toggleSwitch2
             // 
             this.toggleSwitch2.Location = new System.Drawing.Point(14, 52);
-            this.toggleSwitch2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch2.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch2.Name = "toggleSwitch2";
             this.toggleSwitch2.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch2.OffForeColor = System.Drawing.Color.White;
@@ -622,7 +637,7 @@
             // toggleSwitch27
             // 
             this.toggleSwitch27.Location = new System.Drawing.Point(14, 160);
-            this.toggleSwitch27.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch27.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch27.Name = "toggleSwitch27";
             this.toggleSwitch27.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch27.OffForeColor = System.Drawing.Color.White;
@@ -636,7 +651,7 @@
             // toggleSwitch28
             // 
             this.toggleSwitch28.Location = new System.Drawing.Point(440, 52);
-            this.toggleSwitch28.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch28.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch28.Name = "toggleSwitch28";
             this.toggleSwitch28.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch28.OffForeColor = System.Drawing.Color.White;
@@ -650,7 +665,7 @@
             // toggleSwitch29
             // 
             this.toggleSwitch29.Location = new System.Drawing.Point(440, 16);
-            this.toggleSwitch29.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch29.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch29.Name = "toggleSwitch29";
             this.toggleSwitch29.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch29.OffForeColor = System.Drawing.Color.White;
@@ -664,7 +679,7 @@
             // toggleSwitch30
             // 
             this.toggleSwitch30.Location = new System.Drawing.Point(227, 52);
-            this.toggleSwitch30.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch30.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch30.Name = "toggleSwitch30";
             this.toggleSwitch30.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch30.OffForeColor = System.Drawing.Color.White;
@@ -678,7 +693,7 @@
             // toggleSwitch22
             // 
             this.toggleSwitch22.Location = new System.Drawing.Point(227, 160);
-            this.toggleSwitch22.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch22.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch22.Name = "toggleSwitch22";
             this.toggleSwitch22.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch22.OffForeColor = System.Drawing.Color.White;
@@ -692,7 +707,7 @@
             // toggleSwitch20
             // 
             this.toggleSwitch20.Location = new System.Drawing.Point(227, 232);
-            this.toggleSwitch20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch20.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch20.Name = "toggleSwitch20";
             this.toggleSwitch20.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch20.OffForeColor = System.Drawing.Color.White;
@@ -706,7 +721,7 @@
             // toggleSwitch21
             // 
             this.toggleSwitch21.Location = new System.Drawing.Point(227, 124);
-            this.toggleSwitch21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch21.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch21.Name = "toggleSwitch21";
             this.toggleSwitch21.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch21.OffForeColor = System.Drawing.Color.White;
@@ -720,7 +735,7 @@
             // toggleSwitch23
             // 
             this.toggleSwitch23.Location = new System.Drawing.Point(227, 88);
-            this.toggleSwitch23.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch23.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch23.Name = "toggleSwitch23";
             this.toggleSwitch23.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch23.OffForeColor = System.Drawing.Color.White;
@@ -734,7 +749,7 @@
             // toggleSwitch24
             // 
             this.toggleSwitch24.Location = new System.Drawing.Point(227, 16);
-            this.toggleSwitch24.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch24.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch24.Name = "toggleSwitch24";
             this.toggleSwitch24.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch24.OffForeColor = System.Drawing.Color.White;
@@ -748,7 +763,7 @@
             // toggleSwitch25
             // 
             this.toggleSwitch25.Location = new System.Drawing.Point(14, 232);
-            this.toggleSwitch25.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch25.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch25.Name = "toggleSwitch25";
             this.toggleSwitch25.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch25.OffForeColor = System.Drawing.Color.White;
@@ -762,7 +777,7 @@
             // toggleSwitch26
             // 
             this.toggleSwitch26.Location = new System.Drawing.Point(14, 124);
-            this.toggleSwitch26.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch26.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch26.Name = "toggleSwitch26";
             this.toggleSwitch26.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch26.OffForeColor = System.Drawing.Color.White;
@@ -776,7 +791,7 @@
             // toggleSwitch19
             // 
             this.toggleSwitch19.Location = new System.Drawing.Point(14, 52);
-            this.toggleSwitch19.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch19.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch19.Name = "toggleSwitch19";
             this.toggleSwitch19.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch19.OffForeColor = System.Drawing.Color.White;
@@ -790,7 +805,7 @@
             // toggleSwitch18
             // 
             this.toggleSwitch18.Location = new System.Drawing.Point(14, 88);
-            this.toggleSwitch18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch18.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch18.Name = "toggleSwitch18";
             this.toggleSwitch18.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch18.OffForeColor = System.Drawing.Color.White;
@@ -804,7 +819,7 @@
             // toggleSwitch17
             // 
             this.toggleSwitch17.Location = new System.Drawing.Point(440, 88);
-            this.toggleSwitch17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch17.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch17.Name = "toggleSwitch17";
             this.toggleSwitch17.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch17.OffForeColor = System.Drawing.Color.White;
@@ -818,7 +833,7 @@
             // toggleSwitch16
             // 
             this.toggleSwitch16.Location = new System.Drawing.Point(227, 196);
-            this.toggleSwitch16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch16.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch16.Name = "toggleSwitch16";
             this.toggleSwitch16.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch16.OffForeColor = System.Drawing.Color.White;
@@ -832,7 +847,7 @@
             // toggleSwitch15
             // 
             this.toggleSwitch15.Location = new System.Drawing.Point(440, 124);
-            this.toggleSwitch15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch15.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch15.Name = "toggleSwitch15";
             this.toggleSwitch15.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch15.OffForeColor = System.Drawing.Color.White;
@@ -846,7 +861,7 @@
             // toggleSwitch14
             // 
             this.toggleSwitch14.Location = new System.Drawing.Point(14, 196);
-            this.toggleSwitch14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch14.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch14.Name = "toggleSwitch14";
             this.toggleSwitch14.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch14.OffForeColor = System.Drawing.Color.White;
@@ -860,7 +875,7 @@
             // toggleSwitch13
             // 
             this.toggleSwitch13.Location = new System.Drawing.Point(14, 16);
-            this.toggleSwitch13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch13.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch13.Name = "toggleSwitch13";
             this.toggleSwitch13.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch13.OffForeColor = System.Drawing.Color.White;
@@ -914,14 +929,14 @@
             this.windowsVIIITab.Margin = new System.Windows.Forms.Padding(2);
             this.windowsVIIITab.Name = "windowsVIIITab";
             this.windowsVIIITab.Padding = new System.Windows.Forms.Padding(2);
-            this.windowsVIIITab.Size = new System.Drawing.Size(688, 514);
+            this.windowsVIIITab.Size = new System.Drawing.Size(688, 513);
             this.windowsVIIITab.TabIndex = 2;
             this.windowsVIIITab.Text = "Windows 8.1";
             // 
             // toggleSwitch31
             // 
             this.toggleSwitch31.Location = new System.Drawing.Point(14, 16);
-            this.toggleSwitch31.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toggleSwitch31.Margin = new System.Windows.Forms.Padding(2);
             this.toggleSwitch31.Name = "toggleSwitch31";
             this.toggleSwitch31.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch31.OffForeColor = System.Drawing.Color.White;
@@ -960,8 +975,8 @@
             this.modernAppsTab.Controls.Add(this.panelModernAppsList);
             this.modernAppsTab.Location = new System.Drawing.Point(4, 24);
             this.modernAppsTab.Name = "modernAppsTab";
-            this.modernAppsTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.modernAppsTab.Size = new System.Drawing.Size(688, 514);
+            this.modernAppsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.modernAppsTab.Size = new System.Drawing.Size(688, 513);
             this.modernAppsTab.TabIndex = 11;
             this.modernAppsTab.Text = "UWP Apps";
             // 
@@ -1077,7 +1092,7 @@
             this.cleanerTab.Margin = new System.Windows.Forms.Padding(2);
             this.cleanerTab.Name = "cleanerTab";
             this.cleanerTab.Padding = new System.Windows.Forms.Padding(2);
-            this.cleanerTab.Size = new System.Drawing.Size(688, 514);
+            this.cleanerTab.Size = new System.Drawing.Size(688, 513);
             this.cleanerTab.TabIndex = 5;
             this.cleanerTab.Text = "Cleaner";
             // 
@@ -1310,7 +1325,7 @@
             this.startupTab.Location = new System.Drawing.Point(4, 24);
             this.startupTab.Margin = new System.Windows.Forms.Padding(2);
             this.startupTab.Name = "startupTab";
-            this.startupTab.Size = new System.Drawing.Size(688, 514);
+            this.startupTab.Size = new System.Drawing.Size(688, 513);
             this.startupTab.TabIndex = 7;
             this.startupTab.Text = "Startup";
             // 
@@ -1476,7 +1491,7 @@
             this.registryFixerTab.Margin = new System.Windows.Forms.Padding(2);
             this.registryFixerTab.Name = "registryFixerTab";
             this.registryFixerTab.Padding = new System.Windows.Forms.Padding(2);
-            this.registryFixerTab.Size = new System.Drawing.Size(688, 514);
+            this.registryFixerTab.Size = new System.Drawing.Size(688, 513);
             this.registryFixerTab.TabIndex = 8;
             this.registryFixerTab.Text = "Registry";
             // 
@@ -1690,7 +1705,7 @@
             this.hostsEditorTab.Margin = new System.Windows.Forms.Padding(2);
             this.hostsEditorTab.Name = "hostsEditorTab";
             this.hostsEditorTab.Padding = new System.Windows.Forms.Padding(2);
-            this.hostsEditorTab.Size = new System.Drawing.Size(688, 514);
+            this.hostsEditorTab.Size = new System.Drawing.Size(688, 513);
             this.hostsEditorTab.TabIndex = 9;
             this.hostsEditorTab.Text = "Hosts";
             // 
@@ -1968,7 +1983,7 @@
             this.integratorTab.Margin = new System.Windows.Forms.Padding(2);
             this.integratorTab.Name = "integratorTab";
             this.integratorTab.Padding = new System.Windows.Forms.Padding(2);
-            this.integratorTab.Size = new System.Drawing.Size(688, 514);
+            this.integratorTab.Size = new System.Drawing.Size(688, 513);
             this.integratorTab.TabIndex = 10;
             this.integratorTab.Text = "Integrator";
             // 
@@ -1986,7 +2001,7 @@
             this.synapse.Multiline = true;
             this.synapse.Name = "synapse";
             this.synapse.SelectedIndex = 0;
-            this.synapse.Size = new System.Drawing.Size(684, 510);
+            this.synapse.Size = new System.Drawing.Size(684, 509);
             this.synapse.TabIndex = 0;
             // 
             // integratorInfoTab
@@ -2003,7 +2018,7 @@
             this.integratorInfoTab.Margin = new System.Windows.Forms.Padding(2);
             this.integratorInfoTab.Name = "integratorInfoTab";
             this.integratorInfoTab.Padding = new System.Windows.Forms.Padding(2);
-            this.integratorInfoTab.Size = new System.Drawing.Size(676, 482);
+            this.integratorInfoTab.Size = new System.Drawing.Size(676, 481);
             this.integratorInfoTab.TabIndex = 0;
             this.integratorInfoTab.Text = "Info";
             // 
@@ -2111,7 +2126,7 @@
             this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage8.Size = new System.Drawing.Size(678, 484);
+            this.tabPage8.Size = new System.Drawing.Size(676, 481);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Add/Modify";
             // 
@@ -2458,7 +2473,7 @@
             this.tabPage9.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage9.Size = new System.Drawing.Size(678, 484);
+            this.tabPage9.Size = new System.Drawing.Size(676, 481);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Remove";
             // 
@@ -2572,7 +2587,7 @@
             this.tabPage10.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage10.Size = new System.Drawing.Size(678, 484);
+            this.tabPage10.Size = new System.Drawing.Size(676, 481);
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Ready Menus";
             // 
@@ -2816,7 +2831,7 @@
             this.tabPage11.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage11.Size = new System.Drawing.Size(678, 484);
+            this.tabPage11.Size = new System.Drawing.Size(676, 481);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Run Dialog";
             // 
@@ -2992,6 +3007,7 @@
             // optionsTab
             // 
             this.optionsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.optionsTab.Controls.Add(this.btnUpdate);
             this.optionsTab.Controls.Add(this.btnResetConfig);
             this.optionsTab.Controls.Add(this.label27);
             this.optionsTab.Controls.Add(this.radioMinimal);
@@ -3004,9 +3020,26 @@
             this.optionsTab.Margin = new System.Windows.Forms.Padding(2);
             this.optionsTab.Name = "optionsTab";
             this.optionsTab.Padding = new System.Windows.Forms.Padding(2);
-            this.optionsTab.Size = new System.Drawing.Size(688, 514);
+            this.optionsTab.Size = new System.Drawing.Size(688, 513);
             this.optionsTab.TabIndex = 6;
             this.optionsTab.Text = "Options";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(11, 163);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(155, 31);
+            this.btnUpdate.TabIndex = 57;
+            this.btnUpdate.Text = "Check for update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnResetConfig
             // 
@@ -3016,7 +3049,7 @@
             this.btnResetConfig.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnResetConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResetConfig.ForeColor = System.Drawing.Color.White;
-            this.btnResetConfig.Location = new System.Drawing.Point(11, 170);
+            this.btnResetConfig.Location = new System.Drawing.Point(11, 198);
             this.btnResetConfig.Margin = new System.Windows.Forms.Padding(2);
             this.btnResetConfig.Name = "btnResetConfig";
             this.btnResetConfig.Size = new System.Drawing.Size(155, 31);
@@ -3185,20 +3218,6 @@
             // 
             this.runDialogTime.Interval = 5;
             this.runDialogTime.Tick += new System.EventHandler(this.runDialogTimer_Tick);
-            // 
-            // toggleSwitch32
-            // 
-            this.toggleSwitch32.Location = new System.Drawing.Point(439, 16);
-            this.toggleSwitch32.Margin = new System.Windows.Forms.Padding(2);
-            this.toggleSwitch32.Name = "toggleSwitch32";
-            this.toggleSwitch32.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toggleSwitch32.OffForeColor = System.Drawing.Color.White;
-            this.toggleSwitch32.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toggleSwitch32.OnForeColor = System.Drawing.Color.White;
-            this.toggleSwitch32.OnText = "Disable Compatibility Assistant";
-            this.toggleSwitch32.Size = new System.Drawing.Size(208, 31);
-            this.toggleSwitch32.TabIndex = 47;
-            this.toggleSwitch32.Tag = "themeable";
             // 
             // MainForm
             // 
@@ -3487,6 +3506,7 @@
         private System.Windows.Forms.Button btnResetConfig;
         private ToggleSwitch toggleSwitch31;
         private ToggleSwitch toggleSwitch32;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }
 

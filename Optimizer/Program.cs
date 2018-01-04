@@ -20,9 +20,14 @@ namespace Optimizer
         internal readonly static float Major = 3;
         internal readonly static float Minor = 8;
 
-        internal static string GetCurrentVersion()
+        internal static string GetCurrentVersionTostring()
         {
             return Major.ToString() + "." + Minor.ToString();
+        }
+
+        internal static float GetCurrentVersion()
+        {
+            return float.Parse(GetCurrentVersionTostring());
         }
 
         /* END OF VERSION PROPERTIES */
