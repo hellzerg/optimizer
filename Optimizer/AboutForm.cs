@@ -97,7 +97,7 @@ namespace Optimizer
             string s10 = "deadmoon © 2";
             string s11 = "deadmoon © 20";
             string s12 = "deadmoon © 201";
-            string s13 = "deadmoon © 2017";
+            string s13 = "deadmoon © 2018";
 
             switch (l2.Text)
             {
@@ -142,7 +142,7 @@ namespace Optimizer
                     t2.Stop();
                     //t1.Start();
                     break;
-                case "deadmoon © 2017":
+                case "deadmoon © 2018":
                     l2.Text = s0;
                     break;
             }
