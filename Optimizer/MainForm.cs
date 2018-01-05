@@ -34,6 +34,7 @@ namespace Optimizer
 
         readonly string _latestVersionLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/version.txt";
         readonly string _releasesLink = "https://github.com/hellzerg/optimizer/releases";
+        readonly string _changelogLink = "https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md";
 
         readonly string _noNewVersionMessage = "You already have the latest version!";
         readonly string _betaVersionMessage = "You are using an experimental version!";
@@ -1746,6 +1747,15 @@ namespace Optimizer
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             CheckForUpdate();
+        }
+
+        private void btnChangelog_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(_changelogLink);
+            }
+            catch { }
         }
     }
 }
