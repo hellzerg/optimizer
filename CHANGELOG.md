@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [UNRELEASED] [3.9]
+## [3.9] - 2018-01-05
 - Added: Disable Program Compatibility Assistant Service
 - Added: Check for new versions in Options
 - Added: View changes in Options
