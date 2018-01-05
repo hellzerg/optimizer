@@ -27,6 +27,9 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 ## Downloads: ##
 https://github.com/hellzerg/optimizer/releases
 
+## Screenshots: ##
+https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
+
 ## Compatibility: ##
  
 * .NET Framework 4.5
