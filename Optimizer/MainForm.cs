@@ -61,26 +61,37 @@ namespace Optimizer
                 Encoding = Encoding.UTF8
             };
 
-            string latestVersion = client.DownloadString(_latestVersionLink);
+            string latestVersion = string.Empty;
+            try
+            {
+                latestVersion = client.DownloadString(_latestVersionLink);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
-            if (float.Parse(latestVersion) > Program.GetCurrentVersion())
+            if (!string.IsNullOrEmpty(latestVersion))
             {
-                if (MessageBox.Show(NewVersionMessage(latestVersion), "Update available", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (float.Parse(latestVersion) > Program.GetCurrentVersion())
                 {
-                    try
+                    if (MessageBox.Show(NewVersionMessage(latestVersion), "Update available", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        Process.Start(_releasesLink);
+                        try
+                        {
+                            Process.Start(_releasesLink);
+                        }
+                        catch { }
                     }
-                    catch { }
                 }
-            }
-            else if (float.Parse(latestVersion) == Program.GetCurrentVersion())
-            {
-                MessageBox.Show(_noNewVersionMessage, "No update available", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show(_betaVersionMessage, "No update available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (float.Parse(latestVersion) == Program.GetCurrentVersion())
+                {
+                    MessageBox.Show(_noNewVersionMessage, "No update available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(_betaVersionMessage, "No update available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
@@ -1755,7 +1766,10 @@ namespace Optimizer
             {
                 Process.Start(_changelogLink);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
