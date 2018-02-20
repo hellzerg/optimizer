@@ -217,6 +217,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.optionsTab = new System.Windows.Forms.TabPage();
+            this.btnChangelog = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnResetConfig = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
@@ -237,7 +238,8 @@
             this.DefineCommandIconDialog = new System.Windows.Forms.OpenFileDialog();
             this.integratorTimer = new System.Windows.Forms.Timer(this.components);
             this.runDialogTime = new System.Windows.Forms.Timer(this.components);
-            this.btnChangelog = new System.Windows.Forms.Button();
+            this.toggleSwitch33 = new Optimizer.ToggleSwitch();
+            this.toggleSwitch34 = new Optimizer.ToggleSwitch();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
@@ -383,6 +385,7 @@
             // universalTab
             // 
             this.universalTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.universalTab.Controls.Add(this.toggleSwitch33);
             this.universalTab.Controls.Add(this.toggleSwitch32);
             this.universalTab.Controls.Add(this.toggleSwitch12);
             this.universalTab.Controls.Add(this.toggleSwitch11);
@@ -607,6 +610,7 @@
             // windowsXTab
             // 
             this.windowsXTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.windowsXTab.Controls.Add(this.toggleSwitch34);
             this.windowsXTab.Controls.Add(this.toggleSwitch27);
             this.windowsXTab.Controls.Add(this.toggleSwitch28);
             this.windowsXTab.Controls.Add(this.toggleSwitch29);
@@ -631,7 +635,7 @@
             this.windowsXTab.Margin = new System.Windows.Forms.Padding(2);
             this.windowsXTab.Name = "windowsXTab";
             this.windowsXTab.Padding = new System.Windows.Forms.Padding(2);
-            this.windowsXTab.Size = new System.Drawing.Size(862, 643);
+            this.windowsXTab.Size = new System.Drawing.Size(862, 644);
             this.windowsXTab.TabIndex = 1;
             this.windowsXTab.Text = "Windows 10";
             // 
@@ -930,7 +934,7 @@
             this.windowsVIIITab.Margin = new System.Windows.Forms.Padding(2);
             this.windowsVIIITab.Name = "windowsVIIITab";
             this.windowsVIIITab.Padding = new System.Windows.Forms.Padding(2);
-            this.windowsVIIITab.Size = new System.Drawing.Size(862, 643);
+            this.windowsVIIITab.Size = new System.Drawing.Size(862, 644);
             this.windowsVIIITab.TabIndex = 2;
             this.windowsVIIITab.Text = "Windows 8.1";
             // 
@@ -975,10 +979,10 @@
             this.modernAppsTab.Controls.Add(this.label1);
             this.modernAppsTab.Controls.Add(this.panelModernAppsList);
             this.modernAppsTab.Location = new System.Drawing.Point(4, 29);
-            this.modernAppsTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.modernAppsTab.Margin = new System.Windows.Forms.Padding(4);
             this.modernAppsTab.Name = "modernAppsTab";
-            this.modernAppsTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.modernAppsTab.Size = new System.Drawing.Size(862, 643);
+            this.modernAppsTab.Padding = new System.Windows.Forms.Padding(4);
+            this.modernAppsTab.Size = new System.Drawing.Size(862, 644);
             this.modernAppsTab.TabIndex = 11;
             this.modernAppsTab.Text = "UWP Apps";
             // 
@@ -1064,7 +1068,7 @@
             this.panelModernAppsList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelModernAppsList.Controls.Add(this.listModernApps);
             this.panelModernAppsList.Location = new System.Drawing.Point(14, 51);
-            this.panelModernAppsList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelModernAppsList.Margin = new System.Windows.Forms.Padding(4);
             this.panelModernAppsList.Name = "panelModernAppsList";
             this.panelModernAppsList.Size = new System.Drawing.Size(608, 568);
             this.panelModernAppsList.TabIndex = 0;
@@ -1080,7 +1084,7 @@
             this.listModernApps.FormattingEnabled = true;
             this.listModernApps.HorizontalScrollbar = true;
             this.listModernApps.Location = new System.Drawing.Point(0, 0);
-            this.listModernApps.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listModernApps.Margin = new System.Windows.Forms.Padding(4);
             this.listModernApps.Name = "listModernApps";
             this.listModernApps.Size = new System.Drawing.Size(606, 566);
             this.listModernApps.Sorted = true;
@@ -1096,7 +1100,7 @@
             this.cleanerTab.Margin = new System.Windows.Forms.Padding(2);
             this.cleanerTab.Name = "cleanerTab";
             this.cleanerTab.Padding = new System.Windows.Forms.Padding(2);
-            this.cleanerTab.Size = new System.Drawing.Size(862, 643);
+            this.cleanerTab.Size = new System.Drawing.Size(862, 644);
             this.cleanerTab.TabIndex = 5;
             this.cleanerTab.Text = "Cleaner";
             // 
@@ -1329,7 +1333,7 @@
             this.startupTab.Location = new System.Drawing.Point(4, 29);
             this.startupTab.Margin = new System.Windows.Forms.Padding(2);
             this.startupTab.Name = "startupTab";
-            this.startupTab.Size = new System.Drawing.Size(862, 643);
+            this.startupTab.Size = new System.Drawing.Size(862, 644);
             this.startupTab.TabIndex = 7;
             this.startupTab.Text = "Startup";
             // 
@@ -1495,7 +1499,7 @@
             this.registryFixerTab.Margin = new System.Windows.Forms.Padding(2);
             this.registryFixerTab.Name = "registryFixerTab";
             this.registryFixerTab.Padding = new System.Windows.Forms.Padding(2);
-            this.registryFixerTab.Size = new System.Drawing.Size(862, 643);
+            this.registryFixerTab.Size = new System.Drawing.Size(862, 644);
             this.registryFixerTab.TabIndex = 8;
             this.registryFixerTab.Text = "Registry";
             // 
@@ -1709,7 +1713,7 @@
             this.hostsEditorTab.Margin = new System.Windows.Forms.Padding(2);
             this.hostsEditorTab.Name = "hostsEditorTab";
             this.hostsEditorTab.Padding = new System.Windows.Forms.Padding(2);
-            this.hostsEditorTab.Size = new System.Drawing.Size(862, 643);
+            this.hostsEditorTab.Size = new System.Drawing.Size(862, 644);
             this.hostsEditorTab.TabIndex = 9;
             this.hostsEditorTab.Text = "Hosts";
             // 
@@ -1739,7 +1743,7 @@
             this.panelList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelList.Controls.Add(this.listHostEntries);
             this.panelList.Location = new System.Drawing.Point(6, 4);
-            this.panelList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelList.Margin = new System.Windows.Forms.Padding(4);
             this.panelList.Name = "panelList";
             this.panelList.Size = new System.Drawing.Size(360, 484);
             this.panelList.TabIndex = 60;
@@ -1988,7 +1992,7 @@
             this.integratorTab.Margin = new System.Windows.Forms.Padding(2);
             this.integratorTab.Name = "integratorTab";
             this.integratorTab.Padding = new System.Windows.Forms.Padding(2);
-            this.integratorTab.Size = new System.Drawing.Size(862, 643);
+            this.integratorTab.Size = new System.Drawing.Size(862, 644);
             this.integratorTab.TabIndex = 10;
             this.integratorTab.Text = "Integrator";
             // 
@@ -2006,7 +2010,7 @@
             this.synapse.Multiline = true;
             this.synapse.Name = "synapse";
             this.synapse.SelectedIndex = 0;
-            this.synapse.Size = new System.Drawing.Size(858, 639);
+            this.synapse.Size = new System.Drawing.Size(858, 640);
             this.synapse.TabIndex = 0;
             // 
             // integratorInfoTab
@@ -2023,7 +2027,7 @@
             this.integratorInfoTab.Margin = new System.Windows.Forms.Padding(2);
             this.integratorInfoTab.Name = "integratorInfoTab";
             this.integratorInfoTab.Padding = new System.Windows.Forms.Padding(2);
-            this.integratorInfoTab.Size = new System.Drawing.Size(850, 606);
+            this.integratorInfoTab.Size = new System.Drawing.Size(850, 607);
             this.integratorInfoTab.TabIndex = 0;
             this.integratorInfoTab.Text = "Info";
             // 
@@ -2131,7 +2135,7 @@
             this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage8.Size = new System.Drawing.Size(847, 603);
+            this.tabPage8.Size = new System.Drawing.Size(850, 606);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Add/Modify";
             // 
@@ -2478,7 +2482,7 @@
             this.tabPage9.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage9.Size = new System.Drawing.Size(847, 603);
+            this.tabPage9.Size = new System.Drawing.Size(850, 606);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Remove";
             // 
@@ -2592,7 +2596,7 @@
             this.tabPage10.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage10.Size = new System.Drawing.Size(847, 603);
+            this.tabPage10.Size = new System.Drawing.Size(850, 606);
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Ready Menus";
             // 
@@ -2836,7 +2840,7 @@
             this.tabPage11.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage11.Size = new System.Drawing.Size(847, 603);
+            this.tabPage11.Size = new System.Drawing.Size(850, 606);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Run Dialog";
             // 
@@ -3029,6 +3033,23 @@
             this.optionsTab.Size = new System.Drawing.Size(862, 644);
             this.optionsTab.TabIndex = 6;
             this.optionsTab.Text = "Options";
+            // 
+            // btnChangelog
+            // 
+            this.btnChangelog.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnChangelog.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnChangelog.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnChangelog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnChangelog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangelog.ForeColor = System.Drawing.Color.White;
+            this.btnChangelog.Location = new System.Drawing.Point(14, 247);
+            this.btnChangelog.Margin = new System.Windows.Forms.Padding(2);
+            this.btnChangelog.Name = "btnChangelog";
+            this.btnChangelog.Size = new System.Drawing.Size(194, 39);
+            this.btnChangelog.TabIndex = 58;
+            this.btnChangelog.Text = "View changes";
+            this.btnChangelog.UseVisualStyleBackColor = false;
+            this.btnChangelog.Click += new System.EventHandler(this.btnChangelog_Click);
             // 
             // btnUpdate
             // 
@@ -3225,22 +3246,33 @@
             this.runDialogTime.Interval = 5;
             this.runDialogTime.Tick += new System.EventHandler(this.runDialogTimer_Tick);
             // 
-            // btnChangelog
+            // toggleSwitch33
             // 
-            this.btnChangelog.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnChangelog.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnChangelog.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnChangelog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnChangelog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangelog.ForeColor = System.Drawing.Color.White;
-            this.btnChangelog.Location = new System.Drawing.Point(14, 247);
-            this.btnChangelog.Margin = new System.Windows.Forms.Padding(2);
-            this.btnChangelog.Name = "btnChangelog";
-            this.btnChangelog.Size = new System.Drawing.Size(194, 39);
-            this.btnChangelog.TabIndex = 58;
-            this.btnChangelog.Text = "View changes";
-            this.btnChangelog.UseVisualStyleBackColor = false;
-            this.btnChangelog.Click += new System.EventHandler(this.btnChangelog_Click);
+            this.toggleSwitch33.Location = new System.Drawing.Point(549, 65);
+            this.toggleSwitch33.Margin = new System.Windows.Forms.Padding(2);
+            this.toggleSwitch33.Name = "toggleSwitch33";
+            this.toggleSwitch33.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toggleSwitch33.OffForeColor = System.Drawing.Color.White;
+            this.toggleSwitch33.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toggleSwitch33.OnForeColor = System.Drawing.Color.White;
+            this.toggleSwitch33.OnText = "Disable Fax Service";
+            this.toggleSwitch33.Size = new System.Drawing.Size(260, 39);
+            this.toggleSwitch33.TabIndex = 48;
+            this.toggleSwitch33.Tag = "themeable";
+            // 
+            // toggleSwitch34
+            // 
+            this.toggleSwitch34.Location = new System.Drawing.Point(550, 200);
+            this.toggleSwitch34.Margin = new System.Windows.Forms.Padding(2);
+            this.toggleSwitch34.Name = "toggleSwitch34";
+            this.toggleSwitch34.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toggleSwitch34.OffForeColor = System.Drawing.Color.White;
+            this.toggleSwitch34.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toggleSwitch34.OnForeColor = System.Drawing.Color.White;
+            this.toggleSwitch34.OnText = "Disable Insider Service";
+            this.toggleSwitch34.Size = new System.Drawing.Size(260, 39);
+            this.toggleSwitch34.TabIndex = 57;
+            this.toggleSwitch34.Tag = "themeable";
             // 
             // MainForm
             // 
@@ -3531,6 +3563,8 @@
         private ToggleSwitch toggleSwitch32;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnChangelog;
+        private ToggleSwitch toggleSwitch33;
+        private ToggleSwitch toggleSwitch34;
     }
 }
 

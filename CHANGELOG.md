@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0] - 2018-02-21
+- Added: Disable Fax service
+- Added: Disable Windows Insider service
+
 ## [3.9] - 2018-01-05
 - Added: Disable Program Compatibility Assistant Service
 - Added: Check for new versions in Options

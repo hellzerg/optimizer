@@ -27,6 +27,7 @@ namespace Optimizer
         public bool DisableTelemetryTasks { get; set; }
         public bool DisableOffice2016Telemetry { get; set; }
         public bool DisableCompatibilityAssistant { get; set; }
+        public bool DisableFaxService { get; set; }
 
         public bool EnableLegacyVolumeSlider { get; set; }
         public bool EnableTaskbarColor { get; set; }
@@ -46,6 +47,7 @@ namespace Optimizer
         public bool DisableSpellingTyping { get; set; }
         public bool DisableXboxLive { get; set; }
         public bool DisableGameBar { get; set; }
+        public bool DisableInsiderService { get; set; }
 
         public bool DisableOneDrive { get; set; }
     }
@@ -158,6 +160,7 @@ namespace Optimizer
                 CurrentOptions.DisableTelemetryTasks = false;
                 CurrentOptions.DisableOffice2016Telemetry = false;
                 CurrentOptions.DisableCompatibilityAssistant = false;
+                CurrentOptions.DisableFaxService = false;
 
                 CurrentOptions.EnableLegacyVolumeSlider = false;
                 CurrentOptions.EnableTaskbarColor = false;
@@ -177,6 +180,7 @@ namespace Optimizer
                 CurrentOptions.DisableSpellingTyping = false;
                 CurrentOptions.DisableXboxLive = false;
                 CurrentOptions.DisableGameBar = false;
+                CurrentOptions.DisableInsiderService = false;
 
                 CurrentOptions.DisableOneDrive = false;
 

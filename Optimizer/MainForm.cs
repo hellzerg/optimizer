@@ -47,7 +47,7 @@ namespace Optimizer
         readonly string _removeDesktopItemsMessage = "Are you sure you want to delete all desktop items?";
         readonly string _removeModernAppsMessage = "Are you sure you want to uninstall the following app(s)?";
         readonly string _errorModernAppsMessage = "The following app(s) couldn't be uninstalled:\n";
-        readonly string _resetMessage = "Are you sure you want to reset configuration?\n\nThis will delete all your preferences, including any icons you extracted or downloaded using Integrator.";
+        readonly string _resetMessage = "Are you sure you want to reset configuration?\n\nThis will reset all your preferences, including any icons you extracted or downloaded using Integrator, but will not touch anything on your computer!";
 
         private string NewVersionMessage(string latest)
         {
@@ -129,6 +129,34 @@ namespace Optimizer
             toggleSwitch18.Click += new EventHandler(toggleSwitch18_Click);
             toggleSwitch19.Click += new EventHandler(toggleSwitch19_Click);
             toggleSwitch32.Click += new EventHandler(toggleSwitch32_Click);
+            toggleSwitch33.Click += new EventHandler(ToggleSwitch33_Click);
+            toggleSwitch34.Click += new EventHandler(ToggleSwitch34_Click);
+        }
+
+        private void ToggleSwitch34_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch34.Checked)
+            {
+                Optimize.DisableInsiderService();
+            }
+            else
+            {
+                Optimize.EnableInsiderService();
+            }
+            Options.CurrentOptions.DisableInsiderService = !toggleSwitch34.Checked;
+        }
+
+        private void ToggleSwitch33_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch33.Checked)
+            {
+                Optimize.DisableFaxService();
+            }
+            else
+            {
+                Optimize.EnableFaxService();
+            }
+            Options.CurrentOptions.DisableFaxService = !toggleSwitch33.Checked;
         }
 
         private void LoadSettings()
@@ -359,6 +387,7 @@ namespace Optimizer
             toggleSwitch11.Checked = Options.CurrentOptions.DisableTelemetryTasks;
             toggleSwitch12.Checked = Options.CurrentOptions.DisableOffice2016Telemetry;
             toggleSwitch32.Checked = Options.CurrentOptions.DisableCompatibilityAssistant;
+            toggleSwitch33.Checked = Options.CurrentOptions.DisableFaxService;
         }
 
         private void LoadWindowsVIIIToggleStates()
@@ -386,6 +415,7 @@ namespace Optimizer
             toggleSwitch28.Checked = Options.CurrentOptions.DisableSpellingTyping;
             toggleSwitch29.Checked = Options.CurrentOptions.DisableWindowsInk;
             toggleSwitch30.Checked = Options.CurrentOptions.ExcludeDrivers;
+            toggleSwitch34.Checked = Options.CurrentOptions.DisableInsiderService;
         }
 
         private void Main_Load(object sender, EventArgs e)
