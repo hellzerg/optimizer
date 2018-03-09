@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1] - 2018-03-09
+- Added: Disable forced feature updates on Windows 10
+
 ## [4.0] - 2018-02-21
 - Added: Disable Fax service
 - Added: Disable Windows Insider service

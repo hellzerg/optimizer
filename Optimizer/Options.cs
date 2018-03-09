@@ -48,6 +48,7 @@ namespace Optimizer
         public bool DisableXboxLive { get; set; }
         public bool DisableGameBar { get; set; }
         public bool DisableInsiderService { get; set; }
+        public bool DisableFeatureUpdates { get; set; }
 
         public bool DisableOneDrive { get; set; }
     }
@@ -181,6 +182,7 @@ namespace Optimizer
                 CurrentOptions.DisableXboxLive = false;
                 CurrentOptions.DisableGameBar = false;
                 CurrentOptions.DisableInsiderService = false;
+                CurrentOptions.DisableFeatureUpdates = false;
 
                 CurrentOptions.DisableOneDrive = false;
 

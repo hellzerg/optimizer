@@ -131,6 +131,20 @@ namespace Optimizer
             toggleSwitch32.Click += new EventHandler(toggleSwitch32_Click);
             toggleSwitch33.Click += new EventHandler(ToggleSwitch33_Click);
             toggleSwitch34.Click += new EventHandler(ToggleSwitch34_Click);
+            toggleSwitch35.Click += new EventHandler(ToggleSwitch35_Click);
+        }
+
+        private void ToggleSwitch35_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch35.Checked)
+            {
+                Optimize.DisableForcedFeatureUpdates();
+            }
+            else
+            {
+                Optimize.EnableForcedFeatureUpdates();
+            }
+            Options.CurrentOptions.DisableFeatureUpdates = !toggleSwitch35.Checked;
         }
 
         private void ToggleSwitch34_Click(object sender, EventArgs e)
@@ -416,6 +430,7 @@ namespace Optimizer
             toggleSwitch29.Checked = Options.CurrentOptions.DisableWindowsInk;
             toggleSwitch30.Checked = Options.CurrentOptions.ExcludeDrivers;
             toggleSwitch34.Checked = Options.CurrentOptions.DisableInsiderService;
+            toggleSwitch35.Checked = Options.CurrentOptions.DisableFeatureUpdates;
         }
 
         private void Main_Load(object sender, EventArgs e)
