@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.2] - 2018-09-12
+- Improved: Disable Silent App Install (Cloud Content)
+- Improved: Disable Cortana & web search
+
 ## [4.1] - 2018-03-09
 - Added: Disable forced feature updates on Windows 10
 

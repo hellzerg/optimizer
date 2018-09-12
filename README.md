@@ -17,7 +17,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Uninstall UWP apps
 * Block Skype ads
 * Clean up your system drive
-* Fix common registry issues 
+* Fix common registry issues
 * Remove unwanted programs running at startup
 * Change Microsoft Edge download folder
 * Edit your hosts file
@@ -31,11 +31,11 @@ https://github.com/hellzerg/optimizer/releases
 https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
 
 ## Compatibility: ##
- 
+
 * .NET Framework 4.5
 * Compatible with Windows 7, 8, 8.1, 10
 
 ## Details: ##
 
-* Latest version: 4.1
-* Released: March 9, 2018
+* Latest version: 4.2
+* Released: September 12, 2018
