@@ -241,6 +241,7 @@
             this.DefineCommandIconDialog = new System.Windows.Forms.OpenFileDialog();
             this.integratorTimer = new System.Windows.Forms.Timer(this.components);
             this.runDialogTime = new System.Windows.Forms.Timer(this.components);
+            this.toggleSwitch36 = new Optimizer.ToggleSwitch();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
@@ -386,6 +387,7 @@
             // universalTab
             // 
             this.universalTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.universalTab.Controls.Add(this.toggleSwitch36);
             this.universalTab.Controls.Add(this.toggleSwitch33);
             this.universalTab.Controls.Add(this.toggleSwitch32);
             this.universalTab.Controls.Add(this.toggleSwitch12);
@@ -3290,6 +3292,20 @@
             this.runDialogTime.Interval = 5;
             this.runDialogTime.Tick += new System.EventHandler(this.runDialogTimer_Tick);
             // 
+            // toggleSwitch36
+            // 
+            this.toggleSwitch36.Location = new System.Drawing.Point(549, 110);
+            this.toggleSwitch36.Margin = new System.Windows.Forms.Padding(2);
+            this.toggleSwitch36.Name = "toggleSwitch36";
+            this.toggleSwitch36.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toggleSwitch36.OffForeColor = System.Drawing.Color.White;
+            this.toggleSwitch36.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toggleSwitch36.OnForeColor = System.Drawing.Color.White;
+            this.toggleSwitch36.OnText = "Disable SmartScreen";
+            this.toggleSwitch36.Size = new System.Drawing.Size(260, 39);
+            this.toggleSwitch36.TabIndex = 49;
+            this.toggleSwitch36.Tag = "themeable";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -3582,6 +3598,7 @@
         private ToggleSwitch toggleSwitch33;
         private ToggleSwitch toggleSwitch34;
         private ToggleSwitch toggleSwitch35;
+        private ToggleSwitch toggleSwitch36;
     }
 }
 

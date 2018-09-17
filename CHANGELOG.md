@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.3] - 2018-09-17
+- Added: Disable SmartScreen
+
 ## [4.2] - 2018-09-12
 - Improved: Disable Silent App Install (Cloud Content)
 - Improved: Disable Cortana & web search

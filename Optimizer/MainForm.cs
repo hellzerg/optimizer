@@ -132,6 +132,20 @@ namespace Optimizer
             toggleSwitch33.Click += new EventHandler(ToggleSwitch33_Click);
             toggleSwitch34.Click += new EventHandler(ToggleSwitch34_Click);
             toggleSwitch35.Click += new EventHandler(ToggleSwitch35_Click);
+            toggleSwitch36.Click += new EventHandler(ToggleSwitch36_Click);
+        }
+
+        private void ToggleSwitch36_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch36.Checked)
+            {
+                Optimize.DisableSmartScreen();
+            }
+            else
+            {
+                Optimize.EnableSmartScreen();
+            }
+            Options.CurrentOptions.DisableSmartScreen = !toggleSwitch36.Checked;
         }
 
         private void ToggleSwitch35_Click(object sender, EventArgs e)
@@ -402,6 +416,7 @@ namespace Optimizer
             toggleSwitch12.Checked = Options.CurrentOptions.DisableOffice2016Telemetry;
             toggleSwitch32.Checked = Options.CurrentOptions.DisableCompatibilityAssistant;
             toggleSwitch33.Checked = Options.CurrentOptions.DisableFaxService;
+            toggleSwitch36.Checked = Options.CurrentOptions.DisableSmartScreen;
         }
 
         private void LoadWindowsVIIIToggleStates()
