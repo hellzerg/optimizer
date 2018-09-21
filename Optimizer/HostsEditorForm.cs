@@ -18,6 +18,11 @@ namespace Optimizer
         {
             InitializeComponent();
             Options.ApplyTheme(this);
+
+            if (HostsHelper.GetReadOnly())
+            {
+                savebtn.Enabled = false;
+            }
         }
 
         private void HostsEditor_Load(object sender, EventArgs e)

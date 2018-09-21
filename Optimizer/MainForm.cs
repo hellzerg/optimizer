@@ -479,6 +479,17 @@ namespace Optimizer
                     listHostEntries.Items.Add(_hostsEntries[i]);
                 }
             }
+
+            chkReadOnly.Checked = HostsHelper.GetReadOnly();
+
+            button47.Enabled = !chkReadOnly.Checked;
+            button46.Enabled = !chkReadOnly.Checked;
+            button42.Enabled = !chkReadOnly.Checked;
+            button41.Enabled = !chkReadOnly.Checked;
+            linkLabel4.Enabled = !chkReadOnly.Checked;
+            chkBlock.Enabled = !chkReadOnly.Checked;
+            txtDomain.Enabled = !chkReadOnly.Checked;
+            txtIP.Enabled = !chkReadOnly.Checked;
         }
 
         private void GetStartupItems()
@@ -1830,6 +1841,22 @@ namespace Optimizer
             {
                 MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void chkReadOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            HostsHelper.ReadOnly(chkReadOnly.Checked);
+
+            button47.Enabled = !chkReadOnly.Checked;
+            button46.Enabled = !chkReadOnly.Checked;
+            button42.Enabled = !chkReadOnly.Checked;
+            button41.Enabled = !chkReadOnly.Checked;
+            linkLabel4.Enabled = !chkReadOnly.Checked;
+            chkBlock.Enabled = !chkReadOnly.Checked;
+            txtDomain.Enabled = !chkReadOnly.Checked;
+            txtIP.Enabled = !chkReadOnly.Checked;
+
+            txtIP.Focus();
         }
     }
 }

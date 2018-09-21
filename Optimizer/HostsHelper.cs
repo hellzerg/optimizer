@@ -104,5 +104,16 @@ namespace Optimizer
             // remove multiple white spaces and keep only one
             return Regex.Replace(entry, @"\s{2,}", " ");
         }
+
+        internal static bool GetReadOnly()
+        {
+            return new FileInfo(HostsFile).IsReadOnly;
+        }
+
+        internal static void ReadOnly(bool enable)
+        {
+            FileInfo fi = new FileInfo(HostsFile);
+            fi.IsReadOnly = enable;
+        }
     }
 }

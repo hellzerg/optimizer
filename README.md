@@ -37,5 +37,5 @@ https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
 
 ## Details: ##
 
-* Latest version: 4.3
-* Released: September 17, 2018
+* Latest version: 4.4
+* Released: September 21, 2018

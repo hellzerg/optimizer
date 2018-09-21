@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.4] - 2018-09-21
+- Improved: Disable Automatic Updates (Windows 10)
+- Added: Make HOSTS file read-only
+
 ## [4.3] - 2018-09-17
 - Added: Disable SmartScreen
 
@@ -78,7 +82,7 @@ All notable changes to this project will be documented in this file.
 ## [2.7] - 2017-04-04
 - Compatible with Windows 10 Creators Update
 - Added option to enable/disable Sensor Services
-- Added option to block domain in Hosts editor
+- Added option to block domain in HOSTS editor
 
 ## [2.6] - 2017-03-14
 - Minor visual fixes
@@ -120,7 +124,7 @@ All notable changes to this project will be documented in this file.
 - Major bug fixes
 
 ## [1.4] - 2016-09-12
-- Added Hosts editor
+- Added HOSTS editor
 - Added Integrator tool
 - Added theme option
 - Performance improvements
