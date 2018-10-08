@@ -32,7 +32,7 @@ https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
 
 ## Compatibility: ##
 
-* .NET Framework 4.5
+* .NET Framework 4.5.2
 * Compatible with Windows 7, 8, 8.1, 10
 
 ## Details: ##
