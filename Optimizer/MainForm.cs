@@ -133,11 +133,6 @@ namespace Optimizer
             }
         }
 
-        private void Patch()
-        {
-            
-        }
-
         private void EnableToggleEvents()
         {
             toggleSwitch12.Click += new EventHandler(toggleSwitch12_Click);
