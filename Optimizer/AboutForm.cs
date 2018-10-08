@@ -150,7 +150,7 @@ namespace Optimizer
 
         private void l2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://carcinos.eu/deadmoon");
+            Process.Start("https://github.com/hellzerg/optimizer");
         }
     }
 }

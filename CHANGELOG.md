@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.5] - 2018-10-08
+- Improved: You can now update the app automatically by clicking Check for update in Options
+
 ## [4.4] - 2018-09-21
 - Improved: Disable Automatic Updates (Windows 10)
 - Added: Make HOSTS file read-only

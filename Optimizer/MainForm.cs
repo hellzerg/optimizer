@@ -33,7 +33,6 @@ namespace Optimizer
         DesktopTypePosition _desktopItemPosition = DesktopTypePosition.Top;
 
         readonly string _latestVersionLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/version.txt";
-        readonly string _releasesLink = "https://github.com/hellzerg/optimizer/releases";
         readonly string _changelogLink = "https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md";
 
         readonly string _noNewVersionMessage = "You already have the latest version!";
@@ -49,9 +48,14 @@ namespace Optimizer
         readonly string _errorModernAppsMessage = "The following app(s) couldn't be uninstalled:\n";
         readonly string _resetMessage = "Are you sure you want to reset configuration?\n\nThis will reset all your preferences, including any icons you extracted or downloaded using Integrator, but will not touch anything on your computer!";
 
-        private string NewVersionMessage(string latest)
+        private string NewVersionMessage(string latestVersion)
         {
-            return string.Format("There is a new version available!\n\nLatest version: {0}\nCurrent version: {1}\n\nDo you want to download it now?", latest, Program.GetCurrentVersionTostring());
+            return string.Format("There is a new version available!\n\nLatest version: {0}\nCurrent version: {1}\n\nDo you want to download it now?", latestVersion, Program.GetCurrentVersionTostring());
+        }
+
+        private string NewDownloadLink(string latestVersion)
+        {
+            return string.Format("https://github.com/hellzerg/optimizer/releases/download/{0}/Optimizer-{0}.exe", latestVersion);
         }
 
         private void CheckForUpdate()
@@ -77,11 +81,45 @@ namespace Optimizer
                 {
                     if (MessageBox.Show(NewVersionMessage(latestVersion), "Update available", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        // PATCHING PROCESS
                         try
                         {
-                            Process.Start(_releasesLink);
+                            Assembly currentAssembly = Assembly.GetEntryAssembly();
+
+                            if (currentAssembly == null)
+                            {
+                                currentAssembly = Assembly.GetCallingAssembly();
+                            }
+
+                            string appFolder = Path.GetDirectoryName(currentAssembly.Location);
+                            string appName = Path.GetFileNameWithoutExtension(currentAssembly.Location);
+                            string appExtension = Path.GetExtension(currentAssembly.Location);
+
+                            string archiveFile = Path.Combine(appFolder, appName + "_old" + appExtension);
+                            string appFile = Path.Combine(appFolder, appName + appExtension);
+                            string tempFile = Path.Combine(appFolder, appName + "_tmp" + appExtension);
+
+                            // DOWNLOAD NEW VERSION
+                            client.DownloadFile(NewDownloadLink(latestVersion), tempFile);
+
+                            // DELETE PREVIOUS BACK-UP
+                            if (File.Exists(archiveFile))
+                            {
+                                File.Delete(archiveFile);
+                            }
+
+                            // MAKE BACK-UP
+                            File.Move(appFile, archiveFile);
+
+                            // PATCH
+                            File.Move(tempFile, appFile);
+
+                            Application.Restart();
                         }
-                        catch { }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
                 }
                 else if (float.Parse(latestVersion) == Program.GetCurrentVersion())
@@ -93,6 +131,11 @@ namespace Optimizer
                     MessageBox.Show(_betaVersionMessage, "No update available", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void Patch()
+        {
+            
         }
 
         private void EnableToggleEvents()
@@ -219,6 +262,8 @@ namespace Optimizer
 
             CheckForIllegalCrossThreadCalls = false;
             Options.ApplyTheme(this);
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
             {
