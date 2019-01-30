@@ -38,7 +38,7 @@ namespace Optimizer
         readonly string _noNewVersionMessage = "You already have the latest version!";
         readonly string _betaVersionMessage = "You are using an experimental version!";
 
-        readonly string _blockedIP = "127.0.0.1";
+        readonly string _blockedIP = "0.0.0.0";
 
         readonly string _restartMessage = "Restart to apply changes?";
         readonly string _removeStartupItemsMessage = "Are you sure you want to delete all startup items?";

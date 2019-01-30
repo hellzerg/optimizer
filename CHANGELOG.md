@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.6] - 2019-01-30
+- Changed blocked IP from 127.0.0.1 to 0.0.0.0 in HOSTS editor
+
 ## [4.5] - 2018-10-08
 - Improved: You can now update the app automatically by clicking Check for update in Options
 
