@@ -244,6 +244,7 @@
             this.DefineCommandIconDialog = new System.Windows.Forms.OpenFileDialog();
             this.integratorTimer = new System.Windows.Forms.Timer(this.components);
             this.runDialogTime = new System.Windows.Forms.Timer(this.components);
+            this.toggleSwitch37 = new Optimizer.ToggleSwitch();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
@@ -643,6 +644,7 @@
             // windowsXTab
             // 
             this.windowsXTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.windowsXTab.Controls.Add(this.toggleSwitch37);
             this.windowsXTab.Controls.Add(this.toggleSwitch35);
             this.windowsXTab.Controls.Add(this.toggleSwitch34);
             this.windowsXTab.Controls.Add(this.toggleSwitch27);
@@ -3336,6 +3338,20 @@
             this.runDialogTime.Interval = 5;
             this.runDialogTime.Tick += new System.EventHandler(this.runDialogTimer_Tick);
             // 
+            // toggleSwitch37
+            // 
+            this.toggleSwitch37.Location = new System.Drawing.Point(550, 290);
+            this.toggleSwitch37.Margin = new System.Windows.Forms.Padding(2);
+            this.toggleSwitch37.Name = "toggleSwitch37";
+            this.toggleSwitch37.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toggleSwitch37.OffForeColor = System.Drawing.Color.White;
+            this.toggleSwitch37.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toggleSwitch37.OnForeColor = System.Drawing.Color.White;
+            this.toggleSwitch37.OnText = "Disable Cloud Clipboard";
+            this.toggleSwitch37.Size = new System.Drawing.Size(260, 39);
+            this.toggleSwitch37.TabIndex = 59;
+            this.toggleSwitch37.Tag = "themeable";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -3631,6 +3647,7 @@
         private ToggleSwitch toggleSwitch36;
         private System.Windows.Forms.CheckBox chkReadOnly;
         private System.Windows.Forms.Label label29;
+        private ToggleSwitch toggleSwitch37;
     }
 }
 

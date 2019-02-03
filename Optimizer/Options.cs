@@ -29,6 +29,7 @@ namespace Optimizer
         public bool DisableCompatibilityAssistant { get; set; }
         public bool DisableFaxService { get; set; }
         public bool DisableSmartScreen { get; set; }
+        public bool DisableCloudClipboard { get; set; }
 
         public bool EnableLegacyVolumeSlider { get; set; }
         public bool EnableTaskbarColor { get; set; }
@@ -164,6 +165,7 @@ namespace Optimizer
                 CurrentOptions.DisableCompatibilityAssistant = false;
                 CurrentOptions.DisableFaxService = false;
                 CurrentOptions.DisableSmartScreen = false;
+                CurrentOptions.DisableCloudClipboard = false;
 
                 CurrentOptions.EnableLegacyVolumeSlider = false;
                 CurrentOptions.EnableTaskbarColor = false;

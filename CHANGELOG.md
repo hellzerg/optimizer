@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.7] - 2019-02-03
+- Added: Disable Cloud Clipboard experience (for Windows 10 1809)
+
 ## [4.6] - 2019-01-30
 - Changed blocked IP from 127.0.0.1 to 0.0.0.0 in HOSTS editor
 - Changed 'Restart' button to 'Apply & Restart'

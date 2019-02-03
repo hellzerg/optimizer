@@ -171,6 +171,20 @@ namespace Optimizer
             toggleSwitch34.Click += new EventHandler(ToggleSwitch34_Click);
             toggleSwitch35.Click += new EventHandler(ToggleSwitch35_Click);
             toggleSwitch36.Click += new EventHandler(ToggleSwitch36_Click);
+            toggleSwitch37.Click += new EventHandler(ToggleSwitch37_Click);
+        }
+
+        private void ToggleSwitch37_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch37.Checked)
+            {
+                Optimize.DisableCloudClipboard();
+            }
+            else
+            {
+                Optimize.EnableCloudClipboard();
+            }
+            Options.CurrentOptions.DisableCloudClipboard = !toggleSwitch37.Checked;
         }
 
         private void ToggleSwitch36_Click(object sender, EventArgs e)
@@ -486,6 +500,7 @@ namespace Optimizer
             toggleSwitch30.Checked = Options.CurrentOptions.ExcludeDrivers;
             toggleSwitch34.Checked = Options.CurrentOptions.DisableInsiderService;
             toggleSwitch35.Checked = Options.CurrentOptions.DisableFeatureUpdates;
+            toggleSwitch37.Checked = Options.CurrentOptions.DisableCloudClipboard;
         }
 
         private void Main_Load(object sender, EventArgs e)
