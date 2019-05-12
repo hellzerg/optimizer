@@ -172,6 +172,34 @@ namespace Optimizer
             toggleSwitch35.Click += new EventHandler(ToggleSwitch35_Click);
             toggleSwitch36.Click += new EventHandler(ToggleSwitch36_Click);
             toggleSwitch37.Click += new EventHandler(ToggleSwitch37_Click);
+            toggleSwitch38.Click += new EventHandler(ToggleSwitch38_Click);
+            toggleSwitch39.Click += new EventHandler(ToggleSwitch39_Click);
+        }
+
+        private void ToggleSwitch39_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch39.Checked)
+            {
+                Optimize.EnableLongPaths();
+            }
+            else
+            {
+                Optimize.DisableLongPaths();
+            }
+            Options.CurrentOptions.EnableLongPaths = !toggleSwitch39.Checked;
+        }
+
+        private void ToggleSwitch38_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch38.Checked)
+            {
+                Optimize.DisableStickyKeys();
+            }
+            else
+            {
+                Optimize.EnableStickyKeys();
+            }
+            Options.CurrentOptions.DisableStickyKeys = !toggleSwitch38.Checked;
         }
 
         private void ToggleSwitch37_Click(object sender, EventArgs e)
@@ -471,6 +499,7 @@ namespace Optimizer
             toggleSwitch32.Checked = Options.CurrentOptions.DisableCompatibilityAssistant;
             toggleSwitch33.Checked = Options.CurrentOptions.DisableFaxService;
             toggleSwitch36.Checked = Options.CurrentOptions.DisableSmartScreen;
+            toggleSwitch38.Checked = Options.CurrentOptions.DisableStickyKeys;
         }
 
         private void LoadWindowsVIIIToggleStates()
@@ -501,6 +530,7 @@ namespace Optimizer
             toggleSwitch34.Checked = Options.CurrentOptions.DisableInsiderService;
             toggleSwitch35.Checked = Options.CurrentOptions.DisableFeatureUpdates;
             toggleSwitch37.Checked = Options.CurrentOptions.DisableCloudClipboard;
+            toggleSwitch39.Checked = Options.CurrentOptions.EnableLongPaths;
         }
 
         private void Main_Load(object sender, EventArgs e)

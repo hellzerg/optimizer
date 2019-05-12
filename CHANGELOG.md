@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.8] - 2019-05-12
+- Added: Disable Sticky Keys (for current user)
+- Added: Enable Long Paths (removes 260 character path limit, for Windows 10)
+
 ## [4.7] - 2019-02-03
 - Added: Disable Cloud Clipboard experience (for Windows 10 1809)
 

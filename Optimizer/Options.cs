@@ -30,6 +30,7 @@ namespace Optimizer
         public bool DisableFaxService { get; set; }
         public bool DisableSmartScreen { get; set; }
         public bool DisableCloudClipboard { get; set; }
+        public bool DisableStickyKeys { get; set; }
 
         public bool EnableLegacyVolumeSlider { get; set; }
         public bool EnableTaskbarColor { get; set; }
@@ -51,6 +52,7 @@ namespace Optimizer
         public bool DisableGameBar { get; set; }
         public bool DisableInsiderService { get; set; }
         public bool DisableFeatureUpdates { get; set; }
+        public bool EnableLongPaths { get; set; }
 
         public bool DisableOneDrive { get; set; }
     }
@@ -165,7 +167,7 @@ namespace Optimizer
                 CurrentOptions.DisableCompatibilityAssistant = false;
                 CurrentOptions.DisableFaxService = false;
                 CurrentOptions.DisableSmartScreen = false;
-                CurrentOptions.DisableCloudClipboard = false;
+                CurrentOptions.DisableStickyKeys = false;
 
                 CurrentOptions.EnableLegacyVolumeSlider = false;
                 CurrentOptions.EnableTaskbarColor = false;
@@ -187,6 +189,8 @@ namespace Optimizer
                 CurrentOptions.DisableGameBar = false;
                 CurrentOptions.DisableInsiderService = false;
                 CurrentOptions.DisableFeatureUpdates = false;
+                CurrentOptions.DisableCloudClipboard = false;
+                CurrentOptions.EnableLongPaths = false;
 
                 CurrentOptions.DisableOneDrive = false;
 
