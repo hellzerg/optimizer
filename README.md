@@ -30,6 +30,9 @@ https://github.com/hellzerg/optimizer/releases
 ## Screenshots: ##
 https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
 
+## Changelog: ##
+https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md
+
 ## Compatibility: ##
 
 * .NET Framework 4.5.2
