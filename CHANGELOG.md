@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.9] - 2019-10-23
+- Added: Run Optimizer silently, using configuration file
+- Added: Disable Windows Store automatic updates (Disable Silent App Install)
+
 ## [4.8] - 2019-05-12
 - Added: Disable Sticky Keys (for current user)
 - Added: Enable Long Paths (removes 260 character path limit, for Windows 10)

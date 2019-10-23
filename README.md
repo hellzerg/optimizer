@@ -23,12 +23,16 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Edit your hosts file
 * Add items in desktop right-click menu
 * Define custom commands for run dialog
+* Supports silent run using configuration file
 
 ## Downloads: ##
 https://github.com/hellzerg/optimizer/releases
 
 ## Screenshots: ##
 https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
+
+## Silent configuration files ##
+https://github.com/hellzerg/optimizer/blob/master/CONFS.md
 
 ## Changelog: ##
 https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md
