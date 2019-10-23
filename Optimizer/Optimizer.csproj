@@ -58,8 +58,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Newtonsoft.Json">
       <HintPath>.\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -90,7 +89,6 @@
     <Compile Include="EdgeForm.Designer.cs">
       <DependentUpon>EdgeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmbeddedAssembly.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="HostsEditorForm.cs">
       <SubType>Form</SubType>
@@ -124,6 +122,8 @@
       <DependentUpon>HelperForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Required.cs" />
+    <Compile Include="SilentConfig.cs" />
+    <Compile Include="SilentOps.cs" />
     <Compile Include="StartupItem.cs" />
     <Compile Include="ToggleSwitch\ImageHelper.cs" />
     <Compile Include="ToggleSwitch\ToggleSwitch.cs">
@@ -163,6 +163,7 @@
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -196,9 +197,6 @@
     <None Include="Resources\OneDrive_Uninstaller.bin" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Newtonsoft.Json.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
@@ -228,6 +226,7 @@
     <None Include="Resources\optimizer-ico.ico" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Newtonsoft.Json.dll" />
     <Content Include="optimizer.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

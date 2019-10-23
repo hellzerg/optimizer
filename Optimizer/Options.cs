@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 
 namespace Optimizer
 {
+    [Serializable]
     public class SettingsJson
     {
         public Theme Color { get; set; }
