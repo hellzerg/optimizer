@@ -9,10 +9,10 @@ Then, execute it like this: optimizer.exe /w10.conf
 
 
 ### For Windows 7: ###
-https://github.com/hellzerg/optimizer/blob/master/conf/w7.conf
+https://github.com/hellzerg/optimizer/blob/master/confs/w7.conf
 
 ### For Windows 8/8.1: ###
-https://github.com/hellzerg/optimizer/blob/master/conf/w8.conf
+https://github.com/hellzerg/optimizer/blob/master/confs/w8.conf
 
 ### For Windows 10: ###
-https://github.com/hellzerg/optimizer/blob/master/conf/w10.conf
+https://github.com/hellzerg/optimizer/blob/master/confs/w10.conf
