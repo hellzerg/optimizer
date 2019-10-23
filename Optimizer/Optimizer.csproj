@@ -89,6 +89,7 @@
     <Compile Include="EdgeForm.Designer.cs">
       <DependentUpon>EdgeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmbeddedAssembly.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="HostsEditorForm.cs">
       <SubType>Form</SubType>

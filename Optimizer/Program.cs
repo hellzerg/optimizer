@@ -12,8 +12,8 @@ namespace Optimizer
 
         // Enter current version here
 
-        internal readonly static float Major = 0;
-        internal readonly static float Minor = 0;
+        internal readonly static float Major = 4;
+        internal readonly static float Minor = 8;
 
         internal static string GetCurrentVersionTostring()
         {
@@ -27,6 +27,8 @@ namespace Optimizer
 
         /* END OF VERSION PROPERTIES */
 
+        const string _jsonAssembly = @"Optimizer.Newtonsoft.Json.dll";
+
         internal static MainForm MainForm;
 
         readonly static string _adminMissingMessage = "Optimizer needs to be run as administrator!\nApp will now close...";
@@ -35,6 +37,7 @@ namespace Optimizer
         [STAThread]
         static void Main(string[] switches)
         {
+            EmbeddedAssembly.Load(_jsonAssembly, _jsonAssembly.Replace("Optimizer.", string.Empty));
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
 
             Application.EnableVisualStyles();
@@ -142,26 +145,7 @@ namespace Optimizer
 
         private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
-            return LoadEmbedDLLs();
-        }
-
-        private static Assembly LoadEmbedDLLs()
-        {
-            byte[] ba = null;
-            Assembly r = null;
-
-            string resource = "Optimizer.Newtonsoft.Json.dll";
-            Assembly asm = Assembly.GetExecutingAssembly();
-
-            using (Stream s = asm.GetManifestResourceStream(resource))
-            {
-                ba = new byte[(int)s.Length];
-                s.Read(ba, 0, (int)s.Length);
-
-                r = Assembly.Load(ba);
-            }
-
-            return r;
+            return EmbeddedAssembly.Get(args.Name);
         }
     }
 }
