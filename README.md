@@ -31,7 +31,7 @@ https://github.com/hellzerg/optimizer/releases
 ## Screenshots: ##
 https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
 
-## Silent configuration files ##
+## Silent configuration files: ##
 https://github.com/hellzerg/optimizer/blob/master/CONFS.md
 
 ## Changelog: ##
