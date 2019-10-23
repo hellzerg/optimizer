@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 using Microsoft.Win32;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Net;
@@ -41,7 +38,7 @@ namespace Optimizer
             }
 
             string key = @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\" + keyword;
-            
+
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\" + keyword);
             Registry.SetValue(key, "", file);
             Registry.SetValue(key, "Path", file.Substring(0, file.LastIndexOf("\\")));
@@ -72,7 +69,7 @@ namespace Optimizer
             using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + itemName, true))
             {
                 key.CreateSubKey("command", RegistryKeyPermissionCheck.Default);
-            }        
+            }
         }
 
         internal static List<string> GetDesktopItems()
@@ -228,7 +225,7 @@ namespace Optimizer
                 }
                 catch { }
             }
-            
+
             if (!remove)
             {
                 Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "InstallTakeOwnership.reg");

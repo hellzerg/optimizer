@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Security.Principal;
-using Microsoft.Win32;
 using System.IO;
-using System.Security.Cryptography;
 using System.Reflection;
 
 namespace Optimizer
@@ -17,7 +11,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         // Enter current version here
-  
+
         internal readonly static float Major = 0;
         internal readonly static float Minor = 0;
 
@@ -34,7 +28,7 @@ namespace Optimizer
         /* END OF VERSION PROPERTIES */
 
         internal static MainForm MainForm;
-        
+
         readonly static string _adminMissingMessage = "Optimizer needs to be run as administrator!\nApp will now close...";
         readonly static string _unsupportedMessage = "Optimizer works in Windows 7 or higher!\nApp will now close...";
 
@@ -75,7 +69,7 @@ namespace Optimizer
                     Options.LoadSettings();
 
                     // checking for silent  config argument
-                    if (switches.Length ==1)
+                    if (switches.Length == 1)
                     {
                         string arg = switches[0].Trim();
 
@@ -91,18 +85,21 @@ namespace Optimizer
                                     {
                                         SilentOps.ProcessSilentConfigGeneral();
                                         SilentOps.SilentUpdateOptionsGeneral();
+                                        Options.SaveSettings();
                                     }
                                     else if (SilentOps.CurrentSilentConfig.WindowsVersion == 8 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
                                     {
                                         SilentOps.ProcessSilentConfigGeneral();
                                         SilentOps.ProcessSilentConfigWindows8();
                                         SilentOps.SilentUpdateOptions8();
+                                        Options.SaveSettings();
                                     }
                                     else if (SilentOps.CurrentSilentConfig.WindowsVersion == 10 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
                                     {
                                         SilentOps.ProcessSilentConfigGeneral();
                                         SilentOps.ProcessSilentConfigWindows10();
                                         SilentOps.SilentUpdateOptions10();
+                                        Options.SaveSettings();
                                     }
                                     else
                                     {
@@ -140,7 +137,7 @@ namespace Optimizer
 
                     Application.Exit();
                 }
-            }            
+            }
         }
 
         private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)

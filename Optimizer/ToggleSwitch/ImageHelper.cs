@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Optimizer
 {
     public static class ImageHelper
     {
-        private static float[][] _colorMatrixElements = 
+        private static float[][] _colorMatrixElements =
         {
             new float[] {(float)0.299, (float)0.299, (float)0.299, 0, 0},
             new float[] {(float)0.587, (float)0.587, (float)0.587, 0, 0},

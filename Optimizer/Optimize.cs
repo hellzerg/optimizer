@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
-using System.Windows.Forms;
 using System.IO;
-using System.Collections.ObjectModel;
-using System.ServiceProcess;
-using System.Runtime.InteropServices;
-using System.Management.Automation;
 using Microsoft.Win32;
-using System.Management.Automation.Runspaces;
-using System.Security.AccessControl;
-using System.Security.Principal;
 using Microsoft.VisualBasic.FileIO;
 
 namespace Optimizer
@@ -258,11 +246,11 @@ namespace Optimizer
                     p.StartInfo.FileName = "vssadmin";
                     p.StartInfo.Arguments = "delete shadows /for=c: /all /quiet";
                     p.StartInfo.UseShellExecute = false;
-                    
+
                     p.Start();
                     p.WaitForExit();
                     p.Close();
-                }     
+                }
             }
             catch //(Exception ex)
             {
@@ -506,7 +494,7 @@ namespace Optimizer
         {
             Utilities.StopService("SensrSvc");
             Utilities.StopService("SensorService");
-            
+
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SensrSvc", "Start", "4", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SensorService", "Start", "4", RegistryValueKind.DWord);
         }
@@ -813,6 +801,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "PreInstalledAppsEnabled", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent", "DisableWindowsConsumerFeatures", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "OemPreInstalledAppsEnabled", "0", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore", "AutoDownload", "2", RegistryValueKind.DWord);
         }
 
         internal static void EnableSilentAppInstall()
@@ -822,6 +811,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "PreInstalledAppsEnabled", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent", "DisableWindowsConsumerFeatures", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "OemPreInstalledAppsEnabled", "1", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore", "AutoDownload", "4", RegistryValueKind.DWord);
         }
 
         internal static void DisableMyPeople()

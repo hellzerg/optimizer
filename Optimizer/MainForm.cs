@@ -1,21 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Win32;
 using System.IO;
-using System.Threading;
 using System.Reflection;
 using System.Diagnostics;
-using System.Collections.Specialized;
-using System.Text.RegularExpressions;
 using System.Net;
-using Newtonsoft.Json;
 
 namespace Optimizer
 {
@@ -535,7 +527,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GetDesktopItems()
@@ -556,7 +548,7 @@ namespace Optimizer
         {
             _hostsEntries = HostsHelper.GetHostsEntries();
             listHostEntries.Items.Clear();
-           
+
             for (int i = 0; i < _hostsEntries.Count; i++)
             {
                 if (!string.IsNullOrEmpty(_hostsEntries[i]))
@@ -749,7 +741,7 @@ namespace Optimizer
             {
                 HelperForm r = new HelperForm(this, MessageType.Startup, _removeStartupItemsMessage);
                 r.ShowDialog(this);
-            } 
+            }
         }
 
         private void button31_Click(object sender, EventArgs e)
@@ -838,7 +830,7 @@ namespace Optimizer
                 }
 
                 HostsHelper.AddEntry(HostsHelper.SanitizeEntry(ip) + " " + HostsHelper.SanitizeEntry(domain));
-                
+
                 if (!string.IsNullOrEmpty(recommendedDomain))
                 {
                     HostsHelper.AddEntry(HostsHelper.SanitizeEntry(ip) + " " + HostsHelper.SanitizeEntry(recommendedDomain));
@@ -918,7 +910,7 @@ namespace Optimizer
         private void DefineCmd_FileOk(object sender, CancelEventArgs e)
         {
             txtRunFile.Text = defineCommandDialog.FileName;
-            txtRunKeyword.Text = Path.GetFileNameWithoutExtension(txtRunFile.Text).ToLower();            
+            txtRunKeyword.Text = Path.GetFileNameWithoutExtension(txtRunFile.Text).ToLower();
         }
 
         private void button58_Click(object sender, EventArgs e)
@@ -1272,7 +1264,7 @@ namespace Optimizer
                     }
 
                     Integrator.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.Link);
-                    
+
                     break;
                 case DesktopItemType.File:
                     if (!checkDefaultIcon.Checked)
@@ -1281,7 +1273,7 @@ namespace Optimizer
                     }
 
                     Integrator.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.File);
-                    
+
                     break;
                 case DesktopItemType.Command:
                     if (!checkDefaultIcon.Checked)
@@ -1290,7 +1282,7 @@ namespace Optimizer
                     }
 
                     Integrator.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.Command);
-                    
+
                     break;
             }
 

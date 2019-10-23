@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
@@ -275,7 +273,7 @@ namespace Optimizer
             if (hive != null)
             {
                 RegistryKey key = hive.OpenSubKey(keyPath, true);
-                
+
                 if (key != null)
                 {
                     string[] valueNames = key.GetValueNames();
