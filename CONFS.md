@@ -2,9 +2,9 @@ You can execute Optimizer silently, applying tweaks according to a configuration
 
 Download the configuration file based on your Windows version and edit it accordingly.
 
-*  true: applies the specific option
+* true : applies the specific option
 * false: resets the specific option
-*  null: ignores the specific option
+* null : ignores the specific option
 
 Then, execute it like this: optimizer.exe /w10.conf
 
