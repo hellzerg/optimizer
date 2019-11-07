@@ -12,8 +12,8 @@ namespace Optimizer
 
         // Enter current version here
 
-        internal readonly static float Major = 0;
-        internal readonly static float Minor = 0;
+        internal readonly static float Major = 4;
+        internal readonly static float Minor = 9;
 
         internal static string GetCurrentVersionTostring()
         {
@@ -71,7 +71,7 @@ namespace Optimizer
                     // load settings, if there is no settings, load defaults
                     Options.LoadSettings();
 
-                    // checking for silent  config argument
+                    // checking for silent config argument
                     if (switches.Length == 1)
                     {
                         string arg = switches[0].Trim();

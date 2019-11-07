@@ -24,382 +24,656 @@ namespace Optimizer
         // silent config processing for universal tweaks
         internal static void ProcessSilentConfigGeneral()
         {
-            if (CurrentSilentConfig.EnablePerformanceTweaks)
+            if (CurrentSilentConfig.EnablePerformanceTweaks.HasValue)
             {
-                Optimize.EnablePerformanceTweaks();
+                if (CurrentSilentConfig.EnablePerformanceTweaks.Value)
+                {
+                    Optimize.EnablePerformanceTweaks();
+                }
+                else
+                {
+                    Optimize.DisablePerformanceTweaks();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.DisableNetworkThrottling.HasValue)
             {
-                Optimize.DisablePerformanceTweaks();
+                if (CurrentSilentConfig.DisableNetworkThrottling.Value)
+                {
+                    Optimize.DisableNetworkThrottling();
+                }
+                else
+                {
+                    Optimize.EnableNetworkThrottling();
+                }
             }
-            if (CurrentSilentConfig.DisableNetworkThrottling)
+
+            if (CurrentSilentConfig.DisableWindowsDefender.HasValue)
             {
-                Optimize.DisableNetworkThrottling();
+                if (CurrentSilentConfig.DisableWindowsDefender.Value)
+                {
+                    Optimize.DisableDefender();
+                }
+                else
+                {
+                    Optimize.EnableDefender();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.DisableSystemRestore.HasValue)
             {
-                Optimize.EnableNetworkThrottling();
+                if (CurrentSilentConfig.DisableSystemRestore.Value)
+                {
+                    Optimize.DisableSystemRestore();
+                }
+                else
+                {
+                    Optimize.EnableSystemRestore();
+                }
             }
-            if (CurrentSilentConfig.DisableWindowsDefender)
+
+            if (CurrentSilentConfig.DisablePrintService.HasValue)
             {
-                Optimize.DisableDefender();
+                if (CurrentSilentConfig.DisablePrintService.Value)
+                {
+                    Optimize.DisablePrintService();
+                }
+                else
+                {
+                    Optimize.EnablePrintService();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.DisableMediaPlayerSharing.HasValue)
             {
-                Optimize.EnableDefender();
+                if (CurrentSilentConfig.DisableMediaPlayerSharing.Value)
+                {
+                    Optimize.DisableMediaPlayerSharing();
+                }
+                else
+                {
+                    Optimize.EnableMediaPlayerSharing();
+                }
             }
-            if (CurrentSilentConfig.DisableSystemRestore)
+
+            if (CurrentSilentConfig.BlockSkypeAds.HasValue)
             {
-                Optimize.DisableSystemRestore();
+                if (CurrentSilentConfig.BlockSkypeAds.Value)
+                {
+                    Optimize.DisableSkypeAds();
+                }
+                else
+                {
+                    Optimize.EnableSkypeAds();
+                }
             }
-            else
+
+
+            if (CurrentSilentConfig.DisableErrorReporting.HasValue)
             {
-                Optimize.EnableSystemRestore();
+                if (CurrentSilentConfig.DisableErrorReporting.Value)
+                {
+                    Optimize.DisableErrorReporting();
+                }
+                else
+                {
+                    Optimize.EnableErrorReporting();
+                }
             }
-            if (CurrentSilentConfig.DisablePrintService)
+
+            if (CurrentSilentConfig.DisableHomeGroup.HasValue)
             {
-                Optimize.DisablePrintService();
+                if (CurrentSilentConfig.DisableHomeGroup.Value)
+                {
+                    Optimize.DisableHomeGroup();
+                }
+                else
+                {
+                    Optimize.EnableHomeGroup();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.DisableSuperfetch.HasValue)
             {
-                Optimize.EnablePrintService();
+                if (CurrentSilentConfig.DisableSuperfetch.Value)
+                {
+                    Optimize.DisableSuperfetch();
+                }
+                else
+                {
+                    Optimize.EnableSuperfetch();
+                }
             }
-            if (CurrentSilentConfig.DisableMediaPlayerSharing)
+
+            if (CurrentSilentConfig.DisableTelemetryTasks.HasValue)
             {
-                Optimize.DisableMediaPlayerSharing();
+                if (CurrentSilentConfig.DisableTelemetryTasks.Value)
+                {
+                    Optimize.DisableTelemetryTasks();
+                }
+                else
+                {
+                    Optimize.EnableTelemetryTasks();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.DisableOffice2016Telemetry.HasValue)
             {
-                Optimize.EnableMediaPlayerSharing();
+                if (CurrentSilentConfig.DisableOffice2016Telemetry.Value)
+                {
+                    Optimize.DisableOffice2016Telemetry();
+                }
+                else
+                {
+                    Optimize.EnableOffice2016Telemetry();
+                }
             }
-            if (CurrentSilentConfig.BlockSkypeAds)
+
+            if (CurrentSilentConfig.DisableCompatibilityAssistant.HasValue)
             {
-                Optimize.DisableSkypeAds();
+                if (CurrentSilentConfig.DisableCompatibilityAssistant.Value)
+                {
+                    Optimize.DisableCompatibilityAssistant();
+                }
+                else
+                {
+                    Optimize.EnableCompatibilityAssistant();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.DisableFaxService.HasValue)
             {
-                Optimize.EnableSkypeAds();
+                if (CurrentSilentConfig.DisableFaxService.Value)
+                {
+                    Optimize.DisableFaxService();
+                }
+                else
+                {
+                    Optimize.EnableFaxService();
+                }
             }
-            if (CurrentSilentConfig.DisableErrorReporting)
+
+            if (CurrentSilentConfig.DisableSmartScreen.HasValue)
             {
-                Optimize.DisableErrorReporting();
+                if (CurrentSilentConfig.DisableSmartScreen.Value)
+                {
+                    Optimize.DisableSmartScreen();
+                }
+                else
+                {
+                    Optimize.EnableSmartScreen();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.DisableStickyKeys.HasValue)
             {
-                Optimize.EnableErrorReporting();
+                if (CurrentSilentConfig.DisableStickyKeys.Value)
+                {
+                    Optimize.DisableStickyKeys();
+                }
+                else
+                {
+                    Optimize.EnableStickyKeys();
+                }
             }
-            if (CurrentSilentConfig.DisableHomeGroup)
-            {
-                Optimize.DisableHomeGroup();
-            }
-            else
-            {
-                Optimize.EnableHomeGroup();
-            }
-            if (CurrentSilentConfig.DisableSuperfetch)
-            {
-                Optimize.DisableSuperfetch();
-            }
-            else
-            {
-                Optimize.EnableSuperfetch();
-            }
-            if (CurrentSilentConfig.DisableTelemetryTasks)
-            {
-                Optimize.DisableTelemetryTasks();
-            }
-            else
-            {
-                Optimize.EnableTelemetryTasks();
-            }
-            if (CurrentSilentConfig.DisableOffice2016Telemetry)
-            {
-                Optimize.DisableOffice2016Telemetry();
-            }
-            else
-            {
-                Optimize.EnableOffice2016Telemetry();
-            }
-            if (CurrentSilentConfig.DisableCompatibilityAssistant)
-            {
-                Optimize.DisableCompatibilityAssistant();
-            }
-            else
-            {
-                Optimize.EnableCompatibilityAssistant();
-            }
-            if (CurrentSilentConfig.DisableFaxService)
-            {
-                Optimize.DisableFaxService();
-            }
-            else
-            {
-                Optimize.EnableFaxService();
-            }
-            if (CurrentSilentConfig.DisableSmartScreen)
-            {
-                Optimize.DisableSmartScreen();
-            }
-            else
-            {
-                Optimize.EnableSmartScreen();
-            }
-            if (CurrentSilentConfig.DisableStickyKeys)
-            {
-                Optimize.DisableStickyKeys();
-            }
-            else
-            {
-                Optimize.EnableStickyKeys();
-            }
+
         }
 
         // silent config processing for Windows 8 tweaks
         internal static void ProcessSilentConfigWindows8()
         {
-            if (CurrentSilentConfig.DisableOneDrive)
+            if (CurrentSilentConfig.DisableOneDrive.HasValue)
             {
-                Optimize.DisableOneDrive();
+                if (CurrentSilentConfig.DisableOneDrive.Value)
+                {
+                    Optimize.DisableOneDrive();
+                }
+                else
+                {
+                    Optimize.EnableOneDrive();
+                }
             }
-            else
-            {
-                Optimize.EnableOneDrive();
-            }
+
         }
 
         // silent config processing for Windows 10 tweaks
         internal static void ProcessSilentConfigWindows10()
         {
-            if (CurrentSilentConfig.EnableLegacyVolumeSlider)
+            if (CurrentSilentConfig.EnableLegacyVolumeSlider.HasValue)
             {
-                Optimize.EnableLegacyVolumeSlider();
+                if (CurrentSilentConfig.EnableLegacyVolumeSlider.Value)
+                {
+                    Optimize.EnableLegacyVolumeSlider();
+                }
+                else
+                {
+                    Optimize.DisableLegacyVolumeSlider();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.EnableTaskbarColor.HasValue)
             {
-                Optimize.DisableLegacyVolumeSlider();
+                if (CurrentSilentConfig.EnableTaskbarColor.Value)
+                {
+                    Optimize.EnableTaskbarColor();
+                }
+                else
+                {
+                    Optimize.DisableTaskbarColor();
+                }
             }
-            if (CurrentSilentConfig.EnableTaskbarColor)
+
+            if (CurrentSilentConfig.DisableQuickAccessHistory.HasValue)
             {
-                Optimize.EnableTaskbarColor();
+                if (CurrentSilentConfig.DisableQuickAccessHistory.Value)
+                {
+                    Optimize.DisableQuickAccessHistory();
+                }
+                else
+                {
+                    Optimize.EnableQuickAccessHistory();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.DisableStartMenuAds.HasValue)
             {
-                Optimize.DisableTaskbarColor();
+                if (CurrentSilentConfig.DisableStartMenuAds.Value)
+                {
+                    Optimize.DisableStartMenuAds();
+                }
+                else
+                {
+                    Optimize.EnableStartMenuAds();
+                }
             }
-            if (CurrentSilentConfig.DisableQuickAccessHistory)
+
+            if (CurrentSilentConfig.EnableDarkTheme.HasValue)
             {
-                Optimize.DisableQuickAccessHistory();
+                if (CurrentSilentConfig.EnableDarkTheme.Value)
+                {
+                    Optimize.EnableDarkTheme();
+                }
+                else
+                {
+                    Optimize.EnableLightTheme();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.UninstallOneDrive.HasValue)
             {
-                Optimize.EnableQuickAccessHistory();
+                if (CurrentSilentConfig.UninstallOneDrive.Value)
+                {
+                    Task t = new Task(() => Optimize.UninstallOneDrive());
+                    t.Start();
+                }
+                else
+                {
+                    Task t = new Task(() => Optimize.InstallOneDrive());
+                    t.Start();
+                }
             }
-            if (CurrentSilentConfig.DisableStartMenuAds)
+
+            if (CurrentSilentConfig.DisableMyPeople.HasValue)
             {
-                Optimize.DisableStartMenuAds();
+                if (CurrentSilentConfig.DisableMyPeople.Value)
+                {
+                    Optimize.DisableMyPeople();
+                }
+                else
+                {
+                    Optimize.EnableMyPeople();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.EnableLongPaths.HasValue)
             {
-                Optimize.EnableStartMenuAds();
+                if (CurrentSilentConfig.EnableLongPaths.Value)
+                {
+                    Optimize.EnableLongPaths();
+                }
+                else
+                {
+                    Optimize.DisableLongPaths();
+                }
             }
-            if (CurrentSilentConfig.EnableDarkTheme)
+
+            if (CurrentSilentConfig.DisableAutomaticUpdates.HasValue)
             {
-                Optimize.EnableDarkTheme();
+                if (CurrentSilentConfig.DisableAutomaticUpdates.Value)
+                {
+                    Optimize.DisableAutomaticUpdates();
+                }
+                else
+                {
+                    Optimize.EnableAutomaticUpdates();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.ExcludeDrivers.HasValue)
             {
-                Optimize.EnableLightTheme();
+                if (CurrentSilentConfig.ExcludeDrivers.Value)
+                {
+                    Optimize.ExcludeDrivers();
+                }
+                else
+                {
+                    Optimize.IncludeDrivers();
+                }
             }
-            if (CurrentSilentConfig.UninstallOneDrive)
+
+            if (CurrentSilentConfig.DisableTelemetryServices.HasValue)
             {
-                Task t = new Task(() => Optimize.UninstallOneDrive());
-                t.Start();
+                if (CurrentSilentConfig.DisableTelemetryServices.Value)
+                {
+                    Optimize.DisableTelemetryServices();
+                }
+                else
+                {
+                    Optimize.EnableTelemetryServices();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.DisablePrivacyOptions.HasValue)
             {
-                Task t = new Task(() => Optimize.InstallOneDrive());
-                t.Start();
+                if (CurrentSilentConfig.DisablePrivacyOptions.Value)
+                {
+                    Optimize.DisablePrivacyOptions();
+                }
+                else
+                {
+                    Optimize.EnablePrivacyOptions();
+                }
             }
-            if (CurrentSilentConfig.DisableMyPeople)
+
+            if (CurrentSilentConfig.DisableSilentAppInstall.HasValue)
             {
-                Optimize.DisableMyPeople();
+                if (CurrentSilentConfig.DisableSilentAppInstall.Value)
+                {
+                    Optimize.DisableSilentAppInstall();
+                }
+                else
+                {
+                    Optimize.EnableSilentAppInstall();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.DisableCortana.HasValue)
             {
-                Optimize.EnableMyPeople();
+                if (CurrentSilentConfig.DisableCortana.Value)
+                {
+                    Optimize.DisableCortana();
+                }
+                else
+                {
+                    Optimize.EnableCortana();
+                }
             }
-            if (CurrentSilentConfig.EnableLongPaths)
+
+            if (CurrentSilentConfig.DisableSensorServices.HasValue)
             {
-                Optimize.EnableLongPaths();
+                if (CurrentSilentConfig.DisableSensorServices.Value)
+                {
+                    Optimize.DisableSensorServices();
+                }
+                else
+                {
+                    Optimize.EnableSensorServices();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.DisableWindowsInk.HasValue)
             {
-                Optimize.DisableLongPaths();
+                if (CurrentSilentConfig.DisableWindowsInk.Value)
+                {
+                    Optimize.DisableWindowsInk();
+                }
+                else
+                {
+                    Optimize.EnableWindowsInk();
+                }
             }
-            if (CurrentSilentConfig.DisableAutomaticUpdates)
+
+            if (CurrentSilentConfig.DisableSpellingTyping.HasValue)
             {
-                Optimize.DisableAutomaticUpdates();
+                if (CurrentSilentConfig.DisableSpellingTyping.Value)
+                {
+                    Optimize.DisableSpellingAndTypingFeatures();
+                }
+                else
+                {
+                    Optimize.EnableSpellingAndTypingFeatures();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.DisableXboxLive.HasValue)
             {
-                Optimize.EnableAutomaticUpdates();
+                if (CurrentSilentConfig.DisableXboxLive.Value)
+                {
+                    Optimize.DisableXboxLive();
+                }
+                else
+                {
+                    Optimize.EnableXboxLive();
+                }
             }
-            if (CurrentSilentConfig.ExcludeDrivers)
+
+            if (CurrentSilentConfig.DisableGameBar.HasValue)
             {
-                Optimize.ExcludeDrivers();
+                if (CurrentSilentConfig.DisableGameBar.Value)
+                {
+                    Optimize.DisableGameBar();
+                }
+                else
+                {
+                    Optimize.EnableGameBar();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.DisableInsiderService.HasValue)
             {
-                Optimize.IncludeDrivers();
+                if (CurrentSilentConfig.DisableInsiderService.Value)
+                {
+                    Optimize.DisableInsiderService();
+                }
+                else
+                {
+                    Optimize.EnableInsiderService();
+                }
             }
-            if (CurrentSilentConfig.DisableTelemetryServices)
+
+            if (CurrentSilentConfig.DisableFeatureUpdates.HasValue)
             {
-                Optimize.DisableTelemetryServices();
+                if (CurrentSilentConfig.DisableFeatureUpdates.Value)
+                {
+                    Optimize.DisableForcedFeatureUpdates();
+                }
+                else
+                {
+                    Optimize.EnableForcedFeatureUpdates();
+                }
             }
-            else
+
+            if (CurrentSilentConfig.DisableCloudClipboard.HasValue)
             {
-                Optimize.EnableTelemetryServices();
+                if (CurrentSilentConfig.DisableCloudClipboard.Value)
+                {
+                    Optimize.DisableCloudClipboard();
+                }
+                else
+                {
+                    Optimize.EnableCloudClipboard();
+                }
             }
-            if (CurrentSilentConfig.DisablePrivacyOptions)
-            {
-                Optimize.DisablePrivacyOptions();
-            }
-            else
-            {
-                Optimize.EnablePrivacyOptions();
-            }
-            if (CurrentSilentConfig.DisableSilentAppInstall)
-            {
-                Optimize.DisableSilentAppInstall();
-            }
-            else
-            {
-                Optimize.EnableSilentAppInstall();
-            }
-            if (CurrentSilentConfig.DisableCortana)
-            {
-                Optimize.DisableCortana();
-            }
-            else
-            {
-                Optimize.EnableCortana();
-            }
-            if (CurrentSilentConfig.DisableSensorServices)
-            {
-                Optimize.DisableSensorServices();
-            }
-            else
-            {
-                Optimize.EnableSensorServices();
-            }
-            if (CurrentSilentConfig.DisableWindowsInk)
-            {
-                Optimize.DisableWindowsInk();
-            }
-            else
-            {
-                Optimize.EnableWindowsInk();
-            }
-            if (CurrentSilentConfig.DisableSpellingTyping)
-            {
-                Optimize.DisableSpellingAndTypingFeatures();
-            }
-            else
-            {
-                Optimize.EnableSpellingAndTypingFeatures();
-            }
-            if (CurrentSilentConfig.DisableXboxLive)
-            {
-                Optimize.DisableXboxLive();
-            }
-            else
-            {
-                Optimize.EnableXboxLive();
-            }
-            if (CurrentSilentConfig.DisableGameBar)
-            {
-                Optimize.DisableGameBar();
-            }
-            else
-            {
-                Optimize.EnableGameBar();
-            }
-            if (CurrentSilentConfig.DisableInsiderService)
-            {
-                Optimize.DisableInsiderService();
-            }
-            else
-            {
-                Optimize.EnableInsiderService();
-            }
-            if (CurrentSilentConfig.DisableFeatureUpdates)
-            {
-                Optimize.DisableForcedFeatureUpdates();
-            }
-            else
-            {
-                Optimize.EnableForcedFeatureUpdates();
-            }
-            if (CurrentSilentConfig.DisableCloudClipboard)
-            {
-                Optimize.DisableCloudClipboard();
-            }
-            else
-            {
-                Optimize.EnableCloudClipboard();
-            }
+
         }
 
         // updating options using silent config
         internal static void SilentUpdateOptionsGeneral()
         {
-            Options.CurrentOptions.EnablePerformanceTweaks = CurrentSilentConfig.EnablePerformanceTweaks;
-            Options.CurrentOptions.DisableNetworkThrottling = CurrentSilentConfig.DisableNetworkThrottling;
-            Options.CurrentOptions.DisableWindowsDefender = CurrentSilentConfig.DisableWindowsDefender;
-            Options.CurrentOptions.DisableSystemRestore = CurrentSilentConfig.DisableSystemRestore;
-            Options.CurrentOptions.DisablePrintService = CurrentSilentConfig.DisablePrintService;
-            Options.CurrentOptions.DisableMediaPlayerSharing = CurrentSilentConfig.DisableMediaPlayerSharing;
-            Options.CurrentOptions.BlockSkypeAds = CurrentSilentConfig.BlockSkypeAds;
-            Options.CurrentOptions.DisableErrorReporting = CurrentSilentConfig.DisableErrorReporting;
-            Options.CurrentOptions.DisableHomeGroup = CurrentSilentConfig.DisableHomeGroup;
-            Options.CurrentOptions.DisableSuperfetch = CurrentSilentConfig.DisableSuperfetch;
-            Options.CurrentOptions.DisableTelemetryTasks = CurrentSilentConfig.DisableTelemetryTasks;
-            Options.CurrentOptions.DisableOffice2016Telemetry = CurrentSilentConfig.DisableOffice2016Telemetry;
-            Options.CurrentOptions.DisableCompatibilityAssistant = CurrentSilentConfig.DisableCompatibilityAssistant;
-            Options.CurrentOptions.DisableFaxService = CurrentSilentConfig.DisableFaxService;
-            Options.CurrentOptions.DisableSmartScreen = CurrentSilentConfig.DisableSmartScreen;
-            Options.CurrentOptions.DisableStickyKeys = CurrentSilentConfig.DisableStickyKeys;
+            if (CurrentSilentConfig.EnablePerformanceTweaks.HasValue)
+            {
+                Options.CurrentOptions.EnablePerformanceTweaks = CurrentSilentConfig.EnablePerformanceTweaks.Value;
+            }
+            if (CurrentSilentConfig.DisableNetworkThrottling.HasValue)
+            {
+                Options.CurrentOptions.DisableNetworkThrottling = CurrentSilentConfig.DisableNetworkThrottling.Value;
+            }
+            if (CurrentSilentConfig.DisableWindowsDefender.HasValue)
+            {
+                Options.CurrentOptions.DisableWindowsDefender = CurrentSilentConfig.DisableWindowsDefender.Value;
+            }
+            if (CurrentSilentConfig.DisableSystemRestore.HasValue)
+            {
+                Options.CurrentOptions.DisableSystemRestore = CurrentSilentConfig.DisableSystemRestore.Value;
+            }
+            if (CurrentSilentConfig.DisablePrintService.HasValue)
+            {
+                Options.CurrentOptions.DisablePrintService = CurrentSilentConfig.DisablePrintService.Value;
+            }
+            if (CurrentSilentConfig.DisableMediaPlayerSharing.HasValue)
+            {
+                Options.CurrentOptions.DisableMediaPlayerSharing = CurrentSilentConfig.DisableMediaPlayerSharing.Value;
+            }
+            if (CurrentSilentConfig.BlockSkypeAds.HasValue)
+            {
+                Options.CurrentOptions.BlockSkypeAds = CurrentSilentConfig.BlockSkypeAds.Value;
+            }
+            if (CurrentSilentConfig.DisableErrorReporting.HasValue)
+            {
+                Options.CurrentOptions.DisableErrorReporting = CurrentSilentConfig.DisableErrorReporting.Value;
+            }
+            if (CurrentSilentConfig.DisableHomeGroup.HasValue)
+            {
+                Options.CurrentOptions.DisableHomeGroup = CurrentSilentConfig.DisableHomeGroup.Value;
+            }
+            if (CurrentSilentConfig.DisableSuperfetch.HasValue)
+            {
+                Options.CurrentOptions.DisableSuperfetch = CurrentSilentConfig.DisableSuperfetch.Value;
+            }
+            if (CurrentSilentConfig.DisableTelemetryTasks.HasValue)
+            {
+                Options.CurrentOptions.DisableTelemetryTasks = CurrentSilentConfig.DisableTelemetryTasks.Value;
+            }
+            if (CurrentSilentConfig.DisableOffice2016Telemetry.HasValue)
+            {
+                Options.CurrentOptions.DisableOffice2016Telemetry = CurrentSilentConfig.DisableOffice2016Telemetry.Value;
+            }
+            if (CurrentSilentConfig.DisableCompatibilityAssistant.HasValue)
+            {
+                Options.CurrentOptions.DisableCompatibilityAssistant = CurrentSilentConfig.DisableCompatibilityAssistant.Value;
+            }
+            if (CurrentSilentConfig.DisableFaxService.HasValue)
+            {
+                Options.CurrentOptions.DisableFaxService = CurrentSilentConfig.DisableFaxService.Value;
+            }
+            if (CurrentSilentConfig.DisableSmartScreen.HasValue)
+            {
+                Options.CurrentOptions.DisableSmartScreen = CurrentSilentConfig.DisableSmartScreen.Value;
+            }
+            if (CurrentSilentConfig.DisableStickyKeys.HasValue)
+            {
+                Options.CurrentOptions.DisableStickyKeys = CurrentSilentConfig.DisableStickyKeys.Value;
+            }
         }
 
         internal static void SilentUpdateOptions8()
         {
-            Options.CurrentOptions.DisableOneDrive = CurrentSilentConfig.DisableOneDrive;
+            if (CurrentSilentConfig.DisableOneDrive.HasValue)
+            {
+                Options.CurrentOptions.DisableOneDrive = CurrentSilentConfig.DisableOneDrive.Value;
+            }
         }
 
         internal static void SilentUpdateOptions10()
         {
-            Options.CurrentOptions.EnableLegacyVolumeSlider = CurrentSilentConfig.EnableLegacyVolumeSlider;
-            Options.CurrentOptions.EnableTaskbarColor = CurrentSilentConfig.EnableTaskbarColor;
-            Options.CurrentOptions.DisableQuickAccessHistory = CurrentSilentConfig.DisableQuickAccessHistory;
-            Options.CurrentOptions.DisableStartMenuAds = CurrentSilentConfig.DisableStartMenuAds;
-            Options.CurrentOptions.EnableDarkTheme = CurrentSilentConfig.EnableDarkTheme;
-            Options.CurrentOptions.UninstallOneDrive = CurrentSilentConfig.UninstallOneDrive;
-            Options.CurrentOptions.DisableMyPeople = CurrentSilentConfig.DisableMyPeople;
-            Options.CurrentOptions.EnableLongPaths = CurrentSilentConfig.EnableLongPaths;
-            Options.CurrentOptions.DisableAutomaticUpdates = CurrentSilentConfig.DisableAutomaticUpdates;
-            Options.CurrentOptions.ExcludeDrivers = CurrentSilentConfig.ExcludeDrivers;
-            Options.CurrentOptions.DisableTelemetryServices = CurrentSilentConfig.DisableTelemetryServices;
-            Options.CurrentOptions.DisablePrivacyOptions = CurrentSilentConfig.DisablePrivacyOptions;
-            Options.CurrentOptions.DisableSilentAppInstall = CurrentSilentConfig.DisableSilentAppInstall;
-            Options.CurrentOptions.DisableCortana = CurrentSilentConfig.DisableCortana;
-            Options.CurrentOptions.DisableSensorServices = CurrentSilentConfig.DisableSensorServices;
-            Options.CurrentOptions.DisableWindowsInk = CurrentSilentConfig.DisableWindowsInk;
-            Options.CurrentOptions.DisableSpellingTyping = CurrentSilentConfig.DisableSpellingTyping;
-            Options.CurrentOptions.DisableXboxLive = CurrentSilentConfig.DisableXboxLive;
-            Options.CurrentOptions.DisableGameBar = CurrentSilentConfig.DisableGameBar;
-            Options.CurrentOptions.DisableInsiderService = CurrentSilentConfig.DisableInsiderService;
-            Options.CurrentOptions.DisableFeatureUpdates = CurrentSilentConfig.DisableFeatureUpdates;
-            Options.CurrentOptions.DisableCloudClipboard = CurrentSilentConfig.DisableCloudClipboard;
+            if (CurrentSilentConfig.EnableLegacyVolumeSlider.HasValue)
+            {
+                Options.CurrentOptions.EnableLegacyVolumeSlider = CurrentSilentConfig.EnableLegacyVolumeSlider.Value;
+            }
+            if (CurrentSilentConfig.EnableTaskbarColor.HasValue)
+            {
+                Options.CurrentOptions.EnableTaskbarColor = CurrentSilentConfig.EnableTaskbarColor.Value;
+            }
+            if (CurrentSilentConfig.DisableQuickAccessHistory.HasValue)
+            {
+                Options.CurrentOptions.DisableQuickAccessHistory = CurrentSilentConfig.DisableQuickAccessHistory.Value;
+            }
+            if (CurrentSilentConfig.DisableStartMenuAds.HasValue)
+            {
+                Options.CurrentOptions.DisableStartMenuAds = CurrentSilentConfig.DisableStartMenuAds.Value;
+            }
+            if (CurrentSilentConfig.EnableDarkTheme.HasValue)
+            {
+                Options.CurrentOptions.EnableDarkTheme = CurrentSilentConfig.EnableDarkTheme.Value;
+            }
+            if (CurrentSilentConfig.UninstallOneDrive.HasValue)
+            {
+                Options.CurrentOptions.UninstallOneDrive = CurrentSilentConfig.UninstallOneDrive.Value;
+            }
+            if (CurrentSilentConfig.DisableMyPeople.HasValue)
+            {
+                Options.CurrentOptions.DisableMyPeople = CurrentSilentConfig.DisableMyPeople.Value;
+            }
+            if (CurrentSilentConfig.EnableLongPaths.HasValue)
+            {
+                Options.CurrentOptions.EnableLongPaths = CurrentSilentConfig.EnableLongPaths.Value;
+            }
+            if (CurrentSilentConfig.DisableAutomaticUpdates.HasValue)
+            {
+                Options.CurrentOptions.DisableAutomaticUpdates = CurrentSilentConfig.DisableAutomaticUpdates.Value;
+            }
+            if (CurrentSilentConfig.ExcludeDrivers.HasValue)
+            {
+                Options.CurrentOptions.ExcludeDrivers = CurrentSilentConfig.ExcludeDrivers.Value;
+            }
+            if (CurrentSilentConfig.DisableTelemetryServices.HasValue)
+            {
+                Options.CurrentOptions.DisableTelemetryServices = CurrentSilentConfig.DisableTelemetryServices.Value;
+            }
+            if (CurrentSilentConfig.DisablePrivacyOptions.HasValue)
+            {
+                Options.CurrentOptions.DisablePrivacyOptions = CurrentSilentConfig.DisablePrivacyOptions.Value;
+            }
+            if (CurrentSilentConfig.DisableSilentAppInstall.HasValue)
+            {
+                Options.CurrentOptions.DisableSilentAppInstall = CurrentSilentConfig.DisableSilentAppInstall.Value;
+            }
+            if (CurrentSilentConfig.DisableCortana.HasValue)
+            {
+                Options.CurrentOptions.DisableCortana = CurrentSilentConfig.DisableCortana.Value;
+            }
+            if (CurrentSilentConfig.DisableSensorServices.HasValue)
+            {
+                Options.CurrentOptions.DisableSensorServices = CurrentSilentConfig.DisableSensorServices.Value;
+            }
+            if (CurrentSilentConfig.DisableWindowsInk.HasValue)
+            {
+                Options.CurrentOptions.DisableWindowsInk = CurrentSilentConfig.DisableWindowsInk.Value;
+            }
+            if (CurrentSilentConfig.DisableSpellingTyping.HasValue)
+            {
+                Options.CurrentOptions.DisableSpellingTyping = CurrentSilentConfig.DisableSpellingTyping.Value;
+            }
+            if (CurrentSilentConfig.DisableXboxLive.HasValue)
+            {
+                Options.CurrentOptions.DisableXboxLive = CurrentSilentConfig.DisableXboxLive.Value;
+            }
+            if (CurrentSilentConfig.DisableGameBar.HasValue)
+            {
+                Options.CurrentOptions.DisableGameBar = CurrentSilentConfig.DisableGameBar.Value;
+            }
+            if (CurrentSilentConfig.DisableInsiderService.HasValue)
+            {
+                Options.CurrentOptions.DisableInsiderService = CurrentSilentConfig.DisableInsiderService.Value;
+            }
+            if (CurrentSilentConfig.DisableFeatureUpdates.HasValue)
+            {
+                Options.CurrentOptions.DisableFeatureUpdates = CurrentSilentConfig.DisableFeatureUpdates.Value;
+            }
+            if (CurrentSilentConfig.DisableCloudClipboard.HasValue)
+            {
+                Options.CurrentOptions.DisableCloudClipboard = CurrentSilentConfig.DisableCloudClipboard.Value;
+            }
         }
     }
 }

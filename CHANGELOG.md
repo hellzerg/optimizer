@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [4.9] - 2019-10-23
+## [4.9] - 2019-11-07
 - Added: Run Optimizer silently, using configuration file
 - Added: Disable Windows Store automatic updates (Disable Silent App Install)
 
