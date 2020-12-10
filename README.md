@@ -15,7 +15,6 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Disable Cortana
 * Disable Windows 10 automatic updates
 * Uninstall UWP apps
-* Block Skype ads
 * Clean up your system drive
 * Fix common registry issues
 * Remove unwanted programs running at startup
@@ -44,5 +43,5 @@ https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md
 
 ## Details: ##
 
-* Latest version: 4.9
-* Released: November 7, 2019
+* Latest version: 5.0
+* Released: December 10, 2020

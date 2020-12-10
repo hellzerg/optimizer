@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Optimizer
@@ -20,10 +21,12 @@ namespace Optimizer
 
         private void HostsEditor_Load(object sender, EventArgs e)
         {
-            foreach (string line in HostsHelper.ReadHosts())
-            {
-                textBox1.Text += line + HostsHelper.NewLine;
-            }
+            //foreach (string line in HostsHelper.ReadHosts())
+            //{
+            //    textBox1.Text += line + HostsHelper.NewLine;
+            //}
+
+            textBox1.Text = HostsHelper.ReadHostsFast();
 
             textBox1.Focus();
         }

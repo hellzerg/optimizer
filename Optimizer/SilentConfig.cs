@@ -13,7 +13,6 @@ namespace Optimizer
         public bool? DisableSystemRestore { get; set; }
         public bool? DisablePrintService { get; set; }
         public bool? DisableMediaPlayerSharing { get; set; }
-        public bool? BlockSkypeAds { get; set; }
         public bool? DisableErrorReporting { get; set; }
         public bool? DisableHomeGroup { get; set; }
         public bool? DisableSuperfetch { get; set; }
@@ -46,6 +45,7 @@ namespace Optimizer
         public bool? DisableInsiderService { get; set; }
         public bool? DisableFeatureUpdates { get; set; }
         public bool? EnableLongPaths { get; set; }
+        public bool? RemoveCastToDevice { get; set; }
 
         public bool? DisableOneDrive { get; set; }
     }

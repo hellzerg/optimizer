@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0] - 2020-12-10
+- Added: Remove Cast to Device option
+- Added: Pre-made adblock in HOSTS editor
+- Added: Allow Optimizer on Windows Server using "/unsafe" switch
+- Improved: Faster HOSTS file reading
+- Improved: Disable Network Throttling
+- Removed: Block Skype ads (useless)
+
 ## [4.9] - 2019-11-07
 - Added: Run Optimizer silently, using configuration file
 - Added: Disable Windows Store automatic updates (Disable Silent App Install)

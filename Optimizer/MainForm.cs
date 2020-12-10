@@ -132,7 +132,6 @@ namespace Optimizer
             toggleSwitch10.Click += new EventHandler(toggleSwitch10_Click);
             toggleSwitch9.Click += new EventHandler(toggleSwitch9_Click);
             toggleSwitch8.Click += new EventHandler(toggleSwitch8_Click);
-            toggleSwitch7.Click += new EventHandler(toggleSwitch7_Click);
             toggleSwitch6.Click += new EventHandler(toggleSwitch6_Click);
             toggleSwitch5.Click += new EventHandler(toggleSwitch5_Click);
             toggleSwitch4.Click += new EventHandler(toggleSwitch4_Click);
@@ -166,6 +165,20 @@ namespace Optimizer
             toggleSwitch37.Click += new EventHandler(ToggleSwitch37_Click);
             toggleSwitch38.Click += new EventHandler(ToggleSwitch38_Click);
             toggleSwitch39.Click += new EventHandler(ToggleSwitch39_Click);
+            toggleSwitch40.Click += new EventHandler(ToggleSwitch40_Click);
+        }
+
+        private void ToggleSwitch40_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch40.Checked)
+            {
+                Optimize.RemoveCastToDevice();
+            }
+            else
+            {
+                Optimize.AddCastToDevice();
+            }
+            Options.CurrentOptions.RemoveCastToDevice = !toggleSwitch40.Checked;
         }
 
         private void ToggleSwitch39_Click(object sender, EventArgs e)
@@ -482,7 +495,6 @@ namespace Optimizer
             toggleSwitch4.Checked = Options.CurrentOptions.DisableSystemRestore;
             toggleSwitch5.Checked = Options.CurrentOptions.DisablePrintService;
             toggleSwitch6.Checked = Options.CurrentOptions.DisableMediaPlayerSharing;
-            toggleSwitch7.Checked = Options.CurrentOptions.BlockSkypeAds;
             toggleSwitch8.Checked = Options.CurrentOptions.DisableErrorReporting;
             toggleSwitch9.Checked = Options.CurrentOptions.DisableHomeGroup;
             toggleSwitch10.Checked = Options.CurrentOptions.DisableSuperfetch;
@@ -523,6 +535,7 @@ namespace Optimizer
             toggleSwitch35.Checked = Options.CurrentOptions.DisableFeatureUpdates;
             toggleSwitch37.Checked = Options.CurrentOptions.DisableCloudClipboard;
             toggleSwitch39.Checked = Options.CurrentOptions.EnableLongPaths;
+            toggleSwitch40.Checked = Options.CurrentOptions.RemoveCastToDevice;
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -546,16 +559,12 @@ namespace Optimizer
 
         private void GetHostsEntries()
         {
+            ((Control)this.hostsEditorTab).Enabled = false;
+
             _hostsEntries = HostsHelper.GetHostsEntries();
             listHostEntries.Items.Clear();
 
-            for (int i = 0; i < _hostsEntries.Count; i++)
-            {
-                if (!string.IsNullOrEmpty(_hostsEntries[i]))
-                {
-                    listHostEntries.Items.Add(_hostsEntries[i]);
-                }
-            }
+            listHostEntries.Items.AddRange(_hostsEntries.ToArray());
 
             chkReadOnly.Checked = HostsHelper.GetReadOnly();
 
@@ -567,6 +576,8 @@ namespace Optimizer
             chkBlock.Enabled = !chkReadOnly.Checked;
             txtDomain.Enabled = !chkReadOnly.Checked;
             txtIP.Enabled = !chkReadOnly.Checked;
+
+            ((Control)this.hostsEditorTab).Enabled = true;
         }
 
         private void GetStartupItems()
@@ -1563,19 +1574,6 @@ namespace Optimizer
             Options.CurrentOptions.DisableMediaPlayerSharing = !toggleSwitch6.Checked;
         }
 
-        private void toggleSwitch7_Click(object sender, EventArgs e)
-        {
-            if (!toggleSwitch7.Checked)
-            {
-                Optimize.DisableSkypeAds();
-            }
-            else
-            {
-                Optimize.EnableSkypeAds();
-            }
-            Options.CurrentOptions.BlockSkypeAds = !toggleSwitch7.Checked;
-        }
-
         private void toggleSwitch8_Click(object sender, EventArgs e)
         {
             if (!toggleSwitch8.Checked)
@@ -1934,6 +1932,30 @@ namespace Optimizer
             txtIP.Enabled = !chkReadOnly.Checked;
 
             txtIP.Focus();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HostsHelper.AdblockBasic();
+            GetHostsEntries();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            HostsHelper.AdBlockWithPorn();
+            GetHostsEntries();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            HostsHelper.AdBlockWithSocial();
+            GetHostsEntries();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            HostsHelper.AdBlockWithSocial();
+            GetHostsEntries();
         }
     }
 }

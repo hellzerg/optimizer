@@ -12,8 +12,8 @@ namespace Optimizer
 
         // Enter current version here
 
-        internal readonly static float Major = 4;
-        internal readonly static float Minor = 9;
+        internal readonly static float Major = 5;
+        internal readonly static float Minor = 0;
 
         internal static string GetCurrentVersionTostring()
         {
@@ -26,6 +26,9 @@ namespace Optimizer
         }
 
         /* END OF VERSION PROPERTIES */
+
+        // Enables the corresponding Windows tab for Windows Server machines
+        internal static bool UNSAFE_MODE = false;
 
         const string _jsonAssembly = @"Optimizer.Newtonsoft.Json.dll";
 
@@ -75,6 +78,13 @@ namespace Optimizer
                     if (switches.Length == 1)
                     {
                         string arg = switches[0].Trim();
+
+                        if (arg == "/unsafe")
+                        {
+                            UNSAFE_MODE = true;
+                            Application.Run(new MainForm());
+                            return;
+                        }
 
                         if (arg.StartsWith("/"))
                         {

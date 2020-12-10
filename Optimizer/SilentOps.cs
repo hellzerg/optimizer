@@ -96,19 +96,6 @@ namespace Optimizer
                 }
             }
 
-            if (CurrentSilentConfig.BlockSkypeAds.HasValue)
-            {
-                if (CurrentSilentConfig.BlockSkypeAds.Value)
-                {
-                    Optimize.DisableSkypeAds();
-                }
-                else
-                {
-                    Optimize.EnableSkypeAds();
-                }
-            }
-
-
             if (CurrentSilentConfig.DisableErrorReporting.HasValue)
             {
                 if (CurrentSilentConfig.DisableErrorReporting.Value)
@@ -505,6 +492,17 @@ namespace Optimizer
                 }
             }
 
+            if (CurrentSilentConfig.RemoveCastToDevice.HasValue)
+            {
+                if (CurrentSilentConfig.RemoveCastToDevice.Value)
+                {
+                    Optimize.RemoveCastToDevice();
+                }
+                else
+                {
+                    Optimize.AddCastToDevice();
+                }
+            }
         }
 
         // updating options using silent config
@@ -533,10 +531,6 @@ namespace Optimizer
             if (CurrentSilentConfig.DisableMediaPlayerSharing.HasValue)
             {
                 Options.CurrentOptions.DisableMediaPlayerSharing = CurrentSilentConfig.DisableMediaPlayerSharing.Value;
-            }
-            if (CurrentSilentConfig.BlockSkypeAds.HasValue)
-            {
-                Options.CurrentOptions.BlockSkypeAds = CurrentSilentConfig.BlockSkypeAds.Value;
             }
             if (CurrentSilentConfig.DisableErrorReporting.HasValue)
             {
@@ -673,6 +667,10 @@ namespace Optimizer
             if (CurrentSilentConfig.DisableCloudClipboard.HasValue)
             {
                 Options.CurrentOptions.DisableCloudClipboard = CurrentSilentConfig.DisableCloudClipboard.Value;
+            }
+            if (CurrentSilentConfig.RemoveCastToDevice.HasValue)
+            {
+                Options.CurrentOptions.RemoveCastToDevice = CurrentSilentConfig.RemoveCastToDevice.Value;
             }
         }
     }

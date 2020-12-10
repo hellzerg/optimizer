@@ -81,6 +81,22 @@ namespace Optimizer
                 CurrentWindowsVersion = WindowsVersion.Windows10;
             }
 
+            if (Program.UNSAFE_MODE)
+            {
+                if (os.Contains("Windows Server 2008"))
+                {
+                    CurrentWindowsVersion = WindowsVersion.Windows7;
+                }
+                if (os.Contains("Windows Server 2012"))
+                {
+                    CurrentWindowsVersion = WindowsVersion.Windows8;
+                }
+                if (os.Contains("Windows Server 2016"))
+                {
+                    CurrentWindowsVersion = WindowsVersion.Windows10;
+                }
+            }
+
             return os;
         }
 

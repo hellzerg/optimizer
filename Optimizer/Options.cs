@@ -18,7 +18,6 @@ namespace Optimizer
         public bool DisableSystemRestore { get; set; }
         public bool DisablePrintService { get; set; }
         public bool DisableMediaPlayerSharing { get; set; }
-        public bool BlockSkypeAds { get; set; }
         public bool DisableErrorReporting { get; set; }
         public bool DisableHomeGroup { get; set; }
         public bool DisableSuperfetch { get; set; }
@@ -51,6 +50,7 @@ namespace Optimizer
         public bool DisableInsiderService { get; set; }
         public bool DisableFeatureUpdates { get; set; }
         public bool EnableLongPaths { get; set; }
+        public bool RemoveCastToDevice { get; set; }
 
         public bool DisableOneDrive { get; set; }
     }
@@ -156,7 +156,6 @@ namespace Optimizer
                 CurrentOptions.DisableSystemRestore = false;
                 CurrentOptions.DisablePrintService = false;
                 CurrentOptions.DisableMediaPlayerSharing = false;
-                CurrentOptions.BlockSkypeAds = false;
                 CurrentOptions.DisableErrorReporting = false;
                 CurrentOptions.DisableHomeGroup = false;
                 CurrentOptions.DisableSuperfetch = false;
@@ -189,6 +188,7 @@ namespace Optimizer
                 CurrentOptions.DisableFeatureUpdates = false;
                 CurrentOptions.DisableCloudClipboard = false;
                 CurrentOptions.EnableLongPaths = false;
+                CurrentOptions.RemoveCastToDevice = false;
 
                 CurrentOptions.DisableOneDrive = false;
 
