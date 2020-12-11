@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.1] - 2020-12-11
+- Some UI warnings
+
 ## [5.0] - 2020-12-10
 - Added: Remove Cast to Device option
 - Added: Pre-made adblock in HOSTS editor

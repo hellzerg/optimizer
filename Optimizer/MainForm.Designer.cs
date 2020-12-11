@@ -39,6 +39,9 @@
             this.bpanel = new System.Windows.Forms.Panel();
             this.tabCollection = new System.Windows.Forms.TabControl();
             this.universalTab = new System.Windows.Forms.TabPage();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
             this.toggleSwitch38 = new Optimizer.ToggleSwitch();
             this.toggleSwitch36 = new Optimizer.ToggleSwitch();
             this.toggleSwitch33 = new Optimizer.ToggleSwitch();
@@ -56,6 +59,12 @@
             this.toggleSwitch2 = new Optimizer.ToggleSwitch();
             this.button39 = new System.Windows.Forms.Button();
             this.windowsXTab = new System.Windows.Forms.TabPage();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.toggleSwitch40 = new Optimizer.ToggleSwitch();
             this.toggleSwitch39 = new Optimizer.ToggleSwitch();
             this.toggleSwitch37 = new Optimizer.ToggleSwitch();
@@ -398,6 +407,9 @@
             // universalTab
             // 
             this.universalTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.universalTab.Controls.Add(this.label36);
+            this.universalTab.Controls.Add(this.label37);
+            this.universalTab.Controls.Add(this.label38);
             this.universalTab.Controls.Add(this.toggleSwitch38);
             this.universalTab.Controls.Add(this.toggleSwitch36);
             this.universalTab.Controls.Add(this.toggleSwitch33);
@@ -421,6 +433,45 @@
             this.universalTab.Size = new System.Drawing.Size(688, 513);
             this.universalTab.TabIndex = 0;
             this.universalTab.Text = "Universal";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.Gold;
+            this.label36.Location = new System.Drawing.Point(247, 488);
+            this.label36.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(185, 21);
+            this.label36.TabIndex = 67;
+            this.label36.Tag = "";
+            this.label36.Text = "if you use printers often";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.Gold;
+            this.label37.Location = new System.Drawing.Point(80, 488);
+            this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(168, 21);
+            this.label37.TabIndex = 66;
+            this.label37.Tag = "";
+            this.label37.Text = "Disable Print Service";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.Gold;
+            this.label38.Location = new System.Drawing.Point(4, 488);
+            this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(78, 21);
+            this.label38.TabIndex = 65;
+            this.label38.Tag = "";
+            this.label38.Text = "• Do NOT";
             // 
             // toggleSwitch38
             // 
@@ -652,6 +703,12 @@
             // windowsXTab
             // 
             this.windowsXTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.windowsXTab.Controls.Add(this.label40);
+            this.windowsXTab.Controls.Add(this.label39);
+            this.windowsXTab.Controls.Add(this.label32);
+            this.windowsXTab.Controls.Add(this.label35);
+            this.windowsXTab.Controls.Add(this.label34);
+            this.windowsXTab.Controls.Add(this.label33);
             this.windowsXTab.Controls.Add(this.toggleSwitch40);
             this.windowsXTab.Controls.Add(this.toggleSwitch39);
             this.windowsXTab.Controls.Add(this.toggleSwitch37);
@@ -684,6 +741,84 @@
             this.windowsXTab.Size = new System.Drawing.Size(688, 513);
             this.windowsXTab.TabIndex = 1;
             this.windowsXTab.Text = "Windows 10";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.Gold;
+            this.label40.Location = new System.Drawing.Point(268, 467);
+            this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(349, 21);
+            this.label40.TabIndex = 67;
+            this.label40.Tag = "";
+            this.label40.Text = "if you\'re using Windows 10 build 1809 or newer";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.Color.Gold;
+            this.label39.Location = new System.Drawing.Point(80, 467);
+            this.label39.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(191, 21);
+            this.label39.TabIndex = 66;
+            this.label39.Tag = "";
+            this.label39.Text = "Disable Privacy Options";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.Gold;
+            this.label32.Location = new System.Drawing.Point(4, 467);
+            this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(78, 21);
+            this.label32.TabIndex = 65;
+            this.label32.Tag = "";
+            this.label32.Text = "• Do NOT";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.Gold;
+            this.label35.Location = new System.Drawing.Point(268, 488);
+            this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(245, 21);
+            this.label35.TabIndex = 64;
+            this.label35.Tag = "";
+            this.label35.Text = "if your device has touch support";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.Gold;
+            this.label34.Location = new System.Drawing.Point(80, 488);
+            this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(189, 21);
+            this.label34.TabIndex = 63;
+            this.label34.Tag = "";
+            this.label34.Text = "Disable Sensor Services";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ForeColor = System.Drawing.Color.Gold;
+            this.label33.Location = new System.Drawing.Point(4, 488);
+            this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(78, 21);
+            this.label33.TabIndex = 62;
+            this.label33.Tag = "";
+            this.label33.Text = "• Do NOT";
             // 
             // toggleSwitch40
             // 
@@ -1864,7 +1999,7 @@
             // 
             this.label31.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.Silver;
-            this.label31.Location = new System.Drawing.Point(324, 261);
+            this.label31.Location = new System.Drawing.Point(325, 279);
             this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(281, 25);
@@ -1876,7 +2011,7 @@
             // 
             this.label30.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label30.Location = new System.Drawing.Point(322, 236);
+            this.label30.Location = new System.Drawing.Point(322, 254);
             this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(281, 25);
@@ -1892,7 +2027,7 @@
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(485, 333);
+            this.button4.Location = new System.Drawing.Point(485, 351);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(153, 31);
@@ -1909,7 +2044,7 @@
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(485, 298);
+            this.button3.Location = new System.Drawing.Point(485, 316);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(153, 31);
@@ -1926,7 +2061,7 @@
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(328, 333);
+            this.button2.Location = new System.Drawing.Point(327, 351);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(153, 31);
@@ -1943,7 +2078,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(328, 298);
+            this.button1.Location = new System.Drawing.Point(327, 316);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 31);
@@ -1956,7 +2091,7 @@
             // 
             this.label29.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.Silver;
-            this.label29.Location = new System.Drawing.Point(324, 167);
+            this.label29.Location = new System.Drawing.Point(323, 165);
             this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(281, 25);
@@ -1969,7 +2104,7 @@
             this.chkReadOnly.AutoSize = true;
             this.chkReadOnly.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkReadOnly.ForeColor = System.Drawing.Color.White;
-            this.chkReadOnly.Location = new System.Drawing.Point(327, 194);
+            this.chkReadOnly.Location = new System.Drawing.Point(327, 192);
             this.chkReadOnly.Margin = new System.Windows.Forms.Padding(2);
             this.chkReadOnly.Name = "chkReadOnly";
             this.chkReadOnly.Size = new System.Drawing.Size(103, 25);
@@ -1980,7 +2115,6 @@
             // 
             // panelList
             // 
-            this.panelList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelList.Controls.Add(this.listHostEntries);
             this.panelList.Location = new System.Drawing.Point(5, 3);
             this.panelList.Name = "panelList";
@@ -1990,7 +2124,7 @@
             // listHostEntries
             // 
             this.listHostEntries.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.listHostEntries.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listHostEntries.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listHostEntries.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listHostEntries.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listHostEntries.ForeColor = System.Drawing.Color.White;
@@ -2000,7 +2134,7 @@
             this.listHostEntries.Location = new System.Drawing.Point(0, 0);
             this.listHostEntries.Margin = new System.Windows.Forms.Padding(2);
             this.listHostEntries.Name = "listHostEntries";
-            this.listHostEntries.Size = new System.Drawing.Size(310, 386);
+            this.listHostEntries.Size = new System.Drawing.Size(312, 388);
             this.listHostEntries.TabIndex = 52;
             // 
             // chkBlock
@@ -3281,7 +3415,7 @@
             this.btnChangelog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnChangelog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangelog.ForeColor = System.Drawing.Color.White;
-            this.btnChangelog.Location = new System.Drawing.Point(11, 198);
+            this.btnChangelog.Location = new System.Drawing.Point(11, 199);
             this.btnChangelog.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangelog.Name = "btnChangelog";
             this.btnChangelog.Size = new System.Drawing.Size(155, 31);
@@ -3315,7 +3449,7 @@
             this.btnResetConfig.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnResetConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResetConfig.ForeColor = System.Drawing.Color.White;
-            this.btnResetConfig.Location = new System.Drawing.Point(11, 233);
+            this.btnResetConfig.Location = new System.Drawing.Point(11, 234);
             this.btnResetConfig.Margin = new System.Windows.Forms.Padding(2);
             this.btnResetConfig.Name = "btnResetConfig";
             this.btnResetConfig.Size = new System.Drawing.Size(155, 31);
@@ -3509,7 +3643,9 @@
             this.bpanel.ResumeLayout(false);
             this.tabCollection.ResumeLayout(false);
             this.universalTab.ResumeLayout(false);
+            this.universalTab.PerformLayout();
             this.windowsXTab.ResumeLayout(false);
+            this.windowsXTab.PerformLayout();
             this.windowsVIIITab.ResumeLayout(false);
             this.modernAppsTab.ResumeLayout(false);
             this.modernAppsTab.PerformLayout();
@@ -3789,6 +3925,15 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label32;
     }
 }
 

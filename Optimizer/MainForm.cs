@@ -342,11 +342,12 @@ namespace Optimizer
             _columnSorter = new ListViewColumnSorter();
             listStartupItems.ListViewItemSorter = _columnSorter;
 
+            GetStartupItems();
+            GetHostsEntries();
+
             integratorTimer.Start();
             runDialogTime.Start();
 
-            GetStartupItems();
-            GetHostsEntries();
             GetDesktopItems();
             GetCustomCommands();
 
@@ -576,6 +577,10 @@ namespace Optimizer
             chkBlock.Enabled = !chkReadOnly.Checked;
             txtDomain.Enabled = !chkReadOnly.Checked;
             txtIP.Enabled = !chkReadOnly.Checked;
+            button1.Enabled = !chkReadOnly.Checked;
+            button2.Enabled = !chkReadOnly.Checked;
+            button3.Enabled = !chkReadOnly.Checked;
+            button4.Enabled = !chkReadOnly.Checked;
 
             ((Control)this.hostsEditorTab).Enabled = true;
         }
@@ -1930,6 +1935,10 @@ namespace Optimizer
             chkBlock.Enabled = !chkReadOnly.Checked;
             txtDomain.Enabled = !chkReadOnly.Checked;
             txtIP.Enabled = !chkReadOnly.Checked;
+            button1.Enabled = !chkReadOnly.Checked;
+            button2.Enabled = !chkReadOnly.Checked;
+            button3.Enabled = !chkReadOnly.Checked;
+            button4.Enabled = !chkReadOnly.Checked;
 
             txtIP.Focus();
         }
