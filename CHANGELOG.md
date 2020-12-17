@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.4] - 2020-12-17
+- Added: Run & install apps after downloading option
+- Critical bug fixes regarding app downloader
+- Properly save MSI packages
+
 ## [5.3] - 2020-12-17
 - Added: Icons in Common Apps
 - Added: Additional apps for downloading

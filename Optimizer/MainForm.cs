@@ -2006,12 +2006,14 @@ namespace Optimizer
             c32.Enabled = true;
 
             linkLabel1.Visible = !string.IsNullOrEmpty(downloadLog);
+
+            txtDownloadStatus.Text = "Finished";
         }
 
         string appNameTemp = string.Empty;
         int maxCount = 0;
         int count = 0;
-
+        Process p;
         string downloadLog = string.Empty;
 
         private async void btnDownloadApps_Click(object sender, EventArgs e)
@@ -2029,6 +2031,7 @@ namespace Optimizer
 
             foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
             {
+                if (c.Name == "cAutoInstall") continue;
                 if (c is CheckBox && ((CheckBox)c).Checked) maxCount++;
             }
 
@@ -2069,9 +2072,33 @@ namespace Optimizer
                 }
             }
 
+            if (cAutoInstall.Checked)
+            {
+                count = 0;
+                foreach (string a in Directory.GetFiles(txtDownloadFolder.Text, "*.*", SearchOption.TopDirectoryOnly))
+                {
+                    using (p = new Process())
+                    {
+                        count++;
+                        p.StartInfo.FileName = a;
+                        p.EnableRaisingEvents = true;
+                        p.StartInfo.WorkingDirectory = txtDownloadFolder.Text;
+
+                        // APP-SPECIFIC HACKS //
+                        if (a.Contains("Sumatra")) p.StartInfo.Arguments = " -install";
+                        // *** //
+
+                        txtDownloadStatus.Text = string.Format("{0}/{1} - Installing {2} ...", count, maxCount, Path.GetFileNameWithoutExtension(a));
+
+                        await p.RunAsync();
+                    };
+                }
+            }
+
             RenderAppDownloaderFree();  
         }
 
+        string fileExtension = ".exe";
         private async Task DownloadApp(AppInfo app, bool pref64)
         {
             try
@@ -2086,11 +2113,29 @@ namespace Optimizer
 
                     if (pref64)
                     {
-                        await downloader.DownloadFileTaskAsync(app.Link64, Path.Combine(txtDownloadFolder.Text, app.Title + "-x64.exe"));
+                        if (app.Link64.ToString().Contains(".msi"))
+                        {
+                            fileExtension = ".msi";
+                        }
+                        else
+                        {
+                            fileExtension = ".exe";
+                        }
+
+                        await downloader.DownloadFileTaskAsync(app.Link64, Path.Combine(txtDownloadFolder.Text, app.Title + "-x64" + fileExtension));
                     }
                     else
                     {
-                        await downloader.DownloadFileTaskAsync(app.Link, Path.Combine(txtDownloadFolder.Text, app.Title + "-x86.exe"));
+                        if (app.Link.ToString().Contains(".msi"))
+                        {
+                            fileExtension = ".msi";
+                        }
+                        else
+                        {
+                            fileExtension = ".exe";
+                        }
+
+                        await downloader.DownloadFileTaskAsync(app.Link, Path.Combine(txtDownloadFolder.Text, app.Title + "-x86" + fileExtension));
                     }
                 }
             }
@@ -2100,6 +2145,8 @@ namespace Optimizer
 
                 if (pref64) try { File.Delete(Path.Combine(txtDownloadFolder.Text, app.Title + "-x64.exe")); } catch { }
                 if (!pref64) try { File.Delete(Path.Combine(txtDownloadFolder.Text, app.Title + "-x86.exe")); } catch { }
+                if (pref64) try { File.Delete(Path.Combine(txtDownloadFolder.Text, app.Title + "-x64.msi")); } catch { }
+                if (!pref64) try { File.Delete(Path.Combine(txtDownloadFolder.Text, app.Title + "-x86.msi")); } catch { }
             }
         }
 

@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.ServiceProcess;
 using System.Management.Automation;
 using System.Drawing;
+using System.Threading.Tasks;
 
 namespace Optimizer
 {
@@ -553,6 +554,16 @@ namespace Optimizer
             {
                 Application.Restart();
             }
+        }
+
+        internal static Task RunAsync(this Process process)
+        {
+            var tcs = new TaskCompletionSource<object>();
+            process.EnableRaisingEvents = true;
+            process.Exited += (s, e) => tcs.TrySetResult(null);
+
+            if (!process.Start()) tcs.SetException(new Exception("Failed to start process."));
+            return tcs.Task;
         }
     }
 }
