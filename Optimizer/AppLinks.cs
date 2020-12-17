@@ -13,13 +13,18 @@ namespace Optimizer
         public AppInfo Vivaldi = new AppInfo();
         public AppInfo Chrome = new AppInfo();
         public AppInfo Opera = new AppInfo();
+        public AppInfo TorBrowser = new AppInfo();
 
         public AppInfo VLC = new AppInfo();
         public AppInfo PotPlayer = new AppInfo();
         public AppInfo Foobar2000 = new AppInfo();
+        public AppInfo Spotify = new AppInfo();
         public AppInfo BSPlayer = new AppInfo();
         public AppInfo IrfanView = new AppInfo();
         public AppInfo PhotoFiltre = new AppInfo();
+        public AppInfo GIMP = new AppInfo();
+        public AppInfo Audacity = new AppInfo();
+        public AppInfo MP3Tag = new AppInfo();
 
         public AppInfo SevenZip = new AppInfo();
         public AppInfo PeaZip = new AppInfo();
@@ -28,13 +33,17 @@ namespace Optimizer
         public AppInfo SumatraPDF = new AppInfo();
         public AppInfo Foxit = new AppInfo();
         public AppInfo AdobeReader = new AppInfo();
+        public AppInfo LibreOffice = new AppInfo();
 
         public AppInfo Discord = new AppInfo();
         public AppInfo Skype = new AppInfo();
         public AppInfo Viber = new AppInfo();
+        public AppInfo Zoom = new AppInfo();
+        public AppInfo TeamViewer = new AppInfo();
         public AppInfo Thunderbird = new AppInfo();
 
         public AppInfo NotepadPP = new AppInfo();
+        public AppInfo Evernote = new AppInfo();
         public AppInfo SublimeText = new AppInfo();
         public AppInfo VSCode = new AppInfo();
         public AppInfo Atom = new AppInfo();
@@ -48,10 +57,16 @@ namespace Optimizer
 
         public AppInfo Putty = new AppInfo();
         public AppInfo FileZilla = new AppInfo();
+        public AppInfo WinSCP = new AppInfo();
         public AppInfo GitHub = new AppInfo();
         public AppInfo NodeJS = new AppInfo();
         public AppInfo XAMPP = new AppInfo();
         public AppInfo Postman = new AppInfo();
+        public AppInfo OneDrive = new AppInfo();
+
+        public AppInfo Steam = new AppInfo();
+        public AppInfo UPlay = new AppInfo();
+        public AppInfo Blizzard = new AppInfo();
 
         public List<AppInfo> Apps = new List<AppInfo>();
 
@@ -82,6 +97,11 @@ namespace Optimizer
             Opera.Link64 = new Uri("https://www.opera.com/download/get/?partner=www&opsys=Windows&arch=x64");
             Opera.Link = new Uri("https://www.opera.com/download/get/?partner=www&opsys=Windows");
             Opera.Tag = "cOpera";
+
+            TorBrowser.Title = "Tor Browser";
+            TorBrowser.Link64 = new Uri("https://dist.torproject.org/torbrowser/10.0.7/torbrowser-install-win64-10.0.7_en-US.exe");
+            TorBrowser.Link = new Uri("https://www.torproject.org/dist/torbrowser/10.0.7/torbrowser-install-10.0.7_en-US.exe");
+            TorBrowser.Tag = "cTor";
 
             // ARCHIVING
             SevenZip.Title = "7-Zip";
@@ -114,6 +134,10 @@ namespace Optimizer
             Foobar2000.Link = new Uri("https://www.foobar2000.org/files/eb9257c7785d4241dc9137edb3d4bfde/foobar2000_v1.6.2.exe");
             Foobar2000.Tag = "cFoobar";
 
+            Spotify.Title = "Spotify";
+            Spotify.Link = new Uri("https://download.scdn.co/SpotifySetup.exe");
+            Spotify.Tag = "cSpotify";
+
             BSPlayer.Title = "BS.Player";
             BSPlayer.Link = new Uri("http://download11.bsplayer.com/download/file/mirror1/bsplayer276.setup.exe");
             BSPlayer.Tag = "cBS";
@@ -125,6 +149,18 @@ namespace Optimizer
             PhotoFiltre.Title = "PhotoFiltre";
             PhotoFiltre.Link = new Uri("http://static.infomaniak.ch/photofiltre/utils/pf7/pf7-setup-en-7.2.1.exe");
             PhotoFiltre.Tag = "cPhotoFiltre";
+
+            GIMP.Title = "GIMP";
+            GIMP.Link = new Uri("https://download.gimp.org/mirror/pub/gimp/v2.10/windows/gimp-2.10.22-setup.exe");
+            GIMP.Tag = "cGIMP";
+
+            Audacity.Title = "Audacity";
+            Audacity.Link = new Uri("https://softpedia-secure-download.com/dl/6093e3bbf770b4b432c1266cd5af601c/5fdb28af/100001970/software/multimedia/audio/audacity-win-2.4.2.exe");
+            Audacity.Tag = "cAudacity";
+
+            MP3Tag.Title = "MP3 Tag";
+            MP3Tag.Link = new Uri("https://download.mp3tag.de/mp3tagv304asetup.exe");
+            MP3Tag.Tag = "cMp3Tag";
 
             // E-READERS
             SumatraPDF.Title = "SumatraPDF";
@@ -140,6 +176,11 @@ namespace Optimizer
             AdobeReader.Link = new Uri("https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/2001320074/AcroRdrDC2001320074_en_US.exe");
             AdobeReader.Tag = "cAdobeReader";
 
+            LibreOffice.Title = "LibreOffice";
+            LibreOffice.Link = new Uri("https://ftp.cc.uoc.gr/mirrors/tdf/libreoffice/stable/7.0.3/win/x86/LibreOffice_7.0.3_Win_x86.msi");
+            LibreOffice.Link64 = new Uri("https://ftp.cc.uoc.gr/mirrors/tdf/libreoffice/stable/7.0.3/win/x86_64/LibreOffice_7.0.3_Win_x64.msi");
+            LibreOffice.Tag = "cLibreOffice";
+
             // COMMUNICATION
             Discord.Title = "Discord";
             Discord.Link = new Uri("https://dl.discordapp.net/apps/win/0.0.309/DiscordSetup.exe");
@@ -153,6 +194,14 @@ namespace Optimizer
             Viber.Link = new Uri("https://download.cdn.viber.com/desktop/windows/ViberSetup.exe");
             Viber.Tag = "cViber";
 
+            Zoom.Title = "Zoom";
+            Zoom.Link = new Uri("https://zoom.us/client/latest/ZoomInstaller.exe");
+            Zoom.Tag = "cZoom";
+
+            TeamViewer.Title = "TeamViewer";
+            TeamViewer.Link = new Uri("https://download.teamviewer.com/download/TeamViewer_Setup.exe");
+            TeamViewer.Tag = "cTV";
+
             Thunderbird.Title = "Thunderbird";
             Thunderbird.Link = new Uri("https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/78.6.0/win32/en-US/Thunderbird%20Setup%2078.6.0.exe");
             Thunderbird.Tag = "cThunderbird";
@@ -161,6 +210,10 @@ namespace Optimizer
             NotepadPP.Title = "Notepad++";
             NotepadPP.Link = new Uri("https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v7.9.1/npp.7.9.1.Installer.exe");
             NotepadPP.Tag = "cNPP";
+
+            Evernote.Title = "Evernote";
+            Evernote.Link = new Uri("https://cdn1.evernote.com/boron/win/builds/Evernote-10.5.7-2171-setup.exe");
+            Evernote.Tag = "cEvernote";
 
             SublimeText.Title = "Sublime Text";
             SublimeText.Link64 = new Uri("https://download.sublimetext.com/Sublime%20Text%20Build%203211%20x64%20Setup.exe");
@@ -214,6 +267,10 @@ namespace Optimizer
             FileZilla.Link = new Uri("https://download.filezilla-project.org/client/FileZilla_3.51.0_win32-setup.exe");
             FileZilla.Tag = "cFileZilla";
 
+            WinSCP.Title = "WinSCP";
+            WinSCP.Link = new Uri("https://winscp.net/download/files/202012171122cefc89c687cb94e08321f754702b6df1/WinSCP-5.17.9-Setup.exe");
+            WinSCP.Tag = "cWinScp";
+
             GitHub.Title = "GitHub";
             GitHub.Link = new Uri("https://desktop.githubusercontent.com/releases/2.6.1-afb56263/GitHubDesktopSetup.exe");
             GitHub.Tag = "cGitHub";
@@ -230,6 +287,23 @@ namespace Optimizer
             Postman.Link64 = new Uri("https://dl.pstmn.io/download/latest/win64");
             Postman.Link = new Uri("https://dl.pstmn.io/download/latest/win32");
             Postman.Tag = "cPostman";
+
+            OneDrive.Title = "OneDrive";
+            OneDrive.Link = new Uri("https://oneclient.sfx.ms/Win/Prod/20.201.1005.0009/OneDriveSetup.exe");
+            OneDrive.Tag = "cOneDrive";
+
+            // GAMING
+            Steam.Title = "Steam";
+            Steam.Link = new Uri("https://cdn.cloudflare.steamstatic.com/client/installer/SteamSetup.exe");
+            Steam.Tag = "cSteam";
+
+            UPlay.Title = "Uplay";
+            UPlay.Link = new Uri("https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe");
+            UPlay.Tag = "cUbi";
+
+            Blizzard.Title = "Battle.net";
+            Blizzard.Link = new Uri("https://eu.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe");
+            Blizzard.Tag = "cBlizzard";
 
             CreateList();
         }
@@ -273,6 +347,20 @@ namespace Optimizer
             Apps.Add(NodeJS);
             Apps.Add(XAMPP);
             Apps.Add(Postman);
+            Apps.Add(Zoom);
+            Apps.Add(OneDrive);
+            Apps.Add(GIMP);
+            Apps.Add(TeamViewer);
+            Apps.Add(Audacity);
+            Apps.Add(Spotify);
+            Apps.Add(Steam);
+            Apps.Add(Evernote);
+            Apps.Add(TorBrowser);
+            Apps.Add(UPlay);
+            Apps.Add(Blizzard);
+            Apps.Add(MP3Tag);
+            Apps.Add(WinSCP);
+            Apps.Add(LibreOffice);
         }
     }
 }

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.3] - 2020-12-17
+- Added: Icons in Common Apps
+- Added: Additional apps for downloading
+- Several bug fixes
+- UI polishing
+
 ## [5.2] - 2020-12-17
 - Added: Common Apps: Download useful apps quickly at once
 - Improved: Disable Telemetry Services

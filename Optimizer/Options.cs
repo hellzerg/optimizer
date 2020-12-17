@@ -150,7 +150,7 @@ namespace Optimizer
             if (!File.Exists(SettingsFile))
             {
                 CurrentOptions.Color = Theme.Zerg;
-                CurrentOptions.AppsFolder = Utilities.DefaultEdgeDownloadFolder;
+                CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
 
                 CurrentOptions.EnablePerformanceTweaks = false;
                 CurrentOptions.DisableNetworkThrottling = false;

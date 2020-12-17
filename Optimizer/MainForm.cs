@@ -367,8 +367,9 @@ namespace Optimizer
 
             if (string.IsNullOrEmpty(Options.CurrentOptions.AppsFolder))
             {
-                txtDownloadFolder.Text = Utilities.DefaultEdgeDownloadFolder;
-                Options.CurrentOptions.AppsFolder = Utilities.DefaultEdgeDownloadFolder;
+                txtDownloadFolder.Text = Path.Combine(Application.StartupPath, "Optimizer Downloads");
+                Options.CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
+                Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
                 Options.SaveSettings();
             }
             else
@@ -2015,6 +2016,11 @@ namespace Optimizer
 
         private async void btnDownloadApps_Click(object sender, EventArgs e)
         {
+            if (!Directory.Exists(txtDownloadFolder.Text))
+            {
+                MessageBox.Show("Download folder specified is not valid!", "Invalid folder", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
             RenderAppDownloaderBusy();
 
             maxCount = 0;
@@ -2055,6 +2061,10 @@ namespace Optimizer
                     if (x.Link != null)
                     {
                         await DownloadApp(x, false);
+                    }
+                    else
+                    {
+                        downloadLog += "• " + x.Title + ":" + Environment.NewLine + "No 32-bit available" + Environment.NewLine + Environment.NewLine;
                     }
                 }
             }
@@ -2135,6 +2145,12 @@ namespace Optimizer
         {
             InfoForm lf = new InfoForm(downloadLog);
             lf.ShowDialog(this);
+        }
+
+        private void txtDownloadFolder_TextChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.AppsFolder = txtDownloadFolder.Text;
+            Options.SaveSettings();
         }
     }
 }
