@@ -11,6 +11,7 @@ namespace Optimizer
     public class SettingsJson
     {
         public Theme Color { get; set; }
+        public string AppsFolder { get; set; }
 
         public bool EnablePerformanceTweaks { get; set; }
         public bool DisableNetworkThrottling { get; set; }
@@ -149,6 +150,7 @@ namespace Optimizer
             if (!File.Exists(SettingsFile))
             {
                 CurrentOptions.Color = Theme.Zerg;
+                CurrentOptions.AppsFolder = Utilities.DefaultEdgeDownloadFolder;
 
                 CurrentOptions.EnablePerformanceTweaks = false;
                 CurrentOptions.DisableNetworkThrottling = false;

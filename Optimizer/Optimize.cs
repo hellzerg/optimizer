@@ -119,11 +119,13 @@ namespace Optimizer
             Utilities.StopService("diagnosticshub.standardcollector.service");
             Utilities.StopService("dmwappushservice");
             Utilities.StopService("DcpSvc");
+            Utilities.StopService("DPS");
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DiagTrack", "Start", "4", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service", "Start", "4", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\dmwappushservice", "Start", "4", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DcpSvc", "Start", "4", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DPS", "Start", "4", RegistryValueKind.DWord);
         }
 
         internal static void EnableTelemetryServices()
@@ -132,11 +134,13 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service", "Start", "2", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\dmwappushservice", "Start", "2", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DcpSvc", "Start", "2", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DPS", "Start", "2", RegistryValueKind.DWord);
 
             Utilities.StartService("DiagTrack");
             Utilities.StartService("diagnosticshub.standardcollector.service");
             Utilities.StartService("dmwappushservice");
             Utilities.StartService("DcpSvc");
+            Utilities.StartService("DPS");
         }
 
         internal static void DisableMediaPlayerSharing()

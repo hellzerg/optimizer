@@ -82,6 +82,11 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppInfo.cs" />
+    <Compile Include="AppLinks.cs" />
+    <Compile Include="ByteSize\BinaryByteSize.cs" />
+    <Compile Include="ByteSize\ByteSize.cs" />
+    <Compile Include="ByteSize\DecimalByteSize.cs" />
     <Compile Include="CleanHelper.cs" />
     <Compile Include="EdgeForm.cs">
       <SubType>Form</SubType>

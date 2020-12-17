@@ -8,12 +8,15 @@ using System.IO;
 using System.Reflection;
 using System.Diagnostics;
 using System.Net;
+using System.Threading;
+using System.Linq;
 
 namespace Optimizer
 {
     public partial class MainForm : Form
     {
         ListViewColumnSorter _columnSorter;
+        AppLinks apps = new AppLinks();
 
         List<StartupItem> _startUpItems = new List<StartupItem>();
         List<string> _hostsEntries = new List<string>();
@@ -361,6 +364,20 @@ namespace Optimizer
 
             txtOS.Text = "Microsoft " + Utilities.GetOS();
             txtBitness.Text = Utilities.GetBitness();
+
+            if (string.IsNullOrEmpty(Options.CurrentOptions.AppsFolder))
+            {
+                txtDownloadFolder.Text = Utilities.DefaultEdgeDownloadFolder;
+                Options.CurrentOptions.AppsFolder = Utilities.DefaultEdgeDownloadFolder;
+                Options.SaveSettings();
+            }
+            else
+            {
+                txtDownloadFolder.Text = Options.CurrentOptions.AppsFolder;
+            }
+
+            c64.Checked = Environment.Is64BitOperatingSystem;
+            c32.Checked = !Environment.Is64BitOperatingSystem;
         }
 
         private void CleanPC()
@@ -679,6 +696,7 @@ namespace Optimizer
 
         private void Main_FormClosing(object sender, EventArgs e)
         {
+            Options.CurrentOptions.AppsFolder = txtDownloadFolder.Text;
             Options.SaveSettings();
         }
 
@@ -1965,6 +1983,158 @@ namespace Optimizer
         {
             HostsHelper.AdBlockWithSocial();
             GetHostsEntries();
+        }
+
+        private void RenderAppDownloaderBusy()
+        {
+            btnDownloadApps.Enabled = false;
+            button5.Enabled = false;
+            txtDownloadFolder.ReadOnly = true;
+            c64.Enabled = false;
+            c32.Enabled = false;
+
+            linkLabel1.Visible = false;
+        }
+
+        private void RenderAppDownloaderFree()
+        {
+            btnDownloadApps.Enabled = true;
+            button5.Enabled = true;
+            txtDownloadFolder.ReadOnly = false;
+            c64.Enabled = true;
+            c32.Enabled = true;
+
+            linkLabel1.Visible = !string.IsNullOrEmpty(downloadLog);
+        }
+
+        string appNameTemp = string.Empty;
+        int maxCount = 0;
+        int count = 0;
+
+        string downloadLog = string.Empty;
+
+        private async void btnDownloadApps_Click(object sender, EventArgs e)
+        {
+            RenderAppDownloaderBusy();
+
+            maxCount = 0;
+            count = 0;
+            downloadLog = string.Empty;
+
+            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
+            {
+                if (c is CheckBox && ((CheckBox)c).Checked) maxCount++;
+            }
+
+            CheckBox currentCheck;
+            foreach (AppInfo x in apps.Apps)
+            {
+                if (string.IsNullOrEmpty(x.Tag)) continue;
+                currentCheck = (CheckBox)appsTab.Controls.Find(x.Tag, true)[0];
+                if (currentCheck == null) continue;
+                if (!currentCheck.Checked) continue;
+
+                appNameTemp = x.Title;
+
+                if (c64.Checked)
+                {
+                    count++;
+                    if (x.Link64 == null)
+                    {
+                        downloadLog += "• " + x.Title + ":" + Environment.NewLine + "No 64-bit available, downloading 32-bit" + Environment.NewLine + Environment.NewLine;
+                        await DownloadApp(x, false);
+                    }
+                    else
+                    {
+                        await DownloadApp(x, true);
+                    }
+                }
+                else
+                {
+                    count++;
+                    if (x.Link != null)
+                    {
+                        await DownloadApp(x, false);
+                    }
+                }
+            }
+
+            RenderAppDownloaderFree();  
+        }
+
+        private async Task DownloadApp(AppInfo app, bool pref64)
+        {
+            try
+            {
+                using (WebClient downloader = new WebClient())
+                {
+                    downloader.Headers.Add("User-Agent: Other");
+                    downloader.Encoding = Encoding.UTF8;
+
+                    downloader.DownloadProgressChanged += Downloader_DownloadProgressChanged;
+                    downloader.DownloadFileCompleted += Downloader_DownloadFileCompleted;
+
+                    if (pref64)
+                    {
+                        await downloader.DownloadFileTaskAsync(app.Link64, Path.Combine(txtDownloadFolder.Text, app.Title + "-x64.exe"));
+                    }
+                    else
+                    {
+                        await downloader.DownloadFileTaskAsync(app.Link, Path.Combine(txtDownloadFolder.Text, app.Title + "-x86.exe"));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                downloadLog += "• " + app.Title + ":" + Environment.NewLine + "Link is no longer valid!" + Environment.NewLine + Environment.NewLine;
+
+                if (pref64) try { File.Delete(Path.Combine(txtDownloadFolder.Text, app.Title + "-x64.exe")); } catch { }
+                if (!pref64) try { File.Delete(Path.Combine(txtDownloadFolder.Text, app.Title + "-x86.exe")); } catch { }
+            }
+        }
+
+        private void Downloader_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+                txtDownloadStatus.Text = "Finished";
+            });
+        }
+
+        private void Downloader_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+                double bytesIn = double.Parse(e.BytesReceived.ToString());
+                double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
+                double percentage = bytesIn / totalBytes * 100;
+
+                txtDownloadStatus.Text = string.Format("({1}/{2}) - {0} - {3} / {4}", appNameTemp, count, maxCount, ByteSize.FromBytes(e.BytesReceived).ToString("MB"), ByteSize.FromBytes(e.TotalBytesToReceive).ToString("MB"));
+
+                progressDownloader.Value = int.Parse(Math.Truncate(percentage).ToString());
+            });
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog d = new FolderBrowserDialog();
+            if (d.ShowDialog() == DialogResult.OK)
+            {
+                txtDownloadFolder.Text = d.SelectedPath;
+                Options.CurrentOptions.AppsFolder = d.SelectedPath;
+                Options.SaveSettings();
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Process.Start(txtDownloadFolder.Text);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            InfoForm lf = new InfoForm(downloadLog);
+            lf.ShowDialog(this);
         }
     }
 }

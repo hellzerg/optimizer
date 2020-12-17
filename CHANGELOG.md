@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.2] - 2020-12-17
+- Added: Common Apps: Download useful apps quickly at once
+- Improved: Disable Telemetry Services
+
 ## [5.1] - 2020-12-11
 - Some UI warnings
 

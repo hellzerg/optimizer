@@ -14,6 +14,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Disable Office telemetry (works only with 2016)
 * Disable Cortana
 * Disable Windows 10 automatic updates
+* Download useful apps quickly at once
 * Uninstall UWP apps
 * Clean up your system drive
 * Fix common registry issues
@@ -43,5 +44,5 @@ https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md
 
 ## Details: ##
 
-* Latest version: 5.1
-* Released: December 11, 2020
+* Latest version: 5.2
+* Released: December 17, 2020
