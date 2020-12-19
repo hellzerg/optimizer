@@ -14,6 +14,7 @@ namespace Optimizer
         public AppInfo Chrome = new AppInfo();
         public AppInfo Opera = new AppInfo();
         public AppInfo TorBrowser = new AppInfo();
+        public AppInfo Maxthon = new AppInfo();
 
         public AppInfo VLC = new AppInfo();
         public AppInfo PotPlayer = new AppInfo();
@@ -25,6 +26,9 @@ namespace Optimizer
         public AppInfo GIMP = new AppInfo();
         public AppInfo Audacity = new AppInfo();
         public AppInfo MP3Tag = new AppInfo();
+        public AppInfo iTunes = new AppInfo();
+        public AppInfo Winamp = new AppInfo();
+        public AppInfo Blender = new AppInfo();
 
         public AppInfo SevenZip = new AppInfo();
         public AppInfo PeaZip = new AppInfo();
@@ -39,6 +43,8 @@ namespace Optimizer
         public AppInfo Skype = new AppInfo();
         public AppInfo Viber = new AppInfo();
         public AppInfo Zoom = new AppInfo();
+        public AppInfo MSTeams = new AppInfo();
+        public AppInfo AnyDesk = new AppInfo();
         public AppInfo TeamViewer = new AppInfo();
         public AppInfo Thunderbird = new AppInfo();
 
@@ -49,6 +55,8 @@ namespace Optimizer
         public AppInfo Atom = new AppInfo();
         public AppInfo VS = new AppInfo();
         public AppInfo SublimeMerge = new AppInfo();
+        public AppInfo Eclipse = new AppInfo();
+        public AppInfo AndroidStudio = new AppInfo();
 
         public AppInfo QBitTorrent = new AppInfo();
         public AppInfo Deluge = new AppInfo();
@@ -63,10 +71,24 @@ namespace Optimizer
         public AppInfo XAMPP = new AppInfo();
         public AppInfo Postman = new AppInfo();
         public AppInfo OneDrive = new AppInfo();
+        public AppInfo Dropbox = new AppInfo();
 
         public AppInfo Steam = new AppInfo();
         public AppInfo UPlay = new AppInfo();
         public AppInfo Blizzard = new AppInfo();
+        public AppInfo EpicStore = new AppInfo();
+        public AppInfo Origin = new AppInfo();
+
+        public AppInfo LightShot = new AppInfo();
+        public AppInfo Gyazo = new AppInfo();
+
+        public AppInfo IObitUninstaller = new AppInfo();
+        public AppInfo IObitDriverBooster = new AppInfo();
+        public AppInfo IObitSmartDefrag = new AppInfo();
+        public AppInfo RevoUninstaller = new AppInfo();
+
+        public AppInfo Malwarebytes = new AppInfo();
+        public AppInfo AntiExploit = new AppInfo();
 
         public List<AppInfo> Apps = new List<AppInfo>();
 
@@ -103,6 +125,11 @@ namespace Optimizer
             TorBrowser.Link = new Uri("https://www.torproject.org/dist/torbrowser/10.0.7/torbrowser-install-10.0.7_en-US.exe");
             TorBrowser.Tag = "cTor";
 
+            Maxthon.Title = "Maxthon";
+            Maxthon.Link = new Uri("https://dl.maxthon.com/mx6/maxthon_6.1.0.2000_x86.exe");
+            Maxthon.Link64 = new Uri("https://dl.maxthon.com/mx6/maxthon_6.1.0.2000_x64.exe");
+            Maxthon.Tag = "cMaxthon";
+
             // ARCHIVING
             SevenZip.Title = "7-Zip";
             SevenZip.Link64 = new Uri("https://www.7-zip.org/a/7z1900-x64.exe");
@@ -138,6 +165,14 @@ namespace Optimizer
             Spotify.Link = new Uri("https://download.scdn.co/SpotifySetup.exe");
             Spotify.Tag = "cSpotify";
 
+            Winamp.Title = "Winamp";
+            Winamp.Link = new Uri("https://download.nullsoft.com/winamp/misc/winamp58_3660_beta_full_en-us.exe");
+            Winamp.Tag = "cWinamp";
+
+            Blender.Title = "Blender";
+            Blender.Link64 = new Uri("https://ftp.nluug.nl/pub/graphics/blender/release/Blender2.91/blender-2.91.0-windows64.msi");
+            Blender.Tag = "cBlender";
+
             BSPlayer.Title = "BS.Player";
             BSPlayer.Link = new Uri("http://download11.bsplayer.com/download/file/mirror1/bsplayer276.setup.exe");
             BSPlayer.Tag = "cBS";
@@ -161,6 +196,19 @@ namespace Optimizer
             MP3Tag.Title = "MP3 Tag";
             MP3Tag.Link = new Uri("https://download.mp3tag.de/mp3tagv304asetup.exe");
             MP3Tag.Tag = "cMp3Tag";
+
+            iTunes.Title = "Apple iTunes";
+            iTunes.Link = new Uri("https://secure-appldnld.apple.com/itunes12/001-50021-20201019-A1CAB6C2-1239-11EB-AE89-F95946985FC9/iTunesSetup.exe");
+            iTunes.Link64 = new Uri("https://secure-appldnld.apple.com/itunes12/001-50023-20201019-A1CA6082-1239-11EB-990E-FA5946985FC9/iTunes64Setup.exe");
+            iTunes.Tag = "ciTunes";
+
+            LightShot.Title = "Lightshot";
+            LightShot.Link = new Uri("https://softpedia-secure-download.com/dl/6ff73ad7802e41735613dfaa9a964cd4/5fde2290/100148251/software/multimedia/graphic/setup-lightshot.exe");
+            LightShot.Tag = "cLightShot";
+
+            Gyazo.Title = "Gyazo";
+            Gyazo.Link = new Uri("https://files.gyazo.com/setup/Gyazo-4.1.4.exe");
+            Gyazo.Tag = "cGyazo";
 
             // E-READERS
             SumatraPDF.Title = "SumatraPDF";
@@ -194,15 +242,24 @@ namespace Optimizer
             Viber.Link = new Uri("https://download.cdn.viber.com/desktop/windows/ViberSetup.exe");
             Viber.Tag = "cViber";
 
-            Zoom.Title = "Zoom";
+            Zoom.Title = "Google Zoom";
             Zoom.Link = new Uri("https://zoom.us/client/latest/ZoomInstaller.exe");
             Zoom.Tag = "cZoom";
+
+            MSTeams.Title = "Microsoft Teams";
+            MSTeams.Link = new Uri("https://statics.teams.cdn.office.net/production-windows/1.3.00.32283/Teams_windows.exe");
+            MSTeams.Link64 = new Uri("https://statics.teams.cdn.office.net/production-windows-x64/1.3.00.32283/Teams_windows_x64.exe");
+            MSTeams.Tag = "cMSTeams";
 
             TeamViewer.Title = "TeamViewer";
             TeamViewer.Link = new Uri("https://download.teamviewer.com/download/TeamViewer_Setup.exe");
             TeamViewer.Tag = "cTV";
 
-            Thunderbird.Title = "Thunderbird";
+            AnyDesk.Title = "AnyDesk";
+            AnyDesk.Link = new Uri("https://download.anydesk.com/AnyDesk.exe");
+            AnyDesk.Tag = "cAnyDesk";
+
+            Thunderbird.Title = "Mozilla Thunderbird";
             Thunderbird.Link = new Uri("https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/78.6.0/win32/en-US/Thunderbird%20Setup%2078.6.0.exe");
             Thunderbird.Tag = "cThunderbird";
 
@@ -233,6 +290,14 @@ namespace Optimizer
             VS.Title = "Visual Studio";
             VS.Link = new Uri("https://download.visualstudio.microsoft.com/download/pr/9b3476ff-6d0a-4ff8-956d-270147f21cd4/76e39c746d9e2fc3eadd003b5b11440bcf926f3948fb2df14d5938a1a8b2b32f/vs_Community.exe");
             VS.Tag = "cVS";
+
+            Eclipse.Title = "Eclipse";
+            Eclipse.Link64 = new Uri("https://ftp.halifax.rwth-aachen.de/eclipse/oomph/epp/2020-12/R/eclipse-inst-jre-win64.exe");
+            Eclipse.Tag = "cEclipse";
+
+            AndroidStudio.Title = "Android Studio";
+            AndroidStudio.Link64 = new Uri("https://r7---sn-vuxbavcx-5ui6.gvt1.com/edgedl/android/studio/install/4.1.1.0/android-studio-ide-201.6953283-windows.exe");
+            AndroidStudio.Tag = "cAndroidStudio";
 
             SublimeMerge.Title = "Sublime Merge";
             SublimeMerge.Link64 = new Uri("https://download.sublimetext.com/sublime_merge_build_2039_x64_setup.exe");
@@ -292,6 +357,10 @@ namespace Optimizer
             OneDrive.Link = new Uri("https://oneclient.sfx.ms/Win/Prod/20.201.1005.0009/OneDriveSetup.exe");
             OneDrive.Tag = "cOneDrive";
 
+            Dropbox.Title = "Dropbox";
+            Dropbox.Link = new Uri("https://softpedia-secure-download.com/dl/2ccf16e1cb55677cf07a47d53655220f/5fde230a/100121213/software/internet/sharing/Dropbox%20112.4.321%20Offline%20Installer.exe");
+            Dropbox.Tag = "cDropbox";
+
             // GAMING
             Steam.Title = "Steam";
             Steam.Link = new Uri("https://cdn.cloudflare.steamstatic.com/client/installer/SteamSetup.exe");
@@ -304,6 +373,40 @@ namespace Optimizer
             Blizzard.Title = "Battle.net";
             Blizzard.Link = new Uri("https://eu.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe");
             Blizzard.Tag = "cBlizzard";
+
+            EpicStore.Title = "Epic Games";
+            EpicStore.Link = new Uri("https://epicgames-download1.akamaized.net/Builds/UnrealEngineLauncher/Installers/Win32/EpicInstaller-10.19.2.msi");
+            EpicStore.Tag = "cEpicStore";
+
+            Origin.Title = "EA Origin";
+            Origin.Link = new Uri("https://origin-a.akamaihd.net/Origin-Client-Download/origin/live/OriginThinSetup.exe");
+            Origin.Tag = "cOrigin";
+
+            // TOOLS
+            IObitUninstaller.Title = "IObit Uninstaller";
+            IObitUninstaller.Link = new Uri("https://softpedia-secure-download.com/dl/389e6fef2951b146617cea3b08daecb1/5fde3994/100155179/software/tweak/iobituninstaller.exe");
+            IObitUninstaller.Tag = "cIObitU";
+
+            IObitSmartDefrag.Title = "IObit Smart Defrag";
+            IObitSmartDefrag.Link = new Uri("https://softpedia-secure-download.com/dl/6dd716c8eec1d3dcd6ea5ec39ac6d814/5fde390a/100054174/software/hdd/smart-defrag-setup.exe");
+            IObitSmartDefrag.Tag = "cIObitSD";
+
+            IObitDriverBooster.Title = "IObit Driver Booster";
+            IObitDriverBooster.Link = new Uri("https://cdn.iobit.com/dl/driver_booster_setup.exe");
+            IObitDriverBooster.Tag = "cIObitDB";
+
+            RevoUninstaller.Title = "Revo Uninstaller";
+            RevoUninstaller.Link = new Uri("https://dbcec14c0045e5f06bec-97d3a7ea808fa449a451dbca5decd6d2.ssl.cf1.rackcdn.com/revosetup.exe");
+            RevoUninstaller.Tag = "cRevo";
+
+            // ANTIVIRUS
+            Malwarebytes.Title = "Malwarebytes";
+            Malwarebytes.Link = new Uri("https://data-cdn.mbamupdates.com/web/mb4-setup-consumer/offline/mb4-setup-consumer-4.2.3.203-1.0.1112-1.0.33160.exe");
+            Malwarebytes.Tag = "cMalwarebytes";
+
+            AntiExploit.Title = "Anti-Exploit";
+            AntiExploit.Link = new Uri("https://softpedia-secure-download.com/dl/a5ccc10127b7c081492a7e69ee15d1a5/5fde3aaf/100222723/software/security/mbae-setup-1.13.1.304.exe");
+            AntiExploit.Tag = "cAntiExploit";
 
             CreateList();
         }
@@ -361,6 +464,25 @@ namespace Optimizer
             Apps.Add(MP3Tag);
             Apps.Add(WinSCP);
             Apps.Add(LibreOffice);
+            Apps.Add(EpicStore);
+            Apps.Add(LightShot);
+            Apps.Add(Gyazo);
+            Apps.Add(MSTeams);
+            Apps.Add(AnyDesk);
+            Apps.Add(Origin);
+            Apps.Add(Dropbox);
+            Apps.Add(AndroidStudio);
+            Apps.Add(Winamp);
+            Apps.Add(iTunes);
+            Apps.Add(Eclipse);
+            Apps.Add(Blender);
+            Apps.Add(Maxthon);
+            Apps.Add(IObitDriverBooster);
+            Apps.Add(IObitSmartDefrag);
+            Apps.Add(IObitUninstaller);
+            Apps.Add(RevoUninstaller);
+            Apps.Add(Malwarebytes);
+            Apps.Add(AntiExploit);
         }
     }
 }

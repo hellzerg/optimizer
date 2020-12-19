@@ -1993,6 +1993,7 @@ namespace Optimizer
             txtDownloadFolder.ReadOnly = true;
             c64.Enabled = false;
             c32.Enabled = false;
+            cAutoInstall.Enabled = false;
 
             linkLabel1.Visible = false;
         }
@@ -2004,6 +2005,7 @@ namespace Optimizer
             txtDownloadFolder.ReadOnly = false;
             c64.Enabled = true;
             c32.Enabled = true;
+            cAutoInstall.Enabled = true;
 
             linkLabel1.Visible = !string.IsNullOrEmpty(downloadLog);
 
@@ -2067,7 +2069,7 @@ namespace Optimizer
                     }
                     else
                     {
-                        downloadLog += "• " + x.Title + ":" + Environment.NewLine + "No 32-bit available" + Environment.NewLine + Environment.NewLine;
+                        downloadLog += "• " + x.Title + ":" + Environment.NewLine + "No 32-bit available, skipping" + Environment.NewLine + Environment.NewLine;
                     }
                 }
             }

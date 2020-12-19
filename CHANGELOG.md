@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.5] - 2020-12-19
+- Added: More apps supported in Common Apps
+- Improved: Disable Windows Defender
+
 ## [5.4] - 2020-12-17
 - Added: Run & install apps after downloading option
 - Critical bug fixes regarding app downloader
