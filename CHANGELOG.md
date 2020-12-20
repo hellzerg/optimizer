@@ -2,7 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
-## [5.6] - 2020-12-19
+## [5.7] - 2020-12-20
+- Added: F.lux in Common Apps
+
+## [5.6] - 2020-12-20
 - Hotfix: Disable Telemetry Services
 
 ## [5.5] - 2020-12-19
