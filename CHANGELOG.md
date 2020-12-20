@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.6] - 2020-12-19
+- Hotfix: Disable Telemetry Services
+
 ## [5.5] - 2020-12-19
 - Added: More apps supported in Common Apps
 - Improved: Disable Windows Defender
