@@ -18,4 +18,5 @@ https://github.com/hellzerg/optimizer/blob/master/confs/w8.conf
 https://github.com/hellzerg/optimizer/blob/master/confs/w10.conf
 
 ## Run Optimizer on Windows Server 2008-2012-2016 ##
+#### Some options might not work properly ####
 optimizer.exe /unsafe

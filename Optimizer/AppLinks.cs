@@ -90,6 +90,8 @@ namespace Optimizer
         public AppInfo Malwarebytes = new AppInfo();
         public AppInfo AntiExploit = new AppInfo();
 
+        public AppInfo Flux = new AppInfo();
+
         public List<AppInfo> Apps = new List<AppInfo>();
 
         public AppLinks()
@@ -399,6 +401,10 @@ namespace Optimizer
             RevoUninstaller.Link = new Uri("https://dbcec14c0045e5f06bec-97d3a7ea808fa449a451dbca5decd6d2.ssl.cf1.rackcdn.com/revosetup.exe");
             RevoUninstaller.Tag = "cRevo";
 
+            Flux.Title = "F.lux";
+            Flux.Link = new Uri("https://justgetflux.com/flux-setup.exe");
+            Flux.Tag = "cFlux";
+
             // ANTIVIRUS
             Malwarebytes.Title = "Malwarebytes";
             Malwarebytes.Link = new Uri("https://data-cdn.mbamupdates.com/web/mb4-setup-consumer/offline/mb4-setup-consumer-4.2.3.203-1.0.1112-1.0.33160.exe");
@@ -483,6 +489,7 @@ namespace Optimizer
             Apps.Add(RevoUninstaller);
             Apps.Add(Malwarebytes);
             Apps.Add(AntiExploit);
+            Apps.Add(Flux);
         }
     }
 }
