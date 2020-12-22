@@ -90,6 +90,9 @@ namespace Optimizer
         public AppInfo Malwarebytes = new AppInfo();
         public AppInfo AntiExploit = new AppInfo();
 
+        public AppInfo Rufus = new AppInfo();
+        public AppInfo UUI = new AppInfo();
+
         public AppInfo Flux = new AppInfo();
 
         public List<AppInfo> Apps = new List<AppInfo>();
@@ -401,6 +404,14 @@ namespace Optimizer
             RevoUninstaller.Link = new Uri("https://dbcec14c0045e5f06bec-97d3a7ea808fa449a451dbca5decd6d2.ssl.cf1.rackcdn.com/revosetup.exe");
             RevoUninstaller.Tag = "cRevo";
 
+            Rufus.Title = "Rufus";
+            Rufus.Link = new Uri("https://github.com/pbatard/rufus/releases/download/v3.13/rufus-3.13p.exe");
+            Rufus.Tag = "cRufus";
+
+            UUI.Title = "Universal USB Installer";
+            UUI.Link = new Uri("https://softpedia-secure-download.com/dl/a4a24487272eb9390d450193cdac98dd/5fe1c908/100186578/software/os_enhance/Universal-USB-Installer-2.0.0.0.exe");
+            UUI.Tag = "cUUI";
+
             Flux.Title = "F.lux";
             Flux.Link = new Uri("https://justgetflux.com/flux-setup.exe");
             Flux.Tag = "cFlux";
@@ -490,6 +501,8 @@ namespace Optimizer
             Apps.Add(Malwarebytes);
             Apps.Add(AntiExploit);
             Apps.Add(Flux);
+            Apps.Add(Rufus);
+            Apps.Add(UUI);
         }
     }
 }

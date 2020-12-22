@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.8] - 2020-12-22
+- Added: Rufus and Universal USB Installer in Common Apps
+
 ## [5.7] - 2020-12-20
 - Added: F.lux in Common Apps
 
