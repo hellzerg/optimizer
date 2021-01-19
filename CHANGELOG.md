@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0] - 2021-01-20
+- Smaller window size, scrollable app list in Common Apps
+
 ## [5.9] - 2021-01-19
 - Hotfix: Crash when opening folder in Common Apps
 
