@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.9] - 2021-01-19
+- Hotfix: Crash when opening folder in Common Apps
+
 ## [5.8] - 2020-12-22
 - Added: Rufus and Universal USB Installer in Common Apps
 

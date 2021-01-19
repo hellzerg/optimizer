@@ -151,6 +151,7 @@ namespace Optimizer
             {
                 CurrentOptions.Color = Theme.Zerg;
                 CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
+                Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
 
                 CurrentOptions.EnablePerformanceTweaks = false;
                 CurrentOptions.DisableNetworkThrottling = false;

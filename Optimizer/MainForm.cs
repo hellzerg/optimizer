@@ -374,6 +374,10 @@ namespace Optimizer
             }
             else
             {
+                if (!Directory.Exists(Options.CurrentOptions.AppsFolder))
+                {
+                    Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
+                }
                 txtDownloadFolder.Text = Options.CurrentOptions.AppsFolder;
             }
 
