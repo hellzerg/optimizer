@@ -310,6 +310,8 @@ namespace Optimizer
 
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
+            chkOnlyRemovable.Checked = true;
+
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
             {
                 tabCollection.TabPages.Remove(universalTab);
@@ -331,7 +333,7 @@ namespace Optimizer
                 LoadUniversalToggleStates();
                 LoadWindowsVIIIToggleStates();
                 tabCollection.TabPages.Remove(windowsXTab);
-                GetModernApps();
+                GetModernApps(false);
             }
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
@@ -339,7 +341,7 @@ namespace Optimizer
                 LoadUniversalToggleStates();
                 LoadWindowsXToggleStates();
                 tabCollection.TabPages.Remove(windowsVIIITab);
-                GetModernApps();
+                GetModernApps(false);
             }
 
             _columnSorter = new ListViewColumnSorter();
@@ -622,14 +624,14 @@ namespace Optimizer
             }
         }
 
-        private void GetModernApps()
+        private void GetModernApps(bool showAll)
         {
             button74.Enabled = false;
             button75.Enabled = false;
             listModernApps.Enabled = false;
 
             listModernApps.Items.Clear();
-            _modernApps = Utilities.GetModernApps();
+            _modernApps = Utilities.GetModernApps(showAll);
 
             foreach (string x in _modernApps)
             {
@@ -683,7 +685,7 @@ namespace Optimizer
                         MessageBox.Show(_errorModernAppsMessage + failedApps, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
-                    GetModernApps();
+                    GetModernApps(!chkOnlyRemovable.Checked);
                 }
             }
         }
@@ -1500,7 +1502,7 @@ namespace Optimizer
 
         private void button75_Click(object sender, EventArgs e)
         {
-            GetModernApps();
+            GetModernApps(!chkOnlyRemovable.Checked);
         }
 
         private void button74_Click(object sender, EventArgs e)
@@ -2204,6 +2206,11 @@ namespace Optimizer
         {
             Options.CurrentOptions.AppsFolder = txtDownloadFolder.Text;
             Options.SaveSettings();
+        }
+
+        private void chkOnlyRemovable_CheckedChanged(object sender, EventArgs e)
+        {
+            GetModernApps(!chkOnlyRemovable.Checked);
         }
     }
 }

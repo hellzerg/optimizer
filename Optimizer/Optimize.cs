@@ -302,7 +302,17 @@ namespace Optimizer
                 tmp.DeleteValue("SecurityHealth", false);
             }
 
-            Utilities.RunCommand("regsvr32 /u /s \"C:\\Program Files\\Windows Defender\\shellext.dll\"");
+            string rootPath;
+            if (Environment.Is64BitOperatingSystem)
+            {
+                rootPath = Environment.ExpandEnvironmentVariables("%ProgramW6432%");
+            }
+            else
+            {
+                rootPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+            }
+
+            Utilities.RunCommand(@"regsvr32 /u /s """ + rootPath + "\"");
         }
 
         internal static void EnableDefender()
@@ -377,6 +387,80 @@ namespace Optimizer
         {
             Utilities.RunBatchFile(Required.ScriptsFolder + "OneDrive_Uninstaller.cmd");
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OneDrive", "DisableFileSyncNGSC", "1", RegistryValueKind.DWord);
+
+            // delete OneDrive folders
+            string[] oneDriveFolders =
+            {
+                Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\OneDrive",
+                Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System)) + "OneDriveTemp",
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\OneDrive",
+                Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\Microsoft OneDrive"
+            };
+
+            foreach (string x in oneDriveFolders)
+            {
+                if (Directory.Exists(x))
+                {
+                    try
+                    {
+                        Directory.Delete(x, true);
+                    }
+                    catch { }
+                }
+            }
+
+            // delete scheduled tasks
+            Utilities.RunCommand(@"SCHTASKS /Delete /TN ""OneDrive Standalone Update Task"" /F");
+            Utilities.RunCommand(@"SCHTASKS /Delete /TN ""OneDrive Standalone Update Task v2"" /F");
+
+            // remove OneDrive from Windows Explorer
+            string rootKey = @"CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}";
+            Registry.ClassesRoot.CreateSubKey(rootKey);
+            int byteArray = BitConverter.ToInt32(BitConverter.GetBytes(0xb090010d), 0);
+            var reg = RegistryKey.OpenBaseKey(RegistryHive.ClassesRoot, RegistryView.Registry64);
+            
+            try
+            {
+                using (var key = Registry.ClassesRoot.OpenSubKey(rootKey, true))
+                {
+                    key.SetValue("System.IsPinnedToNameSpaceTree", 0, RegistryValueKind.DWord);
+                }
+
+                using (var key = Registry.ClassesRoot.OpenSubKey(rootKey + "\\ShellFolder", true))
+                {
+                    if (key != null)
+                    {
+                        key.SetValue("Attributes", byteArray, RegistryValueKind.DWord);
+                    }
+                }
+
+                var reg2 = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64);
+                using (var key = reg2.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true))
+                {
+                    key.DeleteValue("OneDriveSetup", false);
+                }
+
+                // 64-bit Windows modifications
+                if (Environment.Is64BitOperatingSystem)
+                {
+                    using (var key = reg.OpenSubKey(rootKey, true))
+                    {
+                        if (key != null)
+                        { 
+                            key.SetValue("System.IsPinnedToNameSpaceTree", 0, RegistryValueKind.DWord);
+                        }
+                    }
+
+                    using (var key = reg.OpenSubKey(rootKey + "\\ShellFolder", true))
+                    {
+                        if (key != null)
+                        {
+                            key.SetValue("Attributes", byteArray, RegistryValueKind.DWord);
+                        }
+                    }
+                }
+            }
+            catch { }
         }
 
         internal static void InstallOneDrive()
@@ -800,6 +884,8 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "SoftLandingEnabled", "0", RegistryValueKind.DWord);
 
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "FeatureManagementEnabled", "0", RegistryValueKind.DWord);
+
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer", "DisableSearchBoxSuggestions", 1, RegistryValueKind.DWord);
         }
 
         internal static void EnableStartMenuAds()
@@ -813,6 +899,8 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "SoftLandingEnabled", "1", RegistryValueKind.DWord);
 
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "FeatureManagementEnabled", "1", RegistryValueKind.DWord);
+
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer", "DisableSearchBoxSuggestions", 0, RegistryValueKind.DWord);
         }
 
         internal static void DisableSilentAppInstall()

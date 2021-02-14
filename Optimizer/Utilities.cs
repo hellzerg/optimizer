@@ -509,21 +509,28 @@ namespace Optimizer
             catch { }
         }
 
-        internal static List<string> GetModernApps()
+        internal static List<string> GetModernApps(bool showAll)
         {
             List<string> modernApps = new List<string>();
 
             using (PowerShell script = PowerShell.Create())
             {
-                script.AddScript("Get-AppxPackage | Select Name | Out-String -Stream");
+                if (showAll)
+                {
+                    script.AddScript("Get-AppxPackage -AllUsers | Select -Unique Name | Out-String -Stream");
+                }
+                else
+                {
+                    script.AddScript(@"Get-AppxPackage -AllUsers | Where {$_.NonRemovable -like ""False""} | Select -Unique Name | Out-String -Stream");
+                }
 
                 string tmp = string.Empty;
                 foreach (PSObject x in script.Invoke())
                 {
                     tmp = x.ToString().Trim();
-                    if (!string.IsNullOrEmpty(tmp) && !tmp.Contains("---"))
+                    if (!string.IsNullOrEmpty(tmp) && !tmp.Contains("---") && !tmp.Equals("Name"))
                     {
-                        if (tmp != "Name") modernApps.Add(tmp);
+                        modernApps.Add(tmp);
                     }
                 }
             }
@@ -535,7 +542,7 @@ namespace Optimizer
         {
             using (PowerShell script = PowerShell.Create())
             {
-                script.AddScript(string.Format("Get-AppxPackage *{0}* | Remove-AppxPackage", appName));
+                script.AddScript(string.Format("Get-AppxPackage -AllUsers *{0}* | Remove-AppxPackage", appName));
 
                 script.Invoke();
 

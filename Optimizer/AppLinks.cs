@@ -101,8 +101,8 @@ namespace Optimizer
         {
             // BROWSERS
             Chromium.Title = "Chromium";
-            Chromium.Link64 = new Uri("https://github.com/Hibbiki/chromium-win64/releases/download/v87.0.4280.88-r812852/mini_installer.sync.exe");
-            Chromium.Link = new Uri("https://github.com/Hibbiki/chromium-win32/releases/download/v87.0.4280.88-r812852/mini_installer.sync.exe");
+            Chromium.Link64 = new Uri("https://github.com/Hibbiki/chromium-win64/releases/download/v88.0.4324.150-r827102/mini_installer.sync.exe");
+            Chromium.Link = new Uri("https://github.com/Hibbiki/chromium-win32/releases/download/v88.0.4324.150-r827102/mini_installer.sync.exe");
             Chromium.Tag = "cChromium";
 
             Firefox.Title = "Mozilla Firefox";

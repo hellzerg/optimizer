@@ -14,13 +14,6 @@
         Windows10
     }
 
-    internal enum RegistryHive
-    {
-        CurrentUser,
-        LocalMachine
-    }
-
-
     internal enum StartupItemLocation
     {
         Folder,

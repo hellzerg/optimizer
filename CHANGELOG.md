@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.1] - 2021-02-14
+- Improved: Disable Windows Defender
+- Improved: Uninstall OneDrive and removing all leftovers
+- Improved: Hide non-uninstallables UWP Apps option
+- Updated Chromium links
+- Minor UI fixes
+
 ## [6.0] - 2021-01-20
 - Smaller window size, scrollable app list in Common Apps
 

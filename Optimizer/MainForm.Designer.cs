@@ -97,6 +97,7 @@
             this.toggleSwitch31 = new Optimizer.ToggleSwitch();
             this.button44 = new System.Windows.Forms.Button();
             this.modernAppsTab = new System.Windows.Forms.TabPage();
+            this.chkOnlyRemovable = new System.Windows.Forms.CheckBox();
             this.chkSelectAllModernApps = new System.Windows.Forms.CheckBox();
             this.label28 = new System.Windows.Forms.Label();
             this.button74 = new System.Windows.Forms.Button();
@@ -1528,6 +1529,7 @@
             // modernAppsTab
             // 
             this.modernAppsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.modernAppsTab.Controls.Add(this.chkOnlyRemovable);
             this.modernAppsTab.Controls.Add(this.chkSelectAllModernApps);
             this.modernAppsTab.Controls.Add(this.label28);
             this.modernAppsTab.Controls.Add(this.button74);
@@ -1540,6 +1542,22 @@
             this.modernAppsTab.Size = new System.Drawing.Size(758, 611);
             this.modernAppsTab.TabIndex = 11;
             this.modernAppsTab.Text = "UWP Apps";
+            // 
+            // chkOnlyRemovable
+            // 
+            this.chkOnlyRemovable.AutoSize = true;
+            this.chkOnlyRemovable.Checked = true;
+            this.chkOnlyRemovable.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkOnlyRemovable.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkOnlyRemovable.ForeColor = System.Drawing.Color.White;
+            this.chkOnlyRemovable.Location = new System.Drawing.Point(503, 140);
+            this.chkOnlyRemovable.Margin = new System.Windows.Forms.Padding(2);
+            this.chkOnlyRemovable.Name = "chkOnlyRemovable";
+            this.chkOnlyRemovable.Size = new System.Drawing.Size(170, 25);
+            this.chkOnlyRemovable.TabIndex = 53;
+            this.chkOnlyRemovable.Text = "Only uninstall-ables";
+            this.chkOnlyRemovable.UseVisualStyleBackColor = true;
+            this.chkOnlyRemovable.CheckedChanged += new System.EventHandler(this.chkOnlyRemovable_CheckedChanged);
             // 
             // chkSelectAllModernApps
             // 
@@ -1560,7 +1578,7 @@
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.Silver;
-            this.label28.Location = new System.Drawing.Point(499, 158);
+            this.label28.Location = new System.Drawing.Point(499, 195);
             this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(160, 231);
@@ -1769,7 +1787,7 @@
             this.button32.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button32.ForeColor = System.Drawing.Color.White;
-            this.button32.Location = new System.Drawing.Point(533, 521);
+            this.button32.Location = new System.Drawing.Point(326, 522);
             this.button32.Margin = new System.Windows.Forms.Padding(2);
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(101, 31);
@@ -1786,7 +1804,7 @@
             this.button22.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button22.ForeColor = System.Drawing.Color.White;
-            this.button22.Location = new System.Drawing.Point(638, 521);
+            this.button22.Location = new System.Drawing.Point(431, 522);
             this.button22.Margin = new System.Windows.Forms.Padding(2);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(101, 31);
@@ -3582,7 +3600,7 @@
             this.cAutoInstall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cAutoInstall.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cAutoInstall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cAutoInstall.Location = new System.Drawing.Point(461, 537);
+            this.cAutoInstall.Location = new System.Drawing.Point(462, 541);
             this.cAutoInstall.Name = "cAutoInstall";
             this.cAutoInstall.Size = new System.Drawing.Size(198, 24);
             this.cAutoInstall.TabIndex = 107;
@@ -3617,7 +3635,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(462, 566);
+            this.button6.Location = new System.Drawing.Point(462, 570);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(143, 35);
@@ -3760,7 +3778,7 @@
             this.btnDownloadApps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownloadApps.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDownloadApps.ForeColor = System.Drawing.Color.White;
-            this.btnDownloadApps.Location = new System.Drawing.Point(609, 566);
+            this.btnDownloadApps.Location = new System.Drawing.Point(609, 570);
             this.btnDownloadApps.Margin = new System.Windows.Forms.Padding(2);
             this.btnDownloadApps.Name = "btnDownloadApps";
             this.btnDownloadApps.Size = new System.Drawing.Size(143, 35);
@@ -4768,7 +4786,7 @@
             this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage8.Size = new System.Drawing.Size(1073, 711);
+            this.tabPage8.Size = new System.Drawing.Size(746, 579);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Add/Modify";
             // 
@@ -5115,7 +5133,7 @@
             this.tabPage9.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage9.Size = new System.Drawing.Size(1073, 711);
+            this.tabPage9.Size = new System.Drawing.Size(746, 579);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Remove";
             // 
@@ -5229,7 +5247,7 @@
             this.tabPage10.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage10.Size = new System.Drawing.Size(1073, 711);
+            this.tabPage10.Size = new System.Drawing.Size(746, 579);
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Ready Menus";
             // 
@@ -5473,7 +5491,7 @@
             this.tabPage11.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage11.Size = new System.Drawing.Size(1073, 711);
+            this.tabPage11.Size = new System.Drawing.Size(746, 579);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Run Dialog";
             // 
@@ -5892,6 +5910,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MinimumSize = new System.Drawing.Size(784, 744);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Optimizer";
@@ -6451,6 +6470,7 @@
         private System.Windows.Forms.Panel panelApps6;
         private System.Windows.Forms.Panel panelApps5;
         private System.Windows.Forms.Panel panelApps4;
+        private System.Windows.Forms.CheckBox chkOnlyRemovable;
     }
 }
 
