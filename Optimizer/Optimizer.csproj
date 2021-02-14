@@ -88,6 +88,12 @@
     <Compile Include="ByteSize\ByteSize.cs" />
     <Compile Include="ByteSize\DecimalByteSize.cs" />
     <Compile Include="CleanHelper.cs" />
+    <Compile Include="ColoredControls\ColoredCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ColoredControls\ColoredRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="EdgeForm.cs">
       <SubType>Form</SubType>
     </Compile>

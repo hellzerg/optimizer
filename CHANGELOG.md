@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.2] - 2021-02-14
+- New: Nice styling to checkboxes & radios
+
 ## [6.1] - 2021-02-14
 - Improved: Disable Windows Defender
 - Improved: Uninstall OneDrive and removing all leftovers

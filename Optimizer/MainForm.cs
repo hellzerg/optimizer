@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Threading;
 using System.Linq;
+using System.Drawing;
 
 namespace Optimizer
 {
@@ -310,7 +311,13 @@ namespace Optimizer
 
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
+            // initial states
             chkOnlyRemovable.Checked = true;
+            checkDefaultIcon.Checked = true;
+            radioProgram.Checked = true;
+            radioTop.Checked = true;
+            c64.Checked = Environment.Is64BitOperatingSystem;
+            c32.Checked = !Environment.Is64BitOperatingSystem;
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
             {
@@ -358,9 +365,6 @@ namespace Optimizer
 
             LoadSettings();
 
-            radioProgram.Checked = true;
-            radioTop.Checked = true;
-
             txtVersion.Text = "Version: " + Program.GetCurrentVersionTostring();
             Program.MainForm = this;
 
@@ -382,9 +386,6 @@ namespace Optimizer
                 }
                 txtDownloadFolder.Text = Options.CurrentOptions.AppsFolder;
             }
-
-            c64.Checked = Environment.Is64BitOperatingSystem;
-            c32.Checked = !Environment.Is64BitOperatingSystem;
         }
 
         private void CleanPC()
@@ -2040,14 +2041,14 @@ namespace Optimizer
             foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
             {
                 if (c.Name == "cAutoInstall") continue;
-                if (c is CheckBox && ((CheckBox)c).Checked) maxCount++;
+                if (c is ColoredCheckBox && ((ColoredCheckBox)c).Checked) maxCount++;
             }
 
-            CheckBox currentCheck;
+            ColoredCheckBox currentCheck;
             foreach (AppInfo x in apps.Apps)
             {
                 if (string.IsNullOrEmpty(x.Tag)) continue;
-                currentCheck = (CheckBox)appsTab.Controls.Find(x.Tag, true)[0];
+                currentCheck = (ColoredCheckBox)appsTab.Controls.Find(x.Tag, true)[0];
                 if (currentCheck == null) continue;
                 if (!currentCheck.Checked) continue;
 
