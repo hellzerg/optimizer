@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optimizer
 {
-    public class AppInfo
+    public class FeedApp
     {
         public string Title { get; set; }
         public string Link64 { get; set; }

@@ -12,13 +12,13 @@ using System.Threading;
 using System.Linq;
 using System.Drawing;
 using Timer = System.Windows.Forms.Timer;
+using Newtonsoft.Json;
 
 namespace Optimizer
 {
     public partial class MainForm : Form
     {
         ListViewColumnSorter _columnSorter;
-        AppLinks apps = new AppLinks();
 
         List<StartupItem> _startUpItems = new List<StartupItem>();
         List<string> _hostsEntries = new List<string>();
@@ -29,7 +29,8 @@ namespace Optimizer
         DesktopItemType _desktopItemType = DesktopItemType.Program;
         DesktopTypePosition _desktopItemPosition = DesktopTypePosition.Top;
 
-        readonly string _feedLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/fesdt";
+        public List<FeedApp> AppsFromFeed = new List<FeedApp>();
+        readonly string _feedLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/feed.json";
 
         readonly string _latestVersionLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/version.txt";
         readonly string _changelogLink = "https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md";
@@ -388,6 +389,67 @@ namespace Optimizer
                     Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
                 }
                 txtDownloadFolder.Text = Options.CurrentOptions.AppsFolder;
+            }
+
+            GetFeed();
+        }
+
+        private void GetFeed()
+        {
+            WebClient client = new WebClient
+            {
+                Encoding = Encoding.UTF8
+            };
+
+            try
+            {
+                string feed = client.DownloadString(_feedLink);
+                AppsFromFeed = JsonConvert.DeserializeObject<List<FeedApp>>(feed);
+
+                // UI handling
+                panel1.Visible = true;
+                panel2.Visible = true;
+                panel3.Visible = true;
+                panel4.Visible = true;
+                panel5.Visible = true;
+                panel6.Visible = true;
+                label42.Visible = true;
+                label44.Visible = true;
+                txtDownloadFolder.Visible = true;
+                button5.Visible = true;
+                button6.Visible = true;
+                btnDownloadApps.Visible = true;
+                c32.Visible = true;
+                c64.Visible = true;
+                cAutoInstall.Visible = true;
+                linkLabel1.Visible = false;
+                progressDownloader.Visible = true;
+                txtDownloadStatus.Visible = true;
+                btnGetFeed.Visible = false;
+                txtFeedError.Visible = false;
+            }
+            catch (Exception)
+            {
+                panel1.Visible = false;
+                panel2.Visible = false;
+                panel3.Visible = false;
+                panel4.Visible = false;
+                panel5.Visible = false;
+                panel6.Visible = false;
+                label42.Visible = false;
+                label44.Visible = false;
+                txtDownloadFolder.Visible = false;
+                button5.Visible = true;
+                button6.Visible = false;
+                btnDownloadApps.Visible = false;
+                c32.Visible = false;
+                c64.Visible = false;
+                cAutoInstall.Visible = false;
+                linkLabel1.Visible = false;
+                progressDownloader.Visible = false;
+                txtDownloadStatus.Visible = false;
+                btnGetFeed.Visible = true;
+                txtFeedError.Visible = true;
             }
         }
 
@@ -2044,7 +2106,7 @@ namespace Optimizer
 
             ColoredCheckBox currentCheck;
             Control[] temp;
-            foreach (AppInfo x in apps.Apps)
+            foreach (FeedApp x in AppsFromFeed)
             {
                 if (string.IsNullOrEmpty(x.Tag)) continue;
                 temp = appsTab.Controls.Find(x.Tag, true);
@@ -2109,7 +2171,7 @@ namespace Optimizer
         }
 
         string fileExtension = ".exe";
-        private async Task DownloadApp(AppInfo app, bool pref64)
+        private async Task DownloadApp(FeedApp app, bool pref64)
         {
             try
             {
@@ -2226,6 +2288,11 @@ namespace Optimizer
         private void chkOnlyRemovable_CheckedChanged(object sender, EventArgs e)
         {
             GetModernApps(!chkOnlyRemovable.Checked);
+        }
+
+        private void btnGetFeed_Click(object sender, EventArgs e)
+        {
+            GetFeed();
         }
     }
 }

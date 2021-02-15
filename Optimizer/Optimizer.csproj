@@ -82,8 +82,7 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppInfo.cs" />
-    <Compile Include="AppLinks.cs" />
+    <Compile Include="FeedApp.cs" />
     <Compile Include="ByteSize\BinaryByteSize.cs" />
     <Compile Include="ByteSize\ByteSize.cs" />
     <Compile Include="ByteSize\DecimalByteSize.cs" />

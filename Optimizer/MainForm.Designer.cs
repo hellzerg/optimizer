@@ -118,26 +118,32 @@
             this.button22 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.appsTab = new System.Windows.Forms.TabPage();
+            this.panelCommonApps = new System.Windows.Forms.Panel();
+            this.txtFeedError = new System.Windows.Forms.Label();
+            this.panelApps4 = new System.Windows.Forms.Panel();
+            this.pictureBox75 = new System.Windows.Forms.PictureBox();
+            this.cQB = new Optimizer.ColoredCheckBox();
+            this.cUT2 = new Optimizer.ColoredCheckBox();
+            this.cDeluge = new Optimizer.ColoredCheckBox();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.pictureBox19 = new System.Windows.Forms.PictureBox();
+            this.cUT3 = new Optimizer.ColoredCheckBox();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.cBT = new Optimizer.ColoredCheckBox();
+            this.cSteam = new Optimizer.ColoredCheckBox();
+            this.cOrigin = new Optimizer.ColoredCheckBox();
+            this.pictureBox54 = new System.Windows.Forms.PictureBox();
+            this.cEpicStore = new Optimizer.ColoredCheckBox();
+            this.pictureBox53 = new System.Windows.Forms.PictureBox();
+            this.cBlizzard = new Optimizer.ColoredCheckBox();
+            this.pictureBox49 = new System.Windows.Forms.PictureBox();
+            this.pictureBox51 = new System.Windows.Forms.PictureBox();
+            this.cUbi = new Optimizer.ColoredCheckBox();
+            this.pictureBox50 = new System.Windows.Forms.PictureBox();
+            this.cAutoInstall = new Optimizer.ColoredCheckBox();
             this.progressDownloader = new System.Windows.Forms.ProgressBar();
-            this.panelApps6 = new System.Windows.Forms.Panel();
-            this.cIObitSU = new Optimizer.ColoredCheckBox();
-            this.cIObitU = new Optimizer.ColoredCheckBox();
-            this.pictureBox74 = new System.Windows.Forms.PictureBox();
-            this.cRevo = new Optimizer.ColoredCheckBox();
-            this.pictureBox68 = new System.Windows.Forms.PictureBox();
-            this.cIObitDB = new Optimizer.ColoredCheckBox();
-            this.cIObitSD = new Optimizer.ColoredCheckBox();
-            this.pictureBox61 = new System.Windows.Forms.PictureBox();
-            this.cUUI = new Optimizer.ColoredCheckBox();
-            this.pictureBox66 = new System.Windows.Forms.PictureBox();
-            this.pictureBox72 = new System.Windows.Forms.PictureBox();
-            this.pictureBox67 = new System.Windows.Forms.PictureBox();
-            this.cRufus = new Optimizer.ColoredCheckBox();
-            this.pictureBox73 = new System.Windows.Forms.PictureBox();
-            this.cMalwarebytes = new Optimizer.ColoredCheckBox();
-            this.pictureBox70 = new System.Windows.Forms.PictureBox();
-            this.cAntiExploit = new Optimizer.ColoredCheckBox();
-            this.pictureBox69 = new System.Windows.Forms.PictureBox();
+            this.c64 = new Optimizer.ColoredRadioButton();
             this.panelApps5 = new System.Windows.Forms.Panel();
             this.cAdobeReader = new Optimizer.ColoredCheckBox();
             this.pictureBox22 = new System.Windows.Forms.PictureBox();
@@ -161,25 +167,28 @@
             this.pictureBox43 = new System.Windows.Forms.PictureBox();
             this.cOneDrive = new Optimizer.ColoredCheckBox();
             this.pictureBox63 = new System.Windows.Forms.PictureBox();
-            this.panelApps4 = new System.Windows.Forms.Panel();
-            this.cQB = new Optimizer.ColoredCheckBox();
-            this.cDeluge = new Optimizer.ColoredCheckBox();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.pictureBox19 = new System.Windows.Forms.PictureBox();
-            this.cUT3 = new Optimizer.ColoredCheckBox();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.cBT = new Optimizer.ColoredCheckBox();
-            this.cSteam = new Optimizer.ColoredCheckBox();
-            this.cOrigin = new Optimizer.ColoredCheckBox();
-            this.pictureBox54 = new System.Windows.Forms.PictureBox();
-            this.cEpicStore = new Optimizer.ColoredCheckBox();
-            this.pictureBox53 = new System.Windows.Forms.PictureBox();
-            this.cBlizzard = new Optimizer.ColoredCheckBox();
-            this.pictureBox49 = new System.Windows.Forms.PictureBox();
-            this.pictureBox51 = new System.Windows.Forms.PictureBox();
-            this.cUbi = new Optimizer.ColoredCheckBox();
-            this.pictureBox50 = new System.Windows.Forms.PictureBox();
+            this.c32 = new Optimizer.ColoredRadioButton();
+            this.btnDownloadApps = new System.Windows.Forms.Button();
+            this.panelApps6 = new System.Windows.Forms.Panel();
+            this.cIObitSU = new Optimizer.ColoredCheckBox();
+            this.cIObitU = new Optimizer.ColoredCheckBox();
+            this.pictureBox74 = new System.Windows.Forms.PictureBox();
+            this.cRevo = new Optimizer.ColoredCheckBox();
+            this.pictureBox68 = new System.Windows.Forms.PictureBox();
+            this.cIObitDB = new Optimizer.ColoredCheckBox();
+            this.cIObitSD = new Optimizer.ColoredCheckBox();
+            this.pictureBox61 = new System.Windows.Forms.PictureBox();
+            this.cUUI = new Optimizer.ColoredCheckBox();
+            this.pictureBox66 = new System.Windows.Forms.PictureBox();
+            this.pictureBox72 = new System.Windows.Forms.PictureBox();
+            this.pictureBox67 = new System.Windows.Forms.PictureBox();
+            this.cRufus = new Optimizer.ColoredCheckBox();
+            this.pictureBox73 = new System.Windows.Forms.PictureBox();
+            this.cMalwarebytes = new Optimizer.ColoredCheckBox();
+            this.pictureBox70 = new System.Windows.Forms.PictureBox();
+            this.cAntiExploit = new Optimizer.ColoredCheckBox();
+            this.pictureBox69 = new System.Windows.Forms.PictureBox();
+            this.label42 = new System.Windows.Forms.Label();
             this.panelApps3 = new System.Windows.Forms.Panel();
             this.cNPP = new Optimizer.ColoredCheckBox();
             this.cSublimeText = new Optimizer.ColoredCheckBox();
@@ -211,6 +220,7 @@
             this.cPutty = new Optimizer.ColoredCheckBox();
             this.pictureBox44 = new System.Windows.Forms.PictureBox();
             this.cWinScp = new Optimizer.ColoredCheckBox();
+            this.txtDownloadFolder = new System.Windows.Forms.TextBox();
             this.panelApps2 = new System.Windows.Forms.Panel();
             this.cVLC = new Optimizer.ColoredCheckBox();
             this.cFoobar = new Optimizer.ColoredCheckBox();
@@ -242,6 +252,7 @@
             this.pictureBox58 = new System.Windows.Forms.PictureBox();
             this.pictureBox57 = new System.Windows.Forms.PictureBox();
             this.cGyazo = new Optimizer.ColoredCheckBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.panelApps1 = new System.Windows.Forms.Panel();
             this.cChromium = new Optimizer.ColoredCheckBox();
             this.cVivaldi = new Optimizer.ColoredCheckBox();
@@ -273,18 +284,12 @@
             this.cTV = new Optimizer.ColoredCheckBox();
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label44 = new System.Windows.Forms.Label();
             this.txtDownloadStatus = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.txtDownloadFolder = new System.Windows.Forms.TextBox();
-            this.label42 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label44 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.btnGetFeed = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
-            this.btnDownloadApps = new System.Windows.Forms.Button();
-            this.c32 = new Optimizer.ColoredRadioButton();
-            this.c64 = new Optimizer.ColoredRadioButton();
-            this.cAutoInstall = new Optimizer.ColoredCheckBox();
             this.cleanerTab = new System.Windows.Forms.TabPage();
             this.cleaningpanel = new System.Windows.Forms.Panel();
             this.progress2 = new System.Windows.Forms.ProgressBar();
@@ -434,8 +439,6 @@
             this.DefineCommandIconDialog = new System.Windows.Forms.OpenFileDialog();
             this.integratorTimer = new System.Windows.Forms.Timer(this.components);
             this.runDialogTime = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox75 = new System.Windows.Forms.PictureBox();
-            this.cUT2 = new Optimizer.ColoredCheckBox();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
@@ -448,16 +451,18 @@
             this.startupTab.SuspendLayout();
             this.panel3.SuspendLayout();
             this.appsTab.SuspendLayout();
-            this.panelApps6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox74)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox68)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox61)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox66)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox72)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox67)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox73)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox70)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox69)).BeginInit();
+            this.panelCommonApps.SuspendLayout();
+            this.panelApps4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox75)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox54)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox53)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox51)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox50)).BeginInit();
             this.panelApps5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
@@ -470,16 +475,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox63)).BeginInit();
-            this.panelApps4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox54)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox53)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox51)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox50)).BeginInit();
+            this.panelApps6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox74)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox68)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox61)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox66)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox72)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox67)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox73)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox70)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox69)).BeginInit();
             this.panelApps3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
@@ -552,7 +557,6 @@
             this.tabPage11.SuspendLayout();
             this.panel6.SuspendLayout();
             this.optionsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox75)).BeginInit();
             this.SuspendLayout();
             // 
             // tpanel
@@ -697,7 +701,7 @@
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.Color.Gold;
-            this.label36.Location = new System.Drawing.Point(253, 582);
+            this.label36.Location = new System.Drawing.Point(256, 586);
             this.label36.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(185, 21);
@@ -711,7 +715,7 @@
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.Color.Gold;
-            this.label37.Location = new System.Drawing.Point(81, 582);
+            this.label37.Location = new System.Drawing.Point(84, 586);
             this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(168, 21);
@@ -725,7 +729,7 @@
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.Color.Gold;
-            this.label38.Location = new System.Drawing.Point(2, 582);
+            this.label38.Location = new System.Drawing.Point(2, 586);
             this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(78, 21);
@@ -1832,27 +1836,9 @@
             // appsTab
             // 
             this.appsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.appsTab.Controls.Add(this.pictureBox75);
-            this.appsTab.Controls.Add(this.cUT2);
-            this.appsTab.Controls.Add(this.progressDownloader);
-            this.appsTab.Controls.Add(this.panelApps6);
-            this.appsTab.Controls.Add(this.panelApps5);
-            this.appsTab.Controls.Add(this.panelApps4);
-            this.appsTab.Controls.Add(this.panelApps3);
-            this.appsTab.Controls.Add(this.panelApps2);
-            this.appsTab.Controls.Add(this.panelApps1);
-            this.appsTab.Controls.Add(this.linkLabel1);
-            this.appsTab.Controls.Add(this.button6);
-            this.appsTab.Controls.Add(this.label44);
-            this.appsTab.Controls.Add(this.txtDownloadStatus);
-            this.appsTab.Controls.Add(this.button5);
-            this.appsTab.Controls.Add(this.txtDownloadFolder);
-            this.appsTab.Controls.Add(this.label42);
+            this.appsTab.Controls.Add(this.panelCommonApps);
+            this.appsTab.Controls.Add(this.btnGetFeed);
             this.appsTab.Controls.Add(this.label41);
-            this.appsTab.Controls.Add(this.btnDownloadApps);
-            this.appsTab.Controls.Add(this.c32);
-            this.appsTab.Controls.Add(this.c64);
-            this.appsTab.Controls.Add(this.cAutoInstall);
             this.appsTab.Location = new System.Drawing.Point(4, 24);
             this.appsTab.Name = "appsTab";
             this.appsTab.Padding = new System.Windows.Forms.Padding(3);
@@ -1860,231 +1846,317 @@
             this.appsTab.TabIndex = 12;
             this.appsTab.Text = "Common Apps";
             // 
+            // panelCommonApps
+            // 
+            this.panelCommonApps.Controls.Add(this.txtFeedError);
+            this.panelCommonApps.Controls.Add(this.panelApps4);
+            this.panelCommonApps.Controls.Add(this.cAutoInstall);
+            this.panelCommonApps.Controls.Add(this.progressDownloader);
+            this.panelCommonApps.Controls.Add(this.c64);
+            this.panelCommonApps.Controls.Add(this.panelApps5);
+            this.panelCommonApps.Controls.Add(this.c32);
+            this.panelCommonApps.Controls.Add(this.btnDownloadApps);
+            this.panelCommonApps.Controls.Add(this.panelApps6);
+            this.panelCommonApps.Controls.Add(this.label42);
+            this.panelCommonApps.Controls.Add(this.panelApps3);
+            this.panelCommonApps.Controls.Add(this.txtDownloadFolder);
+            this.panelCommonApps.Controls.Add(this.panelApps2);
+            this.panelCommonApps.Controls.Add(this.button5);
+            this.panelCommonApps.Controls.Add(this.panelApps1);
+            this.panelCommonApps.Controls.Add(this.txtDownloadStatus);
+            this.panelCommonApps.Controls.Add(this.linkLabel1);
+            this.panelCommonApps.Controls.Add(this.label44);
+            this.panelCommonApps.Controls.Add(this.button6);
+            this.panelCommonApps.Location = new System.Drawing.Point(9, 43);
+            this.panelCommonApps.Name = "panelCommonApps";
+            this.panelCommonApps.Size = new System.Drawing.Size(746, 565);
+            this.panelCommonApps.TabIndex = 162;
+            // 
+            // txtFeedError
+            // 
+            this.txtFeedError.BackColor = System.Drawing.Color.Transparent;
+            this.txtFeedError.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtFeedError.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFeedError.ForeColor = System.Drawing.Color.Gold;
+            this.txtFeedError.Location = new System.Drawing.Point(0, 0);
+            this.txtFeedError.Name = "txtFeedError";
+            this.txtFeedError.Size = new System.Drawing.Size(746, 565);
+            this.txtFeedError.TabIndex = 161;
+            this.txtFeedError.Text = "Something went wrong, try refreshing the feed again.";
+            this.txtFeedError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtFeedError.Visible = false;
+            // 
+            // panelApps4
+            // 
+            this.panelApps4.AutoScroll = true;
+            this.panelApps4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelApps4.Controls.Add(this.pictureBox75);
+            this.panelApps4.Controls.Add(this.cQB);
+            this.panelApps4.Controls.Add(this.cUT2);
+            this.panelApps4.Controls.Add(this.cDeluge);
+            this.panelApps4.Controls.Add(this.pictureBox18);
+            this.panelApps4.Controls.Add(this.pictureBox19);
+            this.panelApps4.Controls.Add(this.cUT3);
+            this.panelApps4.Controls.Add(this.pictureBox20);
+            this.panelApps4.Controls.Add(this.pictureBox17);
+            this.panelApps4.Controls.Add(this.cBT);
+            this.panelApps4.Controls.Add(this.cSteam);
+            this.panelApps4.Controls.Add(this.cOrigin);
+            this.panelApps4.Controls.Add(this.pictureBox54);
+            this.panelApps4.Controls.Add(this.cEpicStore);
+            this.panelApps4.Controls.Add(this.pictureBox53);
+            this.panelApps4.Controls.Add(this.cBlizzard);
+            this.panelApps4.Controls.Add(this.pictureBox49);
+            this.panelApps4.Controls.Add(this.pictureBox51);
+            this.panelApps4.Controls.Add(this.cUbi);
+            this.panelApps4.Controls.Add(this.pictureBox50);
+            this.panelApps4.Location = new System.Drawing.Point(495, 3);
+            this.panelApps4.Name = "panelApps4";
+            this.panelApps4.Size = new System.Drawing.Size(240, 188);
+            this.panelApps4.TabIndex = 157;
+            // 
+            // pictureBox75
+            // 
+            this.pictureBox75.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox75.BackgroundImage")));
+            this.pictureBox75.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox75.Location = new System.Drawing.Point(5, 93);
+            this.pictureBox75.Name = "pictureBox75";
+            this.pictureBox75.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox75.TabIndex = 162;
+            this.pictureBox75.TabStop = false;
+            // 
+            // cQB
+            // 
+            this.cQB.AutoSize = true;
+            this.cQB.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cQB.Location = new System.Drawing.Point(35, 3);
+            this.cQB.Name = "cQB";
+            this.cQB.Size = new System.Drawing.Size(105, 24);
+            this.cQB.TabIndex = 58;
+            this.cQB.Text = "qBitTorrent";
+            this.cQB.UseVisualStyleBackColor = true;
+            // 
+            // cUT2
+            // 
+            this.cUT2.AutoSize = true;
+            this.cUT2.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cUT2.Location = new System.Drawing.Point(35, 93);
+            this.cUT2.Name = "cUT2";
+            this.cUT2.Size = new System.Drawing.Size(121, 24);
+            this.cUT2.TabIndex = 161;
+            this.cUT2.Text = "uTorrent 2.2.1";
+            this.cUT2.UseVisualStyleBackColor = true;
+            // 
+            // cDeluge
+            // 
+            this.cDeluge.AutoSize = true;
+            this.cDeluge.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cDeluge.Location = new System.Drawing.Point(35, 33);
+            this.cDeluge.Name = "cDeluge";
+            this.cDeluge.Size = new System.Drawing.Size(77, 24);
+            this.cDeluge.TabIndex = 55;
+            this.cDeluge.Text = "Deluge";
+            this.cDeluge.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox18.BackgroundImage")));
+            this.pictureBox18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox18.Location = new System.Drawing.Point(5, 123);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox18.TabIndex = 93;
+            this.pictureBox18.TabStop = false;
+            // 
+            // pictureBox19
+            // 
+            this.pictureBox19.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox19.BackgroundImage")));
+            this.pictureBox19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox19.Location = new System.Drawing.Point(5, 63);
+            this.pictureBox19.Name = "pictureBox19";
+            this.pictureBox19.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox19.TabIndex = 94;
+            this.pictureBox19.TabStop = false;
+            // 
+            // cUT3
+            // 
+            this.cUT3.AutoSize = true;
+            this.cUT3.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cUT3.Location = new System.Drawing.Point(35, 63);
+            this.cUT3.Name = "cUT3";
+            this.cUT3.Size = new System.Drawing.Size(111, 24);
+            this.cUT3.TabIndex = 59;
+            this.cUT3.Text = "uTorrent 3.x";
+            this.cUT3.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox20
+            // 
+            this.pictureBox20.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox20.BackgroundImage")));
+            this.pictureBox20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox20.Location = new System.Drawing.Point(5, 33);
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox20.TabIndex = 92;
+            this.pictureBox20.TabStop = false;
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox17.BackgroundImage")));
+            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox17.Location = new System.Drawing.Point(5, 3);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox17.TabIndex = 91;
+            this.pictureBox17.TabStop = false;
+            // 
+            // cBT
+            // 
+            this.cBT.AutoSize = true;
+            this.cBT.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBT.Location = new System.Drawing.Point(35, 123);
+            this.cBT.Name = "cBT";
+            this.cBT.Size = new System.Drawing.Size(96, 24);
+            this.cBT.TabIndex = 60;
+            this.cBT.Text = "BitTorrent";
+            this.cBT.UseVisualStyleBackColor = true;
+            // 
+            // cSteam
+            // 
+            this.cSteam.AutoSize = true;
+            this.cSteam.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cSteam.Location = new System.Drawing.Point(35, 164);
+            this.cSteam.Name = "cSteam";
+            this.cSteam.Size = new System.Drawing.Size(70, 24);
+            this.cSteam.TabIndex = 70;
+            this.cSteam.Text = "Steam";
+            this.cSteam.UseVisualStyleBackColor = true;
+            // 
+            // cOrigin
+            // 
+            this.cOrigin.AutoSize = true;
+            this.cOrigin.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cOrigin.Location = new System.Drawing.Point(35, 284);
+            this.cOrigin.Name = "cOrigin";
+            this.cOrigin.Size = new System.Drawing.Size(93, 24);
+            this.cOrigin.TabIndex = 111;
+            this.cOrigin.Text = "EA Origin";
+            this.cOrigin.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox54
+            // 
+            this.pictureBox54.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox54.BackgroundImage")));
+            this.pictureBox54.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox54.Location = new System.Drawing.Point(5, 284);
+            this.pictureBox54.Name = "pictureBox54";
+            this.pictureBox54.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox54.TabIndex = 110;
+            this.pictureBox54.TabStop = false;
+            // 
+            // cEpicStore
+            // 
+            this.cEpicStore.AutoSize = true;
+            this.cEpicStore.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cEpicStore.Location = new System.Drawing.Point(35, 254);
+            this.cEpicStore.Name = "cEpicStore";
+            this.cEpicStore.Size = new System.Drawing.Size(105, 24);
+            this.cEpicStore.TabIndex = 109;
+            this.cEpicStore.Text = "Epic Games";
+            this.cEpicStore.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox53
+            // 
+            this.pictureBox53.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox53.BackgroundImage")));
+            this.pictureBox53.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox53.Location = new System.Drawing.Point(5, 254);
+            this.pictureBox53.Name = "pictureBox53";
+            this.pictureBox53.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox53.TabIndex = 108;
+            this.pictureBox53.TabStop = false;
+            // 
+            // cBlizzard
+            // 
+            this.cBlizzard.AutoSize = true;
+            this.cBlizzard.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBlizzard.Location = new System.Drawing.Point(35, 224);
+            this.cBlizzard.Name = "cBlizzard";
+            this.cBlizzard.Size = new System.Drawing.Size(93, 24);
+            this.cBlizzard.TabIndex = 82;
+            this.cBlizzard.Text = "Battle.net";
+            this.cBlizzard.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox49
+            // 
+            this.pictureBox49.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox49.BackgroundImage")));
+            this.pictureBox49.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox49.Location = new System.Drawing.Point(5, 224);
+            this.pictureBox49.Name = "pictureBox49";
+            this.pictureBox49.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox49.TabIndex = 105;
+            this.pictureBox49.TabStop = false;
+            // 
+            // pictureBox51
+            // 
+            this.pictureBox51.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox51.BackgroundImage")));
+            this.pictureBox51.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox51.Location = new System.Drawing.Point(5, 194);
+            this.pictureBox51.Name = "pictureBox51";
+            this.pictureBox51.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox51.TabIndex = 104;
+            this.pictureBox51.TabStop = false;
+            // 
+            // cUbi
+            // 
+            this.cUbi.AutoSize = true;
+            this.cUbi.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cUbi.Location = new System.Drawing.Point(35, 194);
+            this.cUbi.Name = "cUbi";
+            this.cUbi.Size = new System.Drawing.Size(68, 24);
+            this.cUbi.TabIndex = 81;
+            this.cUbi.Text = "Uplay";
+            this.cUbi.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox50
+            // 
+            this.pictureBox50.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox50.BackgroundImage")));
+            this.pictureBox50.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox50.Location = new System.Drawing.Point(5, 164);
+            this.pictureBox50.Name = "pictureBox50";
+            this.pictureBox50.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox50.TabIndex = 103;
+            this.pictureBox50.TabStop = false;
+            // 
+            // cAutoInstall
+            // 
+            this.cAutoInstall.AutoSize = true;
+            this.cAutoInstall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cAutoInstall.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cAutoInstall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cAutoInstall.Location = new System.Drawing.Point(453, 497);
+            this.cAutoInstall.Name = "cAutoInstall";
+            this.cAutoInstall.Size = new System.Drawing.Size(198, 24);
+            this.cAutoInstall.TabIndex = 107;
+            this.cAutoInstall.Text = "Install after downloading";
+            this.cAutoInstall.UseVisualStyleBackColor = true;
+            // 
             // progressDownloader
             // 
-            this.progressDownloader.Location = new System.Drawing.Point(11, 534);
+            this.progressDownloader.Location = new System.Drawing.Point(3, 490);
             this.progressDownloader.MarqueeAnimationSpeed = 15;
             this.progressDownloader.Name = "progressDownloader";
             this.progressDownloader.Size = new System.Drawing.Size(302, 10);
             this.progressDownloader.TabIndex = 160;
             // 
-            // panelApps6
+            // c64
             // 
-            this.panelApps6.AutoScroll = true;
-            this.panelApps6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelApps6.Controls.Add(this.cIObitSU);
-            this.panelApps6.Controls.Add(this.cIObitU);
-            this.panelApps6.Controls.Add(this.pictureBox74);
-            this.panelApps6.Controls.Add(this.cRevo);
-            this.panelApps6.Controls.Add(this.pictureBox68);
-            this.panelApps6.Controls.Add(this.cIObitDB);
-            this.panelApps6.Controls.Add(this.cIObitSD);
-            this.panelApps6.Controls.Add(this.pictureBox61);
-            this.panelApps6.Controls.Add(this.cUUI);
-            this.panelApps6.Controls.Add(this.pictureBox66);
-            this.panelApps6.Controls.Add(this.pictureBox72);
-            this.panelApps6.Controls.Add(this.pictureBox67);
-            this.panelApps6.Controls.Add(this.cRufus);
-            this.panelApps6.Controls.Add(this.pictureBox73);
-            this.panelApps6.Controls.Add(this.cMalwarebytes);
-            this.panelApps6.Controls.Add(this.pictureBox70);
-            this.panelApps6.Controls.Add(this.cAntiExploit);
-            this.panelApps6.Controls.Add(this.pictureBox69);
-            this.panelApps6.Location = new System.Drawing.Point(503, 241);
-            this.panelApps6.Name = "panelApps6";
-            this.panelApps6.Size = new System.Drawing.Size(240, 188);
-            this.panelApps6.TabIndex = 159;
-            // 
-            // cIObitSU
-            // 
-            this.cIObitSU.AutoSize = true;
-            this.cIObitSU.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cIObitSU.Location = new System.Drawing.Point(35, 92);
-            this.cIObitSU.Name = "cIObitSU";
-            this.cIObitSU.Size = new System.Drawing.Size(185, 24);
-            this.cIObitSU.TabIndex = 162;
-            this.cIObitSU.Text = "IObit Software Updater";
-            this.cIObitSU.UseVisualStyleBackColor = true;
-            // 
-            // cIObitU
-            // 
-            this.cIObitU.AutoSize = true;
-            this.cIObitU.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cIObitU.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cIObitU.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cIObitU.Location = new System.Drawing.Point(35, 3);
-            this.cIObitU.Name = "cIObitU";
-            this.cIObitU.Size = new System.Drawing.Size(139, 24);
-            this.cIObitU.TabIndex = 138;
-            this.cIObitU.Text = "IObit Uninstaller";
-            this.cIObitU.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox74
-            // 
-            this.pictureBox74.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox74.BackgroundImage")));
-            this.pictureBox74.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox74.Location = new System.Drawing.Point(5, 92);
-            this.pictureBox74.Name = "pictureBox74";
-            this.pictureBox74.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox74.TabIndex = 161;
-            this.pictureBox74.TabStop = false;
-            // 
-            // cRevo
-            // 
-            this.cRevo.AutoSize = true;
-            this.cRevo.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cRevo.Location = new System.Drawing.Point(35, 122);
-            this.cRevo.Name = "cRevo";
-            this.cRevo.Size = new System.Drawing.Size(140, 24);
-            this.cRevo.TabIndex = 142;
-            this.cRevo.Text = "Revo Uninstaller";
-            this.cRevo.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox68
-            // 
-            this.pictureBox68.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox68.BackgroundImage")));
-            this.pictureBox68.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox68.Location = new System.Drawing.Point(5, 122);
-            this.pictureBox68.Name = "pictureBox68";
-            this.pictureBox68.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox68.TabIndex = 143;
-            this.pictureBox68.TabStop = false;
-            // 
-            // cIObitDB
-            // 
-            this.cIObitDB.AutoSize = true;
-            this.cIObitDB.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cIObitDB.Location = new System.Drawing.Point(35, 33);
-            this.cIObitDB.Name = "cIObitDB";
-            this.cIObitDB.Size = new System.Drawing.Size(164, 24);
-            this.cIObitDB.TabIndex = 137;
-            this.cIObitDB.Text = "IObit Driver Booster";
-            this.cIObitDB.UseVisualStyleBackColor = true;
-            // 
-            // cIObitSD
-            // 
-            this.cIObitSD.AutoSize = true;
-            this.cIObitSD.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cIObitSD.Location = new System.Drawing.Point(35, 63);
-            this.cIObitSD.Name = "cIObitSD";
-            this.cIObitSD.Size = new System.Drawing.Size(156, 24);
-            this.cIObitSD.TabIndex = 136;
-            this.cIObitSD.Text = "IObit Smart Defrag";
-            this.cIObitSD.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox61
-            // 
-            this.pictureBox61.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox61.BackgroundImage")));
-            this.pictureBox61.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox61.Location = new System.Drawing.Point(5, 2);
-            this.pictureBox61.Name = "pictureBox61";
-            this.pictureBox61.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox61.TabIndex = 139;
-            this.pictureBox61.TabStop = false;
-            // 
-            // cUUI
-            // 
-            this.cUUI.AutoSize = true;
-            this.cUUI.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cUUI.Location = new System.Drawing.Point(35, 245);
-            this.cUUI.Name = "cUUI";
-            this.cUUI.Size = new System.Drawing.Size(182, 24);
-            this.cUUI.TabIndex = 152;
-            this.cUUI.Text = "Universal USB Installer";
-            this.cUUI.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox66
-            // 
-            this.pictureBox66.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox66.BackgroundImage")));
-            this.pictureBox66.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox66.Location = new System.Drawing.Point(5, 32);
-            this.pictureBox66.Name = "pictureBox66";
-            this.pictureBox66.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox66.TabIndex = 140;
-            this.pictureBox66.TabStop = false;
-            // 
-            // pictureBox72
-            // 
-            this.pictureBox72.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox72.BackgroundImage")));
-            this.pictureBox72.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox72.Location = new System.Drawing.Point(5, 244);
-            this.pictureBox72.Name = "pictureBox72";
-            this.pictureBox72.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox72.TabIndex = 153;
-            this.pictureBox72.TabStop = false;
-            // 
-            // pictureBox67
-            // 
-            this.pictureBox67.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox67.BackgroundImage")));
-            this.pictureBox67.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox67.Location = new System.Drawing.Point(5, 62);
-            this.pictureBox67.Name = "pictureBox67";
-            this.pictureBox67.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox67.TabIndex = 141;
-            this.pictureBox67.TabStop = false;
-            // 
-            // cRufus
-            // 
-            this.cRufus.AutoSize = true;
-            this.cRufus.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cRufus.Location = new System.Drawing.Point(35, 215);
-            this.cRufus.Name = "cRufus";
-            this.cRufus.Size = new System.Drawing.Size(66, 24);
-            this.cRufus.TabIndex = 150;
-            this.cRufus.Text = "Rufus";
-            this.cRufus.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox73
-            // 
-            this.pictureBox73.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox73.BackgroundImage")));
-            this.pictureBox73.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox73.Location = new System.Drawing.Point(5, 214);
-            this.pictureBox73.Name = "pictureBox73";
-            this.pictureBox73.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox73.TabIndex = 151;
-            this.pictureBox73.TabStop = false;
-            // 
-            // cMalwarebytes
-            // 
-            this.cMalwarebytes.AutoSize = true;
-            this.cMalwarebytes.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cMalwarebytes.Location = new System.Drawing.Point(35, 155);
-            this.cMalwarebytes.Name = "cMalwarebytes";
-            this.cMalwarebytes.Size = new System.Drawing.Size(123, 24);
-            this.cMalwarebytes.TabIndex = 144;
-            this.cMalwarebytes.Text = "Malwarebytes";
-            this.cMalwarebytes.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox70
-            // 
-            this.pictureBox70.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox70.BackgroundImage")));
-            this.pictureBox70.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox70.Location = new System.Drawing.Point(5, 154);
-            this.pictureBox70.Name = "pictureBox70";
-            this.pictureBox70.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox70.TabIndex = 145;
-            this.pictureBox70.TabStop = false;
-            // 
-            // cAntiExploit
-            // 
-            this.cAntiExploit.AutoSize = true;
-            this.cAntiExploit.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cAntiExploit.Location = new System.Drawing.Point(35, 185);
-            this.cAntiExploit.Name = "cAntiExploit";
-            this.cAntiExploit.Size = new System.Drawing.Size(109, 24);
-            this.cAntiExploit.TabIndex = 146;
-            this.cAntiExploit.Text = "Anti-Exploit";
-            this.cAntiExploit.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox69
-            // 
-            this.pictureBox69.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox69.BackgroundImage")));
-            this.pictureBox69.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox69.Location = new System.Drawing.Point(5, 184);
-            this.pictureBox69.Name = "pictureBox69";
-            this.pictureBox69.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox69.TabIndex = 147;
-            this.pictureBox69.TabStop = false;
+            this.c64.AutoSize = true;
+            this.c64.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.c64.Location = new System.Drawing.Point(395, 422);
+            this.c64.Name = "c64";
+            this.c64.Size = new System.Drawing.Size(72, 25);
+            this.c64.TabIndex = 75;
+            this.c64.TabStop = true;
+            this.c64.Text = "64-bit";
+            this.c64.UseVisualStyleBackColor = true;
             // 
             // panelApps5
             // 
@@ -2112,7 +2184,7 @@
             this.panelApps5.Controls.Add(this.pictureBox43);
             this.panelApps5.Controls.Add(this.cOneDrive);
             this.panelApps5.Controls.Add(this.pictureBox63);
-            this.panelApps5.Location = new System.Drawing.Point(11, 241);
+            this.panelApps5.Location = new System.Drawing.Point(3, 197);
             this.panelApps5.Name = "panelApps5";
             this.panelApps5.Size = new System.Drawing.Size(240, 188);
             this.panelApps5.TabIndex = 158;
@@ -2349,221 +2421,266 @@
             this.pictureBox63.TabIndex = 128;
             this.pictureBox63.TabStop = false;
             // 
-            // panelApps4
+            // c32
             // 
-            this.panelApps4.AutoScroll = true;
-            this.panelApps4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelApps4.Controls.Add(this.cQB);
-            this.panelApps4.Controls.Add(this.cDeluge);
-            this.panelApps4.Controls.Add(this.pictureBox18);
-            this.panelApps4.Controls.Add(this.pictureBox19);
-            this.panelApps4.Controls.Add(this.cUT3);
-            this.panelApps4.Controls.Add(this.pictureBox20);
-            this.panelApps4.Controls.Add(this.pictureBox17);
-            this.panelApps4.Controls.Add(this.cBT);
-            this.panelApps4.Controls.Add(this.cSteam);
-            this.panelApps4.Controls.Add(this.cOrigin);
-            this.panelApps4.Controls.Add(this.pictureBox54);
-            this.panelApps4.Controls.Add(this.cEpicStore);
-            this.panelApps4.Controls.Add(this.pictureBox53);
-            this.panelApps4.Controls.Add(this.cBlizzard);
-            this.panelApps4.Controls.Add(this.pictureBox49);
-            this.panelApps4.Controls.Add(this.pictureBox51);
-            this.panelApps4.Controls.Add(this.cUbi);
-            this.panelApps4.Controls.Add(this.pictureBox50);
-            this.panelApps4.Location = new System.Drawing.Point(503, 47);
-            this.panelApps4.Name = "panelApps4";
-            this.panelApps4.Size = new System.Drawing.Size(240, 188);
-            this.panelApps4.TabIndex = 157;
+            this.c32.AutoSize = true;
+            this.c32.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.c32.Location = new System.Drawing.Point(473, 422);
+            this.c32.Name = "c32";
+            this.c32.Size = new System.Drawing.Size(72, 25);
+            this.c32.TabIndex = 76;
+            this.c32.TabStop = true;
+            this.c32.Text = "32-bit";
+            this.c32.UseVisualStyleBackColor = true;
             // 
-            // cQB
+            // btnDownloadApps
             // 
-            this.cQB.AutoSize = true;
-            this.cQB.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cQB.Location = new System.Drawing.Point(35, 3);
-            this.cQB.Name = "cQB";
-            this.cQB.Size = new System.Drawing.Size(105, 24);
-            this.cQB.TabIndex = 58;
-            this.cQB.Text = "qBitTorrent";
-            this.cQB.UseVisualStyleBackColor = true;
+            this.btnDownloadApps.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnDownloadApps.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnDownloadApps.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnDownloadApps.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnDownloadApps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDownloadApps.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDownloadApps.ForeColor = System.Drawing.Color.White;
+            this.btnDownloadApps.Location = new System.Drawing.Point(600, 526);
+            this.btnDownloadApps.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDownloadApps.Name = "btnDownloadApps";
+            this.btnDownloadApps.Size = new System.Drawing.Size(143, 35);
+            this.btnDownloadApps.TabIndex = 50;
+            this.btnDownloadApps.Text = "Download";
+            this.btnDownloadApps.UseVisualStyleBackColor = false;
+            this.btnDownloadApps.Click += new System.EventHandler(this.btnDownloadApps_Click);
             // 
-            // cDeluge
+            // panelApps6
             // 
-            this.cDeluge.AutoSize = true;
-            this.cDeluge.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cDeluge.Location = new System.Drawing.Point(35, 33);
-            this.cDeluge.Name = "cDeluge";
-            this.cDeluge.Size = new System.Drawing.Size(77, 24);
-            this.cDeluge.TabIndex = 55;
-            this.cDeluge.Text = "Deluge";
-            this.cDeluge.UseVisualStyleBackColor = true;
+            this.panelApps6.AutoScroll = true;
+            this.panelApps6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelApps6.Controls.Add(this.cIObitSU);
+            this.panelApps6.Controls.Add(this.cIObitU);
+            this.panelApps6.Controls.Add(this.pictureBox74);
+            this.panelApps6.Controls.Add(this.cRevo);
+            this.panelApps6.Controls.Add(this.pictureBox68);
+            this.panelApps6.Controls.Add(this.cIObitDB);
+            this.panelApps6.Controls.Add(this.cIObitSD);
+            this.panelApps6.Controls.Add(this.pictureBox61);
+            this.panelApps6.Controls.Add(this.cUUI);
+            this.panelApps6.Controls.Add(this.pictureBox66);
+            this.panelApps6.Controls.Add(this.pictureBox72);
+            this.panelApps6.Controls.Add(this.pictureBox67);
+            this.panelApps6.Controls.Add(this.cRufus);
+            this.panelApps6.Controls.Add(this.pictureBox73);
+            this.panelApps6.Controls.Add(this.cMalwarebytes);
+            this.panelApps6.Controls.Add(this.pictureBox70);
+            this.panelApps6.Controls.Add(this.cAntiExploit);
+            this.panelApps6.Controls.Add(this.pictureBox69);
+            this.panelApps6.Location = new System.Drawing.Point(495, 197);
+            this.panelApps6.Name = "panelApps6";
+            this.panelApps6.Size = new System.Drawing.Size(240, 188);
+            this.panelApps6.TabIndex = 159;
             // 
-            // pictureBox18
+            // cIObitSU
             // 
-            this.pictureBox18.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox18.BackgroundImage")));
-            this.pictureBox18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox18.Location = new System.Drawing.Point(5, 93);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox18.TabIndex = 93;
-            this.pictureBox18.TabStop = false;
+            this.cIObitSU.AutoSize = true;
+            this.cIObitSU.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cIObitSU.Location = new System.Drawing.Point(35, 92);
+            this.cIObitSU.Name = "cIObitSU";
+            this.cIObitSU.Size = new System.Drawing.Size(185, 24);
+            this.cIObitSU.TabIndex = 162;
+            this.cIObitSU.Text = "IObit Software Updater";
+            this.cIObitSU.UseVisualStyleBackColor = true;
             // 
-            // pictureBox19
+            // cIObitU
             // 
-            this.pictureBox19.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox19.BackgroundImage")));
-            this.pictureBox19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox19.Location = new System.Drawing.Point(5, 63);
-            this.pictureBox19.Name = "pictureBox19";
-            this.pictureBox19.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox19.TabIndex = 94;
-            this.pictureBox19.TabStop = false;
+            this.cIObitU.AutoSize = true;
+            this.cIObitU.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cIObitU.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cIObitU.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cIObitU.Location = new System.Drawing.Point(35, 3);
+            this.cIObitU.Name = "cIObitU";
+            this.cIObitU.Size = new System.Drawing.Size(139, 24);
+            this.cIObitU.TabIndex = 138;
+            this.cIObitU.Text = "IObit Uninstaller";
+            this.cIObitU.UseVisualStyleBackColor = true;
             // 
-            // cUT3
+            // pictureBox74
             // 
-            this.cUT3.AutoSize = true;
-            this.cUT3.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cUT3.Location = new System.Drawing.Point(35, 63);
-            this.cUT3.Name = "cUT3";
-            this.cUT3.Size = new System.Drawing.Size(111, 24);
-            this.cUT3.TabIndex = 59;
-            this.cUT3.Text = "uTorrent 3.x";
-            this.cUT3.UseVisualStyleBackColor = true;
+            this.pictureBox74.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox74.BackgroundImage")));
+            this.pictureBox74.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox74.Location = new System.Drawing.Point(5, 92);
+            this.pictureBox74.Name = "pictureBox74";
+            this.pictureBox74.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox74.TabIndex = 161;
+            this.pictureBox74.TabStop = false;
             // 
-            // pictureBox20
+            // cRevo
             // 
-            this.pictureBox20.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox20.BackgroundImage")));
-            this.pictureBox20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox20.Location = new System.Drawing.Point(5, 33);
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox20.TabIndex = 92;
-            this.pictureBox20.TabStop = false;
+            this.cRevo.AutoSize = true;
+            this.cRevo.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cRevo.Location = new System.Drawing.Point(35, 122);
+            this.cRevo.Name = "cRevo";
+            this.cRevo.Size = new System.Drawing.Size(140, 24);
+            this.cRevo.TabIndex = 142;
+            this.cRevo.Text = "Revo Uninstaller";
+            this.cRevo.UseVisualStyleBackColor = true;
             // 
-            // pictureBox17
+            // pictureBox68
             // 
-            this.pictureBox17.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox17.BackgroundImage")));
-            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox17.Location = new System.Drawing.Point(5, 3);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox17.TabIndex = 91;
-            this.pictureBox17.TabStop = false;
+            this.pictureBox68.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox68.BackgroundImage")));
+            this.pictureBox68.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox68.Location = new System.Drawing.Point(5, 122);
+            this.pictureBox68.Name = "pictureBox68";
+            this.pictureBox68.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox68.TabIndex = 143;
+            this.pictureBox68.TabStop = false;
             // 
-            // cBT
+            // cIObitDB
             // 
-            this.cBT.AutoSize = true;
-            this.cBT.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBT.Location = new System.Drawing.Point(35, 93);
-            this.cBT.Name = "cBT";
-            this.cBT.Size = new System.Drawing.Size(96, 24);
-            this.cBT.TabIndex = 60;
-            this.cBT.Text = "BitTorrent";
-            this.cBT.UseVisualStyleBackColor = true;
+            this.cIObitDB.AutoSize = true;
+            this.cIObitDB.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cIObitDB.Location = new System.Drawing.Point(35, 33);
+            this.cIObitDB.Name = "cIObitDB";
+            this.cIObitDB.Size = new System.Drawing.Size(164, 24);
+            this.cIObitDB.TabIndex = 137;
+            this.cIObitDB.Text = "IObit Driver Booster";
+            this.cIObitDB.UseVisualStyleBackColor = true;
             // 
-            // cSteam
+            // cIObitSD
             // 
-            this.cSteam.AutoSize = true;
-            this.cSteam.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cSteam.Location = new System.Drawing.Point(35, 134);
-            this.cSteam.Name = "cSteam";
-            this.cSteam.Size = new System.Drawing.Size(70, 24);
-            this.cSteam.TabIndex = 70;
-            this.cSteam.Text = "Steam";
-            this.cSteam.UseVisualStyleBackColor = true;
+            this.cIObitSD.AutoSize = true;
+            this.cIObitSD.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cIObitSD.Location = new System.Drawing.Point(35, 63);
+            this.cIObitSD.Name = "cIObitSD";
+            this.cIObitSD.Size = new System.Drawing.Size(156, 24);
+            this.cIObitSD.TabIndex = 136;
+            this.cIObitSD.Text = "IObit Smart Defrag";
+            this.cIObitSD.UseVisualStyleBackColor = true;
             // 
-            // cOrigin
+            // pictureBox61
             // 
-            this.cOrigin.AutoSize = true;
-            this.cOrigin.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cOrigin.Location = new System.Drawing.Point(35, 254);
-            this.cOrigin.Name = "cOrigin";
-            this.cOrigin.Size = new System.Drawing.Size(93, 24);
-            this.cOrigin.TabIndex = 111;
-            this.cOrigin.Text = "EA Origin";
-            this.cOrigin.UseVisualStyleBackColor = true;
+            this.pictureBox61.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox61.BackgroundImage")));
+            this.pictureBox61.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox61.Location = new System.Drawing.Point(5, 2);
+            this.pictureBox61.Name = "pictureBox61";
+            this.pictureBox61.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox61.TabIndex = 139;
+            this.pictureBox61.TabStop = false;
             // 
-            // pictureBox54
+            // cUUI
             // 
-            this.pictureBox54.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox54.BackgroundImage")));
-            this.pictureBox54.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox54.Location = new System.Drawing.Point(5, 254);
-            this.pictureBox54.Name = "pictureBox54";
-            this.pictureBox54.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox54.TabIndex = 110;
-            this.pictureBox54.TabStop = false;
+            this.cUUI.AutoSize = true;
+            this.cUUI.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cUUI.Location = new System.Drawing.Point(35, 259);
+            this.cUUI.Name = "cUUI";
+            this.cUUI.Size = new System.Drawing.Size(182, 24);
+            this.cUUI.TabIndex = 152;
+            this.cUUI.Text = "Universal USB Installer";
+            this.cUUI.UseVisualStyleBackColor = true;
             // 
-            // cEpicStore
+            // pictureBox66
             // 
-            this.cEpicStore.AutoSize = true;
-            this.cEpicStore.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cEpicStore.Location = new System.Drawing.Point(35, 224);
-            this.cEpicStore.Name = "cEpicStore";
-            this.cEpicStore.Size = new System.Drawing.Size(105, 24);
-            this.cEpicStore.TabIndex = 109;
-            this.cEpicStore.Text = "Epic Games";
-            this.cEpicStore.UseVisualStyleBackColor = true;
+            this.pictureBox66.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox66.BackgroundImage")));
+            this.pictureBox66.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox66.Location = new System.Drawing.Point(5, 32);
+            this.pictureBox66.Name = "pictureBox66";
+            this.pictureBox66.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox66.TabIndex = 140;
+            this.pictureBox66.TabStop = false;
             // 
-            // pictureBox53
+            // pictureBox72
             // 
-            this.pictureBox53.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox53.BackgroundImage")));
-            this.pictureBox53.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox53.Location = new System.Drawing.Point(5, 224);
-            this.pictureBox53.Name = "pictureBox53";
-            this.pictureBox53.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox53.TabIndex = 108;
-            this.pictureBox53.TabStop = false;
+            this.pictureBox72.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox72.BackgroundImage")));
+            this.pictureBox72.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox72.Location = new System.Drawing.Point(5, 258);
+            this.pictureBox72.Name = "pictureBox72";
+            this.pictureBox72.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox72.TabIndex = 153;
+            this.pictureBox72.TabStop = false;
             // 
-            // cBlizzard
+            // pictureBox67
             // 
-            this.cBlizzard.AutoSize = true;
-            this.cBlizzard.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBlizzard.Location = new System.Drawing.Point(35, 194);
-            this.cBlizzard.Name = "cBlizzard";
-            this.cBlizzard.Size = new System.Drawing.Size(93, 24);
-            this.cBlizzard.TabIndex = 82;
-            this.cBlizzard.Text = "Battle.net";
-            this.cBlizzard.UseVisualStyleBackColor = true;
+            this.pictureBox67.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox67.BackgroundImage")));
+            this.pictureBox67.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox67.Location = new System.Drawing.Point(5, 62);
+            this.pictureBox67.Name = "pictureBox67";
+            this.pictureBox67.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox67.TabIndex = 141;
+            this.pictureBox67.TabStop = false;
             // 
-            // pictureBox49
+            // cRufus
             // 
-            this.pictureBox49.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox49.BackgroundImage")));
-            this.pictureBox49.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox49.Location = new System.Drawing.Point(5, 194);
-            this.pictureBox49.Name = "pictureBox49";
-            this.pictureBox49.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox49.TabIndex = 105;
-            this.pictureBox49.TabStop = false;
+            this.cRufus.AutoSize = true;
+            this.cRufus.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cRufus.Location = new System.Drawing.Point(35, 229);
+            this.cRufus.Name = "cRufus";
+            this.cRufus.Size = new System.Drawing.Size(66, 24);
+            this.cRufus.TabIndex = 150;
+            this.cRufus.Text = "Rufus";
+            this.cRufus.UseVisualStyleBackColor = true;
             // 
-            // pictureBox51
+            // pictureBox73
             // 
-            this.pictureBox51.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox51.BackgroundImage")));
-            this.pictureBox51.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox51.Location = new System.Drawing.Point(5, 164);
-            this.pictureBox51.Name = "pictureBox51";
-            this.pictureBox51.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox51.TabIndex = 104;
-            this.pictureBox51.TabStop = false;
+            this.pictureBox73.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox73.BackgroundImage")));
+            this.pictureBox73.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox73.Location = new System.Drawing.Point(5, 228);
+            this.pictureBox73.Name = "pictureBox73";
+            this.pictureBox73.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox73.TabIndex = 151;
+            this.pictureBox73.TabStop = false;
             // 
-            // cUbi
+            // cMalwarebytes
             // 
-            this.cUbi.AutoSize = true;
-            this.cUbi.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cUbi.Location = new System.Drawing.Point(35, 164);
-            this.cUbi.Name = "cUbi";
-            this.cUbi.Size = new System.Drawing.Size(68, 24);
-            this.cUbi.TabIndex = 81;
-            this.cUbi.Text = "Uplay";
-            this.cUbi.UseVisualStyleBackColor = true;
+            this.cMalwarebytes.AutoSize = true;
+            this.cMalwarebytes.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cMalwarebytes.Location = new System.Drawing.Point(35, 169);
+            this.cMalwarebytes.Name = "cMalwarebytes";
+            this.cMalwarebytes.Size = new System.Drawing.Size(123, 24);
+            this.cMalwarebytes.TabIndex = 144;
+            this.cMalwarebytes.Text = "Malwarebytes";
+            this.cMalwarebytes.UseVisualStyleBackColor = true;
             // 
-            // pictureBox50
+            // pictureBox70
             // 
-            this.pictureBox50.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox50.BackgroundImage")));
-            this.pictureBox50.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox50.Location = new System.Drawing.Point(5, 134);
-            this.pictureBox50.Name = "pictureBox50";
-            this.pictureBox50.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox50.TabIndex = 103;
-            this.pictureBox50.TabStop = false;
+            this.pictureBox70.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox70.BackgroundImage")));
+            this.pictureBox70.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox70.Location = new System.Drawing.Point(5, 168);
+            this.pictureBox70.Name = "pictureBox70";
+            this.pictureBox70.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox70.TabIndex = 145;
+            this.pictureBox70.TabStop = false;
+            // 
+            // cAntiExploit
+            // 
+            this.cAntiExploit.AutoSize = true;
+            this.cAntiExploit.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cAntiExploit.Location = new System.Drawing.Point(35, 199);
+            this.cAntiExploit.Name = "cAntiExploit";
+            this.cAntiExploit.Size = new System.Drawing.Size(109, 24);
+            this.cAntiExploit.TabIndex = 146;
+            this.cAntiExploit.Text = "Anti-Exploit";
+            this.cAntiExploit.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox69
+            // 
+            this.pictureBox69.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox69.BackgroundImage")));
+            this.pictureBox69.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox69.Location = new System.Drawing.Point(5, 198);
+            this.pictureBox69.Name = "pictureBox69";
+            this.pictureBox69.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox69.TabIndex = 147;
+            this.pictureBox69.TabStop = false;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label42.Location = new System.Drawing.Point(-2, 392);
+            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(184, 25);
+            this.label42.TabIndex = 69;
+            this.label42.Tag = "themeable";
+            this.label42.Text = "Set download folder";
             // 
             // panelApps3
             // 
@@ -2599,7 +2716,7 @@
             this.panelApps3.Controls.Add(this.cPutty);
             this.panelApps3.Controls.Add(this.pictureBox44);
             this.panelApps3.Controls.Add(this.cWinScp);
-            this.panelApps3.Location = new System.Drawing.Point(257, 47);
+            this.panelApps3.Location = new System.Drawing.Point(249, 3);
             this.panelApps3.Name = "panelApps3";
             this.panelApps3.Size = new System.Drawing.Size(240, 188);
             this.panelApps3.TabIndex = 156;
@@ -2919,6 +3036,18 @@
             this.cWinScp.Text = "WinSCP";
             this.cWinScp.UseVisualStyleBackColor = true;
             // 
+            // txtDownloadFolder
+            // 
+            this.txtDownloadFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txtDownloadFolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDownloadFolder.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDownloadFolder.ForeColor = System.Drawing.Color.Silver;
+            this.txtDownloadFolder.Location = new System.Drawing.Point(3, 420);
+            this.txtDownloadFolder.Name = "txtDownloadFolder";
+            this.txtDownloadFolder.Size = new System.Drawing.Size(302, 27);
+            this.txtDownloadFolder.TabIndex = 70;
+            this.txtDownloadFolder.TextChanged += new System.EventHandler(this.txtDownloadFolder_TextChanged);
+            // 
             // panelApps2
             // 
             this.panelApps2.AutoScroll = true;
@@ -2953,7 +3082,7 @@
             this.panelApps2.Controls.Add(this.pictureBox58);
             this.panelApps2.Controls.Add(this.pictureBox57);
             this.panelApps2.Controls.Add(this.cGyazo);
-            this.panelApps2.Location = new System.Drawing.Point(257, 241);
+            this.panelApps2.Location = new System.Drawing.Point(249, 197);
             this.panelApps2.Name = "panelApps2";
             this.panelApps2.Size = new System.Drawing.Size(240, 188);
             this.panelApps2.TabIndex = 155;
@@ -3273,6 +3402,23 @@
             this.cGyazo.Text = "Gyazo";
             this.cGyazo.UseVisualStyleBackColor = true;
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(310, 420);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(65, 27);
+            this.button5.TabIndex = 71;
+            this.button5.Text = "Change";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // panelApps1
             // 
             this.panelApps1.AutoScroll = true;
@@ -3307,7 +3453,7 @@
             this.panelApps1.Controls.Add(this.cTV);
             this.panelApps1.Controls.Add(this.pictureBox29);
             this.panelApps1.Controls.Add(this.pictureBox26);
-            this.panelApps1.Location = new System.Drawing.Point(11, 47);
+            this.panelApps1.Location = new System.Drawing.Point(3, 3);
             this.panelApps1.Name = "panelApps1";
             this.panelApps1.Size = new System.Drawing.Size(240, 188);
             this.panelApps1.TabIndex = 154;
@@ -3629,6 +3775,19 @@
             this.pictureBox26.TabIndex = 95;
             this.pictureBox26.TabStop = false;
             // 
+            // txtDownloadStatus
+            // 
+            this.txtDownloadStatus.AutoSize = true;
+            this.txtDownloadStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDownloadStatus.ForeColor = System.Drawing.Color.LightGray;
+            this.txtDownloadStatus.Location = new System.Drawing.Point(-1, 464);
+            this.txtDownloadStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtDownloadStatus.Name = "txtDownloadStatus";
+            this.txtDownloadStatus.Size = new System.Drawing.Size(38, 21);
+            this.txtDownloadStatus.TabIndex = 72;
+            this.txtDownloadStatus.Tag = "";
+            this.txtDownloadStatus.Text = "Idle";
+            // 
             // linkLabel1
             // 
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Gold;
@@ -3636,7 +3795,7 @@
             this.linkLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.ForeColor = System.Drawing.Color.Gold;
             this.linkLabel1.LinkColor = System.Drawing.Color.Gold;
-            this.linkLabel1.Location = new System.Drawing.Point(7, 575);
+            this.linkLabel1.Location = new System.Drawing.Point(-1, 531);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(106, 21);
@@ -3648,6 +3807,19 @@
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Gold;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label44.Location = new System.Drawing.Point(390, 392);
+            this.label44.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(164, 25);
+            this.label44.TabIndex = 74;
+            this.label44.Tag = "themeable";
+            this.label44.Text = "Set bit preference";
+            // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.DodgerBlue;
@@ -3657,7 +3829,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(462, 570);
+            this.button6.Location = new System.Drawing.Point(453, 526);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(143, 35);
@@ -3666,73 +3838,24 @@
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // label44
+            // btnGetFeed
             // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label44.Location = new System.Drawing.Point(398, 436);
-            this.label44.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(164, 25);
-            this.label44.TabIndex = 74;
-            this.label44.Tag = "themeable";
-            this.label44.Text = "Set bit preference";
-            // 
-            // txtDownloadStatus
-            // 
-            this.txtDownloadStatus.AutoSize = true;
-            this.txtDownloadStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDownloadStatus.ForeColor = System.Drawing.Color.LightGray;
-            this.txtDownloadStatus.Location = new System.Drawing.Point(7, 508);
-            this.txtDownloadStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtDownloadStatus.Name = "txtDownloadStatus";
-            this.txtDownloadStatus.Size = new System.Drawing.Size(38, 21);
-            this.txtDownloadStatus.TabIndex = 72;
-            this.txtDownloadStatus.Tag = "";
-            this.txtDownloadStatus.Text = "Idle";
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(318, 464);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(65, 27);
-            this.button5.TabIndex = 71;
-            this.button5.Text = "Change";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // txtDownloadFolder
-            // 
-            this.txtDownloadFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtDownloadFolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDownloadFolder.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDownloadFolder.ForeColor = System.Drawing.Color.Silver;
-            this.txtDownloadFolder.Location = new System.Drawing.Point(11, 464);
-            this.txtDownloadFolder.Name = "txtDownloadFolder";
-            this.txtDownloadFolder.Size = new System.Drawing.Size(302, 27);
-            this.txtDownloadFolder.TabIndex = 70;
-            this.txtDownloadFolder.TextChanged += new System.EventHandler(this.txtDownloadFolder_TextChanged);
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label42.Location = new System.Drawing.Point(6, 436);
-            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(184, 25);
-            this.label42.TabIndex = 69;
-            this.label42.Tag = "themeable";
-            this.label42.Text = "Set download folder";
+            this.btnGetFeed.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGetFeed.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnGetFeed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnGetFeed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnGetFeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGetFeed.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetFeed.ForeColor = System.Drawing.Color.White;
+            this.btnGetFeed.Location = new System.Drawing.Point(672, 12);
+            this.btnGetFeed.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGetFeed.Name = "btnGetFeed";
+            this.btnGetFeed.Size = new System.Drawing.Size(72, 32);
+            this.btnGetFeed.TabIndex = 161;
+            this.btnGetFeed.Text = "Get feed";
+            this.btnGetFeed.UseVisualStyleBackColor = false;
+            this.btnGetFeed.Visible = false;
+            this.btnGetFeed.Click += new System.EventHandler(this.btnGetFeed_Click);
             // 
             // label41
             // 
@@ -3746,61 +3869,6 @@
             this.label41.TabIndex = 53;
             this.label41.Tag = "themeable";
             this.label41.Text = "Quickly download useful apps";
-            // 
-            // btnDownloadApps
-            // 
-            this.btnDownloadApps.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnDownloadApps.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnDownloadApps.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnDownloadApps.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnDownloadApps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDownloadApps.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDownloadApps.ForeColor = System.Drawing.Color.White;
-            this.btnDownloadApps.Location = new System.Drawing.Point(609, 570);
-            this.btnDownloadApps.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDownloadApps.Name = "btnDownloadApps";
-            this.btnDownloadApps.Size = new System.Drawing.Size(143, 35);
-            this.btnDownloadApps.TabIndex = 50;
-            this.btnDownloadApps.Text = "Download";
-            this.btnDownloadApps.UseVisualStyleBackColor = false;
-            this.btnDownloadApps.Click += new System.EventHandler(this.btnDownloadApps_Click);
-            // 
-            // c32
-            // 
-            this.c32.AutoSize = true;
-            this.c32.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c32.Location = new System.Drawing.Point(481, 466);
-            this.c32.Name = "c32";
-            this.c32.Size = new System.Drawing.Size(72, 25);
-            this.c32.TabIndex = 76;
-            this.c32.TabStop = true;
-            this.c32.Text = "32-bit";
-            this.c32.UseVisualStyleBackColor = true;
-            // 
-            // c64
-            // 
-            this.c64.AutoSize = true;
-            this.c64.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c64.Location = new System.Drawing.Point(403, 466);
-            this.c64.Name = "c64";
-            this.c64.Size = new System.Drawing.Size(72, 25);
-            this.c64.TabIndex = 75;
-            this.c64.TabStop = true;
-            this.c64.Text = "64-bit";
-            this.c64.UseVisualStyleBackColor = true;
-            // 
-            // cAutoInstall
-            // 
-            this.cAutoInstall.AutoSize = true;
-            this.cAutoInstall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cAutoInstall.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cAutoInstall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cAutoInstall.Location = new System.Drawing.Point(462, 541);
-            this.cAutoInstall.Name = "cAutoInstall";
-            this.cAutoInstall.Size = new System.Drawing.Size(198, 24);
-            this.cAutoInstall.TabIndex = 107;
-            this.cAutoInstall.Text = "Install after downloading";
-            this.cAutoInstall.UseVisualStyleBackColor = true;
             // 
             // cleanerTab
             // 
@@ -5907,27 +5975,6 @@
             this.runDialogTime.Interval = 5;
             this.runDialogTime.Tick += new System.EventHandler(this.runDialogTimer_Tick);
             // 
-            // pictureBox75
-            // 
-            this.pictureBox75.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox75.BackgroundImage")));
-            this.pictureBox75.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox75.Location = new System.Drawing.Point(509, 497);
-            this.pictureBox75.Name = "pictureBox75";
-            this.pictureBox75.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox75.TabIndex = 162;
-            this.pictureBox75.TabStop = false;
-            // 
-            // cUT2
-            // 
-            this.cUT2.AutoSize = true;
-            this.cUT2.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cUT2.Location = new System.Drawing.Point(539, 497);
-            this.cUT2.Name = "cUT2";
-            this.cUT2.Size = new System.Drawing.Size(121, 24);
-            this.cUT2.TabIndex = 161;
-            this.cUT2.Text = "uTorrent 2.2.1";
-            this.cUT2.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -5965,17 +6012,20 @@
             this.panel3.ResumeLayout(false);
             this.appsTab.ResumeLayout(false);
             this.appsTab.PerformLayout();
-            this.panelApps6.ResumeLayout(false);
-            this.panelApps6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox74)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox68)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox61)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox66)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox72)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox67)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox73)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox70)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox69)).EndInit();
+            this.panelCommonApps.ResumeLayout(false);
+            this.panelCommonApps.PerformLayout();
+            this.panelApps4.ResumeLayout(false);
+            this.panelApps4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox75)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox54)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox53)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox51)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox50)).EndInit();
             this.panelApps5.ResumeLayout(false);
             this.panelApps5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
@@ -5989,17 +6039,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox63)).EndInit();
-            this.panelApps4.ResumeLayout(false);
-            this.panelApps4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox54)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox53)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox51)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox50)).EndInit();
+            this.panelApps6.ResumeLayout(false);
+            this.panelApps6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox74)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox68)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox61)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox66)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox72)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox67)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox73)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox70)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox69)).EndInit();
             this.panelApps3.ResumeLayout(false);
             this.panelApps3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
@@ -6094,7 +6144,6 @@
             this.panel6.ResumeLayout(false);
             this.optionsTab.ResumeLayout(false);
             this.optionsTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox75)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -6507,6 +6556,9 @@
         private ColoredCheckBox cIObitSU;
         private System.Windows.Forms.PictureBox pictureBox75;
         private ColoredCheckBox cUT2;
+        private System.Windows.Forms.Button btnGetFeed;
+        private System.Windows.Forms.Panel panelCommonApps;
+        private System.Windows.Forms.Label txtFeedError;
     }
 }
 
