@@ -11,6 +11,7 @@ using System.Net;
 using System.Threading;
 using System.Linq;
 using System.Drawing;
+using Timer = System.Windows.Forms.Timer;
 
 namespace Optimizer
 {
@@ -27,6 +28,8 @@ namespace Optimizer
 
         DesktopItemType _desktopItemType = DesktopItemType.Program;
         DesktopTypePosition _desktopItemPosition = DesktopTypePosition.Top;
+
+        readonly string _feedLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/fesdt";
 
         readonly string _latestVersionLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/version.txt";
         readonly string _changelogLink = "https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md";
@@ -1998,9 +2001,6 @@ namespace Optimizer
             btnDownloadApps.Enabled = false;
             button5.Enabled = false;
             txtDownloadFolder.ReadOnly = true;
-            c64.Enabled = false;
-            c32.Enabled = false;
-            cAutoInstall.Enabled = false;
 
             linkLabel1.Visible = false;
         }
@@ -2010,9 +2010,6 @@ namespace Optimizer
             btnDownloadApps.Enabled = true;
             button5.Enabled = true;
             txtDownloadFolder.ReadOnly = false;
-            c64.Enabled = true;
-            c32.Enabled = true;
-            cAutoInstall.Enabled = true;
 
             linkLabel1.Visible = !string.IsNullOrEmpty(downloadLog);
 
@@ -2030,6 +2027,7 @@ namespace Optimizer
             if (!Directory.Exists(txtDownloadFolder.Text))
             {
                 MessageBox.Show("Download folder specified is not valid!", "Invalid folder", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
             RenderAppDownloaderBusy();
@@ -2045,10 +2043,13 @@ namespace Optimizer
             }
 
             ColoredCheckBox currentCheck;
+            Control[] temp;
             foreach (AppInfo x in apps.Apps)
             {
                 if (string.IsNullOrEmpty(x.Tag)) continue;
-                currentCheck = (ColoredCheckBox)appsTab.Controls.Find(x.Tag, true)[0];
+                temp = appsTab.Controls.Find(x.Tag, true);
+                if (temp.Count() == 0) continue;
+                currentCheck = (ColoredCheckBox)temp[0];
                 if (currentCheck == null) continue;
                 if (!currentCheck.Checked) continue;
 
@@ -2057,7 +2058,7 @@ namespace Optimizer
                 if (c64.Checked)
                 {
                     count++;
-                    if (x.Link64 == null)
+                    if (string.IsNullOrEmpty(x.Link64))
                     {
                         downloadLog += "• " + x.Title + ":" + Environment.NewLine + "No 64-bit available, downloading 32-bit" + Environment.NewLine + Environment.NewLine;
                         await DownloadApp(x, false);
@@ -2070,7 +2071,7 @@ namespace Optimizer
                 else
                 {
                     count++;
-                    if (x.Link != null)
+                    if (!string.IsNullOrEmpty(x.Link))
                     {
                         await DownloadApp(x, false);
                     }
@@ -2122,7 +2123,7 @@ namespace Optimizer
 
                     if (pref64)
                     {
-                        if (app.Link64.ToString().Contains(".msi"))
+                        if (app.Link64.Contains(".msi"))
                         {
                             fileExtension = ".msi";
                         }
@@ -2131,11 +2132,11 @@ namespace Optimizer
                             fileExtension = ".exe";
                         }
 
-                        await downloader.DownloadFileTaskAsync(app.Link64, Path.Combine(txtDownloadFolder.Text, app.Title + "-x64" + fileExtension));
+                        await downloader.DownloadFileTaskAsync(new Uri(app.Link64), Path.Combine(txtDownloadFolder.Text, app.Title + "-x64" + fileExtension));
                     }
                     else
                     {
-                        if (app.Link.ToString().Contains(".msi"))
+                        if (app.Link.Contains(".msi"))
                         {
                             fileExtension = ".msi";
                         }
@@ -2144,11 +2145,11 @@ namespace Optimizer
                             fileExtension = ".exe";
                         }
 
-                        await downloader.DownloadFileTaskAsync(app.Link, Path.Combine(txtDownloadFolder.Text, app.Title + "-x86" + fileExtension));
+                        await downloader.DownloadFileTaskAsync(new Uri(app.Link), Path.Combine(txtDownloadFolder.Text, app.Title + "-x86" + fileExtension));
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 downloadLog += "• " + app.Title + ":" + Environment.NewLine + "Link is no longer valid!" + Environment.NewLine + Environment.NewLine;
 
@@ -2167,6 +2168,7 @@ namespace Optimizer
             });
         }
 
+        int tempProgress;
         private void Downloader_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             this.BeginInvoke((MethodInvoker)delegate
@@ -2175,9 +2177,21 @@ namespace Optimizer
                 double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
                 double percentage = bytesIn / totalBytes * 100;
 
-                txtDownloadStatus.Text = string.Format("({1}/{2}) - {0} - {3} / {4}", appNameTemp, count, maxCount, ByteSize.FromBytes(e.BytesReceived).ToString("MB"), ByteSize.FromBytes(e.TotalBytesToReceive).ToString("MB"));
+                tempProgress = int.Parse(Math.Truncate(percentage).ToString());
 
-                progressDownloader.Value = int.Parse(Math.Truncate(percentage).ToString());
+                // if Content-Length header is missing, just show an animation
+                if (Math.Abs(tempProgress) > 100)
+                {
+                    txtDownloadStatus.Text = string.Format("({1}/{2}) - {0} ...", appNameTemp, count, maxCount);
+                    progressDownloader.Style = ProgressBarStyle.Marquee;
+                }
+                // if not, show actual progress
+                else
+                {
+                    txtDownloadStatus.Text = string.Format("({1}/{2}) - {0} - {3} / {4}", appNameTemp, count, maxCount, ByteSize.FromBytes(e.BytesReceived).ToString("MB"), ByteSize.FromBytes(e.TotalBytesToReceive).ToString("MB"));
+                    progressDownloader.Style = ProgressBarStyle.Continuous;
+                    progressDownloader.Value = tempProgress;
+                }
             });
         }
 

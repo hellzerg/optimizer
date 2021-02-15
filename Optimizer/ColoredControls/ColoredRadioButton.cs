@@ -45,6 +45,7 @@ namespace Optimizer
             else
             {
                 this.Tag = string.Empty;
+                this.ForeColor = Color.White;
                 this.Font = new Font(this.Font, FontStyle.Regular);
             }
         }
