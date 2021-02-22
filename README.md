@@ -44,5 +44,5 @@ https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md
 
 ## Details: ##
 
-* Latest version: 6.3
-* Released: February 15, 2021
+* Latest version: 6.4
+* Released: February 22, 2021

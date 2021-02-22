@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.4] - 2021-02-22
+- Hotfix: Windows 7 crashing now resolved
+- Hotfix: Changed SystemResponsiveness from 0 to 1 (0 is counting as 10)
+
 ## [6.3] - 2021-02-15
 - New: Common Apps is getting the links online, no need to update the app to get new links
 - Improved: Tons of bug fixes to UI and beyond

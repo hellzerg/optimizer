@@ -546,7 +546,10 @@ namespace Optimizer
 
                 script.Invoke();
 
-                return script.HadErrors;
+                return script.Streams.Error.Count > 0;
+
+                // not working on Windows 7 anymore
+                //return script.HadErrors;
             }
         }
 
