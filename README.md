@@ -37,6 +37,9 @@ https://github.com/hellzerg/optimizer/blob/master/CONFS.md
 ## Changelog: ##
 https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md
 
+## Early image of Optimizer: ##
+https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
+
 ## Compatibility: ##
 
 * .NET Framework 4.5.2
