@@ -59,6 +59,7 @@
             this.toggleSwitch2 = new Optimizer.ToggleSwitch();
             this.button39 = new System.Windows.Forms.Button();
             this.windowsXTab = new System.Windows.Forms.TabPage();
+            this.toggleSwitch7 = new Optimizer.ToggleSwitch();
             this.label47 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
@@ -418,6 +419,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.optionsTab = new System.Windows.Forms.TabPage();
+            this.l2 = new System.Windows.Forms.LinkLabel();
             this.btnChangelog = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnResetConfig = new System.Windows.Forms.Button();
@@ -701,7 +703,7 @@
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.Color.Gold;
-            this.label36.Location = new System.Drawing.Point(256, 586);
+            this.label36.Location = new System.Drawing.Point(247, 586);
             this.label36.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(185, 21);
@@ -715,7 +717,7 @@
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.Color.Gold;
-            this.label37.Location = new System.Drawing.Point(84, 586);
+            this.label37.Location = new System.Drawing.Point(79, 586);
             this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(168, 21);
@@ -967,6 +969,7 @@
             // windowsXTab
             // 
             this.windowsXTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.windowsXTab.Controls.Add(this.toggleSwitch7);
             this.windowsXTab.Controls.Add(this.label47);
             this.windowsXTab.Controls.Add(this.label46);
             this.windowsXTab.Controls.Add(this.label45);
@@ -1008,6 +1011,20 @@
             this.windowsXTab.Size = new System.Drawing.Size(758, 611);
             this.windowsXTab.TabIndex = 1;
             this.windowsXTab.Text = "Windows 10";
+            // 
+            // toggleSwitch7
+            // 
+            this.toggleSwitch7.Location = new System.Drawing.Point(440, 267);
+            this.toggleSwitch7.Margin = new System.Windows.Forms.Padding(2);
+            this.toggleSwitch7.Name = "toggleSwitch7";
+            this.toggleSwitch7.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toggleSwitch7.OffForeColor = System.Drawing.Color.White;
+            this.toggleSwitch7.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toggleSwitch7.OnForeColor = System.Drawing.Color.White;
+            this.toggleSwitch7.OnText = "Disable Notification Center";
+            this.toggleSwitch7.Size = new System.Drawing.Size(208, 31);
+            this.toggleSwitch7.TabIndex = 71;
+            this.toggleSwitch7.Tag = "themeable";
             // 
             // label47
             // 
@@ -1687,13 +1704,14 @@
             // 
             // button64
             // 
+            this.button64.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button64.BackColor = System.Drawing.Color.DodgerBlue;
             this.button64.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.button64.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.button64.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.button64.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button64.ForeColor = System.Drawing.Color.White;
-            this.button64.Location = new System.Drawing.Point(11, 522);
+            this.button64.Location = new System.Drawing.Point(432, 563);
             this.button64.Margin = new System.Windows.Forms.Padding(2);
             this.button64.Name = "button64";
             this.button64.Size = new System.Drawing.Size(101, 31);
@@ -1704,13 +1722,14 @@
             // 
             // button31
             // 
+            this.button31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button31.BackColor = System.Drawing.Color.DodgerBlue;
             this.button31.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.button31.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.button31.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button31.ForeColor = System.Drawing.Color.White;
-            this.button31.Location = new System.Drawing.Point(221, 522);
+            this.button31.Location = new System.Drawing.Point(537, 563);
             this.button31.Margin = new System.Windows.Forms.Padding(2);
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(101, 31);
@@ -1721,13 +1740,14 @@
             // 
             // button37
             // 
+            this.button37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button37.BackColor = System.Drawing.Color.DodgerBlue;
             this.button37.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.button37.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.button37.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.button37.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button37.ForeColor = System.Drawing.Color.White;
-            this.button37.Location = new System.Drawing.Point(116, 522);
+            this.button37.Location = new System.Drawing.Point(327, 563);
             this.button37.Margin = new System.Windows.Forms.Padding(2);
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(101, 31);
@@ -1742,10 +1762,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.listStartupItems);
-            this.panel3.Location = new System.Drawing.Point(11, 40);
+            this.panel3.Location = new System.Drawing.Point(16, 40);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(728, 478);
+            this.panel3.Size = new System.Drawing.Size(727, 519);
             this.panel3.TabIndex = 37;
             // 
             // listStartupItems
@@ -1765,7 +1785,7 @@
             this.listStartupItems.MultiSelect = false;
             this.listStartupItems.Name = "listStartupItems";
             this.listStartupItems.ShowGroups = false;
-            this.listStartupItems.Size = new System.Drawing.Size(726, 476);
+            this.listStartupItems.Size = new System.Drawing.Size(725, 517);
             this.listStartupItems.TabIndex = 0;
             this.listStartupItems.UseCompatibleStateImageBehavior = false;
             this.listStartupItems.View = System.Windows.Forms.View.Details;
@@ -1788,13 +1808,14 @@
             // 
             // button32
             // 
+            this.button32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button32.BackColor = System.Drawing.Color.DodgerBlue;
             this.button32.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.button32.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.button32.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button32.ForeColor = System.Drawing.Color.White;
-            this.button32.Location = new System.Drawing.Point(326, 522);
+            this.button32.Location = new System.Drawing.Point(642, 563);
             this.button32.Margin = new System.Windows.Forms.Padding(2);
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(101, 31);
@@ -1805,19 +1826,21 @@
             // 
             // button22
             // 
+            this.button22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button22.BackColor = System.Drawing.Color.DodgerBlue;
             this.button22.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.button22.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.button22.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button22.ForeColor = System.Drawing.Color.White;
-            this.button22.Location = new System.Drawing.Point(431, 522);
+            this.button22.Location = new System.Drawing.Point(222, 563);
             this.button22.Margin = new System.Windows.Forms.Padding(2);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(101, 31);
             this.button22.TabIndex = 34;
             this.button22.Text = "Remove all";
             this.button22.UseVisualStyleBackColor = false;
+            this.button22.Visible = false;
             this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // label5
@@ -1882,7 +1905,7 @@
             this.txtFeedError.Name = "txtFeedError";
             this.txtFeedError.Size = new System.Drawing.Size(746, 565);
             this.txtFeedError.TabIndex = 161;
-            this.txtFeedError.Text = "Something went wrong, try refreshing the feed again.";
+            this.txtFeedError.Text = "Something went wrong, try refreshing the links again.";
             this.txtFeedError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.txtFeedError.Visible = false;
             // 
@@ -3847,14 +3870,13 @@
             this.btnGetFeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGetFeed.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGetFeed.ForeColor = System.Drawing.Color.White;
-            this.btnGetFeed.Location = new System.Drawing.Point(672, 12);
+            this.btnGetFeed.Location = new System.Drawing.Point(652, 12);
             this.btnGetFeed.Margin = new System.Windows.Forms.Padding(2);
             this.btnGetFeed.Name = "btnGetFeed";
-            this.btnGetFeed.Size = new System.Drawing.Size(72, 32);
+            this.btnGetFeed.Size = new System.Drawing.Size(92, 32);
             this.btnGetFeed.TabIndex = 161;
-            this.btnGetFeed.Text = "Get feed";
+            this.btnGetFeed.Text = "Refresh links";
             this.btnGetFeed.UseVisualStyleBackColor = false;
-            this.btnGetFeed.Visible = false;
             this.btnGetFeed.Click += new System.EventHandler(this.btnGetFeed_Click);
             // 
             // label41
@@ -3981,13 +4003,13 @@
             // 
             this.checkSelectAll.AutoSize = true;
             this.checkSelectAll.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkSelectAll.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.checkSelectAll.ForeColor = System.Drawing.Color.White;
             this.checkSelectAll.Location = new System.Drawing.Point(29, 14);
             this.checkSelectAll.Margin = new System.Windows.Forms.Padding(2);
             this.checkSelectAll.Name = "checkSelectAll";
             this.checkSelectAll.Size = new System.Drawing.Size(94, 25);
             this.checkSelectAll.TabIndex = 35;
-            this.checkSelectAll.Tag = "themeable";
+            this.checkSelectAll.Tag = "";
             this.checkSelectAll.Text = "Select all";
             this.checkSelectAll.UseVisualStyleBackColor = true;
             this.checkSelectAll.CheckedChanged += new System.EventHandler(this.checkSelectAll_CheckedChanged);
@@ -4603,13 +4625,13 @@
             // 
             this.checkEnableAll.AutoSize = true;
             this.checkEnableAll.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEnableAll.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.checkEnableAll.ForeColor = System.Drawing.Color.White;
             this.checkEnableAll.Location = new System.Drawing.Point(29, 14);
             this.checkEnableAll.Margin = new System.Windows.Forms.Padding(2);
             this.checkEnableAll.Name = "checkEnableAll";
             this.checkEnableAll.Size = new System.Drawing.Size(97, 25);
             this.checkEnableAll.TabIndex = 35;
-            this.checkEnableAll.Tag = "themeable";
+            this.checkEnableAll.Tag = "";
             this.checkEnableAll.Text = "Enable all";
             this.checkEnableAll.UseVisualStyleBackColor = true;
             this.checkEnableAll.CheckedChanged += new System.EventHandler(this.checkEnableAll_CheckedChanged);
@@ -5747,6 +5769,7 @@
             // optionsTab
             // 
             this.optionsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.optionsTab.Controls.Add(this.l2);
             this.optionsTab.Controls.Add(this.btnChangelog);
             this.optionsTab.Controls.Add(this.btnUpdate);
             this.optionsTab.Controls.Add(this.btnResetConfig);
@@ -5764,6 +5787,23 @@
             this.optionsTab.Size = new System.Drawing.Size(758, 611);
             this.optionsTab.TabIndex = 6;
             this.optionsTab.Text = "Options";
+            // 
+            // l2
+            // 
+            this.l2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.l2.AutoSize = true;
+            this.l2.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l2.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.l2.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.l2.Location = new System.Drawing.Point(601, 580);
+            this.l2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.l2.Name = "l2";
+            this.l2.Size = new System.Drawing.Size(157, 28);
+            this.l2.TabIndex = 59;
+            this.l2.TabStop = true;
+            this.l2.Tag = "themeable";
+            this.l2.Text = "deadmoon © ∞";
+            this.l2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.l2_LinkClicked);
             // 
             // btnChangelog
             // 
@@ -6559,6 +6599,8 @@
         private System.Windows.Forms.Button btnGetFeed;
         private System.Windows.Forms.Panel panelCommonApps;
         private System.Windows.Forms.Label txtFeedError;
+        private ToggleSwitch toggleSwitch7;
+        private System.Windows.Forms.LinkLabel l2;
     }
 }
 

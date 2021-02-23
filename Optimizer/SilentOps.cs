@@ -503,6 +503,18 @@ namespace Optimizer
                     Optimize.AddCastToDevice();
                 }
             }
+
+            if (CurrentSilentConfig.DisableActionCenter.HasValue)
+            {
+                if (CurrentSilentConfig.DisableActionCenter.Value)
+                {
+                    Optimize.DisableActionCenter();
+                }
+                else
+                {
+                    Optimize.EnableActionCenter();
+                }
+            }
         }
 
         // updating options using silent config
@@ -671,6 +683,10 @@ namespace Optimizer
             if (CurrentSilentConfig.RemoveCastToDevice.HasValue)
             {
                 Options.CurrentOptions.RemoveCastToDevice = CurrentSilentConfig.RemoveCastToDevice.Value;
+            }
+            if (CurrentSilentConfig.DisableActionCenter.HasValue)
+            {
+                Options.CurrentOptions.DisableActionCenter = CurrentSilentConfig.DisableActionCenter.Value;
             }
         }
     }

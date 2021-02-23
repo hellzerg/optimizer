@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.5] - 2021-02-23
+- Fix: Some options not being saved when running silently
+- New: Added option to Disable Notification Center (for Windows 10)
+- New: Show file extensions & hidden files (Enable Performance Tweaks)
+- Improved: Disable Telemetry Tasks & Services
+- Improved: Disable Superfetch
+- Improved: Disable Game Bar (more services)
+- Improved: Disable Automatic Updates
+- Minor UI polishing
+
 ## [6.4] - 2021-02-22
 - Hotfix: Windows 7 crashing now resolved
 - Hotfix: Changed SystemResponsiveness from 0 to 1 (0 is counting as 10)

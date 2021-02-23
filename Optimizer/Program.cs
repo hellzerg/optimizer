@@ -13,7 +13,7 @@ namespace Optimizer
         // Enter current version here
 
         internal readonly static float Major = 6;
-        internal readonly static float Minor = 4;
+        internal readonly static float Minor = 5;
 
         internal static string GetCurrentVersionTostring()
         {
@@ -62,7 +62,7 @@ namespace Optimizer
                         Required.Deploy();
                     }
 
-                    // for backward compatibility
+                    // for backward compatibility (legacy)
                     if (File.Exists(Options.SettingsFile))
                     {
                         if (File.ReadAllText(Options.SettingsFile).Contains("FirstRun"))
@@ -79,6 +79,7 @@ namespace Optimizer
                     {
                         string arg = switches[0].Trim();
 
+                        // UNSAFE mode switch (allows running on Windows Server 2008+)
                         if (arg == "/unsafe")
                         {
                             UNSAFE_MODE = true;
@@ -104,6 +105,7 @@ namespace Optimizer
                                     {
                                         SilentOps.ProcessSilentConfigGeneral();
                                         SilentOps.ProcessSilentConfigWindows8();
+                                        SilentOps.SilentUpdateOptionsGeneral();
                                         SilentOps.SilentUpdateOptions8();
                                         Options.SaveSettings();
                                     }
@@ -111,6 +113,7 @@ namespace Optimizer
                                     {
                                         SilentOps.ProcessSilentConfigGeneral();
                                         SilentOps.ProcessSilentConfigWindows10();
+                                        SilentOps.SilentUpdateOptionsGeneral();
                                         SilentOps.SilentUpdateOptions10();
                                         Options.SaveSettings();
                                     }

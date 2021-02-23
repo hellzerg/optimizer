@@ -13,6 +13,7 @@ using System.Linq;
 using System.Drawing;
 using Timer = System.Windows.Forms.Timer;
 using Newtonsoft.Json;
+using System.Net.NetworkInformation;
 
 namespace Optimizer
 {
@@ -128,13 +129,14 @@ namespace Optimizer
                 }
                 else
                 {
-                    MessageBox.Show(_betaVersionMessage, "No update available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(_betaVersionMessage, "BETA channel enabled", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
 
         private void EnableToggleEvents()
         {
+            toggleSwitch7.Click += new EventHandler(ToggleSwitch7_Click);
             toggleSwitch12.Click += new EventHandler(toggleSwitch12_Click);
             toggleSwitch11.Click += new EventHandler(toggleSwitch11_Click);
             toggleSwitch10.Click += new EventHandler(toggleSwitch10_Click);
@@ -174,6 +176,19 @@ namespace Optimizer
             toggleSwitch38.Click += new EventHandler(ToggleSwitch38_Click);
             toggleSwitch39.Click += new EventHandler(ToggleSwitch39_Click);
             toggleSwitch40.Click += new EventHandler(ToggleSwitch40_Click);
+        }
+
+        private void ToggleSwitch7_Click(object sender, EventArgs e)
+        {
+            if (!toggleSwitch7.Checked)
+            {
+                Optimize.DisableActionCenter();
+            }
+            else
+            {
+                Optimize.EnableActionCenter();
+            }
+            Options.CurrentOptions.DisableActionCenter = !toggleSwitch7.Checked;
         }
 
         private void ToggleSwitch40_Click(object sender, EventArgs e)
@@ -425,7 +440,7 @@ namespace Optimizer
                 linkLabel1.Visible = false;
                 progressDownloader.Visible = true;
                 txtDownloadStatus.Visible = true;
-                btnGetFeed.Visible = false;
+                //btnGetFeed.Visible = true;
                 txtFeedError.Visible = false;
             }
             catch (Exception)
@@ -448,7 +463,7 @@ namespace Optimizer
                 linkLabel1.Visible = false;
                 progressDownloader.Visible = false;
                 txtDownloadStatus.Visible = false;
-                btnGetFeed.Visible = true;
+                //btnGetFeed.Visible = true;
                 txtFeedError.Visible = true;
             }
         }
@@ -627,6 +642,7 @@ namespace Optimizer
             toggleSwitch37.Checked = Options.CurrentOptions.DisableCloudClipboard;
             toggleSwitch39.Checked = Options.CurrentOptions.EnableLongPaths;
             toggleSwitch40.Checked = Options.CurrentOptions.RemoveCastToDevice;
+            toggleSwitch7.Checked = Options.CurrentOptions.DisableActionCenter;
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -2293,6 +2309,11 @@ namespace Optimizer
         private void btnGetFeed_Click(object sender, EventArgs e)
         {
             GetFeed();
+        }
+
+        private void l2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/hellzerg/optimizer");
         }
     }
 }

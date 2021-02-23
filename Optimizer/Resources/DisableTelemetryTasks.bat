@@ -46,3 +46,6 @@ schtasks /end /tn "\Microsoft\Windows\NetTrace\GatherNetworkInfo"
 schtasks /change /tn "\Microsoft\Windows\NetTrace\GatherNetworkInfo" /disable
 schtasks /end /tn "\Microsoft\Windows\AppID\SmartScreenSpecific"
 schtasks /change /tn "\Microsoft\Windows\AppID\SmartScreenSpecific" /disable
+schtasks /Change /TN "\Microsoft\Windows\WindowsUpdate\Automatic App Update" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Time Synchronization\ForceSynchronizeTime" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Time Synchronization\SynchronizeTime" /Disable

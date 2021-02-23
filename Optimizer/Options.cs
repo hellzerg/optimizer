@@ -52,6 +52,7 @@ namespace Optimizer
         public bool DisableFeatureUpdates { get; set; }
         public bool EnableLongPaths { get; set; }
         public bool RemoveCastToDevice { get; set; }
+        public bool DisableActionCenter { get; set; }
 
         public bool DisableOneDrive { get; set; }
     }
@@ -192,6 +193,7 @@ namespace Optimizer
                 CurrentOptions.DisableCloudClipboard = false;
                 CurrentOptions.EnableLongPaths = false;
                 CurrentOptions.RemoveCastToDevice = false;
+                CurrentOptions.DisableActionCenter = false;
 
                 CurrentOptions.DisableOneDrive = false;
 
