@@ -37,7 +37,7 @@ https://github.com/hellzerg/optimizer/blob/master/CONFS.md
 ## Changelog: ##
 https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md
 
-## Early images of Optimizer: ##
+## Early developmental images: ##
 https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ## Compatibility: ##
