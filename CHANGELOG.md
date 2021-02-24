@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.6] - 2021-02-24
+- Hotfix: Crash when disabling Superfetch service
+
 ## [6.5] - 2021-02-23
 - Fix: Some options not being saved when running silently
 - New: Added option to Disable Notification Center (for Windows 10)

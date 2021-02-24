@@ -248,7 +248,7 @@ namespace Optimizer
         internal static void DisableSuperfetch()
         {
             Utilities.StopService("SysMain");
-            Utilities.StopService("Schedule");
+            //Utilities.StopService("Schedule");
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SysMain", "Start", "4", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Schedule", "Start", "4", RegistryValueKind.DWord);
@@ -264,7 +264,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters", "EnablePrefetcher", "1", RegistryValueKind.DWord);
 
             Utilities.StartService("SysMain");
-            Utilities.StartService("Schedule");
+            //Utilities.StartService("Schedule");
         }
 
         internal static void EnableCompatibilityAssistant()
