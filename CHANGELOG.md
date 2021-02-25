@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.7] - 2021-02-25
+- Hotfix: Search not working (Reset Superfetch, disable it again and restart Windows to fix)
+
 ## [6.6] - 2021-02-24
 - Hotfix: Crash when disabling Superfetch service
 
