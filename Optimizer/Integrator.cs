@@ -102,10 +102,16 @@ namespace Optimizer
                     {
                         key.DeleteSubKeyTree(name, false);
                     }
-                    catch { }
+                    catch (Exception ex)
+                    {
+                        ErrorLogger.LogError("Integrator.RemoveItem", ex.Message, ex.StackTrace);
+                    }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Integrator.RemoveItem", ex.Message, ex.StackTrace);
+            }
         }
 
         internal static void RemoveAllItems(List<string> items)
@@ -118,7 +124,10 @@ namespace Optimizer
                     {
                         key.DeleteSubKeyTree(item, false);
                     }
-                    catch { }
+                    catch (Exception ex)
+                    {
+                        ErrorLogger.LogError("Integrator.RemoveAllItems", ex.Message, ex.StackTrace);
+                    }
                 }
             }
         }
@@ -155,7 +164,10 @@ namespace Optimizer
                     favicon = Required.FavIconsFolder + name + ".ico";
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Integrator.DownloadFavicon", ex.Message, ex.StackTrace);
+            }
 
             return favicon;
         }
@@ -215,7 +227,10 @@ namespace Optimizer
                 {
                     File.WriteAllText(Required.ReadyMadeMenusFolder + "InstallTakeOwnership.reg", Properties.Resources.InstallTakeOwnership);
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    ErrorLogger.LogError("Integrator.TakeOwnership", ex.Message, ex.StackTrace);
+                }
             }
             if (!File.Exists(Required.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg"))
             {
@@ -223,7 +238,10 @@ namespace Optimizer
                 {
                     File.WriteAllText(Required.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg", Properties.Resources.RemoveTakeOwnership);
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    ErrorLogger.LogError("Integrator.TakeOwnership", ex.Message, ex.StackTrace);
+                }
             }
 
             if (!remove)

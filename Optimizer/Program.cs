@@ -13,7 +13,7 @@ namespace Optimizer
         // Enter current version here
 
         internal readonly static float Major = 6;
-        internal readonly static float Minor = 7;
+        internal readonly static float Minor = 8;
 
         internal static string GetCurrentVersionTostring()
         {
@@ -72,7 +72,14 @@ namespace Optimizer
                     }
 
                     // load settings, if there is no settings, load defaults
-                    Options.LoadSettings();
+                    try
+                    {
+                        Options.LoadSettings();
+                    }
+                    catch (Exception ex)
+                    {
+                        ErrorLogger.LogError("Program.Main", ex.Message, ex.StackTrace);
+                    }
 
                     // checking for silent config argument
                     if (switches.Length == 1)

@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.IO;
+using System;
 
 namespace Optimizer
 {
@@ -14,8 +15,9 @@ namespace Optimizer
             {
                 CurrentSilentConfig = JsonConvert.DeserializeObject<SilentConfig>(File.ReadAllText(path));
             }
-            catch
+            catch (Exception ex)
             {
+                ErrorLogger.LogError("SilentOps.GetSilentConfig", ex.Message, ex.StackTrace);
                 CurrentSilentConfig = null;
             }
             return CurrentSilentConfig;

@@ -1898,12 +1898,11 @@
             // txtFeedError
             // 
             this.txtFeedError.BackColor = System.Drawing.Color.Transparent;
-            this.txtFeedError.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtFeedError.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFeedError.ForeColor = System.Drawing.Color.Gold;
-            this.txtFeedError.Location = new System.Drawing.Point(0, 0);
+            this.txtFeedError.Location = new System.Drawing.Point(213, 454);
             this.txtFeedError.Name = "txtFeedError";
-            this.txtFeedError.Size = new System.Drawing.Size(746, 565);
+            this.txtFeedError.Size = new System.Drawing.Size(193, 90);
             this.txtFeedError.TabIndex = 161;
             this.txtFeedError.Text = "Something went wrong, try refreshing the links again.";
             this.txtFeedError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

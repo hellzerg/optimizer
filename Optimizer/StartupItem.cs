@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System;
 using System.IO;
 
 namespace Optimizer
@@ -34,7 +35,10 @@ namespace Optimizer
                     File.Delete(Shortcut);
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("FolderStartupItem.Remove", ex.Message, ex.StackTrace);
+            }
         }
 
         internal override void LocateFile()
@@ -43,7 +47,10 @@ namespace Optimizer
             {
                 Utilities.FindFile(FileLocation);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("FolderStartupItem.LocateFile", ex.Message, ex.StackTrace);
+            }
         }
     }
 
@@ -57,7 +64,10 @@ namespace Optimizer
             {
                 Utilities.FindKeyInRegistry(Key.ToString());
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("RegistryStartupItem.LocateKey", ex.Message, ex.StackTrace);
+            }
         }
 
         internal override void Remove()
@@ -66,7 +76,10 @@ namespace Optimizer
             {
                 Key.DeleteValue(Name, false);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("RegistryStartupItem.Remove", ex.Message, ex.StackTrace);
+            }
         }
 
         internal override void LocateFile()
@@ -75,7 +88,10 @@ namespace Optimizer
             {
                 Utilities.FindFile(SanitizePath(FileLocation));
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("RegistryStartupItem.LocateFile", ex.Message, ex.StackTrace);
+            }
         }
 
         internal string SanitizePath(string s)

@@ -30,7 +30,10 @@ namespace Optimizer
                     FileSystem.RenameFile(CompatTelRunnerFile, CompatTelRunnerFileNameOff);
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.DisableTelemetryRunner", ex.Message, ex.StackTrace);
+            }
         }
 
         internal static void EnableTelemetryRunner()
@@ -42,7 +45,10 @@ namespace Optimizer
                     FileSystem.RenameFile(CompatTelRunnerFileOff, CompatTelRunnerFileName);
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.EnableTelemetryRunner", ex.Message, ex.StackTrace);
+            }
         }
 
         internal static void EnablePerformanceTweaks()
@@ -121,7 +127,10 @@ namespace Optimizer
                 Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games", true).DeleteValue("GPU Priority", false);
                 Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games", true).DeleteValue("Priority", false);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.DisablePerformanceTweaks", ex.Message, ex.StackTrace);
+            }
         }
 
         internal static void DisableTelemetryServices()
@@ -196,7 +205,10 @@ namespace Optimizer
                 Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Dnscache\Parameters", true).DeleteValue("MaxCacheTtl", false);
                 Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Dnscache\Parameters", true).DeleteValue("MaxNegativeCacheTtl", false);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.EnableNetworkThrottling", ex.Message, ex.StackTrace);
+            }
         }
 
         internal static void DisableSkypeAds()
@@ -212,7 +224,10 @@ namespace Optimizer
                 Registry.CurrentUser.OpenSubKey(@"Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\Domains\\skype.com\\apps", true).DeleteValue("http", false);
                 Registry.CurrentUser.OpenSubKey(@"Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\Domains\\skype.com\\apps", true).DeleteValue("https", false);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.EnableSkypeAds", ex.Message, ex.StackTrace);
+            }
         }
 
         internal static void DisableHomeGroup()
@@ -295,8 +310,9 @@ namespace Optimizer
                     p.Close();
                 }
             }
-            catch //(Exception ex)
+            catch (Exception ex)
             {
+                ErrorLogger.LogError("Optimize.DisableSystemRestore", ex.Message, ex.StackTrace);
                 //MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
@@ -343,6 +359,7 @@ namespace Optimizer
             }
 
             Utilities.RunCommand(@"regsvr32 /u /s """ + rootPath + "\"");
+            Utilities.RunCommand("Gpupdate /Force");
         }
 
         internal static void EnableDefender()
@@ -435,7 +452,10 @@ namespace Optimizer
                     {
                         Directory.Delete(x, true);
                     }
-                    catch { }
+                    catch (Exception ex)
+                    {
+                        ErrorLogger.LogError("Optimize.UninstallOneDrive", ex.Message, ex.StackTrace);
+                    }
                 }
             }
 
@@ -490,7 +510,10 @@ namespace Optimizer
                     }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.UninstallOneDrive", ex.Message, ex.StackTrace);
+            }
         }
 
         internal static void InstallOneDrive()
@@ -510,7 +533,10 @@ namespace Optimizer
                 }
                 Process.Start(oneDriveInstaller);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.InstallOneDrive", ex.Message, ex.StackTrace);
+            }
         }
 
         internal static void DisableCortana()
@@ -575,7 +601,10 @@ namespace Optimizer
                     File.WriteAllText(Required.ScriptsFolder + "EnableXboxTasks.bat", Properties.Resources.EnableXboxTasks);
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.EnableXboxLive", ex.Message, ex.StackTrace);
+            }
 
             Utilities.RunBatchFile(Required.ScriptsFolder + "EnableXboxTasks.bat");
         }
@@ -653,7 +682,10 @@ namespace Optimizer
                     File.WriteAllText(Required.ScriptsFolder + "EnableTelemetryTasks.bat", Properties.Resources.EnableTelemetryTasks);
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.EnableTelemetryTasks", ex.Message, ex.StackTrace);
+            }
 
             Utilities.RunBatchFile(Required.ScriptsFolder + "EnableTelemetryTasks.bat");
         }
@@ -678,7 +710,10 @@ namespace Optimizer
                     File.WriteAllText(Required.ScriptsFolder + "EnableOfficeTelemetryTasks.bat", Properties.Resources.EnableOfficeTelemetryTasks);
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.EnableOffice2016Telemetry", ex.Message, ex.StackTrace);
+            }
 
             Utilities.RunBatchFile(Required.ScriptsFolder + "EnableOfficeTelemetryTasks.bat");
             Utilities.ImportRegistryScript(Required.ScriptsFolder + "EnableOfficeTelemetryTasks.reg");
@@ -841,7 +876,10 @@ namespace Optimizer
                 Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Siuf\Rules", true).DeleteValue("PeriodInNanoSeconds", false);
                 Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Siuf\Rules", true).DeleteValue("NumberOfSIUFInPeriod", false);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.EnablePrivacyOptions", ex.Message, ex.StackTrace);
+            }
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection", "AllowTelemetry", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection", "AllowTelemetry", "1", RegistryValueKind.DWord);
@@ -1138,7 +1176,10 @@ namespace Optimizer
                 Utilities.RunCommand("REG ADD \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Shell Extensions\\Blocked\" /V {7AD84985-87B4-4a16-BE58-8B72A5B390F7} /T REG_SZ /D \"Play to Menu\" /F");
                 //Utilities.RestartExplorer();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.RemoveCastToDevice", ex.Message, ex.StackTrace);
+            }
         }
 
         internal static void AddCastToDevice()
@@ -1148,7 +1189,10 @@ namespace Optimizer
                 Utilities.RunCommand("REG Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Shell Extensions\\Blocked\" /V {7AD84985-87B4-4a16-BE58-8B72A5B390F7} /F");
                 //Utilities.RestartExplorer();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.AddCastToDevice", ex.Message, ex.StackTrace);
+            }
         }
 
         // ACTION CENTER = NOTIFICATION CENTER

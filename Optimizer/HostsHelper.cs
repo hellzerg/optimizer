@@ -35,8 +35,9 @@ namespace Optimizer
 
                 File.WriteAllBytes(HostsFile, Properties.Resources.hosts);
             }
-            catch
+            catch (Exception ex)
             {
+                ErrorLogger.LogError("HostsHelper.RestoreDefaultHosts", ex.Message, ex.StackTrace);
                 MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -52,8 +53,9 @@ namespace Optimizer
 
                 File.WriteAllText(HostsFile, _client.DownloadString(AdBlockBasicLink));
             }
-            catch
+            catch (Exception ex)
             {
+                ErrorLogger.LogError("HostsHelper.AdblockBasic", ex.Message, ex.StackTrace);
                 MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -69,8 +71,9 @@ namespace Optimizer
 
                 File.WriteAllText(HostsFile, _client.DownloadString(AdBlockWithPornLink));
             }
-            catch
+            catch (Exception ex)
             {
+                ErrorLogger.LogError("HostsHelper.AdBlockWithPorn", ex.Message, ex.StackTrace);
                 MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -86,8 +89,9 @@ namespace Optimizer
 
                 File.WriteAllText(HostsFile, _client.DownloadString(AdBlockWithSocialLink));
             }
-            catch
+            catch (Exception ex)
             {
+                ErrorLogger.LogError("HostsHelper.AdBlockWithSocial", ex.Message, ex.StackTrace);
                 MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -103,8 +107,9 @@ namespace Optimizer
 
                 File.WriteAllText(HostsFile, _client.DownloadString(AdBlockUltimateLink));
             }
-            catch
+            catch (Exception ex)
             {
+                ErrorLogger.LogError("HostsHelper.AdBlockUltimate", ex.Message, ex.StackTrace);
                 MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -154,8 +159,9 @@ namespace Optimizer
                 File.WriteAllText(HostsFile, string.Empty);
                 File.WriteAllLines(HostsFile, lines);
             }
-            catch
+            catch (Exception ex)
             {
+                ErrorLogger.LogError("HostsHelper.SaveHosts", ex.Message, ex.StackTrace);
                 MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -184,8 +190,9 @@ namespace Optimizer
             {
                 File.AppendAllText(HostsFile, NewLine + entry);
             }
-            catch
+            catch (Exception ex)
             {
+                ErrorLogger.LogError("HostsHelper.AddEntry", ex.Message, ex.StackTrace);
                 MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -196,8 +203,9 @@ namespace Optimizer
             {
                 File.WriteAllLines(HostsFile, File.ReadLines(HostsFile).Where(x => x != entry).ToList());
             }
-            catch
+            catch (Exception ex)
             {
+                ErrorLogger.LogError("HostsHelper.RemoveEntry", ex.Message, ex.StackTrace);
                 MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -211,8 +219,9 @@ namespace Optimizer
                     File.WriteAllLines(HostsFile, File.ReadLines(HostsFile).Where(l => l != text).ToList());
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                ErrorLogger.LogError("HostsHelper.RemoveAllEntries", ex.Message, ex.StackTrace);
                 MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

@@ -146,9 +146,10 @@ namespace Optimizer
             {
                 current = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Main", "Default Download Directory", DefaultEdgeDownloadFolder).ToString();
             }
-            catch
+            catch (Exception ex)
             {
                 current = DefaultEdgeDownloadFolder;
+                ErrorLogger.LogError("Utilities.GetEdgeDownloadFolder", ex.Message, ex.StackTrace);
             }
 
             return current;
@@ -174,7 +175,10 @@ namespace Optimizer
                     p.Close();
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Utilities.RunBatchFile", ex.Message, ex.StackTrace);
+            }
         }
 
         internal static void ImportRegistryScript(string scriptFile)
@@ -191,9 +195,10 @@ namespace Optimizer
 
                 p.WaitForExit();
             }
-            catch
+            catch (Exception ex)
             {
                 p.Dispose();
+                ErrorLogger.LogError("Utilities.ImportRegistryScript", ex.Message, ex.StackTrace);
             }
             finally
             {
@@ -238,7 +243,10 @@ namespace Optimizer
                 {
                     sc.Start();
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    ErrorLogger.LogError("Utilities.StartService", ex.Message, ex.StackTrace);
+                }
             }
         }
 
@@ -308,7 +316,10 @@ namespace Optimizer
 
                             list.Add(item);
                         }
-                        catch { }
+                        catch (Exception ex)
+                        {
+                            ErrorLogger.LogError("Utilities.GetRegistryStartupItemsHelper", ex.Message, ex.StackTrace);
+                        }
                     }
                 }
             }
@@ -328,7 +339,10 @@ namespace Optimizer
 
                     list.Add(item);
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    ErrorLogger.LogError("Utilities.GetFolderStartupItemsHelper", ex.Message, ex.StackTrace);
+                }
             }
 
             foreach (string shortcut in shortcuts)
@@ -343,7 +357,10 @@ namespace Optimizer
 
                     list.Add(item);
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    ErrorLogger.LogError("Utilities.GetFolderStartupItemsHelper", ex.Message, ex.StackTrace);
+                }
             }
         }
 
@@ -449,7 +466,10 @@ namespace Optimizer
                     p.WaitForExit();
                     p.Close();
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    ErrorLogger.LogError("Utilities.RunCommand", ex.Message, ex.StackTrace);
+                }
             }
         }
 
@@ -493,7 +513,10 @@ namespace Optimizer
                         process.Kill();
                     }
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    ErrorLogger.LogError("Utilities.RestartExplorer", ex.Message, ex.StackTrace);
+                }
             }
 
             Process.Start(explorer);
@@ -506,7 +529,10 @@ namespace Optimizer
                 Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit", "LastKey", key);
                 Process.Start("regedit");
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Utilities.FindKeyInRegistry", ex.Message, ex.StackTrace);
+            }
         }
 
         internal static List<string> GetModernApps(bool showAll)
@@ -559,7 +585,10 @@ namespace Optimizer
             {
                 Directory.Delete(Required.CoreFolder, true);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Utilities.ResetConfiguration", ex.Message, ex.StackTrace);
+            }
             finally
             {
                 Application.Restart();

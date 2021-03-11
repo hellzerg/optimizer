@@ -73,6 +73,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
+                ErrorLogger.LogError("MainForm.CheckForUpdate", ex.Message, ex.StackTrace);
                 MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
@@ -119,6 +120,7 @@ namespace Optimizer
                         }
                         catch (Exception ex)
                         {
+                            ErrorLogger.LogError("MainForm.CheckForUpdate", ex.Message, ex.StackTrace);
                             MessageBox.Show(ex.Message);
                         }
                     }
@@ -443,7 +445,7 @@ namespace Optimizer
                 //btnGetFeed.Visible = true;
                 txtFeedError.Visible = false;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 panel1.Visible = false;
                 panel2.Visible = false;
@@ -465,6 +467,7 @@ namespace Optimizer
                 txtDownloadStatus.Visible = false;
                 //btnGetFeed.Visible = true;
                 txtFeedError.Visible = true;
+                ErrorLogger.LogError("MainForm.GetFeed", ex.Message, ex.StackTrace);
             }
         }
 
@@ -509,7 +512,10 @@ namespace Optimizer
                     CleanHelper.EmptyRecycleBin();
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("MainForm.CleanPC", ex.Message, ex.StackTrace);
+            }
             finally
             {
                 CleaningAnimation(false);
@@ -588,7 +594,10 @@ namespace Optimizer
                     changeDetected = true;
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("MainForm.FixRegistry", ex.Message, ex.StackTrace);
+            }
 
             return changeDetected;
         }
@@ -647,7 +656,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GetDesktopItems()
@@ -2026,6 +2035,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
+                ErrorLogger.LogError("MainForm.btnChangelog_Click", ex.Message, ex.StackTrace);
                 MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -2122,6 +2132,7 @@ namespace Optimizer
 
             ColoredCheckBox currentCheck;
             Control[] temp;
+
             foreach (FeedApp x in AppsFromFeed)
             {
                 if (string.IsNullOrEmpty(x.Tag)) continue;
@@ -2183,6 +2194,13 @@ namespace Optimizer
                 }
             }
 
+            // reset all checkboxes
+            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
+            {
+                if (c.Name == "cAutoInstall") continue;
+                if (c is ColoredCheckBox && ((ColoredCheckBox)c).Checked) ((ColoredCheckBox)c).Checked = false;
+            }
+
             RenderAppDownloaderFree();  
         }
 
@@ -2227,8 +2245,9 @@ namespace Optimizer
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                ErrorLogger.LogError("MainForm.DownloadApp", ex.Message, ex.StackTrace);
                 downloadLog += "• " + app.Title + ":" + Environment.NewLine + "Link is no longer valid!" + Environment.NewLine + Environment.NewLine;
 
                 if (pref64) try { File.Delete(Path.Combine(txtDownloadFolder.Text, app.Title + "-x64.exe")); } catch { }
@@ -2242,7 +2261,7 @@ namespace Optimizer
         {
             this.BeginInvoke((MethodInvoker)delegate
             {
-                txtDownloadStatus.Text = "Finished";
+                //txtDownloadStatus.Text = "Finished";
             });
         }
 

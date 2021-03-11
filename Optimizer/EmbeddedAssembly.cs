@@ -33,7 +33,10 @@ namespace Optimizer
                     _dictionary.Add(assembly.FullName, assembly);
                     return;
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    ErrorLogger.LogError("EmbeddedAssembly.Load", ex.Message, ex.StackTrace);
+                }
             }
 
             bool fileOk = false;
