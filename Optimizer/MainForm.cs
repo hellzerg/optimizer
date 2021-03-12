@@ -2334,5 +2334,23 @@ namespace Optimizer
         {
             Process.Start("https://github.com/hellzerg/optimizer");
         }
+
+        private void btnViewLog_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(ErrorLogger.ErrorLogFile))
+            {
+                InfoForm iform = new InfoForm(File.ReadAllText(ErrorLogger.ErrorLogFile, Encoding.UTF8));
+                iform.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("There are no errors to show!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnOpenConf_Click(object sender, EventArgs e)
+        {
+            Process.Start(Required.CoreFolder);
+        }
     }
 }

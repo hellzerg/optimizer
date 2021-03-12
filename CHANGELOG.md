@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 - New: Visual C++ AiO, .NET Frameworks & ViPER4Windows in Common Apps
 - New: Error logging
 - Improved: Updates to Common Apps versions
+- Improved: UI polishing
 
 ## [6.7] - 2021-02-25
 - Hotfix: Search not working (Reset Superfetch, disable it again and restart Windows to fix)
