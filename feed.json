@@ -273,7 +273,7 @@
   },
   {
     "Title": "Audacity",
-    "Link": "https://kapetanos-metaforiki.gr:56888/audacity",
+    "Link": "https://github.com/audacity/audacity/releases/download/Audacity-3.0.0/audacity-win-3.0.0.exe",
     "Tag": "cAudacity"
   },
   {
@@ -360,8 +360,8 @@
   },
   {
     "Title": "Opera",
-    "Link64": "https://www.opera.com/download/get/?partner=www&opsys=Windows&arch=x64",
-    "Link": "https://www.opera.com/download/get/?partner=www&opsys=Windows",
+    "Link64": "https://get.opera.com/pub/opera/desktop/75.0.3969.149/win/Opera_75.0.3969.149_Setup_x64.exe",
+    "Link": "https://get.opera.com/pub/opera/desktop/75.0.3969.149/win/Opera_75.0.3969.149_Setup.exe",
     "Tag": "cOpera"
   },
   {
@@ -372,8 +372,8 @@
   },
   {
     "Title": "Google Chrome",
-    "Link64": "https://www.google.com/chrome/?standalone=1&platform=win64",
-    "Link": "https://www.google.com/chrome/?standalone=1&platform=win",
+    "Link64": "https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7BBDA729A9-07E5-8BE1-A6AD-C479380DD938%7D%26lang%3Den%26browser%3D3%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26installdataindex%3Dempty/chrome/install/ChromeStandaloneSetup64.exe",
+    "Link": "https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7BBDA729A9-07E5-8BE1-A6AD-C479380DD938%7D%26lang%3Den%26browser%3D3%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dstable-arch_x86-statsdef_1%26installdataindex%3Dempty/chrome/install/ChromeStandaloneSetup.exe",
     "Tag": "cChrome"
   },
   {
@@ -384,8 +384,8 @@
   },
   {
     "Title": "Vivaldi",
-    "Link64": "https://downloads.vivaldi.com/stable/Vivaldi.3.6.2165.36.x64.exe",
-    "Link": "https://downloads.vivaldi.com/stable/Vivaldi.3.6.2165.36.exe",
+    "Link64": "https://downloads.vivaldi.com/stable/Vivaldi.3.7.2218.52.x64.exe",
+    "Link": "https://downloads.vivaldi.com/stable/Vivaldi.3.7.2218.52.exe",
     "Tag": "cVivaldi"
   },
   {
@@ -423,5 +423,11 @@
     "Title": "Visual C++ AiO",
     "Link": "https://kapetanos-metaforiki.gr:56888/vcpp",
     "Tag": "cVCPP"
+  },
+  {
+    "Title": "MEGAsync",
+    "Link": "https://mega.nz/MEGAsyncSetup32.exe",
+    "Link64": "https://mega.nz/MEGAsyncSetup64.exe",
+    "Tag": "cMega"
   }
 ]
