@@ -374,18 +374,6 @@ namespace Optimizer
                 }
             }
 
-            if (CurrentSilentConfig.DisableSilentAppInstall.HasValue)
-            {
-                if (CurrentSilentConfig.DisableSilentAppInstall.Value)
-                {
-                    Optimize.DisableSilentAppInstall();
-                }
-                else
-                {
-                    Optimize.EnableSilentAppInstall();
-                }
-            }
-
             if (CurrentSilentConfig.DisableCortana.HasValue)
             {
                 if (CurrentSilentConfig.DisableCortana.Value)
@@ -641,10 +629,6 @@ namespace Optimizer
             if (CurrentSilentConfig.DisablePrivacyOptions.HasValue)
             {
                 Options.CurrentOptions.DisablePrivacyOptions = CurrentSilentConfig.DisablePrivacyOptions.Value;
-            }
-            if (CurrentSilentConfig.DisableSilentAppInstall.HasValue)
-            {
-                Options.CurrentOptions.DisableSilentAppInstall = CurrentSilentConfig.DisableSilentAppInstall.Value;
             }
             if (CurrentSilentConfig.DisableCortana.HasValue)
             {

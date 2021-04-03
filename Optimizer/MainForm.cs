@@ -154,7 +154,6 @@ namespace Optimizer
             toggleSwitch28.Click += new EventHandler(toggleSwitch28_Click);
             toggleSwitch29.Click += new EventHandler(toggleSwitch29_Click);
             toggleSwitch30.Click += new EventHandler(toggleSwitch30_Click);
-            toggleSwitch22.Click += new EventHandler(toggleSwitch22_Click);
             toggleSwitch20.Click += new EventHandler(toggleSwitch20_Click);
             toggleSwitch21.Click += new EventHandler(toggleSwitch21_Click);
             toggleSwitch23.Click += new EventHandler(toggleSwitch23_Click);
@@ -637,7 +636,6 @@ namespace Optimizer
             toggleSwitch19.Checked = Options.CurrentOptions.EnableTaskbarColor;
             toggleSwitch20.Checked = Options.CurrentOptions.DisableSensorServices;
             toggleSwitch21.Checked = Options.CurrentOptions.DisablePrivacyOptions;
-            toggleSwitch22.Checked = Options.CurrentOptions.DisableSilentAppInstall;
             toggleSwitch23.Checked = Options.CurrentOptions.DisableTelemetryServices;
             toggleSwitch24.Checked = Options.CurrentOptions.DisableAutomaticUpdates;
             toggleSwitch25.Checked = Options.CurrentOptions.DisableMyPeople;
@@ -1903,19 +1901,6 @@ namespace Optimizer
                 Optimize.EnablePrivacyOptions();
             }
             Options.CurrentOptions.DisablePrivacyOptions = !toggleSwitch21.Checked;
-        }
-
-        private void toggleSwitch22_Click(object sender, EventArgs e)
-        {
-            if (!toggleSwitch22.Checked)
-            {
-                Optimize.DisableSilentAppInstall();
-            }
-            else
-            {
-                Optimize.EnableSilentAppInstall();
-            }
-            Options.CurrentOptions.DisableSilentAppInstall = !toggleSwitch22.Checked;
         }
 
         private void toggleSwitch16_Click(object sender, EventArgs e)

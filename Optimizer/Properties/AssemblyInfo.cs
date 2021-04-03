@@ -7,12 +7,13 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Optimizer")]
 [assembly: AssemblyDescription("Make Windows faster and more secure")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("deadmoon © ∞")]
+[assembly: AssemblyCompany("deadmoon © 2021")]
 [assembly: AssemblyProduct("Optimizer")]
-[assembly: AssemblyCopyright("deadmoon © ∞")]
+[assembly: AssemblyCopyright("deadmoon © 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
+// ∞
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
 // COM, set the ComVisible attribute to true on that type.

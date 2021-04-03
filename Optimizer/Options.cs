@@ -41,7 +41,6 @@ namespace Optimizer
         public bool ExcludeDrivers { get; set; }
         public bool DisableTelemetryServices { get; set; }
         public bool DisablePrivacyOptions { get; set; }
-        public bool DisableSilentAppInstall { get; set; }
         public bool DisableCortana { get; set; }
         public bool DisableSensorServices { get; set; }
         public bool DisableWindowsInk { get; set; }
