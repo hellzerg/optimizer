@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [6.9] - 2021-04-03
 - New: Added MEGAsync in Common Apps
 - Moved: Disable Silent App Install to Disable Automatic Updates
-- Feed updated to latest version
+- Improved: Disable Privacy Options is now smoother
 
 ## [6.8] - 2021-03-12
 - New: Visual C++ AiO, .NET Frameworks & ViPER4Windows in Common Apps
