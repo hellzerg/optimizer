@@ -48,6 +48,6 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ## Details: ##
 
-* Latest version: 6.8
-* Released: March 12, 2021
-* SHA256: 6433E18C3C6E85C5992B2571AD9B726B1ABFF1E3FA4FE0DC377CFB3BDFFFC5B6
+* Latest version: 6.9
+* Released: April 3, 2021
+* SHA256: 8A1C1CA61416DF1123FED81127220CDFE7239692C3C6AA19757E61434EE0F1D6
