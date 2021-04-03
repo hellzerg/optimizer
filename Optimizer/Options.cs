@@ -180,7 +180,6 @@ namespace Optimizer
                 CurrentOptions.ExcludeDrivers = false;
                 CurrentOptions.DisableTelemetryServices = false;
                 CurrentOptions.DisablePrivacyOptions = false;
-                CurrentOptions.DisableSilentAppInstall = false;
                 CurrentOptions.DisableCortana = false;
                 CurrentOptions.DisableSensorServices = false;
                 CurrentOptions.DisableWindowsInk = false;
