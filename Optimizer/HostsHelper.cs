@@ -234,13 +234,29 @@ namespace Optimizer
 
         internal static bool GetReadOnly()
         {
-            return new FileInfo(HostsFile).IsReadOnly;
+            try
+            {
+                return new FileInfo(HostsFile).IsReadOnly;
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("HostsHelper.ReadOnly", ex.Message, ex.StackTrace);
+                return false;
+            }
         }
 
+        // edit read-only attibute
         internal static void ReadOnly(bool enable)
         {
-            FileInfo fi = new FileInfo(HostsFile);
-            fi.IsReadOnly = enable;
+            try
+            {
+                FileInfo fi = new FileInfo(HostsFile);
+                fi.IsReadOnly = enable;
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("HostsHelper.ReadOnly", ex.Message, ex.StackTrace);
+            }
         }
     }
 }

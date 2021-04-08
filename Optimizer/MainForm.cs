@@ -2337,5 +2337,14 @@ namespace Optimizer
         {
             Process.Start(Required.CoreFolder);
         }
+
+        private void btnPing_Click(object sender, EventArgs e)
+        {
+            PingReply reply1 = Utilities.PingHost(txtPingInput.Text);
+            PingReply reply2 = Utilities.PingHost(txtPingInput.Text);
+            PingReply reply3 = Utilities.PingHost(txtPingInput.Text);
+
+
+        }
     }
 }

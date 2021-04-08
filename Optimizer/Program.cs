@@ -12,8 +12,8 @@ namespace Optimizer
 
         // Enter current version here
 
-        internal readonly static float Major = 6;
-        internal readonly static float Minor = 9;
+        internal readonly static float Major = 7;
+        internal readonly static float Minor = 0;
 
         internal static string GetCurrentVersionTostring()
         {

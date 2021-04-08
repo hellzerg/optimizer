@@ -11,6 +11,7 @@ using System.ServiceProcess;
 using System.Management.Automation;
 using System.Drawing;
 using System.Threading.Tasks;
+using System.Net.NetworkInformation;
 
 namespace Optimizer
 {
@@ -28,6 +29,8 @@ namespace Optimizer
         internal readonly static string DefaultEdgeDownloadFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
 
         internal static WindowsVersion CurrentWindowsVersion = WindowsVersion.Unsupported;
+
+        internal static Ping pinger = new Ping();
 
         internal delegate void SetControlPropertyThreadSafeDelegate(Control control, string propertyName, object propertyValue);
 
@@ -603,6 +606,11 @@ namespace Optimizer
 
             if (!process.Start()) tcs.SetException(new Exception("Failed to start process."));
             return tcs.Task;
+        }
+
+        internal static PingReply PingHost(string nameOrAddress)
+        {
+            return pinger.Send(nameOrAddress);
         }
     }
 }
