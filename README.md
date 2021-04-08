@@ -48,6 +48,7 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ## Tools used: ##
 * ByteSize from https://github.com/omar/ByteSize
+* Thanks for this really tiny, yet extremely useful library
 
 ## Details: ##
 
