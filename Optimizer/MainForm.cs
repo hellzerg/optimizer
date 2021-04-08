@@ -329,6 +329,7 @@ namespace Optimizer
             CheckForIllegalCrossThreadCalls = false;
             Options.ApplyTheme(this);
 
+            // fix SSL/TLS error when contacting internet
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             // initial states
@@ -408,6 +409,14 @@ namespace Optimizer
             }
 
             GetFeed();
+
+            GetFootprint();
+        }
+
+        private void GetFootprint()
+        {
+            ByteSize footprint = CleanHelper.CheckFootprint();
+            lblFootprint.Text = footprint.ToString();
         }
 
         private void GetFeed()
@@ -478,10 +487,6 @@ namespace Optimizer
                 {
                     CleanHelper.CleanTemporaries();
                 }
-                if (checkUTorrent.Checked)
-                {
-                    CleanHelper.CleanUTorrent();
-                }
                 if (checkFileZilla.Checked)
                 {
                     CleanHelper.CleanFileZilla();
@@ -489,10 +494,6 @@ namespace Optimizer
                 if (checkMiniDumps.Checked)
                 {
                     CleanHelper.CleanMiniDumps();
-                }
-                if (checkPrefetch.Checked)
-                {
-                    CleanHelper.CleanPrefetch();
                 }
                 if (checkMediaCache.Checked)
                 {
@@ -518,6 +519,7 @@ namespace Optimizer
             finally
             {
                 CleaningAnimation(false);
+                GetFootprint();
             }
         }
 
@@ -829,10 +831,8 @@ namespace Optimizer
         private void checkSelectAll_CheckedChanged(object sender, EventArgs e)
         {
             checkTemp.Checked = checkSelectAll.Checked;
-            checkUTorrent.Checked = checkSelectAll.Checked;
             checkFileZilla.Checked = checkSelectAll.Checked;
             checkMiniDumps.Checked = checkSelectAll.Checked;
-            checkPrefetch.Checked = checkSelectAll.Checked;
             checkMediaCache.Checked = checkSelectAll.Checked;
             checkLogs.Checked = checkSelectAll.Checked;
             checkBin.Checked = checkSelectAll.Checked;
@@ -2345,6 +2345,11 @@ namespace Optimizer
             PingReply reply3 = Utilities.PingHost(txtPingInput.Text);
 
 
+        }
+
+        private void btnCheckFootprint_Click(object sender, EventArgs e)
+        {
+            CleanHelper.CheckFootprint();
         }
     }
 }

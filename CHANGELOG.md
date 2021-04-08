@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0] - 2021-04-08
+- New: Check space to be freed before cleaning
+- Hotfix: Error handling when HOSTS file is unreadable
+
 ## [6.9] - 2021-04-03
 - New: Added MEGAsync in Common Apps
 - Moved: Disable Silent App Install to Disable Automatic Updates

@@ -42,7 +42,7 @@
             this.btnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.ForeColor = System.Drawing.Color.White;
-            this.btnOK.Location = new System.Drawing.Point(487, 354);
+            this.btnOK.Location = new System.Drawing.Point(534, 477);
             this.btnOK.Margin = new System.Windows.Forms.Padding(2);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(96, 31);
@@ -67,7 +67,7 @@
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.ReadOnly = true;
             this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtInfo.Size = new System.Drawing.Size(572, 331);
+            this.txtInfo.Size = new System.Drawing.Size(619, 454);
             this.txtInfo.TabIndex = 33;
             this.txtInfo.Text = "Integrator InfoBox";
             // 
@@ -78,7 +78,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnOK;
-            this.ClientSize = new System.Drawing.Size(593, 394);
+            this.ClientSize = new System.Drawing.Size(640, 517);
             this.Controls.Add(this.txtInfo);
             this.Controls.Add(this.btnOK);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

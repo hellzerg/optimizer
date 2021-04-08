@@ -15,7 +15,7 @@ namespace Optimizer
         {
             try
             {
-                File.AppendAllText(ErrorLogFile, string.Format("[ERROR] in function [{0}]", functionName));
+                File.AppendAllText(ErrorLogFile, string.Format("[ERROR] [{0}] in function [{1}]", DateTime.Now.ToString(), functionName));
                 File.AppendAllText(ErrorLogFile, Environment.NewLine);
                 File.AppendAllText(ErrorLogFile, errorMessage);
                 File.AppendAllText(ErrorLogFile, Environment.NewLine);

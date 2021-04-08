@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace Optimizer
 {
@@ -17,7 +19,6 @@ namespace Optimizer
         internal static readonly string ProfileAppDataLocalLow = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "Low";
         internal static readonly string OSDrive = System32Folder.Substring(0, 3);
         internal static readonly string OSDriveWindows = Environment.GetEnvironmentVariable("WINDIR", EnvironmentVariableTarget.Machine);
-        internal static readonly string UTorrentCache = ProfileAppDataRoaming + "\\uTorrent\\dlimagecache";
 
         internal static void EmptyFolder(string path)
         {
@@ -55,12 +56,7 @@ namespace Optimizer
         internal static void CleanTemporaries()
         {
             EmptyFolder(TempFolder);
-        }
-
-        internal static void CleanUTorrent()
-        {
-            EmptyFolder(UTorrentCache);
-        }
+        } 
 
         internal static void CleanFileZilla()
         {
@@ -88,11 +84,6 @@ namespace Optimizer
             EmptyFolder(ProgramData + "\\Microsoft\\Windows\\WER\\ERC");
         }
 
-        internal static void CleanPrefetch()
-        {
-            EmptyFolder(OSDriveWindows + "\\Prefetch");
-        }
-
         internal static void CleanMediaPlayersCache()
         {
             EmptyFolder(ProfileAppDataLocal + "\\Microsoft\\Media Player");
@@ -110,6 +101,20 @@ namespace Optimizer
         {
             EmptyFolder(System32Folder + "\\LogFiles");
             EmptyFolder(OSDrive + "\\inetpub\\logs\\LogFiles");
+        }
+
+        internal static ByteSize CheckFootprint()
+        {
+            try
+            {
+                DirectoryInfo info = new DirectoryInfo(TempFolder);
+                return ByteSize.FromBytes(info.EnumerateFiles("*", SearchOption.AllDirectories).Sum(file => file.Length));
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("CleanHelper.CleanLogs", ex.Message, ex.StackTrace);
+                return ByteSize.FromBytes(0);
+            }
         }
     }
 }
