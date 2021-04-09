@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 
 namespace Optimizer
 {
@@ -12,7 +13,7 @@ namespace Optimizer
 
         // Enter current version here
 
-        internal readonly static float Major = 7;
+        internal readonly static float Major = 0;
         internal readonly static float Minor = 0;
 
         internal static string GetCurrentVersionTostring()
@@ -42,7 +43,14 @@ namespace Optimizer
         {
             EmbeddedAssembly.Load(_jsonAssembly, _jsonAssembly.Replace("Optimizer.", string.Empty));
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
-            
+
+            // check if another instance is running
+            if (System.Diagnostics.Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location)).Length > 1)
+            {
+                MessageBox.Show("Optimizer is already running in the background!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

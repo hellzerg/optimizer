@@ -27,6 +27,12 @@ namespace Optimizer
         List<string> _desktopItems = new List<string>();
         List<string> _modernApps = new List<string>();
 
+        bool _trayMenu = false;
+
+        List<PingReply> _pingResults;
+        string _shodanIP = string.Empty;
+        PingReply tmpReply;
+
         DesktopItemType _desktopItemType = DesktopItemType.Program;
         DesktopTypePosition _desktopItemPosition = DesktopTypePosition.Top;
 
@@ -324,10 +330,15 @@ namespace Optimizer
         public MainForm()
         {
             InitializeComponent();
+
             EnableToggleEvents();
 
             CheckForIllegalCrossThreadCalls = false;
             Options.ApplyTheme(this);
+
+            _trayMenu = Options.CurrentOptions.EnableTray;
+            quickAccessToggle.Checked = Options.CurrentOptions.EnableTray;
+            launcherIcon.Visible = Options.CurrentOptions.EnableTray;
 
             // fix SSL/TLS error when contacting internet
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
@@ -411,6 +422,8 @@ namespace Optimizer
             GetFeed();
 
             GetFootprint();
+
+            launcherMenu.Renderer = new ToolStripRendererMaterial();
         }
 
         private void GetFootprint()
@@ -792,10 +805,18 @@ namespace Optimizer
             }
         }
 
-        private void Main_FormClosing(object sender, EventArgs e)
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Options.CurrentOptions.AppsFolder = txtDownloadFolder.Text;
-            Options.SaveSettings();
+            if (_trayMenu)
+            {
+                e.Cancel = true;
+                this.Hide();
+            }
+            else
+            {
+                Options.CurrentOptions.AppsFolder = txtDownloadFolder.Text;
+                Options.SaveSettings();
+            }
         }
 
         private void button39_Click(object sender, EventArgs e)
@@ -1013,10 +1034,8 @@ namespace Optimizer
 
         private void aio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabCollection.SelectedTab == hostsEditorTab)
-            {
-                txtIP.Focus();
-            }
+            if (tabCollection.SelectedTab == hostsEditorTab) txtIP.Focus();
+            if (tabCollection.SelectedTab == pingerTab) txtPingInput.Focus();
         }
 
         private void button48_Click(object sender, EventArgs e)
@@ -2340,16 +2359,195 @@ namespace Optimizer
 
         private void btnPing_Click(object sender, EventArgs e)
         {
-            PingReply reply1 = Utilities.PingHost(txtPingInput.Text);
-            PingReply reply2 = Utilities.PingHost(txtPingInput.Text);
-            PingReply reply3 = Utilities.PingHost(txtPingInput.Text);
+            if (string.IsNullOrEmpty(txtPingInput.Text)) return;
 
+            _pingResults = new List<PingReply>();
 
+            listPingResults.Items.Clear();
+
+            if (Utilities.PingHost(txtPingInput.Text) == null)
+            {
+                listPingResults.Items.Add(string.Format("Could not find host [{0}]", txtPingInput.Text));
+                return;
+            }
+            
+            Task pinger = new Task(() =>
+            {
+                btnShodan.Enabled = false;
+                btnPing.Enabled = false;
+
+                listPingResults.Items.Add(string.Format("Pinging [{0}] with 32 bytes - 9 times...", txtPingInput.Text));
+                listPingResults.Items.Add("");
+
+                for (int i = 0; i < 9; i++)
+                {
+                    tmpReply = Utilities.PingHost(txtPingInput.Text);
+
+                    if (tmpReply.Address == null)
+                    {
+                        listPingResults.Items.Add(tmpReply.Status);
+                    }
+                    else
+                    {
+                        _pingResults.Add(tmpReply);
+                        _shodanIP = _pingResults[i].Address.ToString();
+                        listPingResults.Items.Add(string.Format("{0} - LATENCY: {1} ms - TTL: {2}", _pingResults[i].Status, _pingResults[i].RoundtripTime, _pingResults[i].Options.Ttl));
+                    }
+                }
+
+                listPingResults.Items.Add("");
+
+                // calculate statistics
+                if (_pingResults.Count > 0)
+                {
+                    long maxLatency = _pingResults.Max(x => x.RoundtripTime);
+                    long minLatency = _pingResults.Min(x => x.RoundtripTime);
+                    double averageLatency = _pingResults.Average(x => x.RoundtripTime);
+
+                    listPingResults.Items.Add(string.Format("LATENCY: Min = {0}, Max = {1}, Average = {2:F2}", minLatency, maxLatency, averageLatency));
+                }
+                else
+                {
+                    listPingResults.Items.Add("All packets timed out");
+                }
+
+                btnPing.Enabled = true;
+                btnShodan.Enabled = true;
+            });
+
+            pinger.Start();
         }
 
         private void btnCheckFootprint_Click(object sender, EventArgs e)
         {
             CleanHelper.CheckFootprint();
+        }
+
+        private void btnShodan_Click(object sender, EventArgs e)
+        {
+            IPAddress tryIP;
+            if (IPAddress.TryParse(txtPingInput.Text, out tryIP))
+            {
+                Process.Start(string.Format("https://www.shodan.io/host/{0}", txtPingInput.Text));
+                return;
+            }
+            
+            if (!string.IsNullOrEmpty(_shodanIP))
+            {
+                Process.Start(string.Format("https://www.shodan.io/host/{0}", _shodanIP));
+                return;
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(_shodanIP);
+            }
+            catch { }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(txtPingInput.Text);
+            }
+            catch { }
+        }
+
+        private void txtPingInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) btnPing.PerformClick();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (ExportDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    File.WriteAllLines(ExportDialog.FileName, listPingResults.Items.Cast<string>());
+                }
+                catch (Exception ex)
+                {
+                    ErrorLogger.LogError("btnExport.Click", ex.Message, ex.StackTrace);
+                    MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void startupItem_Click(object sender, EventArgs e)
+        {
+            tabCollection.SelectedTab = startupTab;
+            RestoreWindow();
+        }
+
+        private void cleanerItem_Click(object sender, EventArgs e)
+        {
+            tabCollection.SelectedTab = cleanerTab;
+            RestoreWindow();
+        }
+
+        private void pingerItem_Click(object sender, EventArgs e)
+        {
+            tabCollection.SelectedTab = pingerTab;
+            RestoreWindow();
+            txtPingInput.Focus();
+        }
+
+        private void hostsItem_Click(object sender, EventArgs e)
+        {
+            tabCollection.SelectedTab = hostsEditorTab;
+            RestoreWindow();
+            txtIP.Focus();
+        }
+
+        private void appsItem_Click(object sender, EventArgs e)
+        {
+            tabCollection.SelectedTab = appsTab;
+            RestoreWindow();
+        }
+
+        private void exitItem_Click(object sender, EventArgs e)
+        {
+            _trayMenu = false;
+
+            Options.CurrentOptions.AppsFolder = txtDownloadFolder.Text;
+            Options.SaveSettings();
+
+            Application.Exit();
+        }
+
+        private void RestoreWindow()
+        {
+            if (this.WindowState == FormWindowState.Minimized) this.WindowState = FormWindowState.Normal;
+            this.Show();
+            this.Activate();
+            this.Focus();
+        }
+
+        private void launcherIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (this.Visible)
+            {
+                if (this.WindowState == FormWindowState.Minimized) this.WindowState = FormWindowState.Normal;
+                this.Hide();
+            }
+            else
+            {
+                RestoreWindow();
+            }
+        }
+
+        private void quickAccessToggle_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.EnableTray = quickAccessToggle.Checked;
+            Options.SaveSettings();
+
+            _trayMenu = quickAccessToggle.Checked;
+            launcherIcon.Visible = quickAccessToggle.Checked;
         }
     }
 }

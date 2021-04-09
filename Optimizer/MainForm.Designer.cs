@@ -301,12 +301,6 @@
             this.button6 = new System.Windows.Forms.Button();
             this.btnGetFeed = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
-            this.pingerTab = new System.Windows.Forms.TabPage();
-            this.label40 = new System.Windows.Forms.Label();
-            this.btnPing = new System.Windows.Forms.Button();
-            this.txtPingInput = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
             this.cleanerTab = new System.Windows.Forms.TabPage();
             this.cleaningpanel = new System.Windows.Forms.Panel();
             this.progress2 = new System.Windows.Forms.ProgressBar();
@@ -324,6 +318,18 @@
             this.checkLogs = new Optimizer.ColoredCheckBox();
             this.checkBin = new Optimizer.ColoredCheckBox();
             this.checkMiniDumps = new Optimizer.ColoredCheckBox();
+            this.pingerTab = new System.Windows.Forms.TabPage();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.listPingResults = new System.Windows.Forms.ListBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.btnShodan = new System.Windows.Forms.Button();
+            this.btnPing = new System.Windows.Forms.Button();
+            this.txtPingInput = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.hostsEditorTab = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label31 = new System.Windows.Forms.Label();
@@ -435,6 +441,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.optionsTab = new System.Windows.Forms.TabPage();
+            this.quickAccessToggle = new Optimizer.ToggleSwitch();
             this.btnOpenConf = new System.Windows.Forms.Button();
             this.label48 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
@@ -461,6 +468,15 @@
             this.DefineCommandIconDialog = new System.Windows.Forms.OpenFileDialog();
             this.integratorTimer = new System.Windows.Forms.Timer(this.components);
             this.runDialogTime = new System.Windows.Forms.Timer(this.components);
+            this.ExportDialog = new System.Windows.Forms.SaveFileDialog();
+            this.launcherMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.startupItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cleanerItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pingerItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hostsItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.appsItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
@@ -562,10 +578,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
-            this.pingerTab.SuspendLayout();
             this.cleanerTab.SuspendLayout();
             this.cleaningpanel.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.pingerTab.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.hostsEditorTab.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panelList.SuspendLayout();
@@ -587,6 +604,7 @@
             this.tabPage11.SuspendLayout();
             this.panel6.SuspendLayout();
             this.optionsTab.SuspendLayout();
+            this.launcherMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpanel
@@ -4032,95 +4050,6 @@
             this.label41.Tag = "themeable";
             this.label41.Text = "Quickly download && install useful apps";
             // 
-            // pingerTab
-            // 
-            this.pingerTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.pingerTab.Controls.Add(this.label40);
-            this.pingerTab.Controls.Add(this.btnPing);
-            this.pingerTab.Controls.Add(this.txtPingInput);
-            this.pingerTab.Controls.Add(this.label39);
-            this.pingerTab.Controls.Add(this.label32);
-            this.pingerTab.Location = new System.Drawing.Point(4, 24);
-            this.pingerTab.Name = "pingerTab";
-            this.pingerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.pingerTab.Size = new System.Drawing.Size(758, 611);
-            this.pingerTab.TabIndex = 13;
-            this.pingerTab.Text = "Pinger";
-            // 
-            // label40
-            // 
-            this.label40.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label40.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label40.Location = new System.Drawing.Point(3, 3);
-            this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(752, 605);
-            this.label40.TabIndex = 59;
-            this.label40.Tag = "themeable";
-            this.label40.Text = "Coming in next version...";
-            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnPing
-            // 
-            this.btnPing.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnPing.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnPing.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnPing.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnPing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPing.ForeColor = System.Drawing.Color.White;
-            this.btnPing.Location = new System.Drawing.Point(26, 116);
-            this.btnPing.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPing.Name = "btnPing";
-            this.btnPing.Size = new System.Drawing.Size(71, 31);
-            this.btnPing.TabIndex = 58;
-            this.btnPing.Text = "Ping";
-            this.btnPing.UseVisualStyleBackColor = false;
-            this.btnPing.Visible = false;
-            this.btnPing.Click += new System.EventHandler(this.btnPing_Click);
-            // 
-            // txtPingInput
-            // 
-            this.txtPingInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.txtPingInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPingInput.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPingInput.ForeColor = System.Drawing.Color.White;
-            this.txtPingInput.Location = new System.Drawing.Point(26, 83);
-            this.txtPingInput.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPingInput.Name = "txtPingInput";
-            this.txtPingInput.Size = new System.Drawing.Size(310, 29);
-            this.txtPingInput.TabIndex = 56;
-            this.txtPingInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtPingInput.Visible = false;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.ForeColor = System.Drawing.Color.Silver;
-            this.label39.Location = new System.Drawing.Point(21, 60);
-            this.label39.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(139, 21);
-            this.label39.TabIndex = 57;
-            this.label39.Tag = "";
-            this.label39.Text = "IP / Domain name";
-            this.label39.Visible = false;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label32.Location = new System.Drawing.Point(6, 10);
-            this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(393, 28);
-            this.label32.TabIndex = 47;
-            this.label32.Tag = "themeable";
-            this.label32.Text = "Ping IP addresses and assess your latency";
-            this.label32.Visible = false;
-            // 
             // cleanerTab
             // 
             this.cleanerTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -4351,6 +4280,189 @@
             this.checkMiniDumps.Text = "BSOD Minidumps";
             this.checkMiniDumps.UseVisualStyleBackColor = true;
             // 
+            // pingerTab
+            // 
+            this.pingerTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pingerTab.Controls.Add(this.btnExport);
+            this.pingerTab.Controls.Add(this.button9);
+            this.pingerTab.Controls.Add(this.button7);
+            this.pingerTab.Controls.Add(this.panel7);
+            this.pingerTab.Controls.Add(this.label40);
+            this.pingerTab.Controls.Add(this.btnShodan);
+            this.pingerTab.Controls.Add(this.btnPing);
+            this.pingerTab.Controls.Add(this.txtPingInput);
+            this.pingerTab.Controls.Add(this.label39);
+            this.pingerTab.Controls.Add(this.label32);
+            this.pingerTab.Location = new System.Drawing.Point(4, 24);
+            this.pingerTab.Name = "pingerTab";
+            this.pingerTab.Padding = new System.Windows.Forms.Padding(3);
+            this.pingerTab.Size = new System.Drawing.Size(758, 611);
+            this.pingerTab.TabIndex = 13;
+            this.pingerTab.Text = "Pinger";
+            // 
+            // btnExport
+            // 
+            this.btnExport.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnExport.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.Location = new System.Drawing.Point(499, 510);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(71, 29);
+            this.btnExport.TabIndex = 83;
+            this.btnExport.Text = "Export...";
+            this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.Location = new System.Drawing.Point(265, 116);
+            this.button9.Margin = new System.Windows.Forms.Padding(2);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(71, 31);
+            this.button9.TabIndex = 82;
+            this.button9.Text = "Copy IP";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(340, 83);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(71, 29);
+            this.button7.TabIndex = 81;
+            this.button7.Text = "Copy";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.listPingResults);
+            this.panel7.Location = new System.Drawing.Point(26, 200);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(544, 307);
+            this.panel7.TabIndex = 80;
+            // 
+            // listPingResults
+            // 
+            this.listPingResults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.listPingResults.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listPingResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listPingResults.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listPingResults.ForeColor = System.Drawing.Color.White;
+            this.listPingResults.FormattingEnabled = true;
+            this.listPingResults.HorizontalScrollbar = true;
+            this.listPingResults.ItemHeight = 21;
+            this.listPingResults.Location = new System.Drawing.Point(0, 0);
+            this.listPingResults.Margin = new System.Windows.Forms.Padding(2);
+            this.listPingResults.Name = "listPingResults";
+            this.listPingResults.Size = new System.Drawing.Size(542, 305);
+            this.listPingResults.TabIndex = 79;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.Silver;
+            this.label40.Location = new System.Drawing.Point(21, 176);
+            this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(62, 21);
+            this.label40.TabIndex = 60;
+            this.label40.Tag = "";
+            this.label40.Text = "Results";
+            // 
+            // btnShodan
+            // 
+            this.btnShodan.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnShodan.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnShodan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnShodan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnShodan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShodan.ForeColor = System.Drawing.Color.White;
+            this.btnShodan.Location = new System.Drawing.Point(101, 116);
+            this.btnShodan.Margin = new System.Windows.Forms.Padding(2);
+            this.btnShodan.Name = "btnShodan";
+            this.btnShodan.Size = new System.Drawing.Size(160, 31);
+            this.btnShodan.TabIndex = 59;
+            this.btnShodan.Text = "Check on SHODAN.io";
+            this.btnShodan.UseVisualStyleBackColor = false;
+            this.btnShodan.Click += new System.EventHandler(this.btnShodan_Click);
+            // 
+            // btnPing
+            // 
+            this.btnPing.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnPing.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnPing.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnPing.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnPing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPing.ForeColor = System.Drawing.Color.White;
+            this.btnPing.Location = new System.Drawing.Point(26, 116);
+            this.btnPing.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPing.Name = "btnPing";
+            this.btnPing.Size = new System.Drawing.Size(71, 31);
+            this.btnPing.TabIndex = 58;
+            this.btnPing.Text = "Ping";
+            this.btnPing.UseVisualStyleBackColor = false;
+            this.btnPing.Click += new System.EventHandler(this.btnPing_Click);
+            // 
+            // txtPingInput
+            // 
+            this.txtPingInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txtPingInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPingInput.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPingInput.ForeColor = System.Drawing.Color.White;
+            this.txtPingInput.Location = new System.Drawing.Point(26, 83);
+            this.txtPingInput.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPingInput.Name = "txtPingInput";
+            this.txtPingInput.Size = new System.Drawing.Size(310, 29);
+            this.txtPingInput.TabIndex = 56;
+            this.txtPingInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPingInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPingInput_KeyDown);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.Color.Silver;
+            this.label39.Location = new System.Drawing.Point(23, 60);
+            this.label39.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(139, 21);
+            this.label39.TabIndex = 57;
+            this.label39.Tag = "";
+            this.label39.Text = "IP / Domain name";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label32.Location = new System.Drawing.Point(6, 10);
+            this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(393, 28);
+            this.label32.TabIndex = 47;
+            this.label32.Tag = "themeable";
+            this.label32.Text = "Ping IP addresses and assess your latency";
+            // 
             // hostsEditorTab
             // 
             this.hostsEditorTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -4395,7 +4507,7 @@
             this.panel4.Location = new System.Drawing.Point(6, 70);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(793, 547);
+            this.panel4.Size = new System.Drawing.Size(746, 535);
             this.panel4.TabIndex = 53;
             // 
             // label31
@@ -4596,10 +4708,10 @@
             this.button46.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.button46.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button46.ForeColor = System.Drawing.Color.White;
-            this.button46.Location = new System.Drawing.Point(5, 394);
+            this.button46.Location = new System.Drawing.Point(6, 394);
             this.button46.Margin = new System.Windows.Forms.Padding(2);
             this.button46.Name = "button46";
-            this.button46.Size = new System.Drawing.Size(104, 31);
+            this.button46.Size = new System.Drawing.Size(102, 31);
             this.button46.TabIndex = 53;
             this.button46.Text = "Remove all";
             this.button46.UseVisualStyleBackColor = false;
@@ -5998,6 +6110,7 @@
             // optionsTab
             // 
             this.optionsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.optionsTab.Controls.Add(this.quickAccessToggle);
             this.optionsTab.Controls.Add(this.btnOpenConf);
             this.optionsTab.Controls.Add(this.label48);
             this.optionsTab.Controls.Add(this.label43);
@@ -6021,6 +6134,21 @@
             this.optionsTab.TabIndex = 6;
             this.optionsTab.Text = "Options";
             // 
+            // quickAccessToggle
+            // 
+            this.quickAccessToggle.Location = new System.Drawing.Point(26, 153);
+            this.quickAccessToggle.Margin = new System.Windows.Forms.Padding(2);
+            this.quickAccessToggle.Name = "quickAccessToggle";
+            this.quickAccessToggle.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quickAccessToggle.OffForeColor = System.Drawing.Color.White;
+            this.quickAccessToggle.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quickAccessToggle.OnForeColor = System.Drawing.Color.White;
+            this.quickAccessToggle.OnText = "Quick Access Menu";
+            this.quickAccessToggle.Size = new System.Drawing.Size(208, 31);
+            this.quickAccessToggle.TabIndex = 64;
+            this.quickAccessToggle.Tag = "themeable";
+            this.quickAccessToggle.CheckedChanged += new Optimizer.ToggleSwitch.CheckedChangedDelegate(this.quickAccessToggle_CheckedChanged);
+            // 
             // btnOpenConf
             // 
             this.btnOpenConf.BackColor = System.Drawing.Color.DodgerBlue;
@@ -6029,7 +6157,7 @@
             this.btnOpenConf.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOpenConf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenConf.ForeColor = System.Drawing.Color.White;
-            this.btnOpenConf.Location = new System.Drawing.Point(26, 384);
+            this.btnOpenConf.Location = new System.Drawing.Point(26, 429);
             this.btnOpenConf.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpenConf.Name = "btnOpenConf";
             this.btnOpenConf.Size = new System.Drawing.Size(155, 31);
@@ -6043,7 +6171,7 @@
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label48.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label48.Location = new System.Drawing.Point(6, 303);
+            this.label48.Location = new System.Drawing.Point(6, 348);
             this.label48.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(161, 28);
@@ -6056,7 +6184,7 @@
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label43.Location = new System.Drawing.Point(6, 160);
+            this.label43.Location = new System.Drawing.Point(6, 205);
             this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(157, 28);
@@ -6072,7 +6200,7 @@
             this.btnViewLog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnViewLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewLog.ForeColor = System.Drawing.Color.White;
-            this.btnViewLog.Location = new System.Drawing.Point(26, 349);
+            this.btnViewLog.Location = new System.Drawing.Point(26, 394);
             this.btnViewLog.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewLog.Name = "btnViewLog";
             this.btnViewLog.Size = new System.Drawing.Size(155, 31);
@@ -6106,7 +6234,7 @@
             this.btnChangelog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnChangelog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangelog.ForeColor = System.Drawing.Color.White;
-            this.btnChangelog.Location = new System.Drawing.Point(26, 242);
+            this.btnChangelog.Location = new System.Drawing.Point(26, 287);
             this.btnChangelog.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangelog.Name = "btnChangelog";
             this.btnChangelog.Size = new System.Drawing.Size(155, 31);
@@ -6123,7 +6251,7 @@
             this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(26, 207);
+            this.btnUpdate.Location = new System.Drawing.Point(26, 252);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(155, 31);
@@ -6140,7 +6268,7 @@
             this.btnResetConfig.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnResetConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResetConfig.ForeColor = System.Drawing.Color.White;
-            this.btnResetConfig.Location = new System.Drawing.Point(26, 419);
+            this.btnResetConfig.Location = new System.Drawing.Point(26, 464);
             this.btnResetConfig.Margin = new System.Windows.Forms.Padding(2);
             this.btnResetConfig.Name = "btnResetConfig";
             this.btnResetConfig.Size = new System.Drawing.Size(155, 31);
@@ -6308,6 +6436,101 @@
             this.runDialogTime.Interval = 5;
             this.runDialogTime.Tick += new System.EventHandler(this.runDialogTimer_Tick);
             // 
+            // ExportDialog
+            // 
+            this.ExportDialog.Filter = "Text [*.txt]|*.txt";
+            this.ExportDialog.Title = "Optimizer | Export PING results...";
+            // 
+            // launcherMenu
+            // 
+            this.launcherMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.launcherMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.launcherMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.launcherMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.startupItem,
+            this.cleanerItem,
+            this.pingerItem,
+            this.hostsItem,
+            this.appsItem,
+            this.exitItem});
+            this.launcherMenu.Name = "launcherMenu";
+            this.launcherMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.launcherMenu.ShowImageMargin = false;
+            this.launcherMenu.Size = new System.Drawing.Size(186, 160);
+            // 
+            // startupItem
+            // 
+            this.startupItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.startupItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startupItem.ForeColor = System.Drawing.Color.White;
+            this.startupItem.Name = "startupItem";
+            this.startupItem.Size = new System.Drawing.Size(185, 26);
+            this.startupItem.Text = "Startup Manager";
+            this.startupItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.startupItem.Click += new System.EventHandler(this.startupItem_Click);
+            // 
+            // cleanerItem
+            // 
+            this.cleanerItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.cleanerItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cleanerItem.ForeColor = System.Drawing.Color.White;
+            this.cleanerItem.Name = "cleanerItem";
+            this.cleanerItem.Size = new System.Drawing.Size(185, 26);
+            this.cleanerItem.Text = "PC Cleaner";
+            this.cleanerItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.cleanerItem.Click += new System.EventHandler(this.cleanerItem_Click);
+            // 
+            // pingerItem
+            // 
+            this.pingerItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.pingerItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pingerItem.ForeColor = System.Drawing.Color.White;
+            this.pingerItem.Name = "pingerItem";
+            this.pingerItem.Size = new System.Drawing.Size(185, 26);
+            this.pingerItem.Text = "Pinger Tool";
+            this.pingerItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.pingerItem.Click += new System.EventHandler(this.pingerItem_Click);
+            // 
+            // hostsItem
+            // 
+            this.hostsItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.hostsItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hostsItem.ForeColor = System.Drawing.Color.White;
+            this.hostsItem.Name = "hostsItem";
+            this.hostsItem.Size = new System.Drawing.Size(185, 26);
+            this.hostsItem.Text = "HOSTS Editor";
+            this.hostsItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.hostsItem.Click += new System.EventHandler(this.hostsItem_Click);
+            // 
+            // appsItem
+            // 
+            this.appsItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.appsItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appsItem.ForeColor = System.Drawing.Color.White;
+            this.appsItem.Name = "appsItem";
+            this.appsItem.Size = new System.Drawing.Size(185, 26);
+            this.appsItem.Text = "Apps Downloader";
+            this.appsItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.appsItem.Click += new System.EventHandler(this.appsItem_Click);
+            // 
+            // exitItem
+            // 
+            this.exitItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.exitItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitItem.ForeColor = System.Drawing.Color.White;
+            this.exitItem.Name = "exitItem";
+            this.exitItem.Size = new System.Drawing.Size(185, 26);
+            this.exitItem.Text = "Exit";
+            this.exitItem.Click += new System.EventHandler(this.exitItem_Click);
+            // 
+            // launcherIcon
+            // 
+            this.launcherIcon.ContextMenuStrip = this.launcherMenu;
+            this.launcherIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("launcherIcon.Icon")));
+            this.launcherIcon.Text = "Optimizer";
+            this.launcherIcon.Visible = true;
+            this.launcherIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.launcherIcon_MouseDoubleClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -6441,14 +6664,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
-            this.pingerTab.ResumeLayout(false);
-            this.pingerTab.PerformLayout();
             this.cleanerTab.ResumeLayout(false);
             this.cleanerTab.PerformLayout();
             this.cleaningpanel.ResumeLayout(false);
             this.cleaningpanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pingerTab.ResumeLayout(false);
+            this.pingerTab.PerformLayout();
+            this.panel7.ResumeLayout(false);
             this.hostsEditorTab.ResumeLayout(false);
             this.hostsEditorTab.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -6486,6 +6710,7 @@
             this.panel6.ResumeLayout(false);
             this.optionsTab.ResumeLayout(false);
             this.optionsTab.PerformLayout();
+            this.launcherMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -6920,9 +7145,25 @@
         private System.Windows.Forms.TextBox txtPingInput;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Button btnPing;
-        private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label lblFootprint;
         private System.Windows.Forms.Label lblPretext;
+        private System.Windows.Forms.Button btnShodan;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.ListBox listPingResults;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnExport;
+        internal System.Windows.Forms.SaveFileDialog ExportDialog;
+        private System.Windows.Forms.ContextMenuStrip launcherMenu;
+        private System.Windows.Forms.NotifyIcon launcherIcon;
+        private System.Windows.Forms.ToolStripMenuItem startupItem;
+        private System.Windows.Forms.ToolStripMenuItem cleanerItem;
+        private System.Windows.Forms.ToolStripMenuItem pingerItem;
+        private System.Windows.Forms.ToolStripMenuItem hostsItem;
+        private System.Windows.Forms.ToolStripMenuItem appsItem;
+        private System.Windows.Forms.ToolStripMenuItem exitItem;
+        private ToggleSwitch quickAccessToggle;
     }
 }
 

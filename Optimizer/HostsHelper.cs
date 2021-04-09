@@ -118,9 +118,16 @@ namespace Optimizer
         {
             StringBuilder sb = new StringBuilder();
 
-            using (StreamReader sr = File.OpenText(HostsFile))
+            try
             {
-                sb.Append(sr.ReadToEnd());
+                using (StreamReader sr = File.OpenText(HostsFile))
+                {
+                    sb.Append(sr.ReadToEnd());
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("HostsHelper.ReadHosts", ex.Message, ex.StackTrace);
             }
 
             return sb.ToString().Split(Environment.NewLine.ToCharArray());
@@ -131,9 +138,16 @@ namespace Optimizer
         {
             StringBuilder sb = new StringBuilder();
 
-            using (StreamReader sr = File.OpenText(HostsFile))
+            try
             {
-                sb.Append(sr.ReadToEnd());
+                using (StreamReader sr = File.OpenText(HostsFile))
+                {
+                    sb.Append(sr.ReadToEnd());
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("HostsHelper.ReadHostsFast", ex.Message, ex.StackTrace);
             }
 
             return sb.ToString();

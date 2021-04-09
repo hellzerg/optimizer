@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.1] - 2021-04-09
+- New: Pinger allows quick pinging and SHODAN.io search
+- New: Quick Access menu - enable it in Options
+- New: Allow only once instance to run
+- Hotfix: Error handling when HOSTS file is unreadable - again
+
 ## [7.0] - 2021-04-08
 - New: Check space to be freed before cleaning
 - Hotfix: Error handling when HOSTS file is unreadable

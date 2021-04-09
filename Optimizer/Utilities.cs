@@ -610,7 +610,16 @@ namespace Optimizer
 
         internal static PingReply PingHost(string nameOrAddress)
         {
-            return pinger.Send(nameOrAddress);
+            PingReply reply;
+            try
+            {
+                reply = pinger.Send(nameOrAddress);
+                return reply;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

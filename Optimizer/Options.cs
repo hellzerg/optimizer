@@ -12,6 +12,7 @@ namespace Optimizer
     {
         public Theme Color { get; set; }
         public string AppsFolder { get; set; }
+        public bool EnableTray { get; set; }
 
         public bool EnablePerformanceTweaks { get; set; }
         public bool DisableNetworkThrottling { get; set; }
@@ -58,6 +59,10 @@ namespace Optimizer
 
     internal static class Options
     {
+        internal static Color ForegroundColor = Color.MediumOrchid;
+        internal static Color ForegroundAccentColor = Color.DarkOrchid;
+        internal static Color BackgroundColor = Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+
         readonly static string _themeFlag = "themeable";
         internal readonly static string SettingsFile = Required.CoreFolder + "\\Optimizer.json";
 
@@ -69,21 +74,33 @@ namespace Optimizer
             {
                 case Theme.Caramel:
                     SetTheme(f, Color.DarkOrange, Color.Chocolate);
+                    ForegroundColor = Color.DarkOrange;
+                    ForegroundAccentColor = Color.Chocolate;
                     break;
                 case Theme.Lime:
                     SetTheme(f, Color.LimeGreen, Color.ForestGreen);
+                    ForegroundColor = Color.LimeGreen;
+                    ForegroundAccentColor = Color.ForestGreen;
                     break;
                 case Theme.Magma:
                     SetTheme(f, Color.Tomato, Color.Red);
+                    ForegroundColor = Color.Tomato;
+                    ForegroundAccentColor = Color.Red;
                     break;
                 case Theme.Minimal:
                     SetTheme(f, Color.Gray, Color.DimGray);
+                    ForegroundColor = Color.Gray;
+                    ForegroundAccentColor = Color.DimGray;
                     break;
                 case Theme.Ocean:
                     SetTheme(f, Color.DodgerBlue, Color.RoyalBlue);
+                    ForegroundColor = Color.DodgerBlue;
+                    ForegroundAccentColor = Color.RoyalBlue;
                     break;
                 case Theme.Zerg:
                     SetTheme(f, Color.MediumOrchid, Color.DarkOrchid);
+                    ForegroundColor = Color.MediumOrchid;
+                    ForegroundAccentColor = Color.DarkOrchid;
                     break;
             }
         }
@@ -152,6 +169,7 @@ namespace Optimizer
                 CurrentOptions.Color = Theme.Zerg;
                 CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
                 Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
+                CurrentOptions.EnableTray = true;
 
                 CurrentOptions.EnablePerformanceTweaks = false;
                 CurrentOptions.DisableNetworkThrottling = false;
