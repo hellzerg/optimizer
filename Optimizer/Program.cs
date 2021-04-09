@@ -45,11 +45,13 @@ namespace Optimizer
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
 
             // check if another instance is running
-            if (System.Diagnostics.Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location)).Length > 1)
-            {
-                MessageBox.Show("Optimizer is already running in the background!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+            // problem? prevents auto-patching...
+
+            //if (System.Diagnostics.Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location)).Length > 1)
+            //{
+            //    MessageBox.Show("Optimizer is already running in the background!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return;
+            //}
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
