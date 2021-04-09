@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [7.1] - 2021-04-09
+## [7.1] - 2021-04-10
 - New: Pinger allows quick pinging and SHODAN.io search
 - New: Quick Access menu - enable it in Options
 - New: Allow only once instance to run
