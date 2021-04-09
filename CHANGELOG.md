@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 - New: Pinger allows quick pinging and SHODAN.io search
 - New: Quick Access menu - enable it in Options
 - New: Allow only once instance to run
+- Hotfix: SystemResponsiveness now defaults to 14
 - Hotfix: Error handling when HOSTS file is unreadable - again
 
 ## [7.0] - 2021-04-08

@@ -18,6 +18,8 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Uninstall UWP apps
 * Clean up your system drive
 * Fix common registry issues
+* Quickly ping IPs and assess your latency
+* Search IPs on SHODAN.io
 * Remove unwanted programs running at startup
 * Change Microsoft Edge download folder
 * Edit your hosts file
@@ -52,6 +54,6 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ## Details: ##
 
-* Latest version: 7.0
-* Released: April 8, 2021
-* SHA256: 15837AF825911C5D44116245C2B3C8545DFA700B36EA1A92EA2B91D151847FCA
+* Latest version: 7.1
+* Released: April 10, 2021
+* SHA256: 8EDA87BB5DA7D90A8E1B693AB6C1FD37FF7A4D53C925A055E0C8DE10BAB78142
