@@ -39,6 +39,9 @@ namespace Optimizer
         public List<FeedApp> AppsFromFeed = new List<FeedApp>();
         readonly string _feedLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/feed.json";
 
+        readonly string _licenseLink = "https://www.gnu.org/licenses/gpl-3.0.en.html";
+        readonly string _openSourceLink = "https://opensource.org/";
+
         readonly string _latestVersionLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/version.txt";
         readonly string _changelogLink = "https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md";
 
@@ -65,7 +68,7 @@ namespace Optimizer
             return string.Format("https://github.com/hellzerg/optimizer/releases/download/{0}/Optimizer-{0}.exe", latestVersion);
         }
 
-        private void CheckForUpdate()
+        private void CheckForUpdate(bool silentCheck = false)
         {
             WebClient client = new WebClient
             {
@@ -87,6 +90,13 @@ namespace Optimizer
             {
                 if (float.Parse(latestVersion) > Program.GetCurrentVersion())
                 {
+                    // show UPDATE AVAILABLE on app launch
+                    if (silentCheck)
+                    {
+                        linkUpdate.Visible = true;
+                        return;
+                    }
+
                     if (MessageBox.Show(NewVersionMessage(latestVersion), "Update available", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         // PATCHING PROCESS
@@ -133,11 +143,11 @@ namespace Optimizer
                 }
                 else if (float.Parse(latestVersion) == Program.GetCurrentVersion())
                 {
-                    MessageBox.Show(_noNewVersionMessage, "No update available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!silentCheck) MessageBox.Show(_noNewVersionMessage, "No update available", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show(_betaVersionMessage, "BETA channel enabled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!silentCheck) MessageBox.Show(_betaVersionMessage, "BETA build", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -334,8 +344,12 @@ namespace Optimizer
             EnableToggleEvents();
 
             CheckForIllegalCrossThreadCalls = false;
-            Options.ApplyTheme(this);
 
+            // theming
+            Options.ApplyTheme(this);
+            launcherMenu.Renderer = new ToolStripRendererMaterial();
+
+            // quick access
             _trayMenu = Options.CurrentOptions.EnableTray;
             quickAccessToggle.Checked = Options.CurrentOptions.EnableTray;
             launcherIcon.Visible = Options.CurrentOptions.EnableTray;
@@ -350,6 +364,9 @@ namespace Optimizer
             radioTop.Checked = true;
             c64.Checked = Environment.Is64BitOperatingSystem;
             c32.Checked = !Environment.Is64BitOperatingSystem;
+
+            // EXPERIMENTAL message
+            lblLab.Visible = Program.EXPERIMENTAL_BUILD;
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
             {
@@ -420,10 +437,15 @@ namespace Optimizer
             }
 
             GetFeed();
-
             GetFootprint();
 
-            launcherMenu.Renderer = new ToolStripRendererMaterial();
+            if (!Program.EXPERIMENTAL_BUILD) CheckForUpdate(true);
+
+            if (Program.EXPERIMENTAL_BUILD)
+            {
+                btnUpdate.Enabled = false;
+                lblUpdateDisabled.Visible = true;
+            }
         }
 
         private void GetFootprint()
@@ -669,7 +691,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void GetDesktopItems()
@@ -2548,6 +2570,21 @@ namespace Optimizer
 
             _trayMenu = quickAccessToggle.Checked;
             launcherIcon.Visible = quickAccessToggle.Checked;
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(_licenseLink);
+        }
+
+        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(_openSourceLink);
+        }
+
+        private void linkUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CheckForUpdate();
         }
     }
 }

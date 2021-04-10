@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.2] - 2021-04-10
+- LICENSES are now visible in Options
+- Check for update on launch 
+
 ## [7.1] - 2021-04-10
 - New: Pinger allows quick pinging and SHODAN.io search
 - New: Quick Access menu - enable it in Options
