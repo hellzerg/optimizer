@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tpanel = new System.Windows.Forms.Panel();
+            this.linkUpdate = new System.Windows.Forms.LinkLabel();
+            this.lblLab = new System.Windows.Forms.Label();
             this.txtBitness = new System.Windows.Forms.Label();
             this.txtOS = new System.Windows.Forms.Label();
             this.txtVersion = new System.Windows.Forms.Label();
@@ -39,17 +41,19 @@
             this.bpanel = new System.Windows.Forms.Panel();
             this.tabCollection = new System.Windows.Forms.TabControl();
             this.universalTab = new System.Windows.Forms.TabPage();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
             this.button39 = new System.Windows.Forms.Button();
             this.windowsXTab = new System.Windows.Forms.TabPage();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.button43 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.windowsVIIITab = new System.Windows.Forms.TabPage();
@@ -285,6 +289,11 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.optionsTab = new System.Windows.Forms.TabPage();
+            this.lblUpdateDisabled = new System.Windows.Forms.Label();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
+            this.pictureBox84 = new System.Windows.Forms.PictureBox();
+            this.pictureBox83 = new System.Windows.Forms.PictureBox();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.btnOpenConf = new System.Windows.Forms.Button();
             this.label48 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
@@ -318,17 +327,10 @@
             this.pingerItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hostsItem = new System.Windows.Forms.ToolStripMenuItem();
             this.appsItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.restartExpolorerItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitItem = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
-            this.pictureBox83 = new System.Windows.Forms.PictureBox();
-            this.pictureBox84 = new System.Windows.Forms.PictureBox();
-            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
-            this.lblLab = new System.Windows.Forms.Label();
-            this.linkUpdate = new System.Windows.Forms.LinkLabel();
-            this.lblUpdateDisabled = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.toggleSwitch38 = new Optimizer.ToggleSwitch();
             this.toggleSwitch36 = new Optimizer.ToggleSwitch();
             this.toggleSwitch33 = new Optimizer.ToggleSwitch();
@@ -491,7 +493,9 @@
             this.bpanel.SuspendLayout();
             this.tabCollection.SuspendLayout();
             this.universalTab.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.windowsXTab.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.windowsVIIITab.SuspendLayout();
             this.modernAppsTab.SuspendLayout();
             this.panelModernAppsList.SuspendLayout();
@@ -613,11 +617,9 @@
             this.tabPage11.SuspendLayout();
             this.panel6.SuspendLayout();
             this.optionsTab.SuspendLayout();
-            this.launcherMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox83)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox84)).BeginInit();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox83)).BeginInit();
+            this.launcherMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpanel
@@ -636,6 +638,38 @@
             this.tpanel.Name = "tpanel";
             this.tpanel.Size = new System.Drawing.Size(768, 64);
             this.tpanel.TabIndex = 1;
+            // 
+            // linkUpdate
+            // 
+            this.linkUpdate.ActiveLinkColor = System.Drawing.Color.Goldenrod;
+            this.linkUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.linkUpdate.AutoSize = true;
+            this.linkUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkUpdate.ForeColor = System.Drawing.Color.Gold;
+            this.linkUpdate.LinkColor = System.Drawing.Color.Gold;
+            this.linkUpdate.Location = new System.Drawing.Point(608, 15);
+            this.linkUpdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkUpdate.Name = "linkUpdate";
+            this.linkUpdate.Size = new System.Drawing.Size(148, 25);
+            this.linkUpdate.TabIndex = 69;
+            this.linkUpdate.TabStop = true;
+            this.linkUpdate.Tag = "";
+            this.linkUpdate.Text = "Update available";
+            this.linkUpdate.Visible = false;
+            this.linkUpdate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkUpdate_LinkClicked);
+            // 
+            // lblLab
+            // 
+            this.lblLab.AutoSize = true;
+            this.lblLab.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLab.ForeColor = System.Drawing.Color.Gold;
+            this.lblLab.Location = new System.Drawing.Point(569, 4);
+            this.lblLab.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLab.Name = "lblLab";
+            this.lblLab.Size = new System.Drawing.Size(193, 50);
+            this.lblLab.TabIndex = 68;
+            this.lblLab.Text = "EXPERIMENTAL BUILD\r\n(delete after testing)";
+            this.lblLab.Visible = false;
             // 
             // txtBitness
             // 
@@ -757,6 +791,17 @@
             this.universalTab.TabIndex = 0;
             this.universalTab.Text = "Universal";
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.label36);
+            this.panel8.Controls.Add(this.label38);
+            this.panel8.Controls.Add(this.label37);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(2, 588);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(754, 21);
+            this.panel8.TabIndex = 68;
+            // 
             // label36
             // 
             this.label36.AutoSize = true;
@@ -770,19 +815,6 @@
             this.label36.Tag = "";
             this.label36.Text = "if you use printers often";
             // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.Color.Gold;
-            this.label37.Location = new System.Drawing.Point(82, 0);
-            this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(168, 21);
-            this.label37.TabIndex = 66;
-            this.label37.Tag = "";
-            this.label37.Text = "Disable Print Service";
-            // 
             // label38
             // 
             this.label38.AutoSize = true;
@@ -795,6 +827,19 @@
             this.label38.TabIndex = 65;
             this.label38.Tag = "";
             this.label38.Text = "• Do NOT";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.Gold;
+            this.label37.Location = new System.Drawing.Point(82, 0);
+            this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(168, 21);
+            this.label37.TabIndex = 66;
+            this.label37.Tag = "";
+            this.label37.Text = "Disable Print Service";
             // 
             // button39
             // 
@@ -850,6 +895,46 @@
             this.windowsXTab.TabIndex = 1;
             this.windowsXTab.Text = "Windows 10";
             // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.label35);
+            this.panel9.Controls.Add(this.label33);
+            this.panel9.Controls.Add(this.label47);
+            this.panel9.Controls.Add(this.label34);
+            this.panel9.Controls.Add(this.label46);
+            this.panel9.Controls.Add(this.label45);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel9.Location = new System.Drawing.Point(2, 569);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(754, 42);
+            this.panel9.TabIndex = 72;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.Gold;
+            this.label35.Location = new System.Drawing.Point(275, 21);
+            this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(338, 21);
+            this.label35.TabIndex = 64;
+            this.label35.Tag = "";
+            this.label35.Text = "if your device has touch support / or is tablet";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ForeColor = System.Drawing.Color.Gold;
+            this.label33.Location = new System.Drawing.Point(0, 21);
+            this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(78, 21);
+            this.label33.TabIndex = 62;
+            this.label33.Tag = "";
+            this.label33.Text = "• Do NOT";
+            // 
             // label47
             // 
             this.label47.AutoSize = true;
@@ -862,6 +947,19 @@
             this.label47.TabIndex = 70;
             this.label47.Tag = "";
             this.label47.Text = "if you want drivers to be auto-installed";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.Gold;
+            this.label34.Location = new System.Drawing.Point(82, 21);
+            this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(189, 21);
+            this.label34.TabIndex = 63;
+            this.label34.Tag = "";
+            this.label34.Text = "Disable Sensor Services";
             // 
             // label46
             // 
@@ -888,45 +986,6 @@
             this.label45.TabIndex = 68;
             this.label45.Tag = "";
             this.label45.Text = "• Do NOT";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.Color.Gold;
-            this.label35.Location = new System.Drawing.Point(275, 21);
-            this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(338, 21);
-            this.label35.TabIndex = 64;
-            this.label35.Tag = "";
-            this.label35.Text = "if your device has touch support / or is tablet";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.Gold;
-            this.label34.Location = new System.Drawing.Point(82, 21);
-            this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(189, 21);
-            this.label34.TabIndex = 63;
-            this.label34.Tag = "";
-            this.label34.Text = "Disable Sensor Services";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.ForeColor = System.Drawing.Color.Gold;
-            this.label33.Location = new System.Drawing.Point(0, 21);
-            this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(78, 21);
-            this.label33.TabIndex = 62;
-            this.label33.Tag = "";
-            this.label33.Text = "• Do NOT";
             // 
             // button43
             // 
@@ -4212,6 +4271,75 @@
             this.optionsTab.TabIndex = 6;
             this.optionsTab.Text = "Options";
             // 
+            // lblUpdateDisabled
+            // 
+            this.lblUpdateDisabled.AutoSize = true;
+            this.lblUpdateDisabled.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdateDisabled.ForeColor = System.Drawing.Color.Gold;
+            this.lblUpdateDisabled.Location = new System.Drawing.Point(185, 255);
+            this.lblUpdateDisabled.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUpdateDisabled.Name = "lblUpdateDisabled";
+            this.lblUpdateDisabled.Size = new System.Drawing.Size(239, 21);
+            this.lblUpdateDisabled.TabIndex = 69;
+            this.lblUpdateDisabled.Text = "Disabled in experimental builds";
+            this.lblUpdateDisabled.Visible = false;
+            // 
+            // linkLabel6
+            // 
+            this.linkLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel6.AutoSize = true;
+            this.linkLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel6.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel6.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel6.Location = new System.Drawing.Point(622, 427);
+            this.linkLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel6.Name = "linkLabel6";
+            this.linkLabel6.Size = new System.Drawing.Size(130, 28);
+            this.linkLabel6.TabIndex = 68;
+            this.linkLabel6.TabStop = true;
+            this.linkLabel6.Tag = "themeable";
+            this.linkLabel6.Text = "Open Source";
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
+            // 
+            // pictureBox84
+            // 
+            this.pictureBox84.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox84.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox84.BackgroundImage")));
+            this.pictureBox84.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox84.Location = new System.Drawing.Point(602, 313);
+            this.pictureBox84.Name = "pictureBox84";
+            this.pictureBox84.Size = new System.Drawing.Size(145, 114);
+            this.pictureBox84.TabIndex = 67;
+            this.pictureBox84.TabStop = false;
+            // 
+            // pictureBox83
+            // 
+            this.pictureBox83.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox83.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox83.BackgroundImage")));
+            this.pictureBox83.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox83.Location = new System.Drawing.Point(602, 460);
+            this.pictureBox83.Name = "pictureBox83";
+            this.pictureBox83.Size = new System.Drawing.Size(145, 114);
+            this.pictureBox83.TabIndex = 66;
+            this.pictureBox83.TabStop = false;
+            // 
+            // linkLabel5
+            // 
+            this.linkLabel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel5.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel5.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel5.Location = new System.Drawing.Point(551, 576);
+            this.linkLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(203, 28);
+            this.linkLabel5.TabIndex = 65;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Tag = "themeable";
+            this.linkLabel5.Text = "GNU GPL 3.0 License";
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
+            // 
             // btnOpenConf
             // 
             this.btnOpenConf.BackColor = System.Drawing.Color.DodgerBlue;
@@ -4515,74 +4643,94 @@
             this.pingerItem,
             this.hostsItem,
             this.appsItem,
+            this.toolStripSeparator1,
+            this.restartExpolorerItem,
             this.exitItem});
             this.launcherMenu.Name = "launcherMenu";
             this.launcherMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.launcherMenu.ShowImageMargin = false;
-            this.launcherMenu.Size = new System.Drawing.Size(186, 160);
+            this.launcherMenu.Size = new System.Drawing.Size(215, 214);
             // 
             // startupItem
             // 
-            this.startupItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.startupItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startupItem.ForeColor = System.Drawing.Color.White;
+            this.startupItem.Image = ((System.Drawing.Image)(resources.GetObject("startupItem.Image")));
             this.startupItem.Name = "startupItem";
-            this.startupItem.Size = new System.Drawing.Size(185, 26);
+            this.startupItem.Size = new System.Drawing.Size(214, 26);
             this.startupItem.Text = "Startup Manager";
             this.startupItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.startupItem.Click += new System.EventHandler(this.startupItem_Click);
             // 
             // cleanerItem
             // 
-            this.cleanerItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.cleanerItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cleanerItem.ForeColor = System.Drawing.Color.White;
+            this.cleanerItem.Image = ((System.Drawing.Image)(resources.GetObject("cleanerItem.Image")));
             this.cleanerItem.Name = "cleanerItem";
-            this.cleanerItem.Size = new System.Drawing.Size(185, 26);
+            this.cleanerItem.Size = new System.Drawing.Size(214, 26);
             this.cleanerItem.Text = "PC Cleaner";
             this.cleanerItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.cleanerItem.Click += new System.EventHandler(this.cleanerItem_Click);
             // 
             // pingerItem
             // 
-            this.pingerItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.pingerItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pingerItem.ForeColor = System.Drawing.Color.White;
+            this.pingerItem.Image = ((System.Drawing.Image)(resources.GetObject("pingerItem.Image")));
             this.pingerItem.Name = "pingerItem";
-            this.pingerItem.Size = new System.Drawing.Size(185, 26);
+            this.pingerItem.Size = new System.Drawing.Size(214, 26);
             this.pingerItem.Text = "Pinger Tool";
             this.pingerItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.pingerItem.Click += new System.EventHandler(this.pingerItem_Click);
             // 
             // hostsItem
             // 
-            this.hostsItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.hostsItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hostsItem.ForeColor = System.Drawing.Color.White;
+            this.hostsItem.Image = ((System.Drawing.Image)(resources.GetObject("hostsItem.Image")));
             this.hostsItem.Name = "hostsItem";
-            this.hostsItem.Size = new System.Drawing.Size(185, 26);
+            this.hostsItem.Size = new System.Drawing.Size(214, 26);
             this.hostsItem.Text = "HOSTS Editor";
             this.hostsItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.hostsItem.Click += new System.EventHandler(this.hostsItem_Click);
             // 
             // appsItem
             // 
-            this.appsItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.appsItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appsItem.ForeColor = System.Drawing.Color.White;
+            this.appsItem.Image = ((System.Drawing.Image)(resources.GetObject("appsItem.Image")));
             this.appsItem.Name = "appsItem";
-            this.appsItem.Size = new System.Drawing.Size(185, 26);
+            this.appsItem.Size = new System.Drawing.Size(214, 26);
             this.appsItem.Text = "Apps Downloader";
             this.appsItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.appsItem.Click += new System.EventHandler(this.appsItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.toolStripSeparator1.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
+            this.toolStripSeparator1.Tag = "";
+            // 
+            // restartExpolorerItem
+            // 
+            this.restartExpolorerItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restartExpolorerItem.ForeColor = System.Drawing.Color.White;
+            this.restartExpolorerItem.Image = ((System.Drawing.Image)(resources.GetObject("restartExpolorerItem.Image")));
+            this.restartExpolorerItem.Name = "restartExpolorerItem";
+            this.restartExpolorerItem.Size = new System.Drawing.Size(214, 26);
+            this.restartExpolorerItem.Text = "Restart Explorer";
+            this.restartExpolorerItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.restartExpolorerItem.Click += new System.EventHandler(this.restartExpolorerItem_Click);
+            // 
             // exitItem
             // 
-            this.exitItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.exitItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitItem.ForeColor = System.Drawing.Color.White;
+            this.exitItem.Image = ((System.Drawing.Image)(resources.GetObject("exitItem.Image")));
             this.exitItem.Name = "exitItem";
-            this.exitItem.Size = new System.Drawing.Size(185, 26);
+            this.exitItem.Size = new System.Drawing.Size(214, 26);
             this.exitItem.Text = "Exit";
             this.exitItem.Click += new System.EventHandler(this.exitItem_Click);
             // 
@@ -4593,132 +4741,6 @@
             this.launcherIcon.Text = "Optimizer";
             this.launcherIcon.Visible = true;
             this.launcherIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.launcherIcon_MouseDoubleClick);
-            // 
-            // linkLabel5
-            // 
-            this.linkLabel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel5.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel5.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel5.Location = new System.Drawing.Point(551, 576);
-            this.linkLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(203, 28);
-            this.linkLabel5.TabIndex = 65;
-            this.linkLabel5.TabStop = true;
-            this.linkLabel5.Tag = "themeable";
-            this.linkLabel5.Text = "GNU GPL 3.0 License";
-            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
-            // 
-            // pictureBox83
-            // 
-            this.pictureBox83.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox83.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox83.BackgroundImage")));
-            this.pictureBox83.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox83.Location = new System.Drawing.Point(602, 460);
-            this.pictureBox83.Name = "pictureBox83";
-            this.pictureBox83.Size = new System.Drawing.Size(145, 114);
-            this.pictureBox83.TabIndex = 66;
-            this.pictureBox83.TabStop = false;
-            // 
-            // pictureBox84
-            // 
-            this.pictureBox84.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox84.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox84.BackgroundImage")));
-            this.pictureBox84.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox84.Location = new System.Drawing.Point(602, 313);
-            this.pictureBox84.Name = "pictureBox84";
-            this.pictureBox84.Size = new System.Drawing.Size(145, 114);
-            this.pictureBox84.TabIndex = 67;
-            this.pictureBox84.TabStop = false;
-            // 
-            // linkLabel6
-            // 
-            this.linkLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabel6.AutoSize = true;
-            this.linkLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel6.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel6.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel6.Location = new System.Drawing.Point(622, 427);
-            this.linkLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(130, 28);
-            this.linkLabel6.TabIndex = 68;
-            this.linkLabel6.TabStop = true;
-            this.linkLabel6.Tag = "themeable";
-            this.linkLabel6.Text = "Open Source";
-            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
-            // 
-            // lblLab
-            // 
-            this.lblLab.AutoSize = true;
-            this.lblLab.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLab.ForeColor = System.Drawing.Color.Gold;
-            this.lblLab.Location = new System.Drawing.Point(569, 4);
-            this.lblLab.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblLab.Name = "lblLab";
-            this.lblLab.Size = new System.Drawing.Size(193, 50);
-            this.lblLab.TabIndex = 68;
-            this.lblLab.Text = "EXPERIMENTAL BUILD\r\n(delete after testing)";
-            this.lblLab.Visible = false;
-            // 
-            // linkUpdate
-            // 
-            this.linkUpdate.ActiveLinkColor = System.Drawing.Color.Goldenrod;
-            this.linkUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.linkUpdate.AutoSize = true;
-            this.linkUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkUpdate.ForeColor = System.Drawing.Color.Gold;
-            this.linkUpdate.LinkColor = System.Drawing.Color.Gold;
-            this.linkUpdate.Location = new System.Drawing.Point(608, 15);
-            this.linkUpdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkUpdate.Name = "linkUpdate";
-            this.linkUpdate.Size = new System.Drawing.Size(148, 25);
-            this.linkUpdate.TabIndex = 69;
-            this.linkUpdate.TabStop = true;
-            this.linkUpdate.Tag = "";
-            this.linkUpdate.Text = "Update available";
-            this.linkUpdate.Visible = false;
-            this.linkUpdate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkUpdate_LinkClicked);
-            // 
-            // lblUpdateDisabled
-            // 
-            this.lblUpdateDisabled.AutoSize = true;
-            this.lblUpdateDisabled.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdateDisabled.ForeColor = System.Drawing.Color.Gold;
-            this.lblUpdateDisabled.Location = new System.Drawing.Point(185, 255);
-            this.lblUpdateDisabled.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUpdateDisabled.Name = "lblUpdateDisabled";
-            this.lblUpdateDisabled.Size = new System.Drawing.Size(239, 21);
-            this.lblUpdateDisabled.TabIndex = 69;
-            this.lblUpdateDisabled.Text = "Disabled in experimental builds";
-            this.lblUpdateDisabled.Visible = false;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.label36);
-            this.panel8.Controls.Add(this.label38);
-            this.panel8.Controls.Add(this.label37);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(2, 588);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(754, 21);
-            this.panel8.TabIndex = 68;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.label35);
-            this.panel9.Controls.Add(this.label33);
-            this.panel9.Controls.Add(this.label47);
-            this.panel9.Controls.Add(this.label34);
-            this.panel9.Controls.Add(this.label46);
-            this.panel9.Controls.Add(this.label45);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(2, 569);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(754, 42);
-            this.panel9.TabIndex = 72;
             // 
             // toggleSwitch38
             // 
@@ -6686,7 +6708,11 @@
             this.bpanel.ResumeLayout(false);
             this.tabCollection.ResumeLayout(false);
             this.universalTab.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.windowsXTab.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.windowsVIIITab.ResumeLayout(false);
             this.modernAppsTab.ResumeLayout(false);
             this.modernAppsTab.PerformLayout();
@@ -6838,13 +6864,9 @@
             this.panel6.ResumeLayout(false);
             this.optionsTab.ResumeLayout(false);
             this.optionsTab.PerformLayout();
-            this.launcherMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox83)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox84)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox83)).EndInit();
+            this.launcherMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -7307,6 +7329,8 @@
         private System.Windows.Forms.Label lblUpdateDisabled;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.ToolStripMenuItem restartExpolorerItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

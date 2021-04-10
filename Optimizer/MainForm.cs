@@ -2586,5 +2586,10 @@ namespace Optimizer
         {
             CheckForUpdate();
         }
+
+        private void restartExpolorerItem_Click(object sender, EventArgs e)
+        {
+            Utilities.RestartExplorer();
+        }
     }
 }
