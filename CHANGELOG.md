@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.4] - 2021-04-11
+- Improved: Disable SmartScreen
+- Improved: Better UI scaling in Common Apps
+
 ## [7.3] - 2021-04-11
 - New: Flush DNS cache (Pinger)
 - Hotfix: Some tabs not working when offline

@@ -461,37 +461,14 @@ namespace Optimizer
                 AppsFromFeed = JsonConvert.DeserializeObject<List<FeedApp>>(feed);
 
                 // UI handling
-                label42.Visible = true;
-                label44.Visible = true;
-                txtDownloadFolder.Visible = true;
-                button5.Visible = true;
-                button6.Visible = true;
-                btnDownloadApps.Visible = true;
-                c32.Visible = true;
-                c64.Visible = true;
-                cAutoInstall.Visible = true;
-                linkLabel1.Visible = false;
-                progressDownloader.Visible = true;
-                txtDownloadStatus.Visible = true;
-                //btnGetFeed.Visible = true;
+                btnDownloadApps.Enabled = true;
                 txtFeedError.Visible = false;
             }
             catch (Exception ex)
             {
-                label42.Visible = false;
-                label44.Visible = false;
-                txtDownloadFolder.Visible = false;
-                button5.Visible = true;
-                button6.Visible = false;
-                btnDownloadApps.Visible = false;
-                c32.Visible = false;
-                c64.Visible = false;
-                cAutoInstall.Visible = false;
-                linkLabel1.Visible = false;
-                progressDownloader.Visible = false;
-                txtDownloadStatus.Visible = false;
-                //btnGetFeed.Visible = true;
+                btnDownloadApps.Enabled = false;
                 txtFeedError.Visible = true;
+
                 ErrorLogger.LogError("MainForm.GetFeed", ex.Message, ex.StackTrace);
             }
         }

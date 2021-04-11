@@ -20,6 +20,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Fix common registry issues
 * Quickly ping IPs and assess your latency
 * Search IPs on SHODAN.io
+* Flush DNS cache
 * Remove unwanted programs running at startup
 * Change Microsoft Edge download folder
 * Edit your hosts file
@@ -54,6 +55,6 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ## Details: ##
 
-* Latest version: 7.3
+* Latest version: 7.4
 * Released: April 11, 2021
-* SHA256: 2752EAE3280439EAE1E132AC67CE4BDA4D2896FBD523DECF79C58BFC364D4385
+* SHA256: FDEE06A6B7296867E5A0A9E42AF468828474F3F1E51FBF3F77E9F07C2A601217
