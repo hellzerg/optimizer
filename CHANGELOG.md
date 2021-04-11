@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.3] - 2021-04-11
+- New: Flush DNS cache (Pinger)
+- Hotfix: Some tabs not working when offline
+- Several improvements on Windows 10 privacy
+- Removed unnecessary timers
+
 ## [7.2] - 2021-04-10
 - LICENSES are now visible in Options
 - Check for update on launch 

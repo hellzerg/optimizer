@@ -318,8 +318,6 @@
             this.DefineURLIconDialog = new System.Windows.Forms.OpenFileDialog();
             this.DefineFileIconDialog = new System.Windows.Forms.OpenFileDialog();
             this.DefineCommandIconDialog = new System.Windows.Forms.OpenFileDialog();
-            this.integratorTimer = new System.Windows.Forms.Timer(this.components);
-            this.runDialogTime = new System.Windows.Forms.Timer(this.components);
             this.ExportDialog = new System.Windows.Forms.SaveFileDialog();
             this.launcherMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.startupItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -458,7 +456,6 @@
             this.cZoom = new Optimizer.ColoredCheckBox();
             this.cTV = new Optimizer.ColoredCheckBox();
             this.checkErrorReports = new Optimizer.ColoredCheckBox();
-            this.checkFileZilla = new Optimizer.ColoredCheckBox();
             this.checkSelectAll = new Optimizer.ColoredCheckBox();
             this.checkMediaCache = new Optimizer.ColoredCheckBox();
             this.checkTemp = new Optimizer.ColoredCheckBox();
@@ -488,6 +485,7 @@
             this.radioFile = new Optimizer.ColoredRadioButton();
             this.radioLink = new Optimizer.ColoredRadioButton();
             this.quickAccessToggle = new Optimizer.ToggleSwitch();
+            this.button10 = new System.Windows.Forms.Button();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
@@ -904,7 +902,7 @@
             this.panel9.Controls.Add(this.label46);
             this.panel9.Controls.Add(this.label45);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(2, 569);
+            this.panel9.Location = new System.Drawing.Point(2, 567);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(754, 42);
             this.panel9.TabIndex = 72;
@@ -2648,7 +2646,6 @@
             this.panel1.Controls.Add(this.lblPretext);
             this.panel1.Controls.Add(this.lblFootprint);
             this.panel1.Controls.Add(this.checkErrorReports);
-            this.panel1.Controls.Add(this.checkFileZilla);
             this.panel1.Controls.Add(this.button20);
             this.panel1.Controls.Add(this.checkSelectAll);
             this.panel1.Controls.Add(this.checkMediaCache);
@@ -2708,6 +2705,7 @@
             // pingerTab
             // 
             this.pingerTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pingerTab.Controls.Add(this.button10);
             this.pingerTab.Controls.Add(this.btnExport);
             this.pingerTab.Controls.Add(this.button9);
             this.pingerTab.Controls.Add(this.button7);
@@ -2733,7 +2731,7 @@
             this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(499, 510);
+            this.btnExport.Location = new System.Drawing.Point(499, 512);
             this.btnExport.Margin = new System.Windows.Forms.Padding(2);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(71, 29);
@@ -3371,7 +3369,7 @@
             this.synapse.Multiline = true;
             this.synapse.Name = "synapse";
             this.synapse.SelectedIndex = 0;
-            this.synapse.Size = new System.Drawing.Size(754, 609);
+            this.synapse.Size = new System.Drawing.Size(754, 607);
             this.synapse.TabIndex = 0;
             // 
             // integratorInfoTab
@@ -3388,7 +3386,7 @@
             this.integratorInfoTab.Margin = new System.Windows.Forms.Padding(2);
             this.integratorInfoTab.Name = "integratorInfoTab";
             this.integratorInfoTab.Padding = new System.Windows.Forms.Padding(2);
-            this.integratorInfoTab.Size = new System.Drawing.Size(746, 581);
+            this.integratorInfoTab.Size = new System.Drawing.Size(746, 579);
             this.integratorInfoTab.TabIndex = 0;
             this.integratorInfoTab.Text = "Info";
             // 
@@ -3496,7 +3494,7 @@
             this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage8.Size = new System.Drawing.Size(746, 581);
+            this.tabPage8.Size = new System.Drawing.Size(746, 579);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Add/Modify";
             // 
@@ -3508,7 +3506,7 @@
             this.btnAddItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddItem.ForeColor = System.Drawing.Color.White;
-            this.btnAddItem.Location = new System.Drawing.Point(512, 438);
+            this.btnAddItem.Location = new System.Drawing.Point(410, 473);
             this.btnAddItem.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(98, 31);
@@ -4066,7 +4064,7 @@
             this.tabPage11.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage11.Size = new System.Drawing.Size(746, 581);
+            this.tabPage11.Size = new System.Drawing.Size(746, 579);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Run Dialog";
             // 
@@ -4306,9 +4304,9 @@
             this.pictureBox84.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox84.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox84.BackgroundImage")));
             this.pictureBox84.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox84.Location = new System.Drawing.Point(602, 313);
+            this.pictureBox84.Location = new System.Drawing.Point(619, 313);
             this.pictureBox84.Name = "pictureBox84";
-            this.pictureBox84.Size = new System.Drawing.Size(145, 114);
+            this.pictureBox84.Size = new System.Drawing.Size(128, 114);
             this.pictureBox84.TabIndex = 67;
             this.pictureBox84.TabStop = false;
             // 
@@ -4617,16 +4615,6 @@
             this.DefineCommandIconDialog.Title = "Optimizer | Select an icon or program...";
             this.DefineCommandIconDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineCommandIconDialog_FileOk);
             // 
-            // integratorTimer
-            // 
-            this.integratorTimer.Interval = 5;
-            this.integratorTimer.Tick += new System.EventHandler(this.integratorTimer_Tick);
-            // 
-            // runDialogTime
-            // 
-            this.runDialogTime.Interval = 5;
-            this.runDialogTime.Tick += new System.EventHandler(this.runDialogTimer_Tick);
-            // 
             // ExportDialog
             // 
             this.ExportDialog.Filter = "Text [*.txt]|*.txt";
@@ -4648,7 +4636,7 @@
             this.exitItem});
             this.launcherMenu.Name = "launcherMenu";
             this.launcherMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.launcherMenu.Size = new System.Drawing.Size(215, 214);
+            this.launcherMenu.Size = new System.Drawing.Size(215, 192);
             // 
             // startupItem
             // 
@@ -5115,7 +5103,7 @@
             this.toggleSwitch21.OffForeColor = System.Drawing.Color.White;
             this.toggleSwitch21.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleSwitch21.OnForeColor = System.Drawing.Color.White;
-            this.toggleSwitch21.OnText = "Disable Privacy Options";
+            this.toggleSwitch21.OnText = "Enhance Privacy";
             this.toggleSwitch21.Size = new System.Drawing.Size(208, 31);
             this.toggleSwitch21.TabIndex = 50;
             this.toggleSwitch21.Tag = "themeable";
@@ -6274,26 +6262,13 @@
             this.checkErrorReports.AutoSize = true;
             this.checkErrorReports.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkErrorReports.ForeColor = System.Drawing.Color.White;
-            this.checkErrorReports.Location = new System.Drawing.Point(55, 133);
+            this.checkErrorReports.Location = new System.Drawing.Point(256, 104);
             this.checkErrorReports.Margin = new System.Windows.Forms.Padding(2);
             this.checkErrorReports.Name = "checkErrorReports";
             this.checkErrorReports.Size = new System.Drawing.Size(123, 25);
             this.checkErrorReports.TabIndex = 44;
             this.checkErrorReports.Text = "Error reports";
             this.checkErrorReports.UseVisualStyleBackColor = true;
-            // 
-            // checkFileZilla
-            // 
-            this.checkFileZilla.AutoSize = true;
-            this.checkFileZilla.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkFileZilla.ForeColor = System.Drawing.Color.White;
-            this.checkFileZilla.Location = new System.Drawing.Point(256, 104);
-            this.checkFileZilla.Margin = new System.Windows.Forms.Padding(2);
-            this.checkFileZilla.Name = "checkFileZilla";
-            this.checkFileZilla.Size = new System.Drawing.Size(191, 25);
-            this.checkFileZilla.TabIndex = 38;
-            this.checkFileZilla.Text = "FileZilla recent servers";
-            this.checkFileZilla.UseVisualStyleBackColor = true;
             // 
             // checkSelectAll
             // 
@@ -6683,6 +6658,23 @@
             this.quickAccessToggle.Tag = "themeable";
             this.quickAccessToggle.CheckedChanged += new Optimizer.ToggleSwitch.CheckedChangedDelegate(this.quickAccessToggle_CheckedChanged);
             // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button10.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.ForeColor = System.Drawing.Color.White;
+            this.button10.Location = new System.Drawing.Point(26, 512);
+            this.button10.Margin = new System.Windows.Forms.Padding(2);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(139, 29);
+            this.button10.TabIndex = 84;
+            this.button10.Text = "Flush DNS cache";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -6896,7 +6888,6 @@
         private ColoredCheckBox checkLogs;
         private ColoredCheckBox checkBin;
         private ColoredCheckBox checkMiniDumps;
-        private ColoredCheckBox checkFileZilla;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ProgressBar progress2;
@@ -7015,8 +7006,6 @@
         internal System.Windows.Forms.OpenFileDialog DefineURLIconDialog;
         internal System.Windows.Forms.OpenFileDialog DefineFileIconDialog;
         internal System.Windows.Forms.OpenFileDialog DefineCommandIconDialog;
-        private System.Windows.Forms.Timer integratorTimer;
-        private System.Windows.Forms.Timer runDialogTime;
         private System.Windows.Forms.Button button64;
         private System.Windows.Forms.Button button65;
         private System.Windows.Forms.Button button66;
@@ -7331,6 +7320,7 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.ToolStripMenuItem restartExpolorerItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.Button button10;
     }
 }
 

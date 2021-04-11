@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
-using System.Threading;
+using System.Windows.Forms;
 
 namespace Optimizer
 {
@@ -14,7 +13,7 @@ namespace Optimizer
         // Enter current version here
 
         internal readonly static float Major = 7;
-        internal readonly static float Minor = 2;
+        internal readonly static float Minor = 3;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 

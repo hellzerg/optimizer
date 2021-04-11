@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Forms;
+﻿using Newtonsoft.Json;
+using System;
 using System.Drawing;
 using System.IO;
-using Newtonsoft.Json;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Optimizer
 {

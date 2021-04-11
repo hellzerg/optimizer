@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 
 namespace Optimizer
 {
@@ -56,15 +55,6 @@ namespace Optimizer
         internal static void CleanTemporaries()
         {
             EmptyFolder(TempFolder);
-        } 
-
-        internal static void CleanFileZilla()
-        {
-            try
-            {
-                File.Delete(ProfileAppDataRoaming + "\\FileZilla\\recentservers.xml");
-            }
-            catch { }
         }
 
         internal static void CleanMiniDumps()
@@ -103,6 +93,7 @@ namespace Optimizer
             EmptyFolder(OSDrive + "\\inetpub\\logs\\LogFiles");
         }
 
+        // only for TEMP folder
         internal static ByteSize CheckFootprint()
         {
             try

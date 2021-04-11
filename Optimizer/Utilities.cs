@@ -1,17 +1,17 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Management.Automation;
+using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Security.Principal;
-using System.Windows.Forms;
-using System.IO;
-using System.Diagnostics;
 using System.ServiceProcess;
-using System.Management.Automation;
-using System.Drawing;
 using System.Threading.Tasks;
-using System.Net.NetworkInformation;
+using System.Windows.Forms;
 
 namespace Optimizer
 {
@@ -147,7 +147,7 @@ namespace Optimizer
 
             try
             {
-                current = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Main", "Default Download Directory", DefaultEdgeDownloadFolder).ToString();
+                current = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "DownloadDirectory", DefaultEdgeDownloadFolder).ToString();
             }
             catch (Exception ex)
             {
@@ -160,7 +160,7 @@ namespace Optimizer
 
         internal static void SetEdgeDownloadFolder(string path)
         {
-            Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Main", "Default Download Directory", path, RegistryValueKind.String);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "DownloadDirectory", path, RegistryValueKind.String);
         }
 
         internal static void RunBatchFile(string batchFile)
@@ -620,6 +620,31 @@ namespace Optimizer
             {
                 return null;
             }
+        }
+
+        internal static bool IsInternetAvailable()
+        {
+            const int timeout = 1000;
+            const string host = "1.1.1.1";
+
+            var ping = new Ping();
+            var buffer = new byte[32];
+            var pingOptions = new PingOptions();
+
+            try
+            {
+                var reply = ping.Send(host, timeout, buffer, pingOptions);
+                return (reply != null && reply.Status == IPStatus.Success);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        internal static void FlushDNSCache()
+        {
+            Utilities.RunCommand("ipconfig /release && ipconfig /flushdns && ipconfig /renew");
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Globalization;
-
-namespace Optimizer
+﻿namespace Optimizer
 {
     public partial struct ByteSize
     {

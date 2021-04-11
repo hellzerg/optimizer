@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.IO;
-using System.Text.RegularExpressions;
-using System.Text;
-using System.Windows.Forms;
+using System.Linq;
 using System.Net;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace Optimizer
 {

@@ -1,19 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Reflection;
-using System.Diagnostics;
-using System.Net;
-using System.Threading;
-using System.Linq;
-using System.Drawing;
-using Timer = System.Windows.Forms.Timer;
-using Newtonsoft.Json;
-using System.Net.NetworkInformation;
 
 namespace Optimizer
 {
@@ -406,11 +403,11 @@ namespace Optimizer
             GetStartupItems();
             GetHostsEntries();
 
-            integratorTimer.Start();
-            runDialogTime.Start();
-
             GetDesktopItems();
             GetCustomCommands();
+
+            GetFeed();
+            GetFootprint();
 
             LoadSettings();
 
@@ -436,10 +433,7 @@ namespace Optimizer
                 txtDownloadFolder.Text = Options.CurrentOptions.AppsFolder;
             }
 
-            GetFeed();
-            GetFootprint();
-
-            if (!Program.EXPERIMENTAL_BUILD) CheckForUpdate(true);
+            if (!Program.EXPERIMENTAL_BUILD && Utilities.IsInternetAvailable()) CheckForUpdate(true);
 
             if (Program.EXPERIMENTAL_BUILD)
             {
@@ -467,12 +461,6 @@ namespace Optimizer
                 AppsFromFeed = JsonConvert.DeserializeObject<List<FeedApp>>(feed);
 
                 // UI handling
-                panel1.Visible = true;
-                panel2.Visible = true;
-                panel3.Visible = true;
-                panel4.Visible = true;
-                panel5.Visible = true;
-                panel6.Visible = true;
                 label42.Visible = true;
                 label44.Visible = true;
                 txtDownloadFolder.Visible = true;
@@ -490,12 +478,6 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                panel1.Visible = false;
-                panel2.Visible = false;
-                panel3.Visible = false;
-                panel4.Visible = false;
-                panel5.Visible = false;
-                panel6.Visible = false;
                 label42.Visible = false;
                 label44.Visible = false;
                 txtDownloadFolder.Visible = false;
@@ -521,10 +503,6 @@ namespace Optimizer
                 if (checkTemp.Checked)
                 {
                     CleanHelper.CleanTemporaries();
-                }
-                if (checkFileZilla.Checked)
-                {
-                    CleanHelper.CleanFileZilla();
                 }
                 if (checkMiniDumps.Checked)
                 {
@@ -691,7 +669,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GetDesktopItems()
@@ -874,7 +852,6 @@ namespace Optimizer
         private void checkSelectAll_CheckedChanged(object sender, EventArgs e)
         {
             checkTemp.Checked = checkSelectAll.Checked;
-            checkFileZilla.Checked = checkSelectAll.Checked;
             checkMiniDumps.Checked = checkSelectAll.Checked;
             checkMediaCache.Checked = checkSelectAll.Checked;
             checkLogs.Checked = checkSelectAll.Checked;
@@ -1067,7 +1044,7 @@ namespace Optimizer
 
         private void button50_Click(object sender, EventArgs e)
         {
-            if ((txtRunFile.Text != string.Empty) && (txtRunKeyword.Text != string.Empty))
+            if (!string.IsNullOrEmpty(txtRunFile.Text) && !string.IsNullOrEmpty(txtRunKeyword.Text))
             {
                 Integrator.CreateCustomCommand(txtRunFile.Text, txtRunKeyword.Text);
 
@@ -1394,6 +1371,16 @@ namespace Optimizer
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
+            if (!checkDefaultIcon.Checked && (string.IsNullOrEmpty(txtItem.Text) || string.IsNullOrEmpty(txtItemName.Text) || string.IsNullOrEmpty(txtIcon.Text)))
+            {
+                return;
+            }
+
+            if (checkDefaultIcon.Checked && (string.IsNullOrEmpty(txtItem.Text) || string.IsNullOrEmpty(txtItemName.Text)))
+            {
+                return;
+            }
+
             string icon = string.Empty;
 
             switch (_desktopItemType)
@@ -1459,34 +1446,6 @@ namespace Optimizer
 
             GetDesktopItems();
             ResetIntegratorForm();
-        }
-
-        private void integratorTimer_Tick(object sender, EventArgs e)
-        {
-            if ((txtItem.Text != "") && (txtItemName.Text != "") && (txtIcon.Text != "") && (!checkDefaultIcon.Checked))
-            {
-                btnAddItem.Enabled = true;
-            }
-            else if ((txtItem.Text != "") && (txtItemName.Text != "") && (checkDefaultIcon.Checked))
-            {
-                btnAddItem.Enabled = true;
-            }
-            else
-            {
-                btnAddItem.Enabled = false;
-            }
-        }
-
-        private void runDialogTimer_Tick(object sender, EventArgs e)
-        {
-            if ((txtRunFile.Text != "") && (txtRunKeyword.Text != ""))
-            {
-                btnCreateCustomCommand.Enabled = true;
-            }
-            else
-            {
-                btnCreateCustomCommand.Enabled = false;
-            }
         }
 
         private void radioTop_CheckedChanged(object sender, EventArgs e)
@@ -2227,7 +2186,7 @@ namespace Optimizer
                 if (c is ColoredCheckBox && ((ColoredCheckBox)c).Checked) ((ColoredCheckBox)c).Checked = false;
             }
 
-            RenderAppDownloaderFree();  
+            RenderAppDownloaderFree();
         }
 
         string fileExtension = ".exe";
@@ -2392,7 +2351,7 @@ namespace Optimizer
                 listPingResults.Items.Add(string.Format("Could not find host [{0}]", txtPingInput.Text));
                 return;
             }
-            
+
             Task pinger = new Task(() =>
             {
                 btnShodan.Enabled = false;
@@ -2453,7 +2412,7 @@ namespace Optimizer
                 Process.Start(string.Format("https://www.shodan.io/host/{0}", txtPingInput.Text));
                 return;
             }
-            
+
             if (!string.IsNullOrEmpty(_shodanIP))
             {
                 Process.Start(string.Format("https://www.shodan.io/host/{0}", _shodanIP));
@@ -2590,6 +2549,11 @@ namespace Optimizer
         private void restartExpolorerItem_Click(object sender, EventArgs e)
         {
             Utilities.RestartExplorer();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Utilities.FlushDNSCache();
         }
     }
 }
