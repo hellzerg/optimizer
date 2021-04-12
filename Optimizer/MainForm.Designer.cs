@@ -116,7 +116,7 @@ namespace Optimizer
             this.btnGetFeed = new System.Windows.Forms.Button();
             this.panelCommonApps = new System.Windows.Forms.Panel();
             this.cAutoInstall = new Optimizer.ColoredCheckBox();
-            this.progressDownloader = new System.Windows.Forms.ProgressBar();
+            this.progressDownloader = new Optimizer.ColoredProgress();
             this.c64 = new Optimizer.ColoredRadioButton();
             this.c32 = new Optimizer.ColoredRadioButton();
             this.btnDownloadApps = new System.Windows.Forms.Button();
@@ -295,9 +295,6 @@ namespace Optimizer
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
             this.cleanerTab = new System.Windows.Forms.TabPage();
-            this.cleaningpanel = new System.Windows.Forms.Panel();
-            this.progress2 = new System.Windows.Forms.ProgressBar();
-            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblPretext = new System.Windows.Forms.Label();
@@ -576,7 +573,6 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
             this.cleanerTab.SuspendLayout();
-            this.cleaningpanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pingerTab.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -1914,7 +1910,7 @@ namespace Optimizer
             // 
             // progressDownloader
             // 
-            this.progressDownloader.Location = new System.Drawing.Point(7, 100);
+            this.progressDownloader.Location = new System.Drawing.Point(7, 108);
             this.progressDownloader.MarqueeAnimationSpeed = 15;
             this.progressDownloader.Name = "progressDownloader";
             this.progressDownloader.Size = new System.Drawing.Size(302, 10);
@@ -2009,7 +2005,7 @@ namespace Optimizer
             this.txtDownloadStatus.AutoSize = true;
             this.txtDownloadStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDownloadStatus.ForeColor = System.Drawing.Color.LightGray;
-            this.txtDownloadStatus.Location = new System.Drawing.Point(3, 76);
+            this.txtDownloadStatus.Location = new System.Drawing.Point(3, 83);
             this.txtDownloadStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtDownloadStatus.Name = "txtDownloadStatus";
             this.txtDownloadStatus.Size = new System.Drawing.Size(38, 21);
@@ -4004,7 +4000,6 @@ namespace Optimizer
             // cleanerTab
             // 
             this.cleanerTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cleanerTab.Controls.Add(this.cleaningpanel);
             this.cleanerTab.Controls.Add(this.label6);
             this.cleanerTab.Controls.Add(this.panel1);
             this.cleanerTab.Location = new System.Drawing.Point(4, 24);
@@ -4014,41 +4009,6 @@ namespace Optimizer
             this.cleanerTab.Size = new System.Drawing.Size(758, 611);
             this.cleanerTab.TabIndex = 5;
             this.cleanerTab.Text = "Cleaner";
-            // 
-            // cleaningpanel
-            // 
-            this.cleaningpanel.Controls.Add(this.progress2);
-            this.cleaningpanel.Controls.Add(this.label4);
-            this.cleaningpanel.Location = new System.Drawing.Point(11, 288);
-            this.cleaningpanel.Margin = new System.Windows.Forms.Padding(2);
-            this.cleaningpanel.Name = "cleaningpanel";
-            this.cleaningpanel.Size = new System.Drawing.Size(511, 70);
-            this.cleaningpanel.TabIndex = 47;
-            // 
-            // progress2
-            // 
-            this.progress2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.progress2.Location = new System.Drawing.Point(29, 38);
-            this.progress2.Margin = new System.Windows.Forms.Padding(2);
-            this.progress2.MarqueeAnimationSpeed = 1;
-            this.progress2.Name = "progress2";
-            this.progress2.Size = new System.Drawing.Size(454, 11);
-            this.progress2.TabIndex = 44;
-            this.progress2.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label4.Location = new System.Drawing.Point(25, 13);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 21);
-            this.label4.TabIndex = 45;
-            this.label4.Tag = "themeable";
-            this.label4.Text = "Cleaning...";
-            this.label4.Visible = false;
             // 
             // label6
             // 
@@ -4099,7 +4059,7 @@ namespace Optimizer
             this.lblFootprint.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFootprint.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblFootprint.Location = new System.Drawing.Point(235, 195);
+            this.lblFootprint.Location = new System.Drawing.Point(232, 195);
             this.lblFootprint.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFootprint.Name = "lblFootprint";
             this.lblFootprint.Size = new System.Drawing.Size(119, 31);
@@ -6712,8 +6672,6 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
             this.cleanerTab.ResumeLayout(false);
             this.cleanerTab.PerformLayout();
-            this.cleaningpanel.ResumeLayout(false);
-            this.cleaningpanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pingerTab.ResumeLayout(false);
@@ -6789,8 +6747,6 @@ namespace Optimizer
         private ColoredCheckBox checkBin;
         private ColoredCheckBox checkMiniDumps;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ProgressBar progress2;
         private System.Windows.Forms.TabPage startupTab;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button32;
@@ -6836,7 +6792,6 @@ namespace Optimizer
         private System.Windows.Forms.Button button47;
         private System.Windows.Forms.TextBox txtIP;
         private ColoredCheckBox checkErrorReports;
-        private System.Windows.Forms.Panel cleaningpanel;
         private System.Windows.Forms.TabPage integratorTab;
         private System.Windows.Forms.TabControl synapse;
         private System.Windows.Forms.TabPage integratorInfoTab;
@@ -7067,7 +7022,7 @@ namespace Optimizer
         private System.Windows.Forms.Panel panelApps1;
         private System.Windows.Forms.Panel panelApps5;
         private ColoredCheckBox chkOnlyRemovable;
-        private System.Windows.Forms.ProgressBar progressDownloader;
+        private ColoredProgress progressDownloader;
         private System.Windows.Forms.PictureBox pictureBox75;
         private ColoredCheckBox cUT2;
         private System.Windows.Forms.Button btnGetFeed;

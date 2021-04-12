@@ -142,6 +142,13 @@ namespace Optimizer
                     tmp.ForeColor = c1;
                 }
             }
+            foreach (RadioButton tmp in Utilities.GetSelfAndChildrenRecursive(f).OfType<RadioButton>().ToList())
+            {
+                if ((string)tmp.Tag == _themeFlag)
+                {
+                    tmp.ForeColor = c1;
+                }
+            }
         }
 
         internal static void SaveSettings()

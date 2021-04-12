@@ -356,6 +356,8 @@ namespace Optimizer
             // theming
             Options.ApplyTheme(this);
             launcherMenu.Renderer = new ToolStripRendererMaterial();
+            progressDownloader.BackColor = Options.ForegroundColor;
+            progressDownloader.ForeColor = Options.ForegroundAccentColor;
 
             // quick access
             _trayMenu = Options.CurrentOptions.EnableTray;
@@ -519,33 +521,8 @@ namespace Optimizer
             }
             finally
             {
-                CleaningAnimation(false);
+                Cleaning(false);
                 GetFootprint();
-            }
-        }
-
-        private void CleaningAnimation(bool start)
-        {
-            if (start)
-            {
-                Utilities.SetControlPropertyThreadSafe(cleaningpanel, "Visible", true);
-                Utilities.SetControlPropertyThreadSafe(progress2, "Visible", true);
-                Utilities.SetControlPropertyThreadSafe(progress2, "Style", ProgressBarStyle.Marquee);
-                Utilities.SetControlPropertyThreadSafe(progress2, "MarqueeAnimationSpeed", 1);
-                Utilities.SetControlPropertyThreadSafe(label4, "Visible", true);
-                Utilities.SetControlPropertyThreadSafe(button20, "Enabled", false);
-                Utilities.SetControlPropertyThreadSafe(panel1, "Enabled", false);
-            }
-            else
-            {
-                Utilities.SetControlPropertyThreadSafe(cleaningpanel, "Visible", false);
-                Utilities.SetControlPropertyThreadSafe(progress2, "Visible", false);
-                Utilities.SetControlPropertyThreadSafe(progress2, "Value", 0);
-                Utilities.SetControlPropertyThreadSafe(progress2, "Style", ProgressBarStyle.Blocks);
-                Utilities.SetControlPropertyThreadSafe(progress2, "MarqueeAnimationSpeed", 1);
-                Utilities.SetControlPropertyThreadSafe(label4, "Visible", false);
-                Utilities.SetControlPropertyThreadSafe(button20, "Enabled", true);
-                Utilities.SetControlPropertyThreadSafe(panel1, "Enabled", true);
             }
         }
 
@@ -657,7 +634,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+          
         }
 
         private void GetDesktopItems()
@@ -849,9 +826,15 @@ namespace Optimizer
 
         private void button20_Click(object sender, EventArgs e)
         {
-            CleaningAnimation(true);
+            Cleaning(true);
             Task t = new Task(() => CleanPC());
             t.Start();
+        }
+
+        private void Cleaning(bool enabled)
+        {
+            button20.Enabled = !enabled;
+            button20.Text = (enabled) ? "..." : "Clean";
         }
 
         private void button32_Click(object sender, EventArgs e)

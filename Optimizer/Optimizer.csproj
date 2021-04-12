@@ -89,6 +89,9 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ColoredControls\ColoredProgress.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ColoredControls\ToolStripRendererMaterial.cs" />
     <Compile Include="ErrorLogger.cs" />
     <Compile Include="FeedApp.cs" />

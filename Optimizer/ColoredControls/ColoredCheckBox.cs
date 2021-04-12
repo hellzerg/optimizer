@@ -10,12 +10,12 @@ namespace Optimizer
         {
             base.OnCheckedChanged(e);
 
-            this.Tag = "themeable";
-
             // custom theming
             if (this.Checked)
             {
+                this.Tag = "themeable";
                 this.Font = new Font(this.Font, FontStyle.Underline);
+
                 switch (Options.CurrentOptions.Color)
                 {
                     case Theme.Caramel:
