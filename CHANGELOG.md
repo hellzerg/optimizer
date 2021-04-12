@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.6] - 2021-04-12
+- New: Show or hide help tips option
+- UI polishing
+
 ## [7.5] - 2021-04-12
 - New: Hover on each switch to read the explanation
 - Improved: Disable Feature Updates

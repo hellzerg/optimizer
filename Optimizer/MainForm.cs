@@ -364,6 +364,10 @@ namespace Optimizer
             quickAccessToggle.Checked = Options.CurrentOptions.EnableTray;
             launcherIcon.Visible = Options.CurrentOptions.EnableTray;
 
+            // help tips
+            infoTip.Active = Options.CurrentOptions.ShowHelp;
+            helpTipsToggle.Checked = Options.CurrentOptions.ShowHelp;
+
             // fix SSL/TLS error when contacting internet
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
@@ -634,7 +638,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-          
+
         }
 
         private void GetDesktopItems()
@@ -2288,7 +2292,9 @@ namespace Optimizer
 
         private void l2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/hellzerg/optimizer");
+            AboutForm f = new AboutForm();
+            f.ShowDialog(this);
+            //Process.Start("https://github.com/hellzerg/optimizer");
         }
 
         private void btnViewLog_Click(object sender, EventArgs e)
@@ -2536,7 +2542,15 @@ namespace Optimizer
                 infoText = infoText.Replace(x, string.Empty);
             }
 
-            infoBaloon.ToolTipTitle = "What is " + infoText + "?";
+            infoTip.ToolTipTitle = "What is " + infoText + "?";
+        }
+
+        private void helpTipsToggle_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.ShowHelp = helpTipsToggle.Checked;
+            Options.SaveSettings();
+
+            infoTip.Active = helpTipsToggle.Checked;
         }
     }
 }

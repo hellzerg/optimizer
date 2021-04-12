@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Drawing;
 using System.IO;
@@ -13,6 +14,7 @@ namespace Optimizer
         public Theme Color { get; set; }
         public string AppsFolder { get; set; }
         public bool EnableTray { get; set; }
+        public bool ShowHelp { get; set; }
 
         public bool EnablePerformanceTweaks { get; set; }
         public bool DisableNetworkThrottling { get; set; }
@@ -155,6 +157,12 @@ namespace Optimizer
         {
             if (File.Exists(SettingsFile))
             {
+                string jsonFile = File.ReadAllText(SettingsFile);
+                string jsonMemory = JsonConvert.SerializeObject(CurrentOptions);
+
+                // check to see if no changes have been made
+                if (JToken.DeepEquals(JObject.Parse(jsonFile), JObject.Parse(jsonMemory))) return;
+
                 File.Delete(SettingsFile);
 
                 using (FileStream fs = File.Open(SettingsFile, FileMode.OpenOrCreate))
@@ -173,10 +181,12 @@ namespace Optimizer
         {
             if (!File.Exists(SettingsFile))
             {
+                // DEFAULT OPTIONS
                 CurrentOptions.Color = Theme.Zerg;
                 CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
                 Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
                 CurrentOptions.EnableTray = true;
+                CurrentOptions.ShowHelp = true;
 
                 CurrentOptions.EnablePerformanceTweaks = false;
                 CurrentOptions.DisableNetworkThrottling = false;
