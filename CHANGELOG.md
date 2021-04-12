@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.5] - 2021-04-12
+- New: Hover on each switch to read the explanation
+- Improved: Disable Feature Updates
+
 ## [7.4] - 2021-04-11
 - Improved: Disable SmartScreen
 - Improved: Better UI scaling in Common Apps
