@@ -1,6 +1,6 @@
 ## Summary: ##
 
-Portable utility that helps you to restore your privacy and increase your security.
+Portable utility that helps you restore your privacy and increase your security.
 
 Optimizer is recommended after a fresh, clean installation of Windows to achieve maximum privacy and security.
 
@@ -11,22 +11,21 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Speed up your system and network performance
 * Disable unnecessary Windows services
 * Disable Windows telemetry
-* Disable Office telemetry (works only with 2016)
+* Disable Office telemetry (works only with Office 2016)
 * Disable Cortana
 * Disable Windows 10 automatic updates
 * Download useful apps quickly at once
 * Uninstall UWP apps
-* Clean up your system drive
+* Clean your system drive
 * Fix common registry issues
-* Quickly ping IPs and assess your latency
+* Ping IPs and assess your latency
 * Search IPs on SHODAN.io
 * Flush DNS cache
 * Remove unwanted programs running at startup
-* Change Microsoft Edge download folder
-* Edit your hosts file
-* Add items in desktop right-click menu
+* Edit your HOSTS file
+* Add items in desktop on right-click menu
 * Define custom commands for run dialog
-* Supports silent run using configuration file
+* Silent run support using a configuration file
 
 ## Downloads: ##
 https://github.com/hellzerg/optimizer/releases

@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -46,6 +48,16 @@ namespace Optimizer
         readonly string _betaVersionMessage = "You are using an experimental version!";
 
         readonly string _blockedIP = "0.0.0.0";
+
+        string infoText = string.Empty;
+        string[] toRemove =
+        {
+            "Enable ",
+            "Disable ",
+            "Remove ",
+            "Uninstall ",
+            "Exclude ",
+        };
 
         readonly string _restartMessage = "Restart to apply changes?";
         readonly string _removeStartupItemsMessage = "Are you sure you want to delete all startup items?";
@@ -334,6 +346,7 @@ namespace Optimizer
             }
         }
 
+        //INIT
         public MainForm()
         {
             InitializeComponent();
@@ -646,7 +659,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void GetDesktopItems()
@@ -2531,6 +2544,18 @@ namespace Optimizer
         private void button10_Click(object sender, EventArgs e)
         {
             Utilities.FlushDNSCache();
+        }
+
+        private void infoBaloon_Popup(object sender, PopupEventArgs e)
+        {
+            infoText = ((ToggleSwitch)e.AssociatedControl).OnText;
+
+            foreach (string x in toRemove)
+            {
+                infoText = infoText.Replace(x, string.Empty);
+            }
+
+            infoBaloon.ToolTipTitle = "What is " + infoText + "?";
         }
     }
 }
