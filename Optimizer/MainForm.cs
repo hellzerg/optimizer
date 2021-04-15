@@ -97,7 +97,7 @@ namespace Optimizer
             
             if (!string.IsNullOrEmpty(latestVersion))
             {
-                if (float.Parse(latestVersion, CultureInfo.CreateSpecificCulture("en-US")) > Program.GetCurrentVersion())
+                if (float.Parse(latestVersion) > Program.GetCurrentVersion())
                 {
                     // show UPDATE AVAILABLE on app launch
                     if (silentCheck)
@@ -150,7 +150,7 @@ namespace Optimizer
                         }
                     }
                 }
-                else if (float.Parse(latestVersion, CultureInfo.CreateSpecificCulture("en-US")) == Program.GetCurrentVersion())
+                else if (float.Parse(latestVersion) == Program.GetCurrentVersion())
                 {
                     if (!silentCheck) MessageBox.Show(_noNewVersionMessage, "No update available", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -354,6 +354,9 @@ namespace Optimizer
             EnableToggleEvents();
 
             CheckForIllegalCrossThreadCalls = false;
+
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-US");
 
             // theming
             Options.ApplyTheme(this);
