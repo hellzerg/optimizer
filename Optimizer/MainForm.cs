@@ -151,7 +151,7 @@ namespace Optimizer
                         }
                     }
                 }
-                else if (float.Parse(latestVersion) == Program.GetCurrentVersion())
+                else if (float.Parse(latestVersion, CultureInfo.InvariantCulture) == Program.GetCurrentVersion())
                 {
                     if (!silentCheck) MessageBox.Show(_noNewVersionMessage, "No update available", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
