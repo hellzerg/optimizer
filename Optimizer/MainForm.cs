@@ -86,7 +86,7 @@ namespace Optimizer
             string latestVersion = string.Empty;
             try
             {
-                latestVersion = client.DownloadString(_latestVersionLink);
+                latestVersion = client.DownloadString(_latestVersionLink).Trim();
             }
             catch (Exception ex)
             {
@@ -94,6 +94,7 @@ namespace Optimizer
                 MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+            MessageBox.Show(latestVersion);
             if (!string.IsNullOrEmpty(latestVersion))
             {
                 if (float.Parse(latestVersion) > Program.GetCurrentVersion())
