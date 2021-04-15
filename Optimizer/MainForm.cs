@@ -95,7 +95,7 @@ namespace Optimizer
                 MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            
+            MessageBox.Show(latestVersion);
             if (!string.IsNullOrEmpty(latestVersion))
             {
                 if (float.Parse(latestVersion, NumberStyles.Any, CultureInfo.InvariantCulture) > Program.GetCurrentVersion())
