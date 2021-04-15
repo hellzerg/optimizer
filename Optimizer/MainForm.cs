@@ -98,7 +98,7 @@ namespace Optimizer
             
             if (!string.IsNullOrEmpty(latestVersion))
             {
-                if (float.Parse(latestVersion, CultureInfo.InvariantCulture) > Program.GetCurrentVersion())
+                if (float.Parse(latestVersion, NumberStyles.Any, CultureInfo.InvariantCulture) > Program.GetCurrentVersion())
                 {
                     // show UPDATE AVAILABLE on app launch
                     if (silentCheck)
@@ -151,7 +151,7 @@ namespace Optimizer
                         }
                     }
                 }
-                else if (float.Parse(latestVersion, CultureInfo.InvariantCulture) == Program.GetCurrentVersion())
+                else if (float.Parse(latestVersion, NumberStyles.Any, CultureInfo.InvariantCulture) == Program.GetCurrentVersion())
                 {
                     if (!silentCheck) MessageBox.Show(_noNewVersionMessage, "No update available", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
