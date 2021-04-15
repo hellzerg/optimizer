@@ -94,11 +94,10 @@ namespace Optimizer
                 ErrorLogger.LogError("MainForm.CheckForUpdate", ex.Message, ex.StackTrace);
                 MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            MessageBox.Show(latestVersion);
+            
             if (!string.IsNullOrEmpty(latestVersion))
             {
-                if (float.Parse(latestVersion, NumberStyles.Any, CultureInfo.InvariantCulture) > Program.GetCurrentVersion())
+                if (float.Parse(latestVersion, CultureInfo.CreateSpecificCulture("en-US")) > Program.GetCurrentVersion())
                 {
                     // show UPDATE AVAILABLE on app launch
                     if (silentCheck)
@@ -151,7 +150,7 @@ namespace Optimizer
                         }
                     }
                 }
-                else if (float.Parse(latestVersion, NumberStyles.Any, CultureInfo.InvariantCulture) == Program.GetCurrentVersion())
+                else if (float.Parse(latestVersion, CultureInfo.CreateSpecificCulture("en-US")) == Program.GetCurrentVersion())
                 {
                     if (!silentCheck) MessageBox.Show(_noNewVersionMessage, "No update available", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
