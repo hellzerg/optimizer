@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.7] - 2021-04-15
+- Hotfix: Crashes due to localization
+
 ## [7.6] - 2021-04-12
 - New: Show or hide help tips option
 - UI polishing

@@ -351,12 +351,12 @@ namespace Optimizer
         {
             InitializeComponent();
 
-            EnableToggleEvents();
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-US");
 
             CheckForIllegalCrossThreadCalls = false;
 
-            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
-            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-US");
+            EnableToggleEvents();
 
             // theming
             Options.ApplyTheme(this);
@@ -455,7 +455,7 @@ namespace Optimizer
                 txtDownloadFolder.Text = Options.CurrentOptions.AppsFolder;
             }
 
-            if (Utilities.IsInternetAvailable()) CheckForUpdate(true);
+            if (!Program.EXPERIMENTAL_BUILD && Utilities.IsInternetAvailable()) CheckForUpdate(true);
 
             if (Program.EXPERIMENTAL_BUILD)
             {
