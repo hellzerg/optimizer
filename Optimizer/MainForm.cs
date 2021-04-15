@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -94,10 +95,10 @@ namespace Optimizer
                 MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            MessageBox.Show(latestVersion);
+            
             if (!string.IsNullOrEmpty(latestVersion))
             {
-                if (float.Parse(latestVersion) > Program.GetCurrentVersion())
+                if (float.Parse(latestVersion, CultureInfo.InvariantCulture) > Program.GetCurrentVersion())
                 {
                     // show UPDATE AVAILABLE on app launch
                     if (silentCheck)
@@ -452,7 +453,7 @@ namespace Optimizer
                 txtDownloadFolder.Text = Options.CurrentOptions.AppsFolder;
             }
 
-            if (!Program.EXPERIMENTAL_BUILD && Utilities.IsInternetAvailable()) CheckForUpdate(true);
+            if (Utilities.IsInternetAvailable()) CheckForUpdate(true);
 
             if (Program.EXPERIMENTAL_BUILD)
             {
