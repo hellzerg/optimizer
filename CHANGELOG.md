@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [7.8] - 2021-04-17
 - Hotfix: Crash when Startup folders are missing
+- Startup can now detect batch files
 
 ## [7.7] - 2021-04-15
 - Hotfix: Crashes due to localization
