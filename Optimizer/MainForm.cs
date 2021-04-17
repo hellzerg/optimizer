@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -69,7 +68,7 @@ namespace Optimizer
 
         private string NewVersionMessage(string latestVersion)
         {
-            return string.Format("There is a new version available!\n\nLatest version: {0}\nCurrent version: {1}\n\nDo you want to download it now?", latestVersion, Program.GetCurrentVersionTostring());
+            return string.Format("There is a new version available!\n\nLatest version: {0}\nCurrent version: {1}\n\nDo you want to download it now?\n\nApp will restart in a few seconds.", latestVersion, Program.GetCurrentVersionTostring());
         }
 
         private string NewDownloadLink(string latestVersion)
@@ -94,7 +93,7 @@ namespace Optimizer
                 ErrorLogger.LogError("MainForm.CheckForUpdate", ex.Message, ex.StackTrace);
                 MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
             if (!string.IsNullOrEmpty(latestVersion))
             {
                 if (float.Parse(latestVersion) > Program.GetCurrentVersion())
@@ -122,9 +121,9 @@ namespace Optimizer
                             string appName = Path.GetFileNameWithoutExtension(currentAssembly.Location);
                             string appExtension = Path.GetExtension(currentAssembly.Location);
 
-                            string archiveFile = Path.Combine(appFolder, appName + "_old" + appExtension);
+                            string archiveFile = Path.Combine(appFolder, "Optimizer_old" + appExtension);
                             string appFile = Path.Combine(appFolder, appName + appExtension);
-                            string tempFile = Path.Combine(appFolder, appName + "_tmp" + appExtension);
+                            string tempFile = Path.Combine(appFolder, "Optimizer_tmp" + appExtension);
 
                             // DOWNLOAD NEW VERSION
                             client.DownloadFile(NewDownloadLink(latestVersion), tempFile);
