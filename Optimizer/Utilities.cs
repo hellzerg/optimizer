@@ -23,6 +23,7 @@ namespace Optimizer
         internal static readonly string LocalMachineRunOnceWow = "Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\RunOnce";
         internal static readonly string CurrentUserRun = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
         internal static readonly string CurrentUserRunOnce = "Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce";
+
         internal static readonly string LocalMachineStartupFolder = CleanHelper.ProgramData + "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup";
         internal static readonly string CurrentUserStartupFolder = CleanHelper.ProfileAppDataRoaming + "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup";
 
@@ -383,13 +384,21 @@ namespace Optimizer
                 GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKLMWoW, StartupItemType.RunOnce);
             }
 
-            string[] currentUserFiles = Directory.GetFiles(CurrentUserStartupFolder, "*.exe", SearchOption.AllDirectories);
-            string[] currentUserShortcuts = Directory.GetFiles(CurrentUserStartupFolder, "*.lnk", SearchOption.AllDirectories);
-            GetFolderStartupItemsHelper(ref startupItems, currentUserFiles, currentUserShortcuts);
+            if (Directory.Exists(CurrentUserStartupFolder))
+            {
+                string[] currentUserFiles = Directory.EnumerateFiles(CurrentUserStartupFolder, "*.*", SearchOption.AllDirectories)
+                .Where(s => s.EndsWith(".exe") || s.EndsWith(".bat")).ToArray();
+                string[] currentUserShortcuts = Directory.GetFiles(CurrentUserStartupFolder, "*.lnk", SearchOption.AllDirectories);
+                GetFolderStartupItemsHelper(ref startupItems, currentUserFiles, currentUserShortcuts);
+            }
 
-            string[] localMachineFiles = Directory.GetFiles(LocalMachineStartupFolder, "*.exe", SearchOption.AllDirectories);
-            string[] localMachineShortcuts = Directory.GetFiles(LocalMachineStartupFolder, "*.lnk", SearchOption.AllDirectories);
-            GetFolderStartupItemsHelper(ref startupItems, localMachineFiles, localMachineShortcuts);
+            if (Directory.Exists(LocalMachineStartupFolder))
+            {
+                string[] localMachineFiles = Directory.EnumerateFiles(LocalMachineStartupFolder, "*.*", SearchOption.AllDirectories)
+                .Where(s => s.EndsWith(".exe") || s.EndsWith(".bat")).ToArray();
+                string[] localMachineShortcuts = Directory.GetFiles(LocalMachineStartupFolder, "*.lnk", SearchOption.AllDirectories);
+                GetFolderStartupItemsHelper(ref startupItems, localMachineFiles, localMachineShortcuts);
+            }
 
             return startupItems;
         }
