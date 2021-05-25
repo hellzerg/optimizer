@@ -36,7 +36,7 @@
    },
    {
       "Title":"Rufus",
-      "Link":"https://github.com/pbatard/rufus/releases/download/v3.13/rufus-3.13p.exe",
+      "Link":"https://github.com/pbatard/rufus/releases/download/v3.14/rufus-3.14p.exe",
       "Tag":"cRufus"
    },
    {
@@ -82,7 +82,7 @@
    },
    {
       "Title":"XAMPP",
-      "Link64":"https://downloadsapachefriends.global.ssl.fastly.net/8.0.3/xampp-windows-x64-8.0.3-0-VS16-installer.exe",
+      "Link64":"https://downloadsapachefriends.global.ssl.fastly.net/8.0.6/xampp-windows-x64-8.0.6-0-VS16-installer.exe",
       "Tag":"cXAMPP"
    },
    {
@@ -134,13 +134,13 @@
    },
    {
       "Title":"qBitTorrent",
-      "Link64":"https://kumisystems.dl.sourceforge.net/project/qbittorrent/qbittorrent-win32/qbittorrent-4.3.4.1/qbittorrent_4.3.4.1_x64_setup.exe",
-      "Link":"https://deac-ams.dl.sourceforge.net/project/qbittorrent/qbittorrent-win32/qbittorrent-4.3.4.1/qbittorrent_4.3.4.1_setup.exe",
+      "Link64":"https://deac-fra.dl.sourceforge.net/project/qbittorrent/qbittorrent-win32/qbittorrent-4.3.5/qbittorrent_4.3.5_x64_setup.exe",
+      "Link":"https://jztkft.dl.sourceforge.net/project/qbittorrent/qbittorrent-win32/qbittorrent-4.3.5/qbittorrent_4.3.5_setup.exe",
       "Tag":"cQB"
    },
    {
       "Title":"Sublime Merge",
-      "Link64":"https://download.sublimetext.com/sublime_merge_build_2049_x64_setup.exe",
+      "Link64": "https://download.sublimetext.com/sublime_merge_build_2056_x64_setup.exe",
       "Tag":"cSublimeMerge"
    },
    {
@@ -172,8 +172,8 @@
    },
    {
       "Title":"Sublime Text",
-      "Link64":"https://download.sublimetext.com/Sublime%20Text%20Build%203211%20x64%20Setup.exe",
       "Link":"https://download.sublimetext.com/Sublime%20Text%20Build%203211%20Setup.exe",
+      "Link64": "https://download.sublimetext.com/Sublime%20Text%20Build%203211%20x64%20Setup.exe",
       "Tag":"cSublimeText"
    },
    {
@@ -183,7 +183,7 @@
    },
    {
       "Title":"Notepad++",
-      "Link":"https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v7.9.3/npp.7.9.3.Installer.exe",
+      "Link":"https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v7.9.5/npp.7.9.5.Installer.exe",
       "Tag":"cNPP"
    },
    {
@@ -252,7 +252,7 @@
    },
    {
       "Title":"Gyazo",
-      "Link":"https://files.gyazo.com/setup/Gyazo-4.1.6.exe",
+      "Link":"https://files.gyazo.com/setup/Gyazo-4.2.exe",
       "Tag":"cGyazo"
    },
    {
@@ -273,12 +273,12 @@
    },
    {
       "Title":"Audacity",
-      "Link":"https://github.com/audacity/audacity/releases/download/Audacity-3.0.0/audacity-win-3.0.0.exe",
+      "Link":"https://github.com/audacity/audacity/releases/download/Audacity-3.0.2/audacity-win-3.0.2.exe",
       "Tag":"cAudacity"
    },
    {
       "Title":"GIMP",
-      "Link":"https://gimp.ip-connect.info/gimp/v2.10/windows/gimp-2.10.24-setup-2.exe",
+      "Link":"https://ftp.cc.uoc.gr/mirrors/gimp/v2.10/windows/gimp-2.10.24-setup-3.exe",
       "Tag":"cGIMP"
    },
    {
@@ -313,7 +313,7 @@
    },
    {
       "Title":"Foobar2000",
-      "Link":"https://www.foobar2000.org/files/foobar2000_v1.6.5.exe",
+      "Link":"https://www.foobar2000.org/files/foobar2000_v1.6.6.exe",
       "Tag":"cFoobar"
    },
    {
@@ -324,8 +324,8 @@
    },
    {
       "Title":"VLC Media Player",
-      "Link64":"https://get.videolan.org/vlc/3.0.12/win64/vlc-3.0.12-win64.exe",
-      "Link":"https://get.videolan.org/vlc/3.0.12/win32/vlc-3.0.12-win32.exe",
+      "Link64":"https://mirrors.uni-ruse.bg/vlc/vlc/3.0.14/win64/vlc-3.0.14-win64.exe",
+      "Link":"https://mirrors.neterra.net/vlc/vlc/3.0.14/win32/vlc-3.0.14-win32.exe",
       "Tag":"cVLC"
    },
    {
@@ -366,8 +366,8 @@
    },
    {
       "Title":"Chromium",
-      "Link64":"https://github.com/Hibbiki/chromium-win64/releases/download/v90.0.4430.93-r857950/mini_installer.sync.exe",
-      "Link":"https://github.com/Hibbiki/chromium-win32/releases/download/v90.0.4430.93-r857950/mini_installer.sync.exe",
+      "Link64":"https://github.com/Hibbiki/chromium-win64/releases/download/v90.0.4430.212-r857950/mini_installer.sync.exe",
+      "Link":"https://github.com/Hibbiki/chromium-win32/releases/download/v90.0.4430.212-r857950/mini_installer.sync.exe",
       "Tag":"cChromium"
    },
    {
@@ -390,7 +390,7 @@
    },
    {
       "Title":"Universal USB Installer",
-      "Link":"https://www.pendrivelinux.com/downloads/Universal-USB-Installer/Universal-USB-Installer-2.0.0.3a.exe",
+      "Link":"https://www.pendrivelinux.com/downloads/Universal-USB-Installer/Universal-USB-Installer-2.0.0.4.exe",
       "Tag":"cUUI"
    },
    {
