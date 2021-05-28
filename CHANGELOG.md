@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.9] - 2021-05-27
+- Hotfix: Issue #37, crashing when registry key permission is denied
+
 ## [7.8] - 2021-04-17
 - Hotfix: Crash when Startup folders are missing
 - Startup can now detect batch files
