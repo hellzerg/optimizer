@@ -301,30 +301,37 @@ namespace Optimizer
 
             if (hive != null)
             {
-                RegistryKey key = hive.OpenSubKey(keyPath, true);
-
-                if (key != null)
+                try
                 {
-                    string[] valueNames = key.GetValueNames();
+                    RegistryKey key = hive.OpenSubKey(keyPath, true);
 
-                    foreach (string x in valueNames)
+                    if (key != null)
                     {
-                        try
-                        {
-                            RegistryStartupItem item = new RegistryStartupItem();
-                            item.Name = x;
-                            item.FileLocation = key.GetValue(x).ToString();
-                            item.Key = key;
-                            item.RegistryLocation = location;
-                            item.StartupType = type;
+                        string[] valueNames = key.GetValueNames();
 
-                            list.Add(item);
-                        }
-                        catch (Exception ex)
+                        foreach (string x in valueNames)
                         {
-                            ErrorLogger.LogError("Utilities.GetRegistryStartupItemsHelper", ex.Message, ex.StackTrace);
+                            try
+                            {
+                                RegistryStartupItem item = new RegistryStartupItem();
+                                item.Name = x;
+                                item.FileLocation = key.GetValue(x).ToString();
+                                item.Key = key;
+                                item.RegistryLocation = location;
+                                item.StartupType = type;
+
+                                list.Add(item);
+                            }
+                            catch (Exception ex)
+                            {
+                                ErrorLogger.LogError("Utilities.GetRegistryStartupItemsHelper", ex.Message, ex.StackTrace);
+                            }
                         }
                     }
+                }
+                catch (Exception ex)
+                {
+                    ErrorLogger.LogError("Utilities.GetRegistryStartupItemsHelper", ex.Message, ex.StackTrace);
                 }
             }
         }
