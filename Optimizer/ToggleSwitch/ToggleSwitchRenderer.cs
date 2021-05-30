@@ -50,6 +50,11 @@ namespace Optimizer
                     LeftSideColorHovered = Color.MediumOrchid;
                     LeftSideColorPressed = Color.MediumOrchid;
                     break;
+                default:
+                    LeftSideColor = Color.MediumOrchid;
+                    LeftSideColorHovered = Color.MediumOrchid;
+                    LeftSideColorPressed = Color.MediumOrchid;
+                    break;
             }
 
             BorderColor = Color.FromArgb(20, 20, 20);

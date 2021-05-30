@@ -20,6 +20,8 @@ namespace Optimizer
         ListViewColumnSorter _columnSorter;
 
         List<StartupItem> _startUpItems = new List<StartupItem>();
+        List<StartupBackupItem> _backupItems = new List<StartupBackupItem>();
+
         List<string> _hostsEntries = new List<string>();
         List<string> _customCommands = new List<string>();
         List<string> _desktopItems = new List<string>();
@@ -449,7 +451,15 @@ namespace Optimizer
             {
                 if (!Directory.Exists(Options.CurrentOptions.AppsFolder))
                 {
-                    Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
+                    try
+                    {
+                        Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
+                    }
+                    catch (Exception ex)
+                    {
+                        txtDownloadFolder.Text = string.Empty;
+                        ErrorLogger.LogError("MainForm.INIT", ex.Message, ex.StackTrace);
+                    }
                 }
                 txtDownloadFolder.Text = Options.CurrentOptions.AppsFolder;
             }
@@ -642,7 +652,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void GetDesktopItems()
@@ -2555,6 +2565,78 @@ namespace Optimizer
             Options.SaveSettings();
 
             infoTip.Active = helpTipsToggle.Checked;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            ShowBackupConfirm();
+        }
+
+        private void ShowBackupConfirm()
+        {
+            button32.Visible = false;
+            button31.Visible = false;
+            button64.Visible = false;
+            button37.Visible = false;
+            button12.Visible = false;
+            button11.Visible = false;
+
+            label4.Visible = true;
+            button13.Visible = true;
+            button14.Visible = true;
+            txtBackupTitle.Visible = true;
+        }
+
+        private void HideBackupConfirm()
+        {
+            button32.Visible = true;
+            button31.Visible = true;
+            button64.Visible = true;
+            button37.Visible = true;
+            button12.Visible = true;
+            button11.Visible = true;
+
+            label4.Visible = false;
+            button13.Visible = false;
+            button14.Visible = false;
+            txtBackupTitle.Visible = false;
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            StartupRestoreForm f = new StartupRestoreForm();
+            f.ShowDialog(this);
+
+            GetStartupItems();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            HideBackupConfirm();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtBackupTitle.Text.Trim()))
+            {
+                HideBackupConfirm();
+
+                _backupItems.Clear();
+
+                foreach (var x in _startUpItems)
+                {
+                    _backupItems.Add(new StartupBackupItem(x.Name, x.FileLocation, x.RegistryLocation.ToString(), x.StartupType.ToString()));
+                }
+
+                try
+                {
+                    File.WriteAllText(Required.StartupItemsBackupFolder + Utilities.SanitizeFileFolderName(txtBackupTitle.Text + " - [" + DateTime.Now.ToShortDateString() + "-" + DateTime.Now.ToShortTimeString()) + "].json", JsonConvert.SerializeObject(_backupItems, Formatting.Indented));
+                }
+                catch (Exception ex)
+                {
+                    ErrorLogger.LogError("MainForm.BackupStartupItems", ex.Message, ex.StackTrace);
+                }
+            }
         }
     }
 }

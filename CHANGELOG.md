@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [8.0] - 2021-05-30
+- New: Backup & restore Startup items
+- Improved: Performance tweaks
+- Improved: Better cconfiguration management
+- Hotfix: Detect missing apps download path
+
 ## [7.9] - 2021-05-27
 - Hotfix: Issue #37, crashing when registry key permission is denied
 

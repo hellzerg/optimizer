@@ -14,7 +14,7 @@
         Windows10
     }
 
-    internal enum StartupItemLocation
+    public enum StartupItemLocation
     {
         Folder,
         HKLM,
@@ -22,7 +22,7 @@
         HKCU
     }
 
-    internal enum StartupItemType
+    public enum StartupItemType
     {
         None,
         Run,

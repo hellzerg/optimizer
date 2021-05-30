@@ -662,5 +662,11 @@ namespace Optimizer
         {
             Utilities.RunCommand("ipconfig /release && ipconfig /flushdns && ipconfig /renew");
         }
+
+        internal static string SanitizeFileFolderName(string fileName)
+        {
+            char[] invalids = Path.GetInvalidFileNameChars();
+            return string.Join("_", fileName.Split(invalids, StringSplitOptions.RemoveEmptyEntries)).TrimEnd('.');
+        }
     }
 }

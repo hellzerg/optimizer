@@ -12,8 +12,8 @@ namespace Optimizer
 
         // Enter current version here
 
-        internal readonly static float Major = 7;
-        internal readonly static float Minor = 9;
+        internal readonly static float Major = 8;
+        internal readonly static float Minor = 0;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
@@ -46,7 +46,7 @@ namespace Optimizer
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
 
             // check if another instance is running
-            // problem? prevents auto-patching...
+            // what's the problem? prevents auto-patching...
 
             //if (System.Diagnostics.Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location)).Length > 1)
             //{
@@ -68,10 +68,7 @@ namespace Optimizer
             {
                 if (Utilities.IsCompatible())
                 {
-                    if (!Directory.Exists(Required.CoreFolder))
-                    {
-                        Required.Deploy();
-                    }
+                    Required.Deploy();
 
                     // for backward compatibility (legacy)
                     if (File.Exists(Options.SettingsFile))

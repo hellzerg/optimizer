@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Text;
 
 namespace Optimizer
 {
@@ -9,6 +11,55 @@ namespace Optimizer
         internal readonly static string ScriptsFolder = CleanHelper.ProgramData + "\\Optimizer\\Required\\";
         internal readonly static string ExtractedIconsFolder = CleanHelper.ProgramData + "\\Optimizer\\ExtractedIcons\\";
         internal readonly static string FavIconsFolder = CleanHelper.ProgramData + "\\Optimizer\\FavIcons\\";
+        internal readonly static string StartupItemsBackupFolder = CleanHelper.ProgramData + "\\Optimizer\\StartupBackup\\";
+
+        readonly static string[] readyMadeMenusItems =
+        {
+            ReadyMadeMenusFolder + "DesktopShortcuts.reg",
+            ReadyMadeMenusFolder + "SystemShortcuts.reg",
+            ReadyMadeMenusFolder + "PowerMenu.reg",
+            ReadyMadeMenusFolder + "SystemTools.reg",
+            ReadyMadeMenusFolder + "WindowsApps.reg",
+            ReadyMadeMenusFolder + "InstallTakeOwnership.reg",
+            ReadyMadeMenusFolder + "RemoveTakeOwnership.reg"
+        };
+
+        readonly static string[] readyMadeMenusFiles =
+        {
+            Properties.Resources.DesktopShortcuts,
+            Properties.Resources.SystemShortcuts,
+            Properties.Resources.PowerMenu,
+            Properties.Resources.SystemTools,
+            Properties.Resources.WindowsApps,
+            Properties.Resources.InstallTakeOwnership,
+            Properties.Resources.RemoveTakeOwnership
+        };
+
+        readonly static string[] scriptItems =
+        {
+            ScriptsFolder + "DisableOfficeTelemetryTasks.bat",
+            ScriptsFolder + "DisableOfficeTelemetryTasks.reg",
+            ScriptsFolder + "EnableOfficeTelemetryTasks.bat",
+            ScriptsFolder + "EnableOfficeTelemetryTasks.reg",
+            ScriptsFolder + "DisableTelemetryTasks.bat",
+            ScriptsFolder + "EnableTelemetryTasks.bat",
+            ScriptsFolder + "DisableXboxTasks.bat",
+            ScriptsFolder + "EnableXboxTasks.bat",
+            ScriptsFolder + "OneDrive_Uninstaller.cmd"
+        };
+
+        readonly static string[] scriptFiles =
+        {
+            Properties.Resources.DisableOfficeTelemetryTasks,
+            Properties.Resources.DisableOfficeTelemetry,
+            Properties.Resources.EnableOfficeTelemetryTasks,
+            Properties.Resources.EnableOfficeTelemetry,
+            Properties.Resources.DisableTelemetryTasks,
+            Properties.Resources.EnableTelemetryTasks,
+            Properties.Resources.DisableXboxTasks,
+            Properties.Resources.EnableXboxTasks,
+            Encoding.UTF8.GetString(Properties.Resources.OneDrive_Uninstaller)
+        };
 
         internal static void Deploy()
         {
@@ -32,88 +83,30 @@ namespace Optimizer
             {
                 Directory.CreateDirectory(FavIconsFolder);
             }
+            if (!Directory.Exists(StartupItemsBackupFolder))
+            {
+                Directory.CreateDirectory(StartupItemsBackupFolder);
+            }
 
-            try
+            for (int i = 0; i < readyMadeMenusItems.Length; i++)
             {
-                File.WriteAllText(ReadyMadeMenusFolder + "DesktopShortcuts.reg", Properties.Resources.DesktopShortcuts);
+                if (!File.Exists(readyMadeMenusItems[i])) File.WriteAllText(readyMadeMenusItems[i], readyMadeMenusFiles[i]);
             }
-            catch { }
-            try
-            {
-                File.WriteAllText(ReadyMadeMenusFolder + "SystemShortcuts.reg", Properties.Resources.SystemShortcuts);
-            }
-            catch { }
-            try
-            {
-                File.WriteAllText(ReadyMadeMenusFolder + "PowerMenu.reg", Properties.Resources.PowerMenu);
-            }
-            catch { }
-            try
-            {
-                File.WriteAllText(ReadyMadeMenusFolder + "SystemTools.reg", Properties.Resources.SystemTools);
-            }
-            catch { }
-            try
-            {
-                File.WriteAllText(ReadyMadeMenusFolder + "WindowsApps.reg", Properties.Resources.WindowsApps);
-            }
-            catch { }
 
-            try
+            for (int i = 0; i < scriptItems.Length; i++)
             {
-                File.WriteAllText(ScriptsFolder + "DisableOfficeTelemetryTasks.bat", Properties.Resources.DisableOfficeTelemetryTasks);
+                if (!File.Exists(scriptItems[i]))
+                {
+                    if (scriptItems[i].Contains("OneDrive"))
+                    {
+                        File.WriteAllBytes(scriptItems[i], Encoding.UTF8.GetBytes(scriptFiles[i]));
+                    }
+                    else
+                    {
+                        File.WriteAllText(scriptItems[i], scriptFiles[i]);
+                    }
+                }
             }
-            catch { }
-            try
-            {
-                File.WriteAllText(ScriptsFolder + "DisableOfficeTelemetryTasks.reg", Properties.Resources.DisableOfficeTelemetry);
-            }
-            catch { }
-            try
-            {
-                File.WriteAllText(ScriptsFolder + "EnableOfficeTelemetryTasks.bat", Properties.Resources.EnableOfficeTelemetryTasks);
-            }
-            catch { }
-            try
-            {
-                File.WriteAllText(ScriptsFolder + "EnableOfficeTelemetryTasks.reg", Properties.Resources.EnableOfficeTelemetry);
-            }
-            catch { }
-            try
-            {
-                File.WriteAllText(ScriptsFolder + "DisableTelemetryTasks.bat", Properties.Resources.DisableTelemetryTasks);
-            }
-            catch { }
-            try
-            {
-                File.WriteAllText(ScriptsFolder + "EnableTelemetryTasks.bat", Properties.Resources.EnableTelemetryTasks);
-            }
-            catch { }
-            try
-            {
-                File.WriteAllText(ScriptsFolder + "DisableXboxTasks.bat", Properties.Resources.DisableXboxTasks);
-            }
-            catch { }
-            try
-            {
-                File.WriteAllText(ScriptsFolder + "EnableXboxTasks.bat", Properties.Resources.EnableXboxTasks);
-            }
-            catch { }
-            try
-            {
-                File.WriteAllBytes(ScriptsFolder + "OneDrive_Uninstaller.cmd", Properties.Resources.OneDrive_Uninstaller);
-            }
-            catch { }
-            try
-            {
-                File.WriteAllText(ReadyMadeMenusFolder + "InstallTakeOwnership.reg", Properties.Resources.InstallTakeOwnership);
-            }
-            catch { }
-            try
-            {
-                File.WriteAllText(ReadyMadeMenusFolder + "RemoveTakeOwnership.reg", Properties.Resources.RemoveTakeOwnership);
-            }
-            catch { }
         }
 
         internal static void Clean()

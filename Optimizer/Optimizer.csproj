@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -147,6 +147,19 @@
     <Compile Include="Required.cs" />
     <Compile Include="SilentConfig.cs" />
     <Compile Include="SilentOps.cs" />
+    <Compile Include="StartupPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartupPreviewForm.Designer.cs">
+      <DependentUpon>StartupPreviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartupRestoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartupRestoreForm.Designer.cs">
+      <DependentUpon>StartupRestoreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartupBackupItem.cs" />
     <Compile Include="StartupItem.cs" />
     <Compile Include="ToggleSwitch\ImageHelper.cs" />
     <Compile Include="ToggleSwitch\ToggleSwitch.cs">
@@ -182,6 +195,12 @@
     </Compile>
     <EmbeddedResource Include="HelperForm.resx">
       <DependentUpon>HelperForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartupPreviewForm.resx">
+      <DependentUpon>StartupPreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartupRestoreForm.resx">
+      <DependentUpon>StartupRestoreForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest">
       <SubType>Designer</SubType>

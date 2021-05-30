@@ -316,6 +316,12 @@ namespace Optimizer
             this.exitItem = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.infoTip = new System.Windows.Forms.ToolTip(this.components);
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.txtBackupTitle = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.toggleSwitch38 = new Optimizer.ToggleSwitch();
             this.toggleSwitch36 = new Optimizer.ToggleSwitch();
             this.toggleSwitch33 = new Optimizer.ToggleSwitch();
@@ -996,6 +1002,12 @@ namespace Optimizer
             // startupTab
             // 
             this.startupTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.startupTab.Controls.Add(this.button14);
+            this.startupTab.Controls.Add(this.button13);
+            this.startupTab.Controls.Add(this.txtBackupTitle);
+            this.startupTab.Controls.Add(this.label4);
+            this.startupTab.Controls.Add(this.button12);
+            this.startupTab.Controls.Add(this.button11);
             this.startupTab.Controls.Add(this.button64);
             this.startupTab.Controls.Add(this.button31);
             this.startupTab.Controls.Add(this.button37);
@@ -4543,6 +4555,106 @@ namespace Optimizer
             this.infoTip.UseFading = false;
             this.infoTip.Popup += new System.Windows.Forms.PopupEventHandler(this.infoBaloon_Popup);
             // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button11.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.ForeColor = System.Drawing.Color.White;
+            this.button11.Location = new System.Drawing.Point(11, 563);
+            this.button11.Margin = new System.Windows.Forms.Padding(2);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(101, 31);
+            this.button11.TabIndex = 41;
+            this.button11.Text = "Backup";
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button12.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.ForeColor = System.Drawing.Color.White;
+            this.button12.Location = new System.Drawing.Point(116, 563);
+            this.button12.Margin = new System.Windows.Forms.Padding(2);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(101, 31);
+            this.button12.TabIndex = 42;
+            this.button12.Text = "Restore";
+            this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // txtBackupTitle
+            // 
+            this.txtBackupTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txtBackupTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBackupTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBackupTitle.ForeColor = System.Drawing.Color.White;
+            this.txtBackupTitle.Location = new System.Drawing.Point(114, 566);
+            this.txtBackupTitle.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBackupTitle.Name = "txtBackupTitle";
+            this.txtBackupTitle.Size = new System.Drawing.Size(310, 29);
+            this.txtBackupTitle.TabIndex = 58;
+            this.txtBackupTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBackupTitle.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Silver;
+            this.label4.Location = new System.Drawing.Point(10, 569);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 21);
+            this.label4.TabIndex = 59;
+            this.label4.Tag = "";
+            this.label4.Text = "Backup title:";
+            this.label4.Visible = false;
+            // 
+            // button13
+            // 
+            this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button13.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button13.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.ForeColor = System.Drawing.Color.White;
+            this.button13.Location = new System.Drawing.Point(430, 566);
+            this.button13.Margin = new System.Windows.Forms.Padding(2);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(53, 29);
+            this.button13.TabIndex = 60;
+            this.button13.Text = "OK";
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Visible = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // button14
+            // 
+            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button14.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button14.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.ForeColor = System.Drawing.Color.White;
+            this.button14.Location = new System.Drawing.Point(487, 566);
+            this.button14.Margin = new System.Windows.Forms.Padding(2);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(53, 29);
+            this.button14.TabIndex = 61;
+            this.button14.Text = "Cancel";
+            this.button14.UseVisualStyleBackColor = false;
+            this.button14.Visible = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
             // toggleSwitch38
             // 
             this.toggleSwitch38.Location = new System.Drawing.Point(439, 89);
@@ -7182,6 +7294,12 @@ namespace Optimizer
         private System.Windows.Forms.Panel panel10;
         private ToolTip infoTip;
         private ToggleSwitch helpTipsToggle;
+        private Button button11;
+        private Button button12;
+        private TextBox txtBackupTitle;
+        private Label label4;
+        private Button button13;
+        private Button button14;
     }
 }
 
