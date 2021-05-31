@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [8.3] - 2021-05-31
+- Hotfix: Not exiting when updating with Quick Access menu enabled
+
 ## [8.2] - 2021-05-31
 - New: Added "/reset" switch for troubleshooting 
 - Improved: Enabling Automatic Updates and Defender is better now

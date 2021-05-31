@@ -142,6 +142,7 @@ namespace Optimizer
                             // PATCH
                             File.Move(tempFile, appFile);
 
+                            _trayMenu = false;
                             Application.Restart();
                         }
                         catch (Exception ex)
