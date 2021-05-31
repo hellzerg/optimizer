@@ -15,7 +15,7 @@ namespace Optimizer
         internal readonly static float Major = 8;
         internal readonly static float Minor = 1;
 
-        internal readonly static bool EXPERIMENTAL_BUILD = false;
+        internal readonly static bool EXPERIMENTAL_BUILD = true;
 
         internal static string GetCurrentVersionTostring()
         {
