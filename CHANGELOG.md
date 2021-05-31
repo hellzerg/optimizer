@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [8.1] - 2021-05-31
+- Hotfix: Pinger sometimes not working
+
 ## [8.0] - 2021-05-30
 - New: Backup & restore Startup items
 - Improved: Performance tweaks

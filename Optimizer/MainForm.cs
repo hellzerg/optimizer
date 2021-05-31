@@ -388,6 +388,9 @@ namespace Optimizer
             // EXPERIMENTAL message
             lblLab.Visible = Program.EXPERIMENTAL_BUILD;
 
+            txtOS.Text = "Microsoft " + Utilities.GetOS();
+            txtBitness.Text = Utilities.GetBitness();
+
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
             {
                 tabCollection.TabPages.Remove(universalTab);
@@ -436,9 +439,6 @@ namespace Optimizer
 
             txtVersion.Text = "Version: " + Program.GetCurrentVersionTostring();
             Program.MainForm = this;
-
-            txtOS.Text = "Microsoft " + Utilities.GetOS();
-            txtBitness.Text = Utilities.GetBitness();
 
             if (string.IsNullOrEmpty(Options.CurrentOptions.AppsFolder))
             {
@@ -2353,6 +2353,9 @@ namespace Optimizer
 
                 for (int i = 0; i < 9; i++)
                 {
+                    // wait before each pinging
+                    System.Threading.Thread.Sleep(700);
+
                     tmpReply = Utilities.PingHost(txtPingInput.Text);
 
                     if (tmpReply.Address == null)

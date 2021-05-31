@@ -96,7 +96,7 @@ namespace Optimizer
                 {
                     CurrentWindowsVersion = WindowsVersion.Windows8;
                 }
-                if (os.Contains("Windows Server 2016"))
+                if (os.Contains("Windows Server 2016") || os.Contains("Windows Server 2019"))
                 {
                     CurrentWindowsVersion = WindowsVersion.Windows10;
                 }
@@ -212,7 +212,7 @@ namespace Optimizer
 
         internal static void Reboot()
         {
-            Process.Start("shutdown", "/r /t 0");
+            Utilities.RunCommand("shutdown /r /t 0");
         }
 
         internal static void ActivateMainForm()
