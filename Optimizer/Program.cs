@@ -13,9 +13,9 @@ namespace Optimizer
         // Enter current version here
 
         internal readonly static float Major = 8;
-        internal readonly static float Minor = 1;
+        internal readonly static float Minor = 2;
 
-        internal readonly static bool EXPERIMENTAL_BUILD = true;
+        internal readonly static bool EXPERIMENTAL_BUILD = false;
 
         internal static string GetCurrentVersionTostring()
         {
@@ -99,6 +99,12 @@ namespace Optimizer
                         {
                             UNSAFE_MODE = true;
                             Application.Run(new MainForm());
+                            return;
+                        }
+
+                        if (arg == "/reset")
+                        {
+                            Utilities.ResetConfiguration(true);
                             return;
                         }
 

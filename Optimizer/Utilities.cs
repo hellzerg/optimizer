@@ -598,7 +598,7 @@ namespace Optimizer
             }
         }
 
-        internal static void ResetConfiguration()
+        internal static void ResetConfiguration(bool withoutRestart = false)
         {
             try
             {
@@ -610,7 +610,7 @@ namespace Optimizer
             }
             finally
             {
-                Application.Restart();
+                if (withoutRestart == false) Application.Restart();
             }
         }
 
