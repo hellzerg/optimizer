@@ -43,7 +43,7 @@
             this.bpanel.Controls.Add(this.savebtn);
             this.bpanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bpanel.Location = new System.Drawing.Point(0, 392);
-            this.bpanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bpanel.Margin = new System.Windows.Forms.Padding(2);
             this.bpanel.Name = "bpanel";
             this.bpanel.Size = new System.Drawing.Size(604, 49);
             this.bpanel.TabIndex = 0;
@@ -58,10 +58,10 @@
             this.closebtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.closebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closebtn.ForeColor = System.Drawing.Color.White;
-            this.closebtn.Location = new System.Drawing.Point(447, 8);
-            this.closebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.closebtn.Location = new System.Drawing.Point(342, 8);
+            this.closebtn.Margin = new System.Windows.Forms.Padding(2);
             this.closebtn.Name = "closebtn";
-            this.closebtn.Size = new System.Drawing.Size(71, 31);
+            this.closebtn.Size = new System.Drawing.Size(124, 31);
             this.closebtn.TabIndex = 35;
             this.closebtn.Tag = "themeable";
             this.closebtn.Text = "Close";
@@ -77,10 +77,10 @@
             this.savebtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.savebtn.ForeColor = System.Drawing.Color.White;
-            this.savebtn.Location = new System.Drawing.Point(523, 8);
-            this.savebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.savebtn.Location = new System.Drawing.Point(470, 8);
+            this.savebtn.Margin = new System.Windows.Forms.Padding(2);
             this.savebtn.Name = "savebtn";
-            this.savebtn.Size = new System.Drawing.Size(71, 31);
+            this.savebtn.Size = new System.Drawing.Size(124, 31);
             this.savebtn.TabIndex = 34;
             this.savebtn.Tag = "themeable";
             this.savebtn.Text = "Save";
@@ -92,7 +92,7 @@
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(604, 392);
             this.panel1.TabIndex = 1;

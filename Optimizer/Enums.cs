@@ -84,4 +84,10 @@
         Center,
         Right
     }
+
+    public enum LanguageCode
+    {
+        EN,
+        RU
+    }
 }

@@ -11,18 +11,6 @@ namespace Optimizer
 {
     public static class Integrator
     {
-        static string _newLine = Environment.NewLine;
-
-        internal static string powerinfo = "Power Menu contains the following:" + _newLine + _newLine + "Lock" + _newLine + "Sign out" + _newLine + "Switch User" + _newLine + "Sleep" + _newLine + "Hibernate" + _newLine + "Restart" + _newLine + "Restart with Boot Options Menu" + _newLine + "Shut down" + _newLine + "Shut down (Hybrid)";
-
-        internal static string systemtoolsinfo = "System Tools Menu contains the following:" + _newLine + _newLine + "Control Panel" + _newLine + "Disk Cleanup" + _newLine + "Device Manager" + _newLine + "Event Viewer" + _newLine + "Registry Editor" + _newLine + "Security Center" + _newLine + "System Configuration" + _newLine + "Task Manager" + _newLine + "Task Scheduler" + _newLine + "Windows Update";
-
-        internal static string systemshortcutsinfo = "System Shortcuts Menu contains the following:" + _newLine + _newLine + "Administrative Tools" + _newLine + "Change Date and Time" + _newLine + "Change Regional Settings" + _newLine + "Folder Options" + _newLine + "God Mode" + _newLine + "Internet Options" + _newLine + "Network Connections" + _newLine + "Power Options" + _newLine + "Programs and Features" + _newLine + "Recycle Bin" + _newLine + "Run" + _newLine + "Search" + _newLine + "Services" + _newLine + "System Properties" + _newLine + "User Accounts" + _newLine + "User Accounts Classic" + _newLine + "Window Switcher";
-
-        internal static string desktopshortcutsinfo = "Desktop Shortcuts Menu contains the following:" + _newLine + _newLine + "Change Theme" + _newLine + "Change Wallpaper" + _newLine + "Change Screen Saver" + _newLine + "Change Desktop Icons" + _newLine + "Change Sound Scheme" + _newLine + "Change Mouse Pointers" + _newLine + "Change DPI Scaling" + _newLine + "Change Window Color and Appearance";
-
-        internal static string windowsappsinfo = "Windows Apps Menu contains the following:" + _newLine + _newLine + "Calculator" + _newLine + "Character Map" + _newLine + "Command Prompt" + _newLine + "Disk Defragmenter" + _newLine + "Internet Explorer" + _newLine + "Notepad" + _newLine + "Paint" + _newLine + "Problem Steps Recorder" + _newLine + "Snipping Tool" + _newLine + "Sound Recorder" + _newLine + "System Restore" + _newLine + "Task Scheduler" + _newLine + "Windows Media Player" + _newLine + "Wordpad";
-
         internal static string FolderDefaultIcon = @"%systemroot%\system32\imageres.dll,-112";
 
         private static T DirectCast<T>(object o)

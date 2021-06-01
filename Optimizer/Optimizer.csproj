@@ -105,12 +105,6 @@
     <Compile Include="ColoredControls\ColoredRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="EdgeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EdgeForm.Designer.cs">
-      <DependentUpon>EdgeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="EmbeddedAssembly.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="HostsEditorForm.cs">
@@ -171,9 +165,6 @@
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EdgeForm.resx">
-      <DependentUpon>EdgeForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="HostsEditorForm.resx">
       <DependentUpon>HostsEditorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,6 +208,7 @@
     </Compile>
     <None Include="Resources\DesktopShortcuts.reg" />
     <None Include="Resources\DisableOfficeTelemetry.reg" />
+    <None Include="Resources\EN.json" />
     <None Include="Resources\EnableOfficeTelemetry.reg" />
     <None Include="Resources\EnableOfficeTelemetryTasks.bat" />
     <None Include="Resources\EnableTelemetryTasks.bat" />
@@ -225,6 +217,7 @@
     <None Include="Resources\InstallTakeOwnership.reg" />
     <None Include="Resources\PowerMenu.reg" />
     <None Include="Resources\RemoveTakeOwnership.reg" />
+    <None Include="Resources\RU.json" />
     <None Include="Resources\SystemShortcuts.reg" />
     <None Include="Resources\SystemTools.reg" />
     <None Include="Resources\WindowsApps.reg" />

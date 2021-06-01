@@ -24,6 +24,9 @@ namespace Optimizer
             CheckForIllegalCrossThreadCalls = false;
             Options.ApplyTheme(this);
 
+            // translate UI elements
+            if (Options.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
+
             RefreshBackups();
         }
 
@@ -38,6 +41,25 @@ namespace Optimizer
             foreach (string x in _backups)
             {
                 listRestoreItems.Items.Add(Path.GetFileNameWithoutExtension(x));
+            }
+        }
+
+        private void Translate()
+        {
+            this.Text = Options.TranslationList["StartupRestoreForm"];
+
+            Dictionary<string, string> translationList = Options.TranslationList.ToObject<Dictionary<string, string>>();
+
+            Control element;
+
+            foreach (var x in translationList)
+            {
+                if (x.Key == null || x.Key == string.Empty) continue;
+                element = this.Controls.Find(x.Key, true).FirstOrDefault();
+
+                if (element == null) continue;
+
+                element.Text = x.Value;
             }
         }
 

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Optimizer
 {
@@ -19,6 +22,7 @@ namespace Optimizer
             }
             if (_type == MessageType.Restart)
             {
+                Options.SaveSettings();
                 Utilities.Reboot();
             }
             if (_type == MessageType.Hosts)
@@ -44,13 +48,16 @@ namespace Optimizer
             if (_type == MessageType.Error)
             {
                 btnNo.Visible = false;
-                btnYes.Text = "OK";
+                btnYes.Text = Options.TranslationList["btnOk"];
 
                 this.AcceptButton = btnNo;
                 this.AcceptButton = btnYes;
                 this.CancelButton = btnNo;
                 this.CancelButton = btnYes;
             }
+
+            // translate UI elements
+            if (Options.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
         }
 
         private void btnNo_Click(object sender, EventArgs e)
@@ -69,5 +76,23 @@ namespace Optimizer
             CheckForIllegalCrossThreadCalls = false;
             this.BringToFront();
         }
+
+        private void Translate()
+        {
+            Dictionary<string, string> translationList = Options.TranslationList.ToObject<Dictionary<string, string>>();
+
+            Control element;
+
+            foreach (var x in translationList)
+            {
+                if (x.Key == null || x.Key == string.Empty) continue;
+                element = this.Controls.Find(x.Key, true).FirstOrDefault();
+
+                if (element == null) continue;
+
+                element.Text = x.Value;
+            }
+        }
+
     }
 }

@@ -27,7 +27,8 @@ namespace Optimizer
         internal static readonly string LocalMachineStartupFolder = CleanHelper.ProgramData + "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup";
         internal static readonly string CurrentUserStartupFolder = CleanHelper.ProfileAppDataRoaming + "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup";
 
-        internal readonly static string DefaultEdgeDownloadFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
+        // DEPRECATED
+        //internal readonly static string DefaultEdgeDownloadFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
 
         internal static WindowsVersion CurrentWindowsVersion = WindowsVersion.Unsupported;
 
@@ -141,28 +142,30 @@ namespace Optimizer
             }
             return legit;
         }
+        // DEPRECATED
 
-        internal static string GetEdgeDownloadFolder()
-        {
-            string current = string.Empty;
+        //internal static string GetEdgeDownloadFolder()
+        //{
+        //    string current = string.Empty;
 
-            try
-            {
-                current = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "DownloadDirectory", DefaultEdgeDownloadFolder).ToString();
-            }
-            catch (Exception ex)
-            {
-                current = DefaultEdgeDownloadFolder;
-                ErrorLogger.LogError("Utilities.GetEdgeDownloadFolder", ex.Message, ex.StackTrace);
-            }
+        //    try
+        //    {
+        //        current = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "DownloadDirectory", DefaultEdgeDownloadFolder).ToString();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        current = DefaultEdgeDownloadFolder;
+        //        ErrorLogger.LogError("Utilities.GetEdgeDownloadFolder", ex.Message, ex.StackTrace);
+        //    }
 
-            return current;
-        }
+        //    return current;
+        //}
 
-        internal static void SetEdgeDownloadFolder(string path)
-        {
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "DownloadDirectory", path, RegistryValueKind.String);
-        }
+        // DEPRECATED
+        //internal static void SetEdgeDownloadFolder(string path)
+        //{
+        //    Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "DownloadDirectory", path, RegistryValueKind.String);
+        //}
 
         internal static void RunBatchFile(string batchFile)
         {

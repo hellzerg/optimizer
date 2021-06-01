@@ -169,4 +169,10 @@
   <data name="EnableXboxTasks" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EnableXboxTasks.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="EN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EN.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RU" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RU.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>

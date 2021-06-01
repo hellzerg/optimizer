@@ -330,7 +330,6 @@ namespace Optimizer
             catch (Exception ex)
             {
                 ErrorLogger.LogError("Optimize.DisableSystemRestore", ex.Message, ex.StackTrace);
-                //MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             Utilities.StopService("VSS");

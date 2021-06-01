@@ -12,10 +12,10 @@ namespace Optimizer
 
         // Enter current version here
 
-        internal readonly static float Major = 8;
-        internal readonly static float Minor = 3;
+        internal readonly static float Major = 0;
+        internal readonly static float Minor = 0;
 
-        internal readonly static bool EXPERIMENTAL_BUILD = false;
+        internal readonly static bool EXPERIMENTAL_BUILD = true;
 
         internal static string GetCurrentVersionTostring()
         {
@@ -36,8 +36,13 @@ namespace Optimizer
 
         internal static MainForm MainForm;
 
-        readonly static string _adminMissingMessage = "Optimizer needs to be run as administrator!\nApp will now close...";
-        readonly static string _unsupportedMessage = "Optimizer works in Windows 7 or higher!\nApp will now close...";
+        static string _adminMissingMessage = "Optimizer needs to be run as administrator!\nApp will now close...";
+        static string _unsupportedMessage = "Optimizer works in Windows 7 or higher!\nApp will now close...";
+
+        static string _confInvalidVersionMsg = "Windows version does not match!";
+        static string _confInvalidFormatMsg = "Config file is in invalid format!";
+        static string _confNotFoundMsg = "Config file does not exist!";
+        static string _argInvalidMsg = "Invalid argument! Example: Optimizer.exe /silent.conf";
 
         [STAThread]
         static void Main(string[] switches)
@@ -83,6 +88,14 @@ namespace Optimizer
                     try
                     {
                         Options.LoadSettings();
+
+                        // ideal place to replace internal messages from translation list
+                        _adminMissingMessage = Options.TranslationList["adminMissingMsg"];
+                        _unsupportedMessage = Options.TranslationList["unsupportedMsg"];
+                        _confInvalidFormatMsg = Options.TranslationList["confInvalidFormatMsg"];
+                        _confInvalidVersionMsg = Options.TranslationList["confInvalidVersionMsg"];
+                        _confNotFoundMsg = Options.TranslationList["confNotFoundMsg"];
+                        _argInvalidMsg = Options.TranslationList["argInvalidMsg"];
                     }
                     catch (Exception ex)
                     {
@@ -140,25 +153,25 @@ namespace Optimizer
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Windows version does not match!", "Invalid config file", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MessageBox.Show(_confInvalidVersionMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         Environment.Exit(0);
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Config file is in invalid format!", "Invalid config file", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show(_confInvalidFormatMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     Environment.Exit(0);
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Config file does not exist!", "Invalid config file", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show(_confNotFoundMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 Environment.Exit(0);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Invalid argument. Example: optimizer.exe /silent.conf", "Invalid argument", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(_argInvalidMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Environment.Exit(0);
                         }
                     }

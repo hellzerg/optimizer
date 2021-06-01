@@ -16,6 +16,8 @@ namespace Optimizer
         public bool EnableTray { get; set; }
         public bool ShowHelp { get; set; }
 
+        public LanguageCode LanguageCode { get; set; }
+        
         public bool EnablePerformanceTweaks { get; set; }
         public bool DisableNetworkThrottling { get; set; }
         public bool DisableWindowsDefender { get; set; }
@@ -69,6 +71,8 @@ namespace Optimizer
         internal readonly static string SettingsFile = Required.CoreFolder + "\\Optimizer.json";
 
         internal static SettingsJson CurrentOptions = new SettingsJson();
+
+        internal static dynamic TranslationList;
 
         internal static void ApplyTheme(Form f)
         {
@@ -188,6 +192,8 @@ namespace Optimizer
                 CurrentOptions.EnableTray = true;
                 CurrentOptions.ShowHelp = true;
 
+                CurrentOptions.LanguageCode = LanguageCode.EN;
+
                 CurrentOptions.EnablePerformanceTweaks = false;
                 CurrentOptions.DisableNetworkThrottling = false;
                 CurrentOptions.DisableWindowsDefender = false;
@@ -244,6 +250,15 @@ namespace Optimizer
             {
                 CurrentOptions = JsonConvert.DeserializeObject<SettingsJson>(File.ReadAllText(SettingsFile));
             }
+
+            LoadTranslation();
+        }
+
+        internal static void LoadTranslation()
+        {
+            // load proper translation list
+            if (CurrentOptions.LanguageCode == LanguageCode.EN) TranslationList = JObject.Parse(Properties.Resources.EN);
+            if (CurrentOptions.LanguageCode == LanguageCode.RU) TranslationList = JObject.Parse(Properties.Resources.RU);
         }
     }
 }

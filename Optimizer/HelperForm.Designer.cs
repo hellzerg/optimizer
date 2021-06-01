@@ -36,10 +36,10 @@
             // lblMessage
             // 
             this.lblMessage.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.lblMessage.Location = new System.Drawing.Point(12, 9);
+            this.lblMessage.Location = new System.Drawing.Point(10, 7);
             this.lblMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(540, 86);
+            this.lblMessage.Size = new System.Drawing.Size(432, 69);
             this.lblMessage.TabIndex = 0;
             this.lblMessage.Text = "Restart to apply changes?";
             // 
@@ -53,10 +53,10 @@
             this.btnYes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnYes.ForeColor = System.Drawing.Color.White;
-            this.btnYes.Location = new System.Drawing.Point(448, 160);
+            this.btnYes.Location = new System.Drawing.Point(358, 128);
             this.btnYes.Margin = new System.Windows.Forms.Padding(2);
             this.btnYes.Name = "btnYes";
-            this.btnYes.Size = new System.Drawing.Size(120, 39);
+            this.btnYes.Size = new System.Drawing.Size(96, 31);
             this.btnYes.TabIndex = 31;
             this.btnYes.Tag = "themeable";
             this.btnYes.Text = "Yes";
@@ -73,10 +73,10 @@
             this.btnNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo.ForeColor = System.Drawing.Color.White;
-            this.btnNo.Location = new System.Drawing.Point(321, 160);
+            this.btnNo.Location = new System.Drawing.Point(257, 128);
             this.btnNo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNo.Name = "btnNo";
-            this.btnNo.Size = new System.Drawing.Size(120, 39);
+            this.btnNo.Size = new System.Drawing.Size(96, 31);
             this.btnNo.TabIndex = 32;
             this.btnNo.Tag = "themeable";
             this.btnNo.Text = "No";
@@ -86,18 +86,18 @@
             // HelperForm
             // 
             this.AcceptButton = this.btnYes;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnNo;
-            this.ClientSize = new System.Drawing.Size(579, 211);
+            this.ClientSize = new System.Drawing.Size(463, 169);
             this.Controls.Add(this.btnNo);
             this.Controls.Add(this.btnYes);
             this.Controls.Add(this.lblMessage);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "HelperForm";
