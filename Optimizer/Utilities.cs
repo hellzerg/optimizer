@@ -112,11 +112,11 @@ namespace Optimizer
 
             if (Environment.Is64BitOperatingSystem)
             {
-                bitness = "You are working with 64-bit architecture";
+                bitness = "You are working with 64-bit";
             }
             else
             {
-                bitness = "You are working with 32-bit architecture";
+                bitness = "You are working with 32-bit";
             }
 
             return bitness;

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [8.4] - 2021-06-02
+- New: Fully translated into Russian (thanks to https://github.com/mrkaban - mrkaban) (#5) 
+- Hotfix: Sometimes settings not saving (#38, #36) 
+- Hotfix: Improved resetting of Disable Automatic Updates & Defender (#42) 
+- Removed: Change Edge download folder (deprecated)
+
 ## [8.3] - 2021-05-31
 - Hotfix: Not exiting when updating with Quick Access menu enabled
 

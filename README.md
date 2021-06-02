@@ -52,8 +52,11 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * ByteSize from https://github.com/omar/ByteSize
 * Thanks for this really tiny, yet extremely useful library
 
+## Thanks to: ##
+* https://github.com/mrkaban - mrkaban for Russian translation
+
 ## Details: ##
 
-* Latest version: 8.3
-* Released: May 31, 2021
-* SHA256: 60AACB5D588C737F1AB431C7A9AC2DA2FDB87F9D729C8B8F7D48B9AF65F22373
+* Latest version: 8.4
+* Released: June 2, 2021
+* SHA256: F8DA2513869126632A33829F00117A59D9F36BC0450B3F1EC7A9B1CBA3B8C37A

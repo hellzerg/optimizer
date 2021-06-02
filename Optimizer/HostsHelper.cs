@@ -38,7 +38,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 ErrorLogger.LogError("HostsHelper.RestoreDefaultHosts", ex.Message, ex.StackTrace);
-                MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -56,7 +56,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 ErrorLogger.LogError("HostsHelper.AdblockBasic", ex.Message, ex.StackTrace);
-                MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -74,7 +74,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 ErrorLogger.LogError("HostsHelper.AdBlockWithPorn", ex.Message, ex.StackTrace);
-                MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -92,7 +92,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 ErrorLogger.LogError("HostsHelper.AdBlockWithSocial", ex.Message, ex.StackTrace);
-                MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -110,7 +110,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 ErrorLogger.LogError("HostsHelper.AdBlockUltimate", ex.Message, ex.StackTrace);
-                MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -176,7 +176,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 ErrorLogger.LogError("HostsHelper.SaveHosts", ex.Message, ex.StackTrace);
-                MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -207,7 +207,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 ErrorLogger.LogError("HostsHelper.AddEntry", ex.Message, ex.StackTrace);
-                MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -220,7 +220,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 ErrorLogger.LogError("HostsHelper.RemoveEntry", ex.Message, ex.StackTrace);
-                MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -236,7 +236,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 ErrorLogger.LogError("HostsHelper.RemoveAllEntries", ex.Message, ex.StackTrace);
-                MessageBox.Show("DNS Cache is being generated, try again later!", "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

@@ -21,7 +21,7 @@
 	"officeTelemetrySw": "Disable Office 2016 Telemetry",
 	"compatSw": "Disable Compatibility Assistant",
 	"smartScreenSw": "Disable SmartScreen",
-	"stickysw": "Disable Sticky Keys",
+	"stickySw": "Disable Sticky Keys",
 	"universalTab": "Universal",
 	"modernAppsTab": "UWP Apps",
 	"startupTab": "Startup",
@@ -179,6 +179,10 @@
 	"commandToAdd": "Command to add",
 	"icontoaddgroup": "Icon to add",
 	"checkDefaultIcon": "Use program's icon",
+	"checkDefaultFolderIcon": "Use default folder icon",
+	"checkFavicon": "Download website icon (favicon)",
+	"checkNoIcon": "No icon",
+	"dnsCacheM": "DNS Cache is being generated, try again later!",
 	"itemposition": "Item position",
 	"radioTop": "Top",
 	"radioMiddle": "Middle",
@@ -248,5 +252,96 @@
 	"max": "Max",
 	"avg": "Average",
 	"timeout": "Request timed out",
-	"languagesL": "Choose language"
+	"languagesL": "Choose language",
+	"trayStartup": "Startup Manager",
+	"trayCleaner": "Drive Cleaner",
+	"trayPinger": "Pinger Tool",
+	"trayHosts": "HOSTS Editor",
+	"trayAD": "Apps Downloader",
+	"trayRestartExplorer": "Restart Explorer",
+	"trayExit": "Exit",
+	"performanceTip": "Collection of internal Windows settings to optimize performance.
+Completely safe to apply.
+
+- Reduces waiting time before killing unresponsive processes.
+- Decreases menu show delay time.
+- Disables low disk space check notification
+- Disables shake-to-minimize feature
+- Always shows file extensions
+- Shows hidden files",
+	"networkTip": "Windows implements a network throttling mechanism that will restrict
+network traffic when running multimedia apps. It can also reduce network's
+performance when playing online games.",
+	"defenderTip": "Windows Defender is the built-in antivirus in Windows systems.",
+	"smartScreenTip": "SmartScreen automatically scans files, downloads and websites, blocking
+already-known dangerous content and warns you before running them.",
+	"systemRestoreTip": "System Restore is a feature that allows to revert Windows' state
+to a previous one to recover from malfunctions or other problems.",
+	"reportingTip": "Error Reporting collects application crashes and errors and send them to Microsoft.",
+	"telemetryTasksTip": "Telemetry services periodically sends usage and performance data to Microsoft,
+for future improvement.",
+	"officeTelemetryTip": "Office telemetry periodically sends usage and
+performance data to Microsoft, for future improvement.",
+	"printTip": "Print service is responsible for detecting, installing and utilizing printers.",
+	"faxTip": "Fax service is responsible for sending and receiving faxes.",
+	"mediaSharingTip": "Media Player Sharing provides home media sharing for Windows Media Player.",
+	"stickyTip": "Sticky Keys is an accessibility feature to help Windows users with
+physical disabilities reducing the sort of movement associated with 
+repetitive strain injury.",
+	"homegroupTip": "HomeGroup is a feature which allows to share files
+on a home network using Windows Explorer.",
+	"superfetchTip": "Superfetch preloads commonly used apps to RAM, causing high disk usage,
+especially on HDDs.",
+	"compatTip": "Compatibility Assistant service detects known compatibility issues in older programs.",
+	"disableOneDriveTip": "Disables OneDrive cloud-storage integration.",
+	"oldMixerTip": "Restores the classic volume mixer control panel.",
+	"colorBarTip": "- Colorizes taskbar with your personalized color.
+- Disables transparency effects",
+	"oldExplorerTip": "Disables Quick Access and removes frequent files in Windows Explorer.",
+	"adsTip": "Prevents advertisements from showing up in Start Menu.",
+	"darkTip": "Enables Windows dark theme.",
+	"uODTip": "Completely removes OneDrive cloud-storage integration.",
+	"peopleTip": "My People is a new feature showing recent contacts in taskbar.",
+	"longPathsTip": "Removes maximum path length limitation of 256 characters.",
+	"inkTip": "Windows Ink provides support for digital pens, to draw on screen.",
+	"spellTip": "Touch-keyboard only features like:
+
+- Auto-correction
+- Text suggestions
+- Spell-check",
+	"xboxTip": "Xbox Live services offer streaming, recording and social features for Xbox games.",
+	"actionTip": "Notification Center is a central place for notifications and quick action tiles,
+like Wi-Fi, Bluetooth, etc.",
+	"autoUpdatesTip": "Disables automatic downloading and installation of Windows updates.
+Instead, there is a notification when new updates are available.
+It also disables Delivery Optimization service.",
+	"driversTip": "Useful when Windows Update constantly replaces a properly
+working driver with a faulty one.",
+	"telemetryServicesTip": "Telemetry services track and log usage data sending feedback
+for analysis to Microsoft.",
+	"privacyTip": "Extra privacy tweaks disabling the following:
+
+- Biometrics
+- Geolocation
+- Share apps across devices
+- Text logger
+- Diagnostics",
+	"ccTip": "Cloud Clipboard shares clipboard data across your devices.
+It allows to copy on one device and paste on another.
+Requires Microsoft account sign-in.",
+	"cortanaTip": "Cortana is a virtual AI-based assistant.
+
+- Disables Cortana.
+- Disables web search in Start Menu
+- Prevents from keeping search history",
+	"sensorTip": "Services that manage sensors' functionality,
+like auto-rotation, auto-brightness, etc.
+Useful only for tablets or devices with touch-screen.",
+	"castTip": "Removes right-click to share media content to Miracast devices.",
+	"gameBarTip": "Game Bar is a quick-access menu for Xbox gaming services.",
+	"insiderTip": "Windows Insider program allows you to test out latest features
+before they are released to public.
+It's considered an unnecessary service for users who don't wish to participate.",
+	"featuresTip": "Feature Updates are technically new versions of Windows, that require an upgrade.
+However, they are considered a risky procedure. They are usually semi-annual releases."
 }

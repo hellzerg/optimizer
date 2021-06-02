@@ -50,16 +50,6 @@ namespace Optimizer
 
         readonly string _blockedIP = "0.0.0.0";
 
-        string infoText = string.Empty;
-        string[] toRemove =
-        {
-            "Enable ",
-            "Disable ",
-            "Remove ",
-            "Uninstall ",
-            "Exclude ",
-        };
-
         string _restartMessage = "Restart to apply changes?";
         string _removeStartupItemsMessage = "Are you sure you want to delete all startup items?";
         string _removeHostsEntriesMessage = "Are you sure you want to delete all hosts entries?";
@@ -204,6 +194,49 @@ namespace Optimizer
             stickySw.Click += new EventHandler(ToggleSwitch38_Click);
             longPathsSw.Click += new EventHandler(ToggleSwitch39_Click);
             castSw.Click += new EventHandler(ToggleSwitch40_Click);
+        }
+
+        private void SetHelpBoxTranslation()
+        {
+            helpBox.SetToolTip(performanceSw, Options.TranslationList["performanceTip"].ToString());
+            helpBox.SetToolTip(networkSw, Options.TranslationList["networkTip"].ToString());
+            helpBox.SetToolTip(defenderSw, Options.TranslationList["defenderTip"].ToString());
+            helpBox.SetToolTip(smartScreenSw, Options.TranslationList["smartScreenTip"].ToString());
+            helpBox.SetToolTip(systemRestoreSw, Options.TranslationList["systemRestoreTip"].ToString());
+            helpBox.SetToolTip(reportingSw, Options.TranslationList["reportingTip"].ToString());
+            helpBox.SetToolTip(telemetryTasksSw, Options.TranslationList["telemetryTasksTip"].ToString());
+            helpBox.SetToolTip(officeTelemetrySw, Options.TranslationList["officeTelemetryTip"].ToString());
+            helpBox.SetToolTip(printSw, Options.TranslationList["printTip"].ToString());
+            helpBox.SetToolTip(faxSw, Options.TranslationList["faxTip"].ToString());
+            helpBox.SetToolTip(mediaSharingSw, Options.TranslationList["mediaSharingTip"].ToString());
+            helpBox.SetToolTip(stickySw, Options.TranslationList["stickyTip"].ToString());
+            helpBox.SetToolTip(homegroupSw, Options.TranslationList["homegroupTip"].ToString());
+            helpBox.SetToolTip(superfetchSw, Options.TranslationList["superfetchTip"].ToString());
+            helpBox.SetToolTip(compatSw, Options.TranslationList["compatTip"].ToString());
+            helpBox.SetToolTip(disableOneDriveSw, Options.TranslationList["disableOneDriveTip"].ToString());
+            helpBox.SetToolTip(oldMixerSw, Options.TranslationList["oldMixerTip"].ToString());
+            helpBox.SetToolTip(colorBarSw, Options.TranslationList["colorBarTip"].ToString());
+            helpBox.SetToolTip(oldExplorerSw, Options.TranslationList["oldExplorerTip"].ToString());
+            helpBox.SetToolTip(adsSw, Options.TranslationList["adsTip"].ToString());
+            helpBox.SetToolTip(darkSw, Options.TranslationList["darkTip"].ToString());
+            helpBox.SetToolTip(uODSw, Options.TranslationList["uODTip"].ToString());
+            helpBox.SetToolTip(peopleSw, Options.TranslationList["peopleTip"].ToString());
+            helpBox.SetToolTip(longPathsSw, Options.TranslationList["longPathsTip"].ToString());
+            helpBox.SetToolTip(inkSw, Options.TranslationList["inkTip"].ToString());
+            helpBox.SetToolTip(spellSw, Options.TranslationList["spellTip"].ToString());
+            helpBox.SetToolTip(xboxSw, Options.TranslationList["xboxTip"].ToString());
+            helpBox.SetToolTip(actionSw, Options.TranslationList["actionTip"].ToString());
+            helpBox.SetToolTip(autoUpdatesSw, Options.TranslationList["autoUpdatesTip"].ToString());
+            helpBox.SetToolTip(driversSw, Options.TranslationList["driversTip"].ToString());
+            helpBox.SetToolTip(telemetryServicesSw, Options.TranslationList["telemetryServicesTip"].ToString());
+            helpBox.SetToolTip(privacySw, Options.TranslationList["privacyTip"].ToString());
+            helpBox.SetToolTip(ccSw, Options.TranslationList["ccTip"].ToString());
+            helpBox.SetToolTip(cortanaSw, Options.TranslationList["cortanaTip"].ToString());
+            helpBox.SetToolTip(sensorSw, Options.TranslationList["sensorTip"].ToString());
+            helpBox.SetToolTip(castSw, Options.TranslationList["castTip"].ToString());
+            helpBox.SetToolTip(gameBarSw, Options.TranslationList["gameBarTip"].ToString());
+            helpBox.SetToolTip(insiderSw, Options.TranslationList["insiderTip"].ToString());
+            helpBox.SetToolTip(featuresSw, Options.TranslationList["featuresTip"].ToString());
         }
 
         private void ToggleSwitch7_Click(object sender, EventArgs e)
@@ -372,7 +405,7 @@ namespace Optimizer
             launcherIcon.Visible = Options.CurrentOptions.EnableTray;
 
             // help tips
-            infoTip.Active = Options.CurrentOptions.ShowHelp;
+            helpBox.Active = Options.CurrentOptions.ShowHelp;
             helpTipsToggle.Checked = Options.CurrentOptions.ShowHelp;
 
             // fix SSL/TLS error when contacting internet
@@ -496,6 +529,8 @@ namespace Optimizer
             _errorModernAppsMessage = Options.TranslationList["errorModernApps"];
             _resetMessage = Options.TranslationList["resetMessage"];
 
+            SetHelpBoxTranslation();
+
             Dictionary<string, string> translationList = Options.TranslationList.ToObject<Dictionary<string, string>>();
             if (Environment.Is64BitOperatingSystem)
             {
@@ -509,6 +544,13 @@ namespace Optimizer
             listStartupItems.Columns[0].Text = translationList["startupItemName"];
             listStartupItems.Columns[1].Text = translationList["startupItemLocation"];
             listStartupItems.Columns[2].Text = translationList["startupItemType"];
+            trayStartup.Text = translationList["trayStartup"];
+            trayCleaner.Text = translationList["trayCleaner"];
+            trayPinger.Text = translationList["trayPinger"];
+            trayHosts.Text = translationList["trayHosts"];
+            trayAD.Text = translationList["trayAD"];
+            trayRestartExplorer.Text = translationList["trayRestartExplorer"];
+            trayExit.Text = translationList["trayExit"];
 
             Control element;
 
@@ -1180,7 +1222,7 @@ namespace Optimizer
                 btnBrowseIcon.Enabled = false;
                 itemtoaddgroup.Text = Options.TranslationList["itemtoaddgroup"];
                 checkDefaultIcon.Visible = true;
-                checkDefaultIcon.Text = "Use program's icon";
+                checkDefaultIcon.Text = Options.TranslationList["checkDefaultIcon"];
                 txtItemName.Clear();
                 txtItem.ReadOnly = true;
                 txtIcon.ReadOnly = true;
@@ -1196,7 +1238,7 @@ namespace Optimizer
                 btnBrowseItem.Enabled = true;
                 txtItem.Clear();
                 itemtoaddgroup.Text = Options.TranslationList["folderToAdd"];
-                checkDefaultIcon.Text = "Use default folder icon";
+                checkDefaultIcon.Text = Options.TranslationList["checkDefaultFolderIcon"];
                 txtItemName.Clear();
                 txtItem.ReadOnly = true;
                 txtIcon.ReadOnly = true;
@@ -1209,7 +1251,7 @@ namespace Optimizer
             if (radioLink.Checked)
             {
                 checkDefaultIcon.Checked = true;
-                checkDefaultIcon.Text = "Download website icon (favicon)";
+                checkDefaultIcon.Text = Options.TranslationList["checkFavicon"];
                 btnBrowseItem.Enabled = false;
                 itemtoaddgroup.Text = Options.TranslationList["linkToAdd"];
                 checkDefaultIcon.Visible = true;
@@ -1226,7 +1268,7 @@ namespace Optimizer
             if (radioFile.Checked)
             {
                 checkDefaultIcon.Checked = true;
-                checkDefaultIcon.Text = "No icon";
+                checkDefaultIcon.Text = Options.TranslationList["checkNoIcon"];
                 btnBrowseItem.Enabled = true;
                 itemtoaddgroup.Text = Options.TranslationList["fileToAdd"];
                 checkDefaultIcon.Visible = true;
@@ -1249,7 +1291,7 @@ namespace Optimizer
                 btnBrowseIcon.Enabled = false;
                 itemtoaddgroup.Text = Options.TranslationList["commandToAdd"];
                 checkDefaultIcon.Visible = true;
-                checkDefaultIcon.Text = "No icon";
+                checkDefaultIcon.Text = Options.TranslationList["checkNoIcon"];
                 txtItemName.Clear();
                 txtItem.ReadOnly = false;
                 txtIcon.ReadOnly = true;
@@ -2573,24 +2615,12 @@ namespace Optimizer
             Utilities.FlushDNSCache();
         }
 
-        private void infoBaloon_Popup(object sender, PopupEventArgs e)
-        {
-            infoText = ((ToggleSwitch)e.AssociatedControl).OnText;
-
-            foreach (string x in toRemove)
-            {
-                infoText = infoText.Replace(x, string.Empty);
-            }
-
-            infoTip.ToolTipTitle = "What is " + infoText + "?";
-        }
-
         private void helpTipsToggle_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.ShowHelp = helpTipsToggle.Checked;
             Options.SaveSettings();
 
-            infoTip.Active = helpTipsToggle.Checked;
+            helpBox.Active = helpTipsToggle.Checked;
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -2691,6 +2721,11 @@ namespace Optimizer
             Options.SaveSettings();
             Options.LoadTranslation();
             Translate();
+        }
+
+        private void helpBox_Popup(object sender, PopupEventArgs e)
+        {
+            helpBox.ToolTipTitle = "What's this?";
         }
     }
 }
