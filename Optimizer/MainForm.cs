@@ -2727,5 +2727,15 @@ namespace Optimizer
         {
             helpBox.ToolTipTitle = "What's this?";
         }
+
+        private void pictureBox88_Click(object sender, EventArgs e)
+        {
+            radioHellenic.Checked = true;
+        }
+
+        private void radioHellenic_Click(object sender, EventArgs e)
+        {
+            radioHellenic.Checked = true;
+        }
     }
 }
