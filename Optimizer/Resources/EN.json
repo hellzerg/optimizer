@@ -1,7 +1,7 @@
 ﻿{
-	"restartButton": "Apply & Restart",
-	"restartButton8": "Apply & Restart",
-	"restartButton10": "Apply & Restart",
+	"restartButton": "Apply && Restart",
+	"restartButton8": "Apply && Restart",
+	"restartButton10": "Apply && Restart",
 	"restartAndApply": "restart to apply changes?",
 	"txtVersion": "Version: {VN}",
 	"txtBitness": "You are working with {BITS}",
@@ -260,6 +260,7 @@
 	"trayAD": "Apps Downloader",
 	"trayRestartExplorer": "Restart Explorer",
 	"trayExit": "Exit",
+	"tipWhatsThis": "What's this?",
 	"performanceTip": "Collection of internal Windows settings to optimize performance.
 Completely safe to apply.
 

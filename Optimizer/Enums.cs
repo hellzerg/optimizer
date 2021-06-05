@@ -88,6 +88,7 @@
     public enum LanguageCode
     {
         EN,
-        RU
+        RU,
+        EL
     }
 }

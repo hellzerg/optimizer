@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [8.5] - 2021-06-05
+- New: Fully translated into Hellenic (thanks to aplenaki)
+- Corrections to Russian localization
+
 ## [8.4] - 2021-06-02
 - New: Fully translated into Russian (thanks to https://github.com/mrkaban - mrkaban) (#5) 
 - Hotfix: Sometimes settings not saving (#38, #36) 

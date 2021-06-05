@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Management.Automation;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Security.Principal;
@@ -670,6 +671,22 @@ namespace Optimizer
         {
             char[] invalids = Path.GetInvalidFileNameChars();
             return string.Join("_", fileName.Split(invalids, StringSplitOptions.RemoveEmptyEntries)).TrimEnd('.');
+        }
+
+        internal static void SpeedTest()
+        {
+            byte[] data;
+
+            WebClient client = new WebClient();
+            client.Encoding = System.Text.Encoding.UTF8;
+
+            Stopwatch sw = Stopwatch.StartNew();
+            data = client.DownloadData("https://github-releases.githubusercontent.com/95730276/f421f880-bfcd-11eb-82bb-2f6f76a46055?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20210603%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210603T202732Z&X-Amz-Expires=300&X-Amz-Signature=97db99e398122aa3b582884f6aab00447d76130ec80951764cbd204a6455f920&X-Amz-SignedHeaders=host&actor_id=3146835&key_id=0&repo_id=95730276&response-content-disposition=attachment%3B%20filename%3D91.0.4472.77_ungoogled_mini_installer.exe&response-content-type=application%2Foctet-stream");
+            sw.Stop();
+
+            var speed = (long)(data.LongLength / sw.Elapsed.TotalSeconds);
+
+            MessageBox.Show(ByteSize.FromBytes(speed).KiloBytes.ToString());
         }
     }
 }

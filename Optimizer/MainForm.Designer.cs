@@ -312,6 +312,7 @@ namespace Optimizer
             this.checkBin = new Optimizer.ColoredCheckBox();
             this.checkMiniDumps = new Optimizer.ColoredCheckBox();
             this.pingerTab = new System.Windows.Forms.TabPage();
+            this.btnSpeedtest = new System.Windows.Forms.Button();
             this.flushCacheB = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.copyB = new System.Windows.Forms.Button();
@@ -325,11 +326,11 @@ namespace Optimizer
             this.lblPinger = new System.Windows.Forms.Label();
             this.pingerTitle = new System.Windows.Forms.Label();
             this.hostsEditorTab = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblAdblockSub = new System.Windows.Forms.Label();
+            this.linkAdvancedEdit = new System.Windows.Forms.LinkLabel();
             this.lblAdblock = new System.Windows.Forms.Label();
+            this.linkRestoreDefault = new System.Windows.Forms.LinkLabel();
             this.adblockUlti = new System.Windows.Forms.Button();
             this.adblockP = new System.Windows.Forms.Button();
             this.adblockS = new System.Windows.Forms.Button();
@@ -347,8 +348,6 @@ namespace Optimizer
             this.txtDomain = new System.Windows.Forms.TextBox();
             this.lblDomain = new System.Windows.Forms.Label();
             this.lblIP = new System.Windows.Forms.Label();
-            this.linkAdvancedEdit = new System.Windows.Forms.LinkLabel();
-            this.linkRestoreDefault = new System.Windows.Forms.LinkLabel();
             this.hostsTitle = new System.Windows.Forms.Label();
             this.linkLocate = new System.Windows.Forms.LinkLabel();
             this.registryFixerTab = new System.Windows.Forms.TabPage();
@@ -1598,10 +1597,10 @@ namespace Optimizer
             this.cancelBackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.cancelBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelBackup.ForeColor = System.Drawing.Color.White;
-            this.cancelBackup.Location = new System.Drawing.Point(395, 522);
+            this.cancelBackup.Location = new System.Drawing.Point(432, 522);
             this.cancelBackup.Margin = new System.Windows.Forms.Padding(2);
             this.cancelBackup.Name = "cancelBackup";
-            this.cancelBackup.Size = new System.Drawing.Size(53, 25);
+            this.cancelBackup.Size = new System.Drawing.Size(90, 25);
             this.cancelBackup.TabIndex = 61;
             this.cancelBackup.Text = "Cancel";
             this.cancelBackup.UseVisualStyleBackColor = false;
@@ -1620,7 +1619,7 @@ namespace Optimizer
             this.doBackup.Location = new System.Drawing.Point(338, 522);
             this.doBackup.Margin = new System.Windows.Forms.Padding(2);
             this.doBackup.Name = "doBackup";
-            this.doBackup.Size = new System.Drawing.Size(53, 25);
+            this.doBackup.Size = new System.Drawing.Size(90, 25);
             this.doBackup.TabIndex = 60;
             this.doBackup.Text = "OK";
             this.doBackup.UseVisualStyleBackColor = false;
@@ -4066,7 +4065,7 @@ namespace Optimizer
             this.lblPretext.AutoSize = true;
             this.lblPretext.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPretext.ForeColor = System.Drawing.Color.Silver;
-            this.lblPretext.Location = new System.Drawing.Point(26, 229);
+            this.lblPretext.Location = new System.Drawing.Point(29, 229);
             this.lblPretext.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPretext.Name = "lblPretext";
             this.lblPretext.Size = new System.Drawing.Size(123, 21);
@@ -4080,7 +4079,7 @@ namespace Optimizer
             this.lblFootprint.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFootprint.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblFootprint.Location = new System.Drawing.Point(25, 250);
+            this.lblFootprint.Location = new System.Drawing.Point(30, 250);
             this.lblFootprint.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFootprint.Name = "lblFootprint";
             this.lblFootprint.Size = new System.Drawing.Size(119, 31);
@@ -4201,6 +4200,7 @@ namespace Optimizer
             // pingerTab
             // 
             this.pingerTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pingerTab.Controls.Add(this.btnSpeedtest);
             this.pingerTab.Controls.Add(this.flushCacheB);
             this.pingerTab.Controls.Add(this.btnExport);
             this.pingerTab.Controls.Add(this.copyB);
@@ -4219,6 +4219,25 @@ namespace Optimizer
             this.pingerTab.TabIndex = 13;
             this.pingerTab.Text = "Pinger";
             // 
+            // btnSpeedtest
+            // 
+            this.btnSpeedtest.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSpeedtest.Enabled = false;
+            this.btnSpeedtest.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnSpeedtest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSpeedtest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSpeedtest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSpeedtest.ForeColor = System.Drawing.Color.White;
+            this.btnSpeedtest.Location = new System.Drawing.Point(732, 14);
+            this.btnSpeedtest.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSpeedtest.Name = "btnSpeedtest";
+            this.btnSpeedtest.Size = new System.Drawing.Size(110, 29);
+            this.btnSpeedtest.TabIndex = 85;
+            this.btnSpeedtest.Text = "Speed Test";
+            this.btnSpeedtest.UseVisualStyleBackColor = false;
+            this.btnSpeedtest.Visible = false;
+            this.btnSpeedtest.Click += new System.EventHandler(this.btnSpeedtest_Click);
+            // 
             // flushCacheB
             // 
             this.flushCacheB.BackColor = System.Drawing.Color.DodgerBlue;
@@ -4230,7 +4249,7 @@ namespace Optimizer
             this.flushCacheB.Location = new System.Drawing.Point(26, 512);
             this.flushCacheB.Margin = new System.Windows.Forms.Padding(2);
             this.flushCacheB.Name = "flushCacheB";
-            this.flushCacheB.Size = new System.Drawing.Size(139, 29);
+            this.flushCacheB.Size = new System.Drawing.Size(177, 29);
             this.flushCacheB.TabIndex = 84;
             this.flushCacheB.Text = "Flush DNS cache";
             this.flushCacheB.UseVisualStyleBackColor = false;
@@ -4244,10 +4263,10 @@ namespace Optimizer
             this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(499, 512);
+            this.btnExport.Location = new System.Drawing.Point(463, 512);
             this.btnExport.Margin = new System.Windows.Forms.Padding(2);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(71, 29);
+            this.btnExport.Size = new System.Drawing.Size(107, 29);
             this.btnExport.TabIndex = 83;
             this.btnExport.Text = "Export...";
             this.btnExport.UseVisualStyleBackColor = false;
@@ -4278,10 +4297,10 @@ namespace Optimizer
             this.copyIPB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.copyIPB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.copyIPB.ForeColor = System.Drawing.Color.White;
-            this.copyIPB.Location = new System.Drawing.Point(340, 83);
+            this.copyIPB.Location = new System.Drawing.Point(415, 116);
             this.copyIPB.Margin = new System.Windows.Forms.Padding(2);
             this.copyIPB.Name = "copyIPB";
-            this.copyIPB.Size = new System.Drawing.Size(71, 29);
+            this.copyIPB.Size = new System.Drawing.Size(146, 31);
             this.copyIPB.TabIndex = 81;
             this.copyIPB.Text = "Copy";
             this.copyIPB.UseVisualStyleBackColor = false;
@@ -4368,7 +4387,7 @@ namespace Optimizer
             this.txtPingInput.Location = new System.Drawing.Point(26, 83);
             this.txtPingInput.Margin = new System.Windows.Forms.Padding(2);
             this.txtPingInput.Name = "txtPingInput";
-            this.txtPingInput.Size = new System.Drawing.Size(310, 29);
+            this.txtPingInput.Size = new System.Drawing.Size(535, 29);
             this.txtPingInput.TabIndex = 56;
             this.txtPingInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPingInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPingInput_KeyDown);
@@ -4402,11 +4421,7 @@ namespace Optimizer
             // hostsEditorTab
             // 
             this.hostsEditorTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.hostsEditorTab.Controls.Add(this.label3);
-            this.hostsEditorTab.Controls.Add(this.label1);
             this.hostsEditorTab.Controls.Add(this.panel4);
-            this.hostsEditorTab.Controls.Add(this.linkAdvancedEdit);
-            this.hostsEditorTab.Controls.Add(this.linkRestoreDefault);
             this.hostsEditorTab.Controls.Add(this.hostsTitle);
             this.hostsEditorTab.Controls.Add(this.linkLocate);
             this.hostsEditorTab.Location = new System.Drawing.Point(4, 24);
@@ -4417,33 +4432,15 @@ namespace Optimizer
             this.hostsEditorTab.TabIndex = 9;
             this.hostsEditorTab.Text = "Hosts";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(242, 38);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(14, 21);
-            this.label3.TabIndex = 70;
-            this.label3.Text = "|";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(79, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(14, 21);
-            this.label1.TabIndex = 69;
-            this.label1.Text = "|";
-            // 
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.Controls.Add(this.lblAdblockSub);
+            this.panel4.Controls.Add(this.linkAdvancedEdit);
             this.panel4.Controls.Add(this.lblAdblock);
+            this.panel4.Controls.Add(this.linkRestoreDefault);
             this.panel4.Controls.Add(this.adblockUlti);
             this.panel4.Controls.Add(this.adblockP);
             this.panel4.Controls.Add(this.adblockS);
@@ -4478,6 +4475,25 @@ namespace Optimizer
             this.lblAdblockSub.Tag = "";
             this.lblAdblockSub.Text = "(will delete your current config)";
             // 
+            // linkAdvancedEdit
+            // 
+            this.linkAdvancedEdit.ActiveLinkColor = System.Drawing.Color.WhiteSmoke;
+            this.linkAdvancedEdit.AutoSize = true;
+            this.linkAdvancedEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkAdvancedEdit.ForeColor = System.Drawing.Color.Silver;
+            this.linkAdvancedEdit.LinkColor = System.Drawing.Color.Silver;
+            this.linkAdvancedEdit.Location = new System.Drawing.Point(1, 428);
+            this.linkAdvancedEdit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkAdvancedEdit.Name = "linkAdvancedEdit";
+            this.linkAdvancedEdit.Size = new System.Drawing.Size(132, 21);
+            this.linkAdvancedEdit.TabIndex = 49;
+            this.linkAdvancedEdit.TabStop = true;
+            this.linkAdvancedEdit.Tag = "";
+            this.linkAdvancedEdit.Text = "Advanced editor";
+            this.linkAdvancedEdit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkAdvancedEdit.VisitedLinkColor = System.Drawing.Color.Silver;
+            this.linkAdvancedEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            // 
             // lblAdblock
             // 
             this.lblAdblock.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4489,6 +4505,25 @@ namespace Optimizer
             this.lblAdblock.TabIndex = 67;
             this.lblAdblock.Tag = "themeable";
             this.lblAdblock.Text = "Pre-made adblocks";
+            // 
+            // linkRestoreDefault
+            // 
+            this.linkRestoreDefault.ActiveLinkColor = System.Drawing.Color.WhiteSmoke;
+            this.linkRestoreDefault.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkRestoreDefault.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkRestoreDefault.ForeColor = System.Drawing.Color.Silver;
+            this.linkRestoreDefault.LinkColor = System.Drawing.Color.Silver;
+            this.linkRestoreDefault.Location = new System.Drawing.Point(354, 514);
+            this.linkRestoreDefault.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkRestoreDefault.Name = "linkRestoreDefault";
+            this.linkRestoreDefault.Size = new System.Drawing.Size(494, 21);
+            this.linkRestoreDefault.TabIndex = 51;
+            this.linkRestoreDefault.TabStop = true;
+            this.linkRestoreDefault.Tag = "";
+            this.linkRestoreDefault.Text = "Restore default";
+            this.linkRestoreDefault.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.linkRestoreDefault.VisitedLinkColor = System.Drawing.Color.Silver;
+            this.linkRestoreDefault.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
             // adblockUlti
             // 
@@ -4562,7 +4597,7 @@ namespace Optimizer
             // 
             this.lblLock.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLock.ForeColor = System.Drawing.Color.Silver;
-            this.lblLock.Location = new System.Drawing.Point(325, 179);
+            this.lblLock.Location = new System.Drawing.Point(325, 182);
             this.lblLock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLock.Name = "lblLock";
             this.lblLock.Size = new System.Drawing.Size(315, 55);
@@ -4575,7 +4610,7 @@ namespace Optimizer
             this.chkReadOnly.AutoSize = true;
             this.chkReadOnly.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkReadOnly.ForeColor = System.Drawing.Color.White;
-            this.chkReadOnly.Location = new System.Drawing.Point(329, 152);
+            this.chkReadOnly.Location = new System.Drawing.Point(329, 155);
             this.chkReadOnly.Margin = new System.Windows.Forms.Padding(2);
             this.chkReadOnly.Name = "chkReadOnly";
             this.chkReadOnly.Size = new System.Drawing.Size(103, 25);
@@ -4630,10 +4665,10 @@ namespace Optimizer
             this.refreshHostsB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.refreshHostsB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.refreshHostsB.ForeColor = System.Drawing.Color.White;
-            this.refreshHostsB.Location = new System.Drawing.Point(112, 394);
+            this.refreshHostsB.Location = new System.Drawing.Point(5, 395);
             this.refreshHostsB.Margin = new System.Windows.Forms.Padding(2);
             this.refreshHostsB.Name = "refreshHostsB";
-            this.refreshHostsB.Size = new System.Drawing.Size(98, 31);
+            this.refreshHostsB.Size = new System.Drawing.Size(152, 31);
             this.refreshHostsB.TabIndex = 55;
             this.refreshHostsB.Text = "Refresh";
             this.refreshHostsB.UseVisualStyleBackColor = false;
@@ -4647,10 +4682,10 @@ namespace Optimizer
             this.removeHostB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.removeHostB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeHostB.ForeColor = System.Drawing.Color.White;
-            this.removeHostB.Location = new System.Drawing.Point(213, 394);
+            this.removeHostB.Location = new System.Drawing.Point(161, 395);
             this.removeHostB.Margin = new System.Windows.Forms.Padding(2);
             this.removeHostB.Name = "removeHostB";
-            this.removeHostB.Size = new System.Drawing.Size(104, 31);
+            this.removeHostB.Size = new System.Drawing.Size(156, 31);
             this.removeHostB.TabIndex = 54;
             this.removeHostB.Text = "Remove";
             this.removeHostB.UseVisualStyleBackColor = false;
@@ -4659,18 +4694,20 @@ namespace Optimizer
             // removeAllHostsB
             // 
             this.removeAllHostsB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.removeAllHostsB.Enabled = false;
             this.removeAllHostsB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.removeAllHostsB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.removeAllHostsB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.removeAllHostsB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeAllHostsB.ForeColor = System.Drawing.Color.White;
-            this.removeAllHostsB.Location = new System.Drawing.Point(6, 394);
+            this.removeAllHostsB.Location = new System.Drawing.Point(161, 430);
             this.removeAllHostsB.Margin = new System.Windows.Forms.Padding(2);
             this.removeAllHostsB.Name = "removeAllHostsB";
-            this.removeAllHostsB.Size = new System.Drawing.Size(102, 31);
+            this.removeAllHostsB.Size = new System.Drawing.Size(156, 31);
             this.removeAllHostsB.TabIndex = 53;
             this.removeAllHostsB.Text = "Remove all";
             this.removeAllHostsB.UseVisualStyleBackColor = false;
+            this.removeAllHostsB.Visible = false;
             this.removeAllHostsB.Click += new System.EventHandler(this.button46_Click);
             // 
             // addHostB
@@ -4741,44 +4778,6 @@ namespace Optimizer
             this.lblIP.TabIndex = 53;
             this.lblIP.Tag = "themeable";
             this.lblIP.Text = "IP address";
-            // 
-            // linkAdvancedEdit
-            // 
-            this.linkAdvancedEdit.ActiveLinkColor = System.Drawing.Color.WhiteSmoke;
-            this.linkAdvancedEdit.AutoSize = true;
-            this.linkAdvancedEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkAdvancedEdit.ForeColor = System.Drawing.Color.Silver;
-            this.linkAdvancedEdit.LinkColor = System.Drawing.Color.Silver;
-            this.linkAdvancedEdit.Location = new System.Drawing.Point(272, 38);
-            this.linkAdvancedEdit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkAdvancedEdit.Name = "linkAdvancedEdit";
-            this.linkAdvancedEdit.Size = new System.Drawing.Size(132, 21);
-            this.linkAdvancedEdit.TabIndex = 49;
-            this.linkAdvancedEdit.TabStop = true;
-            this.linkAdvancedEdit.Tag = "";
-            this.linkAdvancedEdit.Text = "Advanced editor";
-            this.linkAdvancedEdit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.linkAdvancedEdit.VisitedLinkColor = System.Drawing.Color.Silver;
-            this.linkAdvancedEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
-            // 
-            // linkRestoreDefault
-            // 
-            this.linkRestoreDefault.ActiveLinkColor = System.Drawing.Color.WhiteSmoke;
-            this.linkRestoreDefault.AutoSize = true;
-            this.linkRestoreDefault.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkRestoreDefault.ForeColor = System.Drawing.Color.Silver;
-            this.linkRestoreDefault.LinkColor = System.Drawing.Color.Silver;
-            this.linkRestoreDefault.Location = new System.Drawing.Point(105, 38);
-            this.linkRestoreDefault.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkRestoreDefault.Name = "linkRestoreDefault";
-            this.linkRestoreDefault.Size = new System.Drawing.Size(123, 21);
-            this.linkRestoreDefault.TabIndex = 51;
-            this.linkRestoreDefault.TabStop = true;
-            this.linkRestoreDefault.Tag = "";
-            this.linkRestoreDefault.Text = "Restore default";
-            this.linkRestoreDefault.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.linkRestoreDefault.VisitedLinkColor = System.Drawing.Color.Silver;
-            this.linkRestoreDefault.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
             // hostsTitle
             // 
@@ -5430,7 +5429,7 @@ namespace Optimizer
             // 
             this.radioCommand.AutoSize = true;
             this.radioCommand.ForeColor = System.Drawing.Color.White;
-            this.radioCommand.Location = new System.Drawing.Point(472, 26);
+            this.radioCommand.Location = new System.Drawing.Point(481, 26);
             this.radioCommand.Margin = new System.Windows.Forms.Padding(2);
             this.radioCommand.Name = "radioCommand";
             this.radioCommand.Size = new System.Drawing.Size(103, 25);
@@ -5483,7 +5482,7 @@ namespace Optimizer
             // 
             this.radioFile.AutoSize = true;
             this.radioFile.ForeColor = System.Drawing.Color.White;
-            this.radioFile.Location = new System.Drawing.Point(361, 26);
+            this.radioFile.Location = new System.Drawing.Point(371, 26);
             this.radioFile.Margin = new System.Windows.Forms.Padding(2);
             this.radioFile.Name = "radioFile";
             this.radioFile.Size = new System.Drawing.Size(53, 25);
@@ -5821,7 +5820,7 @@ namespace Optimizer
             this.removeCCB.Location = new System.Drawing.Point(286, 210);
             this.removeCCB.Margin = new System.Windows.Forms.Padding(2);
             this.removeCCB.Name = "removeCCB";
-            this.removeCCB.Size = new System.Drawing.Size(86, 27);
+            this.removeCCB.Size = new System.Drawing.Size(120, 27);
             this.removeCCB.TabIndex = 82;
             this.removeCCB.Text = "Remove";
             this.removeCCB.UseVisualStyleBackColor = false;
@@ -5838,7 +5837,7 @@ namespace Optimizer
             this.refreshCCB.Location = new System.Drawing.Point(286, 241);
             this.refreshCCB.Margin = new System.Windows.Forms.Padding(2);
             this.refreshCCB.Name = "refreshCCB";
-            this.refreshCCB.Size = new System.Drawing.Size(86, 27);
+            this.refreshCCB.Size = new System.Drawing.Size(120, 27);
             this.refreshCCB.TabIndex = 81;
             this.refreshCCB.Text = "Refresh";
             this.refreshCCB.UseVisualStyleBackColor = false;
@@ -5868,7 +5867,7 @@ namespace Optimizer
             this.btnCreateCustomCommand.Location = new System.Drawing.Point(299, 130);
             this.btnCreateCustomCommand.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreateCustomCommand.Name = "btnCreateCustomCommand";
-            this.btnCreateCustomCommand.Size = new System.Drawing.Size(73, 29);
+            this.btnCreateCustomCommand.Size = new System.Drawing.Size(107, 29);
             this.btnCreateCustomCommand.TabIndex = 60;
             this.btnCreateCustomCommand.Text = "Create";
             this.btnCreateCustomCommand.UseVisualStyleBackColor = false;
@@ -5882,7 +5881,7 @@ namespace Optimizer
             this.button48.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.button48.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button48.ForeColor = System.Drawing.Color.White;
-            this.button48.Location = new System.Drawing.Point(320, 75);
+            this.button48.Location = new System.Drawing.Point(354, 75);
             this.button48.Margin = new System.Windows.Forms.Padding(2);
             this.button48.Name = "button48";
             this.button48.Size = new System.Drawing.Size(52, 29);
@@ -5925,7 +5924,7 @@ namespace Optimizer
             this.txtRunFile.Margin = new System.Windows.Forms.Padding(2);
             this.txtRunFile.Name = "txtRunFile";
             this.txtRunFile.ReadOnly = true;
-            this.txtRunFile.Size = new System.Drawing.Size(305, 29);
+            this.txtRunFile.Size = new System.Drawing.Size(339, 29);
             this.txtRunFile.TabIndex = 7;
             // 
             // ccFileL
@@ -6203,7 +6202,7 @@ namespace Optimizer
             this.lblUpdateDisabled.AutoSize = true;
             this.lblUpdateDisabled.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUpdateDisabled.ForeColor = System.Drawing.Color.Gold;
-            this.lblUpdateDisabled.Location = new System.Drawing.Point(27, 358);
+            this.lblUpdateDisabled.Location = new System.Drawing.Point(28, 358);
             this.lblUpdateDisabled.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUpdateDisabled.Name = "lblUpdateDisabled";
             this.lblUpdateDisabled.Size = new System.Drawing.Size(239, 21);
@@ -7247,13 +7246,12 @@ namespace Optimizer
         private Panel panel9;
         private PictureBox pictureBox87;
         private PictureBox pictureBox86;
-        private Label label1;
-        private Label label3;
         private ToolTip helpBox;
         private PictureBox pictureBox88;
         private ColoredRadioButton radioHellenic;
         private ColoredRadioButton radioEnglish;
         private ColoredRadioButton radioRussian;
+        private Button btnSpeedtest;
     }
 }
 

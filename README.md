@@ -54,9 +54,10 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ## Thanks to: ##
 * https://github.com/mrkaban - mrkaban for Russian translation
+* aplenaki for Hellenic translation
 
 ## Details: ##
 
-* Latest version: 8.4
-* Released: June 2, 2021
-* SHA256: F8DA2513869126632A33829F00117A59D9F36BC0450B3F1EC7A9B1CBA3B8C37A
+* Latest version: 8.5
+* Released: June 5, 2021
+* SHA256: 02124BD07D0B61F02356ECDD2CD4FB8786DF277CB654B6DE158E99CE7A609E31

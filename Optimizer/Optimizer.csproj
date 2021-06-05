@@ -214,6 +214,7 @@
     <None Include="Resources\EnableOfficeTelemetryTasks.bat" />
     <None Include="Resources\EnableTelemetryTasks.bat" />
     <None Include="Resources\EnableXboxTasks.bat" />
+    <None Include="Resources\EL.json" />
     <None Include="Resources\hosts" />
     <None Include="Resources\InstallTakeOwnership.reg" />
     <None Include="Resources\PowerMenu.reg" />

@@ -482,6 +482,8 @@ namespace Optimizer
 
             if (Options.CurrentOptions.LanguageCode == LanguageCode.RU) radioRussian.Checked = true;
 
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.EL) radioHellenic.Checked = true;
+
             Program.MainForm = this;
 
             if (string.IsNullOrEmpty(Options.CurrentOptions.AppsFolder))
@@ -2725,7 +2727,7 @@ namespace Optimizer
 
         private void helpBox_Popup(object sender, PopupEventArgs e)
         {
-            helpBox.ToolTipTitle = "What's this?";
+            helpBox.ToolTipTitle = Options.TranslationList["tipWhatsThis"].ToString();
         }
 
         private void pictureBox88_Click(object sender, EventArgs e)
@@ -2736,6 +2738,15 @@ namespace Optimizer
         private void radioHellenic_Click(object sender, EventArgs e)
         {
             radioHellenic.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.EL;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void btnSpeedtest_Click(object sender, EventArgs e)
+        {
+            Utilities.SpeedTest();
         }
     }
 }

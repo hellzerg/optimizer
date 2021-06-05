@@ -19,7 +19,7 @@ namespace Optimizer.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -146,7 +146,40 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to {
+        ///	&quot;restartButton&quot;: &quot;Εφαρμογή &amp; Επανεκκίνηση&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Εφαρμογή &amp; Επανεκκίνηση&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Εφαρμογή &amp; Επανεκκίνηση&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Επανεκκίνηση για την εφαρμογή των αλλαγών;&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Έκδοση: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Αρχιτεκτονική {BITS}&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;Διαθέσιμη ενημέρωση&quot;,
+        ///	&quot;lblLab&quot;: &quot;Πειραματική έκδοση&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Βελτιστοποίηση Απόδοσης Συστήματος&quot;,
+        ///	&quot;networkSw&quot;: &quot;Βελτιστοποίηση Δικτύου&quot;,
+        ///	&quot;defenderSw&quot;: &quot;Απενεργοποίηση Windows Defender&quot;,
+        ///	&quot;syste [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EL {
+            get {
+                return ResourceManager.GetString("EL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;restartButton&quot;: &quot;Apply &amp; Restart&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Apply &amp; Restart&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Apply &amp; Restart&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;restart to apply changes?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;You are working with {BITS}&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;Update available&quot;,
+        ///	&quot;lblLab&quot;: &quot;Experimental build\n(delete after testing)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Enable Performance Tweaks&quot;,
+        ///	&quot;networkSw&quot;: &quot;Disable Network Throttling&quot;,
+        ///	&quot;defenderSw&quot;: &quot;Disable Windows Defender&quot;,
+        ///	&quot;systemRestoreSw&quot;: &quot;Disable Sy [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EN {
             get {
@@ -299,7 +332,18 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to {
+        ///	&quot;restartButton&quot;: &quot;Применить и перезапустить&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Применить и перезапустить&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Применить и перезапустить&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;перезагрузить, чтобы изменения вступили в силу?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Версия: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Вы работаете с {BITS}&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;обновление доступно&quot;,
+        ///	&quot;lblLab&quot;: &quot;экспериментальная сборка\n(удалить после тестирования)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Вкл Настройки производительности&quot;,
+        ///	&quot;networkSw&quot;: &quot;Отключить Сетевое регулирование&quot;,
+        ///	&quot;d [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RU {
             get {
