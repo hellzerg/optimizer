@@ -1950,11 +1950,11 @@ namespace Optimizer
         {
             if (!privacySw.Checked)
             {
-                Optimize.DisablePrivacyOptions();
+                Optimize.EnhancePrivacy();
             }
             else
             {
-                Optimize.EnablePrivacyOptions();
+                Optimize.CompromisePrivacy();
             }
             Options.CurrentOptions.DisablePrivacyOptions = !privacySw.Checked;
         }

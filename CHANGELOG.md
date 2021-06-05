@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [8.6] - 2021-06-06
+- Plenty of improvements in Performance, Privacy & Telemetry
+
 ## [8.5] - 2021-06-05
 - New: Fully translated into Hellenic (thanks to aplenaki)
 - Corrections to Russian localization

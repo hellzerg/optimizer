@@ -366,11 +366,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisablePrivacyOptions.Value)
                 {
-                    Optimize.DisablePrivacyOptions();
+                    Optimize.EnhancePrivacy();
                 }
                 else
                 {
-                    Optimize.EnablePrivacyOptions();
+                    Optimize.CompromisePrivacy();
                 }
             }
 
