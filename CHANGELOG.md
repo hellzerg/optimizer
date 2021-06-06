@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [8.7] - 2021-06-06
+- Hotfix: Crash when applying "Enhance Privacy"
+
 ## [8.6] - 2021-06-06
 - Plenty of improvements in Performance, Privacy & Telemetry
 
