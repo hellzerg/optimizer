@@ -867,7 +867,7 @@ namespace Optimizer
         {
             // Enable location tracking
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}", "SensorPermissionState", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"System\CurrentControlSet\Services\lfsvc\Service\Configuration", "Status", "1", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\lfsvc\Service\Configuration", "Status", "1", RegistryValueKind.DWord);
 
             // Enable biometrics
             try
