@@ -10,6 +10,8 @@ namespace Optimizer
         {
             InitializeComponent();
             Options.ApplyTheme(this);
+
+            btnAbout.Text = Options.TranslationList["btnAbout"].ToString();
         }
 
         private void button7_Click(object sender, EventArgs e)

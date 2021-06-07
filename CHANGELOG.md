@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [8.8] - 2021-06-07
+- Choose language if running first time
+
 ## [8.7] - 2021-06-06
 - Hotfix: Crash when applying "Enhance Privacy"
 

@@ -13,7 +13,7 @@ namespace Optimizer
         // Enter current version here
 
         internal readonly static float Major = 8;
-        internal readonly static float Minor = 7;
+        internal readonly static float Minor = 8;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
@@ -87,7 +87,17 @@ namespace Optimizer
                     // load settings, if there is no settings, load defaults
                     try
                     {
-                        Options.LoadSettings();
+                        // show FirstRunForm if app is running first time
+                        if (!File.Exists(Options.SettingsFile))
+                        {
+                            Options.LoadSettings();
+                            FirstRunForm frf = new FirstRunForm();
+                            frf.ShowDialog();
+                        }
+                        else
+                        {
+                            Options.LoadSettings();
+                        }
 
                         // ideal place to replace internal messages from translation list
                         _adminMissingMessage = Options.TranslationList["adminMissingMsg"];

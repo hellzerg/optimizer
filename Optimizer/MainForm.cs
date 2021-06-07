@@ -2699,12 +2699,12 @@ namespace Optimizer
 
         private void pictureBox86_Click(object sender, EventArgs e)
         {
-            radioEnglish.Checked = true;
+            radioEnglish.PerformClick();
         }
 
         private void pictureBox87_Click(object sender, EventArgs e)
         {
-            radioRussian.Checked = true;
+            radioRussian.PerformClick();
         }
 
         private void radioEnglish_Click(object sender, EventArgs e)
@@ -2732,7 +2732,7 @@ namespace Optimizer
 
         private void pictureBox88_Click(object sender, EventArgs e)
         {
-            radioHellenic.Checked = true;
+            radioHellenic.PerformClick();
         }
 
         private void radioHellenic_Click(object sender, EventArgs e)

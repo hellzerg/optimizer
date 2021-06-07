@@ -5640,7 +5640,7 @@ namespace Optimizer
             this.RemoveOwnerB.Location = new System.Drawing.Point(11, 276);
             this.RemoveOwnerB.Margin = new System.Windows.Forms.Padding(2);
             this.RemoveOwnerB.Name = "RemoveOwnerB";
-            this.RemoveOwnerB.Size = new System.Drawing.Size(227, 31);
+            this.RemoveOwnerB.Size = new System.Drawing.Size(334, 31);
             this.RemoveOwnerB.TabIndex = 78;
             this.RemoveOwnerB.Text = "Remove \"Take Ownership\"";
             this.RemoveOwnerB.UseVisualStyleBackColor = false;
@@ -5657,7 +5657,7 @@ namespace Optimizer
             this.AddOwnerB.Location = new System.Drawing.Point(11, 240);
             this.AddOwnerB.Margin = new System.Windows.Forms.Padding(2);
             this.AddOwnerB.Name = "AddOwnerB";
-            this.AddOwnerB.Size = new System.Drawing.Size(227, 31);
+            this.AddOwnerB.Size = new System.Drawing.Size(334, 31);
             this.AddOwnerB.TabIndex = 77;
             this.AddOwnerB.Text = "Add \"Take Ownership\"";
             this.AddOwnerB.UseVisualStyleBackColor = false;
@@ -5687,7 +5687,7 @@ namespace Optimizer
             this.PMB.Location = new System.Drawing.Point(11, 48);
             this.PMB.Margin = new System.Windows.Forms.Padding(2);
             this.PMB.Name = "PMB";
-            this.PMB.Size = new System.Drawing.Size(227, 31);
+            this.PMB.Size = new System.Drawing.Size(334, 31);
             this.PMB.TabIndex = 74;
             this.PMB.Text = "Add \"Power Menu\"";
             this.PMB.UseVisualStyleBackColor = false;
@@ -5704,7 +5704,7 @@ namespace Optimizer
             this.DSB.Location = new System.Drawing.Point(11, 192);
             this.DSB.Margin = new System.Windows.Forms.Padding(2);
             this.DSB.Name = "DSB";
-            this.DSB.Size = new System.Drawing.Size(227, 31);
+            this.DSB.Size = new System.Drawing.Size(334, 31);
             this.DSB.TabIndex = 72;
             this.DSB.Text = "Add \"Desktop Shortcuts\"";
             this.DSB.UseVisualStyleBackColor = false;
@@ -5721,7 +5721,7 @@ namespace Optimizer
             this.STB.Location = new System.Drawing.Point(11, 84);
             this.STB.Margin = new System.Windows.Forms.Padding(2);
             this.STB.Name = "STB";
-            this.STB.Size = new System.Drawing.Size(227, 31);
+            this.STB.Size = new System.Drawing.Size(334, 31);
             this.STB.TabIndex = 70;
             this.STB.Text = "Add \"System Tools\"";
             this.STB.UseVisualStyleBackColor = false;
@@ -5738,7 +5738,7 @@ namespace Optimizer
             this.SSB.Location = new System.Drawing.Point(11, 156);
             this.SSB.Margin = new System.Windows.Forms.Padding(2);
             this.SSB.Name = "SSB";
-            this.SSB.Size = new System.Drawing.Size(227, 31);
+            this.SSB.Size = new System.Drawing.Size(334, 31);
             this.SSB.TabIndex = 68;
             this.SSB.Text = "Add \"System Shortcuts\"";
             this.SSB.UseVisualStyleBackColor = false;
@@ -5755,7 +5755,7 @@ namespace Optimizer
             this.WAB.Location = new System.Drawing.Point(11, 120);
             this.WAB.Margin = new System.Windows.Forms.Padding(2);
             this.WAB.Name = "WAB";
-            this.WAB.Size = new System.Drawing.Size(227, 31);
+            this.WAB.Size = new System.Drawing.Size(334, 31);
             this.WAB.TabIndex = 65;
             this.WAB.Text = "Add \"Windows Apps\"";
             this.WAB.UseVisualStyleBackColor = false;
