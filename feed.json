@@ -246,8 +246,8 @@
    },
    {
       "Title":"SumatraPDF",
-      "Link64":"https://www.sumatrapdfreader.org/dl2/SumatraPDF-3.2-64-install.exe",
-      "Link":"https://www.sumatrapdfreader.org/dl2/SumatraPDF-3.2-install.exe",
+      "Link64":"https://kjkpubsf.sfo2.digitaloceanspaces.com/software/sumatrapdf/rel/SumatraPDF-3.2-64-install.exe",
+      "Link":"https://kjkpubsf.sfo2.digitaloceanspaces.com/software/sumatrapdf/rel/SumatraPDF-3.2-install.exe",
       "Tag":"cSumatra"
    },
    {
@@ -288,7 +288,7 @@
    },
    {
       "Title":"IrfanView",
-      "Link":"http://www.storage.programosy.pl/iview457_setup.exe",
+      "Link":"http://www.storage.programosy.pl/iview458_setup.exe",
       "Tag":"cIrfan"
    },
    {
