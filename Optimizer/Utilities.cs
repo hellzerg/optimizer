@@ -8,6 +8,7 @@ using System.Linq;
 using System.Management.Automation;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Reflection;
 using System.Security.Principal;
 using System.ServiceProcess;
@@ -34,6 +35,8 @@ namespace Optimizer
         internal static WindowsVersion CurrentWindowsVersion = WindowsVersion.Unsupported;
 
         internal static Ping pinger = new Ping();
+
+        static IPAddress addressToPing;
 
         internal delegate void SetControlPropertyThreadSafeDelegate(Control control, string propertyName, object propertyValue);
 
@@ -633,7 +636,10 @@ namespace Optimizer
             PingReply reply;
             try
             {
-                reply = pinger.Send(nameOrAddress);
+                addressToPing = Dns.GetHostAddresses(nameOrAddress)
+                    .First(address => address.AddressFamily == AddressFamily.InterNetwork);
+
+                reply = pinger.Send(addressToPing);
                 return reply;
             }
             catch
