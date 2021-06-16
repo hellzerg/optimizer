@@ -231,6 +231,7 @@
     <None Include="Resources\RU.json" />
     <None Include="Resources\SystemShortcuts.reg" />
     <None Include="Resources\SystemTools.reg" />
+    <None Include="Resources\TR.json" />
     <None Include="Resources\WindowsApps.reg" />
   </ItemGroup>
   <ItemGroup>

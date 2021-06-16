@@ -237,6 +237,8 @@ namespace Optimizer
             helpBox.SetToolTip(gameBarSw, Options.TranslationList["gameBarTip"].ToString());
             helpBox.SetToolTip(insiderSw, Options.TranslationList["insiderTip"].ToString());
             helpBox.SetToolTip(featuresSw, Options.TranslationList["featuresTip"].ToString());
+
+            helpBox.ToolTipTitle = Options.TranslationList["tipWhatsThis"].ToString();
         }
 
         private void ToggleSwitch7_Click(object sender, EventArgs e)
@@ -422,8 +424,10 @@ namespace Optimizer
             // EXPERIMENTAL message
             lblLab.Visible = Program.EXPERIMENTAL_BUILD;
 
-            txtOS.Text = "Microsoft " + Utilities.GetOS();
+            // Windows version, architecture, .NET Framework
+            txtOS.Text = Utilities.GetOS();
             txtBitness.Text = Utilities.GetBitness();
+            txtNetFw.Text = ".NET Framework " + Utilities.CheckNETFramework(); 
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
             {
@@ -472,16 +476,18 @@ namespace Optimizer
             LoadSettings();
 
             // Translation-related
-            if (Options.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
-
             if (Options.CurrentOptions.LanguageCode == LanguageCode.EN)
             {
                 radioEnglish.Checked = true;
-                txtVersion.Text = txtVersion.Text.Replace("{VN}", Program.GetCurrentVersionTostring());
+                Translate(true);
+            }
+            else
+            {
+                Translate();
             }
 
             if (Options.CurrentOptions.LanguageCode == LanguageCode.RU) radioRussian.Checked = true;
-
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.TR) radioTurkish.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.EL) radioHellenic.Checked = true;
 
             Program.MainForm = this;
@@ -519,20 +525,8 @@ namespace Optimizer
             }
         }
 
-        private void Translate()
+        private void Translate(bool skipFull = false)
         {
-            _noNewVersionMessage = Options.TranslationList["noNewVersion"];
-            _betaVersionMessage = Options.TranslationList["betaVersion"];
-            _restartMessage = Options.TranslationList["restartAndApply"];
-            _removeStartupItemsMessage = Options.TranslationList["removeAllStartup"];
-            _removeHostsEntriesMessage = Options.TranslationList["removeAllHosts"];
-            _removeDesktopItemsMessage = Options.TranslationList["removeAllItems"];
-            _removeModernAppsMessage = Options.TranslationList["removeModernApps"];
-            _errorModernAppsMessage = Options.TranslationList["errorModernApps"];
-            _resetMessage = Options.TranslationList["resetMessage"];
-
-            SetHelpBoxTranslation();
-
             Dictionary<string, string> translationList = Options.TranslationList.ToObject<Dictionary<string, string>>();
             if (Environment.Is64BitOperatingSystem)
             {
@@ -543,33 +537,49 @@ namespace Optimizer
                 translationList["txtBitness"] = translationList["txtBitness"].Replace("{BITS}", translationList["c32"]);
             }
 
-            listStartupItems.Columns[0].Text = translationList["startupItemName"];
-            listStartupItems.Columns[1].Text = translationList["startupItemLocation"];
-            listStartupItems.Columns[2].Text = translationList["startupItemType"];
-            trayStartup.Text = translationList["trayStartup"];
-            trayCleaner.Text = translationList["trayCleaner"];
-            trayPinger.Text = translationList["trayPinger"];
-            trayHosts.Text = translationList["trayHosts"];
-            trayAD.Text = translationList["trayAD"];
-            trayRestartExplorer.Text = translationList["trayRestartExplorer"];
-            trayExit.Text = translationList["trayExit"];
+            SetHelpBoxTranslation();
 
-            Control element;
-
-            foreach (var x in translationList)
+            if (!skipFull)
             {
-                if (x.Key == null || x.Key == string.Empty) continue;
-                element = this.Controls.Find(x.Key, true).FirstOrDefault();
+                _noNewVersionMessage = Options.TranslationList["noNewVersion"];
+                _betaVersionMessage = Options.TranslationList["betaVersion"];
+                _restartMessage = Options.TranslationList["restartAndApply"];
+                _removeStartupItemsMessage = Options.TranslationList["removeAllStartup"];
+                _removeHostsEntriesMessage = Options.TranslationList["removeAllHosts"];
+                _removeDesktopItemsMessage = Options.TranslationList["removeAllItems"];
+                _removeModernAppsMessage = Options.TranslationList["removeModernApps"];
+                _errorModernAppsMessage = Options.TranslationList["errorModernApps"];
+                _resetMessage = Options.TranslationList["resetMessage"];
 
-                if (element == null) continue;
+                listStartupItems.Columns[0].Text = translationList["startupItemName"];
+                listStartupItems.Columns[1].Text = translationList["startupItemLocation"];
+                listStartupItems.Columns[2].Text = translationList["startupItemType"];
+                trayStartup.Text = translationList["trayStartup"];
+                trayCleaner.Text = translationList["trayCleaner"];
+                trayPinger.Text = translationList["trayPinger"];
+                trayHosts.Text = translationList["trayHosts"];
+                trayAD.Text = translationList["trayAD"];
+                trayRestartExplorer.Text = translationList["trayRestartExplorer"];
+                trayExit.Text = translationList["trayExit"];
 
-                if (element is ToggleSwitch)
+                Control element;
+
+                foreach (var x in translationList)
                 {
-                    ((ToggleSwitch)element).OnText = x.Value;
-                    continue;
+                    if (x.Key == null || x.Key == string.Empty) continue;
+                    element = this.Controls.Find(x.Key, true).FirstOrDefault();
+
+                    if (element == null) continue;
+
+                    if (element is ToggleSwitch)
+                    {
+                        ((ToggleSwitch)element).OnText = x.Value;
+                        continue;
+                    }
+
+                    element.Text = x.Value;
                 }
 
-                element.Text = x.Value;
             }
 
             txtVersion.Text = txtVersion.Text.Replace("{VN}", Program.GetCurrentVersionTostring());
@@ -2725,11 +2735,6 @@ namespace Optimizer
             Translate();
         }
 
-        private void helpBox_Popup(object sender, PopupEventArgs e)
-        {
-            helpBox.ToolTipTitle = Options.TranslationList["tipWhatsThis"].ToString();
-        }
-
         private void pictureBox88_Click(object sender, EventArgs e)
         {
             radioHellenic.PerformClick();
@@ -2747,6 +2752,20 @@ namespace Optimizer
         private void btnSpeedtest_Click(object sender, EventArgs e)
         {
             Utilities.SpeedTest();
+        }
+
+        private void pictureBox89_Click(object sender, EventArgs e)
+        {
+            radioTurkish.PerformClick();
+        }
+
+        private void radioTurkish_Click(object sender, EventArgs e)
+        {
+            radioTurkish.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.TR;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+            Translate();
         }
     }
 }

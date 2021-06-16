@@ -62,5 +62,17 @@ namespace Optimizer
             Options.SaveSettings();
             Options.LoadTranslation();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            radioTurkish.PerformClick();
+        }
+
+        private void radioTurkish_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.TR;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
     }
 }

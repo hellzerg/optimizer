@@ -189,7 +189,7 @@ namespace Optimizer
                 CurrentOptions.Color = Theme.Zerg;
                 CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
                 Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
-                CurrentOptions.EnableTray = true;
+                CurrentOptions.EnableTray = false;
                 CurrentOptions.ShowHelp = true;
 
                 CurrentOptions.LanguageCode = LanguageCode.EN;
@@ -260,6 +260,7 @@ namespace Optimizer
             if (CurrentOptions.LanguageCode == LanguageCode.EN) TranslationList = JObject.Parse(Properties.Resources.EN);
             if (CurrentOptions.LanguageCode == LanguageCode.RU) TranslationList = JObject.Parse(Properties.Resources.RU);
             if (CurrentOptions.LanguageCode == LanguageCode.EL) TranslationList = JObject.Parse(Properties.Resources.EL);
+            if (CurrentOptions.LanguageCode == LanguageCode.TR) TranslationList = JObject.Parse(Properties.Resources.TR);
         }
     }
 }

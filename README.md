@@ -26,6 +26,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Add items in desktop on right-click menu
 * Define custom commands for run dialog
 * Silent run support using a configuration file
+* Multilingual support
 
 ## Downloads: ##
 https://github.com/hellzerg/optimizer/releases
@@ -53,11 +54,12 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * Thanks for this really tiny, yet extremely useful library
 
 ## Thanks to: ##
-* https://github.com/mrkaban - mrkaban for Russian translation
 * aplenaki for Hellenic translation
+* https://github.com/mrkaban - mrkaban for Russian translation
+* https://github.com/Kheasyque - Kheasyque for Turkish translation
 
 ## Details: ##
 
-* Latest version: 8.8
-* Released: June 7, 2021
-* SHA256: 56C53A308521146227A2C96CA96DF9668BC399D923DD859B8D6DF101BAF35085
+* Latest version: 8.9
+* Released: June 17, 2021
+* SHA256: 3789235F7C8C2627B4956306EEC6A00310EAFF4C2002AF9FDA471E17C5907244

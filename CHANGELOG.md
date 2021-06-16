@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [8.9] - 2021-06-17
+- New: Now detects .NET Framework installed version
+- New: Fully translated into Turkish (thanks to https://github.com/Kheasyque - Kheasyque) (#47)
+- Hotfix: Pinger not working when returning IPv6, now pings IPv4 only
+
 ## [8.8] - 2021-06-07
 - Choose language if running first time
 

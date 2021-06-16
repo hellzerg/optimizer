@@ -147,9 +147,10 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
-        ///	&quot;restartButton&quot;: &quot;Εφαρμογή &amp; Επανεκκίνηση&quot;,
-        ///	&quot;restartButton8&quot;: &quot;Εφαρμογή &amp; Επανεκκίνηση&quot;,
-        ///	&quot;restartButton10&quot;: &quot;Εφαρμογή &amp; Επανεκκίνηση&quot;,
+        ///	&quot;btnAbout&quot;: &quot;Εντάξει&quot;,
+        ///	&quot;restartButton&quot;: &quot;Εφαρμογή &amp;&amp; Επανεκκίνηση&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Εφαρμογή &amp;&amp; Επανεκκίνηση&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Εφαρμογή &amp;&amp; Επανεκκίνηση&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Επανεκκίνηση για την εφαρμογή των αλλαγών;&quot;,
         ///	&quot;txtVersion&quot;: &quot;Έκδοση: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;Αρχιτεκτονική {BITS}&quot;,
@@ -157,8 +158,7 @@ namespace Optimizer.Properties {
         ///	&quot;lblLab&quot;: &quot;Πειραματική έκδοση&quot;,
         ///	&quot;performanceSw&quot;: &quot;Βελτιστοποίηση Απόδοσης Συστήματος&quot;,
         ///	&quot;networkSw&quot;: &quot;Βελτιστοποίηση Δικτύου&quot;,
-        ///	&quot;defenderSw&quot;: &quot;Απενεργοποίηση Windows Defender&quot;,
-        ///	&quot;syste [rest of string was truncated]&quot;;.
+        ///	&quot;defenderSw&quot;: &quot;Απενεργοποίηση [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EL {
             get {
@@ -168,9 +168,10 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
-        ///	&quot;restartButton&quot;: &quot;Apply &amp; Restart&quot;,
-        ///	&quot;restartButton8&quot;: &quot;Apply &amp; Restart&quot;,
-        ///	&quot;restartButton10&quot;: &quot;Apply &amp; Restart&quot;,
+        ///	&quot;btnAbout&quot;: &quot;OK&quot;,
+        ///	&quot;restartButton&quot;: &quot;Apply &amp;&amp; Restart&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Apply &amp;&amp; Restart&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Apply &amp;&amp; Restart&quot;,
         ///	&quot;restartAndApply&quot;: &quot;restart to apply changes?&quot;,
         ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;You are working with {BITS}&quot;,
@@ -179,7 +180,7 @@ namespace Optimizer.Properties {
         ///	&quot;performanceSw&quot;: &quot;Enable Performance Tweaks&quot;,
         ///	&quot;networkSw&quot;: &quot;Disable Network Throttling&quot;,
         ///	&quot;defenderSw&quot;: &quot;Disable Windows Defender&quot;,
-        ///	&quot;systemRestoreSw&quot;: &quot;Disable Sy [rest of string was truncated]&quot;;.
+        ///	&quot;system [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EN {
             get {
@@ -333,6 +334,7 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;btnAbout&quot;: &quot;Ок&quot;,
         ///	&quot;restartButton&quot;: &quot;Применить и перезапустить&quot;,
         ///	&quot;restartButton8&quot;: &quot;Применить и перезапустить&quot;,
         ///	&quot;restartButton10&quot;: &quot;Применить и перезапустить&quot;,
@@ -342,8 +344,7 @@ namespace Optimizer.Properties {
         ///	&quot;linkUpdate&quot;: &quot;обновление доступно&quot;,
         ///	&quot;lblLab&quot;: &quot;экспериментальная сборка\n(удалить после тестирования)&quot;,
         ///	&quot;performanceSw&quot;: &quot;Вкл Настройки производительности&quot;,
-        ///	&quot;networkSw&quot;: &quot;Отключить Сетевое регулирование&quot;,
-        ///	&quot;d [rest of string was truncated]&quot;;.
+        ///	&quot;networkSw&quot;: &quot;Отключить Сетевое  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RU {
             get {
@@ -391,6 +392,26 @@ namespace Optimizer.Properties {
         internal static string SystemTools {
             get {
                 return ResourceManager.GetString("SystemTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;btnAbout&quot;: &quot;OK&quot;,
+        ///	&quot;restartButton&quot;: &quot;Uygula ve Yeniden Başlat&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Uygula ve Yeniden Başlat&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Uygula ve Yeniden Başlat&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Değişiklikleri uygulamak için yeniden başlatılsın mı?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;{BITS} ile çalışıyorsun.&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;Güncelleme Mevcut&quot;,
+        ///	&quot;lblLab&quot;: &quot;Deneysel Yapı\n(Testten sonra silin)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Performans Ayarlarını Etkinleştir&quot;,
+        ///	&quot;networkSw&quot;: &quot;Ağ Kısıtlamasını Devre Dışı Bı [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TR {
+            get {
+                return ResourceManager.GetString("TR", resourceCulture);
             }
         }
         

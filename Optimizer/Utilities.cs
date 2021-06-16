@@ -694,5 +694,46 @@ namespace Optimizer
 
             MessageBox.Show(ByteSize.FromBytes(speed).KiloBytes.ToString());
         }
+
+        internal static string CheckNETFramework()
+        {
+            string subkey = @"SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\";
+            int netRelease;
+
+            using (RegistryKey ndpKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(subkey))
+            {
+                if (ndpKey != null && ndpKey.GetValue("Release") != null)
+                {
+                    netRelease = (int)ndpKey.GetValue("Release");
+                }
+                else
+                {
+                    return "4.0";
+                }
+            }
+
+            if (netRelease >= 528040)
+                return "4.8";
+            if (netRelease >= 461808)
+                return "4.7.2";
+            if (netRelease >= 461308)
+                return "4.7.1";
+            if (netRelease >= 460798)
+                return "4.7";
+            if (netRelease >= 394802)
+                return "4.6.2";
+            if (netRelease >= 394254)
+                return "4.6.1";
+            if (netRelease >= 393295)
+                return "4.6";
+            if (netRelease >= 379893)
+                return "4.5.2";
+            if (netRelease >= 378675)
+                return "4.5.1";
+            if (netRelease >= 378389)
+                return "4.5";
+
+            return "4.0";
+        }
     }
 }

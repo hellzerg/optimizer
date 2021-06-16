@@ -13,7 +13,7 @@ namespace Optimizer
         // Enter current version here
 
         internal readonly static float Major = 8;
-        internal readonly static float Minor = 8;
+        internal readonly static float Minor = 9;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
@@ -39,6 +39,8 @@ namespace Optimizer
         static string _adminMissingMessage = "Optimizer needs to be run as administrator!\nApp will now close...";
         static string _unsupportedMessage = "Optimizer works in Windows 7 or higher!\nApp will now close...";
 
+        static string _renameAppMessage = "It's recommended to rename the app from '{0}' to 'Optimizer' for a better experience.\n\nApp will now close...";
+
         static string _confInvalidVersionMsg = "Windows version does not match!";
         static string _confInvalidFormatMsg = "Config file is in invalid format!";
         static string _confNotFoundMsg = "Config file does not exist!";
@@ -50,6 +52,9 @@ namespace Optimizer
             EmbeddedAssembly.Load(_jsonAssembly, _jsonAssembly.Replace("Optimizer.", string.Empty));
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
 
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
             // check if another instance is running
             // what's the problem? prevents auto-patching...
 
@@ -59,8 +64,14 @@ namespace Optimizer
             //    return;
             //}
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            // prompt to change filename to 'Optimizer' (skip if experimental build)
+            // annoying?
+
+            //if (!EXPERIMENTAL_BUILD && Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location) != "Optimizer")
+            //{
+            //    MessageBox.Show(string.Format(_renameAppMessage, Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location)), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    Environment.Exit(0);
+            //}
 
             if (!Utilities.IsAdmin())
             {
