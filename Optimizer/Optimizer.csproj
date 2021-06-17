@@ -134,6 +134,8 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NetworkAdapter.cs" />
+    <Compile Include="NetworkMonitor.cs" />
     <Compile Include="Optimize.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="Program.cs" />

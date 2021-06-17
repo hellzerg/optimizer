@@ -33,6 +33,7 @@ namespace Optimizer
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tpanel = new System.Windows.Forms.Panel();
+            this.txtNetFw = new System.Windows.Forms.Label();
             this.linkUpdate = new System.Windows.Forms.LinkLabel();
             this.lblLab = new System.Windows.Forms.Label();
             this.txtBitness = new System.Windows.Forms.Label();
@@ -178,7 +179,6 @@ namespace Optimizer
             this.lblFootprint = new System.Windows.Forms.Label();
             this.cleanDriveB = new System.Windows.Forms.Button();
             this.pingerTab = new System.Windows.Forms.TabPage();
-            this.btnSpeedtest = new System.Windows.Forms.Button();
             this.flushCacheB = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.copyB = new System.Windows.Forms.Button();
@@ -322,7 +322,6 @@ namespace Optimizer
             this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.helpBox = new System.Windows.Forms.ToolTip(this.components);
-            this.txtNetFw = new System.Windows.Forms.Label();
             this.stickySw = new Optimizer.ToggleSwitch();
             this.smartScreenSw = new Optimizer.ToggleSwitch();
             this.faxSw = new Optimizer.ToggleSwitch();
@@ -638,6 +637,17 @@ namespace Optimizer
             this.tpanel.Name = "tpanel";
             this.tpanel.Size = new System.Drawing.Size(870, 64);
             this.tpanel.TabIndex = 1;
+            // 
+            // txtNetFw
+            // 
+            this.txtNetFw.AutoSize = true;
+            this.txtNetFw.ForeColor = System.Drawing.Color.Silver;
+            this.txtNetFw.Location = new System.Drawing.Point(188, 42);
+            this.txtNetFw.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtNetFw.Name = "txtNetFw";
+            this.txtNetFw.Size = new System.Drawing.Size(37, 15);
+            this.txtNetFw.TabIndex = 70;
+            this.txtNetFw.Text = "netfw";
             // 
             // linkUpdate
             // 
@@ -2578,7 +2588,6 @@ namespace Optimizer
             // pingerTab
             // 
             this.pingerTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.pingerTab.Controls.Add(this.btnSpeedtest);
             this.pingerTab.Controls.Add(this.flushCacheB);
             this.pingerTab.Controls.Add(this.btnExport);
             this.pingerTab.Controls.Add(this.copyB);
@@ -2596,25 +2605,6 @@ namespace Optimizer
             this.pingerTab.Size = new System.Drawing.Size(860, 611);
             this.pingerTab.TabIndex = 13;
             this.pingerTab.Text = "Pinger";
-            // 
-            // btnSpeedtest
-            // 
-            this.btnSpeedtest.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnSpeedtest.Enabled = false;
-            this.btnSpeedtest.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnSpeedtest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSpeedtest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSpeedtest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSpeedtest.ForeColor = System.Drawing.Color.White;
-            this.btnSpeedtest.Location = new System.Drawing.Point(732, 14);
-            this.btnSpeedtest.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSpeedtest.Name = "btnSpeedtest";
-            this.btnSpeedtest.Size = new System.Drawing.Size(110, 29);
-            this.btnSpeedtest.TabIndex = 85;
-            this.btnSpeedtest.Text = "Speed Test";
-            this.btnSpeedtest.UseVisualStyleBackColor = false;
-            this.btnSpeedtest.Visible = false;
-            this.btnSpeedtest.Click += new System.EventHandler(this.btnSpeedtest_Click);
             // 
             // flushCacheB
             // 
@@ -4633,17 +4623,6 @@ namespace Optimizer
             this.helpBox.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.helpBox.UseAnimation = false;
             this.helpBox.UseFading = false;
-            // 
-            // txtNetFw
-            // 
-            this.txtNetFw.AutoSize = true;
-            this.txtNetFw.ForeColor = System.Drawing.Color.Silver;
-            this.txtNetFw.Location = new System.Drawing.Point(188, 42);
-            this.txtNetFw.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtNetFw.Name = "txtNetFw";
-            this.txtNetFw.Size = new System.Drawing.Size(37, 15);
-            this.txtNetFw.TabIndex = 70;
-            this.txtNetFw.Text = "netfw";
             // 
             // stickySw
             // 
@@ -7296,7 +7275,6 @@ namespace Optimizer
         private ColoredRadioButton radioHellenic;
         private ColoredRadioButton radioEnglish;
         private ColoredRadioButton radioRussian;
-        private Button btnSpeedtest;
         private PictureBox pictureBox89;
         private ColoredRadioButton radioTurkish;
         private Label txtNetFw;

@@ -10,6 +10,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -32,6 +33,10 @@ namespace Optimizer
         List<PingReply> _pingResults;
         string _shodanIP = string.Empty;
         PingReply tmpReply;
+
+        NetworkMonitor _networkMonitor;
+        double uploadSpeed = 0;
+        double downloadSpeed = 0;
 
         DesktopItemType _desktopItemType = DesktopItemType.Program;
         DesktopTypePosition _desktopItemPosition = DesktopTypePosition.Top;
@@ -522,6 +527,29 @@ namespace Optimizer
             {
                 btnUpdate.Enabled = false;
                 lblUpdateDisabled.Visible = true;
+            }
+
+            // network monitoring
+            _networkMonitor = new NetworkMonitor();
+        }
+
+        private void NetworkMonitoring()
+        {
+            while (true)
+            {
+                downloadSpeed = 0;
+                uploadSpeed = 0;
+
+                foreach (NetworkAdapter adapter in _networkMonitor.Adapters)
+                {
+                    //adapter.Refresh();
+                    downloadSpeed += Math.Round(adapter.DownloadSpeedMbps, 2);
+                    uploadSpeed += Math.Round(adapter.UploadSpeedMbps, 2);
+                }
+
+                this.Text = string.Format("Optimizer - DOWN: {0} UP: {1}", downloadSpeed, uploadSpeed);
+
+                Thread.Sleep(1000);
             }
         }
 
@@ -1130,7 +1158,17 @@ namespace Optimizer
         private void aio_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabCollection.SelectedTab == hostsEditorTab) txtIP.Focus();
-            if (tabCollection.SelectedTab == pingerTab) txtPingInput.Focus();
+
+            if (tabCollection.SelectedTab == pingerTab)
+            {
+                txtPingInput.Focus();
+                //_networkMonitor.StartMonitoring();
+                //NetworkMonitoring();
+            }
+            //else
+            //{
+            //    _networkMonitor.StopMonitoring();
+            //}
         }
 
         private void button48_Click(object sender, EventArgs e)
@@ -2431,7 +2469,7 @@ namespace Optimizer
                 for (int i = 0; i < 9; i++)
                 {
                     // wait before each pinging
-                    System.Threading.Thread.Sleep(700);
+                    System.Threading.Thread.Sleep(888);
 
                     tmpReply = Utilities.PingHost(txtPingInput.Text);
 
@@ -2747,11 +2785,6 @@ namespace Optimizer
             Options.SaveSettings();
             Options.LoadTranslation();
             Translate();
-        }
-
-        private void btnSpeedtest_Click(object sender, EventArgs e)
-        {
-            Utilities.SpeedTest();
         }
 
         private void pictureBox89_Click(object sender, EventArgs e)
