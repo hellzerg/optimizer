@@ -183,7 +183,7 @@
    },
    {
       "Title":"Notepad++",
-      "Link":"https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v7.9.5/npp.7.9.5.Installer.exe",
+      "Link":"https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.1/npp.8.1.Installer.exe",
       "Tag":"cNPP"
    },
    {
@@ -366,8 +366,8 @@
    },
    {
       "Title":"Chromium",
-      "Link64":"https://github.com/Hibbiki/chromium-win64/releases/download/v90.0.4430.212-r857950/mini_installer.sync.exe",
-      "Link":"https://github.com/Hibbiki/chromium-win32/releases/download/v90.0.4430.212-r857950/mini_installer.sync.exe",
+      "Link64":"https://github.com/Hibbiki/chromium-win64/releases/download/v91.0.4472.106-r870763/mini_installer.sync.exe",
+      "Link":"https://github.com/Hibbiki/chromium-win32/releases/download/v91.0.4472.106-r870763/mini_installer.sync.exe",
       "Tag":"cChromium"
    },
    {
