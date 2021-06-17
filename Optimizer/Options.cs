@@ -17,7 +17,7 @@ namespace Optimizer
         public bool ShowHelp { get; set; }
 
         public LanguageCode LanguageCode { get; set; }
-        
+
         public bool EnablePerformanceTweaks { get; set; }
         public bool DisableNetworkThrottling { get; set; }
         public bool DisableWindowsDefender { get; set; }

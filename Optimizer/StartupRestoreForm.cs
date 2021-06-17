@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Optimizer
 {
@@ -65,7 +60,7 @@ namespace Optimizer
 
         private void StartupRestoreForm_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         // DeleteStartupBackup
@@ -167,7 +162,7 @@ namespace Optimizer
                         {
                             RegistryKey key = hive.OpenSubKey(keyPath, true);
                             key.SetValue(x.Name, x.FileLocation, RegistryValueKind.String);
-                            
+
                         }
                         catch (Exception ex)
                         {

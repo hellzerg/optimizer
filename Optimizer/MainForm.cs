@@ -432,7 +432,7 @@ namespace Optimizer
             // Windows version, architecture, .NET Framework
             txtOS.Text = Utilities.GetOS();
             txtBitness.Text = Utilities.GetBitness();
-            txtNetFw.Text = ".NET Framework " + Utilities.CheckNETFramework(); 
+            txtNetFw.Text = ".NET Framework " + Utilities.CheckNETFramework();
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
             {
@@ -792,7 +792,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GetDesktopItems()
