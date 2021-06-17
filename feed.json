@@ -342,8 +342,8 @@
    },
    {
       "Title":"Tor Browser",
-      "Link64":"https://dist.torproject.org/torbrowser/10.0.16/torbrowser-install-win64-10.0.16_en-US.exe",
-      "Link":"https://dist.torproject.org/torbrowser/10.0.16/torbrowser-install-10.0.16_en-US.exe",
+      "Link64":"https://dist.torproject.org/torbrowser/10.0.17/torbrowser-install-win64-10.0.17_en-US.exe",
+      "Link":"https://dist.torproject.org/torbrowser/10.0.17/torbrowser-install-10.0.17_en-US.exe",
       "Tag":"cTor"
    },
    {
