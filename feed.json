@@ -278,7 +278,7 @@
    },
    {
       "Title":"GIMP",
-      "Link":"https://ftp.cc.uoc.gr/mirrors/gimp/v2.10/windows/gimp-2.10.24-setup-3.exe",
+      "Link":"https://download.gimp.org/mirror/pub/gimp/v2.10/windows/gimp-2.10.24-setup-3.exe",
       "Tag":"cGIMP"
    },
    {
@@ -324,8 +324,8 @@
    },
    {
       "Title":"VLC Media Player",
-      "Link64":"https://mirrors.uni-ruse.bg/vlc/vlc/3.0.14/win64/vlc-3.0.14-win64.exe",
-      "Link":"https://mirrors.neterra.net/vlc/vlc/3.0.14/win32/vlc-3.0.14-win32.exe",
+      "Link64":"https://mirrors.netix.net/vlc/vlc/3.0.14/win64/vlc-3.0.14-win64.exe",
+      "Link":"https://mirrors.netix.net/vlc/vlc/3.0.14/win32/vlc-3.0.14-win32.exe",
       "Tag":"cVLC"
    },
    {
@@ -418,6 +418,11 @@
       "Title":".NET Framework 4.7.2",
       "Link":"https://download.microsoft.com/download/6/E/4/6E48E8AB-DC00-419E-9704-06DD46E5F81D/NDP472-KB4054530-x86-x64-AllOS-ENU.exe",
       "Tag":"cNF472"
+   },
+   {
+      "Title":".NET Framework 4.8",
+      "Link":"https://download.visualstudio.microsoft.com/download/pr/2d6bb6b2-226a-4baa-bdec-798822606ff1/8494001c276a4b96804cde7829c04d7f/ndp48-x86-x64-allos-enu.exe",
+      "Tag":"cNF48"
    },
    {
       "Title":"Visual C++ AiO",
