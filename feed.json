@@ -102,8 +102,8 @@
    },
    {
       "Title":"FileZilla",
-      "Link64":"https://download.filezilla-project.org/client/FileZilla_3.53.1_win64-setup.exe",
-      "Link":"https://download.filezilla-project.org/client/FileZilla_3.53.1_win32-setup.exe",
+      "Link64":"https://download.filezilla-project.org/client/FileZilla_3.54.1_win64-setup.exe",
+      "Link":"https://download.filezilla-project.org/client/FileZilla_3.54.1_win32-setup.exe",
       "Tag":"cFileZilla"
    },
    {
