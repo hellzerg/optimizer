@@ -183,6 +183,7 @@
    },
    {
       "Title":"Notepad++",
+      "Link64":"https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.1/npp.8.1.Installer.x64.exe",
       "Link":"https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.1/npp.8.1.Installer.exe",
       "Tag":"cNPP"
    },
@@ -236,6 +237,7 @@
    },
    {
       "Title":"Adobe Reader",
+      "Link64":"http://ardownload.adobe.com/pub/adobe/acrobat/win/AcrobatDC/2100120135/AcroRdrDCx642100120135_en_US.exe",
       "Link":"https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/2001320074/AcroRdrDC2001320074_en_US.exe",
       "Tag":"cAdobeReader"
    },
