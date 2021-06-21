@@ -366,8 +366,8 @@
    },
    {
       "Title":"Chromium",
-      "Link64":"https://github.com/Hibbiki/chromium-win64/releases/download/v91.0.4472.106-r870763/mini_installer.sync.exe",
-      "Link":"https://github.com/Hibbiki/chromium-win32/releases/download/v91.0.4472.106-r870763/mini_installer.sync.exe",
+      "Link64":"https://github.com/Hibbiki/chromium-win64/releases/download/v91.0.4472.114-r870763/mini_installer.sync.exe",
+      "Link":"https://github.com/Hibbiki/chromium-win32/releases/download/v91.0.4472.114-r870763/mini_installer.sync.exe",
       "Tag":"cChromium"
    },
    {
