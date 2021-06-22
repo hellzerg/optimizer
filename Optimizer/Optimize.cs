@@ -794,6 +794,9 @@ namespace Optimizer
 
         internal static void EnhancePrivacy()
         {
+            // Shared Experiences
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System", "EnableCdp", "0", RegistryValueKind.DWord);
+
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Privacy", "TailoredExperiencesWithDiagnosticDataEnabled", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_USERS\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Privacy", "TailoredExperiencesWithDiagnosticDataEnabled", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Diagnostics\DiagTrack", "ShowedToastAtLevel", "1", RegistryValueKind.DWord);
@@ -865,6 +868,16 @@ namespace Optimizer
 
         internal static void CompromisePrivacy()
         {
+            // Shared Experiences
+            try
+            {
+                Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System", true).DeleteValue("EnableCdp", false);
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.CompromisePrivacy", ex.Message, ex.StackTrace);
+            }
+
             // Enable location tracking
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}", "SensorPermissionState", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\lfsvc\Service\Configuration", "Status", "1", RegistryValueKind.DWord);
@@ -876,7 +889,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.EnablePrivacyOptions", ex.Message, ex.StackTrace);
+                ErrorLogger.LogError("Optimize.CompromisePrivacy", ex.Message, ex.StackTrace);
             }
 
             // Turn off KMS Client Online AVS Validation
@@ -901,7 +914,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.EnablePrivacyOptions", ex.Message, ex.StackTrace);
+                ErrorLogger.LogError("Optimize.CompromisePrivacy", ex.Message, ex.StackTrace);
             }
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection", "AllowTelemetry", "1", RegistryValueKind.DWord);

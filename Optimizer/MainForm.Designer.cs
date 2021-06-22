@@ -1289,7 +1289,7 @@ namespace Optimizer
             this.txtFeedError.ForeColor = System.Drawing.Color.Gold;
             this.txtFeedError.Location = new System.Drawing.Point(3, 47);
             this.txtFeedError.Name = "txtFeedError";
-            this.txtFeedError.Size = new System.Drawing.Size(854, 398);
+            this.txtFeedError.Size = new System.Drawing.Size(854, 396);
             this.txtFeedError.TabIndex = 167;
             this.txtFeedError.Text = "No internet connection, try refreshing links again";
             this.txtFeedError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1351,7 +1351,7 @@ namespace Optimizer
             this.panelCommonApps.Controls.Add(this.bitPref);
             this.panelCommonApps.Controls.Add(this.goToDownloadsB);
             this.panelCommonApps.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelCommonApps.Location = new System.Drawing.Point(3, 445);
+            this.panelCommonApps.Location = new System.Drawing.Point(3, 443);
             this.panelCommonApps.Name = "panelCommonApps";
             this.panelCommonApps.Size = new System.Drawing.Size(854, 165);
             this.panelCommonApps.TabIndex = 162;
@@ -3254,7 +3254,7 @@ namespace Optimizer
             this.synapse.Multiline = true;
             this.synapse.Name = "synapse";
             this.synapse.SelectedIndex = 0;
-            this.synapse.Size = new System.Drawing.Size(856, 609);
+            this.synapse.Size = new System.Drawing.Size(856, 607);
             this.synapse.TabIndex = 0;
             // 
             // integratorInfoTab
@@ -3271,7 +3271,7 @@ namespace Optimizer
             this.integratorInfoTab.Margin = new System.Windows.Forms.Padding(2);
             this.integratorInfoTab.Name = "integratorInfoTab";
             this.integratorInfoTab.Padding = new System.Windows.Forms.Padding(2);
-            this.integratorInfoTab.Size = new System.Drawing.Size(848, 581);
+            this.integratorInfoTab.Size = new System.Drawing.Size(848, 579);
             this.integratorInfoTab.TabIndex = 0;
             this.integratorInfoTab.Text = "Info";
             // 
@@ -6648,7 +6648,7 @@ namespace Optimizer
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.MinimumSize = new System.Drawing.Size(784, 744);
+            this.MinimumSize = new System.Drawing.Size(886, 744);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Optimizer";
