@@ -436,5 +436,39 @@
       "Link":"https://mega.nz/MEGAsyncSetup32.exe",
       "Link64":"https://mega.nz/MEGAsyncSetup64.exe",
       "Tag":"cMega"
+   },
+   {
+   	  "Title": "Java 8 JDK",
+   	  "Link": "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=244582_d7fc238d0cbf4b0dac67be84580cfb4b",
+   	  "Link64": "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=244584_d7fc238d0cbf4b0dac67be84580cfb4b",
+   	  "Tag": "cJava"
+   },
+   {
+   	  "Title": "Python 3",
+   	  "Link": "https://www.python.org/ftp/python/3.9.5/python-3.9.5.exe",
+   	  "Link64": "https://www.python.org/ftp/python/3.9.5/python-3.9.5-amd64.exe",
+   	  "Tag": "cPython3"
+   },
+   {
+   	  "Title": "Python 2",
+   	  "Link": "https://www.python.org/ftp/python/2.7.18/python-2.7.18.msi",
+   	  "Link64": "https://www.python.org/ftp/python/2.7.18/python-2.7.18.amd64.msi",
+   	  "Tag": "cPython2"
+   },
+   {
+   	  "Title": "K-Lite Codec Pack Mega",
+   	  "Link": "https://files2.codecguide.com/K-Lite_Codec_Pack_1630_Mega.exe",
+   	  "Tag": "cCodecs"
+   },
+   {
+   	  "Title": "Balena Etcher",
+   	  "Link": "https://github.com/balena-io/etcher/releases/download/v1.5.120/balenaEtcher-Setup-1.5.120.exe",
+   	  "Tag": "cBalena"
+   },
+   {
+   	  "Title": "VS Codium",
+   	  "Link": "https://github.com/VSCodium/vscodium/releases/download/1.57.1/VSCodiumUserSetup-ia32-1.57.1.exe",
+   	  "Link64": "https://github.com/VSCodium/vscodium/releases/download/1.57.1/VSCodiumUserSetup-x64-1.57.1.exe",
+   	  "Tag": "cCodium"
    }
 ]
