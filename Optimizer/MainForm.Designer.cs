@@ -133,6 +133,8 @@ namespace Optimizer
             this.bitPref = new System.Windows.Forms.Label();
             this.goToDownloadsB = new System.Windows.Forms.Button();
             this.panelApps5 = new System.Windows.Forms.Panel();
+            this.cCodecs = new Optimizer.ColoredCheckBox();
+            this.pictureBox94 = new System.Windows.Forms.PictureBox();
             this.cLightShot = new Optimizer.ColoredCheckBox();
             this.pictureBox58 = new System.Windows.Forms.PictureBox();
             this.cViper = new Optimizer.ColoredCheckBox();
@@ -190,6 +192,16 @@ namespace Optimizer
             this.cOneDrive = new Optimizer.ColoredCheckBox();
             this.pictureBox63 = new System.Windows.Forms.PictureBox();
             this.panelApps6 = new System.Windows.Forms.Panel();
+            this.cBalena = new Optimizer.ColoredCheckBox();
+            this.pictureBox95 = new System.Windows.Forms.PictureBox();
+            this.cJava = new Optimizer.ColoredCheckBox();
+            this.pictureBox91 = new System.Windows.Forms.PictureBox();
+            this.cPython2 = new Optimizer.ColoredCheckBox();
+            this.cNF48 = new Optimizer.ColoredCheckBox();
+            this.pictureBox93 = new System.Windows.Forms.PictureBox();
+            this.pictureBox90 = new System.Windows.Forms.PictureBox();
+            this.cPython3 = new Optimizer.ColoredCheckBox();
+            this.pictureBox92 = new System.Windows.Forms.PictureBox();
             this.cSteam = new Optimizer.ColoredCheckBox();
             this.pictureBox75 = new System.Windows.Forms.PictureBox();
             this.cOrigin = new Optimizer.ColoredCheckBox();
@@ -239,6 +251,8 @@ namespace Optimizer
             this.cAntiExploit = new Optimizer.ColoredCheckBox();
             this.pictureBox69 = new System.Windows.Forms.PictureBox();
             this.panelApps1 = new System.Windows.Forms.Panel();
+            this.cCodium = new Optimizer.ColoredCheckBox();
+            this.pictureBox96 = new System.Windows.Forms.PictureBox();
             this.cFileZilla = new Optimizer.ColoredCheckBox();
             this.pictureBox39 = new System.Windows.Forms.PictureBox();
             this.cGitHub = new Optimizer.ColoredCheckBox();
@@ -484,20 +498,6 @@ namespace Optimizer
             this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.helpBox = new System.Windows.Forms.ToolTip(this.components);
-            this.cNF48 = new Optimizer.ColoredCheckBox();
-            this.pictureBox90 = new System.Windows.Forms.PictureBox();
-            this.cJava = new Optimizer.ColoredCheckBox();
-            this.pictureBox91 = new System.Windows.Forms.PictureBox();
-            this.cPython3 = new Optimizer.ColoredCheckBox();
-            this.pictureBox92 = new System.Windows.Forms.PictureBox();
-            this.cPython2 = new Optimizer.ColoredCheckBox();
-            this.pictureBox93 = new System.Windows.Forms.PictureBox();
-            this.cCodecs = new Optimizer.ColoredCheckBox();
-            this.pictureBox94 = new System.Windows.Forms.PictureBox();
-            this.cBalena = new Optimizer.ColoredCheckBox();
-            this.pictureBox95 = new System.Windows.Forms.PictureBox();
-            this.cCodium = new Optimizer.ColoredCheckBox();
-            this.pictureBox96 = new System.Windows.Forms.PictureBox();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
@@ -513,6 +513,7 @@ namespace Optimizer
             this.panel10.SuspendLayout();
             this.panelCommonApps.SuspendLayout();
             this.panelApps5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox94)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox58)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox57)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox81)).BeginInit();
@@ -542,6 +543,11 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox63)).BeginInit();
             this.panelApps6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox95)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox91)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox93)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox90)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox92)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox75)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox54)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox53)).BeginInit();
@@ -567,6 +573,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox70)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox69)).BeginInit();
             this.panelApps1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox96)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox64)).BeginInit();
@@ -632,13 +639,6 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox84)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox83)).BeginInit();
             this.launcherMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox90)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox91)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox92)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox93)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox94)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox95)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox96)).BeginInit();
             this.SuspendLayout();
             // 
             // tpanel
@@ -1954,13 +1954,12 @@ namespace Optimizer
             // cAutoInstall
             // 
             this.cAutoInstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cAutoInstall.AutoSize = true;
             this.cAutoInstall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cAutoInstall.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cAutoInstall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cAutoInstall.Location = new System.Drawing.Point(560, 83);
+            this.cAutoInstall.Location = new System.Drawing.Point(561, 83);
             this.cAutoInstall.Name = "cAutoInstall";
-            this.cAutoInstall.Size = new System.Drawing.Size(198, 24);
+            this.cAutoInstall.Size = new System.Drawing.Size(290, 24);
             this.cAutoInstall.TabIndex = 107;
             this.cAutoInstall.Text = "Install after downloading";
             this.cAutoInstall.UseVisualStyleBackColor = true;
@@ -1976,10 +1975,9 @@ namespace Optimizer
             // 
             // c64
             // 
-            this.c64.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.c64.AutoSize = true;
             this.c64.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c64.Location = new System.Drawing.Point(458, 38);
+            this.c64.Location = new System.Drawing.Point(386, 33);
             this.c64.Name = "c64";
             this.c64.Size = new System.Drawing.Size(72, 25);
             this.c64.TabIndex = 75;
@@ -1989,10 +1987,9 @@ namespace Optimizer
             // 
             // c32
             // 
-            this.c32.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.c32.AutoSize = true;
             this.c32.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c32.Location = new System.Drawing.Point(536, 38);
+            this.c32.Location = new System.Drawing.Point(464, 33);
             this.c32.Name = "c32";
             this.c32.Size = new System.Drawing.Size(72, 25);
             this.c32.TabIndex = 76;
@@ -2010,7 +2007,7 @@ namespace Optimizer
             this.btnDownloadApps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownloadApps.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDownloadApps.ForeColor = System.Drawing.Color.White;
-            this.btnDownloadApps.Location = new System.Drawing.Point(708, 111);
+            this.btnDownloadApps.Location = new System.Drawing.Point(709, 111);
             this.btnDownloadApps.Margin = new System.Windows.Forms.Padding(2);
             this.btnDownloadApps.Name = "btnDownloadApps";
             this.btnDownloadApps.Size = new System.Drawing.Size(143, 35);
@@ -2021,7 +2018,6 @@ namespace Optimizer
             // 
             // setDownDirLbl
             // 
-            this.setDownDirLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.setDownDirLbl.AutoSize = true;
             this.setDownDirLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.setDownDirLbl.ForeColor = System.Drawing.Color.DodgerBlue;
@@ -2035,7 +2031,6 @@ namespace Optimizer
             // 
             // txtDownloadFolder
             // 
-            this.txtDownloadFolder.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtDownloadFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.txtDownloadFolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDownloadFolder.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2048,7 +2043,6 @@ namespace Optimizer
             // 
             // changeDownDirB
             // 
-            this.changeDownDirB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.changeDownDirB.BackColor = System.Drawing.Color.DodgerBlue;
             this.changeDownDirB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.changeDownDirB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
@@ -2058,9 +2052,9 @@ namespace Optimizer
             this.changeDownDirB.Location = new System.Drawing.Point(312, 32);
             this.changeDownDirB.Margin = new System.Windows.Forms.Padding(2);
             this.changeDownDirB.Name = "changeDownDirB";
-            this.changeDownDirB.Size = new System.Drawing.Size(57, 27);
+            this.changeDownDirB.Size = new System.Drawing.Size(36, 27);
             this.changeDownDirB.TabIndex = 71;
-            this.changeDownDirB.Text = "Change";
+            this.changeDownDirB.Text = "...";
             this.changeDownDirB.UseVisualStyleBackColor = false;
             this.changeDownDirB.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -2100,11 +2094,10 @@ namespace Optimizer
             // 
             // bitPref
             // 
-            this.bitPref.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bitPref.AutoSize = true;
             this.bitPref.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bitPref.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.bitPref.Location = new System.Drawing.Point(454, 9);
+            this.bitPref.Location = new System.Drawing.Point(381, 7);
             this.bitPref.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bitPref.Name = "bitPref";
             this.bitPref.Size = new System.Drawing.Size(164, 25);
@@ -2122,7 +2115,7 @@ namespace Optimizer
             this.goToDownloadsB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.goToDownloadsB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goToDownloadsB.ForeColor = System.Drawing.Color.White;
-            this.goToDownloadsB.Location = new System.Drawing.Point(561, 111);
+            this.goToDownloadsB.Location = new System.Drawing.Point(562, 111);
             this.goToDownloadsB.Margin = new System.Windows.Forms.Padding(2);
             this.goToDownloadsB.Name = "goToDownloadsB";
             this.goToDownloadsB.Size = new System.Drawing.Size(143, 35);
@@ -2199,6 +2192,29 @@ namespace Optimizer
             this.panelApps5.Name = "panelApps5";
             this.panelApps5.Size = new System.Drawing.Size(240, 407);
             this.panelApps5.TabIndex = 158;
+            // 
+            // cCodecs
+            // 
+            this.cCodecs.AutoSize = true;
+            this.cCodecs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cCodecs.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cCodecs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cCodecs.Location = new System.Drawing.Point(34, 842);
+            this.cCodecs.Name = "cCodecs";
+            this.cCodecs.Size = new System.Drawing.Size(162, 24);
+            this.cCodecs.TabIndex = 181;
+            this.cCodecs.Text = "K-Lite Codecs Mega";
+            this.cCodecs.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox94
+            // 
+            this.pictureBox94.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox94.BackgroundImage")));
+            this.pictureBox94.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox94.Location = new System.Drawing.Point(4, 841);
+            this.pictureBox94.Name = "pictureBox94";
+            this.pictureBox94.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox94.TabIndex = 182;
+            this.pictureBox94.TabStop = false;
             // 
             // cLightShot
             // 
@@ -2858,6 +2874,119 @@ namespace Optimizer
             this.panelApps6.Size = new System.Drawing.Size(242, 407);
             this.panelApps6.TabIndex = 162;
             // 
+            // cBalena
+            // 
+            this.cBalena.AutoSize = true;
+            this.cBalena.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBalena.Location = new System.Drawing.Point(35, 544);
+            this.cBalena.Name = "cBalena";
+            this.cBalena.Size = new System.Drawing.Size(121, 24);
+            this.cBalena.TabIndex = 164;
+            this.cBalena.Text = "Balena Etcher";
+            this.cBalena.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox95
+            // 
+            this.pictureBox95.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox95.BackgroundImage")));
+            this.pictureBox95.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox95.Location = new System.Drawing.Point(5, 543);
+            this.pictureBox95.Name = "pictureBox95";
+            this.pictureBox95.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox95.TabIndex = 165;
+            this.pictureBox95.TabStop = false;
+            // 
+            // cJava
+            // 
+            this.cJava.AutoSize = true;
+            this.cJava.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cJava.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cJava.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cJava.Location = new System.Drawing.Point(35, 155);
+            this.cJava.Name = "cJava";
+            this.cJava.Size = new System.Drawing.Size(100, 24);
+            this.cJava.TabIndex = 175;
+            this.cJava.Text = "Java 8 JDK";
+            this.cJava.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox91
+            // 
+            this.pictureBox91.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox91.BackgroundImage")));
+            this.pictureBox91.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox91.Location = new System.Drawing.Point(5, 154);
+            this.pictureBox91.Name = "pictureBox91";
+            this.pictureBox91.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox91.TabIndex = 176;
+            this.pictureBox91.TabStop = false;
+            // 
+            // cPython2
+            // 
+            this.cPython2.AutoSize = true;
+            this.cPython2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cPython2.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cPython2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cPython2.Location = new System.Drawing.Point(35, 215);
+            this.cPython2.Name = "cPython2";
+            this.cPython2.Size = new System.Drawing.Size(89, 24);
+            this.cPython2.TabIndex = 179;
+            this.cPython2.Text = "Python 2";
+            this.cPython2.UseVisualStyleBackColor = true;
+            // 
+            // cNF48
+            // 
+            this.cNF48.AutoSize = true;
+            this.cNF48.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cNF48.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cNF48.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cNF48.Location = new System.Drawing.Point(35, 125);
+            this.cNF48.Name = "cNF48";
+            this.cNF48.Size = new System.Drawing.Size(166, 24);
+            this.cNF48.TabIndex = 173;
+            this.cNF48.Text = ".NET Framework 4.8";
+            this.cNF48.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox93
+            // 
+            this.pictureBox93.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox93.BackgroundImage")));
+            this.pictureBox93.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox93.Location = new System.Drawing.Point(5, 214);
+            this.pictureBox93.Name = "pictureBox93";
+            this.pictureBox93.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox93.TabIndex = 180;
+            this.pictureBox93.TabStop = false;
+            // 
+            // pictureBox90
+            // 
+            this.pictureBox90.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox90.BackgroundImage")));
+            this.pictureBox90.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox90.Location = new System.Drawing.Point(5, 124);
+            this.pictureBox90.Name = "pictureBox90";
+            this.pictureBox90.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox90.TabIndex = 174;
+            this.pictureBox90.TabStop = false;
+            // 
+            // cPython3
+            // 
+            this.cPython3.AutoSize = true;
+            this.cPython3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cPython3.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cPython3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cPython3.Location = new System.Drawing.Point(35, 185);
+            this.cPython3.Name = "cPython3";
+            this.cPython3.Size = new System.Drawing.Size(89, 24);
+            this.cPython3.TabIndex = 177;
+            this.cPython3.Text = "Python 3";
+            this.cPython3.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox92
+            // 
+            this.pictureBox92.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox92.BackgroundImage")));
+            this.pictureBox92.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox92.Location = new System.Drawing.Point(5, 184);
+            this.pictureBox92.Name = "pictureBox92";
+            this.pictureBox92.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox92.TabIndex = 178;
+            this.pictureBox92.TabStop = false;
+            // 
             // cSteam
             // 
             this.cSteam.AutoSize = true;
@@ -3446,6 +3575,27 @@ namespace Optimizer
             this.panelApps1.Name = "panelApps1";
             this.panelApps1.Size = new System.Drawing.Size(240, 407);
             this.panelApps1.TabIndex = 154;
+            // 
+            // cCodium
+            // 
+            this.cCodium.AutoSize = true;
+            this.cCodium.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cCodium.Location = new System.Drawing.Point(35, 603);
+            this.cCodium.Name = "cCodium";
+            this.cCodium.Size = new System.Drawing.Size(103, 24);
+            this.cCodium.TabIndex = 164;
+            this.cCodium.Text = "VS Codium";
+            this.cCodium.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox96
+            // 
+            this.pictureBox96.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox96.BackgroundImage")));
+            this.pictureBox96.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox96.Location = new System.Drawing.Point(5, 603);
+            this.pictureBox96.Name = "pictureBox96";
+            this.pictureBox96.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox96.TabIndex = 165;
+            this.pictureBox96.TabStop = false;
             // 
             // cFileZilla
             // 
@@ -6682,163 +6832,6 @@ namespace Optimizer
             this.helpBox.UseAnimation = false;
             this.helpBox.UseFading = false;
             // 
-            // cNF48
-            // 
-            this.cNF48.AutoSize = true;
-            this.cNF48.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cNF48.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cNF48.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cNF48.Location = new System.Drawing.Point(35, 125);
-            this.cNF48.Name = "cNF48";
-            this.cNF48.Size = new System.Drawing.Size(166, 24);
-            this.cNF48.TabIndex = 173;
-            this.cNF48.Text = ".NET Framework 4.8";
-            this.cNF48.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox90
-            // 
-            this.pictureBox90.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox90.BackgroundImage")));
-            this.pictureBox90.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox90.Location = new System.Drawing.Point(5, 124);
-            this.pictureBox90.Name = "pictureBox90";
-            this.pictureBox90.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox90.TabIndex = 174;
-            this.pictureBox90.TabStop = false;
-            // 
-            // cJava
-            // 
-            this.cJava.AutoSize = true;
-            this.cJava.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cJava.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cJava.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cJava.Location = new System.Drawing.Point(35, 155);
-            this.cJava.Name = "cJava";
-            this.cJava.Size = new System.Drawing.Size(100, 24);
-            this.cJava.TabIndex = 175;
-            this.cJava.Text = "Java 8 JDK";
-            this.cJava.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox91
-            // 
-            this.pictureBox91.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox91.BackgroundImage")));
-            this.pictureBox91.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox91.Location = new System.Drawing.Point(5, 154);
-            this.pictureBox91.Name = "pictureBox91";
-            this.pictureBox91.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox91.TabIndex = 176;
-            this.pictureBox91.TabStop = false;
-            // 
-            // cPython3
-            // 
-            this.cPython3.AutoSize = true;
-            this.cPython3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cPython3.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cPython3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cPython3.Location = new System.Drawing.Point(35, 185);
-            this.cPython3.Name = "cPython3";
-            this.cPython3.Size = new System.Drawing.Size(89, 24);
-            this.cPython3.TabIndex = 177;
-            this.cPython3.Text = "Python 3";
-            this.cPython3.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox92
-            // 
-            this.pictureBox92.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox92.BackgroundImage")));
-            this.pictureBox92.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox92.Location = new System.Drawing.Point(5, 184);
-            this.pictureBox92.Name = "pictureBox92";
-            this.pictureBox92.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox92.TabIndex = 178;
-            this.pictureBox92.TabStop = false;
-            // 
-            // cPython2
-            // 
-            this.cPython2.AutoSize = true;
-            this.cPython2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cPython2.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cPython2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cPython2.Location = new System.Drawing.Point(35, 215);
-            this.cPython2.Name = "cPython2";
-            this.cPython2.Size = new System.Drawing.Size(89, 24);
-            this.cPython2.TabIndex = 179;
-            this.cPython2.Text = "Python 2";
-            this.cPython2.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox93
-            // 
-            this.pictureBox93.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox93.BackgroundImage")));
-            this.pictureBox93.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox93.Location = new System.Drawing.Point(5, 214);
-            this.pictureBox93.Name = "pictureBox93";
-            this.pictureBox93.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox93.TabIndex = 180;
-            this.pictureBox93.TabStop = false;
-            // 
-            // cCodecs
-            // 
-            this.cCodecs.AutoSize = true;
-            this.cCodecs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cCodecs.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cCodecs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cCodecs.Location = new System.Drawing.Point(34, 842);
-            this.cCodecs.Name = "cCodecs";
-            this.cCodecs.Size = new System.Drawing.Size(162, 24);
-            this.cCodecs.TabIndex = 181;
-            this.cCodecs.Text = "K-Lite Codecs Mega";
-            this.cCodecs.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox94
-            // 
-            this.pictureBox94.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox94.BackgroundImage")));
-            this.pictureBox94.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox94.Location = new System.Drawing.Point(4, 841);
-            this.pictureBox94.Name = "pictureBox94";
-            this.pictureBox94.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox94.TabIndex = 182;
-            this.pictureBox94.TabStop = false;
-            // 
-            // cBalena
-            // 
-            this.cBalena.AutoSize = true;
-            this.cBalena.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBalena.Location = new System.Drawing.Point(35, 544);
-            this.cBalena.Name = "cBalena";
-            this.cBalena.Size = new System.Drawing.Size(121, 24);
-            this.cBalena.TabIndex = 164;
-            this.cBalena.Text = "Balena Etcher";
-            this.cBalena.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox95
-            // 
-            this.pictureBox95.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox95.BackgroundImage")));
-            this.pictureBox95.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox95.Location = new System.Drawing.Point(5, 543);
-            this.pictureBox95.Name = "pictureBox95";
-            this.pictureBox95.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox95.TabIndex = 165;
-            this.pictureBox95.TabStop = false;
-            // 
-            // cCodium
-            // 
-            this.cCodium.AutoSize = true;
-            this.cCodium.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cCodium.Location = new System.Drawing.Point(35, 603);
-            this.cCodium.Name = "cCodium";
-            this.cCodium.Size = new System.Drawing.Size(103, 24);
-            this.cCodium.TabIndex = 164;
-            this.cCodium.Text = "VS Codium";
-            this.cCodium.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox96
-            // 
-            this.pictureBox96.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox96.BackgroundImage")));
-            this.pictureBox96.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox96.Location = new System.Drawing.Point(5, 603);
-            this.pictureBox96.Name = "pictureBox96";
-            this.pictureBox96.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox96.TabIndex = 165;
-            this.pictureBox96.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -6882,6 +6875,7 @@ namespace Optimizer
             this.panelCommonApps.PerformLayout();
             this.panelApps5.ResumeLayout(false);
             this.panelApps5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox94)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox58)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox57)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox81)).EndInit();
@@ -6912,6 +6906,11 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox63)).EndInit();
             this.panelApps6.ResumeLayout(false);
             this.panelApps6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox95)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox91)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox93)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox90)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox92)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox75)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox54)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox53)).EndInit();
@@ -6938,6 +6937,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox69)).EndInit();
             this.panelApps1.ResumeLayout(false);
             this.panelApps1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox96)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox64)).EndInit();
@@ -7024,13 +7024,6 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox84)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox83)).EndInit();
             this.launcherMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox90)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox91)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox92)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox93)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox94)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox95)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox96)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -12,8 +12,8 @@ namespace Optimizer
 
         // Enter current version here
 
-        internal readonly static float Major = 8;
-        internal readonly static float Minor = 9;
+        internal readonly static float Major = 9;
+        internal readonly static float Minor = 0;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
@@ -39,7 +39,7 @@ namespace Optimizer
         static string _adminMissingMessage = "Optimizer needs to be run as administrator!\nApp will now close...";
         static string _unsupportedMessage = "Optimizer works in Windows 7 or higher!\nApp will now close...";
 
-        static string _renameAppMessage = "It's recommended to rename the app from '{0}' to 'Optimizer' for a better experience.\n\nApp will now close...";
+        //static string _renameAppMessage = "It's recommended to rename the app from '{0}' to 'Optimizer' for a better experience.\n\nApp will now close...";
 
         static string _confInvalidVersionMsg = "Windows version does not match!";
         static string _confInvalidFormatMsg = "Config file is in invalid format!";
