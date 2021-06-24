@@ -10,7 +10,6 @@ Python 3 & 2,
 K-Lite Codec Pack Mega,
 VS Codium,
 Balena Etcher
-
 - Minor bug fixes
 
 ## [8.9] - 2021-06-17
