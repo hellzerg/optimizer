@@ -5,12 +5,12 @@ All notable changes to this project will be documented in this file.
 ## [9.0] - 2021-06-24
 - New apps added:
 
-	• .NET Framework 4.8
-	• Java 8 JDK
-	• Python 3 & 2
-	• K-Lite Codec Pack Mega
-	• VS Codium
-	• Balena Etcher
+.NET Framework 4.8
+ - Java 8 JDK
+ - Python 3 & 2
+ - K-Lite Codec Pack Mega
+ - VS Codium
+ - Balena Etcher
 
 - Minor bug fixes
 
