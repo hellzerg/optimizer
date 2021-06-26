@@ -261,8 +261,8 @@
    },
    {
       "Title":"Mozilla Thunderbird",
-      "Link64":"https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/78.9.0/win64/en-US/Thunderbird%20Setup%2078.9.0.exe",
-      "Link":"https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/78.9.0/win32/en-US/Thunderbird%20Setup%2078.9.0.exe",
+      "Link64":"http://download.mozilla.org/?product=thunderbird-latest&os=Win64&lang=en-US",
+      "Link":"http://download.mozilla.org/?product=thunderbird-latest&os=Win&lang=en-US",
       "Tag":"cThunderbird",
       "Image": "https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/thunderbird.png",
       "Group": "Internet"
@@ -506,8 +506,8 @@
    },
    {
       "Title":"Chromium",
-      "Link64":"https://github.com/Hibbiki/chromium-win64/releases/download/v91.0.4472.114-r870763/mini_installer.sync.exe",
-      "Link":"https://github.com/Hibbiki/chromium-win32/releases/download/v91.0.4472.114-r870763/mini_installer.sync.exe",
+      "Link64":"https://github.com/Hibbiki/chromium-win64/releases/download/v91.0.4472.124-r1496/mini_installer.sync.exe",
+      "Link":"https://github.com/Hibbiki/chromium-win32/releases/download/v91.0.4472.124-r1496/mini_installer.sync.exe",
       "Tag":"cChromium",
       "Image": "https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/chromium.png",
       "Group": "Internet"
