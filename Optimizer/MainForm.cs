@@ -651,8 +651,8 @@ namespace Optimizer
                     if (!string.IsNullOrEmpty(x.Image))
                     {
 
-                        appCard.appImage.LoadAsync("https://raw.githubusercontent.com/hellzerg/optimizer/master/images/10.PNG");
-
+                        byte[] img = client.DownloadData("https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/antiexploit.png");
+                        appCard.BackgroundImage = new Image(new MemoryStream(img));
                     }
 
                     appCard.Location = new Point(0, panelApps6.Controls.Count * 30);
