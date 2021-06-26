@@ -647,10 +647,12 @@ namespace Optimizer
                     appCard.appTitle.Text = x.Title;
                     appCard.BackgroundImageLayout = ImageLayout.Zoom;
 
+
                     if (!string.IsNullOrEmpty(x.Image))
                     {
-                        appCard.appImage.LoadAsync(x.Image);
-                        MessageBox.Show(x.Image);
+
+                        appCard.appImage.LoadAsync("https://raw.githubusercontent.com/hellzerg/optimizer/master/images/10.PNG");
+
                     }
 
                     appCard.Location = new Point(0, panelApps6.Controls.Count * 30);
