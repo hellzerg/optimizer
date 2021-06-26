@@ -40,7 +40,7 @@ namespace Optimizer
             this.appTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.appTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.appTitle.Location = new System.Drawing.Point(30, 0);
+            this.appTitle.Location = new System.Drawing.Point(36, 4);
             this.appTitle.Name = "appTitle";
             this.appTitle.Size = new System.Drawing.Size(89, 24);
             this.appTitle.TabIndex = 165;
@@ -50,7 +50,7 @@ namespace Optimizer
             // appImage
             // 
             this.appImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.appImage.Location = new System.Drawing.Point(0, 0);
+            this.appImage.Location = new System.Drawing.Point(6, 4);
             this.appImage.Name = "appImage";
             this.appImage.Size = new System.Drawing.Size(24, 24);
             this.appImage.TabIndex = 166;
@@ -67,7 +67,7 @@ namespace Optimizer
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "AppCard";
-            this.Size = new System.Drawing.Size(221, 24);
+            this.Size = new System.Drawing.Size(237, 33);
             ((System.ComponentModel.ISupportInitialize)(this.appImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

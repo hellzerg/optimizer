@@ -642,17 +642,15 @@ namespace Optimizer
                     appCard = new AppCard();
                     appCard.AutoSize = true;
                     appCard.Anchor = AnchorStyles.None;
-                    appCard.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left;
+                    appCard.Anchor = AnchorStyles.Top | AnchorStyles.Left;
 
                     appCard.appTitle.Text = x.Title;
-                    appCard.BackgroundImageLayout = ImageLayout.Zoom;
+                    appCard.appImage.BackgroundImageLayout = ImageLayout.Stretch;
 
 
                     if (!string.IsNullOrEmpty(x.Image))
                     {
-
-                        byte[] img = client.DownloadData("https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/antiexploit.png");
-                        appCard.BackgroundImage = new Image(new MemoryStream(img));
+                        appCard.appImage.BackgroundImage = new Bitmap(new MemoryStream(client.DownloadData("https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/antiexploit.png")));
                     }
 
                     appCard.Location = new Point(0, panelApps6.Controls.Count * 30);
