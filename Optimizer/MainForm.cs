@@ -627,12 +627,15 @@ namespace Optimizer
                 Encoding = Encoding.UTF8
             };
 
+            client.Headers.Add("Cache-Control", "no-cache");
+
             try
             {
                 string feed = client.DownloadString(_feedLink);
                 AppsFromFeed = JsonConvert.DeserializeObject<List<FeedApp>>(feed);
 
                 AppCard appCard;
+                panelApps6.Controls.Clear();
 
                 foreach (FeedApp x in AppsFromFeed)
                 {
@@ -643,7 +646,12 @@ namespace Optimizer
 
                     appCard.appTitle.Text = x.Title;
                     appCard.BackgroundImageLayout = ImageLayout.Zoom;
-                    if (!string.IsNullOrEmpty(x.Image)) appCard.appImage.BackgroundImage = (Bitmap)((new ImageConverter()).ConvertFrom(client.DownloadData(x.Image)));
+
+                    if (!string.IsNullOrEmpty(x.Image))
+                    {
+                        appCard.appImage.LoadAsync(x.Image);
+                        MessageBox.Show(x.Image);
+                    }
 
                     appCard.Location = new Point(0, panelApps6.Controls.Count * 30);
                     panelApps6.Controls.Add(appCard);
