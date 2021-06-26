@@ -648,7 +648,7 @@ namespace Optimizer
                     appCard.appTitle.Name = x.Tag;
                     appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
 
-                    if (!string.IsNullOrEmpty(x.Image)) appCard.appImage.LoadAsync(x.Image);
+                    appCard.appImage.LoadAsync(x.Image);
 
                     appCard.Location = new Point(0, panelApps6.Controls.Count * 30);
                     panelApps6.Controls.Add(appCard);
