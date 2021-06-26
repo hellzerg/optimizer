@@ -635,7 +635,7 @@ namespace Optimizer
                 AppsFromFeed = JsonConvert.DeserializeObject<List<FeedApp>>(feed);
 
                 AppCard appCard;
-                panelApps6.Controls.Clear();
+                appGroup1.Controls.Clear();
 
                 foreach (FeedApp x in AppsFromFeed)
                 {
@@ -650,8 +650,8 @@ namespace Optimizer
 
                     appCard.appImage.LoadAsync(x.Image);
 
-                    appCard.Location = new Point(0, panelApps6.Controls.Count * 30);
-                    panelApps6.Controls.Add(appCard);
+                    appCard.Location = new Point(0, appGroup1.Controls.Count * 30);
+                    appGroup1.Controls.Add(appCard);
                 }
 
                 // UI handling

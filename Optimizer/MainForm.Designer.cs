@@ -87,7 +87,7 @@ namespace Optimizer
             this.linkWarnings = new System.Windows.Forms.LinkLabel();
             this.bitPref = new System.Windows.Forms.Label();
             this.goToDownloadsB = new System.Windows.Forms.Button();
-            this.panelApps6 = new System.Windows.Forms.Panel();
+            this.appGroup1 = new System.Windows.Forms.Panel();
             this.cleanerTab = new System.Windows.Forms.TabPage();
             this.cleanerTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -1019,7 +1019,7 @@ namespace Optimizer
             this.appsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.appsTab.Controls.Add(this.panel10);
             this.appsTab.Controls.Add(this.panelCommonApps);
-            this.appsTab.Controls.Add(this.panelApps6);
+            this.appsTab.Controls.Add(this.appGroup1);
             this.appsTab.Location = new System.Drawing.Point(4, 24);
             this.appsTab.Name = "appsTab";
             this.appsTab.Padding = new System.Windows.Forms.Padding(3);
@@ -1229,16 +1229,16 @@ namespace Optimizer
             this.goToDownloadsB.UseVisualStyleBackColor = false;
             this.goToDownloadsB.Click += new System.EventHandler(this.button6_Click);
             // 
-            // panelApps6
+            // appGroup1
             // 
-            this.panelApps6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.appGroup1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelApps6.AutoScroll = true;
-            this.panelApps6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelApps6.Location = new System.Drawing.Point(436, 47);
-            this.panelApps6.Name = "panelApps6";
-            this.panelApps6.Size = new System.Drawing.Size(309, 408);
-            this.panelApps6.TabIndex = 162;
+            this.appGroup1.AutoScroll = true;
+            this.appGroup1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.appGroup1.Location = new System.Drawing.Point(436, 47);
+            this.appGroup1.Name = "appGroup1";
+            this.appGroup1.Size = new System.Drawing.Size(309, 408);
+            this.appGroup1.TabIndex = 162;
             // 
             // cleanerTab
             // 
@@ -4788,7 +4788,7 @@ namespace Optimizer
         private System.Windows.Forms.Panel panelCommonApps;
         private ToggleSwitch actionSw;
         private System.Windows.Forms.LinkLabel l2;
-        private System.Windows.Forms.Panel panelApps6;
+        private System.Windows.Forms.Panel appGroup1;
         private System.Windows.Forms.Label txtFeedError;
         private System.Windows.Forms.Button btnViewLog;
         private System.Windows.Forms.Label lblTroubleshoot;
