@@ -647,10 +647,9 @@ namespace Optimizer
                     appCard.appTitle.Text = x.Title;
                     appCard.appImage.BackgroundImageLayout = ImageLayout.Stretch;
 
-
                     if (!string.IsNullOrEmpty(x.Image))
                     {
-                        appCard.appImage.BackgroundImage = new Bitmap(new MemoryStream(client.DownloadData("https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/antiexploit.png")));
+                        appCard.appImage.BackgroundImage = new Bitmap(new MemoryStream(client.DownloadData(x.Image)));
                     }
 
                     appCard.Location = new Point(0, panelApps6.Controls.Count * 30);
