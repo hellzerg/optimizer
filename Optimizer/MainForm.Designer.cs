@@ -321,6 +321,10 @@ namespace Optimizer
             this.groupInternet = new System.Windows.Forms.Panel();
             this.groupCoding = new System.Windows.Forms.Panel();
             this.groupSoundVideo = new System.Windows.Forms.Panel();
+            this.lblSystemTools = new System.Windows.Forms.Label();
+            this.lblInternet = new System.Windows.Forms.Label();
+            this.lblCoding = new System.Windows.Forms.Label();
+            this.lblVideoSound = new System.Windows.Forms.Label();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
@@ -387,7 +391,7 @@ namespace Optimizer
             this.tpanel.Location = new System.Drawing.Point(0, 0);
             this.tpanel.Margin = new System.Windows.Forms.Padding(2);
             this.tpanel.Name = "tpanel";
-            this.tpanel.Size = new System.Drawing.Size(1047, 64);
+            this.tpanel.Size = new System.Drawing.Size(939, 64);
             this.tpanel.TabIndex = 1;
             // 
             // txtNetFw
@@ -408,7 +412,7 @@ namespace Optimizer
             this.linkUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkUpdate.ForeColor = System.Drawing.Color.Gold;
             this.linkUpdate.LinkColor = System.Drawing.Color.Gold;
-            this.linkUpdate.Location = new System.Drawing.Point(715, 6);
+            this.linkUpdate.Location = new System.Drawing.Point(607, 6);
             this.linkUpdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkUpdate.Name = "linkUpdate";
             this.linkUpdate.Size = new System.Drawing.Size(320, 50);
@@ -425,7 +429,7 @@ namespace Optimizer
             this.lblLab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLab.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLab.ForeColor = System.Drawing.Color.Gold;
-            this.lblLab.Location = new System.Drawing.Point(639, 6);
+            this.lblLab.Location = new System.Drawing.Point(531, 6);
             this.lblLab.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLab.Name = "lblLab";
             this.lblLab.Size = new System.Drawing.Size(402, 50);
@@ -500,7 +504,7 @@ namespace Optimizer
             this.bpanel.Location = new System.Drawing.Point(0, 64);
             this.bpanel.Margin = new System.Windows.Forms.Padding(2);
             this.bpanel.Name = "bpanel";
-            this.bpanel.Size = new System.Drawing.Size(1047, 641);
+            this.bpanel.Size = new System.Drawing.Size(939, 641);
             this.bpanel.TabIndex = 2;
             // 
             // tabCollection
@@ -522,7 +526,7 @@ namespace Optimizer
             this.tabCollection.Margin = new System.Windows.Forms.Padding(2);
             this.tabCollection.Name = "tabCollection";
             this.tabCollection.SelectedIndex = 0;
-            this.tabCollection.Size = new System.Drawing.Size(1045, 639);
+            this.tabCollection.Size = new System.Drawing.Size(937, 639);
             this.tabCollection.TabIndex = 0;
             this.tabCollection.SelectedIndexChanged += new System.EventHandler(this.aio_SelectedIndexChanged);
             // 
@@ -1020,7 +1024,11 @@ namespace Optimizer
             // appsTab
             // 
             this.appsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.appsTab.Controls.Add(this.lblVideoSound);
+            this.appsTab.Controls.Add(this.lblCoding);
+            this.appsTab.Controls.Add(this.lblSystemTools);
             this.appsTab.Controls.Add(this.groupSoundVideo);
+            this.appsTab.Controls.Add(this.lblInternet);
             this.appsTab.Controls.Add(this.groupCoding);
             this.appsTab.Controls.Add(this.groupInternet);
             this.appsTab.Controls.Add(this.panel10);
@@ -1029,7 +1037,7 @@ namespace Optimizer
             this.appsTab.Location = new System.Drawing.Point(4, 24);
             this.appsTab.Name = "appsTab";
             this.appsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.appsTab.Size = new System.Drawing.Size(1037, 611);
+            this.appsTab.Size = new System.Drawing.Size(929, 611);
             this.appsTab.TabIndex = 12;
             this.appsTab.Text = "Common Apps";
             // 
@@ -1040,7 +1048,7 @@ namespace Optimizer
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(3, 3);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1031, 44);
+            this.panel10.Size = new System.Drawing.Size(923, 44);
             this.panel10.TabIndex = 163;
             // 
             // appsTitle
@@ -1065,7 +1073,7 @@ namespace Optimizer
             this.btnGetFeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGetFeed.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGetFeed.ForeColor = System.Drawing.Color.White;
-            this.btnGetFeed.Location = new System.Drawing.Point(887, 6);
+            this.btnGetFeed.Location = new System.Drawing.Point(777, 6);
             this.btnGetFeed.Margin = new System.Windows.Forms.Padding(2);
             this.btnGetFeed.Name = "btnGetFeed";
             this.btnGetFeed.Size = new System.Drawing.Size(144, 32);
@@ -1092,7 +1100,7 @@ namespace Optimizer
             this.panelCommonApps.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelCommonApps.Location = new System.Drawing.Point(3, 488);
             this.panelCommonApps.Name = "panelCommonApps";
-            this.panelCommonApps.Size = new System.Drawing.Size(1031, 120);
+            this.panelCommonApps.Size = new System.Drawing.Size(923, 120);
             this.panelCommonApps.TabIndex = 162;
             // 
             // txtFeedError
@@ -1118,7 +1126,7 @@ namespace Optimizer
             this.btnDownloadApps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownloadApps.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDownloadApps.ForeColor = System.Drawing.Color.White;
-            this.btnDownloadApps.Location = new System.Drawing.Point(886, 84);
+            this.btnDownloadApps.Location = new System.Drawing.Point(778, 84);
             this.btnDownloadApps.Margin = new System.Windows.Forms.Padding(2);
             this.btnDownloadApps.Name = "btnDownloadApps";
             this.btnDownloadApps.Size = new System.Drawing.Size(143, 35);
@@ -1132,7 +1140,7 @@ namespace Optimizer
             this.setDownDirLbl.AutoSize = true;
             this.setDownDirLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.setDownDirLbl.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.setDownDirLbl.Location = new System.Drawing.Point(2, 4);
+            this.setDownDirLbl.Location = new System.Drawing.Point(6, 4);
             this.setDownDirLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.setDownDirLbl.Name = "setDownDirLbl";
             this.setDownDirLbl.Size = new System.Drawing.Size(160, 21);
@@ -1146,7 +1154,7 @@ namespace Optimizer
             this.txtDownloadFolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDownloadFolder.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDownloadFolder.ForeColor = System.Drawing.Color.Silver;
-            this.txtDownloadFolder.Location = new System.Drawing.Point(7, 30);
+            this.txtDownloadFolder.Location = new System.Drawing.Point(11, 30);
             this.txtDownloadFolder.Name = "txtDownloadFolder";
             this.txtDownloadFolder.Size = new System.Drawing.Size(302, 23);
             this.txtDownloadFolder.TabIndex = 70;
@@ -1160,7 +1168,7 @@ namespace Optimizer
             this.changeDownDirB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.changeDownDirB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.changeDownDirB.ForeColor = System.Drawing.Color.White;
-            this.changeDownDirB.Location = new System.Drawing.Point(312, 30);
+            this.changeDownDirB.Location = new System.Drawing.Point(316, 30);
             this.changeDownDirB.Margin = new System.Windows.Forms.Padding(2);
             this.changeDownDirB.Name = "changeDownDirB";
             this.changeDownDirB.Size = new System.Drawing.Size(30, 23);
@@ -1175,7 +1183,7 @@ namespace Optimizer
             this.txtDownloadStatus.AutoSize = true;
             this.txtDownloadStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDownloadStatus.ForeColor = System.Drawing.Color.LightGray;
-            this.txtDownloadStatus.Location = new System.Drawing.Point(3, 58);
+            this.txtDownloadStatus.Location = new System.Drawing.Point(7, 58);
             this.txtDownloadStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtDownloadStatus.Name = "txtDownloadStatus";
             this.txtDownloadStatus.Size = new System.Drawing.Size(32, 19);
@@ -1191,7 +1199,7 @@ namespace Optimizer
             this.linkWarnings.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkWarnings.ForeColor = System.Drawing.Color.Gold;
             this.linkWarnings.LinkColor = System.Drawing.Color.Gold;
-            this.linkWarnings.Location = new System.Drawing.Point(3, 98);
+            this.linkWarnings.Location = new System.Drawing.Point(7, 98);
             this.linkWarnings.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkWarnings.Name = "linkWarnings";
             this.linkWarnings.Size = new System.Drawing.Size(92, 19);
@@ -1226,7 +1234,7 @@ namespace Optimizer
             this.goToDownloadsB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.goToDownloadsB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goToDownloadsB.ForeColor = System.Drawing.Color.White;
-            this.goToDownloadsB.Location = new System.Drawing.Point(739, 84);
+            this.goToDownloadsB.Location = new System.Drawing.Point(631, 84);
             this.goToDownloadsB.Margin = new System.Windows.Forms.Padding(2);
             this.goToDownloadsB.Name = "goToDownloadsB";
             this.goToDownloadsB.Size = new System.Drawing.Size(143, 35);
@@ -1241,9 +1249,9 @@ namespace Optimizer
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupSystemTools.AutoScroll = true;
             this.groupSystemTools.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.groupSystemTools.Location = new System.Drawing.Point(13, 77);
+            this.groupSystemTools.Location = new System.Drawing.Point(13, 64);
             this.groupSystemTools.Name = "groupSystemTools";
-            this.groupSystemTools.Size = new System.Drawing.Size(246, 408);
+            this.groupSystemTools.Size = new System.Drawing.Size(246, 421);
             this.groupSystemTools.TabIndex = 162;
             // 
             // cleanerTab
@@ -3952,7 +3960,7 @@ namespace Optimizer
             this.cAutoInstall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cAutoInstall.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cAutoInstall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cAutoInstall.Location = new System.Drawing.Point(738, 56);
+            this.cAutoInstall.Location = new System.Drawing.Point(630, 56);
             this.cAutoInstall.Name = "cAutoInstall";
             this.cAutoInstall.Size = new System.Drawing.Size(290, 24);
             this.cAutoInstall.TabIndex = 107;
@@ -3962,7 +3970,7 @@ namespace Optimizer
             // progressDownloader
             // 
             this.progressDownloader.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.progressDownloader.Location = new System.Drawing.Point(7, 83);
+            this.progressDownloader.Location = new System.Drawing.Point(11, 83);
             this.progressDownloader.MarqueeAnimationSpeed = 15;
             this.progressDownloader.Name = "progressDownloader";
             this.progressDownloader.Size = new System.Drawing.Size(302, 10);
@@ -4474,9 +4482,9 @@ namespace Optimizer
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupInternet.AutoScroll = true;
             this.groupInternet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.groupInternet.Location = new System.Drawing.Point(265, 77);
+            this.groupInternet.Location = new System.Drawing.Point(265, 64);
             this.groupInternet.Name = "groupInternet";
-            this.groupInternet.Size = new System.Drawing.Size(225, 408);
+            this.groupInternet.Size = new System.Drawing.Size(231, 421);
             this.groupInternet.TabIndex = 164;
             // 
             // groupCoding
@@ -4485,9 +4493,9 @@ namespace Optimizer
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupCoding.AutoScroll = true;
             this.groupCoding.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.groupCoding.Location = new System.Drawing.Point(496, 77);
+            this.groupCoding.Location = new System.Drawing.Point(502, 64);
             this.groupCoding.Name = "groupCoding";
-            this.groupCoding.Size = new System.Drawing.Size(198, 408);
+            this.groupCoding.Size = new System.Drawing.Size(198, 421);
             this.groupCoding.TabIndex = 165;
             // 
             // groupSoundVideo
@@ -4496,17 +4504,69 @@ namespace Optimizer
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupSoundVideo.AutoScroll = true;
             this.groupSoundVideo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.groupSoundVideo.Location = new System.Drawing.Point(700, 77);
+            this.groupSoundVideo.Location = new System.Drawing.Point(706, 64);
             this.groupSoundVideo.Name = "groupSoundVideo";
-            this.groupSoundVideo.Size = new System.Drawing.Size(211, 408);
+            this.groupSoundVideo.Size = new System.Drawing.Size(211, 421);
             this.groupSoundVideo.TabIndex = 166;
+            // 
+            // lblSystemTools
+            // 
+            this.lblSystemTools.AutoSize = true;
+            this.lblSystemTools.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSystemTools.ForeColor = System.Drawing.Color.Silver;
+            this.lblSystemTools.Location = new System.Drawing.Point(11, 46);
+            this.lblSystemTools.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSystemTools.Name = "lblSystemTools";
+            this.lblSystemTools.Size = new System.Drawing.Size(89, 15);
+            this.lblSystemTools.TabIndex = 162;
+            this.lblSystemTools.Tag = "";
+            this.lblSystemTools.Text = "System && Tools";
+            // 
+            // lblInternet
+            // 
+            this.lblInternet.AutoSize = true;
+            this.lblInternet.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInternet.ForeColor = System.Drawing.Color.Silver;
+            this.lblInternet.Location = new System.Drawing.Point(262, 46);
+            this.lblInternet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblInternet.Name = "lblInternet";
+            this.lblInternet.Size = new System.Drawing.Size(49, 15);
+            this.lblInternet.TabIndex = 167;
+            this.lblInternet.Tag = "";
+            this.lblInternet.Text = "Internet";
+            // 
+            // lblCoding
+            // 
+            this.lblCoding.AutoSize = true;
+            this.lblCoding.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoding.ForeColor = System.Drawing.Color.Silver;
+            this.lblCoding.Location = new System.Drawing.Point(499, 46);
+            this.lblCoding.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCoding.Name = "lblCoding";
+            this.lblCoding.Size = new System.Drawing.Size(45, 15);
+            this.lblCoding.TabIndex = 168;
+            this.lblCoding.Tag = "";
+            this.lblCoding.Text = "Coding";
+            // 
+            // lblVideoSound
+            // 
+            this.lblVideoSound.AutoSize = true;
+            this.lblVideoSound.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVideoSound.ForeColor = System.Drawing.Color.Silver;
+            this.lblVideoSound.Location = new System.Drawing.Point(703, 46);
+            this.lblVideoSound.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVideoSound.Name = "lblVideoSound";
+            this.lblVideoSound.Size = new System.Drawing.Size(88, 15);
+            this.lblVideoSound.TabIndex = 169;
+            this.lblVideoSound.Tag = "";
+            this.lblVideoSound.Text = "Video && Sound";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(1047, 705);
+            this.ClientSize = new System.Drawing.Size(939, 705);
             this.Controls.Add(this.bpanel);
             this.Controls.Add(this.tpanel);
             this.DoubleBuffered = true;
@@ -4538,6 +4598,7 @@ namespace Optimizer
             this.startupTab.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.appsTab.ResumeLayout(false);
+            this.appsTab.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panelCommonApps.ResumeLayout(false);
@@ -4893,6 +4954,10 @@ namespace Optimizer
         private Panel groupCoding;
         private Panel groupInternet;
         private Panel groupSoundVideo;
+        private Label lblVideoSound;
+        private Label lblCoding;
+        private Label lblSystemTools;
+        private Label lblInternet;
     }
 }
 

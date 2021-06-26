@@ -651,7 +651,6 @@ namespace Optimizer
                     appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
                     appCard.appImage.LoadAsync(x.Image);
                     
-                    
                     switch (x.Group)
                     {
                         case "SystemTools":

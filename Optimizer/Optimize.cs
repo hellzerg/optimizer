@@ -54,6 +54,9 @@ namespace Optimizer
 
         internal static void EnablePerformanceTweaks()
         {
+            // enable auto-complete in Run Dialog
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete", "Append Completion", "yes", RegistryValueKind.String);
+
             // show all tray icons
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer", "EnableAutoTray", "0", RegistryValueKind.DWord);
 
@@ -109,6 +112,9 @@ namespace Optimizer
         {
             try
             {
+                // disable auto-complete in Run Dialog
+                Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete", true).DeleteValue("Append Completion", false);
+
                 // hide tray icons
                 Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer", true).DeleteValue("EnableAutoTray", false);
 
