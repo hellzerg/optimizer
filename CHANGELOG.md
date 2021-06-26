@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [9.1] - 2021-06-26
+- Significantly reduced file size (~1.4 MB)
+- Improvements in memory management (~60MB instead of ~110MB on load)
+- Re-designed Common Apps: Categories and full-dynamic image loading
+- Minor bug fixes
+
 ## [9.0] - 2021-06-24
 - New apps added:
 .NET Framework 4.8,
