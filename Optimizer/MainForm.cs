@@ -647,10 +647,14 @@ namespace Optimizer
                     appCard.appTitle.Text = x.Title;
                     appCard.appImage.BackgroundImageLayout = ImageLayout.Stretch;
 
-                    if (!string.IsNullOrEmpty(x.Image))
+                    try
                     {
-                        appCard.appImage.BackgroundImage = new Bitmap(new MemoryStream(client.DownloadData(x.Image)));
+                        if (!string.IsNullOrEmpty(x.Image))
+                        {
+                            appCard.appImage.BackgroundImage = new Bitmap(new MemoryStream(client.DownloadData(x.Image)));
+                        }
                     }
+                    catch { }
 
                     appCard.Location = new Point(0, panelApps6.Controls.Count * 30);
                     panelApps6.Controls.Add(appCard);
