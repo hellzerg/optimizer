@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -630,6 +631,22 @@ namespace Optimizer
             {
                 string feed = client.DownloadString(_feedLink);
                 AppsFromFeed = JsonConvert.DeserializeObject<List<FeedApp>>(feed);
+
+                AppCard appCard;
+
+                foreach (FeedApp x in AppsFromFeed)
+                {
+                    appCard = new AppCard();
+                    appCard.AutoSize = true;
+                    appCard.Anchor = AnchorStyles.None;
+                    appCard.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left;
+
+                    appCard.appTitle.Text = x.Title;
+                    if (!string.IsNullOrEmpty(x.Image)) appCard.appImage.BackgroundImage = (Bitmap)((new ImageConverter()).ConvertFrom(client.DownloadData(x.Image)));
+
+                    appCard.Location = new Point(0, panelApps6.Controls.Count * 30);
+                    panelApps6.Controls.Add(appCard);
+                }
 
                 // UI handling
                 btnDownloadApps.Enabled = true;

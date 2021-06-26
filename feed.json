@@ -2,7 +2,8 @@
    {
       "Title":"Malwarebytes",
       "Link":"https://data-cdn.mbamupdates.com/web/mb4-setup-consumer/MBSetup.exe",
-      "Tag":"cMalwarebytes"
+      "Tag":"cMalwarebytes",
+      "Image": ""
    },
    {
       "Title":"Anti-Exploit",
@@ -212,7 +213,8 @@
    {
       "Title":"Google Zoom",
       "Link":"https://zoom.us/client/latest/ZoomInstaller.exe",
-      "Tag":"cZoom"
+      "Tag":"cZoom",
+      "Image": "https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/zoom.png"
    },
    {
       "Title":"Viber",

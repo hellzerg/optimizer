@@ -89,6 +89,12 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppCard.Designer.cs">
+      <DependentUpon>AppCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="ColoredControls\ColoredProgress.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -173,6 +179,9 @@
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppCard.resx">
+      <DependentUpon>AppCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FirstRunForm.resx">
       <DependentUpon>FirstRunForm.cs</DependentUpon>
