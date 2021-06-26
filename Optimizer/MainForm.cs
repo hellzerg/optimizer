@@ -650,7 +650,7 @@ namespace Optimizer
                     appCard.appTitle.Name = x.Tag;
                     appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
                     appCard.appImage.LoadAsync(x.Image);
-                    
+
                     switch (x.Group)
                     {
                         case "SystemTools":
@@ -2273,7 +2273,7 @@ namespace Optimizer
                 currentCheck = (ColoredCheckBox)temp[0];
                 if (currentCheck == null) continue;
                 if (!currentCheck.Checked) continue;
-              
+
                 appNameTemp = x.Title;
 
                 if (c64.Checked)
