@@ -645,16 +645,10 @@ namespace Optimizer
                     appCard.Anchor = AnchorStyles.Top | AnchorStyles.Left;
 
                     appCard.appTitle.Text = x.Title;
-                    appCard.appImage.BackgroundImageLayout = ImageLayout.Stretch;
+                    appCard.appTitle.Name = x.Tag;
+                    appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
 
-                    try
-                    {
-                        if (!string.IsNullOrEmpty(x.Image))
-                        {
-                            appCard.appImage.BackgroundImage = new Bitmap(new MemoryStream(client.DownloadData(x.Image)));
-                        }
-                    }
-                    catch { }
+                    if (!string.IsNullOrEmpty(x.Image)) appCard.appImage.LoadAsync(x.Image);
 
                     appCard.Location = new Point(0, panelApps6.Controls.Count * 30);
                     panelApps6.Controls.Add(appCard);
@@ -2259,7 +2253,7 @@ namespace Optimizer
                 currentCheck = (ColoredCheckBox)temp[0];
                 if (currentCheck == null) continue;
                 if (!currentCheck.Checked) continue;
-
+              
                 appNameTemp = x.Title;
 
                 if (c64.Checked)

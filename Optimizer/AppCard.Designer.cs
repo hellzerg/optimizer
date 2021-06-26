@@ -53,6 +53,7 @@ namespace Optimizer
             this.appImage.Location = new System.Drawing.Point(6, 4);
             this.appImage.Name = "appImage";
             this.appImage.Size = new System.Drawing.Size(24, 24);
+            this.appImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.appImage.TabIndex = 166;
             this.appImage.TabStop = false;
             // 
