@@ -129,8 +129,8 @@
    },
    {
       "Title":"Putty",
-      "Link64":"https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.74-installer.msi",
-      "Link":"https://the.earth.li/~sgtatham/putty/latest/w32/putty-0.74-installer.msi",
+      "Link64":"https://the.earth.li/~sgtatham/putty/0.75/w64/putty-64bit-0.75-installer.msi",
+      "Link":"https://the.earth.li/~sgtatham/putty/0.75/w32/putty-0.75-installer.msi",
       "Tag":"cPutty",
       "Image": "https://github.com/hellzerg/optimizer/blob/master/images/feed/putty.png"
    },
