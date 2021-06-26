@@ -4476,7 +4476,7 @@ namespace Optimizer
             this.groupInternet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.groupInternet.Location = new System.Drawing.Point(265, 77);
             this.groupInternet.Name = "groupInternet";
-            this.groupInternet.Size = new System.Drawing.Size(246, 408);
+            this.groupInternet.Size = new System.Drawing.Size(225, 408);
             this.groupInternet.TabIndex = 164;
             // 
             // groupCoding
@@ -4485,7 +4485,7 @@ namespace Optimizer
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupCoding.AutoScroll = true;
             this.groupCoding.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.groupCoding.Location = new System.Drawing.Point(517, 77);
+            this.groupCoding.Location = new System.Drawing.Point(496, 77);
             this.groupCoding.Name = "groupCoding";
             this.groupCoding.Size = new System.Drawing.Size(198, 408);
             this.groupCoding.TabIndex = 165;
@@ -4496,9 +4496,9 @@ namespace Optimizer
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupSoundVideo.AutoScroll = true;
             this.groupSoundVideo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.groupSoundVideo.Location = new System.Drawing.Point(721, 77);
+            this.groupSoundVideo.Location = new System.Drawing.Point(700, 77);
             this.groupSoundVideo.Name = "groupSoundVideo";
-            this.groupSoundVideo.Size = new System.Drawing.Size(198, 408);
+            this.groupSoundVideo.Size = new System.Drawing.Size(211, 408);
             this.groupSoundVideo.TabIndex = 166;
             // 
             // MainForm

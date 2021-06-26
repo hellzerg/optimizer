@@ -229,7 +229,7 @@
       "Group": "Coding"
    },
    {
-      "Title":"Visual Studio Code",
+      "Title":"VS Code",
       "Link64":"https://az764295.vo.msecnd.net/stable/c185983a683d14c396952dd432459097bc7f757f/VSCodeUserSetup-x64-1.55.0.exe",
       "Link":"https://az764295.vo.msecnd.net/stable/c185983a683d14c396952dd432459097bc7f757f/VSCodeUserSetup-ia32-1.55.0.exe",
       "Tag":"cVSCode",
@@ -626,7 +626,7 @@
         "Group": "Coding"
    },
    {
-   	  "Title": "K-Lite Codec Pack Mega",
+   	  "Title": "K-Lite Codec Pack",
    	  "Link": "https://files2.codecguide.com/K-Lite_Codec_Pack_1630_Mega.exe",
    	  "Tag": "cCodecs",
         "Image": "https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/klite.png",

@@ -636,6 +636,9 @@ namespace Optimizer
 
                 AppCard appCard;
                 groupSystemTools.Controls.Clear();
+                groupInternet.Controls.Clear();
+                groupCoding.Controls.Clear();
+                groupSoundVideo.Controls.Clear();
 
                 foreach (FeedApp x in AppsFromFeed)
                 {
