@@ -58,6 +58,9 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * https://github.com/mrkaban - mrkaban for Russian translation
 * https://github.com/Kheasyque - Kheasyque for Turkish translation
 
+## How to include an app in Common Apps - Pull Request
+https://github.com/hellzerg/optimizer/blob/master/FEED.md
+
 ## Details: ##
 
 * Latest version: 9.1
