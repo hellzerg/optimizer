@@ -59,8 +59,8 @@ namespace Optimizer
             // 
             // AppCard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Controls.Add(this.appTitle);
             this.Controls.Add(this.appImage);
@@ -68,7 +68,7 @@ namespace Optimizer
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "AppCard";
-            this.Size = new System.Drawing.Size(237, 33);
+            this.Size = new System.Drawing.Size(172, 33);
             ((System.ComponentModel.ISupportInitialize)(this.appImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -7,5 +7,6 @@
         public string Link { get; set; }
         public string Tag { get; set; }
         public string Image { get; set; }
+        public string Group { get; set; }
     }
 }

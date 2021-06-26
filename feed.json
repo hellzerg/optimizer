@@ -67,35 +67,35 @@
       "Link":"https://origin-a.akamaihd.net/Origin-Client-Download/origin/live/OriginThinSetup.exe",
       "Tag":"cOrigin",
       "Image": "https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/origin.png",
-      "Group": "Gaming"
+      "Group": "Internet"
    },
    {
       "Title":"Epic Games",
       "Link":"https://epicgames-download1.akamaized.net/Builds/UnrealEngineLauncher/Installers/Win32/EpicInstaller-10.19.2.msi?launcherfilename=EpicInstaller-10.19.2.msi",
       "Tag":"cEpicStore",
       "Image": "https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/epic.png",
-      "Group": "Gaming"
+      "Group": "Internet"
    },
    {
       "Title":"Battle.net",
       "Link":"https://eu.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe",
       "Tag":"cBlizzard",
       "Image": "https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/blizzard.png",
-      "Group": "Gaming"
+      "Group": "Internet"
    },
    {
       "Title":"Uplay",
       "Link":"https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe",
       "Tag":"cUbi",
       "Image": "https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/uplay.png",
-      "Group": "Gaming"
+      "Group": "Internet"
    },
    {
       "Title":"Steam",
       "Link":"https://cdn.cloudflare.steamstatic.com/client/installer/SteamSetup.exe",
       "Tag":"cSteam",
       "Image": "https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/steam.png",
-      "Group": "Gaming"
+      "Group": "Internet"
    },
    {
       "Title":"OneDrive",

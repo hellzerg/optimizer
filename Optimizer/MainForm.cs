@@ -635,7 +635,7 @@ namespace Optimizer
                 AppsFromFeed = JsonConvert.DeserializeObject<List<FeedApp>>(feed);
 
                 AppCard appCard;
-                appGroup1.Controls.Clear();
+                groupSystemTools.Controls.Clear();
 
                 foreach (FeedApp x in AppsFromFeed)
                 {
@@ -643,15 +643,33 @@ namespace Optimizer
                     appCard.AutoSize = true;
                     appCard.Anchor = AnchorStyles.None;
                     appCard.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-
                     appCard.appTitle.Text = x.Title;
                     appCard.appTitle.Name = x.Tag;
                     appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
-
                     appCard.appImage.LoadAsync(x.Image);
-
-                    appCard.Location = new Point(0, appGroup1.Controls.Count * 30);
-                    appGroup1.Controls.Add(appCard);
+                    
+                    
+                    switch (x.Group)
+                    {
+                        case "SystemTools":
+                            appCard.Location = new Point(0, groupSystemTools.Controls.Count * 30);
+                            groupSystemTools.Controls.Add(appCard);
+                            break;
+                        case "Internet":
+                            appCard.Location = new Point(0, groupInternet.Controls.Count * 30);
+                            groupInternet.Controls.Add(appCard);
+                            break;
+                        case "Coding":
+                            appCard.Location = new Point(0, groupCoding.Controls.Count * 30);
+                            groupCoding.Controls.Add(appCard);
+                            break;
+                        case "GraphicsSound":
+                            appCard.Location = new Point(0, groupSoundVideo.Controls.Count * 30);
+                            groupSoundVideo.Controls.Add(appCard);
+                            break;
+                        default:
+                            break;
+                    }
                 }
 
                 // UI handling
