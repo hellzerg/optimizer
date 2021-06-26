@@ -642,6 +642,7 @@ namespace Optimizer
                     appCard.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left;
 
                     appCard.appTitle.Text = x.Title;
+                    appCard.BackgroundImageLayout = ImageLayout.Zoom;
                     if (!string.IsNullOrEmpty(x.Image)) appCard.appImage.BackgroundImage = (Bitmap)((new ImageConverter()).ConvertFrom(client.DownloadData(x.Image)));
 
                     appCard.Location = new Point(0, panelApps6.Controls.Count * 30);

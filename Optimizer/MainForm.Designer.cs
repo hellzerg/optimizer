@@ -1235,9 +1235,9 @@ namespace Optimizer
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelApps6.AutoScroll = true;
             this.panelApps6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelApps6.Location = new System.Drawing.Point(503, 47);
+            this.panelApps6.Location = new System.Drawing.Point(436, 47);
             this.panelApps6.Name = "panelApps6";
-            this.panelApps6.Size = new System.Drawing.Size(242, 408);
+            this.panelApps6.Size = new System.Drawing.Size(309, 408);
             this.panelApps6.TabIndex = 162;
             // 
             // cleanerTab
