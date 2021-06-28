@@ -3,7 +3,7 @@
 * You will need direct links for both x64 and x86 variants (if x64 or x86 is unavailable, just use other one)
 * Official app title
 * A tag, usually the app title - without spaces - preceded by a 'c'
-* A PNG image - needs to be up to 256x256 and should not exceed 50kb in size
+* A PNG image - needs to be up to 256x256, should not exceed 50kb in size and must be with transparent background
 * The group in which the app will be included to
 
 ## Available groups: ##
