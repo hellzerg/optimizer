@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [9.2] - 2021-06-28
+- Hotfix: Disable Spell Checking does not disable pen support (Disable Windows Ink now does this)
+- Hotfix: Feed error label misplaced
+
 ## [9.1] - 2021-06-26
 - Significantly reduced file size (~1.4 MB)
 - Improvements in memory management (~60MB instead of ~110MB on load)
