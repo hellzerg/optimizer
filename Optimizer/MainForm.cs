@@ -495,6 +495,7 @@ namespace Optimizer
             if (Options.CurrentOptions.LanguageCode == LanguageCode.RU) radioRussian.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.TR) radioTurkish.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.EL) radioHellenic.Checked = true;
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.DE) radioGerman.Checked = true;
 
             Program.MainForm = this;
 
@@ -2842,6 +2843,20 @@ namespace Optimizer
             Options.SaveSettings();
             Options.LoadTranslation();
             Translate();
+        }
+
+        private void radioGerman_Click(object sender, EventArgs e)
+        {
+            radioGerman.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.DE;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            radioGerman.PerformClick();
         }
     }
 }

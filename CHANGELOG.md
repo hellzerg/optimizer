@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [9.3] - 2021-06-29
+- New: Fully translated into German (thanks to https://github.com/theflamehd - theflamehd)
+
 ## [9.2] - 2021-06-28
 - Hotfix: Disable Spell Checking does not disable pen support (Disable Windows Ink now does this)
 - Hotfix: Feed error label misplaced

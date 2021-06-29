@@ -227,6 +227,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\DE.json" />
     <None Include="Resources\DesktopShortcuts.reg" />
     <None Include="Resources\DisableOfficeTelemetry.reg" />
     <None Include="Resources\EN.json" />

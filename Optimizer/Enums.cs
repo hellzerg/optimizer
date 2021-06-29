@@ -90,6 +90,7 @@
         EN,
         RU,
         EL,
-        TR
+        TR,
+        DE
     }
 }

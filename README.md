@@ -56,6 +56,7 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 ## Thanks to: ##
 * aplenaki for Hellenic translation
 * https://github.com/mrkaban - mrkaban for Russian translation
+* https://github.com/theflamehd - theflamehd for German translation
 * https://github.com/Kheasyque - Kheasyque for Turkish translation
 
 ## How to include an app in Common Apps - Pull Request
@@ -63,6 +64,6 @@ https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 9.2
-* Released: June 28, 2021
-* SHA256: C7D8A248CAC1A76BDFD0E293E5945A6F36E8E259D0527958DA27C178A8899A3F
+* Latest version: 9.3
+* Released: June 29, 2021
+* SHA256: 8FA253B35B4733A440CCD58D631D0E8C4B40AD00D35E1CE74F66BD344C21F56D

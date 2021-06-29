@@ -3,7 +3,7 @@
 	"restartButton": "Apply && Restart",
 	"restartButton8": "Apply && Restart",
 	"restartButton10": "Apply && Restart",
-	"restartAndApply": "restart to apply changes?",
+	"restartAndApply": "Restart to apply changes?",
 	"txtVersion": "Version: {VN}",
 	"txtBitness": "You are working with {BITS}",
 	"linkUpdate": "Update available",

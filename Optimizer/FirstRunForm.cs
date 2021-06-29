@@ -67,5 +67,17 @@ namespace Optimizer
             Options.SaveSettings();
             Options.LoadTranslation();
         }
+
+        private void radioGerman_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.DE;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            radioGerman.PerformClick();
+        }
     }
 }

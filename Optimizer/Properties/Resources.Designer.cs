@@ -61,6 +61,27 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;btnAbout&quot;: &quot;OK&quot;,
+        ///	&quot;restartButton&quot;: &quot;Anwenden &amp;&amp; Neustarten&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Anwenden &amp;&amp; Neustarten&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Anwenden &amp;&amp; Neustarten&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Neustarten, um Änderungen anzuwenden?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Sie arbeiten mit {BITS}&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;Update verfügbar&quot;,
+        ///	&quot;lblLab&quot;: &quot;Experimenteller Build (nach dem Testen löschen)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Leistungsoptimierungen aktivieren&quot;,
+        ///	&quot;networkSw&quot;: &quot;Netzwerkdrosselung deaktivieren&quot;,
+        ///	&quot;defend [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string DE {
+            get {
+                return ResourceManager.GetString("DE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
         ///
         ///[HKEY_CLASSES_ROOT\DesktopBackground\Shell\DesktopShortcuts]
@@ -97,7 +118,7 @@ namespace Optimizer.Properties {
         ///&quot;xlsolution&quot;=dword:00000001
         /// 
         ///[HKEY_CURRENT_USER\Software\Policies\microsoft\office\16.0\osm\preventedsolutiontypes]
-        ///&quot;agave&quot; [rest of string was truncated]&quot;;.
+        ///&quot;agave&quot;=dword:0000000 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableOfficeTelemetry {
             get {
@@ -124,7 +145,7 @@ namespace Optimizer.Properties {
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot;
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot; /disable
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot;
-        ///schtasks /change /tn &quot;\Microsoft\ [rest of string was truncated]&quot;;.
+        ///schtasks /change /tn &quot;\Microsoft\Windo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableTelemetryTasks {
             get {
@@ -172,7 +193,7 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton&quot;: &quot;Apply &amp;&amp; Restart&quot;,
         ///	&quot;restartButton8&quot;: &quot;Apply &amp;&amp; Restart&quot;,
         ///	&quot;restartButton10&quot;: &quot;Apply &amp;&amp; Restart&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;restart to apply changes?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Restart to apply changes?&quot;,
         ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;You are working with {BITS}&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Update available&quot;,
@@ -233,7 +254,7 @@ namespace Optimizer.Properties {
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot; /enable
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip&quot; /enable
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\Uploader&quot; /enable
-        ///schta [rest of string was truncated]&quot;;.
+        ///schtasks / [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnableTelemetryTasks {
             get {
@@ -278,7 +299,7 @@ namespace Optimizer.Properties {
         ///&quot;NoWorkingDirectory&quot;=&quot;&quot;
         ///
         ///[HKEY_CLASSES_ROOT\Directory\shell\runas\command]
-        ///@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d  [rest of string was truncated]&quot;;.
+        ///@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d y &amp;&amp; icacls \&quot;% [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string InstallTakeOwnership {
             get {
@@ -402,12 +423,12 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton8&quot;: &quot;Uygula ve Yeniden Başlat&quot;,
         ///	&quot;restartButton10&quot;: &quot;Uygula ve Yeniden Başlat&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Değişiklikleri uygulamak için yeniden başlatılsın mı?&quot;,
-        ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;{BITS} ile çalışıyorsun.&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Versiyon: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;{BITS} ile çalışıyor.&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Güncelleme Mevcut&quot;,
         ///	&quot;lblLab&quot;: &quot;Deneysel Yapı\n(Testten sonra silin)&quot;,
         ///	&quot;performanceSw&quot;: &quot;Performans Ayarlarını Etkinleştir&quot;,
-        ///	&quot;networkSw&quot;: &quot;Ağ Kısıtlamasını Devre Dışı Bı [rest of string was truncated]&quot;;.
+        ///	&quot;networkSw&quot;: &quot;Ağ Kısıtlamasını Devre Dışı Bıra [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TR {
             get {
