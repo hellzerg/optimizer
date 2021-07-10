@@ -279,12 +279,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\optimizer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\optimizer-ico.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Newtonsoft.Json.dll" />
     <Content Include="optimizer.ico" />
   </ItemGroup>
