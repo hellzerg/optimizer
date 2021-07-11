@@ -1,3 +1,5 @@
+![Image preview](image.png)
+
 ## Summary: ##
 
 Portable utility that helps you restore your privacy and increase your security.
