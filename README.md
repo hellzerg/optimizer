@@ -1,5 +1,6 @@
 <p align="center">
-   <img src="image.png" />
+   <img src="image.png">
+   <h3>Optimizer - make Windows faster and more secure</h3>
 </p> 
 
 ## Summary: ##
