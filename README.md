@@ -1,4 +1,5 @@
-![Image preview](image.png)
+| ![Image](image.png) |
+| :--: | 
 
 ## Summary: ##
 
