@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [9.4] - 2021-07-14
 - New: App now opens slightly faster
-- New: Enhance Privacy now attempts to enable Group Policy Editor (gpedit.msc)
+- New: Enhance Privacy now attempts to enable Group Policy Editor on Windows 10 Home (gpedit.msc)
 - Improved: Flush DNS cache
 - Improved: Privacy tweaks (Disable Cloud Search, Find my Device, Timeline)
 - Improved: Defender & Xbox tweaks
