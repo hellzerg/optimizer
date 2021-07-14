@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -631,71 +632,75 @@ namespace Optimizer
 
             client.Headers.Add("Cache-Control", "no-cache");
 
-            Directory.CreateDirectory(@"%AppData%\Optimizer");
-            client.DownloadFile(_feedImages, @"%appdata%\Optimizer\feed-images.zip");
+            string tmpImageFileName = string.Empty;
+            string tmpDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Optimizer-tmp");
+            
+            Directory.CreateDirectory(tmpDir);
+            client.DownloadFile(_feedImages, Path.Combine(tmpDir, "feed-images.raw"));
 
-            //ZipArchiveEntry
-
-            try
+            using (FileStream fs = new FileStream(Path.Combine(tmpDir, "feed-images.raw"), FileMode.Open))
+            using (ZipArchive zip = new ZipArchive(fs))
             {
-                string feed = client.DownloadString(_feedLink);
-                AppsFromFeed = JsonConvert.DeserializeObject<List<FeedApp>>(feed);
+                var zipEntries = zip.Entries;
 
-                AppCard appCard;
-                groupSystemTools.Controls.Clear();
-                groupInternet.Controls.Clear();
-                groupCoding.Controls.Clear();
-                groupSoundVideo.Controls.Clear();
-
-                foreach (FeedApp x in AppsFromFeed)
+                try
                 {
-                    appCard = new AppCard();
-                    appCard.AutoSize = true;
-                    appCard.Anchor = AnchorStyles.None;
-                    appCard.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-                    appCard.appTitle.Text = x.Title;
-                    appCard.appTitle.Name = x.Tag;
-                    appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
+                    string feed = client.DownloadString(_feedLink);
+                    AppsFromFeed = JsonConvert.DeserializeObject<List<FeedApp>>(feed);
 
+                    AppCard appCard;
+                    groupSystemTools.Controls.Clear();
+                    groupInternet.Controls.Clear();
+                    groupCoding.Controls.Clear();
+                    groupSoundVideo.Controls.Clear();
 
-                    //string s = x.Image.Substring(x.Image.LastIndexOf("/")+1, x.Image.Length - (x.Image.LastIndexOf("/") + 1));
-                    
-                    
-                    //appCard.appImage.LoadAsync(x.Image);
-
-                    switch (x.Group)
+                    foreach (FeedApp x in AppsFromFeed)
                     {
-                        case "SystemTools":
-                            appCard.Location = new Point(0, groupSystemTools.Controls.Count * 30);
-                            groupSystemTools.Controls.Add(appCard);
-                            break;
-                        case "Internet":
-                            appCard.Location = new Point(0, groupInternet.Controls.Count * 30);
-                            groupInternet.Controls.Add(appCard);
-                            break;
-                        case "Coding":
-                            appCard.Location = new Point(0, groupCoding.Controls.Count * 30);
-                            groupCoding.Controls.Add(appCard);
-                            break;
-                        case "GraphicsSound":
-                            appCard.Location = new Point(0, groupSoundVideo.Controls.Count * 30);
-                            groupSoundVideo.Controls.Add(appCard);
-                            break;
-                        default:
-                            break;
+                        appCard = new AppCard();
+                        appCard.AutoSize = true;
+                        appCard.Anchor = AnchorStyles.None;
+                        appCard.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                        appCard.appTitle.Text = x.Title;
+                        appCard.appTitle.Name = x.Tag;
+                        appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
+
+                        tmpImageFileName = x.Image.Substring(x.Image.LastIndexOf("/")+1, x.Image.Length - (x.Image.LastIndexOf("/") + 1));
+                        appCard.appImage.Image = Image.FromStream(zipEntries.First(ifn => ifn.Name == tmpImageFileName).Open());
+
+                        switch (x.Group)
+                        {
+                            case "SystemTools":
+                                appCard.Location = new Point(0, groupSystemTools.Controls.Count * 30);
+                                groupSystemTools.Controls.Add(appCard);
+                                break;
+                            case "Internet":
+                                appCard.Location = new Point(0, groupInternet.Controls.Count * 30);
+                                groupInternet.Controls.Add(appCard);
+                                break;
+                            case "Coding":
+                                appCard.Location = new Point(0, groupCoding.Controls.Count * 30);
+                                groupCoding.Controls.Add(appCard);
+                                break;
+                            case "GraphicsSound":
+                                appCard.Location = new Point(0, groupSoundVideo.Controls.Count * 30);
+                                groupSoundVideo.Controls.Add(appCard);
+                                break;
+                            default:
+                                break;
+                        }
                     }
+
+                    // UI handling
+                    btnDownloadApps.Enabled = true;
+                    txtFeedError.Visible = false;
                 }
+                catch (Exception ex)
+                {
+                    btnDownloadApps.Enabled = false;
+                    txtFeedError.Visible = true;
 
-                // UI handling
-                btnDownloadApps.Enabled = true;
-                txtFeedError.Visible = false;
-            }
-            catch (Exception ex)
-            {
-                btnDownloadApps.Enabled = false;
-                txtFeedError.Visible = true;
-
-                ErrorLogger.LogError("MainForm.GetFeed", ex.Message, ex.StackTrace);
+                    ErrorLogger.LogError("MainForm.GetFeed", ex.Message, ex.StackTrace);
+                }
             }
         }
 

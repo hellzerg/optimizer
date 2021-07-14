@@ -670,13 +670,20 @@ namespace Optimizer
 
         internal static void FlushDNSCache()
         {
-            Utilities.RunCommand("ipconfig /release && ipconfig /flushdns && ipconfig /renew");
+            Utilities.RunBatchFile(Required.ScriptsFolder + "FlushDNSCache.bat");
+            //Utilities.RunCommand("ipconfig /release && ipconfig /renew && arp -d * && nbtstat -R && nbtstat -RR && ipconfig /flushdns && ipconfig /registerdns");
         }
 
         internal static string SanitizeFileFolderName(string fileName)
         {
             char[] invalids = Path.GetInvalidFileNameChars();
             return string.Join("_", fileName.Split(invalids, StringSplitOptions.RemoveEmptyEntries)).TrimEnd('.');
+        }
+
+        // attempt to enable Local Group Policy Editor on Windows 10 Home editions
+        internal static void EnableGPEDitor()
+        {
+            Utilities.RunBatchFile(Required.ScriptsFolder + "GPEditEnablerInHome.bat");
         }
 
         internal static string CheckNETFramework()

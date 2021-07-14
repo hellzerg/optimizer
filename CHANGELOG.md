@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [9.4] - 2021-07-14
+- New: App now opens slightly faster
+- New: Enhance Privacy now attempts to enable Group Policy Editor (gpedit.msc)
+- Improved: Flush DNS cache
+- Improved: Privacy tweaks (Disable Cloud Search, Find my Device, Timeline)
+- Improved: Defender & Xbox tweaks
+
 ## [9.3] - 2021-06-29
 - New: Fully translated into German (thanks to https://github.com/theflamehd - theflamehd)
 

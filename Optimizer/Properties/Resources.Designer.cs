@@ -70,10 +70,10 @@ namespace Optimizer.Properties {
         ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;Sie arbeiten mit {BITS}&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Update verfügbar&quot;,
-        ///	&quot;lblLab&quot;: &quot;Experimenteller Build (nach dem Testen löschen)&quot;,
+        ///	&quot;lblLab&quot;: &quot;Experimenteller Build\n(nach dem Testen löschen)&quot;,
         ///	&quot;performanceSw&quot;: &quot;Leistungsoptimierungen aktivieren&quot;,
         ///	&quot;networkSw&quot;: &quot;Netzwerkdrosselung deaktivieren&quot;,
-        ///	&quot;defend [rest of string was truncated]&quot;;.
+        ///	&quot;defen [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DE {
             get {
@@ -270,6 +270,38 @@ namespace Optimizer.Properties {
         internal static string EnableXboxTasks {
             get {
                 return ResourceManager.GetString("EnableXboxTasks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ipconfig /release
+        ///ipconfig /renew
+        ///arp -d *
+        ///nbtstat -R
+        ///nbtstat -RR
+        ///ipconfig /flushdns
+        ///ipconfig /registerdns.
+        /// </summary>
+        internal static string FlushDNSCache {
+            get {
+                return ResourceManager.GetString("FlushDNSCache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @echo off 
+        ///
+        ///pushd &quot;%~dp0&quot; 
+        ///
+        ///dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &gt;List.txt 
+        ///dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum &gt;&gt;List.txt 
+        ///
+        ///for /f %%i in (&apos;findstr /i . List.txt 2^&gt;nul&apos;) do dism /online /norestart /add-package:&quot;%SystemRoot%\servicing\Packages\%%i&quot; 
+        ///.
+        /// </summary>
+        internal static string GPEditEnablerInHome {
+            get {
+                return ResourceManager.GetString("GPEditEnablerInHome", resourceCulture);
             }
         }
         

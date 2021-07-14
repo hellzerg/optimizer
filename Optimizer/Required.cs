@@ -44,7 +44,9 @@ namespace Optimizer
             ScriptsFolder + "EnableTelemetryTasks.bat",
             ScriptsFolder + "DisableXboxTasks.bat",
             ScriptsFolder + "EnableXboxTasks.bat",
-            ScriptsFolder + "OneDrive_Uninstaller.cmd"
+            ScriptsFolder + "OneDrive_Uninstaller.cmd",
+            ScriptsFolder + "GPEditEnablerInHome.bat",
+            ScriptsFolder + "FlushDNSCache.bat"
         };
 
         readonly static string[] scriptFiles =
@@ -57,7 +59,9 @@ namespace Optimizer
             Properties.Resources.EnableTelemetryTasks,
             Properties.Resources.DisableXboxTasks,
             Properties.Resources.EnableXboxTasks,
-            Encoding.UTF8.GetString(Properties.Resources.OneDrive_Uninstaller)
+            Encoding.UTF8.GetString(Properties.Resources.OneDrive_Uninstaller),
+            Properties.Resources.GPEditEnablerInHome,
+            Properties.Resources.FlushDNSCache
         };
 
         internal static void Deploy()
