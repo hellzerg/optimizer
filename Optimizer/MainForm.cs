@@ -44,6 +44,7 @@ namespace Optimizer
 
         public List<FeedApp> AppsFromFeed = new List<FeedApp>();
         readonly string _feedLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/feed.json";
+        readonly string _feedImages = "https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed.zip";
 
         readonly string _licenseLink = "https://www.gnu.org/licenses/gpl-3.0.en.html";
         readonly string _openSourceLink = "https://opensource.org/";
@@ -630,6 +631,11 @@ namespace Optimizer
 
             client.Headers.Add("Cache-Control", "no-cache");
 
+            Directory.CreateDirectory(@"%AppData%\Optimizer");
+            client.DownloadFile(_feedImages, @"%appdata%\Optimizer\feed-images.zip");
+
+            //ZipArchiveEntry
+
             try
             {
                 string feed = client.DownloadString(_feedLink);
@@ -650,7 +656,12 @@ namespace Optimizer
                     appCard.appTitle.Text = x.Title;
                     appCard.appTitle.Name = x.Tag;
                     appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
-                    appCard.appImage.LoadAsync(x.Image);
+
+
+                    //string s = x.Image.Substring(x.Image.LastIndexOf("/")+1, x.Image.Length - (x.Image.LastIndexOf("/") + 1));
+                    
+                    
+                    //appCard.appImage.LoadAsync(x.Image);
 
                     switch (x.Group)
                     {
