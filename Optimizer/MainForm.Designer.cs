@@ -60,7 +60,11 @@ namespace Optimizer
             this.defenderSw = new Optimizer.ToggleSwitch();
             this.networkSw = new Optimizer.ToggleSwitch();
             this.restartButton = new System.Windows.Forms.Button();
-            this.windowsXTab = new System.Windows.Forms.TabPage();
+            this.windows11Tab = new System.Windows.Forms.TabPage();
+            this.widgetsSw = new Optimizer.ToggleSwitch();
+            this.snapAssistSw = new Optimizer.ToggleSwitch();
+            this.leftTaskbarSw = new Optimizer.ToggleSwitch();
+            this.windows10Tab = new System.Windows.Forms.TabPage();
             this.restartButton10 = new System.Windows.Forms.Button();
             this.actionSw = new Optimizer.ToggleSwitch();
             this.castSw = new Optimizer.ToggleSwitch();
@@ -85,7 +89,7 @@ namespace Optimizer
             this.gameBarSw = new Optimizer.ToggleSwitch();
             this.uODSw = new Optimizer.ToggleSwitch();
             this.oldMixerSw = new Optimizer.ToggleSwitch();
-            this.windowsVIIITab = new System.Windows.Forms.TabPage();
+            this.windows8Tab = new System.Windows.Forms.TabPage();
             this.disableOneDriveSw = new Optimizer.ToggleSwitch();
             this.restartButton8 = new System.Windows.Forms.Button();
             this.modernAppsTab = new System.Windows.Forms.TabPage();
@@ -327,13 +331,15 @@ namespace Optimizer
             this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.helpBox = new System.Windows.Forms.ToolTip(this.components);
+            this.smallerTaskbarSw = new Optimizer.ToggleSwitch();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
             this.tabCollection.SuspendLayout();
             this.universalTab.SuspendLayout();
-            this.windowsXTab.SuspendLayout();
-            this.windowsVIIITab.SuspendLayout();
+            this.windows11Tab.SuspendLayout();
+            this.windows10Tab.SuspendLayout();
+            this.windows8Tab.SuspendLayout();
             this.modernAppsTab.SuspendLayout();
             this.panelModernAppsList.SuspendLayout();
             this.startupTab.SuspendLayout();
@@ -513,8 +519,9 @@ namespace Optimizer
             // tabCollection
             // 
             this.tabCollection.Controls.Add(this.universalTab);
-            this.tabCollection.Controls.Add(this.windowsXTab);
-            this.tabCollection.Controls.Add(this.windowsVIIITab);
+            this.tabCollection.Controls.Add(this.windows11Tab);
+            this.tabCollection.Controls.Add(this.windows10Tab);
+            this.tabCollection.Controls.Add(this.windows8Tab);
             this.tabCollection.Controls.Add(this.modernAppsTab);
             this.tabCollection.Controls.Add(this.startupTab);
             this.tabCollection.Controls.Add(this.appsTab);
@@ -788,40 +795,95 @@ namespace Optimizer
             this.restartButton.UseVisualStyleBackColor = false;
             this.restartButton.Click += new System.EventHandler(this.button39_Click);
             // 
-            // windowsXTab
+            // windows11Tab
             // 
-            this.windowsXTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.windowsXTab.Controls.Add(this.restartButton10);
-            this.windowsXTab.Controls.Add(this.actionSw);
-            this.windowsXTab.Controls.Add(this.castSw);
-            this.windowsXTab.Controls.Add(this.longPathsSw);
-            this.windowsXTab.Controls.Add(this.ccSw);
-            this.windowsXTab.Controls.Add(this.featuresSw);
-            this.windowsXTab.Controls.Add(this.insiderSw);
-            this.windowsXTab.Controls.Add(this.darkSw);
-            this.windowsXTab.Controls.Add(this.spellSw);
-            this.windowsXTab.Controls.Add(this.inkSw);
-            this.windowsXTab.Controls.Add(this.driversSw);
-            this.windowsXTab.Controls.Add(this.sensorSw);
-            this.windowsXTab.Controls.Add(this.privacySw);
-            this.windowsXTab.Controls.Add(this.telemetryServicesSw);
-            this.windowsXTab.Controls.Add(this.autoUpdatesSw);
-            this.windowsXTab.Controls.Add(this.peopleSw);
-            this.windowsXTab.Controls.Add(this.adsSw);
-            this.windowsXTab.Controls.Add(this.colorBarSw);
-            this.windowsXTab.Controls.Add(this.oldExplorerSw);
-            this.windowsXTab.Controls.Add(this.xboxSw);
-            this.windowsXTab.Controls.Add(this.cortanaSw);
-            this.windowsXTab.Controls.Add(this.gameBarSw);
-            this.windowsXTab.Controls.Add(this.uODSw);
-            this.windowsXTab.Controls.Add(this.oldMixerSw);
-            this.windowsXTab.Location = new System.Drawing.Point(4, 24);
-            this.windowsXTab.Margin = new System.Windows.Forms.Padding(2);
-            this.windowsXTab.Name = "windowsXTab";
-            this.windowsXTab.Padding = new System.Windows.Forms.Padding(2);
-            this.windowsXTab.Size = new System.Drawing.Size(929, 611);
-            this.windowsXTab.TabIndex = 1;
-            this.windowsXTab.Text = "Windows 10";
+            this.windows11Tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.windows11Tab.Controls.Add(this.smallerTaskbarSw);
+            this.windows11Tab.Controls.Add(this.widgetsSw);
+            this.windows11Tab.Controls.Add(this.snapAssistSw);
+            this.windows11Tab.Controls.Add(this.leftTaskbarSw);
+            this.windows11Tab.Location = new System.Drawing.Point(4, 24);
+            this.windows11Tab.Name = "windows11Tab";
+            this.windows11Tab.Size = new System.Drawing.Size(929, 611);
+            this.windows11Tab.TabIndex = 14;
+            this.windows11Tab.Text = "Windows 11";
+            // 
+            // widgetsSw
+            // 
+            this.widgetsSw.Location = new System.Drawing.Point(14, 86);
+            this.widgetsSw.Margin = new System.Windows.Forms.Padding(2);
+            this.widgetsSw.Name = "widgetsSw";
+            this.widgetsSw.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.widgetsSw.OffForeColor = System.Drawing.Color.White;
+            this.widgetsSw.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.widgetsSw.OnForeColor = System.Drawing.Color.White;
+            this.widgetsSw.OnText = "Disable Widgets";
+            this.widgetsSw.Size = new System.Drawing.Size(319, 31);
+            this.widgetsSw.TabIndex = 41;
+            this.widgetsSw.Tag = "themeable";
+            // 
+            // snapAssistSw
+            // 
+            this.snapAssistSw.Location = new System.Drawing.Point(14, 51);
+            this.snapAssistSw.Margin = new System.Windows.Forms.Padding(2);
+            this.snapAssistSw.Name = "snapAssistSw";
+            this.snapAssistSw.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.snapAssistSw.OffForeColor = System.Drawing.Color.White;
+            this.snapAssistSw.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.snapAssistSw.OnForeColor = System.Drawing.Color.White;
+            this.snapAssistSw.OnText = "Disable Snap Assist";
+            this.snapAssistSw.Size = new System.Drawing.Size(319, 31);
+            this.snapAssistSw.TabIndex = 40;
+            this.snapAssistSw.Tag = "themeable";
+            // 
+            // leftTaskbarSw
+            // 
+            this.leftTaskbarSw.Location = new System.Drawing.Point(14, 16);
+            this.leftTaskbarSw.Margin = new System.Windows.Forms.Padding(2);
+            this.leftTaskbarSw.Name = "leftTaskbarSw";
+            this.leftTaskbarSw.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leftTaskbarSw.OffForeColor = System.Drawing.Color.White;
+            this.leftTaskbarSw.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leftTaskbarSw.OnForeColor = System.Drawing.Color.White;
+            this.leftTaskbarSw.OnText = "Align Taskbar to Left";
+            this.leftTaskbarSw.Size = new System.Drawing.Size(319, 31);
+            this.leftTaskbarSw.TabIndex = 38;
+            this.leftTaskbarSw.Tag = "themeable";
+            // 
+            // windows10Tab
+            // 
+            this.windows10Tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.windows10Tab.Controls.Add(this.restartButton10);
+            this.windows10Tab.Controls.Add(this.actionSw);
+            this.windows10Tab.Controls.Add(this.castSw);
+            this.windows10Tab.Controls.Add(this.longPathsSw);
+            this.windows10Tab.Controls.Add(this.ccSw);
+            this.windows10Tab.Controls.Add(this.featuresSw);
+            this.windows10Tab.Controls.Add(this.insiderSw);
+            this.windows10Tab.Controls.Add(this.darkSw);
+            this.windows10Tab.Controls.Add(this.spellSw);
+            this.windows10Tab.Controls.Add(this.inkSw);
+            this.windows10Tab.Controls.Add(this.driversSw);
+            this.windows10Tab.Controls.Add(this.sensorSw);
+            this.windows10Tab.Controls.Add(this.privacySw);
+            this.windows10Tab.Controls.Add(this.telemetryServicesSw);
+            this.windows10Tab.Controls.Add(this.autoUpdatesSw);
+            this.windows10Tab.Controls.Add(this.peopleSw);
+            this.windows10Tab.Controls.Add(this.adsSw);
+            this.windows10Tab.Controls.Add(this.colorBarSw);
+            this.windows10Tab.Controls.Add(this.oldExplorerSw);
+            this.windows10Tab.Controls.Add(this.xboxSw);
+            this.windows10Tab.Controls.Add(this.cortanaSw);
+            this.windows10Tab.Controls.Add(this.gameBarSw);
+            this.windows10Tab.Controls.Add(this.uODSw);
+            this.windows10Tab.Controls.Add(this.oldMixerSw);
+            this.windows10Tab.Location = new System.Drawing.Point(4, 24);
+            this.windows10Tab.Margin = new System.Windows.Forms.Padding(2);
+            this.windows10Tab.Name = "windows10Tab";
+            this.windows10Tab.Padding = new System.Windows.Forms.Padding(2);
+            this.windows10Tab.Size = new System.Drawing.Size(929, 611);
+            this.windows10Tab.TabIndex = 1;
+            this.windows10Tab.Text = "Windows 10";
             // 
             // restartButton10
             // 
@@ -1163,18 +1225,18 @@ namespace Optimizer
             this.oldMixerSw.TabIndex = 38;
             this.oldMixerSw.Tag = "themeable";
             // 
-            // windowsVIIITab
+            // windows8Tab
             // 
-            this.windowsVIIITab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.windowsVIIITab.Controls.Add(this.disableOneDriveSw);
-            this.windowsVIIITab.Controls.Add(this.restartButton8);
-            this.windowsVIIITab.Location = new System.Drawing.Point(4, 24);
-            this.windowsVIIITab.Margin = new System.Windows.Forms.Padding(2);
-            this.windowsVIIITab.Name = "windowsVIIITab";
-            this.windowsVIIITab.Padding = new System.Windows.Forms.Padding(2);
-            this.windowsVIIITab.Size = new System.Drawing.Size(929, 611);
-            this.windowsVIIITab.TabIndex = 2;
-            this.windowsVIIITab.Text = "Windows 8.1";
+            this.windows8Tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.windows8Tab.Controls.Add(this.disableOneDriveSw);
+            this.windows8Tab.Controls.Add(this.restartButton8);
+            this.windows8Tab.Location = new System.Drawing.Point(4, 24);
+            this.windows8Tab.Margin = new System.Windows.Forms.Padding(2);
+            this.windows8Tab.Name = "windows8Tab";
+            this.windows8Tab.Padding = new System.Windows.Forms.Padding(2);
+            this.windows8Tab.Size = new System.Drawing.Size(929, 611);
+            this.windows8Tab.TabIndex = 2;
+            this.windows8Tab.Text = "Windows 8.1";
             // 
             // disableOneDriveSw
             // 
@@ -4595,6 +4657,20 @@ namespace Optimizer
             this.helpBox.UseAnimation = false;
             this.helpBox.UseFading = false;
             // 
+            // smallerTaskbarSw
+            // 
+            this.smallerTaskbarSw.Location = new System.Drawing.Point(14, 121);
+            this.smallerTaskbarSw.Margin = new System.Windows.Forms.Padding(2);
+            this.smallerTaskbarSw.Name = "smallerTaskbarSw";
+            this.smallerTaskbarSw.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.smallerTaskbarSw.OffForeColor = System.Drawing.Color.White;
+            this.smallerTaskbarSw.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.smallerTaskbarSw.OnForeColor = System.Drawing.Color.White;
+            this.smallerTaskbarSw.OnText = "Make Taskbar smaller";
+            this.smallerTaskbarSw.Size = new System.Drawing.Size(319, 31);
+            this.smallerTaskbarSw.TabIndex = 42;
+            this.smallerTaskbarSw.Tag = "themeable";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -4621,10 +4697,11 @@ namespace Optimizer
             this.tabCollection.ResumeLayout(false);
             this.universalTab.ResumeLayout(false);
             this.universalTab.PerformLayout();
-            this.windowsXTab.ResumeLayout(false);
-            this.windowsXTab.PerformLayout();
-            this.windowsVIIITab.ResumeLayout(false);
-            this.windowsVIIITab.PerformLayout();
+            this.windows11Tab.ResumeLayout(false);
+            this.windows10Tab.ResumeLayout(false);
+            this.windows10Tab.PerformLayout();
+            this.windows8Tab.ResumeLayout(false);
+            this.windows8Tab.PerformLayout();
             this.modernAppsTab.ResumeLayout(false);
             this.modernAppsTab.PerformLayout();
             this.panelModernAppsList.ResumeLayout(false);
@@ -4710,9 +4787,9 @@ namespace Optimizer
         private System.Windows.Forms.TabControl tabCollection;
         private System.Windows.Forms.TabPage universalTab;
         private System.Windows.Forms.Button restartButton;
-        private System.Windows.Forms.TabPage windowsXTab;
+        private System.Windows.Forms.TabPage windows10Tab;
         private System.Windows.Forms.Button restartButton10;
-        private System.Windows.Forms.TabPage windowsVIIITab;
+        private System.Windows.Forms.TabPage windows8Tab;
         private System.Windows.Forms.Button restartButton8;
         private System.Windows.Forms.TabPage cleanerTab;
         private ColoredCheckBox checkTemp;
@@ -4995,6 +5072,11 @@ namespace Optimizer
         private Label txtFeedError;
         private ColoredRadioButton radioGerman;
         private PictureBox pictureBox2;
+        private TabPage windows11Tab;
+        private ToggleSwitch leftTaskbarSw;
+        private ToggleSwitch snapAssistSw;
+        private ToggleSwitch widgetsSw;
+        private ToggleSwitch smallerTaskbarSw;
     }
 }
 

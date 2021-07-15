@@ -1314,5 +1314,58 @@ namespace Optimizer
             Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Explorer", true).DeleteValue("DisableNotificationCenter", false);
             Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\PushNotifications", true).DeleteValue("ToastEnabled", false);
         }
+
+        /* Windows 11 tweaks */
+
+        // DEPRECATED
+        //internal static void EnableWindows10Start()
+        //{
+        //    Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "Start_ShowClassicMode", "1", RegistryValueKind.DWord);
+        //}
+
+        //internal static void DisableWindows10Start()
+        //{
+        //    Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "Start_ShowClassicMode", "0", RegistryValueKind.DWord);
+        //}
+
+        internal static void AlignTaskbarToLeft()
+        {
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarAl", "0", RegistryValueKind.DWord);
+        }
+
+        internal static void AlignTaskbarToCenter()
+        {
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarAl", "1", RegistryValueKind.DWord);
+        }
+
+        internal static void DisableSnapAssist()
+        {
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "EnableSnapAssistFlyout", "0", RegistryValueKind.DWord);
+        }
+
+        internal static void EnableSnapAssist()
+        {
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "EnableSnapAssistFlyout", "1", RegistryValueKind.DWord);
+        }
+
+        internal static void DisableWidgets()
+        {
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarDa", "0", RegistryValueKind.DWord);
+        }
+
+        internal static void EnableWidgets()
+        {
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarDa", "1", RegistryValueKind.DWord);
+        }
+
+        internal static void SmallerTaskbar()
+        {
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarSi", "0", RegistryValueKind.DWord);
+        }
+
+        internal static void DefaultTaskbarSize()
+        {
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarSi", "1", RegistryValueKind.DWord);
+        }
     }
 }

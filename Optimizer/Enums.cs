@@ -11,7 +11,8 @@
         Unsupported,
         Windows7,
         Windows8,
-        Windows10
+        Windows10,
+        Windows11
     }
 
     public enum StartupItemLocation

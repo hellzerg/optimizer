@@ -90,6 +90,10 @@ namespace Optimizer
             {
                 CurrentWindowsVersion = WindowsVersion.Windows10;
             }
+            if (os.Contains("Windows 11"))
+            {
+                CurrentWindowsVersion = WindowsVersion.Windows11;
+            }
 
             if (Program.UNSAFE_MODE)
             {

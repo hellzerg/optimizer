@@ -202,6 +202,62 @@ namespace Optimizer
             stickySw.Click += new EventHandler(ToggleSwitch38_Click);
             longPathsSw.Click += new EventHandler(ToggleSwitch39_Click);
             castSw.Click += new EventHandler(ToggleSwitch40_Click);
+            leftTaskbarSw.Click += LeftTaskbarSw_Click;
+            snapAssistSw.Click += SnapAssistSw_Click;
+            widgetsSw.Click += WidgetsSw_Click;
+            smallerTaskbarSw.Click += SmallerTaskbarSw_Click;
+        }
+
+        private void SmallerTaskbarSw_Click(object sender, EventArgs e)
+        {
+            if (!smallerTaskbarSw.Checked)
+            {
+                Optimize.SmallerTaskbar();
+            }
+            else
+            {
+                Optimize.DefaultTaskbarSize();
+            }
+            //Options.CurrentOptions.DisableActionCenter = !actionSw.Checked;
+        }
+
+        private void WidgetsSw_Click(object sender, EventArgs e)
+        {
+            if (!widgetsSw.Checked)
+            {
+                Optimize.DisableWidgets();
+            }
+            else
+            {
+                Optimize.EnableWidgets();
+            }
+            //Options.CurrentOptions.DisableActionCenter = !actionSw.Checked;
+        }
+
+        private void SnapAssistSw_Click(object sender, EventArgs e)
+        {
+            if (!snapAssistSw.Checked)
+            {
+                Optimize.DisableSnapAssist();
+            }
+            else
+            {
+                Optimize.EnableSnapAssist();
+            }
+            //Options.CurrentOptions.DisableActionCenter = !actionSw.Checked;
+        }
+
+        private void LeftTaskbarSw_Click(object sender, EventArgs e)
+        {
+            if (!leftTaskbarSw.Checked)
+            {
+                Optimize.AlignTaskbarToLeft();
+            }
+            else
+            {
+                Optimize.AlignTaskbarToCenter();
+            }
+            //Options.CurrentOptions.DisableActionCenter = !actionSw.Checked;
         }
 
         private void SetHelpBoxTranslation()
@@ -440,16 +496,18 @@ namespace Optimizer
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
             {
                 tabCollection.TabPages.Remove(universalTab);
-                tabCollection.TabPages.Remove(windowsVIIITab);
-                tabCollection.TabPages.Remove(windowsXTab);
+                tabCollection.TabPages.Remove(windows8Tab);
+                tabCollection.TabPages.Remove(windows10Tab);
+                tabCollection.TabPages.Remove(windows11Tab);
                 tabCollection.TabPages.Remove(modernAppsTab);
             }
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
             {
                 LoadUniversalToggleStates();
-                tabCollection.TabPages.Remove(windowsVIIITab);
-                tabCollection.TabPages.Remove(windowsXTab);
+                tabCollection.TabPages.Remove(windows8Tab);
+                tabCollection.TabPages.Remove(windows10Tab);
+                tabCollection.TabPages.Remove(windows11Tab);
                 tabCollection.TabPages.Remove(modernAppsTab);
             }
 
@@ -457,7 +515,8 @@ namespace Optimizer
             {
                 LoadUniversalToggleStates();
                 LoadWindowsVIIIToggleStates();
-                tabCollection.TabPages.Remove(windowsXTab);
+                tabCollection.TabPages.Remove(windows10Tab);
+                tabCollection.TabPages.Remove(windows11Tab);
                 GetModernApps(false);
             }
 
@@ -465,9 +524,18 @@ namespace Optimizer
             {
                 LoadUniversalToggleStates();
                 LoadWindowsXToggleStates();
-                tabCollection.TabPages.Remove(windowsVIIITab);
+                tabCollection.TabPages.Remove(windows8Tab);
+                //tabCollection.TabPages.Remove(windows11Tab);
                 GetModernApps(false);
             }
+
+            //if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows11)
+            //{
+            //    // load toggles ...
+            //    tabCollection.TabPages.Remove(windows8Tab);
+            //    //tabCollection.TabPages.Remove(windows10Tab);
+            //    GetModernApps(false);
+            //}
 
             _columnSorter = new ListViewColumnSorter();
             listStartupItems.ListViewItemSorter = _columnSorter;
