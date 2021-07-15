@@ -231,7 +231,7 @@
 	"deleteBackupB": "Löschen",
 	"noNewVersion": "Sie haben bereits die neueste Version!",
 	"betaVersion": "Sie verwenden eine experimentelle Version!",
-	"removeAllStartup": "Sind Sie sicher, dass Sie alle Startobjekte löschen möchten?",
+	"removeAllStartup": "Sind Sie sicher, dass Sie alle Startobjekte löschen möchten?\n\n",
 	"removeAllHosts": "Sind Sie sicher, dass Sie alle Hosts-Einträge löschen wollen?",
 	"removeAllItems": "Sind Sie sicher, dass Sie alle Desktopelemente löschen möchten?",
 	"removeModernApps": "Sind Sie sicher, dass Sie die folgende(n) App(s) deinstallieren möchten?",
@@ -274,7 +274,9 @@
 - Zeigt immer Dateierweiterungen an
 - Zeigt versteckte Dateien",
     "networkTip": "Windows implementiert einen Netzwerk-Drosselmechanismus, der den Netzwerkverkehr einschränkt, wenn Multimedia-Anwendungen ausgeführt werden. Es kann auch die Leistung des Netzwerks verringern, wenn Sie Online-Spiele spielen.",
-    "defenderTip": "Windows Defender ist der integrierte Virenschutz in Windows-Systemen.",
+    "defenderTip": "⚠ Windows Defender kann in Windows 10 Version 1903 und höher NICHT deaktiviert werden disabled.
+	
+Windows Defender ist der integrierte Virenschutz in Windows-Systemen.",
 	"smartScreenTip": "SmartScreen scannt automatisch Dateien, Downloads und Websites, blockiert bereits bekannte gefährliche Inhalte und warnt Sie, bevor Sie diese ausführen.",
 	"systemRestoreTip": "Die Systemwiederherstellung ist eine Funktion, mit der der jetzige Zustand von Windows auf einen früheren Zustand zurückgesetzt werden kann, um Fehlfunktionen oder anderen Problemen zu lösen.",
 	"reportingTip": "Die Fehlerberichterstattung sammelt Anwendungsabstürze und Fehler und sendet diese an Microsoft.",

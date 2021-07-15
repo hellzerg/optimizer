@@ -231,7 +231,7 @@
 	"deleteBackupB": "Sil",
 	"noNewVersion": "Zaten en son sürüme sahipsiniz!",
 	"betaVersion": "Deneysel bir sürüm kullanıyorsunuz!",
-	"removeAllStartup": "Tüm başlangıç öğelerini silmek istediğinizden emin misiniz?",
+	"removeAllStartup": "Tüm başlangıç öğelerini silmek istediğinizden emin misiniz\n\n?",
 	"removeAllHosts": "Tüm ana bilgisayar(hosts) girişlerini silmek istediğinizden emin misiniz?",
 	"removeAllItems": "Tüm masaüstü öğelerini silmek istediğinizden emin misiniz?",
 	"removeModernApps": "Seçilen uygulamaları kaldırmak istediğinizden emin misiniz?",
@@ -277,7 +277,9 @@ Uygulanması tamamen güvenlidir.
 	"networkTip": "Windows, multimedya uygulamalarını çalıştırırken
 ağ trafiğini kısıtlayacak bir ağ kısıtlama mekanizması uygular.
 Ayrıca çevrimiçi oyunlar oynarken ağın performansını da düşürebilir.",
-	"defenderTip": "Windows Defender, Windows sistemlerinde yerleşik antivirüs yazılımıdır.",
+	"defenderTip": "⚠ Windows Defender, Windows 10 sürüm 1903 ve sonraki sürümlerde devre dışı bırakılamaz.
+	
+Windows Defender, Windows sistemlerinde yerleşik antivirüs yazılımıdır.",
 	"smartScreenTip": "SmartScreen dosyaları, indirmeleri ve web sitelerini otomatik olarak tarar.
 Zaten bilinen tehlikeli içeriği engeller ve çalıştırmadan önce sizi uyarır.",
 	"systemRestoreTip": "Sistem Geri Yükleme, arızalardan veya diğer sorunlardan kurtulmak için

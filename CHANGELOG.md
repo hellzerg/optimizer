@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [9.5] - 2021-07-15
+- Hotfix: Crash when running with no internet connection
+- Improved: Startup items can now be checked
+
 ## [9.4] - 2021-07-14
 - New: App now opens slightly faster
 - New: Enhance Privacy now attempts to enable Group Policy Editor on Windows 10 Home (gpedit.msc)

@@ -42,10 +42,10 @@
             this.bpanel.Controls.Add(this.closebtn);
             this.bpanel.Controls.Add(this.savebtn);
             this.bpanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bpanel.Location = new System.Drawing.Point(0, 392);
+            this.bpanel.Location = new System.Drawing.Point(0, 491);
             this.bpanel.Margin = new System.Windows.Forms.Padding(2);
             this.bpanel.Name = "bpanel";
-            this.bpanel.Size = new System.Drawing.Size(604, 49);
+            this.bpanel.Size = new System.Drawing.Size(615, 49);
             this.bpanel.TabIndex = 0;
             // 
             // closebtn
@@ -58,7 +58,7 @@
             this.closebtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.closebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closebtn.ForeColor = System.Drawing.Color.White;
-            this.closebtn.Location = new System.Drawing.Point(342, 8);
+            this.closebtn.Location = new System.Drawing.Point(353, 8);
             this.closebtn.Margin = new System.Windows.Forms.Padding(2);
             this.closebtn.Name = "closebtn";
             this.closebtn.Size = new System.Drawing.Size(124, 31);
@@ -77,7 +77,7 @@
             this.savebtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.savebtn.ForeColor = System.Drawing.Color.White;
-            this.savebtn.Location = new System.Drawing.Point(470, 8);
+            this.savebtn.Location = new System.Drawing.Point(481, 8);
             this.savebtn.Margin = new System.Windows.Forms.Padding(2);
             this.savebtn.Name = "savebtn";
             this.savebtn.Size = new System.Drawing.Size(124, 31);
@@ -94,7 +94,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(604, 392);
+            this.panel1.Size = new System.Drawing.Size(615, 491);
             this.panel1.TabIndex = 1;
             // 
             // textBox1
@@ -106,7 +106,7 @@
             this.textBox1.ForeColor = System.Drawing.Color.White;
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(604, 392);
+            this.textBox1.Size = new System.Drawing.Size(615, 491);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "";
             // 
@@ -116,7 +116,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.closebtn;
-            this.ClientSize = new System.Drawing.Size(604, 441);
+            this.ClientSize = new System.Drawing.Size(615, 540);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bpanel);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -59,7 +59,7 @@ namespace Optimizer
         readonly string _blockedIP = "0.0.0.0";
 
         string _restartMessage = "Restart to apply changes?";
-        string _removeStartupItemsMessage = "Are you sure you want to delete all startup items?";
+        string _removeStartupItemsMessage = "Are you sure you want to delete these startup items?\n\n";
         string _removeHostsEntriesMessage = "Are you sure you want to delete all hosts entries?";
         string _removeDesktopItemsMessage = "Are you sure you want to delete all desktop items?";
         string _removeModernAppsMessage = "Are you sure you want to uninstall the following app(s)?";
@@ -632,75 +632,85 @@ namespace Optimizer
 
             client.Headers.Add("Cache-Control", "no-cache");
 
-            string tmpImageFileName = string.Empty;
-            string tmpDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Optimizer-tmp");
-            
-            Directory.CreateDirectory(tmpDir);
-            client.DownloadFile(_feedImages, Path.Combine(tmpDir, "feed-images.raw"));
-
-            using (FileStream fs = new FileStream(Path.Combine(tmpDir, "feed-images.raw"), FileMode.Open))
-            using (ZipArchive zip = new ZipArchive(fs))
+            try
             {
-                var zipEntries = zip.Entries;
+                string tmpImageFileName = string.Empty;
+                string tmpDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Optimizer-tmp");
 
-                try
+                Directory.CreateDirectory(tmpDir);
+                client.DownloadFile(_feedImages, Path.Combine(tmpDir, "feed-images.raw"));
+
+                using (FileStream fs = new FileStream(Path.Combine(tmpDir, "feed-images.raw"), FileMode.Open))
+                using (ZipArchive zip = new ZipArchive(fs))
                 {
-                    string feed = client.DownloadString(_feedLink);
-                    AppsFromFeed = JsonConvert.DeserializeObject<List<FeedApp>>(feed);
+                    var zipEntries = zip.Entries;
 
-                    AppCard appCard;
-                    groupSystemTools.Controls.Clear();
-                    groupInternet.Controls.Clear();
-                    groupCoding.Controls.Clear();
-                    groupSoundVideo.Controls.Clear();
-
-                    foreach (FeedApp x in AppsFromFeed)
+                    try
                     {
-                        appCard = new AppCard();
-                        appCard.AutoSize = true;
-                        appCard.Anchor = AnchorStyles.None;
-                        appCard.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-                        appCard.appTitle.Text = x.Title;
-                        appCard.appTitle.Name = x.Tag;
-                        appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
+                        string feed = client.DownloadString(_feedLink);
+                        AppsFromFeed = JsonConvert.DeserializeObject<List<FeedApp>>(feed);
 
-                        tmpImageFileName = x.Image.Substring(x.Image.LastIndexOf("/")+1, x.Image.Length - (x.Image.LastIndexOf("/") + 1));
-                        appCard.appImage.Image = Image.FromStream(zipEntries.First(ifn => ifn.Name == tmpImageFileName).Open());
+                        AppCard appCard;
+                        groupSystemTools.Controls.Clear();
+                        groupInternet.Controls.Clear();
+                        groupCoding.Controls.Clear();
+                        groupSoundVideo.Controls.Clear();
 
-                        switch (x.Group)
+                        foreach (FeedApp x in AppsFromFeed)
                         {
-                            case "SystemTools":
-                                appCard.Location = new Point(0, groupSystemTools.Controls.Count * 30);
-                                groupSystemTools.Controls.Add(appCard);
-                                break;
-                            case "Internet":
-                                appCard.Location = new Point(0, groupInternet.Controls.Count * 30);
-                                groupInternet.Controls.Add(appCard);
-                                break;
-                            case "Coding":
-                                appCard.Location = new Point(0, groupCoding.Controls.Count * 30);
-                                groupCoding.Controls.Add(appCard);
-                                break;
-                            case "GraphicsSound":
-                                appCard.Location = new Point(0, groupSoundVideo.Controls.Count * 30);
-                                groupSoundVideo.Controls.Add(appCard);
-                                break;
-                            default:
-                                break;
+                            appCard = new AppCard();
+                            appCard.AutoSize = true;
+                            appCard.Anchor = AnchorStyles.None;
+                            appCard.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                            appCard.appTitle.Text = x.Title;
+                            appCard.appTitle.Name = x.Tag;
+                            appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
+
+                            tmpImageFileName = x.Image.Substring(x.Image.LastIndexOf("/") + 1, x.Image.Length - (x.Image.LastIndexOf("/") + 1));
+                            appCard.appImage.Image = Image.FromStream(zipEntries.First(ifn => ifn.Name == tmpImageFileName).Open());
+
+                            switch (x.Group)
+                            {
+                                case "SystemTools":
+                                    appCard.Location = new Point(0, groupSystemTools.Controls.Count * 30);
+                                    groupSystemTools.Controls.Add(appCard);
+                                    break;
+                                case "Internet":
+                                    appCard.Location = new Point(0, groupInternet.Controls.Count * 30);
+                                    groupInternet.Controls.Add(appCard);
+                                    break;
+                                case "Coding":
+                                    appCard.Location = new Point(0, groupCoding.Controls.Count * 30);
+                                    groupCoding.Controls.Add(appCard);
+                                    break;
+                                case "GraphicsSound":
+                                    appCard.Location = new Point(0, groupSoundVideo.Controls.Count * 30);
+                                    groupSoundVideo.Controls.Add(appCard);
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
+
+                        // UI handling
+                        btnDownloadApps.Enabled = true;
+                        txtFeedError.Visible = false;
                     }
+                    catch (Exception ex)
+                    {
+                        btnDownloadApps.Enabled = false;
+                        txtFeedError.Visible = true;
 
-                    // UI handling
-                    btnDownloadApps.Enabled = true;
-                    txtFeedError.Visible = false;
+                        ErrorLogger.LogError("MainForm.GetFeed", ex.Message, ex.StackTrace);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    btnDownloadApps.Enabled = false;
-                    txtFeedError.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                btnDownloadApps.Enabled = false;
+                txtFeedError.Visible = true;
 
-                    ErrorLogger.LogError("MainForm.GetFeed", ex.Message, ex.StackTrace);
-                }
+                ErrorLogger.LogError("MainForm.GetFeed-DownloadImages", ex.Message, ex.StackTrace);
             }
         }
 
@@ -867,6 +877,8 @@ namespace Optimizer
                     listDesktopItems.Items.Add(_desktopItems[i]);
                 }
             }
+
+            if (_desktopItems.Count > 0) listDesktopItems.SelectedIndex = 0;
         }
 
         private void GetHostsEntries()
@@ -894,6 +906,8 @@ namespace Optimizer
             adblockUlti.Enabled = !chkReadOnly.Checked;
 
             ((Control)this.hostsEditorTab).Enabled = true;
+
+            if (_hostsEntries.Count > 0) listHostEntries.SelectedIndex = 0;
         }
 
         private void GetStartupItems()
@@ -928,6 +942,8 @@ namespace Optimizer
             uninstallModernAppsButton.Enabled = true;
             refreshModernAppsButton.Enabled = true;
             listModernApps.Enabled = true;
+
+            if (_modernApps.Count > 0) listModernApps.SelectedIndex = 0;
         }
 
         private async void UninstallModernApps()
@@ -986,6 +1002,8 @@ namespace Optimizer
             {
                 listCustomCommands.Items.Add(s);
             }
+
+            if (_customCommands.Count > 0) listCustomCommands.SelectedIndex = 0;
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -1051,11 +1069,33 @@ namespace Optimizer
 
         private void button32_Click(object sender, EventArgs e)
         {
-            if (listStartupItems.SelectedItems.Count == 1)
+            if (listStartupItems.CheckedItems.Count <= 0) return; 
+
+            string report = string.Empty;
+
+            foreach (ListViewItem i in listStartupItems.CheckedItems)
             {
-                _startUpItems[listStartupItems.SelectedIndices[0]].Remove();
+                report += i.Text + Environment.NewLine;
+            }
+            if (MessageBox.Show(_removeStartupItemsMessage + report, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                foreach (int x in listStartupItems.CheckedIndices)
+                {
+                    _startUpItems[x].Remove();
+                }
+
                 GetStartupItems();
             }
+
+            //foreach (int x in listStartupItems.CheckedIndices)
+            //{
+            //    MessageBox.Show(x.ToString());
+            //}
+            //if (listStartupItems.SelectedItems.Count == 1)
+            //{
+            //    _startUpItems[listStartupItems.SelectedIndices[0]].Remove();
+            //    GetStartupItems();
+            //}
         }
 
         internal void RemoveAllStartupItems()

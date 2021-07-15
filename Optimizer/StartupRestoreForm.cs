@@ -37,6 +37,8 @@ namespace Optimizer
             {
                 listRestoreItems.Items.Add(Path.GetFileNameWithoutExtension(x));
             }
+
+            if (_backups.Count() > 0) listRestoreItems.SelectedIndex = 0;
         }
 
         private void Translate()

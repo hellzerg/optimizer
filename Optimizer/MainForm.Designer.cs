@@ -1372,7 +1372,7 @@ namespace Optimizer
             this.cancelBackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.cancelBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelBackup.ForeColor = System.Drawing.Color.White;
-            this.cancelBackup.Location = new System.Drawing.Point(432, 522);
+            this.cancelBackup.Location = new System.Drawing.Point(106, 551);
             this.cancelBackup.Margin = new System.Windows.Forms.Padding(2);
             this.cancelBackup.Name = "cancelBackup";
             this.cancelBackup.Size = new System.Drawing.Size(90, 25);
@@ -1391,7 +1391,7 @@ namespace Optimizer
             this.doBackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.doBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.doBackup.ForeColor = System.Drawing.Color.White;
-            this.doBackup.Location = new System.Drawing.Point(338, 522);
+            this.doBackup.Location = new System.Drawing.Point(12, 551);
             this.doBackup.Margin = new System.Windows.Forms.Padding(2);
             this.doBackup.Name = "doBackup";
             this.doBackup.Size = new System.Drawing.Size(90, 25);
@@ -1407,7 +1407,7 @@ namespace Optimizer
             this.txtBackupTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBackupTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBackupTitle.ForeColor = System.Drawing.Color.White;
-            this.txtBackupTitle.Location = new System.Drawing.Point(11, 522);
+            this.txtBackupTitle.Location = new System.Drawing.Point(12, 522);
             this.txtBackupTitle.Margin = new System.Windows.Forms.Padding(2);
             this.txtBackupTitle.Name = "txtBackupTitle";
             this.txtBackupTitle.Size = new System.Drawing.Size(323, 25);
@@ -1420,7 +1420,7 @@ namespace Optimizer
             this.lblBackupTitle.AutoSize = true;
             this.lblBackupTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBackupTitle.ForeColor = System.Drawing.Color.Silver;
-            this.lblBackupTitle.Location = new System.Drawing.Point(7, 501);
+            this.lblBackupTitle.Location = new System.Drawing.Point(8, 501);
             this.lblBackupTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBackupTitle.Name = "lblBackupTitle";
             this.lblBackupTitle.Size = new System.Drawing.Size(86, 19);
@@ -1437,7 +1437,7 @@ namespace Optimizer
             this.restoreStartupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.restoreStartupB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.restoreStartupB.ForeColor = System.Drawing.Color.White;
-            this.restoreStartupB.Location = new System.Drawing.Point(175, 502);
+            this.restoreStartupB.Location = new System.Drawing.Point(176, 502);
             this.restoreStartupB.Margin = new System.Windows.Forms.Padding(2);
             this.restoreStartupB.Name = "restoreStartupB";
             this.restoreStartupB.Size = new System.Drawing.Size(160, 31);
@@ -1454,7 +1454,7 @@ namespace Optimizer
             this.backupStartupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.backupStartupB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backupStartupB.ForeColor = System.Drawing.Color.White;
-            this.backupStartupB.Location = new System.Drawing.Point(11, 502);
+            this.backupStartupB.Location = new System.Drawing.Point(12, 502);
             this.backupStartupB.Margin = new System.Windows.Forms.Padding(2);
             this.backupStartupB.Name = "backupStartupB";
             this.backupStartupB.Size = new System.Drawing.Size(160, 31);
@@ -1472,7 +1472,7 @@ namespace Optimizer
             this.findInRegB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.findInRegB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.findInRegB.ForeColor = System.Drawing.Color.White;
-            this.findInRegB.Location = new System.Drawing.Point(521, 537);
+            this.findInRegB.Location = new System.Drawing.Point(590, 538);
             this.findInRegB.Margin = new System.Windows.Forms.Padding(2);
             this.findInRegB.Name = "findInRegB";
             this.findInRegB.Size = new System.Drawing.Size(160, 31);
@@ -1490,7 +1490,7 @@ namespace Optimizer
             this.locateFileB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.locateFileB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.locateFileB.ForeColor = System.Drawing.Color.White;
-            this.locateFileB.Location = new System.Drawing.Point(521, 502);
+            this.locateFileB.Location = new System.Drawing.Point(754, 503);
             this.locateFileB.Margin = new System.Windows.Forms.Padding(2);
             this.locateFileB.Name = "locateFileB";
             this.locateFileB.Size = new System.Drawing.Size(160, 31);
@@ -1508,7 +1508,7 @@ namespace Optimizer
             this.refreshStartupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.refreshStartupB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.refreshStartupB.ForeColor = System.Drawing.Color.White;
-            this.refreshStartupB.Location = new System.Drawing.Point(685, 537);
+            this.refreshStartupB.Location = new System.Drawing.Point(754, 538);
             this.refreshStartupB.Margin = new System.Windows.Forms.Padding(2);
             this.refreshStartupB.Name = "refreshStartupB";
             this.refreshStartupB.Size = new System.Drawing.Size(160, 31);
@@ -1526,18 +1526,20 @@ namespace Optimizer
             this.panel3.Location = new System.Drawing.Point(11, 40);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(834, 459);
+            this.panel3.Size = new System.Drawing.Size(903, 459);
             this.panel3.TabIndex = 37;
             // 
             // listStartupItems
             // 
             this.listStartupItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.listStartupItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listStartupItems.CheckBoxes = true;
             this.listStartupItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
             this.listStartupItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listStartupItems.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listStartupItems.ForeColor = System.Drawing.Color.White;
             this.listStartupItems.FullRowSelect = true;
             this.listStartupItems.HideSelection = false;
@@ -1546,7 +1548,7 @@ namespace Optimizer
             this.listStartupItems.MultiSelect = false;
             this.listStartupItems.Name = "listStartupItems";
             this.listStartupItems.ShowGroups = false;
-            this.listStartupItems.Size = new System.Drawing.Size(832, 457);
+            this.listStartupItems.Size = new System.Drawing.Size(901, 457);
             this.listStartupItems.TabIndex = 0;
             this.listStartupItems.UseCompatibleStateImageBehavior = false;
             this.listStartupItems.View = System.Windows.Forms.View.Details;
@@ -1576,12 +1578,12 @@ namespace Optimizer
             this.removeStartupItemB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.removeStartupItemB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeStartupItemB.ForeColor = System.Drawing.Color.White;
-            this.removeStartupItemB.Location = new System.Drawing.Point(685, 502);
+            this.removeStartupItemB.Location = new System.Drawing.Point(590, 503);
             this.removeStartupItemB.Margin = new System.Windows.Forms.Padding(2);
             this.removeStartupItemB.Name = "removeStartupItemB";
             this.removeStartupItemB.Size = new System.Drawing.Size(160, 31);
             this.removeStartupItemB.TabIndex = 36;
-            this.removeStartupItemB.Text = "Remove";
+            this.removeStartupItemB.Text = "Delete";
             this.removeStartupItemB.UseVisualStyleBackColor = false;
             this.removeStartupItemB.Click += new System.EventHandler(this.button32_Click);
             // 
@@ -2012,7 +2014,7 @@ namespace Optimizer
             this.lblPretext.AutoSize = true;
             this.lblPretext.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPretext.ForeColor = System.Drawing.Color.Silver;
-            this.lblPretext.Location = new System.Drawing.Point(29, 229);
+            this.lblPretext.Location = new System.Drawing.Point(51, 241);
             this.lblPretext.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPretext.Name = "lblPretext";
             this.lblPretext.Size = new System.Drawing.Size(123, 21);
@@ -2026,7 +2028,7 @@ namespace Optimizer
             this.lblFootprint.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFootprint.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblFootprint.Location = new System.Drawing.Point(30, 250);
+            this.lblFootprint.Location = new System.Drawing.Point(52, 262);
             this.lblFootprint.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFootprint.Name = "lblFootprint";
             this.lblFootprint.Size = new System.Drawing.Size(119, 31);
@@ -2614,7 +2616,7 @@ namespace Optimizer
             this.removeHostB.Name = "removeHostB";
             this.removeHostB.Size = new System.Drawing.Size(156, 31);
             this.removeHostB.TabIndex = 54;
-            this.removeHostB.Text = "Remove";
+            this.removeHostB.Text = "Delete";
             this.removeHostB.UseVisualStyleBackColor = false;
             this.removeHostB.Click += new System.EventHandler(this.button42_Click);
             // 
@@ -2632,7 +2634,7 @@ namespace Optimizer
             this.removeAllHostsB.Name = "removeAllHostsB";
             this.removeAllHostsB.Size = new System.Drawing.Size(156, 31);
             this.removeAllHostsB.TabIndex = 53;
-            this.removeAllHostsB.Text = "Remove all";
+            this.removeAllHostsB.Text = "Delete all";
             this.removeAllHostsB.UseVisualStyleBackColor = false;
             this.removeAllHostsB.Visible = false;
             this.removeAllHostsB.Click += new System.EventHandler(this.button46_Click);
@@ -3503,7 +3505,7 @@ namespace Optimizer
             this.removeDIB.Name = "removeDIB";
             this.removeDIB.Size = new System.Drawing.Size(137, 31);
             this.removeDIB.TabIndex = 80;
-            this.removeDIB.Text = "Remove";
+            this.removeDIB.Text = "Delete";
             this.removeDIB.UseVisualStyleBackColor = false;
             this.removeDIB.Click += new System.EventHandler(this.button61_Click);
             // 
@@ -3520,7 +3522,7 @@ namespace Optimizer
             this.removeAllIIB.Name = "removeAllIIB";
             this.removeAllIIB.Size = new System.Drawing.Size(137, 31);
             this.removeAllIIB.TabIndex = 79;
-            this.removeAllIIB.Text = "Remove all";
+            this.removeAllIIB.Text = "Delete all";
             this.removeAllIIB.UseVisualStyleBackColor = false;
             this.removeAllIIB.Click += new System.EventHandler(this.button62_Click);
             // 
@@ -3569,7 +3571,7 @@ namespace Optimizer
             this.RemoveOwnerB.Name = "RemoveOwnerB";
             this.RemoveOwnerB.Size = new System.Drawing.Size(334, 31);
             this.RemoveOwnerB.TabIndex = 78;
-            this.RemoveOwnerB.Text = "Remove \"Take Ownership\"";
+            this.RemoveOwnerB.Text = "Delete \"Take Ownership\"";
             this.RemoveOwnerB.UseVisualStyleBackColor = false;
             this.RemoveOwnerB.Click += new System.EventHandler(this.button65_Click);
             // 
@@ -3717,7 +3719,7 @@ namespace Optimizer
             this.panel6.Location = new System.Drawing.Point(11, 210);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(271, 263);
+            this.panel6.Size = new System.Drawing.Size(271, 313);
             this.panel6.TabIndex = 84;
             // 
             // listCustomCommands
@@ -3733,7 +3735,7 @@ namespace Optimizer
             this.listCustomCommands.Location = new System.Drawing.Point(0, 0);
             this.listCustomCommands.Margin = new System.Windows.Forms.Padding(2);
             this.listCustomCommands.Name = "listCustomCommands";
-            this.listCustomCommands.Size = new System.Drawing.Size(269, 261);
+            this.listCustomCommands.Size = new System.Drawing.Size(269, 311);
             this.listCustomCommands.TabIndex = 79;
             // 
             // removeCCB
@@ -3749,7 +3751,7 @@ namespace Optimizer
             this.removeCCB.Name = "removeCCB";
             this.removeCCB.Size = new System.Drawing.Size(120, 27);
             this.removeCCB.TabIndex = 82;
-            this.removeCCB.Text = "Remove";
+            this.removeCCB.Text = "Delete";
             this.removeCCB.UseVisualStyleBackColor = false;
             this.removeCCB.Click += new System.EventHandler(this.button26_Click);
             // 
@@ -3778,10 +3780,10 @@ namespace Optimizer
             this.removeCCL.Location = new System.Drawing.Point(6, 173);
             this.removeCCL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.removeCCL.Name = "removeCCL";
-            this.removeCCL.Size = new System.Drawing.Size(268, 28);
+            this.removeCCL.Size = new System.Drawing.Size(254, 28);
             this.removeCCL.TabIndex = 80;
             this.removeCCL.Tag = "themeable";
-            this.removeCCL.Text = "Remove existing commands";
+            this.removeCCL.Text = "Delete existing commands";
             // 
             // btnCreateCustomCommand
             // 
@@ -4493,7 +4495,7 @@ namespace Optimizer
             this.trayExit});
             this.launcherMenu.Name = "launcherMenu";
             this.launcherMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.launcherMenu.Size = new System.Drawing.Size(205, 214);
+            this.launcherMenu.Size = new System.Drawing.Size(205, 192);
             // 
             // trayStartup
             // 
