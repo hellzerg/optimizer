@@ -61,6 +61,7 @@ namespace Optimizer
             this.networkSw = new Optimizer.ToggleSwitch();
             this.restartButton = new System.Windows.Forms.Button();
             this.windows11Tab = new System.Windows.Forms.TabPage();
+            this.smallerTaskbarSw = new Optimizer.ToggleSwitch();
             this.widgetsSw = new Optimizer.ToggleSwitch();
             this.snapAssistSw = new Optimizer.ToggleSwitch();
             this.leftTaskbarSw = new Optimizer.ToggleSwitch();
@@ -331,7 +332,8 @@ namespace Optimizer
             this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.helpBox = new System.Windows.Forms.ToolTip(this.components);
-            this.smallerTaskbarSw = new Optimizer.ToggleSwitch();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.radioSpanish = new Optimizer.ColoredRadioButton();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
@@ -383,6 +385,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.picFOSS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFSF)).BeginInit();
             this.launcherMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // tpanel
@@ -807,6 +810,20 @@ namespace Optimizer
             this.windows11Tab.Size = new System.Drawing.Size(929, 611);
             this.windows11Tab.TabIndex = 14;
             this.windows11Tab.Text = "Windows 11";
+            // 
+            // smallerTaskbarSw
+            // 
+            this.smallerTaskbarSw.Location = new System.Drawing.Point(14, 121);
+            this.smallerTaskbarSw.Margin = new System.Windows.Forms.Padding(2);
+            this.smallerTaskbarSw.Name = "smallerTaskbarSw";
+            this.smallerTaskbarSw.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.smallerTaskbarSw.OffForeColor = System.Drawing.Color.White;
+            this.smallerTaskbarSw.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.smallerTaskbarSw.OnForeColor = System.Drawing.Color.White;
+            this.smallerTaskbarSw.OnText = "Make Taskbar smaller";
+            this.smallerTaskbarSw.Size = new System.Drawing.Size(319, 31);
+            this.smallerTaskbarSw.TabIndex = 42;
+            this.smallerTaskbarSw.Tag = "themeable";
             // 
             // widgetsSw
             // 
@@ -3988,6 +4005,8 @@ namespace Optimizer
             // panel9
             // 
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel9.Controls.Add(this.radioSpanish);
+            this.panel9.Controls.Add(this.pictureBox3);
             this.panel9.Controls.Add(this.radioGerman);
             this.panel9.Controls.Add(this.pictureBox2);
             this.panel9.Controls.Add(this.pictureBox89);
@@ -4657,19 +4676,29 @@ namespace Optimizer
             this.helpBox.UseAnimation = false;
             this.helpBox.UseFading = false;
             // 
-            // smallerTaskbarSw
+            // pictureBox3
             // 
-            this.smallerTaskbarSw.Location = new System.Drawing.Point(14, 121);
-            this.smallerTaskbarSw.Margin = new System.Windows.Forms.Padding(2);
-            this.smallerTaskbarSw.Name = "smallerTaskbarSw";
-            this.smallerTaskbarSw.OffFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.smallerTaskbarSw.OffForeColor = System.Drawing.Color.White;
-            this.smallerTaskbarSw.OnFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.smallerTaskbarSw.OnForeColor = System.Drawing.Color.White;
-            this.smallerTaskbarSw.OnText = "Make Taskbar smaller";
-            this.smallerTaskbarSw.Size = new System.Drawing.Size(319, 31);
-            this.smallerTaskbarSw.TabIndex = 42;
-            this.smallerTaskbarSw.Tag = "themeable";
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(110, 154);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 83;
+            this.pictureBox3.TabStop = false;
+            // 
+            // radioSpanish
+            // 
+            this.radioSpanish.AutoSize = true;
+            this.radioSpanish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioSpanish.ForeColor = System.Drawing.Color.White;
+            this.radioSpanish.Location = new System.Drawing.Point(151, 153);
+            this.radioSpanish.Margin = new System.Windows.Forms.Padding(2);
+            this.radioSpanish.Name = "radioSpanish";
+            this.radioSpanish.Size = new System.Drawing.Size(84, 25);
+            this.radioSpanish.TabIndex = 84;
+            this.radioSpanish.Tag = "";
+            this.radioSpanish.Text = "Español";
+            this.radioSpanish.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -4771,6 +4800,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.picFOSS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFSF)).EndInit();
             this.launcherMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -5077,6 +5107,8 @@ namespace Optimizer
         private ToggleSwitch snapAssistSw;
         private ToggleSwitch widgetsSw;
         private ToggleSwitch smallerTaskbarSw;
+        private ColoredRadioButton radioSpanish;
+        private PictureBox pictureBox3;
     }
 }
 

@@ -447,7 +447,7 @@ namespace Optimizer
             }
         }
 
-        //INIT
+        // INIT
         public MainForm()
         {
             InitializeComponent();
@@ -525,7 +525,7 @@ namespace Optimizer
                 LoadUniversalToggleStates();
                 LoadWindowsXToggleStates();
                 tabCollection.TabPages.Remove(windows8Tab);
-                //tabCollection.TabPages.Remove(windows11Tab);
+                tabCollection.TabPages.Remove(windows11Tab);
                 GetModernApps(false);
             }
 

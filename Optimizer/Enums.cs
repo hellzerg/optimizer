@@ -92,6 +92,7 @@
         RU,
         EL,
         TR,
-        DE
+        DE,
+        ES
     }
 }
