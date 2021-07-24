@@ -42,12 +42,15 @@ namespace Optimizer
             this.radioTurkish = new Optimizer.ColoredRadioButton();
             this.radioGerman = new Optimizer.ColoredRadioButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.radioSpanish = new Optimizer.ColoredRadioButton();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox88)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox86)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox85)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox88
@@ -105,7 +108,7 @@ namespace Optimizer
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.White;
-            this.btnStart.Location = new System.Drawing.Point(11, 238);
+            this.btnStart.Location = new System.Drawing.Point(11, 260);
             this.btnStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(180, 31);
@@ -214,6 +217,32 @@ namespace Optimizer
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // radioSpanish
+            // 
+            this.radioSpanish.AutoSize = true;
+            this.radioSpanish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioSpanish.ForeColor = System.Drawing.Color.White;
+            this.radioSpanish.Location = new System.Drawing.Point(75, 210);
+            this.radioSpanish.Margin = new System.Windows.Forms.Padding(2);
+            this.radioSpanish.Name = "radioSpanish";
+            this.radioSpanish.Size = new System.Drawing.Size(84, 25);
+            this.radioSpanish.TabIndex = 92;
+            this.radioSpanish.Tag = "";
+            this.radioSpanish.Text = "Español";
+            this.radioSpanish.UseVisualStyleBackColor = true;
+            this.radioSpanish.CheckedChanged += new System.EventHandler(this.radioSpanish_CheckedChanged);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(34, 211);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 91;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
             // FirstRunForm
             // 
             this.AcceptButton = this.btnStart;
@@ -221,7 +250,9 @@ namespace Optimizer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnStart;
-            this.ClientSize = new System.Drawing.Size(202, 280);
+            this.ClientSize = new System.Drawing.Size(202, 302);
+            this.Controls.Add(this.radioSpanish);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.radioGerman);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.radioTurkish);
@@ -252,6 +283,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox85)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,5 +303,7 @@ namespace Optimizer
         private ColoredRadioButton radioTurkish;
         private ColoredRadioButton radioGerman;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private ColoredRadioButton radioSpanish;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

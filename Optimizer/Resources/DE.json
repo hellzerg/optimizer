@@ -231,7 +231,7 @@
 	"deleteBackupB": "Löschen",
 	"noNewVersion": "Sie haben bereits die neueste Version!",
 	"betaVersion": "Sie verwenden eine experimentelle Version!",
-	"removeAllStartup": "Sind Sie sicher, dass Sie alle Startobjekte löschen möchten?\n\n",
+	"removeAllStartup": "Sind Sie sicher, dass Sie alle Startobjekte löschen möchten?",
 	"removeAllHosts": "Sind Sie sicher, dass Sie alle Hosts-Einträge löschen wollen?",
 	"removeAllItems": "Sind Sie sicher, dass Sie alle Desktopelemente löschen möchten?",
 	"removeModernApps": "Sind Sie sicher, dass Sie die folgende(n) App(s) deinstallieren möchten?",

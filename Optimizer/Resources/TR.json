@@ -231,7 +231,7 @@
 	"deleteBackupB": "Sil",
 	"noNewVersion": "Zaten en son sürüme sahipsiniz!",
 	"betaVersion": "Deneysel bir sürüm kullanıyorsunuz!",
-	"removeAllStartup": "Tüm başlangıç öğelerini silmek istediğinizden emin misiniz\n\n?",
+	"removeAllStartup": "Tüm başlangıç öğelerini silmek istediğinizden emin misiniz?",
 	"removeAllHosts": "Tüm ana bilgisayar(hosts) girişlerini silmek istediğinizden emin misiniz?",
 	"removeAllItems": "Tüm masaüstü öğelerini silmek istediğinizden emin misiniz?",
 	"removeModernApps": "Seçilen uygulamaları kaldırmak istediğinizden emin misiniz?",

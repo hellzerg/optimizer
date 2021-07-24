@@ -1145,7 +1145,7 @@ namespace Optimizer
             {
                 report += i.Text + Environment.NewLine;
             }
-            if (MessageBox.Show(_removeStartupItemsMessage + report, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(_removeStartupItemsMessage + Environment.NewLine + Environment.NewLine + report, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 foreach (int x in listStartupItems.CheckedIndices)
                 {
@@ -2981,6 +2981,20 @@ namespace Optimizer
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             radioGerman.PerformClick();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            radioSpanish.PerformClick();
+        }
+
+        private void radioSpanish_Click(object sender, EventArgs e)
+        {
+            radioSpanish.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.ES;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+            Translate();
         }
     }
 }

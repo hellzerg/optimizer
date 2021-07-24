@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [9.6] - 2021-07-24
+- New: Fully translated into Spanish (thanks to https://github.com/danielcshn - danielcshn)
+
 ## [9.5] - 2021-07-15
 - Hotfix: Crash when running with no internet connection
 - Improved: Startup items can now be checked

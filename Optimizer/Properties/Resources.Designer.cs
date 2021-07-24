@@ -274,6 +274,26 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;btnAbout&quot;: &quot;OK&quot;,
+        ///	&quot;restartButton&quot;: &quot;Aplicar &amp;&amp; Reiniciar&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Aplicar &amp;&amp; Reiniciar&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Aplicar &amp;&amp; Reiniciar&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Reiniciar para aplicar cambios?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Versión: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Estas trabajando con {BITS}&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;Actualización disponible&quot;,
+        ///	&quot;lblLab&quot;: &quot;Lamzamiento experimental\n(eliminar después de la prueba)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Habilitar ajustes de rendimiento&quot;,
+        ///	&quot;networkSw&quot;: &quot;Deshabilitar la limitación de la r [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ES {
+            get {
+                return ResourceManager.GetString("ES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ipconfig /release
         ///ipconfig /renew
         ///arp -d *
@@ -290,12 +310,9 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to @echo off 
-        ///
         ///pushd &quot;%~dp0&quot; 
-        ///
         ///dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &gt;List.txt 
         ///dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum &gt;&gt;List.txt 
-        ///
         ///for /f %%i in (&apos;findstr /i . List.txt 2^&gt;nul&apos;) do dism /online /norestart /add-package:&quot;%SystemRoot%\servicing\Packages\%%i&quot; 
         ///.
         /// </summary>

@@ -79,5 +79,17 @@ namespace Optimizer
         {
             radioGerman.PerformClick();
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            radioSpanish.PerformClick();
+        }
+
+        private void radioSpanish_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.ES;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
     }
 }

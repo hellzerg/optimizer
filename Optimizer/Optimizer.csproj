@@ -237,6 +237,7 @@
     <None Include="Resources\EnableTelemetryTasks.bat" />
     <None Include="Resources\EnableXboxTasks.bat" />
     <None Include="Resources\EL.json" />
+    <None Include="Resources\ES.json" />
     <None Include="Resources\FlushDNSCache.bat" />
     <None Include="Resources\GPEditEnablerInHome.bat" />
     <None Include="Resources\hosts" />
