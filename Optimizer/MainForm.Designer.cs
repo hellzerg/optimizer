@@ -248,6 +248,7 @@ namespace Optimizer
             this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.helpBox = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.stickySw = new Optimizer.ToggleSwitch();
             this.smartScreenSw = new Optimizer.ToggleSwitch();
             this.faxSw = new Optimizer.ToggleSwitch();
@@ -326,6 +327,7 @@ namespace Optimizer
             this.radioFolder = new Optimizer.ColoredRadioButton();
             this.radioLink = new Optimizer.ColoredRadioButton();
             this.radioFile = new Optimizer.ColoredRadioButton();
+            this.radioPortuguese = new Optimizer.ColoredRadioButton();
             this.radioSpanish = new Optimizer.ColoredRadioButton();
             this.radioGerman = new Optimizer.ColoredRadioButton();
             this.radioTurkish = new Optimizer.ColoredRadioButton();
@@ -386,6 +388,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.picFOSS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFSF)).BeginInit();
             this.launcherMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // tpanel
@@ -2943,6 +2946,8 @@ namespace Optimizer
             // panel9
             // 
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel9.Controls.Add(this.radioPortuguese);
+            this.panel9.Controls.Add(this.pictureBox4);
             this.panel9.Controls.Add(this.radioSpanish);
             this.panel9.Controls.Add(this.pictureBox3);
             this.panel9.Controls.Add(this.radioGerman);
@@ -2957,7 +2962,7 @@ namespace Optimizer
             this.panel9.Controls.Add(this.pictureBox86);
             this.panel9.Location = new System.Drawing.Point(637, 46);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(285, 205);
+            this.panel9.Size = new System.Drawing.Size(279, 259);
             this.panel9.TabIndex = 73;
             // 
             // pictureBox3
@@ -3519,6 +3524,17 @@ namespace Optimizer
             this.helpBox.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.helpBox.UseAnimation = false;
             this.helpBox.UseFading = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(110, 182);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 85;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // stickySw
             // 
@@ -4582,6 +4598,21 @@ namespace Optimizer
             this.radioFile.UseVisualStyleBackColor = true;
             this.radioFile.CheckedChanged += new System.EventHandler(this.radioFile_CheckedChanged);
             // 
+            // radioPortuguese
+            // 
+            this.radioPortuguese.AutoSize = true;
+            this.radioPortuguese.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioPortuguese.ForeColor = System.Drawing.Color.White;
+            this.radioPortuguese.Location = new System.Drawing.Point(151, 181);
+            this.radioPortuguese.Margin = new System.Windows.Forms.Padding(2);
+            this.radioPortuguese.Name = "radioPortuguese";
+            this.radioPortuguese.Size = new System.Drawing.Size(102, 25);
+            this.radioPortuguese.TabIndex = 86;
+            this.radioPortuguese.Tag = "";
+            this.radioPortuguese.Text = "Português";
+            this.radioPortuguese.UseVisualStyleBackColor = true;
+            this.radioPortuguese.Click += new System.EventHandler(this.radioPortuguese_Click);
+            // 
             // radioSpanish
             // 
             this.radioSpanish.AutoSize = true;
@@ -4803,6 +4834,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.picFOSS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFSF)).EndInit();
             this.launcherMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -5111,6 +5143,8 @@ namespace Optimizer
         private ToggleSwitch smallerTaskbarSw;
         private ColoredRadioButton radioSpanish;
         private PictureBox pictureBox3;
+        private ColoredRadioButton radioPortuguese;
+        private PictureBox pictureBox4;
     }
 }
 

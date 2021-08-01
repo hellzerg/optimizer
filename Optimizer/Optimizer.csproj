@@ -243,6 +243,7 @@
     <None Include="Resources\hosts" />
     <None Include="Resources\InstallTakeOwnership.reg" />
     <None Include="Resources\PowerMenu.reg" />
+    <None Include="Resources\PT.json" />
     <None Include="Resources\RemoveTakeOwnership.reg" />
     <None Include="Resources\RU.json" />
     <None Include="Resources\SystemShortcuts.reg" />

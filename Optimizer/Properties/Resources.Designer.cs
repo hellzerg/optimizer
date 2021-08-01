@@ -388,6 +388,26 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;btnAbout&quot;: &quot;OK&quot;,
+        ///	&quot;restartButton&quot;: &quot;Aplicar e reiniciar&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Aplicar e reiniciar&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Aplicar e reiniciar&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Reiniciar para aplicar as alterações?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Versão: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;O seu computador é de {BITS} bits.&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;Nova atualização disponível&quot;,
+        ///	&quot;lblLab&quot;: &quot;Experimentar nova implementação\n(deletar após teste)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Habilitar ajustes de desempenho&quot;,
+        ///	&quot;networkSw&quot;: &quot;Desativar limitações de red [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PT {
+            get {
+                return ResourceManager.GetString("PT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
         ///
         ///

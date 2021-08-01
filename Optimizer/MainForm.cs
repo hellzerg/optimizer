@@ -527,6 +527,8 @@ namespace Optimizer
                 tabCollection.TabPages.Remove(windows8Tab);
                 tabCollection.TabPages.Remove(windows11Tab);
                 GetModernApps(false);
+
+                txtOS.Text += string.Format(" ({0})", Utilities.GetWindows10Build());
             }
 
             //if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows11)
@@ -566,6 +568,7 @@ namespace Optimizer
             if (Options.CurrentOptions.LanguageCode == LanguageCode.TR) radioTurkish.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.EL) radioHellenic.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.DE) radioGerman.Checked = true;
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.PT) radioPortuguese.Checked = true;
 
             Program.MainForm = this;
 
@@ -2995,6 +2998,20 @@ namespace Optimizer
             Options.SaveSettings();
             Options.LoadTranslation();
             Translate();
+        }
+
+        private void radioPortuguese_Click(object sender, EventArgs e)
+        {
+            radioPortuguese.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.PT;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            radioPortuguese.PerformClick();
         }
     }
 }

@@ -88,11 +88,12 @@
 
     public enum LanguageCode
     {
-        EN,
-        RU,
-        EL,
-        TR,
-        DE,
-        ES
+        EN, // english
+        RU, // russian
+        EL, // hellenic
+        TR, // turkish
+        DE, // german
+        ES, // spanish
+        PT  // portuguese
     }
 }

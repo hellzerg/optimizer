@@ -91,5 +91,17 @@ namespace Optimizer
             Options.SaveSettings();
             Options.LoadTranslation();
         }
+
+        private void radioPortuguese_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.PT;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            radioPortuguese.PerformClick();
+        }
     }
 }

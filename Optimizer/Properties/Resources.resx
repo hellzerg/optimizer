@@ -193,4 +193,7 @@
   <data name="ES" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ES.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="PT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PT.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>

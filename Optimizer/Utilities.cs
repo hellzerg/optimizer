@@ -74,6 +74,11 @@ namespace Optimizer
             return Color.FromArgb(grayScale, grayScale, grayScale);
         }
 
+        internal static string GetWindows10Build()
+        {
+            return (string)Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "ReleaseId", "");
+        }
+
         internal static string GetOS()
         {
             string os = (string)Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "ProductName", "");
