@@ -13,7 +13,8 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 	<a href="https://github.com/hellzerg/optimizer/releases/latest" target="_blank">
 		<img src="download-button.png">
 	</a>
-</p>
+</p> 
+
 ## Features: ##
 
 * Speed up your system and network performance
