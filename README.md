@@ -1,9 +1,5 @@
 <p align="center">
    <img src="banner.png">
-   <br>
-   <a href="https://github.com/hellzerg/optimizer/releases/latest" target="_blank">
-  		<img src="download-button.png">
-  	</a>
 </p> 
 
 ## Summary: ##
@@ -13,6 +9,12 @@ Portable utility that helps you restore your privacy and increase your security.
 Optimizer is recommended after a fresh, clean installation of Windows to achieve maximum privacy and security.
 
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
+
+<p align="center">
+	<a href="https://github.com/hellzerg/optimizer/releases/latest" target="_blank">
+		<img src="download-button.png">
+	</a>
+</p>
 
 ## Features: ##
 
