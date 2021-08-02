@@ -69,7 +69,7 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * https://github.com/theflamehd - theflamehd for German translation
 * https://github.com/Kheasyque - Kheasyque for Turkish translation
 * https://github.com/danielcshn - danielcshn for Spanish translation
-* Cassio for Portuguese translation
+* https://github.com/cassiompf - Cassio for Portuguese translation
 
 ## How to include an app in Common Apps - Pull Request
 https://github.com/hellzerg/optimizer/blob/master/FEED.md
