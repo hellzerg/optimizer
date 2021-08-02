@@ -1,4 +1,5 @@
 <p align="center">
    <img src="banner.png">
-  	<a href="#">DOWNLOAD</a>
+   <br>
+  	<a style="font-size: 16px;" href="https://github.com/hellzerg/optimizer/releases/latest">DOWNLOAD</a>
 </p> 
