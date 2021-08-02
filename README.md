@@ -16,7 +16,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 	</a>
 </p>
 
-## ![#ba55d3]Features: ##
+## Features: ##
 
 * Speed up your system and network performance
 * Disable unnecessary Windows services
@@ -38,32 +38,32 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Silent run support using a configuration file
 * Multilingual support
 
-## ![#ba55d3]Downloads: ##
+## Downloads: ##
 https://github.com/hellzerg/optimizer/releases
 
-## ![#ba55d3]Screenshots: ##
+## Screenshots: ##
 https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
 
-## ![#ba55d3]Silent configuration files: ##
+## Silent configuration files: ##
 https://github.com/hellzerg/optimizer/blob/master/CONFS.md
 
-## ![#ba55d3]Changelog: ##
+## Changelog: ##
 https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md
 
-## ![#ba55d3]Early developmental images: ##
+## Early developmental images: ##
 https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
-## ![#ba55d3]Compatibility: ##
+## Compatibility: ##
 
 * .NET Framework 4.5.2
 * Compatible with Windows 7, 8, 8.1, 10
 * Can run under Windows Server 2008, 2012, 2016, 2019 using /unsafe switch
 
-## ![#ba55d3]Tools used: ##
+## Tools used: ##
 * ByteSize from https://github.com/omar/ByteSize
 * Thanks for this really tiny, yet extremely useful library
 
-## ![#ba55d3]Thanks to: ##
+## Thanks to: ##
 * aplenaki for Hellenic translation
 * https://github.com/mrkaban - mrkaban for Russian translation
 * https://github.com/theflamehd - theflamehd for German translation
@@ -71,10 +71,10 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * https://github.com/danielcshn - danielcshn for Spanish translation
 * Cassio for Portuguese translation
 
-## ![#ba55d3]How to include an app in Common Apps - Pull Request
+## How to include an app in Common Apps - Pull Request
 https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
-## ![#ba55d3]Details: ##
+## Details: ##
 
 * Latest version: 9.7
 * Released: August 2, 2021
