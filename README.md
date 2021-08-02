@@ -1,5 +1,9 @@
 <p align="center">
    <img src="banner.png">
+   <br>
+   <a href="https://github.com/hellzerg/optimizer/releases/latest" target="_blank">
+  		<img src="download-button.png">
+  	</a>
 </p> 
 
 ## Summary: ##
