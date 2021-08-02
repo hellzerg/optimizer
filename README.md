@@ -15,6 +15,9 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 	</a>
 </p> 
 
+## Available in: ##
+![alt](https://raw.githubusercontent.com/hellzerg/optimizer/master/flags-banner.png)
+
 ## Features: ##
 
 * Speed up your system and network performance
@@ -35,8 +38,6 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Add items in desktop on right-click menu
 * Define custom commands for run dialog
 * Silent run support using a configuration file
-* Multilingual support
-![alt](https://raw.githubusercontent.com/hellzerg/optimizer/master/flags-banner.png)
 
 ## Downloads: ##
 https://github.com/hellzerg/optimizer/releases
