@@ -17,7 +17,6 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 
 ## Available in: ##
 ![alt](https://raw.githubusercontent.com/hellzerg/optimizer/master/flags-banner.png)
-
 ## Features: ##
 
 * Speed up your system and network performance
