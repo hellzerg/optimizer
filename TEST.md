@@ -1,4 +1,4 @@
 <p align="center">
    <img src="banner.png">
-   <button>DOWNLOAD</button>
+  	<a href="#">DOWNLOAD</a>
 </p> 
