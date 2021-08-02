@@ -69,6 +69,6 @@ https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 9.6
-* Released: July 24, 2021
-* SHA256: 3576D1AC74669AEA358129B9333ED512B4C4D4718CA0CEBD8B12EBC8B70F4363
+* Latest version: 9.7
+* Released: August 2, 2021
+* SHA256: C50C88DC2FC610803A99FCAC2D4216D2CC9D3B3323C11FD3D70D2653D4552293

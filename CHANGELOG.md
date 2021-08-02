@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [9.7] - 2021-08-02
+- New: Fully translated into Portuguese (thanks to Cassio)
+
 ## [9.6] - 2021-07-24
 - New: Fully translated into Spanish (thanks to https://github.com/danielcshn - danielcshn)
 
