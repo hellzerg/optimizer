@@ -93,7 +93,7 @@
     {"Title":"DDU","Link":"https://www.wagnardsoft.com/DDU/download/DDU%20v18.0.4.2.exe","Tag":"cDDU","Image":"https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/ddu.png","Group":"SystemTools"},
     {"Title":"Anti-Exploit","Link":"https://kapetanos-metaforiki.gr:56888/antiexploit","Tag":"cAntiExploit","Image":"https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/antiexploit.png","Group":"SystemTools"},
     {"Title":"Malwarebytes","Link":"https://data-cdn.mbamupdates.com/web/mb4-setup-consumer/MBSetup.exe","Tag":"cMalwarebytes","Image":"https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/malwarebytes.png","Group":"SystemTools"},
-    {"Title":"Rufus","Link":"https://github.com/pbatard/rufus/releases/download/v3.14/rufus-3.14p.exe","Tag":"cRufus","Image":"https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/rufus.png","Group":"SystemTools"},
+    {"Title":"Rufus","Link":"https://github.com/pbatard/rufus/releases/download/v3.15/rufus-3.15p.exe","Tag":"cRufus","Image":"https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/rufus.png","Group":"SystemTools"},
     {"Title":"Universal USB Installer","Link":"https://www.pendrivelinux.com/downloads/Universal-USB-Installer/Universal-USB-Installer-2.0.0.5.exe","Tag":"cUUI","Image":"https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/uui.png","Group":"SystemTools"},
     {"Title":"Balena Etcher","Link":"https://github.com/balena-io/etcher/releases/download/v1.5.120/balenaEtcher-Setup-1.5.120.exe","Tag":"cBalena","Image":"https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed/balena.png","Group":"SystemTools"}
 ]
