@@ -21,5 +21,11 @@ https://github.com/hellzerg/optimizer/blob/master/confs/w10.conf
 #### Some options might not work properly ####
 optimizer.exe /unsafe
 
-## Reset Optimizer configuration might fix it when can't open
+## How to disable Windows Defender in Windows 10 1903 and later ##
+#### https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/security-malware-windows-defender-disableantispyware "DisableAntiSpyware" is discontinued and will be ignored on client devices, as of version 1903. ####
+
+- Restart in SAFE MODE
+- Execute: optimizer.exe /disabledefender
+
+## Reset Optimizer configuration might fix it when can't open ##
 optimizer.exe /reset

@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [9.8] - 2021-08-04
+- New: Disable Windows Defender completely in SAFE MODE - run Optimizer.exe /disabledefender (for Windows 10 1903 and later)
+- New: Cloudflare DNS helper in Pinger
+- New: System details in error logging
+
 ## [9.7] - 2021-08-02
 - New: Fully translated into Portuguese (thanks to https://github.com/cassiompf - Cassio)
 

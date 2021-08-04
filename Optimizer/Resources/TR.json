@@ -99,6 +99,8 @@
 	"cleanerTitle": "Sistem sürücünüzü temizleyin",
 	"pingerTitle": "IP adreslerine ping atın ve gecikmenizi değerlendirin",
 	"lblPinger": "IP / Domain adı",
+	"lblDNS": "Önerilen Cloudflare DNS\n(kopyalamak için tıklayın)",
+	"btnOpenNetwork": "Ağ Bağlantılarını Aç",
 	"copyIPB": "Kopyala",
 	"copyB": "IP Kopyala",
 	"btnShodan": "SHODAN.io'dan Kontrol Et",

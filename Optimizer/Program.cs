@@ -13,7 +13,7 @@ namespace Optimizer
         // Enter current version here
 
         internal readonly static float Major = 9;
-        internal readonly static float Minor = 7;
+        internal readonly static float Minor = 8;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
@@ -136,9 +136,23 @@ namespace Optimizer
                             return;
                         }
 
+                        // resets configuration
                         if (arg == "/reset")
                         {
                             Utilities.ResetConfiguration(true);
+                            return;
+                        }
+
+                        // disables Defender in SAFE MODE (for Windows 10 1903+)
+                        if (arg == "/disabledefender")
+                        {
+                            File.WriteAllText("DisableDefenderSafeMode.bat", Properties.Resources.DisableDefenderSafeMode1903Plus);
+                            Utilities.RunBatchFile("DisableDefenderSafeMode.bat");
+                            System.Threading.Thread.Sleep(1000);
+                            Utilities.RunBatchFile("DisableDefenderSafeMode.bat");
+                            System.Threading.Thread.Sleep(1000);
+                            File.Delete("DisableDefenderSafeMode.bat");
+
                             return;
                         }
 

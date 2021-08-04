@@ -99,6 +99,8 @@
 	"cleanerTitle": "Bereinigen des Systemlaufwerks",
 	"pingerTitle": "Pingen von IP-Adressen und bewerten anhand ihrer Latenz",
     "lblPinger": "IP / Domainname",
+	"lblDNS": "Empfohlene Cloudflare-DNS\n(zum kopieren anklicken)",
+	"btnOpenNetwork": "Netzwerkverbindungen öffnen",
 	"copyIPB": " Kopieren",
 	"copyB": "IP kopieren",
 	"btnShodan": "Auf SHODAN.io prüfen",

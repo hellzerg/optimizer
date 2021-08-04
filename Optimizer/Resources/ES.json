@@ -99,6 +99,8 @@
 	"cleanerTitle": "Limpia la unidad de tu sistema",
 	"pingerTitle": "Haga ping a las IPs y evalúe su latencia",
 	"lblPinger": "IP / Domain name",
+	"lblDNS": "DNS de Cloudflare recomendado\n(haga clic para copiar)",
+	"btnOpenNetwork": "Conexiones de red abiertas",
 	"copyIPB": "Copiar",
 	"copyB": "Copiar IP",
 	"btnShodan": "Check en SHODAN.io",

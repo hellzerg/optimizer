@@ -36,7 +36,7 @@ namespace Optimizer
         string _shodanIP = string.Empty;
         PingReply tmpReply;
 
-        NetworkMonitor _networkMonitor;
+        //NetworkMonitor _networkMonitor;
         double uploadSpeed = 0;
         double downloadSpeed = 0;
 
@@ -491,7 +491,7 @@ namespace Optimizer
             // Windows version, architecture, .NET Framework
             txtOS.Text = Utilities.GetOS();
             txtBitness.Text = Utilities.GetBitness();
-            txtNetFw.Text = ".NET Framework " + Utilities.CheckNETFramework();
+            txtNetFw.Text = ".NET Framework " + Utilities.GetNETFramework();
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
             {
@@ -605,28 +605,28 @@ namespace Optimizer
             }
 
             // network monitoring
-            _networkMonitor = new NetworkMonitor();
+            //_networkMonitor = new NetworkMonitor();
         }
 
-        private void NetworkMonitoring()
-        {
-            while (true)
-            {
-                downloadSpeed = 0;
-                uploadSpeed = 0;
+        //private void NetworkMonitoring()
+        //{
+        //    while (true)
+        //    {
+        //        downloadSpeed = 0;
+        //        uploadSpeed = 0;
 
-                foreach (NetworkAdapter adapter in _networkMonitor.Adapters)
-                {
-                    //adapter.Refresh();
-                    downloadSpeed += Math.Round(adapter.DownloadSpeedMbps, 2);
-                    uploadSpeed += Math.Round(adapter.UploadSpeedMbps, 2);
-                }
+        //        foreach (NetworkAdapter adapter in _networkMonitor.Adapters)
+        //        {
+        //            //adapter.Refresh();
+        //            downloadSpeed += Math.Round(adapter.DownloadSpeedMbps, 2);
+        //            uploadSpeed += Math.Round(adapter.UploadSpeedMbps, 2);
+        //        }
 
-                this.Text = string.Format("Optimizer - DOWN: {0} UP: {1}", downloadSpeed, uploadSpeed);
+        //        this.Text = string.Format("Optimizer - DOWN: {0} UP: {1}", downloadSpeed, uploadSpeed);
 
-                Thread.Sleep(1000);
-            }
-        }
+        //        Thread.Sleep(1000);
+        //    }
+        //}
 
         private void Translate(bool skipFull = false)
         {
@@ -3012,6 +3012,31 @@ namespace Optimizer
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             radioPortuguese.PerformClick();
+        }
+
+        private void txtIPv4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Clipboard.SetText(txtIPv4.Text);
+        }
+
+        private void txtIPv4A_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Clipboard.SetText(txtIPv4A.Text);
+        }
+
+        private void txtIPv6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Clipboard.SetText(txtIPv6.Text);
+        }
+
+        private void txtIPv6A_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Clipboard.SetText(txtIPv6A.Text);
+        }
+
+        private void btnOpenNetwork_Click(object sender, EventArgs e)
+        {
+            Process.Start("NCPA.cpl");
         }
     }
 }

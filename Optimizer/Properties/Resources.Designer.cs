@@ -104,6 +104,21 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to rem USE AT OWN RISK AS IS WITHOUT WARRANTY OF ANY KIND !!!!!
+        ///
+        ///rem https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/security-malware-windows-defender-disableantispyware
+        ///rem &quot;DisableAntiSpyware&quot; is discontinued and will be ignored on client devices, as of the August 2020 (version 4.18.2007.8) update to Microsoft Defender Antivirus.
+        ///
+        ///rem Disable Tamper Protection First !!!!!
+        ///rem https://www.tenforums.com/tutorials/123792-turn-off-tamper-protection-windows-defender-antivirus.ht [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string DisableDefenderSafeMode1903Plus {
+            get {
+                return ResourceManager.GetString("DisableDefenderSafeMode1903Plus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
         ///
         ///[HKEY_CURRENT_USER\Software\Policies\microsoft\office\16.0\osm\preventedapplications]
@@ -395,11 +410,11 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton10&quot;: &quot;Aplicar e reiniciar&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Reiniciar para aplicar as alterações?&quot;,
         ///	&quot;txtVersion&quot;: &quot;Versão: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;O seu computador é de {BITS} bits.&quot;,
+        ///	&quot;txtBitness&quot;: &quot;A arquitetura do seu computador é de {BITS}.&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Nova atualização disponível&quot;,
         ///	&quot;lblLab&quot;: &quot;Experimentar nova implementação\n(deletar após teste)&quot;,
         ///	&quot;performanceSw&quot;: &quot;Habilitar ajustes de desempenho&quot;,
-        ///	&quot;networkSw&quot;: &quot;Desativar limitações de red [rest of string was truncated]&quot;;.
+        ///	&quot;networkSw&quot;: &quot;Desativar limitaç [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PT {
             get {

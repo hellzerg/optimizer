@@ -695,7 +695,7 @@ namespace Optimizer
             Utilities.RunBatchFile(Required.ScriptsFolder + "GPEditEnablerInHome.bat");
         }
 
-        internal static string CheckNETFramework()
+        internal static string GetNETFramework()
         {
             string subkey = @"SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\";
             int netRelease;

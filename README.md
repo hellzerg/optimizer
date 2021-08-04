@@ -10,7 +10,7 @@ Optimizer is recommended after a fresh, clean installation of Windows to achieve
 
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/9.7/Optimizer-9.7.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/9.8/Optimizer-9.8.exe" target="_blank">
 		<img src="download-button.png">
 	</a>
 </p> 
@@ -76,6 +76,6 @@ https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 9.7
-* Released: August 2, 2021
-* SHA256: C50C88DC2FC610803A99FCAC2D4216D2CC9D3B3323C11FD3D70D2653D4552293
+* Latest version: 9.8
+* Released: August 4, 2021
+* SHA256: 90E88E9A8E2176E9016DCD3AD99D5818D6E861BA445EA16B1B8F4844445F2322

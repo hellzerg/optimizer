@@ -99,6 +99,8 @@
 	"cleanerTitle": "очистить системный диск",
 	"pingerTitle": "пинг IP адреса и оценка ваших задержек",
 	"lblPinger": "IP / доменное имя",
+	"lblDNS": "Рекомендуемый Cloudflare DNS\n(нажмите, чтобы скопировать)",
+	"btnOpenNetwork": "Сетевые соединения",
 	"copyIPB": "копировать",
 	"copyB": "копировать IP",
 	"btnShodan": "проверить на SHODAN.io",

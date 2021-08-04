@@ -230,6 +230,7 @@
     </Compile>
     <None Include="Resources\DE.json" />
     <None Include="Resources\DesktopShortcuts.reg" />
+    <None Include="Resources\DisableDefenderSafeMode1903Plus.bat" />
     <None Include="Resources\DisableOfficeTelemetry.reg" />
     <None Include="Resources\EN.json" />
     <None Include="Resources\EnableOfficeTelemetry.reg" />
