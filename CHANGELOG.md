@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [9.8] - 2021-08-04
-- New: Disable Windows Defender completely in SAFE MODE - run Optimizer.exe /disabledefender (for Windows 10 1903 and later)
+- New: Disable Windows Defender completely in SAFE MODE - run Optimizer.exe /disabledefender (for Windows 10 1903 and later: https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/security-malware-windows-defender-disableantispyware)
 - New: Cloudflare DNS helper in Pinger
 - New: System details in error logging
 
