@@ -37,8 +37,8 @@ namespace Optimizer
         PingReply tmpReply;
 
         //NetworkMonitor _networkMonitor;
-        double uploadSpeed = 0;
-        double downloadSpeed = 0;
+        //double uploadSpeed = 0;
+        //double downloadSpeed = 0;
 
         DesktopItemType _desktopItemType = DesktopItemType.Program;
         DesktopTypePosition _desktopItemPosition = DesktopTypePosition.Top;
@@ -548,7 +548,7 @@ namespace Optimizer
             GetDesktopItems();
             GetCustomCommands();
 
-            GetFeed();
+            //GetFeed();
             GetFootprint();
 
             LoadSettings();
@@ -602,6 +602,48 @@ namespace Optimizer
             {
                 btnUpdate.Enabled = false;
                 lblUpdateDisabled.Visible = true;
+            }
+
+            // Indicium-related
+            var CPUs = IndiciumHelper.GetCPUs();
+            var RAM = IndiciumHelper.GetRAM();
+            var GPUs = IndiciumHelper.GetGPUs();
+            var Motherboards = IndiciumHelper.GetMotherboards();
+            var Storage = IndiciumHelper.GetStorageDevices();
+            var Network = IndiciumHelper.GetNetworkDevices();
+
+            foreach (var x in CPUs)
+            {
+                txtCPU.Text += string.Format("{0} ({1} Cores, {2} Threads)\nVirtualization: {3}\nL2 Cache: {4}\nL3 Cache: {5}\n\n", x.Name, x.Cores, x.Threads, x.Virtualization, x.L2CacheSize, x.L3CacheSize);
+            }
+
+            ulong totalMemory = 0;
+            string ramDetails = string.Empty;
+            foreach (var x in RAM)
+            {
+                totalMemory += (x.Capacity);
+                ramDetails = x.MemoryType + " @ " + x.Speed;
+            }
+            txtRAM.Text = string.Format("{0} GB {1} MHz\n{2} modules", totalMemory / 1024 / 1024 / 1024, ramDetails, RAM.Count);
+
+            foreach (var x in GPUs)
+            {
+                txtGPU.Text += string.Format("{0} ({1} × {2} @ {3} Hz)\n\n", x.Name, x.ResolutionX, x.ResolutionY, x.RefreshRate);
+            }
+
+            foreach (var x in Motherboards)
+            {
+                txtMobo.Text += string.Format("{0} - {1}\n{2}\n\n", x.Manufacturer, x.Product, x.Chipset);
+            } 
+
+            foreach (var x in Storage)
+            {
+                txtStorage.Text += string.Format("{0} ({1})\nFirmware: {2}\n\n", x.Model, x.Capacity, x.FirmwareRevision);
+            }
+
+            foreach (var x in Network)
+            {
+                txtNetwork.Text += string.Format("{0}\nMAC Address: {1}\n\n", x.ProductName, x.MacAddress);
             }
 
             // network monitoring
@@ -705,14 +747,12 @@ namespace Optimizer
 
             try
             {
+                byte[] feedData;
                 string tmpImageFileName = string.Empty;
-                string tmpDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Optimizer-tmp");
 
-                Directory.CreateDirectory(tmpDir);
-                client.DownloadFile(_feedImages, Path.Combine(tmpDir, "feed-images.raw"));
+                feedData = client.DownloadData(_feedImages);
 
-                using (FileStream fs = new FileStream(Path.Combine(tmpDir, "feed-images.raw"), FileMode.Open))
-                using (ZipArchive zip = new ZipArchive(fs))
+                using (ZipArchive zip = new ZipArchive(new MemoryStream(feedData)))
                 {
                     var zipEntries = zip.Entries;
 

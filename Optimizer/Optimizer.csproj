@@ -67,6 +67,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\assembly\GAC_MSIL\System.Management.Automation\1.0.0.0__31bf3856ad364e35\System.Management.Automation.dll</HintPath>
@@ -120,6 +121,7 @@
     <Compile Include="FirstRunForm.Designer.cs">
       <DependentUpon>FirstRunForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hardware.cs" />
     <Compile Include="HostsEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +129,7 @@
       <DependentUpon>HostsEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HostsHelper.cs" />
+    <Compile Include="IndiciumHelper.cs" />
     <Compile Include="InfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
