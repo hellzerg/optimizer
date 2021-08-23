@@ -15,10 +15,6 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 	</a>
 </p> 
 
-## Available in: ##
-![alt](https://raw.githubusercontent.com/hellzerg/optimizer/master/flags-banner.png)
-## Features: ##
-
 * Speed up your system and network performance
 * Disable unnecessary Windows services
 * Disable Windows telemetry
@@ -74,12 +70,13 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * https://github.com/Kheasyque - Kheasyque for Turkish translation
 * https://github.com/danielcshn - danielcshn for Spanish translation
 * https://github.com/cassiompf - Cassio for Portuguese translation
+* https://github.com/RAFF47 - RAFF for French translation
 
 ## How to include an app in Common Apps - Pull Request
 https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 9.8
-* Released: August 4, 2021
-* SHA256: 90E88E9A8E2176E9016DCD3AD99D5818D6E861BA445EA16B1B8F4844445F2322
+* Latest version: 9.9
+* Released: August 23, 2021
+* SHA256: 09787A03483735FBC3CF4D71A45018C4277FA57DC3A10F5BE048AF18DA15051F

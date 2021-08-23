@@ -324,6 +324,26 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;btnAbout&quot;: &quot;OK&quot;,
+        ///	&quot;restartButton&quot;: &quot;Appliquer &amp;&amp; Red�marrer&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Appliquer &amp;&amp; Red�marrer&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Appliquer &amp;&amp; Red�marrer&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Red�marrer pour appliquer les changements?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Vous travaillez avec {BITS}&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;Mise � jour disponible&quot;,
+        ///	&quot;lblLab&quot;: &quot;build Experimental\n(supprimer apr�s avoir test�)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Activer les Tweaks de Performance&quot;,
+        ///	&quot;networkSw&quot;: &quot;D�sactiver la limitatio [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string FR {
+            get {
+                return ResourceManager.GetString("FR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to @echo off 
         ///pushd &quot;%~dp0&quot; 
         ///dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &gt;List.txt 

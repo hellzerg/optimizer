@@ -46,6 +46,8 @@ namespace Optimizer
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.radioPortuguese = new Optimizer.ColoredRadioButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.radioFrench = new Optimizer.ColoredRadioButton();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox88)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox86)).BeginInit();
@@ -54,6 +56,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox88
@@ -111,7 +114,7 @@ namespace Optimizer
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.White;
-            this.btnStart.Location = new System.Drawing.Point(11, 280);
+            this.btnStart.Location = new System.Drawing.Point(11, 307);
             this.btnStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(180, 31);
@@ -272,6 +275,32 @@ namespace Optimizer
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
+            // radioFrench
+            // 
+            this.radioFrench.AutoSize = true;
+            this.radioFrench.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioFrench.ForeColor = System.Drawing.Color.White;
+            this.radioFrench.Location = new System.Drawing.Point(76, 261);
+            this.radioFrench.Margin = new System.Windows.Forms.Padding(2);
+            this.radioFrench.Name = "radioFrench";
+            this.radioFrench.Size = new System.Drawing.Size(86, 25);
+            this.radioFrench.TabIndex = 96;
+            this.radioFrench.Tag = "";
+            this.radioFrench.Text = "Français";
+            this.radioFrench.UseVisualStyleBackColor = true;
+            this.radioFrench.CheckedChanged += new System.EventHandler(this.radioFrench_CheckedChanged);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(35, 262);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 95;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            // 
             // FirstRunForm
             // 
             this.AcceptButton = this.btnStart;
@@ -279,7 +308,9 @@ namespace Optimizer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnStart;
-            this.ClientSize = new System.Drawing.Size(202, 322);
+            this.ClientSize = new System.Drawing.Size(202, 349);
+            this.Controls.Add(this.radioFrench);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.radioPortuguese);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.radioSpanish);
@@ -316,6 +347,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,5 +371,7 @@ namespace Optimizer
         private System.Windows.Forms.PictureBox pictureBox3;
         private ColoredRadioButton radioPortuguese;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private ColoredRadioButton radioFrench;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

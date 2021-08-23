@@ -243,6 +243,7 @@
     <None Include="Resources\EL.json" />
     <None Include="Resources\ES.json" />
     <None Include="Resources\FlushDNSCache.bat" />
+    <None Include="Resources\FR.json" />
     <None Include="Resources\GPEditEnablerInHome.bat" />
     <None Include="Resources\hosts" />
     <None Include="Resources\InstallTakeOwnership.reg" />

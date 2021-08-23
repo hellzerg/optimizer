@@ -103,5 +103,17 @@ namespace Optimizer
         {
             radioPortuguese.PerformClick();
         }
+
+        private void radioFrench_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.FR;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            radioFrench.PerformClick();
+        }
     }
 }

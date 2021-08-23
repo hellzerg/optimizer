@@ -569,6 +569,7 @@ namespace Optimizer
             if (Options.CurrentOptions.LanguageCode == LanguageCode.EL) radioHellenic.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.DE) radioGerman.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.PT) radioPortuguese.Checked = true;
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.FR) radioFrench.Checked = true;
 
             Program.MainForm = this;
 
@@ -605,46 +606,12 @@ namespace Optimizer
             }
 
             // Indicium-related
-            var CPUs = IndiciumHelper.GetCPUs();
-            var RAM = IndiciumHelper.GetRAM();
-            var GPUs = IndiciumHelper.GetGPUs();
-            var Motherboards = IndiciumHelper.GetMotherboards();
-            var Storage = IndiciumHelper.GetStorageDevices();
-            var Network = IndiciumHelper.GetNetworkDevices();
-
-            foreach (var x in CPUs)
-            {
-                txtCPU.Text += string.Format("{0} ({1} Cores, {2} Threads)\nVirtualization: {3}\nL2 Cache: {4}\nL3 Cache: {5}\n\n", x.Name, x.Cores, x.Threads, x.Virtualization, x.L2CacheSize, x.L3CacheSize);
-            }
-
-            ulong totalMemory = 0;
-            string ramDetails = string.Empty;
-            foreach (var x in RAM)
-            {
-                totalMemory += (x.Capacity);
-                ramDetails = x.MemoryType + " @ " + x.Speed;
-            }
-            txtRAM.Text = string.Format("{0} GB {1} MHz\n{2} modules", totalMemory / 1024 / 1024 / 1024, ramDetails, RAM.Count);
-
-            foreach (var x in GPUs)
-            {
-                txtGPU.Text += string.Format("{0} ({1} × {2} @ {3} Hz)\n\n", x.Name, x.ResolutionX, x.ResolutionY, x.RefreshRate);
-            }
-
-            foreach (var x in Motherboards)
-            {
-                txtMobo.Text += string.Format("{0} - {1}\n{2}\n\n", x.Manufacturer, x.Product, x.Chipset);
-            } 
-
-            foreach (var x in Storage)
-            {
-                txtStorage.Text += string.Format("{0} ({1})\nFirmware: {2}\n\n", x.Model, x.Capacity, x.FirmwareRevision);
-            }
-
-            foreach (var x in Network)
-            {
-                txtNetwork.Text += string.Format("{0}\nMAC Address: {1}\n\n", x.ProductName, x.MacAddress);
-            }
+            //var CPUs = IndiciumHelper.GetCPUs();
+            //var RAM = IndiciumHelper.GetRAM();
+            //var GPUs = IndiciumHelper.GetGPUs();
+            //var Motherboards = IndiciumHelper.GetMotherboards();
+            //var Storage = IndiciumHelper.GetStorageDevices();
+            //var Network = IndiciumHelper.GetNetworkDevices();
 
             // network monitoring
             //_networkMonitor = new NetworkMonitor();
@@ -3077,6 +3044,20 @@ namespace Optimizer
         private void btnOpenNetwork_Click(object sender, EventArgs e)
         {
             Process.Start("NCPA.cpl");
+        }
+
+        private void radioFrench_Click(object sender, EventArgs e)
+        {
+            radioFrench.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.FR;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            radioFrench.PerformClick();
         }
     }
 }

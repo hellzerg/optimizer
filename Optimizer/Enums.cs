@@ -94,6 +94,7 @@
         TR, // turkish
         DE, // german
         ES, // spanish
-        PT  // portuguese
+        PT,  // portuguese
+        FR // french
     }
 }

@@ -199,4 +199,7 @@
   <data name="DisableDefenderSafeMode1903Plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DisableDefenderSafeMode1903Plus.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="FR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FR.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>
