@@ -548,7 +548,7 @@ namespace Optimizer
             GetDesktopItems();
             GetCustomCommands();
 
-            //GetFeed();
+            GetFeed();
             GetFootprint();
 
             LoadSettings();
@@ -605,16 +605,19 @@ namespace Optimizer
                 lblUpdateDisabled.Visible = true;
             }
 
-            // Indicium-related
-            //var CPUs = IndiciumHelper.GetCPUs();
-            //var RAM = IndiciumHelper.GetRAM();
-            //var GPUs = IndiciumHelper.GetGPUs();
-            //var Motherboards = IndiciumHelper.GetMotherboards();
-            //var Storage = IndiciumHelper.GetStorageDevices();
-            //var Network = IndiciumHelper.GetNetworkDevices();
+            //LoadIndicium();
 
-            // network monitoring
             //_networkMonitor = new NetworkMonitor();
+        }
+
+        private void LoadIndicium()
+        {
+            var CPUs = IndiciumHelper.GetCPUs();
+            var RAM = IndiciumHelper.GetRAM();
+            var GPUs = IndiciumHelper.GetGPUs();
+            var Motherboards = IndiciumHelper.GetMotherboards();
+            var Storage = IndiciumHelper.GetStorageDevices();
+            var Network = IndiciumHelper.GetNetworkDevices();
         }
 
         //private void NetworkMonitoring()
