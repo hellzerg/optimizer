@@ -533,7 +533,8 @@ namespace Optimizer
 
             //if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows11)
             //{
-            //    // load toggles ...
+            //    // * load toggles * ...
+
             //    tabCollection.TabPages.Remove(windows8Tab);
             //    //tabCollection.TabPages.Remove(windows10Tab);
             //    GetModernApps(false);
@@ -605,19 +606,7 @@ namespace Optimizer
                 lblUpdateDisabled.Visible = true;
             }
 
-            //LoadIndicium();
-
             //_networkMonitor = new NetworkMonitor();
-        }
-
-        private void LoadIndicium()
-        {
-            var CPUs = IndiciumHelper.GetCPUs();
-            var RAM = IndiciumHelper.GetRAM();
-            var GPUs = IndiciumHelper.GetGPUs();
-            var Motherboards = IndiciumHelper.GetMotherboards();
-            var Storage = IndiciumHelper.GetStorageDevices();
-            var Network = IndiciumHelper.GetNetworkDevices();
         }
 
         //private void NetworkMonitoring()

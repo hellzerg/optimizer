@@ -1092,7 +1092,7 @@ namespace Optimizer
             this.txtFeedError.ForeColor = System.Drawing.Color.Gold;
             this.txtFeedError.Location = new System.Drawing.Point(3, 47);
             this.txtFeedError.Name = "txtFeedError";
-            this.txtFeedError.Size = new System.Drawing.Size(923, 443);
+            this.txtFeedError.Size = new System.Drawing.Size(923, 441);
             this.txtFeedError.TabIndex = 170;
             this.txtFeedError.Text = "No internet connection, try refreshing links again";
             this.txtFeedError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1239,7 +1239,7 @@ namespace Optimizer
             this.panelCommonApps.Controls.Add(this.bitPref);
             this.panelCommonApps.Controls.Add(this.goToDownloadsB);
             this.panelCommonApps.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelCommonApps.Location = new System.Drawing.Point(3, 490);
+            this.panelCommonApps.Location = new System.Drawing.Point(3, 488);
             this.panelCommonApps.Name = "panelCommonApps";
             this.panelCommonApps.Size = new System.Drawing.Size(923, 120);
             this.panelCommonApps.TabIndex = 162;
@@ -1268,7 +1268,7 @@ namespace Optimizer
             this.setDownDirLbl.AutoSize = true;
             this.setDownDirLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.setDownDirLbl.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.setDownDirLbl.Location = new System.Drawing.Point(6, 4);
+            this.setDownDirLbl.Location = new System.Drawing.Point(3, 4);
             this.setDownDirLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.setDownDirLbl.Name = "setDownDirLbl";
             this.setDownDirLbl.Size = new System.Drawing.Size(160, 21);
@@ -1282,7 +1282,7 @@ namespace Optimizer
             this.txtDownloadFolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDownloadFolder.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDownloadFolder.ForeColor = System.Drawing.Color.Silver;
-            this.txtDownloadFolder.Location = new System.Drawing.Point(11, 30);
+            this.txtDownloadFolder.Location = new System.Drawing.Point(8, 30);
             this.txtDownloadFolder.Name = "txtDownloadFolder";
             this.txtDownloadFolder.Size = new System.Drawing.Size(302, 23);
             this.txtDownloadFolder.TabIndex = 70;
@@ -1296,7 +1296,7 @@ namespace Optimizer
             this.changeDownDirB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.changeDownDirB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.changeDownDirB.ForeColor = System.Drawing.Color.White;
-            this.changeDownDirB.Location = new System.Drawing.Point(316, 30);
+            this.changeDownDirB.Location = new System.Drawing.Point(313, 30);
             this.changeDownDirB.Margin = new System.Windows.Forms.Padding(2);
             this.changeDownDirB.Name = "changeDownDirB";
             this.changeDownDirB.Size = new System.Drawing.Size(30, 23);
@@ -1311,7 +1311,7 @@ namespace Optimizer
             this.txtDownloadStatus.AutoSize = true;
             this.txtDownloadStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDownloadStatus.ForeColor = System.Drawing.Color.LightGray;
-            this.txtDownloadStatus.Location = new System.Drawing.Point(7, 58);
+            this.txtDownloadStatus.Location = new System.Drawing.Point(4, 58);
             this.txtDownloadStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtDownloadStatus.Name = "txtDownloadStatus";
             this.txtDownloadStatus.Size = new System.Drawing.Size(32, 19);
@@ -1327,7 +1327,7 @@ namespace Optimizer
             this.linkWarnings.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkWarnings.ForeColor = System.Drawing.Color.Gold;
             this.linkWarnings.LinkColor = System.Drawing.Color.Gold;
-            this.linkWarnings.Location = new System.Drawing.Point(7, 98);
+            this.linkWarnings.Location = new System.Drawing.Point(4, 98);
             this.linkWarnings.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkWarnings.Name = "linkWarnings";
             this.linkWarnings.Size = new System.Drawing.Size(92, 19);
@@ -1344,7 +1344,7 @@ namespace Optimizer
             this.bitPref.AutoSize = true;
             this.bitPref.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bitPref.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.bitPref.Location = new System.Drawing.Point(368, 6);
+            this.bitPref.Location = new System.Drawing.Point(368, 5);
             this.bitPref.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bitPref.Name = "bitPref";
             this.bitPref.Size = new System.Drawing.Size(143, 21);
@@ -4324,9 +4324,9 @@ namespace Optimizer
             this.cAutoInstall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cAutoInstall.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cAutoInstall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cAutoInstall.Location = new System.Drawing.Point(551, 55);
+            this.cAutoInstall.Location = new System.Drawing.Point(550, 55);
             this.cAutoInstall.Name = "cAutoInstall";
-            this.cAutoInstall.Size = new System.Drawing.Size(290, 24);
+            this.cAutoInstall.Size = new System.Drawing.Size(369, 24);
             this.cAutoInstall.TabIndex = 107;
             this.cAutoInstall.Text = "Install after downloading";
             this.cAutoInstall.UseVisualStyleBackColor = true;
@@ -4334,7 +4334,7 @@ namespace Optimizer
             // progressDownloader
             // 
             this.progressDownloader.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.progressDownloader.Location = new System.Drawing.Point(11, 83);
+            this.progressDownloader.Location = new System.Drawing.Point(8, 83);
             this.progressDownloader.MarqueeAnimationSpeed = 15;
             this.progressDownloader.Name = "progressDownloader";
             this.progressDownloader.Size = new System.Drawing.Size(302, 10);
@@ -4344,7 +4344,7 @@ namespace Optimizer
             // 
             this.c64.AutoSize = true;
             this.c64.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c64.Location = new System.Drawing.Point(373, 29);
+            this.c64.Location = new System.Drawing.Point(373, 28);
             this.c64.Name = "c64";
             this.c64.Size = new System.Drawing.Size(72, 25);
             this.c64.TabIndex = 75;
@@ -4356,7 +4356,7 @@ namespace Optimizer
             // 
             this.c32.AutoSize = true;
             this.c32.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c32.Location = new System.Drawing.Point(448, 29);
+            this.c32.Location = new System.Drawing.Point(448, 28);
             this.c32.Name = "c32";
             this.c32.Size = new System.Drawing.Size(72, 25);
             this.c32.TabIndex = 76;

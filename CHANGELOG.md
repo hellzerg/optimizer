@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [10.0] - 2021-09-14
+- Code cleanup
+- Minor UI changes
+
 ## [9.9] - 2021-08-23
 - New: Fully translated into French (thanks to https://github.com/RAFF47 - RAFF)
 
