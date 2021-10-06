@@ -1,7 +1,5 @@
 <p align="center">
    <img src="banner.png">
-   <br>
-   <img src="flags.png">
 </p> 
 
 ## Summary: ##
@@ -15,6 +13,8 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 	<a href="https://github.com/hellzerg/optimizer/releases/download/10.0/Optimizer-10.1.exe" target="_blank">
 		<img src="download-button.png">
 	</a>
+	<br>
+	<img src="flags.png">
 </p> 
 
 * Multilingual support
