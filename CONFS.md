@@ -1,4 +1,4 @@
-You can execute Optimizer silently, applying tweaks according to a configuration file.
+## You can execute Optimizer silently, applying tweaks according to a configuration file. ##
 
 Download the configuration file based on your Windows version and edit it accordingly.
 
