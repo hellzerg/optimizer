@@ -1,5 +1,6 @@
 <p align="center">
    <img src="banner.png">
+   <img src="flags.png">
 </p> 
 
 ## Summary: ##
@@ -15,6 +16,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 	</a>
 </p> 
 
+* Multilingual support
 * Speed up your system and network performance
 * Disable unnecessary Windows services
 * Disable Windows telemetry
