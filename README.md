@@ -12,9 +12,9 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 <p align="center">
 	<a href="https://github.com/hellzerg/optimizer/releases/download/10.0/Optimizer-10.1.exe" target="_blank">
 		<img src="download-button.png">
+		<br>
+		<img src="flags.png">
 	</a>
-	<br>
-	<img src="flags.png">
 </p> 
 
 * Multilingual support
