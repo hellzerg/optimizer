@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [10.1] - 2021-10-06
-- New: Fully compatible with Windows 11
+- New: Fully compatible with Windows 11 (with silent configuration support)
 - New: Align taskbar to te left
 - New: Disable Snap Assist, Widgets and Chat
 - New: Smaller taskbar size
