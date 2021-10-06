@@ -206,6 +206,48 @@ namespace Optimizer
             snapAssistSw.Click += SnapAssistSw_Click;
             widgetsSw.Click += WidgetsSw_Click;
             smallerTaskbarSw.Click += SmallerTaskbarSw_Click;
+            chatSw.Click += chatSw_Click;
+            classicRibbonSw.Click += ClassicRibbonSw_Click;
+            classicContextSw.Click += ClassicContextSw_Click;
+        }
+
+        private void ClassicContextSw_Click(object sender, EventArgs e)
+        {
+            if (!classicContextSw.Checked)
+            {
+                Optimize.DisableShowMoreOptions();
+            }
+            else
+            {
+                Optimize.EnableShowMoreOptions();
+            }
+            Options.CurrentOptions.ClassicMenu = !classicContextSw.Checked;
+        }
+
+        private void ClassicRibbonSw_Click(object sender, EventArgs e)
+        {
+            if (!classicRibbonSw.Checked)
+            {
+                Optimize.EnableFileExplorerClassicRibbon();
+            }
+            else
+            {
+                Optimize.DisableFileExplorerClassicRibbon();
+            }
+            Options.CurrentOptions.ClassicRibbon = !classicContextSw.Checked;
+        }
+
+        private void chatSw_Click(object sender, EventArgs e)
+        {
+            if (!chatSw.Checked)
+            {
+                Optimize.DisableChat();
+            }
+            else
+            {
+                Optimize.EnableChat();
+            }
+            Options.CurrentOptions.DisableChat = !chatSw.Checked;
         }
 
         private void SmallerTaskbarSw_Click(object sender, EventArgs e)
@@ -218,7 +260,7 @@ namespace Optimizer
             {
                 Optimize.DefaultTaskbarSize();
             }
-            //Options.CurrentOptions.DisableActionCenter = !actionSw.Checked;
+            Options.CurrentOptions.TaskbarSmaller = !smallerTaskbarSw.Checked;
         }
 
         private void WidgetsSw_Click(object sender, EventArgs e)
@@ -231,7 +273,7 @@ namespace Optimizer
             {
                 Optimize.EnableWidgets();
             }
-            //Options.CurrentOptions.DisableActionCenter = !actionSw.Checked;
+            Options.CurrentOptions.DisableWidgets = !widgetsSw.Checked;
         }
 
         private void SnapAssistSw_Click(object sender, EventArgs e)
@@ -244,7 +286,7 @@ namespace Optimizer
             {
                 Optimize.EnableSnapAssist();
             }
-            //Options.CurrentOptions.DisableActionCenter = !actionSw.Checked;
+            Options.CurrentOptions.DisableSnapAssist = !snapAssistSw.Checked;
         }
 
         private void LeftTaskbarSw_Click(object sender, EventArgs e)
@@ -257,7 +299,7 @@ namespace Optimizer
             {
                 Optimize.AlignTaskbarToCenter();
             }
-            //Options.CurrentOptions.DisableActionCenter = !actionSw.Checked;
+            Options.CurrentOptions.TaskbarToLeft = !leftTaskbarSw.Checked;
         }
 
         private void SetHelpBoxTranslation()
@@ -301,6 +343,14 @@ namespace Optimizer
             helpBox.SetToolTip(gameBarSw, Options.TranslationList["gameBarTip"].ToString());
             helpBox.SetToolTip(insiderSw, Options.TranslationList["insiderTip"].ToString());
             helpBox.SetToolTip(featuresSw, Options.TranslationList["featuresTip"].ToString());
+            helpBox.SetToolTip(tpmSw, Options.TranslationList["tpmTip"].ToString());
+            helpBox.SetToolTip(leftTaskbarSw, Options.TranslationList["leftTaskbarTip"].ToString());
+            helpBox.SetToolTip(snapAssistSw, Options.TranslationList["snapAssistTip"].ToString());
+            helpBox.SetToolTip(widgetsSw, Options.TranslationList["widgetsTip"].ToString());
+            helpBox.SetToolTip(chatSw, Options.TranslationList["chatTip"].ToString());
+            helpBox.SetToolTip(smallerTaskbarSw, Options.TranslationList["smallerTaskbarTip"].ToString());
+            helpBox.SetToolTip(classicRibbonSw, Options.TranslationList["classicRibbonTip"].ToString());
+            helpBox.SetToolTip(classicContextSw, Options.TranslationList["classicContextTip"].ToString());
 
             helpBox.ToolTipTitle = Options.TranslationList["tipWhatsThis"].ToString();
         }
@@ -498,16 +548,15 @@ namespace Optimizer
                 tabCollection.TabPages.Remove(universalTab);
                 tabCollection.TabPages.Remove(windows8Tab);
                 tabCollection.TabPages.Remove(windows10Tab);
-                tabCollection.TabPages.Remove(windows11Tab);
                 tabCollection.TabPages.Remove(modernAppsTab);
             }
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
             {
                 LoadUniversalToggleStates();
+
                 tabCollection.TabPages.Remove(windows8Tab);
                 tabCollection.TabPages.Remove(windows10Tab);
-                tabCollection.TabPages.Remove(windows11Tab);
                 tabCollection.TabPages.Remove(modernAppsTab);
             }
 
@@ -515,8 +564,9 @@ namespace Optimizer
             {
                 LoadUniversalToggleStates();
                 LoadWindowsVIIIToggleStates();
+
                 tabCollection.TabPages.Remove(windows10Tab);
-                tabCollection.TabPages.Remove(windows11Tab);
+
                 GetModernApps(false);
             }
 
@@ -524,21 +574,31 @@ namespace Optimizer
             {
                 LoadUniversalToggleStates();
                 LoadWindowsXToggleStates();
+
                 tabCollection.TabPages.Remove(windows8Tab);
-                tabCollection.TabPages.Remove(windows11Tab);
+                this.Controls.Remove(panelWin11Tweaks);
+
                 GetModernApps(false);
 
                 txtOS.Text += string.Format(" ({0})", Utilities.GetWindows10Build());
             }
 
-            //if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows11)
-            //{
-            //    // * load toggles * ...
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows11)
+            {
+                LoadUniversalToggleStates();
+                LoadWindowsXToggleStates();
+                LoadWindowsXIToggleStates();
 
-            //    tabCollection.TabPages.Remove(windows8Tab);
-            //    //tabCollection.TabPages.Remove(windows10Tab);
-            //    GetModernApps(false);
-            //}
+                tabCollection.TabPages.Remove(windows8Tab);
+                windows10Tab.Text = "Windows 11";
+                panelWin11Tweaks.Visible = true;
+                actionSw.Visible = false;
+                oldMixerSw.Visible = false;
+
+                GetModernApps(false);
+
+                txtOS.Text += string.Format(" ({0})", Utilities.GetWindows10Build());
+            }
 
             _columnSorter = new ListViewColumnSorter();
             listStartupItems.ListViewItemSorter = _columnSorter;
@@ -930,9 +990,21 @@ namespace Optimizer
             actionSw.Checked = Options.CurrentOptions.DisableActionCenter;
         }
 
+        private void LoadWindowsXIToggleStates()
+        {
+            leftTaskbarSw.Checked = Options.CurrentOptions.TaskbarToLeft;
+            snapAssistSw.Checked = Options.CurrentOptions.DisableSnapAssist;
+            widgetsSw.Checked = Options.CurrentOptions.DisableWidgets;
+            chatSw.Checked = Options.CurrentOptions.DisableChat;
+            smallerTaskbarSw.Checked = Options.CurrentOptions.TaskbarSmaller;
+            classicRibbonSw.Checked = Options.CurrentOptions.ClassicRibbon;
+            classicContextSw.Checked = Options.CurrentOptions.ClassicMenu;
+            tpmSw.Checked = Options.CurrentOptions.DisableTPMCheck;
+        }
+
         private void Main_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void GetDesktopItems()

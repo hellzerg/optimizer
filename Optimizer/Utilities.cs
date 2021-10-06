@@ -38,6 +38,9 @@ namespace Optimizer
 
         static IPAddress addressToPing;
 
+        static string productName = string.Empty;
+        static string buildNumber = string.Empty;
+
         internal delegate void SetControlPropertyThreadSafeDelegate(Control control, string propertyName, object propertyValue);
 
         internal static void SetControlPropertyThreadSafe(Control control, string propertyName, object propertyValue)
@@ -81,42 +84,48 @@ namespace Optimizer
 
         internal static string GetOS()
         {
-            string os = (string)Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "ProductName", "");
+            productName = (string)Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "ProductName", "");
 
-            if (os.Contains("Windows 7"))
+            if (productName.Contains("Windows 7"))
             {
                 CurrentWindowsVersion = WindowsVersion.Windows7;
             }
-            if ((os.Contains("Windows 8")) || (os.Contains("Windows 8.1")))
+            if ((productName.Contains("Windows 8")) || (productName.Contains("Windows 8.1")))
             {
                 CurrentWindowsVersion = WindowsVersion.Windows8;
             }
-            if (os.Contains("Windows 10"))
+            if (productName.Contains("Windows 10"))
             {
-                CurrentWindowsVersion = WindowsVersion.Windows10;
-            }
-            if (os.Contains("Windows 11"))
-            {
-                CurrentWindowsVersion = WindowsVersion.Windows11;
-            }
+                buildNumber = (string)Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "CurrentBuild", "");
 
-            if (Program.UNSAFE_MODE)
-            {
-                if (os.Contains("Windows Server 2008"))
+                if (Convert.ToInt32(buildNumber) >= 22000)
                 {
-                    CurrentWindowsVersion = WindowsVersion.Windows7;
+                    productName = productName.Replace("Windows 10", "Windows 11");
+                    CurrentWindowsVersion = WindowsVersion.Windows11;
                 }
-                if (os.Contains("Windows Server 2012"))
-                {
-                    CurrentWindowsVersion = WindowsVersion.Windows8;
-                }
-                if (os.Contains("Windows Server 2016") || os.Contains("Windows Server 2019"))
+                else
                 {
                     CurrentWindowsVersion = WindowsVersion.Windows10;
                 }
             }
 
-            return os;
+            if (Program.UNSAFE_MODE)
+            {
+                if (productName.Contains("Windows Server 2008"))
+                {
+                    CurrentWindowsVersion = WindowsVersion.Windows7;
+                }
+                if (productName.Contains("Windows Server 2012"))
+                {
+                    CurrentWindowsVersion = WindowsVersion.Windows8;
+                }
+                if (productName.Contains("Windows Server 2016") || productName.Contains("Windows Server 2019"))
+                {
+                    CurrentWindowsVersion = WindowsVersion.Windows10;
+                }
+            }
+
+            return productName;
         }
 
         internal static string GetBitness()

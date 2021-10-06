@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Optimizer
@@ -13,7 +16,7 @@ namespace Optimizer
         // Enter current version here
 
         internal readonly static float Major = 10;
-        internal readonly static float Minor = 0;
+        internal readonly static float Minor = 1;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
@@ -45,6 +48,7 @@ namespace Optimizer
         static string _confInvalidFormatMsg = "Config file is in invalid format!";
         static string _confNotFoundMsg = "Config file does not exist!";
         static string _argInvalidMsg = "Invalid argument! Example: Optimizer.exe /silent.conf";
+        static string _alreadyRunningMsg = "Optimizer is already running in the background!";
 
         [STAThread]
         static void Main(string[] switches)
@@ -54,15 +58,6 @@ namespace Optimizer
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            // check if another instance is running
-            // what's the problem? prevents auto-patching...
-
-            //if (System.Diagnostics.Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location)).Length > 1)
-            //{
-            //    MessageBox.Show("Optimizer is already running in the background!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    return;
-            //}
 
             // prompt to change filename to 'Optimizer' (skip if experimental build)
             // annoying?
@@ -84,16 +79,19 @@ namespace Optimizer
             {
                 if (Utilities.IsCompatible())
                 {
+                    // single-instance mechanism
+                    int processCount = Process.GetProcesses().Count(p => p.ProcessName.ToLowerInvariant().Contains("optimizer"));
+
+                    if (processCount > 1)
+                    {
+                        MessageBox.Show(_alreadyRunningMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Environment.Exit(0);
+                    }
+
                     Required.Deploy();
 
                     // for backward compatibility (legacy)
-                    if (File.Exists(Options.SettingsFile))
-                    {
-                        if (File.ReadAllText(Options.SettingsFile).Contains("FirstRun"))
-                        {
-                            File.Delete(Options.SettingsFile);
-                        }
-                    }
+                    Options.LegacyCheck();
 
                     // load settings, if there is no settings, load defaults
                     try
@@ -117,6 +115,7 @@ namespace Optimizer
                         _confInvalidVersionMsg = Options.TranslationList["confInvalidVersionMsg"];
                         _confNotFoundMsg = Options.TranslationList["confNotFoundMsg"];
                         _argInvalidMsg = Options.TranslationList["argInvalidMsg"];
+                        _alreadyRunningMsg = Options.TranslationList["alreadyRunningMsg"];
                     }
                     catch (Exception ex)
                     {
@@ -184,6 +183,16 @@ namespace Optimizer
                                         SilentOps.ProcessSilentConfigWindows10();
                                         SilentOps.SilentUpdateOptionsGeneral();
                                         SilentOps.SilentUpdateOptions10();
+                                        Options.SaveSettings();
+                                    }
+                                    else if (SilentOps.CurrentSilentConfig.WindowsVersion == 11 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows11)
+                                    {
+                                        SilentOps.ProcessSilentConfigGeneral();
+                                        SilentOps.ProcessSilentConfigWindows10();
+                                        SilentOps.ProcessSilentConfigWindows11();
+                                        SilentOps.SilentUpdateOptionsGeneral();
+                                        SilentOps.SilentUpdateOptions10();
+                                        SilentOps.SilentUpdateOptions11();
                                         Options.SaveSettings();
                                     }
                                     else

@@ -56,6 +56,14 @@
 	"featuresSw": "Deshabilitar las actualizaciones de funciones",
 	"actionSw": "Deshabilitar Notification Center",
 	"disableOneDriveSw": "Deshabilitar OneDrive",
+	"tpmSw": "Deshabilitar la verificación de TPM 2.0",
+	"leftTaskbarSw": "Alinear la barra de tareas a la izquierda",
+	"snapAssistSw": "Desactivar la función Snap Assist",
+	"widgetsSw": "Desactivar widgets",
+	"chatSw": "Desactivar chat",
+	"smallerTaskbarSw": "Reducir el tamaño de la barra de tareas",
+	"classicRibbonSw": "Habilitar la cinta clásica en el Explorador",
+	"classicContextSw": "Habilitar el menú de clic derecho clásico",
 	"refreshModernAppsButton": "Actualizar",
 	"uninstallModernAppsButton": "Desinstalar",
 	"txtModernAppsTitle": "Desinstalar UWP apps no deseadas",
@@ -218,6 +226,7 @@
 	"HostsEditorForm": "Editor de hosts",
 	"savebtn": "Guardar",
 	"closebtn": "Cerrar",
+	"alreadyRunningMsg": "Optimizer ya se está ejecutando en segundo plano!",
 	"adminMissingMsg": "Optimizer debe ejecutarse como administrador!\nLa aplicación ahora se cerrará...",
 	"unsupportedMsg": "Optimizador funciona en Windows 7 o superior!\nLa aplicación ahora se cerrará...",
 	"confInvalidVersionMsg": "La versión de Windows no coincide!",
@@ -352,5 +361,13 @@ como rotación automática, brillo automático, etc.
 antes de que se publiquen.
 Se considera un servicio innecesario para los usuarios que no desean participar.",
 	"featuresTip": "Las actualizaciones de funciones son versiones técnicamente nuevas de Windows que requieren una actualización.
-Sin embargo, se consideran un procedimiento riesgoso. Suelen ser lanzamientos semestrales."
+Sin embargo, se consideran un procedimiento riesgoso. Suelen ser lanzamientos semestrales.",
+	"tpmTip": "Omite los requisitos de arranque seguro y TPM 2.0, lo que permite la actualización a Windows 11.",
+	"leftTaskbarTip": "Alinea los iconos de la barra de tareas a la izquierda.",
+	"snapAssistTip": "Desactive el menú desplegable Asistente de ajuste al colocar el cursor sobre los botones de maximizar.",
+	"widgetsTip": "Desactiva la función de widgets y elimina el icono de widgets de la barra de tareas.",
+	"chatTip": "Elimina el icono de chat de la barra de tareas.",
+	"smallerTaskbarTip": "Reduce el tamaño de la barra de tareas y los iconos.",
+	"classicRibbonTip": "Restaura la barra de cinta clásica de Windows 10 en el Explorador de archivos.",
+	"classicContextTip": "Restaura el menú clásico del botón derecho del ratón, eliminando 'Mostrar más opciones'."
 }

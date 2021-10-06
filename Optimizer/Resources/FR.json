@@ -56,6 +56,14 @@
 	"featuresSw": "Desactiver les mises a jour des fonctionnalites",
 	"actionSw": "Desactiver le centre de notification",
 	"disableOneDriveSw": "Desactiver OneDrive",
+	"tpmSw": "Désactiver le contrôle TPM 2.0",
+	"leftTaskbarSw": "Aligner la barre des tâches à gauche",
+	"snapAssistSw": "Désactiver l'assistance instantanée",
+	"widgetsSw": "Désactiver les widgets",
+	"chatSw": "Désactiver le chat",
+	"smallerTaskbarSw": "Réduire la barre des tâches",
+	"classicRibbonSw": "Activer le ruban classique dans les fichiers",
+	"classicContextSw": "Activer le menu contextuel classique",
 	"refreshModernAppsButton": "Rafraichir",
 	"uninstallModernAppsButton": "Desinstaller",
 	"txtModernAppsTitle": "Desinstaller les applications UWP indesirables",
@@ -218,6 +226,7 @@
 	"HostsEditorForm": "Editeur d'Hosts",
 	"savebtn": "Enregistrer",
 	"closebtn": "Fermer",
+	"alreadyRunningMsg": "L'Optimiseur fonctionne déjà en arrière-plan!",
 	"adminMissingMsg": "Optimizer doit etre execute en tant qu'Administrateur!\nL'application va maintenant se fermer...",
 	"unsupportedMsg": "Optimizer fonctionne sous Windows 7 ou superieur !\nL'application va maintenant se fermer...",
 	"confInvalidVersionMsg": "La version de Windows ne correspond pas!",
@@ -352,5 +361,13 @@ Utile uniquement pour les tablettes ou les appareils avec un ecran tactile.",
 avant qu'elles ne soient diffusees au public.
 Il est considere comme un service inutile pour les utilisateurs qui ne souhaitent pas y participer.",
 	"featuresTip": "Les mises a jour des fonctionnalites sont techniquement de nouvelles versions de Windows, qui necessitent une mise a niveau.
-Cependant, elles sont considerees comme une procedure risquee. Il s'agit generalement de versions semestrielles."
+Cependant, elles sont considerees comme une procedure risquee. Il s'agit generalement de versions semestrielles.",
+	"tpmTip": "Contourne les exigences Secure Boot et TPM 2.0, permettant la mise à niveau vers Windows 11.",
+	"leftTaskbarTip": "Aligne les icônes de la barre des tâches sur la gauche.",
+	"snapAssistTip": "Désactivez Snap Assist Flyout lorsque vous survolez les boutons d'agrandissement.",
+	"widgetsTip": "Désactive la fonction Widgets et supprime l'icône Widgets de la barre des tâches.",
+	"chatTip": "Supprime l'icône de discussion de la barre des tâches.",
+	"smallerTaskbarTip": "Rend la taille de la barre des tâches et les icônes plus petites.",
+	"classicRibbonTip": "Restaure la barre de ruban classique de Windows 10 dans l'explorateur de fichiers.",
+	"classicContextTip": "Restaure le menu contextuel classique en supprimant 'Afficher plus d'options'."
 }

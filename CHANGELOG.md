@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [10.1] - 2021-10-06
+- New: Fully compatible with Windows 11
+- New: Align taskbar to te left
+- New: Disable Snap Assist, Widgets and Chat
+- New: Smaller taskbar size
+- New: Restore Classic Ribbon in File Explorer
+- New: Restore Classic Right-Click Menu (no Show More Options)
+- New: Disable TPM 2.0 checks, allowing the upgrading to Windows 11
+- New: Single-instance support
+- Improved: Exclude Drivers from Windows Update
+
 ## [10.0] - 2021-09-14
 - Code cleanup
 - Minor UI changes

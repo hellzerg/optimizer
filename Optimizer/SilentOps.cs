@@ -507,6 +507,106 @@ namespace Optimizer
             }
         }
 
+        // silent config processing for Windows 11 tweaks
+        internal static void ProcessSilentConfigWindows11()
+        {
+            if (CurrentSilentConfig.TaskbarToLeft.HasValue)
+            {
+                if (CurrentSilentConfig.TaskbarToLeft.Value)
+                {
+                    Optimize.AlignTaskbarToLeft();
+                }
+                else
+                {
+                    Optimize.AlignTaskbarToCenter();
+                }
+            }
+
+            if (CurrentSilentConfig.DisableSnapAssist.HasValue)
+            {
+                if (CurrentSilentConfig.DisableSnapAssist.Value)
+                {
+                    Optimize.DisableSnapAssist();
+                }
+                else
+                {
+                    Optimize.EnableSnapAssist();
+                }
+            }
+
+            if (CurrentSilentConfig.DisableWidgets.HasValue)
+            {
+                if (CurrentSilentConfig.DisableWidgets.Value)
+                {
+                    Optimize.DisableWidgets();
+                }
+                else
+                {
+                    Optimize.EnableWidgets();
+                }
+            }
+
+            if (CurrentSilentConfig.DisableChat.HasValue)
+            {
+                if (CurrentSilentConfig.DisableChat.Value)
+                {
+                    Optimize.DisableChat();
+                }
+                else
+                {
+                    Optimize.DisableChat();
+                }
+            }
+
+            if (CurrentSilentConfig.TaskbarSmaller.HasValue)
+            {
+                if (CurrentSilentConfig.TaskbarSmaller.Value)
+                {
+                    Optimize.SmallerTaskbar();
+                }
+                else
+                {
+                    Optimize.DefaultTaskbarSize();
+                }
+            }
+
+            if (CurrentSilentConfig.ClassicRibbon.HasValue)
+            {
+                if (CurrentSilentConfig.ClassicRibbon.Value)
+                {
+                    Optimize.EnableFileExplorerClassicRibbon();
+                }
+                else
+                {
+                    Optimize.DisableFileExplorerClassicRibbon();
+                }
+            }
+
+            if (CurrentSilentConfig.ClassicMenu.HasValue)
+            {
+                if (CurrentSilentConfig.ClassicMenu.Value)
+                {
+                    Optimize.DisableShowMoreOptions();
+                }
+                else
+                {
+                    Optimize.EnableShowMoreOptions();
+                }
+            }
+
+            if (CurrentSilentConfig.DisableTPMCheck.HasValue)
+            {
+                if (CurrentSilentConfig.DisableTPMCheck.Value)
+                {
+                    Optimize.DisableTPMCheck();
+                }
+                else
+                {
+                    Optimize.EnableTPMCheck();
+                }
+            }
+        }
+
         // updating options using silent config
         internal static void SilentUpdateOptionsGeneral()
         {
@@ -577,6 +677,42 @@ namespace Optimizer
             if (CurrentSilentConfig.DisableOneDrive.HasValue)
             {
                 Options.CurrentOptions.DisableOneDrive = CurrentSilentConfig.DisableOneDrive.Value;
+            }
+        }
+
+        internal static void SilentUpdateOptions11() 
+        {
+            if (CurrentSilentConfig.TaskbarToLeft.HasValue)
+            {
+                Options.CurrentOptions.TaskbarToLeft = CurrentSilentConfig.TaskbarToLeft.Value;
+            }
+            if (CurrentSilentConfig.DisableSnapAssist.HasValue)
+            {
+                Options.CurrentOptions.DisableSnapAssist = CurrentSilentConfig.DisableSnapAssist.Value;
+            }
+            if (CurrentSilentConfig.DisableWidgets.HasValue)
+            {
+                Options.CurrentOptions.DisableWidgets = CurrentSilentConfig.DisableWidgets.Value;
+            }
+            if (CurrentSilentConfig.DisableChat.HasValue)
+            {
+                Options.CurrentOptions.DisableChat = CurrentSilentConfig.DisableChat.Value;
+            }
+            if (CurrentSilentConfig.TaskbarSmaller.HasValue)
+            {
+                Options.CurrentOptions.TaskbarSmaller = CurrentSilentConfig.TaskbarSmaller.Value;
+            }
+            if (CurrentSilentConfig.ClassicRibbon.HasValue)
+            {
+                Options.CurrentOptions.ClassicRibbon = CurrentSilentConfig.ClassicRibbon.Value;
+            }
+            if (CurrentSilentConfig.ClassicMenu.HasValue)
+            {
+                Options.CurrentOptions.ClassicMenu = CurrentSilentConfig.ClassicMenu.Value;
+            }
+            if (CurrentSilentConfig.DisableTPMCheck.HasValue)
+            {
+                Options.CurrentOptions.DisableTPMCheck = CurrentSilentConfig.DisableTPMCheck.Value;
             }
         }
 

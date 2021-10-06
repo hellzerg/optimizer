@@ -56,6 +56,14 @@
 	"featuresSw": "Disable Feature Updates",
 	"actionSw": "Disable Notification Center",
 	"disableOneDriveSw": "Disable OneDrive",
+	"tpmSw": "Disable TPM 2.0 Check",
+	"leftTaskbarSw": "Align Taskbar to Left",
+	"snapAssistSw": "Disable Snap Assist",
+	"widgetsSw": "Disable Widgets",
+	"chatSw": "Disable Chat",
+	"smallerTaskbarSw": "Make Taskbar Smaller",
+	"classicRibbonSw": "Enable Classic Ribbon in Explorer",
+	"classicContextSw": "Enable Classic Right-Click Menu",
 	"refreshModernAppsButton": "Refresh",
 	"uninstallModernAppsButton": "Uninstall",
 	"txtModernAppsTitle": "Uninstall unwanted UWP apps",
@@ -224,6 +232,7 @@
 	"confInvalidFormatMsg": "Config file is in invalid format!",
 	"confNotFoundMsg": "Config file does not exist!",
 	"argInvalidMsg": "Invalid argument! Example: Optimizer.exe /silent.conf",
+	"alreadyRunningMsg": "Optimizer is already running in the background!",
 	"StartupPreviewForm": "Startup Items Preview",
 	"StartupRestoreForm": "Restore Startup Items",
 	"backupL": "Recover your startup items",
@@ -352,5 +361,13 @@ Useful only for tablets or devices with touch-screen.",
 before they are released to public.
 It's considered an unnecessary service for users who don't wish to participate.",
 	"featuresTip": "Feature Updates are technically new versions of Windows, that require an upgrade.
-However, they are considered a risky procedure. They are usually semi-annual releases."
+However, they are considered a risky procedure. They are usually semi-annual releases.",
+	"tpmTip": "Bypasses Secure Boot and TPM 2.0 requirements, allowing the upgrading to Windows 11.",
+	"leftTaskbarTip": "Aligns taskbar icons to the left.",
+	"snapAssistTip": "Disables Snap Assist Flyout when hovering maximize buttons.",
+	"widgetsTip": "Disables Widgets feature and removes Widgets icon from taskbar.",
+	"chatTip": "Removes Chat icon from taskbar.",
+	"smallerTaskbarTip": "Makes taskbar size and icons smaller.",
+	"classicRibbonTip": "Restores classic ribbon bar from Windows 10 in File Explorer.",
+	"classicContextTip": "Restores classic right-click menu, removing 'Show more options'."
 }

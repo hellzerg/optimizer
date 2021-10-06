@@ -56,6 +56,14 @@
 	"featuresSw": "Desabilitar Atualizações de Recursos",
 	"actionSw": "Desabilitar Centro de Notificações",
 	"disableOneDriveSw": "Desabilitar Microsoft OneDrive",
+	"tpmSw": "Desativar verificação TPM 2.0 ",
+	"leftTaskbarSw": "Alinhar a Barra de Tarefas à Esquerda",
+	"snapAssistSw": "Desativar Snap Assist",
+	"widgetsSw": "Desativar Widgets",
+	"chatSw": "Desativar bate-papo",
+	"smallerTaskbarSw": "Tornar a barra de tarefas menor",
+	"classicRibbonSw": "Habilitar Faixa Clássica",
+	"classicContextSw": "Habilitar menu clássico do botão direito",
 	"refreshModernAppsButton": "Atualizar",
 	"uninstallModernAppsButton": "Desinstalar",
 	"txtModernAppsTitle": "Desinstalar aplicativos desnecessários indesejados",
@@ -218,6 +226,7 @@
 	"HostsEditorForm": "Editor de Hosts",
 	"savebtn": "Salvar",
 	"closebtn": "Fechar",
+	"alreadyRunningMsg": "O Otimizador já está sendo executado em segundo plano!",
 	"adminMissingMsg": "O otimizador precisa ser executado como administrador!\nO aplicativo vai fechar agora...",
 	"unsupportedMsg": "O otimizador funciona no Windows 7 ou superior!\nO aplicativo vai fechar agora...",
 	"confInvalidVersionMsg": "A versão do Windows não é compatível!",
@@ -350,5 +359,13 @@ como rotação automática, brilho automático, etc.
 antes de serem divulgados ao público.
 É considerado um serviço desnecessário para usuários que não desejam participar.",
 	"featuresTip": "As atualizações de recursos são tecnicamente novas versões do Windows, que requerem uma atualização.
-No entanto, eles são considerados um procedimento arriscado. Geralmente são lançamentos semestrais."
+No entanto, eles são considerados um procedimento arriscado. Geralmente são lançamentos semestrais.",
+	"tpmTip": "Ignora os requisitos de inicialização segura e TPM 2.0, permitindo a atualização para o Windows 11.",
+	"leftTaskbarTip": "Alinha os ícones da barra de tarefas à esquerda.",
+	"snapAssistTip": "Desative Snap Assist Flyout ao passar o mouse sobre os botões de maximização.",
+	"widgetsTip": "Desativa o recurso Widgets e remove o ícone Widgets da barra de tarefas.",
+	"chatTip": "Remove o ícone de bate-papo da barra de tarefas.",
+	"smallerTaskbarTip": "Diminui o tamanho e os ícones da barra de tarefas.",
+	"classicRibbonTip": "Restaura a barra de fita clássica do Windows 10 no File Explorer.",
+	"classicContextTip": "Restaura o menu clássico do botão direito, removendo 'Mostrar mais opções'."
 }

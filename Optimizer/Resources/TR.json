@@ -56,6 +56,14 @@
 	"featuresSw": "Özellik Güncellemelerini Devre Dışı Bırak",
 	"actionSw": "Bildirim Merkezini Devre Dışı Bırak",
 	"disableOneDriveSw": "OneDrive'ı Devre Dışı Bırak",
+	"tpmSw": "TPM 2.0 Kontrolünü Devre Dışı Bırak",
+	"leftTaskbarSw": "Görev Çubuğunu Sola Hizala",
+	"snapAssistSw": "Snap Assist'i devre dışı bırak",
+	"widgetsSw": "Widgets Devre Dışı Bırak",
+	"chatSw": "Sohbeti Devre Dışı Bırak",
+	"smallerTaskbarSw": "Görev Çubuğunu Küçült",
+	"classicRibbonSw": "Explorer'da Klasik Şeridi Etkinleştir",
+	"classicContextSw": "Klasik Sağ Tıklama Menüsünü Etkinleştir",
 	"refreshModernAppsButton": "Yenile",
 	"uninstallModernAppsButton": "Kaldır",
 	"txtModernAppsTitle": "İstenmeyen UWP Uygulamalarını Kaldırın",
@@ -218,6 +226,7 @@
 	"HostsEditorForm": "Hosts Düzenleyici(Editor)",
 	"savebtn": "Kaydet",
 	"closebtn": "Kapat",
+	"alreadyRunningMsg": "Optimizer edici zaten arka planda çalışıyor!",
 	"adminMissingMsg": "Optimize edicinin yönetici olarak çalıştırılması gerekiyor!\nUygulama şimdi kapanacak...",
 	"unsupportedMsg": "Optimize Edici, Windows 7 veya sonraki sürümlerde çalışır!\nUygulama şimdi kapanacak...",
 	"confInvalidVersionMsg": "Windows sürümü eşleşmiyor!",
@@ -352,5 +361,13 @@ Yalnızca dokunmatik ekranlı tabletler veya cihazlar için kullanışlıdır.",
 test etmenize olanak tanır.
 Katılmak istemeyen kullanıcılar için gereksiz bir hizmet olarak kabul edilir.",
 	"featuresTip": "Özellik Güncelleştirmeleri, teknik olarak Windows'un yükseltme gerektiren yeni sürümleridir.
-Ancak, riskli bir prosedür olarak kabul edilirler. Genellikle altı aylık yayınlardır."
+Ancak, riskli bir prosedür olarak kabul edilirler. Genellikle altı aylık yayınlardır.",
+	"tpmTip": "Güvenli Önyükleme ve TPM 2.0 gereksinimlerini atlayarak Windows 11'e yükseltmeye izin verir.",
+	"leftTaskbarTip": "Görev çubuğu simgelerini sola hizalar.",
+	"snapAssistTip": "Büyütme düğmeleri üzerinde gezinirken Snap Assist Flyout'u devre dışı bırakın.",
+	"widgetsTip": "Widget'lar özelliğini devre dışı bırakır ve Widget'lar simgesini görev çubuğundan kaldırır.",
+	"chatTip": "Görev çubuğundan Sohbet simgesini kaldırır.",
+	"smallerTaskbarTip": "Görev çubuğunun boyutunu ve simgelerini küçültür.",
+	"classicRibbonTip": "Dosya Gezgini'nde Windows 10'dan klasik şerit çubuğunu geri yükler.",
+	"classicContextTip": "'Daha fazla seçenek göster' seçeneğini kaldırarak klasik sağ tıklama menüsünü geri yükler."
 }

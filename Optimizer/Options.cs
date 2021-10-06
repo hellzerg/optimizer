@@ -18,6 +18,7 @@ namespace Optimizer
 
         public LanguageCode LanguageCode { get; set; }
 
+        // universal
         public bool EnablePerformanceTweaks { get; set; }
         public bool DisableNetworkThrottling { get; set; }
         public bool DisableWindowsDefender { get; set; }
@@ -35,6 +36,7 @@ namespace Optimizer
         public bool DisableCloudClipboard { get; set; }
         public bool DisableStickyKeys { get; set; }
 
+        // windows 10
         public bool EnableLegacyVolumeSlider { get; set; }
         public bool EnableTaskbarColor { get; set; }
         public bool DisableQuickAccessHistory { get; set; }
@@ -58,7 +60,18 @@ namespace Optimizer
         public bool RemoveCastToDevice { get; set; }
         public bool DisableActionCenter { get; set; }
 
+        // windows 8
         public bool DisableOneDrive { get; set; }
+
+        // windows 11
+        public bool TaskbarToLeft { get; set; }
+        public bool DisableSnapAssist { get; set; }
+        public bool DisableWidgets { get; set; }
+        public bool DisableChat { get; set; }
+        public bool TaskbarSmaller { get; set; }
+        public bool ClassicRibbon { get; set; }
+        public bool ClassicMenu { get; set; }
+        public bool DisableTPMCheck { get; set; }
     }
 
     internal static class Options
@@ -157,6 +170,17 @@ namespace Optimizer
             }
         }
 
+        internal static void LegacyCheck()
+        {
+            if (File.Exists(SettingsFile))
+            {
+                if (File.ReadAllText(SettingsFile).Contains("FirstRun"))
+                {
+                    File.Delete(SettingsFile);
+                }
+            }
+        }
+
         internal static void SaveSettings()
         {
             if (File.Exists(SettingsFile))
@@ -235,6 +259,15 @@ namespace Optimizer
                 CurrentOptions.DisableActionCenter = false;
 
                 CurrentOptions.DisableOneDrive = false;
+
+                CurrentOptions.TaskbarToLeft = false;
+                CurrentOptions.DisableSnapAssist = false;
+                CurrentOptions.DisableWidgets = false;
+                CurrentOptions.DisableChat = false;
+                CurrentOptions.TaskbarSmaller = false;
+                CurrentOptions.ClassicRibbon = false;
+                CurrentOptions.ClassicMenu = false;
+                CurrentOptions.DisableTPMCheck = false;
 
                 using (FileStream fs = File.Open(SettingsFile, FileMode.CreateNew))
                 using (StreamWriter sw = new StreamWriter(fs))

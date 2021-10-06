@@ -48,5 +48,14 @@ namespace Optimizer
         public bool? DisableActionCenter { get; set; }
 
         public bool? DisableOneDrive { get; set; }
+
+        public bool? TaskbarToLeft { get; set; }
+        public bool? DisableSnapAssist { get; set; }
+        public bool? DisableWidgets { get; set; }
+        public bool? DisableChat { get; set; }
+        public bool? TaskbarSmaller { get; set; }
+        public bool? ClassicRibbon { get; set; }
+        public bool? ClassicMenu { get; set; }
+        public bool? DisableTPMCheck { get; set; }
     }
 }

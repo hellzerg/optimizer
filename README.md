@@ -10,7 +10,7 @@ Optimizer is recommended after a fresh, clean installation of Windows to achieve
 
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/10.0/Optimizer-10.0.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/10.0/Optimizer-10.1.exe" target="_blank">
 		<img src="download-button.png">
 	</a>
 </p> 
@@ -56,7 +56,7 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 ## Compatibility: ##
 
 * .NET Framework 4.5.2
-* Compatible with Windows 7, 8, 8.1, 10
+* Compatible with Windows 7, 8, 8.1, 10, 11
 * Can run under Windows Server 2008, 2012, 2016, 2019 using /unsafe switch
 
 ## Tools used: ##
@@ -77,6 +77,6 @@ https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 10.0
-* Released: September 14, 2021
-* SHA256: B43EC609D4EC51269ED8831091AF840950295E8DF09099C1452236151A5A4358
+* Latest version: 10.1
+* Released: October 6, 2021
+* SHA256: F5636FEDA46EC3E6FAB5CF21D55C6069C83A1CE9ABAF306E9C6155B7C9F23E4D
