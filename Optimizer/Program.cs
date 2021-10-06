@@ -80,13 +80,13 @@ namespace Optimizer
                 if (Utilities.IsCompatible())
                 {
                     // single-instance mechanism
-                    int processCount = Process.GetProcesses().Count(p => p.ProcessName.ToLowerInvariant().Contains("optimizer"));
+                    //int processCount = Process.GetProcesses().Count(p => p.ProcessName.ToLowerInvariant().Contains("optimizer"));
 
-                    if (processCount > 1)
-                    {
-                        MessageBox.Show(_alreadyRunningMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Environment.Exit(0);
-                    }
+                    //if (processCount > 1)
+                    //{
+                    //    MessageBox.Show(_alreadyRunningMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    Environment.Exit(0);
+                    //}
 
                     Required.Deploy();
 
