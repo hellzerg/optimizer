@@ -39,7 +39,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(686, 214);
+            this.panel1.Size = new System.Drawing.Size(757, 432);
             this.panel1.TabIndex = 0;
             // 
             // listPreview
@@ -47,15 +47,15 @@
             this.listPreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.listPreview.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listPreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listPreview.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listPreview.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listPreview.ForeColor = System.Drawing.Color.White;
             this.listPreview.FormattingEnabled = true;
             this.listPreview.HorizontalScrollbar = true;
-            this.listPreview.ItemHeight = 21;
+            this.listPreview.ItemHeight = 17;
             this.listPreview.Location = new System.Drawing.Point(0, 0);
             this.listPreview.Name = "listPreview";
             this.listPreview.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listPreview.Size = new System.Drawing.Size(686, 214);
+            this.listPreview.Size = new System.Drawing.Size(757, 432);
             this.listPreview.TabIndex = 0;
             // 
             // StartupPreviewForm
@@ -63,7 +63,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(686, 214);
+            this.ClientSize = new System.Drawing.Size(757, 432);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

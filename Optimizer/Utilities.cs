@@ -635,7 +635,19 @@ namespace Optimizer
             }
             finally
             {
-                if (withoutRestart == false) Application.Restart();
+                if (withoutRestart == false)
+                {
+                    // BYPASS SINGLE-INSTANCE MECHANISM
+                    if (Program.MUTEX != null)
+                    {
+                        Program.MUTEX.ReleaseMutex();
+                        Program.MUTEX.Dispose();
+                        Program.MUTEX = null;
+                    }
+
+                    Application.Restart();
+                }
+                
             }
         }
 

@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [10.2] - 2021-10-07
+- New: Optimizer now runs in single-instance mode
+- Improved: Preview and select files before cleaning
+- Improved: French translation
+
 ## [10.1] - 2021-10-06
 - New: Fully compatible with Windows 11 (with silent configuration support)
 - New: Align taskbar to te left

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
@@ -16,7 +14,7 @@ namespace Optimizer
         // Enter current version here
 
         internal readonly static float Major = 10;
-        internal readonly static float Minor = 1;
+        internal readonly static float Minor = 2;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
@@ -50,6 +48,10 @@ namespace Optimizer
         static string _argInvalidMsg = "Invalid argument! Example: Optimizer.exe /silent.conf";
         static string _alreadyRunningMsg = "Optimizer is already running in the background!";
 
+        const string MUTEX_GUID = @"{DEADMOON-0EFC7B8A-D1FC-467F-B4B1-0117C643FE19-OPTIMIZER}";
+        internal static Mutex MUTEX;
+        static bool _notRunning;
+
         [STAThread]
         static void Main(string[] switches)
         {
@@ -68,168 +70,171 @@ namespace Optimizer
             //    Environment.Exit(0);
             //}
 
-            if (!Utilities.IsAdmin())
+            // single-instance mechanism
+            using (MUTEX = new Mutex(true, MUTEX_GUID, out _notRunning))
             {
-                HelperForm f = new HelperForm(null, MessageType.Error, _adminMissingMessage);
-                f.ShowDialog();
-
-                Application.Exit();
-            }
-            else
-            {
-                if (Utilities.IsCompatible())
+                if (!_notRunning)
                 {
-                    // single-instance mechanism
-                    //int processCount = Process.GetProcesses().Count(p => p.ProcessName.ToLowerInvariant().Contains("optimizer"));
-
-                    //if (processCount > 1)
-                    //{
-                    //    MessageBox.Show(_alreadyRunningMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //    Environment.Exit(0);
-                    //}
-
-                    Required.Deploy();
-
-                    // for backward compatibility (legacy)
-                    Options.LegacyCheck();
-
-                    // load settings, if there is no settings, load defaults
-                    try
+                    MessageBox.Show(_alreadyRunningMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    if (!Utilities.IsAdmin())
                     {
-                        // show FirstRunForm if app is running first time
-                        if (!File.Exists(Options.SettingsFile))
-                        {
-                            Options.LoadSettings();
-                            FirstRunForm frf = new FirstRunForm();
-                            frf.ShowDialog();
-                        }
-                        else
-                        {
-                            Options.LoadSettings();
-                        }
+                        HelperForm f = new HelperForm(null, MessageType.Error, _adminMissingMessage);
+                        f.ShowDialog();
 
-                        // ideal place to replace internal messages from translation list
-                        _adminMissingMessage = Options.TranslationList["adminMissingMsg"];
-                        _unsupportedMessage = Options.TranslationList["unsupportedMsg"];
-                        _confInvalidFormatMsg = Options.TranslationList["confInvalidFormatMsg"];
-                        _confInvalidVersionMsg = Options.TranslationList["confInvalidVersionMsg"];
-                        _confNotFoundMsg = Options.TranslationList["confNotFoundMsg"];
-                        _argInvalidMsg = Options.TranslationList["argInvalidMsg"];
-                        _alreadyRunningMsg = Options.TranslationList["alreadyRunningMsg"];
+                        Application.Exit();
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        ErrorLogger.LogError("Program.Main", ex.Message, ex.StackTrace);
-                    }
-
-                    // checking for silent config argument
-                    if (switches.Length == 1)
-                    {
-                        string arg = switches[0].Trim();
-
-                        // UNSAFE mode switch (allows running on Windows Server 2008+)
-                        if (arg == "/unsafe")
+                        if (Utilities.IsCompatible())
                         {
-                            UNSAFE_MODE = true;
-                            Application.Run(new MainForm());
-                            return;
-                        }
+                            Required.Deploy();
 
-                        // resets configuration
-                        if (arg == "/reset")
-                        {
-                            Utilities.ResetConfiguration(true);
-                            return;
-                        }
+                            // for backward compatibility (legacy)
+                            Options.LegacyCheck();
 
-                        // disables Defender in SAFE MODE (for Windows 10 1903+)
-                        if (arg == "/disabledefender")
-                        {
-                            File.WriteAllText("DisableDefenderSafeMode.bat", Properties.Resources.DisableDefenderSafeMode1903Plus);
-                            Utilities.RunBatchFile("DisableDefenderSafeMode.bat");
-                            System.Threading.Thread.Sleep(1000);
-                            Utilities.RunBatchFile("DisableDefenderSafeMode.bat");
-                            System.Threading.Thread.Sleep(1000);
-                            File.Delete("DisableDefenderSafeMode.bat");
-
-                            return;
-                        }
-
-                        if (arg.StartsWith("/"))
-                        {
-                            if (File.Exists(arg.Remove(0, 1)))
+                            // load settings, if there is no settings, load defaults
+                            try
                             {
-                                SilentOps.GetSilentConfig(arg.Remove(0, 1));
-
-                                if (SilentOps.CurrentSilentConfig != null)
+                                // show FirstRunForm if app is running first time
+                                if (!File.Exists(Options.SettingsFile))
                                 {
-                                    if (SilentOps.CurrentSilentConfig.WindowsVersion == 7 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
+                                    Options.LoadSettings();
+                                    FirstRunForm frf = new FirstRunForm();
+                                    frf.ShowDialog();
+                                }
+                                else
+                                {
+                                    Options.LoadSettings();
+                                }
+
+                                // ideal place to replace internal messages from translation list
+                                _adminMissingMessage = Options.TranslationList["adminMissingMsg"];
+                                _unsupportedMessage = Options.TranslationList["unsupportedMsg"];
+                                _confInvalidFormatMsg = Options.TranslationList["confInvalidFormatMsg"];
+                                _confInvalidVersionMsg = Options.TranslationList["confInvalidVersionMsg"];
+                                _confNotFoundMsg = Options.TranslationList["confNotFoundMsg"];
+                                _argInvalidMsg = Options.TranslationList["argInvalidMsg"];
+                                _alreadyRunningMsg = Options.TranslationList["alreadyRunningMsg"];
+                            }
+                            catch (Exception ex)
+                            {
+                                ErrorLogger.LogError("Program.Main", ex.Message, ex.StackTrace);
+                            }
+
+                            // checking for silent config argument
+                            if (switches.Length == 1)
+                            {
+                                string arg = switches[0].Trim();
+
+                                // UNSAFE mode switch (allows running on Windows Server 2008+)
+                                if (arg == "/unsafe")
+                                {
+                                    UNSAFE_MODE = true;
+                                    Application.Run(new MainForm());
+                                    return;
+                                }
+
+                                // resets configuration
+                                if (arg == "/reset")
+                                {
+                                    Utilities.ResetConfiguration(true);
+                                    return;
+                                }
+
+                                // disables Defender in SAFE MODE (for Windows 10 1903+)
+                                if (arg == "/disabledefender")
+                                {
+                                    File.WriteAllText("DisableDefenderSafeMode.bat", Properties.Resources.DisableDefenderSafeMode1903Plus);
+                                    Utilities.RunBatchFile("DisableDefenderSafeMode.bat");
+                                    System.Threading.Thread.Sleep(1000);
+                                    Utilities.RunBatchFile("DisableDefenderSafeMode.bat");
+                                    System.Threading.Thread.Sleep(1000);
+                                    File.Delete("DisableDefenderSafeMode.bat");
+
+                                    return;
+                                }
+
+                                if (arg.StartsWith("/"))
+                                {
+                                    if (File.Exists(arg.Remove(0, 1)))
                                     {
-                                        SilentOps.ProcessSilentConfigGeneral();
-                                        SilentOps.SilentUpdateOptionsGeneral();
-                                        Options.SaveSettings();
-                                    }
-                                    else if (SilentOps.CurrentSilentConfig.WindowsVersion == 8 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
-                                    {
-                                        SilentOps.ProcessSilentConfigGeneral();
-                                        SilentOps.ProcessSilentConfigWindows8();
-                                        SilentOps.SilentUpdateOptionsGeneral();
-                                        SilentOps.SilentUpdateOptions8();
-                                        Options.SaveSettings();
-                                    }
-                                    else if (SilentOps.CurrentSilentConfig.WindowsVersion == 10 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
-                                    {
-                                        SilentOps.ProcessSilentConfigGeneral();
-                                        SilentOps.ProcessSilentConfigWindows10();
-                                        SilentOps.SilentUpdateOptionsGeneral();
-                                        SilentOps.SilentUpdateOptions10();
-                                        Options.SaveSettings();
-                                    }
-                                    else if (SilentOps.CurrentSilentConfig.WindowsVersion == 11 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows11)
-                                    {
-                                        SilentOps.ProcessSilentConfigGeneral();
-                                        SilentOps.ProcessSilentConfigWindows10();
-                                        SilentOps.ProcessSilentConfigWindows11();
-                                        SilentOps.SilentUpdateOptionsGeneral();
-                                        SilentOps.SilentUpdateOptions10();
-                                        SilentOps.SilentUpdateOptions11();
-                                        Options.SaveSettings();
+                                        SilentOps.GetSilentConfig(arg.Remove(0, 1));
+
+                                        if (SilentOps.CurrentSilentConfig != null)
+                                        {
+                                            if (SilentOps.CurrentSilentConfig.WindowsVersion == 7 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
+                                            {
+                                                SilentOps.ProcessSilentConfigGeneral();
+                                                SilentOps.SilentUpdateOptionsGeneral();
+                                                Options.SaveSettings();
+                                            }
+                                            else if (SilentOps.CurrentSilentConfig.WindowsVersion == 8 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
+                                            {
+                                                SilentOps.ProcessSilentConfigGeneral();
+                                                SilentOps.ProcessSilentConfigWindows8();
+                                                SilentOps.SilentUpdateOptionsGeneral();
+                                                SilentOps.SilentUpdateOptions8();
+                                                Options.SaveSettings();
+                                            }
+                                            else if (SilentOps.CurrentSilentConfig.WindowsVersion == 10 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
+                                            {
+                                                SilentOps.ProcessSilentConfigGeneral();
+                                                SilentOps.ProcessSilentConfigWindows10();
+                                                SilentOps.SilentUpdateOptionsGeneral();
+                                                SilentOps.SilentUpdateOptions10();
+                                                Options.SaveSettings();
+                                            }
+                                            else if (SilentOps.CurrentSilentConfig.WindowsVersion == 11 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows11)
+                                            {
+                                                SilentOps.ProcessSilentConfigGeneral();
+                                                SilentOps.ProcessSilentConfigWindows10();
+                                                SilentOps.ProcessSilentConfigWindows11();
+                                                SilentOps.SilentUpdateOptionsGeneral();
+                                                SilentOps.SilentUpdateOptions10();
+                                                SilentOps.SilentUpdateOptions11();
+                                                Options.SaveSettings();
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show(_confInvalidVersionMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                Environment.Exit(0);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show(_confInvalidFormatMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            Environment.Exit(0);
+                                        }
                                     }
                                     else
                                     {
-                                        MessageBox.Show(_confInvalidVersionMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MessageBox.Show(_confNotFoundMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         Environment.Exit(0);
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show(_confInvalidFormatMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show(_argInvalidMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     Environment.Exit(0);
                                 }
                             }
                             else
                             {
-                                MessageBox.Show(_confNotFoundMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                Environment.Exit(0);
+                                Application.Run(new MainForm());
                             }
                         }
                         else
                         {
-                            MessageBox.Show(_argInvalidMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Environment.Exit(0);
+                            HelperForm f = new HelperForm(null, MessageType.Error, _unsupportedMessage);
+                            f.ShowDialog();
+
+                            Application.Exit();
                         }
                     }
-                    else
-                    {
-                        Application.Run(new MainForm());
-                    }
-                }
-                else
-                {
-                    HelperForm f = new HelperForm(null, MessageType.Error, _unsupportedMessage);
-                    f.ShowDialog();
-
-                    Application.Exit();
                 }
             }
         }

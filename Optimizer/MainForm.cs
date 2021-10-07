@@ -12,7 +12,6 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -141,6 +140,15 @@ namespace Optimizer
                             File.Move(tempFile, appFile);
 
                             _trayMenu = false;
+
+                            // BYPASS SINGLE-INSTANCE MECHANISM
+                            if (Program.MUTEX != null)
+                            {
+                                Program.MUTEX.ReleaseMutex();
+                                Program.MUTEX.Dispose();
+                                Program.MUTEX = null;
+                            }
+
                             Application.Restart();
                         }
                         catch (Exception ex)
@@ -850,23 +858,15 @@ namespace Optimizer
             {
                 if (checkTemp.Checked)
                 {
-                    CleanHelper.CleanTemporaries();
+                    CleanHelper.PreviewTemp();
                 }
                 if (checkMiniDumps.Checked)
                 {
-                    CleanHelper.CleanMiniDumps();
-                }
-                if (checkMediaCache.Checked)
-                {
-                    CleanHelper.CleanMediaPlayersCache();
-                }
-                if (checkLogs.Checked)
-                {
-                    CleanHelper.CleanLogs();
+                    CleanHelper.PreviewMinidumps();
                 }
                 if (checkErrorReports.Checked)
                 {
-                    CleanHelper.CleanErrorReports();
+                    CleanHelper.PreviewErrorReports();
                 }
                 if (checkBin.Checked)
                 {
@@ -879,7 +879,7 @@ namespace Optimizer
             }
             finally
             {
-                Cleaning(false);
+                if (CleanHelper.PreviewCleanList.Count > 0) new CleanPreviewForm(CleanHelper.PreviewCleanList).ShowDialog();
                 GetFootprint();
             }
         }
@@ -1004,7 +1004,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GetDesktopItems()
@@ -1190,28 +1190,18 @@ namespace Optimizer
         {
             checkTemp.Checked = checkSelectAll.Checked;
             checkMiniDumps.Checked = checkSelectAll.Checked;
-            checkMediaCache.Checked = checkSelectAll.Checked;
-            checkLogs.Checked = checkSelectAll.Checked;
-            checkBin.Checked = checkSelectAll.Checked;
             checkErrorReports.Checked = checkSelectAll.Checked;
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
-            Cleaning(true);
-            Task t = new Task(() => CleanPC());
-            t.Start();
-        }
-
-        private void Cleaning(bool enabled)
-        {
-            cleanDriveB.Enabled = !enabled;
-            cleanDriveB.Text = (enabled) ? "..." : Options.TranslationList["cleanDriveB"];
+            CleanHelper.PreviewCleanList.Clear();
+            CleanPC();
         }
 
         private void button32_Click(object sender, EventArgs e)
         {
-            if (listStartupItems.CheckedItems.Count <= 0) return; 
+            if (listStartupItems.CheckedItems.Count <= 0) return;
 
             string report = string.Empty;
 
@@ -3122,6 +3112,18 @@ namespace Optimizer
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             radioFrench.PerformClick();
+        }
+
+        private void listStartupItems_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            if (e.Item.Checked)
+            {
+                e.Item.ForeColor = Options.ForegroundColor;
+            }
+            else
+            {
+                e.Item.ForeColor = Color.White;
+            }
         }
     }
 }

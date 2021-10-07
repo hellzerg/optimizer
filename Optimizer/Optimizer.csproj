@@ -97,6 +97,9 @@
     <Compile Include="AppCard.Designer.cs">
       <DependentUpon>AppCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="ColoredControls\ColoredCheckList.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ColoredControls\ColoredProgress.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -120,6 +123,12 @@
     </Compile>
     <Compile Include="FirstRunForm.Designer.cs">
       <DependentUpon>FirstRunForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CleanPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CleanPreviewForm.Designer.cs">
+      <DependentUpon>CleanPreviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Hardware.cs" />
     <Compile Include="HostsEditorForm.cs">
@@ -189,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FirstRunForm.resx">
       <DependentUpon>FirstRunForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CleanPreviewForm.resx">
+      <DependentUpon>CleanPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HostsEditorForm.resx">
       <DependentUpon>HostsEditorForm.cs</DependentUpon>

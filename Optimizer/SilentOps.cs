@@ -680,7 +680,7 @@ namespace Optimizer
             }
         }
 
-        internal static void SilentUpdateOptions11() 
+        internal static void SilentUpdateOptions11()
         {
             if (CurrentSilentConfig.TaskbarToLeft.HasValue)
             {

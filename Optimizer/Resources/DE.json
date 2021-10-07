@@ -74,6 +74,7 @@
 	"removeStartupItemB": "Entfernen",
 	"locateFileB": "Datei suchen",
 	"findInRegB": "In der Registry suchen",
+	"CleanPreviewForm": "Vorschau Bereinigen",
 	"refreshStartupB": "Aktualisieren",
 	"restoreStartupB": "Wiederherstellen",
 	"backupStartupB": "Backup",

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -15,36 +16,50 @@ namespace Optimizer
         internal static readonly string ProfileAppDataRoaming = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         internal static readonly string ProgramData = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
         internal static readonly string ProfileAppDataLocal = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-        internal static readonly string ProfileAppDataLocalLow = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "Low";
-        internal static readonly string OSDrive = System32Folder.Substring(0, 3);
+        //internal static readonly string ProfileAppDataLocalLow = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "Low";
+        //internal static readonly string OSDrive = System32Folder.Substring(0, 3);
         internal static readonly string OSDriveWindows = Environment.GetEnvironmentVariable("WINDIR", EnvironmentVariableTarget.Machine);
 
-        internal static void EmptyFolder(string path)
+        internal static List<string> PreviewCleanList = new List<string>();
+
+        internal static void PreviewFolder(string path)
         {
             try
             {
                 DirectoryInfo di = new DirectoryInfo(path);
 
-                foreach (FileInfo file in di.GetFiles())
+                foreach (FileInfo file in di.GetFiles("*", SearchOption.AllDirectories))
                 {
                     try
                     {
-                        file.IsReadOnly = false;
-                        file.Delete();
+                        PreviewCleanList.Add(file.FullName);
                     }
                     catch { }
                 }
 
-                foreach (DirectoryInfo dir in di.GetDirectories())
+                foreach (DirectoryInfo dir in di.GetDirectories("*", SearchOption.AllDirectories))
                 {
                     try
                     {
-                        dir.Delete(true);
+                        PreviewCleanList.Add(dir.FullName);
                     }
                     catch { }
                 }
             }
             catch { }
+        }
+
+        internal static void Clean()
+        {
+            foreach (string x in PreviewCleanList)
+            {
+                try
+                {
+                    if (Directory.Exists(x)) Directory.Delete(x);
+                    if (File.Exists(x)) File.Delete(x);
+                }
+                catch { }
+            }
         }
 
         internal static void EmptyRecycleBin()
@@ -52,45 +67,26 @@ namespace Optimizer
             SHEmptyRecycleBin(IntPtr.Zero, null, RecycleFlag.SHERB_NOSOUND | RecycleFlag.SHERB_NOCONFIRMATION);
         }
 
-        internal static void CleanTemporaries()
+        internal static void PreviewTemp()
         {
-            EmptyFolder(TempFolder);
+            PreviewFolder(TempFolder);
         }
 
-        internal static void CleanMiniDumps()
+        internal static void PreviewMinidumps()
         {
-            EmptyFolder(OSDriveWindows + "\\Minidump");
+            PreviewFolder(OSDriveWindows + "\\Minidump");
         }
 
-        internal static void CleanErrorReports()
+        internal static void PreviewErrorReports()
         {
-            EmptyFolder(ProfileAppDataLocal + "\\Microsoft\\Windows\\WER\\ReportArchive");
-            EmptyFolder(ProfileAppDataLocal + "\\Microsoft\\Windows\\WER\\ReportQueue");
-            EmptyFolder(ProfileAppDataLocal + "\\Microsoft\\Windows\\WER\\Temp");
-            EmptyFolder(ProfileAppDataLocal + "\\Microsoft\\Windows\\WER\\ERC");
-            EmptyFolder(ProgramData + "\\Microsoft\\Windows\\WER\\ReportArchive");
-            EmptyFolder(ProgramData + "\\Microsoft\\Windows\\WER\\ReportQueue");
-            EmptyFolder(ProgramData + "\\Microsoft\\Windows\\WER\\Temp");
-            EmptyFolder(ProgramData + "\\Microsoft\\Windows\\WER\\ERC");
-        }
-
-        internal static void CleanMediaPlayersCache()
-        {
-            EmptyFolder(ProfileAppDataLocal + "\\Microsoft\\Media Player");
-            EmptyFolder(ProfileAppDataLocalLow + "\\Apple Computer\\QuickTime\\downloads");
-            EmptyFolder(ProfileAppDataRoaming + "\\Macromedia");
-
-            try
-            {
-                File.Delete(ProfileAppDataLocalLow + "\\Apple Computer\\QuickTime\\QTPlayerSession.xml");
-            }
-            catch { }
-        }
-
-        internal static void CleanLogs()
-        {
-            EmptyFolder(System32Folder + "\\LogFiles");
-            EmptyFolder(OSDrive + "\\inetpub\\logs\\LogFiles");
+            PreviewFolder(ProfileAppDataLocal + "\\Microsoft\\Windows\\WER\\ReportArchive");
+            PreviewFolder(ProfileAppDataLocal + "\\Microsoft\\Windows\\WER\\ReportQueue");
+            PreviewFolder(ProfileAppDataLocal + "\\Microsoft\\Windows\\WER\\Temp");
+            PreviewFolder(ProfileAppDataLocal + "\\Microsoft\\Windows\\WER\\ERC");
+            PreviewFolder(ProgramData + "\\Microsoft\\Windows\\WER\\ReportArchive");
+            PreviewFolder(ProgramData + "\\Microsoft\\Windows\\WER\\ReportQueue");
+            PreviewFolder(ProgramData + "\\Microsoft\\Windows\\WER\\Temp");
+            PreviewFolder(ProgramData + "\\Microsoft\\Windows\\WER\\ERC");
         }
 
         // only for TEMP folder

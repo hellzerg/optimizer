@@ -8,6 +8,7 @@ namespace Optimizer
     {
         public ColoredProgress()
         {
+            DoubleBuffered = true;
             this.SetStyle(ControlStyles.UserPaint, true);
         }
 

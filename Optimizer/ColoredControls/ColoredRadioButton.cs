@@ -6,6 +6,11 @@ namespace Optimizer
 {
     public class ColoredRadioButton : RadioButton
     {
+        public ColoredRadioButton()
+        {
+            DoubleBuffered = true;
+        }
+
         protected override void OnCheckedChanged(EventArgs e)
         {
             base.OnCheckedChanged(e);

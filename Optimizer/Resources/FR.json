@@ -7,6 +7,7 @@
 	"txtVersion": "Version: {VN}",
 	"txtBitness": "Vous travaillez avec {BITS}",
 	"linkUpdate": "Mise a jour disponible",
+	"CleanPreviewForm": "Nettoyer L'aperçu",
 	"lblLab": "build Experimental\n(supprimer apres avoir teste)",
 	"performanceSw": "Activer les Tweaks de Performance",
 	"networkSw": "Desactiver la limitation du reseau",

@@ -11,7 +11,7 @@ namespace Optimizer
         {
             try
             {
-                if (!File.Exists(ErrorLogFile) || ( File.Exists(ErrorLogFile) && File.ReadAllText(ErrorLogFile).Trim() == string.Empty ))
+                if (!File.Exists(ErrorLogFile) || (File.Exists(ErrorLogFile) && File.ReadAllText(ErrorLogFile).Trim() == string.Empty))
                 {
                     string bitness = Environment.Is64BitOperatingSystem ? "64-bit" : "32-bit";
 

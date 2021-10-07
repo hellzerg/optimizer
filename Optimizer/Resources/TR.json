@@ -6,6 +6,7 @@
 	"restartAndApply": "Değişiklikleri uygulamak için yeniden başlatılsın mı?",
 	"txtVersion": "Versiyon: {VN}",
 	"txtBitness": "{BITS} ile çalışıyor.",
+	"CleanPreviewForm": "Temiz Önizleme",
 	"linkUpdate": "Güncelleme Mevcut",
 	"lblLab": "Deneysel Yapı\n(Testten sonra silin)",
 	"performanceSw": "Performans Ayarlarını Etkinleştir",

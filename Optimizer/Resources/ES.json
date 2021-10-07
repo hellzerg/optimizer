@@ -8,6 +8,7 @@
 	"txtBitness": "Estas trabajando con {BITS}",
 	"linkUpdate": "Actualización disponible",
 	"lblLab": "Lamzamiento experimental\n(eliminar después de la prueba)",
+	"CleanPreviewForm": "Vista Previa Limpia",
 	"performanceSw": "Habilitar ajustes de rendimiento",
 	"networkSw": "Deshabilitar la limitación de la red",
 	"defenderSw": "Deshabilitar Windows Defender",

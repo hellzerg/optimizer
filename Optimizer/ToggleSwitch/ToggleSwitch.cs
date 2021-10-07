@@ -68,6 +68,8 @@ namespace Optimizer
 
         public ToggleSwitch()
         {
+            DoubleBuffered = true;
+
             SetStyle(ControlStyles.ResizeRedraw |
                         ControlStyles.SupportsTransparentBackColor |
                         ControlStyles.AllPaintingInWmPaint |

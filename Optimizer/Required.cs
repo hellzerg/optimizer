@@ -111,10 +111,5 @@ namespace Optimizer
                 }
             }
         }
-
-        internal static void Clean()
-        {
-            CleanHelper.EmptyFolder(CoreFolder);
-        }
     }
 }
