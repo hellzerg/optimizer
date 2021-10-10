@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [10.3] - 2021-10-10
+- Improved: Disable TPM Check (both 2.0, 1.2 and RAM check)
+
 ## [10.2] - 2021-10-07
 - New: Optimizer now runs in single-instance mode
 - Improved: Preview and select files before cleaning

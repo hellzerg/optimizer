@@ -3125,5 +3125,17 @@ namespace Optimizer
                 e.Item.ForeColor = Color.White;
             }
         }
+
+        private void trayOptions_Click(object sender, EventArgs e)
+        {
+            tabCollection.SelectedTab = optionsTab;
+            RestoreWindow();
+        }
+
+        private void trayRegistry_Click(object sender, EventArgs e)
+        {
+            tabCollection.SelectedTab = registryFixerTab;
+            RestoreWindow();
+        }
     }
 }

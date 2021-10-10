@@ -11,10 +11,8 @@ namespace Optimizer
         /* VERSION PROPERTIES */
         /* DO NOT LEAVE THEM EMPTY */
 
-        // Enter current version here
-
         internal readonly static float Major = 10;
-        internal readonly static float Minor = 2;
+        internal readonly static float Minor = 3;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 

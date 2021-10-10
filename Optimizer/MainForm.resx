@@ -1667,6 +1667,33 @@ any application only by typing your desired keyword.</value>
         AABJRU5ErkJggg==
 </value>
   </data>
+  <data name="trayRegistry.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAidJREFUaEPNklGOKyEMBHP/U+VmbwWvBhmnDfYso01J9RHcbidSXk/xfr//WXn+
+        fvwX9xL7TtQXjmTlO1BfMCPrf4f6UlZi3/e3Ul/CSuwDlbUSexZ12EpsidqzEjuPOnZJJI3quCRyHnXs
+        kkgJ1dNkfB51zEpsi9q1EjuPOqYk/oHKKomfRx1byVpHzSNZOU90yL9XVPu99AlWh/xsJ2ud1ewomUM+
+        4yU2kckcYXfIz1ey0lnNjhId8u9ZWf+7H/CUnDuPOqZU2er+I6hjXqLyB1z4mZfYWdQhK7FBda4k+jtU
+        sZL4oDqPJF5HlWVkffkD/CwjqzlUwSWRbSbz5s1mQtSCldhAZe5I3YTKWYn9RwWsxELUTkbWQ9SOdRvq
+        gQKqQ0k8jeq4DIfsllFdVmJlVFfz2EG1u5K1FGr/MnWYnhC1k5UKicp7S8fpHajMHakbqEzkR7haoFQd
+        md5dps0b05v90B8MfraTtU5llpHVzvRuP/QHh59HEh/s5g2fURKdmOb2Q39w+Hkk8UF1Hkl8YprbD/0B
+        /HtW1pc/wM8ystqZ3u2H/uACd1QdJ3qbvudI6WkrPzYVbIWN7HtW1n/VuwzRM6jOV7LSWc0afm4Nh+xO
+        3MkoiQ5284bPXG4Pst+pzHay1qnMvMRywcxb1ai34d+tRD5R4TtSN1CZu1IZo5YqUiNR+axU5FElK1nb
+        onZXsnYfVWolVkZ1WYmd46kDvjff/Xr9AGYDf5yx3Td9AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="trayOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAXdJREFUaEPtj1EKgzAQBb3/qbxZS8lgFSfJbiu4hQ7Ml+89N8uVrOv6iEi8Fnbo
+        SGp1sCNHUquDHTmSWh3syJHU6mBHjqRWAzswIvX7seMiUr+e7M8sH5G6ks1vWHEvsQ3LZGRmwzJ7iTlW
+        qCjnnrFwRTn3iAUry9lvLFRZzm5Y4Bfk/P8DbpPzGxb4VCZPWPYbmW1YICtTU6yblakjFozKRBjbiMpE
+        HyvNpBrGNmZSjWEDPamksa2eVHLYkEk8jW2ZxPPYmEk8jW2ZxPPYmEk8jW2ZxPPYmEk8jW2ZxHPYUE8q
+        aWyrJ5UYNjCTahjbmEm1j5WiMhHGNqIyccSCWZmaYt2sTDUs8I3MnrDspzLZsMAvyPn/B9wm5zcsUFnO
+        fmOhynL2EQtWlHPPWLiinOtYYS+xDctkZGbDMnuJjckWLR+R+gnLvuTz9djPIlK/HzsuIvUa2IEjqdXB
+        jhxJrQ525EhqdbAjR1Krgx05klot7FCT+AUsyxOJu6CSUaL+ZAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="trayRestartExplorer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
