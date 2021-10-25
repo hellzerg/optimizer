@@ -119,7 +119,7 @@ namespace Optimizer
                 {
                     CurrentWindowsVersion = WindowsVersion.Windows8;
                 }
-                if (productName.Contains("Windows Server 2016") || productName.Contains("Windows Server 2019"))
+                if (productName.Contains("Windows Server 2016") || productName.Contains("Windows Server 2019") || productName.Contains("Windows Server 2022"))
                 {
                     CurrentWindowsVersion = WindowsVersion.Windows10;
                 }

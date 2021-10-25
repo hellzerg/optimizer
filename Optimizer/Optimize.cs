@@ -250,24 +250,24 @@ namespace Optimizer
             }
         }
 
-        internal static void DisableSkypeAds()
-        {
-            Registry.SetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\Domains\\skype.com\\apps", "https", "00000004", RegistryValueKind.DWord);
-            Registry.SetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\Domains\\skype.com\\apps", "http", "00000004", RegistryValueKind.DWord);
-        }
+        //internal static void DisableSkypeAds()
+        //{
+        //    Registry.SetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\Domains\\skype.com\\apps", "https", "00000004", RegistryValueKind.DWord);
+        //    Registry.SetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\Domains\\skype.com\\apps", "http", "00000004", RegistryValueKind.DWord);
+        //}
 
-        internal static void EnableSkypeAds()
-        {
-            try
-            {
-                Registry.CurrentUser.OpenSubKey(@"Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\Domains\\skype.com\\apps", true).DeleteValue("http", false);
-                Registry.CurrentUser.OpenSubKey(@"Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\Domains\\skype.com\\apps", true).DeleteValue("https", false);
-            }
-            catch (Exception ex)
-            {
-                ErrorLogger.LogError("Optimize.EnableSkypeAds", ex.Message, ex.StackTrace);
-            }
-        }
+        //internal static void EnableSkypeAds()
+        //{
+        //    try
+        //    {
+        //        Registry.CurrentUser.OpenSubKey(@"Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\Domains\\skype.com\\apps", true).DeleteValue("http", false);
+        //        Registry.CurrentUser.OpenSubKey(@"Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ZoneMap\\Domains\\skype.com\\apps", true).DeleteValue("https", false);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ErrorLogger.LogError("Optimize.EnableSkypeAds", ex.Message, ex.StackTrace);
+        //    }
+        //}
 
         internal static void DisableHomeGroup()
         {
