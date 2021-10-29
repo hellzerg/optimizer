@@ -639,6 +639,7 @@ namespace Optimizer
             if (Options.CurrentOptions.LanguageCode == LanguageCode.DE) radioGerman.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.PT) radioPortuguese.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.FR) radioFrench.Checked = true;
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.ES) radioSpanish.Checked = true;
 
             Program.MainForm = this;
 

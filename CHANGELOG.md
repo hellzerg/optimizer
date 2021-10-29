@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [10.4] - 2021-10-29
+- Hotfix: Crash when Spanish language is selected
+
 ## [10.3] - 2021-10-10
 - Improved: Disable TPM Check (both 2.0, 1.2 and RAM check)
 
