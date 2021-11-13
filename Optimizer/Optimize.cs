@@ -1025,6 +1025,9 @@ namespace Optimizer
                 k.SetValue("LaunchTo", 1, RegistryValueKind.DWord);
             }
 
+            // Disable News and Weather
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Feeds", "ShellFeedsTaskbarViewMode", "2", RegistryValueKind.DWord);
+
             // Hide search button from taskbar
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search", "SearchboxTaskbarMode", "0", RegistryValueKind.DWord);
 
@@ -1050,6 +1053,7 @@ namespace Optimizer
             }
 
             Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Search", true).DeleteValue("SearchboxTaskbarMode", false);
+            Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Feeds", true).DeleteValue("ShellFeedsTaskbarViewMode", false);
         }
 
         internal static void DisableStartMenuAds()
