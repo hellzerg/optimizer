@@ -61,6 +61,33 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
+        ///
+        ///[HKEY_CLASSES_ROOT\Directory\shell\OpenWithCMD]
+        ///@=&quot;Open Command Prompt here&quot;
+        ///&quot;Icon&quot;=&quot;cmd.exe&quot;
+        ///&quot;NoWorkingDirectory&quot;=&quot;&quot;
+        ///
+        ///[HKEY_CLASSES_ROOT\Directory\shell\OpenWithCMD\command]
+        ///@=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot;
+        ///
+        ///[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWithCMD]
+        ///@=&quot;Open Command Prompt here&quot;
+        ///&quot;Icon&quot;=&quot;cmd.exe&quot;
+        ///&quot;NoWorkingDirectory&quot;=&quot;&quot;
+        ///
+        ///[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWithCMD\command]
+        ///@=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot;
+        ///
+        ///[HKEY_CLASSES_ROOT\D [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string AddOpenWithCMD {
+            get {
+                return ResourceManager.GetString("AddOpenWithCMD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;Anwenden &amp;&amp; Neustarten&quot;,
@@ -133,7 +160,7 @@ namespace Optimizer.Properties {
         ///&quot;xlsolution&quot;=dword:00000001
         /// 
         ///[HKEY_CURRENT_USER\Software\Policies\microsoft\office\16.0\osm\preventedsolutiontypes]
-        ///&quot;agave&quot;=dword:0000000 [rest of string was truncated]&quot;;.
+        ///&quot;agave&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableOfficeTelemetry {
             get {
@@ -160,7 +187,7 @@ namespace Optimizer.Properties {
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot;
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot; /disable
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot;
-        ///schtasks /change /tn &quot;\Microsoft\Windo [rest of string was truncated]&quot;;.
+        ///schtasks /change /tn &quot;\Microsoft\ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableTelemetryTasks {
             get {
@@ -269,7 +296,7 @@ namespace Optimizer.Properties {
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot; /enable
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip&quot; /enable
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\Uploader&quot; /enable
-        ///schtasks / [rest of string was truncated]&quot;;.
+        ///schta [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnableTelemetryTasks {
             get {
@@ -299,8 +326,9 @@ namespace Optimizer.Properties {
         ///	&quot;txtBitness&quot;: &quot;Estas trabajando con {BITS}&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Actualización disponible&quot;,
         ///	&quot;lblLab&quot;: &quot;Lamzamiento experimental\n(eliminar después de la prueba)&quot;,
+        ///	&quot;CleanPreviewForm&quot;: &quot;Vista Previa Limpia&quot;,
         ///	&quot;performanceSw&quot;: &quot;Habilitar ajustes de rendimiento&quot;,
-        ///	&quot;networkSw&quot;: &quot;Deshabilitar la limitación de la r [rest of string was truncated]&quot;;.
+        ///	&quot;ne [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ES {
             get {
@@ -326,16 +354,16 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
-        ///	&quot;restartButton&quot;: &quot;Appliquer &amp;&amp; Red�marrer&quot;,
-        ///	&quot;restartButton8&quot;: &quot;Appliquer &amp;&amp; Red�marrer&quot;,
-        ///	&quot;restartButton10&quot;: &quot;Appliquer &amp;&amp; Red�marrer&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Red�marrer pour appliquer les changements?&quot;,
+        ///	&quot;restartButton&quot;: &quot;Appliquer &amp;&amp; Redemarrer&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Appliquer &amp;&amp; Redemarrer&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Appliquer &amp;&amp; Redemarrer&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Redemarrer pour appliquer les changements?&quot;,
         ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;Vous travaillez avec {BITS}&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;Mise � jour disponible&quot;,
-        ///	&quot;lblLab&quot;: &quot;build Experimental\n(supprimer apr�s avoir test�)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Activer les Tweaks de Performance&quot;,
-        ///	&quot;networkSw&quot;: &quot;D�sactiver la limitatio [rest of string was truncated]&quot;;.
+        ///	&quot;linkUpdate&quot;: &quot;Mise a jour disponible&quot;,
+        ///	&quot;CleanPreviewForm&quot;: &quot;Nettoyer L&apos;aperçu&quot;,
+        ///	&quot;lblLab&quot;: &quot;build Experimental\n(supprimer apres avoir teste)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Activer les Tweaks de Performanc [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string FR {
             get {
@@ -383,7 +411,7 @@ namespace Optimizer.Properties {
         ///&quot;NoWorkingDirectory&quot;=&quot;&quot;
         ///
         ///[HKEY_CLASSES_ROOT\Directory\shell\runas\command]
-        ///@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d y &amp;&amp; icacls \&quot;% [rest of string was truncated]&quot;;.
+        ///@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string InstallTakeOwnership {
             get {
@@ -429,12 +457,12 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton8&quot;: &quot;Aplicar e reiniciar&quot;,
         ///	&quot;restartButton10&quot;: &quot;Aplicar e reiniciar&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Reiniciar para aplicar as alterações?&quot;,
+        ///	&quot;CleanPreviewForm&quot;: &quot;Antevisão Limpa&quot;,
         ///	&quot;txtVersion&quot;: &quot;Versão: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;A arquitetura do seu computador é de {BITS}.&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Nova atualização disponível&quot;,
         ///	&quot;lblLab&quot;: &quot;Experimentar nova implementação\n(deletar após teste)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Habilitar ajustes de desempenho&quot;,
-        ///	&quot;networkSw&quot;: &quot;Desativar limitaç [rest of string was truncated]&quot;;.
+        ///	&quot;performanceSw&quot;: &quot;Habilitar ajustes de desem [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PT {
             get {
@@ -466,10 +494,10 @@ namespace Optimizer.Properties {
         ///	&quot;restartAndApply&quot;: &quot;перезагрузить, чтобы изменения вступили в силу?&quot;,
         ///	&quot;txtVersion&quot;: &quot;Версия: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;Вы работаете с {BITS}&quot;,
+        ///	&quot;CleanPreviewForm&quot;: &quot;Чистый предварительный просмотр&quot;,
         ///	&quot;linkUpdate&quot;: &quot;обновление доступно&quot;,
         ///	&quot;lblLab&quot;: &quot;экспериментальная сборка\n(удалить после тестирования)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Вкл Настройки производительности&quot;,
-        ///	&quot;networkSw&quot;: &quot;Отключить Сетевое  [rest of string was truncated]&quot;;.
+        ///	&quot;performanceSw&quot;: &quot;Вкл Настройк [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RU {
             get {
@@ -529,10 +557,11 @@ namespace Optimizer.Properties {
         ///	&quot;restartAndApply&quot;: &quot;Değişiklikleri uygulamak için yeniden başlatılsın mı?&quot;,
         ///	&quot;txtVersion&quot;: &quot;Versiyon: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;{BITS} ile çalışıyor.&quot;,
+        ///	&quot;CleanPreviewForm&quot;: &quot;Temiz Önizleme&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Güncelleme Mevcut&quot;,
         ///	&quot;lblLab&quot;: &quot;Deneysel Yapı\n(Testten sonra silin)&quot;,
         ///	&quot;performanceSw&quot;: &quot;Performans Ayarlarını Etkinleştir&quot;,
-        ///	&quot;networkSw&quot;: &quot;Ağ Kısıtlamasını Devre Dışı Bıra [rest of string was truncated]&quot;;.
+        ///	&quot;netwo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TR {
             get {

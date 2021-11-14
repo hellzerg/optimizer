@@ -243,6 +243,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\AddOpenWithCMD.reg" />
     <None Include="Resources\DE.json" />
     <None Include="Resources\DesktopShortcuts.reg" />
     <None Include="Resources\DisableDefenderSafeMode1903Plus.bat" />

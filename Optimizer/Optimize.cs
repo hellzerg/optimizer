@@ -54,6 +54,9 @@ namespace Optimizer
 
         internal static void EnablePerformanceTweaks()
         {
+            // add Open with CMD option
+            Utilities.ImportRegistryScript(Required.ScriptsFolder + "AddOpenWithCMD.reg");
+
             // enable auto-complete in Run Dialog 
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete", "Append Completion", "yes", RegistryValueKind.String);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete", "AutoSuggest", "yes", RegistryValueKind.String);

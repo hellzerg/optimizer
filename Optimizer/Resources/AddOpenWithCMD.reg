@@ -1,0 +1,25 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWithCMD]
+@="Open Command Prompt here"
+"Icon"="cmd.exe"
+"NoWorkingDirectory"=""
+
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWithCMD\command]
+@="cmd.exe /s /k pushd \"%V\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWithCMD]
+@="Open Command Prompt here"
+"Icon"="cmd.exe"
+"NoWorkingDirectory"=""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWithCMD\command]
+@="cmd.exe /s /k pushd \"%V\""
+
+[HKEY_CLASSES_ROOT\Drive\shell\OpenWithCMD]
+@="Open Command Prompt here"
+"Icon"="cmd.exe"
+"NoWorkingDirectory"=""
+
+[HKEY_CLASSES_ROOT\Drive\shell\OpenWithCMD\command]
+@="cmd.exe /s /k pushd \"%V\""
