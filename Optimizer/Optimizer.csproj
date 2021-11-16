@@ -85,72 +85,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutForm.cs">
+    <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutForm.Designer.cs">
+    <Compile Include="Forms\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppCard.cs">
+    <Compile Include="Controls\AppCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AppCard.Designer.cs">
+    <Compile Include="Controls\AppCard.Designer.cs">
       <DependentUpon>AppCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="ColoredControls\ColoredCheckList.cs">
+    <Compile Include="Controls\ColoredCheckList.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ColoredControls\ColoredProgress.cs">
+    <Compile Include="Controls\ColoredProgress.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ColoredControls\ToolStripRendererMaterial.cs" />
+    <Compile Include="Controls\ToolStripRendererMaterial.cs" />
     <Compile Include="ErrorLogger.cs" />
     <Compile Include="FeedApp.cs" />
     <Compile Include="ByteSize\BinaryByteSize.cs" />
     <Compile Include="ByteSize\ByteSize.cs" />
     <Compile Include="ByteSize\DecimalByteSize.cs" />
     <Compile Include="CleanHelper.cs" />
-    <Compile Include="ColoredControls\ColoredCheckBox.cs">
+    <Compile Include="Controls\ColoredCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ColoredControls\ColoredRadioButton.cs">
+    <Compile Include="Controls\ColoredRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="EmbeddedAssembly.cs" />
     <Compile Include="Enums.cs" />
-    <Compile Include="FirstRunForm.cs">
+    <Compile Include="Forms\FirstRunForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FirstRunForm.Designer.cs">
+    <Compile Include="Forms\FirstRunForm.Designer.cs">
       <DependentUpon>FirstRunForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CleanPreviewForm.cs">
+    <Compile Include="Forms\CleanPreviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CleanPreviewForm.Designer.cs">
+    <Compile Include="Forms\CleanPreviewForm.Designer.cs">
       <DependentUpon>CleanPreviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Hardware.cs" />
-    <Compile Include="HostsEditorForm.cs">
+    <Compile Include="Forms\HostsEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HostsEditorForm.Designer.cs">
+    <Compile Include="Forms\HostsEditorForm.Designer.cs">
       <DependentUpon>HostsEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HostsHelper.cs" />
     <Compile Include="IndiciumHelper.cs" />
-    <Compile Include="InfoForm.cs">
+    <Compile Include="Forms\InfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InfoForm.Designer.cs">
+    <Compile Include="Forms\InfoForm.Designer.cs">
       <DependentUpon>InfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Integrator.cs" />
-    <Compile Include="ListViewColumnSorter.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Controls\ListViewColumnSorter.cs" />
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NetworkAdapter.cs" />
@@ -159,62 +159,62 @@
     <Compile Include="Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="HelperForm.cs">
+    <Compile Include="Forms\HelperForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HelperForm.Designer.cs">
+    <Compile Include="Forms\HelperForm.Designer.cs">
       <DependentUpon>HelperForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Required.cs" />
     <Compile Include="SilentConfig.cs" />
     <Compile Include="SilentOps.cs" />
-    <Compile Include="SplashForm.cs">
+    <Compile Include="Forms\SplashForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SplashForm.Designer.cs">
+    <Compile Include="Forms\SplashForm.Designer.cs">
       <DependentUpon>SplashForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StartupPreviewForm.cs">
+    <Compile Include="Forms\StartupPreviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StartupPreviewForm.Designer.cs">
+    <Compile Include="Forms\StartupPreviewForm.Designer.cs">
       <DependentUpon>StartupPreviewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StartupRestoreForm.cs">
+    <Compile Include="Forms\StartupRestoreForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StartupRestoreForm.Designer.cs">
+    <Compile Include="Forms\StartupRestoreForm.Designer.cs">
       <DependentUpon>StartupRestoreForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StartupBackupItem.cs" />
     <Compile Include="StartupItem.cs" />
-    <Compile Include="ToggleSwitch\ImageHelper.cs" />
-    <Compile Include="ToggleSwitch\ToggleSwitch.cs">
+    <Compile Include="Controls\ToggleSwitch\ImageHelper.cs" />
+    <Compile Include="Controls\ToggleSwitch\ToggleSwitch.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ToggleSwitch\ToggleSwitchRenderer.cs" />
-    <Compile Include="ToggleSwitch\ToggleSwitchRendererBase.cs" />
+    <Compile Include="Controls\ToggleSwitch\ToggleSwitchRenderer.cs" />
+    <Compile Include="Controls\ToggleSwitch\ToggleSwitchRendererBase.cs" />
     <Compile Include="Utilities.cs" />
-    <EmbeddedResource Include="AboutForm.resx">
+    <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppCard.resx">
+    <EmbeddedResource Include="Controls\AppCard.resx">
       <DependentUpon>AppCard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FirstRunForm.resx">
+    <EmbeddedResource Include="Forms\FirstRunForm.resx">
       <DependentUpon>FirstRunForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CleanPreviewForm.resx">
+    <EmbeddedResource Include="Forms\CleanPreviewForm.resx">
       <DependentUpon>CleanPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HostsEditorForm.resx">
+    <EmbeddedResource Include="Forms\HostsEditorForm.resx">
       <DependentUpon>HostsEditorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InfoForm.resx">
+    <EmbeddedResource Include="Forms\InfoForm.resx">
       <DependentUpon>InfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -227,16 +227,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="HelperForm.resx">
+    <EmbeddedResource Include="Forms\HelperForm.resx">
       <DependentUpon>HelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SplashForm.resx">
+    <EmbeddedResource Include="Forms\SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StartupPreviewForm.resx">
+    <EmbeddedResource Include="Forms\StartupPreviewForm.resx">
       <DependentUpon>StartupPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StartupRestoreForm.resx">
+    <EmbeddedResource Include="Forms\StartupRestoreForm.resx">
       <DependentUpon>StartupRestoreForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest">
