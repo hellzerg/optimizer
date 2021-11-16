@@ -12,7 +12,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 10;
-        internal readonly static float Minor = 5;
+        internal readonly static float Minor = 6;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
@@ -122,7 +122,7 @@ namespace Optimizer
                             catch (Exception ex)
                             {
                                 ErrorLogger.LogError("Program.Main", ex.Message, ex.StackTrace);
-                            }  
+                            }
 
                             // checking for silent config argument
                             if (switches.Length == 1)

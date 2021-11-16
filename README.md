@@ -10,7 +10,7 @@ Optimizer is recommended after a fresh, clean installation of Windows to achieve
 
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/10.5/Optimizer-10.5.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/10.6/Optimizer-10.6.exe" target="_blank">
 		<img src="download-button.png">
 		<br>
 		<img src="flags.png">
@@ -60,7 +60,7 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 * .NET Framework 4.5.2
 * Compatible with Windows 7, 8, 8.1, 10, 11
-* Can run under Windows Server 2008, 2012, 2016, 2019 using /unsafe switch
+* Can run under Windows Server 2008, 2012, 2016, 2019, 2022 using /unsafe switch
 
 ## Tools used: ##
 * ByteSize from https://github.com/omar/ByteSize
@@ -74,12 +74,13 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * https://github.com/danielcshn - danielcshn for Spanish translation
 * https://github.com/cassiompf - Cassio for Portuguese translation
 * https://github.com/RAFF47 - RAFF for French translation
+* https://github.com/Ziocash - Ziocash for Italian translation
 
 ## How to include an app in Common Apps - Pull Request
 https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 10.5
-* Released: November 14, 2021
-* SHA256: 1F1287855E47C9222872D67D376C11F6BFA5600C32EEFAE9FFE0FB6D1A68246A
+* Latest version: 10.6
+* Released: November 16, 2021
+* SHA256: 5943300547B39E37B7942EE1049508D2A56AB153A0880DA1D700211C9A358E65
