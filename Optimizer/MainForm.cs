@@ -640,8 +640,9 @@ namespace Optimizer
             if (Options.CurrentOptions.LanguageCode == LanguageCode.PT) radioPortuguese.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.FR) radioFrench.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.ES) radioSpanish.Checked = true;
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.IT) radioItalian.Checked = true;
 
-            Program.MainForm = this;
+            Program._MainForm = this;
 
             if (string.IsNullOrEmpty(Options.CurrentOptions.AppsFolder))
             {
@@ -1005,7 +1006,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GetDesktopItems()
@@ -3137,6 +3138,20 @@ namespace Optimizer
         {
             tabCollection.SelectedTab = registryFixerTab;
             RestoreWindow();
+        }
+
+        private void radioItalian_Click(object sender, EventArgs e)
+        {
+            radioItalian.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.IT;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            radioItalian.PerformClick();
         }
     }
 }

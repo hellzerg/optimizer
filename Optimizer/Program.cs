@@ -33,7 +33,8 @@ namespace Optimizer
 
         const string _jsonAssembly = @"Optimizer.Newtonsoft.Json.dll";
 
-        internal static MainForm MainForm;
+        internal static MainForm _MainForm;
+        internal static SplashForm _SplashForm;
 
         static string _adminMissingMessage = "Optimizer needs to be run as administrator!\nApp will now close...";
         static string _unsupportedMessage = "Optimizer works in Windows 7 or higher!\nApp will now close...";
@@ -121,7 +122,7 @@ namespace Optimizer
                             catch (Exception ex)
                             {
                                 ErrorLogger.LogError("Program.Main", ex.Message, ex.StackTrace);
-                            }
+                            }  
 
                             // checking for silent config argument
                             if (switches.Length == 1)
@@ -132,7 +133,13 @@ namespace Optimizer
                                 if (arg == "/unsafe")
                                 {
                                     UNSAFE_MODE = true;
-                                    Application.Run(new MainForm());
+
+                                    StartSplashForm();
+
+                                    _MainForm = new MainForm();
+                                    _MainForm.Load += MainForm_Load;
+                                    Application.Run(_MainForm);
+
                                     return;
                                 }
 
@@ -143,15 +150,19 @@ namespace Optimizer
                                     return;
                                 }
 
-                                // disables Defender in SAFE MODE (for Windows 10 1903+)
+                                // disables Defender in SAFE MODE (for Windows 10 1903+ / works in Windows 11 as well)
                                 if (arg == "/disabledefender")
                                 {
                                     File.WriteAllText("DisableDefenderSafeMode.bat", Properties.Resources.DisableDefenderSafeMode1903Plus);
+
                                     Utilities.RunBatchFile("DisableDefenderSafeMode.bat");
-                                    System.Threading.Thread.Sleep(1000);
+                                    Thread.Sleep(1000);
                                     Utilities.RunBatchFile("DisableDefenderSafeMode.bat");
-                                    System.Threading.Thread.Sleep(1000);
+                                    Thread.Sleep(1000);
+
                                     File.Delete("DisableDefenderSafeMode.bat");
+
+                                    MessageBox.Show("Windows Defender has been completely disabled successfully.", "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                     return;
                                 }
@@ -222,7 +233,12 @@ namespace Optimizer
                             }
                             else
                             {
-                                Application.Run(new MainForm());
+                                StartSplashForm();
+
+                                _MainForm = new MainForm();
+                                _MainForm.Load += MainForm_Load;
+
+                                Application.Run(_MainForm);
                             }
                         }
                         else
@@ -235,6 +251,26 @@ namespace Optimizer
                     }
                 }
             }
+        }
+
+        private static void StartSplashForm()
+        {
+            _SplashForm = new SplashForm();
+            var splashThread = new Thread(new ThreadStart(
+                () => Application.Run(_SplashForm)));
+
+            splashThread.SetApartmentState(ApartmentState.STA);
+            splashThread.Start();
+        }
+
+        private static void MainForm_Load(object sender, EventArgs e)
+        {
+            if (_SplashForm != null && !_SplashForm.Disposing && !_SplashForm.IsDisposed)
+                _SplashForm.Invoke(new Action(() => _SplashForm.Close()));
+
+            _MainForm.TopMost = true;
+            _MainForm.Activate();
+            _MainForm.TopMost = false;
         }
 
         private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)

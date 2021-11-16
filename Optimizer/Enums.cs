@@ -95,6 +95,7 @@
         DE, // german
         ES, // spanish
         PT,  // portuguese
-        FR // french
+        FR, // french
+        IT // italian
     }
 }

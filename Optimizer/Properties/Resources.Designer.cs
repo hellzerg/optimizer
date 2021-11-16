@@ -420,6 +420,27 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;btnAbout&quot;: &quot;OK&quot;,
+        ///	&quot;restartButton&quot;: &quot;Applica &amp;&amp; riavvia&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Applica &amp;&amp; riavvia&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Applica &amp;&amp; riavvia&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Riavviare per applicare le modifiche?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Versione: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Archiettura: {BITS}&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;Aggiornamento disponibile&quot;,
+        ///	&quot;lblLab&quot;: &quot;Build sperimentale\n(cancellare dopo il test)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Abilita miglioramento prestazioni&quot;,
+        ///	&quot;networkSw&quot;: &quot;Disabilita rallentamento della rete&quot;,
+        ///	&quot;defenderSw [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string IT {
+            get {
+                return ResourceManager.GetString("IT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] OneDrive_Uninstaller {

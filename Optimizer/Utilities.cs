@@ -242,7 +242,7 @@ namespace Optimizer
 
         internal static void ActivateMainForm()
         {
-            Program.MainForm.Activate();
+            Program._MainForm.Activate();
         }
 
         internal static bool ServiceExists(string serviceName)
@@ -647,7 +647,7 @@ namespace Optimizer
 
                     Application.Restart();
                 }
-                
+
             }
         }
 

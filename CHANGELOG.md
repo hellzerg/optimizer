@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [10.6] - 2021-11-16
+- New: Fully translated into Italian (thanks to https://github.com/Ziocash - Ziocash)
+- New: Disable File History (in Restore Classic File Explorer)
+- New: Loading animation for smoother opening
+
+## [10.5] - 2021-11-14
+- New: Open Command Prompt here (in Performance Tweaks)
+- New: Disable News and Weather in taskbar (in Restore Classic File Explorer)
+
 ## [10.4] - 2021-10-29
 - Hotfix: Crash when Spanish language is selected
 

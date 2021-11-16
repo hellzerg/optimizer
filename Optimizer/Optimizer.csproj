@@ -168,6 +168,12 @@
     <Compile Include="Required.cs" />
     <Compile Include="SilentConfig.cs" />
     <Compile Include="SilentOps.cs" />
+    <Compile Include="SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartupPreviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,9 @@
     <EmbeddedResource Include="HelperForm.resx">
       <DependentUpon>HelperForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StartupPreviewForm.resx">
       <DependentUpon>StartupPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +269,7 @@
     <None Include="Resources\GPEditEnablerInHome.bat" />
     <None Include="Resources\hosts" />
     <None Include="Resources\InstallTakeOwnership.reg" />
+    <None Include="Resources\IT.json" />
     <None Include="Resources\PowerMenu.reg" />
     <None Include="Resources\PT.json" />
     <None Include="Resources\RemoveTakeOwnership.reg" />
