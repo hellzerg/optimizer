@@ -98,7 +98,7 @@ namespace Optimizer
                             // load settings, if there is no settings, load defaults
                             try
                             {
-                                // show FirstRunForm if app is running first time
+                                // show FirstRunForm/Language Selector if app is running first time
                                 if (!File.Exists(Options.SettingsFile))
                                 {
                                     Options.LoadSettings();
