@@ -1029,6 +1029,9 @@ namespace Optimizer
                 k.SetValue("LaunchTo", 1, RegistryValueKind.DWord);
             }
 
+            // Disable Meet
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies", "HideSCAMeetNow", "1", RegistryValueKind.DWord);
+
             // Disable File History
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\FileHistory", "Disabled", "1", RegistryValueKind.DWord);
 
@@ -1059,8 +1062,10 @@ namespace Optimizer
                 k.DeleteValue("ShowTaskViewButton", false);
             }
 
+            Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\FileHistory", true).DeleteValue("Disabled", false);
             Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Search", true).DeleteValue("SearchboxTaskbarMode", false);
             Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Feeds", true).DeleteValue("ShellFeedsTaskbarViewMode", false);
+            Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies", true).DeleteValue("HideSCAMeetNow", false);
         }
 
         internal static void DisableStartMenuAds()
