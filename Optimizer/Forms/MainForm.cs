@@ -2507,7 +2507,7 @@ namespace Optimizer
                         p.StartInfo.WorkingDirectory = txtDownloadFolder.Text;
 
                         // APP-SPECIFIC HACKS //
-                        if (a.Contains("Sumatra")) p.StartInfo.Arguments = " -install";
+                        if (a.ToLowerInvariant().Contains("sumatra")) p.StartInfo.Arguments = " -install";
                         // *** //
 
                         txtDownloadStatus.Text = string.Format("{0}/{1} - {2} {3} ...", count, maxCount, Options.TranslationList["installing"], Path.GetFileNameWithoutExtension(a));
