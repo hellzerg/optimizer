@@ -2424,7 +2424,7 @@ namespace Optimizer
 
             linkWarnings.Visible = !string.IsNullOrEmpty(downloadLog);
 
-            txtDownloadStatus.Text = Options.TranslationList["Finished"];
+            txtDownloadStatus.Text = Options.TranslationList["downloadsFinished"];
         }
 
         string appNameTemp = string.Empty;

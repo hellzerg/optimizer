@@ -30,6 +30,7 @@
         {
             this.btnOK = new System.Windows.Forms.Button();
             this.txtInfo = new System.Windows.Forms.TextBox();
+            this.copyIPB = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOK
@@ -42,10 +43,10 @@
             this.btnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.ForeColor = System.Drawing.Color.White;
-            this.btnOK.Location = new System.Drawing.Point(519, 494);
+            this.btnOK.Location = new System.Drawing.Point(522, 492);
             this.btnOK.Margin = new System.Windows.Forms.Padding(2);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(96, 31);
+            this.btnOK.Size = new System.Drawing.Size(159, 31);
             this.btnOK.TabIndex = 32;
             this.btnOK.Tag = "themeable";
             this.btnOK.Text = "OK";
@@ -67,9 +68,29 @@
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.ReadOnly = true;
             this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtInfo.Size = new System.Drawing.Size(604, 471);
+            this.txtInfo.Size = new System.Drawing.Size(671, 471);
             this.txtInfo.TabIndex = 33;
             this.txtInfo.Text = "Integrator InfoBox";
+            // 
+            // copyIPB
+            // 
+            this.copyIPB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.copyIPB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.copyIPB.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.copyIPB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.copyIPB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.copyIPB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.copyIPB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.copyIPB.ForeColor = System.Drawing.Color.White;
+            this.copyIPB.Location = new System.Drawing.Point(359, 492);
+            this.copyIPB.Margin = new System.Windows.Forms.Padding(2);
+            this.copyIPB.Name = "copyIPB";
+            this.copyIPB.Size = new System.Drawing.Size(159, 31);
+            this.copyIPB.TabIndex = 34;
+            this.copyIPB.Tag = "themeable";
+            this.copyIPB.Text = "Copy";
+            this.copyIPB.UseVisualStyleBackColor = false;
+            this.copyIPB.Click += new System.EventHandler(this.copyIPB_Click);
             // 
             // InfoForm
             // 
@@ -78,7 +99,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnOK;
-            this.ClientSize = new System.Drawing.Size(625, 534);
+            this.ClientSize = new System.Drawing.Size(692, 534);
+            this.Controls.Add(this.copyIPB);
             this.Controls.Add(this.txtInfo);
             this.Controls.Add(this.btnOK);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,5 +123,6 @@
 
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.TextBox txtInfo;
+        private System.Windows.Forms.Button copyIPB;
     }
 }
