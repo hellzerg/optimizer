@@ -139,9 +139,8 @@ namespace Optimizer
                             // PATCH
                             File.Move(tempFile, appFile);
 
-                            _trayMenu = false;
-
                             // BYPASS SINGLE-INSTANCE MECHANISM
+                            _trayMenu = false;
                             if (Program.MUTEX != null)
                             {
                                 Program.MUTEX.ReleaseMutex();
