@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [10.7] - 2021-11-23
+- New: Disable Meet Now icon (in Restore Classic File Explorer)
+- New: Disable lockscreen suggestions (in Disable Start Menu Ads)
+- Hotfix: Portuguese translation corrected
+- Minor bug fixes
+
 ## [10.6] - 2021-11-16
 - New: Fully translated into Italian (thanks to https://github.com/Ziocash - Ziocash)
 - New: Disable File History (in Restore Classic File Explorer)
