@@ -1636,13 +1636,12 @@ any application only by typing your desired keyword.</value>
   </data>
   <data name="trayHosts.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAEKSURBVGhD7Y5RCoQwEMW8/6m82S7KLJQy1fhhOoUNvA+d
-        FLL9eZl93z/H4nMdfuHZQqlLFt0v1Jpkwf1CrUUb18ZmOx9UIotr/2ULbT5XYf2tXShzIWHEmcKTMOpp
-        9EEkinqv00ZfRRFHp48ahVFPhUZRT4VGUU+FRlFPhUZRT4VGUU+FRlFPhUZRT4VGUU+FRlFPhUZRT4VG
-        UU+FRlFPhUZRT4VGUU+FRlFPhUZRT4VGUU+FRlFPhUZRT4VGUU+FRlFPhUZRT4VGUU+FRlFPhUZRT4dE
-        9c7Im8Jd3N19OlngsdHtfFSFLPBq8awOWeRo8aQWWWi20GuRhWYLvR5Z7LE4r8GS0euzbV/4goRZM8lU
-        egAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAQpJREFUaEPtjlEKhDAQxbz/qbzZLsoslDLV+GE6hQ28D50Usv15mX3fP8ficx1+
+        4dlCqUsW3S/UmmTB/UKtRRvXxmY7H1Qii2v/ZQttPldh/a1dKHMhYcSZwpMw6mn0QSSKeq/TRl9FEUen
+        jxqFUU+FRlFPhUZRT4VGUU+FRlFPhUZRT4VGUU+FRlFPhUZRT4VGUU+FRlFPhUZRT4VGUU+FRlFPhUZR
+        T4VGUU+FRlFPhUZRT4VGUU+FRlFPhUZRT4VGUU+FRlFPhUZRT4VGUU+FRlFPh0T1zsibwl3c3X06WeCx
+        0e18VIUs8GrxrA5Z5GjxpBZZaLbQa5GFZgu9HlnssTivwZLR67NtX/iChFkzyVR6AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="trayAD.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -1704,14 +1703,14 @@ any application only by typing your desired keyword.</value>
   </data>
   <data name="trayRestartExplorer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAFeSURBVGhD7Y9hroMwDIO5/6m42Z5AZqoqJ25J3lKmfZL/
-        ENs12w/Cvu+vXjitCRs8IsRrYIMiQu0bdb9NX5wtPPM/P9CXekLkhN09scxZdJe+jAnWYViHJ8TmYWWt
-        YLsN62SCfQ5WdAmWNNgbrWAbh5VcgiUM67aEyDgpJQL2hiVExggXDMLesYSIhoUP4ZwKe8cSIppQuJpH
-        jz/4uh/A52fQj1/tB+Q2aShG7pOGYuQ+aShG7pOGYtx97nEhzJ3mYTHMneZhMcyd5mEx3J3ucQHkPmko
-        Ru6ThmLkPmkoRu5zj8W021bd6PJV438/8ElC41nYEiKpsHcO4axhYUuIpBJ+hxVYQiSNlDdYiSVEwrDu
-        QzjPwYpawZYGe+MSLHOwIibYb8M6W8E2DyvzhNgwrKMVbPdhhf03T2dJA/NYQiSGVdp/zxaeiaOK+3tU
-        qM1j5oHeOyrE1+VRY2vYtj/eNXUe2rS0aQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAV5JREFUaEPtj2GugzAMg7n/qbjZnkBmqionbkneUqZ9kv8Q2zXbD8K+769eOK0J
+        GzwixGtggyJC7Rt1v01fnC088z8/0Jd6QuSE3T2xzFl0l76MCdZhWIcnxOZhZa1guw3rZIJ9DlZ0CZY0
+        2ButYBuHlVyCJQzrtoTIOCklAvaGJUTGCBcMwt6xhIiGhQ/hnAp7xxIimlC4mkePP/i6H8DnZ9CPX+0H
+        5DZpKEbuk4Zi5D5pKEbuk4Zi3H3ucSHMneZhMcyd5mExzJ3mYTHcne5xAeQ+aShG7pOGYuQ+aShG7nOP
+        xbTbVt3o8lXjfz/wSULjWdgSIqmwdw7hrGFhS4ikEn6HFVhCJI2UN1iJJUTCsO5DOM/BilrBlgZ74xIs
+        c7AiJthvwzpbwTYPK/OE2DCsoxVs92GF/TdPZ0kD81hCJIZV2n/PFp6Jo4r7e1SozWPmgd47KsTX5VFj
+        a9i2P941dR7atLRpAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="trayExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -2873,7 +2872,7 @@ any application only by typing your desired keyword.</value>
     <value>470, 56</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>109</value>
+    <value>94</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -29,7 +29,7 @@ namespace Optimizer
         /// </summary>
         private void InitializeComponent()
         {
-            this.appTitle = new Optimizer.ColoredCheckBox();
+            this.appTitle = new Optimizer.ColoredCheck();
             this.appImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.appImage)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +77,7 @@ namespace Optimizer
 
         #endregion
 
-        internal ColoredCheckBox appTitle;
+        internal ColoredCheck appTitle;
         internal System.Windows.Forms.PictureBox appImage;
     }
 }

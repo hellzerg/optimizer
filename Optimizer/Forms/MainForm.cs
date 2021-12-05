@@ -1868,12 +1868,12 @@ namespace Optimizer
 
         private void button66_Click(object sender, EventArgs e)
         {
-            Integrator.TakeOwnership(false);
+            Integrator.InstallTakeOwnership(false);
         }
 
         private void button65_Click(object sender, EventArgs e)
         {
-            Integrator.TakeOwnership(true);
+            Integrator.InstallTakeOwnership(true);
         }
 
         private void listStartupItems_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -2449,10 +2449,10 @@ namespace Optimizer
             foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
             {
                 if (c.Name == "cAutoInstall") continue;
-                if (c is ColoredCheckBox && ((ColoredCheckBox)c).Checked) maxCount++;
+                if (c is ColoredCheck && ((ColoredCheck)c).Checked) maxCount++;
             }
 
-            ColoredCheckBox currentCheck;
+            ColoredCheck currentCheck;
             Control[] temp;
 
             foreach (FeedApp x in AppsFromFeed)
@@ -2460,7 +2460,7 @@ namespace Optimizer
                 if (string.IsNullOrEmpty(x.Tag)) continue;
                 temp = appsTab.Controls.Find(x.Tag, true);
                 if (temp.Count() == 0) continue;
-                currentCheck = (ColoredCheckBox)temp[0];
+                currentCheck = (ColoredCheck)temp[0];
                 if (currentCheck == null) continue;
                 if (!currentCheck.Checked) continue;
 
@@ -2520,7 +2520,7 @@ namespace Optimizer
             foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
             {
                 if (c.Name == "cAutoInstall") continue;
-                if (c is ColoredCheckBox && ((ColoredCheckBox)c).Checked) ((ColoredCheckBox)c).Checked = false;
+                if (c is ColoredCheck && ((ColoredCheck)c).Checked) ((ColoredCheck)c).Checked = false;
             }
 
             RenderAppDownloaderFree();
@@ -3151,6 +3151,16 @@ namespace Optimizer
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             radioItalian.PerformClick();
+        }
+
+        private void AddCMDB_Click(object sender, EventArgs e)
+        {
+            Integrator.InstallOpenWithCMD();
+        }
+
+        private void DeleteCMDB_Click(object sender, EventArgs e)
+        {
+            Integrator.DeleteOpenWithCMD();
         }
     }
 }

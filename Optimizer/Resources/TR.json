@@ -213,6 +213,8 @@
 	"DSB": "Masaüstü Kısayolları Ekle",
 	"AddOwnerB": "Sahip Ekle",
 	"RemoveOwnerB": "Sahip Kaldır",
+	"AddCMDB": "CMD ile aç Ekle",
+	"DeleteCMDB": "CMD ile aç Kaldır",
 	"readyMenusL": "Kullanışlı, önceden hazırlanmış menüler ekleyin",
 	"refreshCCB": "Yenile",
 	"removeCCB": "Kaldır",

@@ -213,6 +213,8 @@
 	"DSB": "Προσθήκη συντομεύσεων επιφάνειας εργασίας",
 	"AddOwnerB": "Προσθήκη Take Ownership",
 	"RemoveOwnerB": "Διαγραφή Take Ownership",
+	"AddCMDB": "Προσθήκη Open with CMD",
+	"DeleteCMDB": "Διαγραφή Open with CMD",
 	"readyMenusL": "Προσθήκη χρήσιμων, έτοιμων μενού",
 	"refreshCCB": "Ανανέωση",
 	"removeCCB": "Διαγραφή",

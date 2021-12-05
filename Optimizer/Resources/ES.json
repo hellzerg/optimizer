@@ -213,6 +213,8 @@
 	"DSB": "Agregar accesos directos al escritorio",
 	"AddOwnerB": "Agregar Take Ownership",
 	"RemoveOwnerB": "Eliminar Take Ownership",
+	"AddCMDB": "Agregar Open with CMD",
+	"DeleteCMDB": "Eliminar Open with CMD",
 	"readyMenusL": "Agregue menús útiles y prefabricados",
 	"refreshCCB": "Actualizar",
 	"removeCCB": "Borrar",

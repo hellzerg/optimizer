@@ -207,7 +207,19 @@ namespace Optimizer
             }
         }
 
-        internal static void TakeOwnership(bool remove)
+        internal static void InstallOpenWithCMD()
+        {
+            Utilities.ImportRegistryScript(Required.ScriptsFolder + "AddOpenWithCMD.reg");
+        }
+
+        internal static void DeleteOpenWithCMD()
+        {
+            Registry.ClassesRoot.DeleteSubKeyTree(@"Directory\shell\OpenWithCMD", false);
+            Registry.ClassesRoot.DeleteSubKeyTree(@"Directory\Background\shell\OpenWithCMD", false);
+            Registry.ClassesRoot.DeleteSubKeyTree(@"Drive\shell\OpenWithCMD", false);
+        }
+
+        internal static void InstallTakeOwnership(bool remove)
         {
             if (!File.Exists(Required.ReadyMadeMenusFolder + "InstallTakeOwnership.reg"))
             {

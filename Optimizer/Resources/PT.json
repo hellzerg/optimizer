@@ -213,6 +213,8 @@
 	"DSB": "Adicionar atalhos da área de trabalho",
 	"AddOwnerB": "Adicionar Take Ownership",
 	"RemoveOwnerB": "Remover Take Ownership",
+	"AddCMDB": "Adicionar Open with CMD",
+	"DeleteCMDB": "Remover Open with CMD",
 	"readyMenusL": "Adicionar menus úteis pré-definidos",
 	"refreshCCB": "Atualizar",
 	"removeCCB": "Remover",

@@ -213,6 +213,8 @@
 	"DSB": "Desktop-Verknüpfungen hinzufügen",
 	"AddOwnerB": " Eigentümerschaft hinzufügen",
 	"RemoveOwnerB": "Eigentümerschaft entfernen",
+	"AddCMDB": "Öffnen mit CMD hinzufügen",
+	"DeleteCMDB": "Öffnen mit CMD entfernen",
 	"readyMenusL": "Nützliche, vorgefertigte Menüs hinzufügen",
 	"refreshCCB": "Aktualisieren",
 	"removeCCB": "Entfernen",

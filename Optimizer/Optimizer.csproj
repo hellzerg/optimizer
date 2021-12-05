@@ -110,10 +110,10 @@
     <Compile Include="ByteSize\ByteSize.cs" />
     <Compile Include="ByteSize\DecimalByteSize.cs" />
     <Compile Include="CleanHelper.cs" />
-    <Compile Include="Controls\ColoredCheckBox.cs">
+    <Compile Include="Controls\ColoredCheck.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\ColoredRadioButton.cs">
+    <Compile Include="Controls\ColoredRadio.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="EmbeddedAssembly.cs" />

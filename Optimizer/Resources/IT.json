@@ -204,6 +204,8 @@
 	"DSB": "Aggiungi scorciatoie desktop",
 	"AddOwnerB": "Aggiungi menu assumi proprietà",
 	"RemoveOwnerB": "Rimuoci menu assumi proprietà",
+	"AddCMDB": "Aggiungi Apri con CMD",
+	"DeleteCMDB": "Rimuoci Apri con CMD",
 	"readyMenusL": "Aggiungi utili menu già pronti",
 	"refreshCCB": "Aggiorna",
 	"removeCCB": "Rimuovi",

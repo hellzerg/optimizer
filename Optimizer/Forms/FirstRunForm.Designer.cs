@@ -39,15 +39,15 @@ namespace Optimizer
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.radioFrench = new Optimizer.ColoredRadioButton();
-            this.radioPortuguese = new Optimizer.ColoredRadioButton();
-            this.radioSpanish = new Optimizer.ColoredRadioButton();
-            this.radioGerman = new Optimizer.ColoredRadioButton();
-            this.radioTurkish = new Optimizer.ColoredRadioButton();
-            this.radioHellenic = new Optimizer.ColoredRadioButton();
-            this.radioEnglish = new Optimizer.ColoredRadioButton();
-            this.radioRussian = new Optimizer.ColoredRadioButton();
-            this.radioitalian = new Optimizer.ColoredRadioButton();
+            this.radioFrench = new Optimizer.ColoredRadio();
+            this.radioPortuguese = new Optimizer.ColoredRadio();
+            this.radioSpanish = new Optimizer.ColoredRadio();
+            this.radioGerman = new Optimizer.ColoredRadio();
+            this.radioTurkish = new Optimizer.ColoredRadio();
+            this.radioHellenic = new Optimizer.ColoredRadio();
+            this.radioEnglish = new Optimizer.ColoredRadio();
+            this.radioRussian = new Optimizer.ColoredRadio();
+            this.radioitalian = new Optimizer.ColoredRadio();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox88)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).BeginInit();
@@ -374,23 +374,23 @@ namespace Optimizer
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox88;
-        private ColoredRadioButton radioHellenic;
+        private ColoredRadio radioHellenic;
         private System.Windows.Forms.PictureBox pictureBox87;
-        private ColoredRadioButton radioEnglish;
-        private ColoredRadioButton radioRussian;
+        private ColoredRadio radioEnglish;
+        private ColoredRadio radioRussian;
         private System.Windows.Forms.PictureBox pictureBox86;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private ColoredRadioButton radioTurkish;
-        private ColoredRadioButton radioGerman;
+        private ColoredRadio radioTurkish;
+        private ColoredRadio radioGerman;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private ColoredRadioButton radioSpanish;
+        private ColoredRadio radioSpanish;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private ColoredRadioButton radioPortuguese;
+        private ColoredRadio radioPortuguese;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private ColoredRadioButton radioFrench;
+        private ColoredRadio radioFrench;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private ColoredRadioButton radioitalian;
+        private ColoredRadio radioitalian;
         private System.Windows.Forms.PictureBox pictureBox6;
     }
 }

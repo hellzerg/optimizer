@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public class ColoredCheckBox : CheckBox
+    public class ColoredCheck : CheckBox
     {
-        public ColoredCheckBox()
+        public ColoredCheck()
         {
             DoubleBuffered = true;
         }

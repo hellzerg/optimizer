@@ -213,6 +213,8 @@
 	"DSB": "Ajouter des raccourcis de bureau",
 	"AddOwnerB": "Ajouter Take Ownership",
 	"RemoveOwnerB": "Supprimer Take Ownership",
+	"AddCMDB": "Ajouter Open with CMD",
+	"DeleteCMDB": "Supprimer Open with CMD",
 	"readyMenusL": "Ajouter des menus utiles pre-faits",
 	"refreshCCB": "Actualiser",
 	"removeCCB": "Supprimer",

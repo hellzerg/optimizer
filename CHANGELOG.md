@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [10.8] - 2021-12-05
+- New: Add/Delete 'Open with CMD' option in Integrator (#73)
+- Hotfix: Disable Meet icon properly
+
 ## [10.7] - 2021-11-23
 - New: Disable Meet Now icon (in Restore Classic File Explorer)
 - New: Disable lockscreen suggestions (in Disable Start Menu Ads)
