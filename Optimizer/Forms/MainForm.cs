@@ -632,6 +632,7 @@ namespace Optimizer
                 Translate();
             }
 
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.CN) radioChinese.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.RU) radioRussian.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.TR) radioTurkish.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.EL) radioHellenic.Checked = true;
@@ -2996,6 +2997,16 @@ namespace Optimizer
             Options.LoadTranslation();
             Translate();
         }
+
+        private void radioChinese_Click(object sender, EventArgs e)
+        {
+            radioEnglish.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.CN;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+            Translate();
+        }
+
 
         private void radioRussian_Click(object sender, EventArgs e)
         {

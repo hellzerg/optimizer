@@ -25,6 +25,11 @@ namespace Optimizer
             radioEnglish.PerformClick();
         }
 
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            radioChinese.PerformClick();
+        }
+
         private void pictureBox87_Click(object sender, EventArgs e)
         {
             radioRussian.PerformClick();
@@ -38,6 +43,13 @@ namespace Optimizer
         private void radioEnglish_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.LanguageCode = LanguageCode.EN;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
+
+        private void radioChinese_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.CN;
             Options.SaveSettings();
             Options.LoadTranslation();
         }

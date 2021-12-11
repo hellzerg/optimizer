@@ -89,6 +89,7 @@
     public enum LanguageCode
     {
         EN, // english
+        CN, // chinese
         RU, // russian
         EL, // hellenic
         TR, // turkish
