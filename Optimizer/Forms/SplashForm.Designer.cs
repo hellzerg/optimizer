@@ -40,7 +40,7 @@ namespace Optimizer
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(181, 114);
+            this.pictureBox1.Location = new System.Drawing.Point(181, 108);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(96, 96);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -62,9 +62,9 @@ namespace Optimizer
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(0, 213);
+            this.label1.Location = new System.Drawing.Point(0, 199);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(458, 45);
+            this.label1.Size = new System.Drawing.Size(458, 59);
             this.label1.TabIndex = 2;
             this.label1.Text = "loading ...";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

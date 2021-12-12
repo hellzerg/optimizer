@@ -48,7 +48,7 @@
             this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnYes.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnYes.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnYes.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnYes.FlatAppearance.BorderSize = 0;
             this.btnYes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnYes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -68,7 +68,7 @@
             this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNo.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnNo.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btnNo.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnNo.FlatAppearance.BorderSize = 0;
             this.btnNo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

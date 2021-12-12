@@ -22,7 +22,7 @@ namespace Optimizer
         private int _animationTarget = 0;
         private bool _useAnimation = true;
         private int _animationInterval = 1;
-        private int _animationStep = 10;
+        private int _animationStep = 15;
         private bool _allowUserChange = true;
 
         private bool _isLeftFieldHovered = false;

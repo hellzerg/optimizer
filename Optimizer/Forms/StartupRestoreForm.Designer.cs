@@ -95,7 +95,7 @@
             // previewBackupB
             // 
             this.previewBackupB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.previewBackupB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.previewBackupB.FlatAppearance.BorderSize = 0;
             this.previewBackupB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.previewBackupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.previewBackupB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -112,7 +112,7 @@
             // restoreBackupB
             // 
             this.restoreBackupB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.restoreBackupB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.restoreBackupB.FlatAppearance.BorderSize = 0;
             this.restoreBackupB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.restoreBackupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.restoreBackupB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -130,7 +130,7 @@
             // 
             this.deleteBackupB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteBackupB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.deleteBackupB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.deleteBackupB.FlatAppearance.BorderSize = 0;
             this.deleteBackupB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.deleteBackupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.deleteBackupB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

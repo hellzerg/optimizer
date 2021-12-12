@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [10.9] - 2021-12-12
+- New: Fully translated into Chinese (thanks to https://github.com/btwise - btwise)
+
 ## [10.8] - 2021-12-05
 - New: Add/Delete 'Open with CMD' option in Integrator (#73)
 - Hotfix: Disable Meet icon properly

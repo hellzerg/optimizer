@@ -20,7 +20,7 @@ https://github.com/hellzerg/optimizer/blob/master/confs/win10.conf
 ### For Windows 11: ###
 https://github.com/hellzerg/optimizer/blob/master/confs/win11.conf
 
-## Run Optimizer on Windows Server 2008-2012-2016-2019 ##
+## Run Optimizer on Windows Server 2008-2012-2016-2019-2022 ##
 #### Some options might not work properly ####
 optimizer.exe /unsafe
 

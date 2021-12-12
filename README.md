@@ -10,7 +10,7 @@ Optimizer is recommended after a fresh, clean installation of Windows to achieve
 
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/10.8/Optimizer-10.8.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/10.9/Optimizer-10.9.exe" target="_blank">
 		<img src="download-button.png">
 		<br>
 		<img src="flags.png">
@@ -75,12 +75,13 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * https://github.com/cassiompf - Cassio for Portuguese translation
 * https://github.com/RAFF47 - RAFF for French translation
 * https://github.com/Ziocash - Ziocash for Italian translation
+* https://github.com/btwise - btwise for Chinese translation
 
 ## How to include an app in Common Apps - Pull Request
 https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 10.8
-* Released: December 5, 2021
-* SHA256: E1F648778D4CE62E56D70BC4A7888F244E3B1DEEE8FDD4163D92403417CCAE7C
+* Latest version: 10.9
+* Released: December 12, 2021
+* SHA256: 8D78838A8C4BDA57E8DE3D9DE4DC4D0E4E51C3E7C0AF62FE8490DF3E6BD22F59

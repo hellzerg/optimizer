@@ -9,10 +9,36 @@ namespace Optimizer
         {
 
         }
+
+        //protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
+        //{
+        //    var tsMenuItem = e.Item as ToolStripMenuItem;
+        //    if (tsMenuItem != null)
+        //        e.ArrowColor = Options.ForegroundColor;
+        //    base.OnRenderArrow(e);
+        //}
     }
 
     internal class ColorsMaterial : ProfessionalColorTable
     {
+        public override Color SeparatorLight
+        {
+            get { return Options.BackAccentColor; }
+        }
+
+        public override Color SeparatorDark
+        {
+            get { return Options.BackAccentColor; }
+        }
+
+        public override Color ToolStripDropDownBackground
+        {
+            get
+            {
+                return Options.BackgroundColor;
+            }
+        }
+
         public override Color ImageMarginGradientBegin
         {
             get
@@ -39,7 +65,7 @@ namespace Optimizer
         {
             get
             {
-                return Options.ForegroundColor;
+                return Options.BackgroundColor;
             }
         }
 
@@ -47,7 +73,7 @@ namespace Optimizer
         {
             get
             {
-                return Options.ForegroundColor;
+                return Options.BackAccentColor;
             }
         }
 
@@ -55,7 +81,7 @@ namespace Optimizer
         {
             get
             {
-                return Options.ForegroundAccentColor;
+                return Options.BackAccentColor;
             }
         }
 
@@ -63,7 +89,7 @@ namespace Optimizer
         {
             get
             {
-                return Options.ForegroundAccentColor;
+                return Options.BackAccentColor;
             }
         }
 
@@ -71,7 +97,7 @@ namespace Optimizer
         {
             get
             {
-                return Options.ForegroundAccentColor;
+                return Options.BackAccentColor;
             }
         }
 
@@ -79,7 +105,7 @@ namespace Optimizer
         {
             get
             {
-                return Options.ForegroundColor;
+                return Options.BackAccentColor;
             }
         }
     }

@@ -89,6 +89,34 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;btnAbout&quot;: &quot;确定&quot;,
+        ///	&quot;restartButton&quot;: &quot;应用 &amp;&amp; 重启&quot;,
+        ///	&quot;restartButton8&quot;: &quot;应用 &amp;&amp; 重启&quot;,
+        ///	&quot;restartButton10&quot;: &quot;应用 &amp;&amp; 重启&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;重新启动以应用更改?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;版本: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;您使用的是{BITS}&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;更新可用&quot;,
+        ///	&quot;lblLab&quot;: &quot;实验构建\n(删除后测试)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;启用性能调整&quot;,
+        ///	&quot;networkSw&quot;: &quot;禁用网络节流&quot;,
+        ///	&quot;defenderSw&quot;: &quot;禁用 Windows Defender&quot;,
+        ///	&quot;systemRestoreSw&quot;: &quot;禁用 System Restore&quot;,
+        ///	&quot;printSw&quot;: &quot;禁用打印服务&quot;,
+        ///	&quot;mediaSharingSw&quot;: &quot;禁用媒体播放器共享&quot;,
+        ///	&quot;faxSw&quot;: &quot;禁用传真服务&quot;,
+        ///	&quot;reportingSw&quot;: &quot;禁用错误报告&quot;,
+        ///	&quot;homegroupSw&quot;: &quot;禁用家庭组&quot;,
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CN {
+            get {
+                return ResourceManager.GetString("CN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;Anwenden &amp;&amp; Neustarten&quot;,
         ///	&quot;restartButton8&quot;: &quot;Anwenden &amp;&amp; Neustarten&quot;,
@@ -474,9 +502,9 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
-        ///	&quot;restartButton&quot;: &quot;Aplicar e reiniciar&quot;,
-        ///	&quot;restartButton8&quot;: &quot;Aplicar e reiniciar&quot;,
-        ///	&quot;restartButton10&quot;: &quot;Aplicar e reiniciar&quot;,
+        ///	&quot;restartButton&quot;: &quot;Aplicar e Reiniciar&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Aplicar e Reiniciar&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Aplicar e Reiniciar&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Reiniciar para aplicar as alterações?&quot;,
         ///	&quot;CleanPreviewForm&quot;: &quot;Antevisão Limpa&quot;,
         ///	&quot;txtVersion&quot;: &quot;Versão: {VN}&quot;,

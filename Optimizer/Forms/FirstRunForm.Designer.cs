@@ -47,8 +47,10 @@ namespace Optimizer
             this.radioHellenic = new Optimizer.ColoredRadio();
             this.radioEnglish = new Optimizer.ColoredRadio();
             this.radioRussian = new Optimizer.ColoredRadio();
-            this.radioitalian = new Optimizer.ColoredRadio();
+            this.radioItalian = new Optimizer.ColoredRadio();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.radioChinese = new Optimizer.ColoredRadio();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox88)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox86)).BeginInit();
@@ -58,6 +60,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox88
@@ -99,7 +102,7 @@ namespace Optimizer
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnStart.BackColor = System.Drawing.Color.MediumOrchid;
             this.btnStart.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnStart.FlatAppearance.BorderColor = System.Drawing.Color.MediumOrchid;
+            this.btnStart.FlatAppearance.BorderSize = 0;
             this.btnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrchid;
             this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrchid;
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -292,20 +295,20 @@ namespace Optimizer
             this.radioRussian.UseVisualStyleBackColor = true;
             this.radioRussian.CheckedChanged += new System.EventHandler(this.radioRussian_CheckedChanged);
             // 
-            // radioitalian
+            // radioItalian
             // 
-            this.radioitalian.AutoSize = true;
-            this.radioitalian.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
-            this.radioitalian.ForeColor = System.Drawing.Color.White;
-            this.radioitalian.Location = new System.Drawing.Point(53, 127);
-            this.radioitalian.Margin = new System.Windows.Forms.Padding(2);
-            this.radioitalian.Name = "radioitalian";
-            this.radioitalian.Size = new System.Drawing.Size(82, 25);
-            this.radioitalian.TabIndex = 98;
-            this.radioitalian.Tag = "";
-            this.radioitalian.Text = "Italiano";
-            this.radioitalian.UseVisualStyleBackColor = true;
-            this.radioitalian.CheckedChanged += new System.EventHandler(this.radioitalian_CheckedChanged);
+            this.radioItalian.AutoSize = true;
+            this.radioItalian.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioItalian.ForeColor = System.Drawing.Color.White;
+            this.radioItalian.Location = new System.Drawing.Point(53, 127);
+            this.radioItalian.Margin = new System.Windows.Forms.Padding(2);
+            this.radioItalian.Name = "radioItalian";
+            this.radioItalian.Size = new System.Drawing.Size(82, 25);
+            this.radioItalian.TabIndex = 98;
+            this.radioItalian.Tag = "";
+            this.radioItalian.Text = "Italiano";
+            this.radioItalian.UseVisualStyleBackColor = true;
+            this.radioItalian.CheckedChanged += new System.EventHandler(this.radioitalian_CheckedChanged);
             // 
             // pictureBox6
             // 
@@ -318,6 +321,32 @@ namespace Optimizer
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
+            // radioChinese
+            // 
+            this.radioChinese.AutoSize = true;
+            this.radioChinese.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioChinese.ForeColor = System.Drawing.Color.White;
+            this.radioChinese.Location = new System.Drawing.Point(200, 127);
+            this.radioChinese.Margin = new System.Windows.Forms.Padding(2);
+            this.radioChinese.Name = "radioChinese";
+            this.radioChinese.Size = new System.Drawing.Size(96, 25);
+            this.radioChinese.TabIndex = 100;
+            this.radioChinese.Tag = "";
+            this.radioChinese.Text = "简体中文";
+            this.radioChinese.UseVisualStyleBackColor = true;
+            this.radioChinese.CheckedChanged += new System.EventHandler(this.radioChinese_CheckedChanged);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(159, 128);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 99;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            // 
             // FirstRunForm
             // 
             this.AcceptButton = this.btnStart;
@@ -326,7 +355,9 @@ namespace Optimizer
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnStart;
             this.ClientSize = new System.Drawing.Size(311, 218);
-            this.Controls.Add(this.radioitalian);
+            this.Controls.Add(this.radioChinese);
+            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.radioItalian);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.radioFrench);
             this.Controls.Add(this.pictureBox5);
@@ -355,7 +386,7 @@ namespace Optimizer
             this.Name = "FirstRunForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Welcome to Optimizer";
+            this.Text = "Optimizer";
             this.Load += new System.EventHandler(this.FirstRunForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox88)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).EndInit();
@@ -366,6 +397,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,7 +422,9 @@ namespace Optimizer
         private System.Windows.Forms.PictureBox pictureBox4;
         private ColoredRadio radioFrench;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private ColoredRadio radioitalian;
+        private ColoredRadio radioItalian;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private ColoredRadio radioChinese;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }

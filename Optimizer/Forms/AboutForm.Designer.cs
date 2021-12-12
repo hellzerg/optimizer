@@ -79,7 +79,7 @@
             this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAbout.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnAbout.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAbout.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnAbout.FlatAppearance.BorderSize = 0;
             this.btnAbout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

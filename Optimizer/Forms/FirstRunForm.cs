@@ -125,7 +125,19 @@ namespace Optimizer
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            radioitalian.PerformClick();
+            radioItalian.PerformClick();
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            radioChinese.PerformClick();
+        }
+
+        private void radioChinese_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.CN;
+            Options.SaveSettings();
+            Options.LoadTranslation();
         }
     }
 }

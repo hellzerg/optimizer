@@ -263,6 +263,8 @@ namespace Optimizer
             this.removeAllIIB = new System.Windows.Forms.Button();
             this.removeIntegratorItemsL = new System.Windows.Forms.Label();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.DeleteCMDB = new System.Windows.Forms.Button();
+            this.AddCMDB = new System.Windows.Forms.Button();
             this.RemoveOwnerB = new System.Windows.Forms.Button();
             this.AddOwnerB = new System.Windows.Forms.Button();
             this.readyMenusL = new System.Windows.Forms.Label();
@@ -352,8 +354,8 @@ namespace Optimizer
             this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.helpBox = new System.Windows.Forms.ToolTip(this.components);
-            this.DeleteCMDB = new System.Windows.Forms.Button();
-            this.AddCMDB = new System.Windows.Forms.Button();
+            this.radioChinese = new Optimizer.ColoredRadio();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
@@ -409,6 +411,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.picFOSS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFSF)).BeginInit();
             this.launcherMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // tpanel
@@ -806,7 +809,7 @@ namespace Optimizer
             // 
             this.restartButton.AutoSize = true;
             this.restartButton.BackColor = System.Drawing.Color.DodgerBlue;
-            this.restartButton.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.restartButton.FlatAppearance.BorderSize = 0;
             this.restartButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.restartButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.restartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -974,7 +977,7 @@ namespace Optimizer
             // 
             this.restartButton10.AutoSize = true;
             this.restartButton10.BackColor = System.Drawing.Color.DodgerBlue;
-            this.restartButton10.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.restartButton10.FlatAppearance.BorderSize = 0;
             this.restartButton10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.restartButton10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.restartButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1355,7 +1358,7 @@ namespace Optimizer
             // 
             this.restartButton8.AutoSize = true;
             this.restartButton8.BackColor = System.Drawing.Color.DodgerBlue;
-            this.restartButton8.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.restartButton8.FlatAppearance.BorderSize = 0;
             this.restartButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.restartButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.restartButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1431,7 +1434,7 @@ namespace Optimizer
             // uninstallModernAppsButton
             // 
             this.uninstallModernAppsButton.BackColor = System.Drawing.Color.DodgerBlue;
-            this.uninstallModernAppsButton.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.uninstallModernAppsButton.FlatAppearance.BorderSize = 0;
             this.uninstallModernAppsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.uninstallModernAppsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.uninstallModernAppsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1448,7 +1451,7 @@ namespace Optimizer
             // refreshModernAppsButton
             // 
             this.refreshModernAppsButton.BackColor = System.Drawing.Color.DodgerBlue;
-            this.refreshModernAppsButton.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.refreshModernAppsButton.FlatAppearance.BorderSize = 0;
             this.refreshModernAppsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.refreshModernAppsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.refreshModernAppsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1528,7 +1531,7 @@ namespace Optimizer
             // 
             this.cancelBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelBackup.BackColor = System.Drawing.Color.DodgerBlue;
-            this.cancelBackup.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.cancelBackup.FlatAppearance.BorderSize = 0;
             this.cancelBackup.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.cancelBackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.cancelBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1547,7 +1550,7 @@ namespace Optimizer
             // 
             this.doBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.doBackup.BackColor = System.Drawing.Color.DodgerBlue;
-            this.doBackup.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.doBackup.FlatAppearance.BorderSize = 0;
             this.doBackup.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.doBackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.doBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1593,7 +1596,7 @@ namespace Optimizer
             // restoreStartupB
             // 
             this.restoreStartupB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.restoreStartupB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.restoreStartupB.FlatAppearance.BorderSize = 0;
             this.restoreStartupB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.restoreStartupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.restoreStartupB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1610,7 +1613,7 @@ namespace Optimizer
             // backupStartupB
             // 
             this.backupStartupB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.backupStartupB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.backupStartupB.FlatAppearance.BorderSize = 0;
             this.backupStartupB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.backupStartupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.backupStartupB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1628,7 +1631,7 @@ namespace Optimizer
             // 
             this.findInRegB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.findInRegB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.findInRegB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.findInRegB.FlatAppearance.BorderSize = 0;
             this.findInRegB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.findInRegB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.findInRegB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1646,7 +1649,7 @@ namespace Optimizer
             // 
             this.locateFileB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.locateFileB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.locateFileB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.locateFileB.FlatAppearance.BorderSize = 0;
             this.locateFileB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.locateFileB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.locateFileB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1664,7 +1667,7 @@ namespace Optimizer
             // 
             this.refreshStartupB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.refreshStartupB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.refreshStartupB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.refreshStartupB.FlatAppearance.BorderSize = 0;
             this.refreshStartupB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.refreshStartupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.refreshStartupB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1735,7 +1738,7 @@ namespace Optimizer
             // 
             this.removeStartupItemB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.removeStartupItemB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.removeStartupItemB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.removeStartupItemB.FlatAppearance.BorderSize = 0;
             this.removeStartupItemB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.removeStartupItemB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.removeStartupItemB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1908,7 +1911,7 @@ namespace Optimizer
             // btnGetFeed
             // 
             this.btnGetFeed.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnGetFeed.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnGetFeed.FlatAppearance.BorderSize = 0;
             this.btnGetFeed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnGetFeed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnGetFeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1991,7 +1994,7 @@ namespace Optimizer
             // btnDownloadApps
             // 
             this.btnDownloadApps.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnDownloadApps.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnDownloadApps.FlatAppearance.BorderSize = 0;
             this.btnDownloadApps.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnDownloadApps.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnDownloadApps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2034,7 +2037,7 @@ namespace Optimizer
             // changeDownDirB
             // 
             this.changeDownDirB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.changeDownDirB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.changeDownDirB.FlatAppearance.BorderSize = 0;
             this.changeDownDirB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.changeDownDirB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.changeDownDirB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2098,7 +2101,7 @@ namespace Optimizer
             // goToDownloadsB
             // 
             this.goToDownloadsB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.goToDownloadsB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.goToDownloadsB.FlatAppearance.BorderSize = 0;
             this.goToDownloadsB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.goToDownloadsB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.goToDownloadsB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2209,7 +2212,7 @@ namespace Optimizer
             // cleanDriveB
             // 
             this.cleanDriveB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.cleanDriveB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.cleanDriveB.FlatAppearance.BorderSize = 0;
             this.cleanDriveB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.cleanDriveB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.cleanDriveB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2309,7 +2312,7 @@ namespace Optimizer
             // btnOpenNetwork
             // 
             this.btnOpenNetwork.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnOpenNetwork.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnOpenNetwork.FlatAppearance.BorderSize = 0;
             this.btnOpenNetwork.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOpenNetwork.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOpenNetwork.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2429,7 +2432,7 @@ namespace Optimizer
             // flushCacheB
             // 
             this.flushCacheB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.flushCacheB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.flushCacheB.FlatAppearance.BorderSize = 0;
             this.flushCacheB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.flushCacheB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.flushCacheB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2446,7 +2449,7 @@ namespace Optimizer
             // btnExport
             // 
             this.btnExport.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnExport.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnExport.FlatAppearance.BorderSize = 0;
             this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2463,7 +2466,7 @@ namespace Optimizer
             // copyB
             // 
             this.copyB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.copyB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.copyB.FlatAppearance.BorderSize = 0;
             this.copyB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.copyB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.copyB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2480,7 +2483,7 @@ namespace Optimizer
             // copyIPB
             // 
             this.copyIPB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.copyIPB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.copyIPB.FlatAppearance.BorderSize = 0;
             this.copyIPB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.copyIPB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.copyIPB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2535,7 +2538,7 @@ namespace Optimizer
             // btnShodan
             // 
             this.btnShodan.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnShodan.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnShodan.FlatAppearance.BorderSize = 0;
             this.btnShodan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnShodan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnShodan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2552,7 +2555,7 @@ namespace Optimizer
             // btnPing
             // 
             this.btnPing.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnPing.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnPing.FlatAppearance.BorderSize = 0;
             this.btnPing.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnPing.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnPing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2716,7 +2719,7 @@ namespace Optimizer
             // adblockUlti
             // 
             this.adblockUlti.BackColor = System.Drawing.Color.DodgerBlue;
-            this.adblockUlti.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.adblockUlti.FlatAppearance.BorderSize = 0;
             this.adblockUlti.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.adblockUlti.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.adblockUlti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2733,7 +2736,7 @@ namespace Optimizer
             // adblockP
             // 
             this.adblockP.BackColor = System.Drawing.Color.DodgerBlue;
-            this.adblockP.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.adblockP.FlatAppearance.BorderSize = 0;
             this.adblockP.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.adblockP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.adblockP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2750,7 +2753,7 @@ namespace Optimizer
             // adblockS
             // 
             this.adblockS.BackColor = System.Drawing.Color.DodgerBlue;
-            this.adblockS.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.adblockS.FlatAppearance.BorderSize = 0;
             this.adblockS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.adblockS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.adblockS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2767,7 +2770,7 @@ namespace Optimizer
             // adblockBasic
             // 
             this.adblockBasic.BackColor = System.Drawing.Color.DodgerBlue;
-            this.adblockBasic.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.adblockBasic.FlatAppearance.BorderSize = 0;
             this.adblockBasic.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.adblockBasic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.adblockBasic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2849,7 +2852,7 @@ namespace Optimizer
             // refreshHostsB
             // 
             this.refreshHostsB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.refreshHostsB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.refreshHostsB.FlatAppearance.BorderSize = 0;
             this.refreshHostsB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.refreshHostsB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.refreshHostsB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2866,7 +2869,7 @@ namespace Optimizer
             // removeHostB
             // 
             this.removeHostB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.removeHostB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.removeHostB.FlatAppearance.BorderSize = 0;
             this.removeHostB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.removeHostB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.removeHostB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2884,7 +2887,7 @@ namespace Optimizer
             // 
             this.removeAllHostsB.BackColor = System.Drawing.Color.DodgerBlue;
             this.removeAllHostsB.Enabled = false;
-            this.removeAllHostsB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.removeAllHostsB.FlatAppearance.BorderSize = 0;
             this.removeAllHostsB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.removeAllHostsB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.removeAllHostsB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2902,7 +2905,7 @@ namespace Optimizer
             // addHostB
             // 
             this.addHostB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.addHostB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.addHostB.FlatAppearance.BorderSize = 0;
             this.addHostB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.addHostB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.addHostB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3036,7 +3039,7 @@ namespace Optimizer
             // regFixB
             // 
             this.regFixB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.regFixB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.regFixB.FlatAppearance.BorderSize = 0;
             this.regFixB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.regFixB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.regFixB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3368,7 +3371,7 @@ namespace Optimizer
             // btnAddItem
             // 
             this.btnAddItem.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAddItem.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddItem.FlatAppearance.BorderSize = 0;
             this.btnAddItem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnAddItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3524,7 +3527,7 @@ namespace Optimizer
             this.btnBrowseIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnBrowseIcon.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnBrowseIcon.Enabled = false;
-            this.btnBrowseIcon.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnBrowseIcon.FlatAppearance.BorderSize = 0;
             this.btnBrowseIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnBrowseIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnBrowseIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3570,7 +3573,7 @@ namespace Optimizer
             // 
             this.btnBrowseItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnBrowseItem.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBrowseItem.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnBrowseItem.FlatAppearance.BorderSize = 0;
             this.btnBrowseItem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnBrowseItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnBrowseItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3738,7 +3741,7 @@ namespace Optimizer
             // refreshIIB
             // 
             this.refreshIIB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.refreshIIB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.refreshIIB.FlatAppearance.BorderSize = 0;
             this.refreshIIB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.refreshIIB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.refreshIIB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3755,7 +3758,7 @@ namespace Optimizer
             // removeDIB
             // 
             this.removeDIB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.removeDIB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.removeDIB.FlatAppearance.BorderSize = 0;
             this.removeDIB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.removeDIB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.removeDIB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3772,7 +3775,7 @@ namespace Optimizer
             // removeAllIIB
             // 
             this.removeAllIIB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.removeAllIIB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.removeAllIIB.FlatAppearance.BorderSize = 0;
             this.removeAllIIB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.removeAllIIB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.removeAllIIB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3820,10 +3823,44 @@ namespace Optimizer
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Ready Menus";
             // 
+            // DeleteCMDB
+            // 
+            this.DeleteCMDB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.DeleteCMDB.FlatAppearance.BorderSize = 0;
+            this.DeleteCMDB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.DeleteCMDB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.DeleteCMDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteCMDB.ForeColor = System.Drawing.Color.White;
+            this.DeleteCMDB.Location = new System.Drawing.Point(11, 365);
+            this.DeleteCMDB.Margin = new System.Windows.Forms.Padding(2);
+            this.DeleteCMDB.Name = "DeleteCMDB";
+            this.DeleteCMDB.Size = new System.Drawing.Size(334, 31);
+            this.DeleteCMDB.TabIndex = 80;
+            this.DeleteCMDB.Text = "Delete \"Open with CMD\"";
+            this.DeleteCMDB.UseVisualStyleBackColor = false;
+            this.DeleteCMDB.Click += new System.EventHandler(this.DeleteCMDB_Click);
+            // 
+            // AddCMDB
+            // 
+            this.AddCMDB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.AddCMDB.FlatAppearance.BorderSize = 0;
+            this.AddCMDB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.AddCMDB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.AddCMDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddCMDB.ForeColor = System.Drawing.Color.White;
+            this.AddCMDB.Location = new System.Drawing.Point(11, 329);
+            this.AddCMDB.Margin = new System.Windows.Forms.Padding(2);
+            this.AddCMDB.Name = "AddCMDB";
+            this.AddCMDB.Size = new System.Drawing.Size(334, 31);
+            this.AddCMDB.TabIndex = 79;
+            this.AddCMDB.Text = "Add \"Open with CMD\"";
+            this.AddCMDB.UseVisualStyleBackColor = false;
+            this.AddCMDB.Click += new System.EventHandler(this.AddCMDB_Click);
+            // 
             // RemoveOwnerB
             // 
             this.RemoveOwnerB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.RemoveOwnerB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.RemoveOwnerB.FlatAppearance.BorderSize = 0;
             this.RemoveOwnerB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.RemoveOwnerB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.RemoveOwnerB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3840,7 +3877,7 @@ namespace Optimizer
             // AddOwnerB
             // 
             this.AddOwnerB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.AddOwnerB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.AddOwnerB.FlatAppearance.BorderSize = 0;
             this.AddOwnerB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.AddOwnerB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.AddOwnerB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3870,7 +3907,7 @@ namespace Optimizer
             // PMB
             // 
             this.PMB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.PMB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.PMB.FlatAppearance.BorderSize = 0;
             this.PMB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.PMB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.PMB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3887,7 +3924,7 @@ namespace Optimizer
             // DSB
             // 
             this.DSB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.DSB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.DSB.FlatAppearance.BorderSize = 0;
             this.DSB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.DSB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.DSB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3904,7 +3941,7 @@ namespace Optimizer
             // STB
             // 
             this.STB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.STB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.STB.FlatAppearance.BorderSize = 0;
             this.STB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.STB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.STB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3921,7 +3958,7 @@ namespace Optimizer
             // SSB
             // 
             this.SSB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.SSB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.SSB.FlatAppearance.BorderSize = 0;
             this.SSB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.SSB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.SSB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3938,7 +3975,7 @@ namespace Optimizer
             // WAB
             // 
             this.WAB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.WAB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.WAB.FlatAppearance.BorderSize = 0;
             this.WAB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.WAB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.WAB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -4003,7 +4040,7 @@ namespace Optimizer
             // removeCCB
             // 
             this.removeCCB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.removeCCB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.removeCCB.FlatAppearance.BorderSize = 0;
             this.removeCCB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.removeCCB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.removeCCB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -4020,7 +4057,7 @@ namespace Optimizer
             // refreshCCB
             // 
             this.refreshCCB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.refreshCCB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.refreshCCB.FlatAppearance.BorderSize = 0;
             this.refreshCCB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.refreshCCB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.refreshCCB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -4050,7 +4087,7 @@ namespace Optimizer
             // btnCreateCustomCommand
             // 
             this.btnCreateCustomCommand.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnCreateCustomCommand.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnCreateCustomCommand.FlatAppearance.BorderSize = 0;
             this.btnCreateCustomCommand.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnCreateCustomCommand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnCreateCustomCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -4067,7 +4104,7 @@ namespace Optimizer
             // button48
             // 
             this.button48.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button48.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button48.FlatAppearance.BorderSize = 0;
             this.button48.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.button48.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.button48.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -4188,6 +4225,8 @@ namespace Optimizer
             // panel9
             // 
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel9.Controls.Add(this.radioChinese);
+            this.panel9.Controls.Add(this.pictureBox7);
             this.panel9.Controls.Add(this.radioItalian);
             this.panel9.Controls.Add(this.pictureBox6);
             this.panel9.Controls.Add(this.radioFrench);
@@ -4646,7 +4685,7 @@ namespace Optimizer
             // btnOpenConf
             // 
             this.btnOpenConf.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnOpenConf.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnOpenConf.FlatAppearance.BorderSize = 0;
             this.btnOpenConf.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOpenConf.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOpenConf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -4689,7 +4728,7 @@ namespace Optimizer
             // btnViewLog
             // 
             this.btnViewLog.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnViewLog.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnViewLog.FlatAppearance.BorderSize = 0;
             this.btnViewLog.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnViewLog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnViewLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -4723,7 +4762,7 @@ namespace Optimizer
             // btnChangelog
             // 
             this.btnChangelog.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnChangelog.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnChangelog.FlatAppearance.BorderSize = 0;
             this.btnChangelog.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnChangelog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnChangelog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -4740,7 +4779,7 @@ namespace Optimizer
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -4757,7 +4796,7 @@ namespace Optimizer
             // btnResetConfig
             // 
             this.btnResetConfig.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnResetConfig.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnResetConfig.FlatAppearance.BorderSize = 0;
             this.btnResetConfig.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnResetConfig.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnResetConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -5011,39 +5050,31 @@ namespace Optimizer
             this.helpBox.UseAnimation = false;
             this.helpBox.UseFading = false;
             // 
-            // DeleteCMDB
+            // radioChinese
             // 
-            this.DeleteCMDB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.DeleteCMDB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.DeleteCMDB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.DeleteCMDB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.DeleteCMDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteCMDB.ForeColor = System.Drawing.Color.White;
-            this.DeleteCMDB.Location = new System.Drawing.Point(11, 365);
-            this.DeleteCMDB.Margin = new System.Windows.Forms.Padding(2);
-            this.DeleteCMDB.Name = "DeleteCMDB";
-            this.DeleteCMDB.Size = new System.Drawing.Size(334, 31);
-            this.DeleteCMDB.TabIndex = 80;
-            this.DeleteCMDB.Text = "Delete \"Open with CMD\"";
-            this.DeleteCMDB.UseVisualStyleBackColor = false;
-            this.DeleteCMDB.Click += new System.EventHandler(this.DeleteCMDB_Click);
+            this.radioChinese.AutoSize = true;
+            this.radioChinese.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioChinese.ForeColor = System.Drawing.Color.White;
+            this.radioChinese.Location = new System.Drawing.Point(157, 268);
+            this.radioChinese.Margin = new System.Windows.Forms.Padding(2);
+            this.radioChinese.Name = "radioChinese";
+            this.radioChinese.Size = new System.Drawing.Size(96, 25);
+            this.radioChinese.TabIndex = 102;
+            this.radioChinese.Tag = "";
+            this.radioChinese.Text = "简体中文";
+            this.radioChinese.UseVisualStyleBackColor = true;
+            this.radioChinese.Click += new System.EventHandler(this.radioChinese_Click);
             // 
-            // AddCMDB
+            // pictureBox7
             // 
-            this.AddCMDB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.AddCMDB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.AddCMDB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.AddCMDB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.AddCMDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddCMDB.ForeColor = System.Drawing.Color.White;
-            this.AddCMDB.Location = new System.Drawing.Point(11, 329);
-            this.AddCMDB.Margin = new System.Windows.Forms.Padding(2);
-            this.AddCMDB.Name = "AddCMDB";
-            this.AddCMDB.Size = new System.Drawing.Size(334, 31);
-            this.AddCMDB.TabIndex = 79;
-            this.AddCMDB.Text = "Add \"Open with CMD\"";
-            this.AddCMDB.UseVisualStyleBackColor = false;
-            this.AddCMDB.Click += new System.EventHandler(this.AddCMDB_Click);
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(116, 269);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 101;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // MainForm
             // 
@@ -5149,6 +5180,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.picFOSS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFSF)).EndInit();
             this.launcherMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -5477,6 +5509,8 @@ namespace Optimizer
         private PictureBox pictureBox6;
         private Button DeleteCMDB;
         private Button AddCMDB;
+        private ColoredRadio radioChinese;
+        private PictureBox pictureBox7;
     }
 }
 

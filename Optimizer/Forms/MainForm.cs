@@ -640,6 +640,7 @@ namespace Optimizer
             if (Options.CurrentOptions.LanguageCode == LanguageCode.FR) radioFrench.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.ES) radioSpanish.Checked = true;
             if (Options.CurrentOptions.LanguageCode == LanguageCode.IT) radioItalian.Checked = true;
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.CN) radioChinese.Checked = true;
 
             Program._MainForm = this;
 
@@ -3161,6 +3162,20 @@ namespace Optimizer
         private void DeleteCMDB_Click(object sender, EventArgs e)
         {
             Integrator.DeleteOpenWithCMD();
+        }
+
+        private void radioChinese_Click(object sender, EventArgs e)
+        {
+            radioChinese.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.CN;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            radioChinese.PerformClick();
         }
     }
 }

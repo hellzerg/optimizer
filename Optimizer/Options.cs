@@ -78,7 +78,8 @@ namespace Optimizer
     {
         internal static Color ForegroundColor = Color.MediumOrchid;
         internal static Color ForegroundAccentColor = Color.DarkOrchid;
-        internal static Color BackgroundColor = Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+        internal static Color BackgroundColor = Color.FromArgb(10,10,10);
+        internal static Color BackAccentColor = Color.FromArgb(40, 40, 40);
 
         readonly static string _themeFlag = "themeable";
         internal readonly static string SettingsFile = Required.CoreFolder + "\\Optimizer.json";
@@ -299,6 +300,7 @@ namespace Optimizer
             if (CurrentOptions.LanguageCode == LanguageCode.PT) TranslationList = JObject.Parse(Properties.Resources.PT);
             if (CurrentOptions.LanguageCode == LanguageCode.FR) TranslationList = JObject.Parse(Properties.Resources.FR);
             if (CurrentOptions.LanguageCode == LanguageCode.IT) TranslationList = JObject.Parse(Properties.Resources.IT);
+            if (CurrentOptions.LanguageCode == LanguageCode.CN) TranslationList = JObject.Parse(Properties.Resources.CN);
         }
     }
 }

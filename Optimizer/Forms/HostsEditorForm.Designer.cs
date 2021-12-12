@@ -53,7 +53,7 @@
             this.closebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.closebtn.BackColor = System.Drawing.Color.DodgerBlue;
             this.closebtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.closebtn.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.closebtn.FlatAppearance.BorderSize = 0;
             this.closebtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.closebtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.closebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -72,7 +72,7 @@
             // 
             this.savebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.savebtn.BackColor = System.Drawing.Color.DodgerBlue;
-            this.savebtn.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.savebtn.FlatAppearance.BorderSize = 0;
             this.savebtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.savebtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

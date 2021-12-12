@@ -38,7 +38,7 @@
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnOK.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnOK.FlatAppearance.BorderSize = 0;
             this.btnOK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -77,7 +77,7 @@
             this.copyIPB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.copyIPB.BackColor = System.Drawing.Color.DodgerBlue;
             this.copyIPB.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.copyIPB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.copyIPB.FlatAppearance.BorderSize = 0;
             this.copyIPB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.copyIPB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.copyIPB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

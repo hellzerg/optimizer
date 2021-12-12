@@ -96,6 +96,7 @@
         ES, // spanish
         PT,  // portuguese
         FR, // french
-        IT // italian
+        IT, // italian
+        CN // chinese
     }
 }

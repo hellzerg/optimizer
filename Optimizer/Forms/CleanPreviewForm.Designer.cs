@@ -55,7 +55,7 @@ namespace Optimizer
             // 
             this.cancelBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelBackup.BackColor = System.Drawing.Color.DodgerBlue;
-            this.cancelBackup.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.cancelBackup.FlatAppearance.BorderSize = 0;
             this.cancelBackup.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.cancelBackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.cancelBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -74,7 +74,7 @@ namespace Optimizer
             // 
             this.cleanDriveB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cleanDriveB.BackColor = System.Drawing.Color.DodgerBlue;
-            this.cleanDriveB.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.cleanDriveB.FlatAppearance.BorderSize = 0;
             this.cleanDriveB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.cleanDriveB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.cleanDriveB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
