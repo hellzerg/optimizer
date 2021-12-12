@@ -276,6 +276,8 @@
 	"trayPinger": "Outil Pinger",
 	"trayHosts": "HOSTS Editeur",
 	"trayAD": "Telechargeur d'applications",
+	"trayOptions": "Option",
+	"trayRegistry": "Réparer le registre",
 	"trayRestartExplorer": "Redemarrer l'Explorer",
 	"trayExit": "Quitter",
 	"tipWhatsThis": "Qu'est-ce que c'est?",

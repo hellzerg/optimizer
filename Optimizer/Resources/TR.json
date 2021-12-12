@@ -276,6 +276,8 @@
 	"trayPinger": "Pinger Aracı",
 	"trayHosts": "HOSTS Editor",
 	"trayAD": "Uygulama İndirici",
+	"trayOptions": "Seçenekler",
+	"trayRegistry": "Kayıt defteri onarımı",
 	"trayRestartExplorer": "Explorer'ı yeniden başlatın",
 	"trayExit": "Çıkış",
 	"tipWhatsThis": "Bu nedir?",

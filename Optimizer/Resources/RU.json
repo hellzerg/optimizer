@@ -276,6 +276,8 @@
 	"trayPinger": "Инструмент Пинг",
 	"trayHosts": "HOSTS Редактор",
 	"trayAD": "Загрузчик приложений",
+	"trayOptions": "вариант",
+	"trayRegistry": "восстановление реестра",
 	"trayRestartExplorer": "Перезапуск Проводника",
 	"trayExit": "Выход",
 	"tipWhatsThis": "Что это?",

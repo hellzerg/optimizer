@@ -276,6 +276,8 @@
 	"trayPinger": "Ferramenta de Ping",
 	"trayHosts": "Editor de HOSTS",
 	"trayAD": "Download de aplicativos",
+	"trayOptions": "Opções",
+	"trayRegistry": "Reparar registro",
 	"trayRestartExplorer": "Reinicie o Explorer",
 	"trayExit": "Sair",
 	"tipWhatsThis": "O que é isso?",

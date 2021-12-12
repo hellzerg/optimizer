@@ -276,6 +276,8 @@
 	"trayPinger": " Εργαλείο Pinger",
 	"trayHosts": "Επεξεργασία HOSTS",
 	"trayAD": "Λήψη Εφαρμογών",
+	"trayOptions": "Επιλογές",
+	"trayRegistry": "Επιδιόρθωση μητρώου",
 	"trayRestartExplorer": "Επανεκκίνηση Explorer",
 	"trayExit": "Έξοδος",
 	"tipWhatsThis": "Τι είναι αυτό;",
