@@ -733,6 +733,8 @@ namespace Optimizer
                 trayPinger.Text = translationList["trayPinger"];
                 trayHosts.Text = translationList["trayHosts"];
                 trayAD.Text = translationList["trayAD"];
+                trayOptions.Text = translationList["trayOptions"];
+                trayRegistry.Text = translationList["trayRegistry"];
                 trayRestartExplorer.Text = translationList["trayRestartExplorer"];
                 trayExit.Text = translationList["trayExit"];
 
