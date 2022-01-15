@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [11.0] - 2022-01-15
+- Improved: Translation fixes in all supported languages
+
 ## [10.9] - 2021-12-12
 - New: Fully translated into Chinese (thanks to https://github.com/btwise - btwise)
 

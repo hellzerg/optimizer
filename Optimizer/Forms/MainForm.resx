@@ -139,6 +139,15 @@
         VUrZey8AAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="integrator7.Text" xml:space="preserve">
+    <value>Items can have custom icons and position.
+They can also be hidden, accessible only
+by pressing the SHIFT key.
+
+It can also create custom commands
+for Run Dialog, making it easy to launch
+any application only by typing your desired keyword.</value>
+  </data>
   <data name="pictureBox85.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -1527,15 +1536,6 @@
         rE3Ix+7k4Rcga1tkt94dYVX+/60atFDEkXuZ1Y7Ggc1va7TGJC81SGd50tucvz/gr9xb5YFM+nU5P6mP
         Tfnt01DpHHsRacX2GdHrD2pe59Fv2Ykj90rLlgnlW+AuMsv+fzJ11yOH4nDYAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="integrator7.Text" xml:space="preserve">
-    <value>Items can have custom icons and position.
-They can also be hidden, accessible only
-by pressing the SHIFT key.
-
-It can also create custom commands
-for Run Dialog, making it easy to launch
-any application only by typing your desired keyword.</value>
   </data>
   <metadata name="defineCommandDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>127, 17</value>

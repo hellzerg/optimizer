@@ -289,6 +289,8 @@ namespace Optimizer
             this.optionsTab = new System.Windows.Forms.TabPage();
             this.pictureBox85 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.radioChinese = new Optimizer.ColoredRadio();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.radioItalian = new Optimizer.ColoredRadio();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.radioFrench = new Optimizer.ColoredRadio();
@@ -354,8 +356,6 @@ namespace Optimizer
             this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.helpBox = new System.Windows.Forms.ToolTip(this.components);
-            this.radioChinese = new Optimizer.ColoredRadio();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
@@ -398,6 +398,7 @@ namespace Optimizer
             this.optionsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox85)).BeginInit();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -411,7 +412,6 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.picFOSS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFSF)).BeginInit();
             this.launcherMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // tpanel
@@ -597,6 +597,7 @@ namespace Optimizer
             // 
             // stickySw
             // 
+            this.stickySw.AnimationStep = 15;
             this.stickySw.Location = new System.Drawing.Point(337, 121);
             this.stickySw.Margin = new System.Windows.Forms.Padding(2);
             this.stickySw.Name = "stickySw";
@@ -611,6 +612,7 @@ namespace Optimizer
             // 
             // smartScreenSw
             // 
+            this.smartScreenSw.AnimationStep = 15;
             this.smartScreenSw.Location = new System.Drawing.Point(14, 121);
             this.smartScreenSw.Margin = new System.Windows.Forms.Padding(2);
             this.smartScreenSw.Name = "smartScreenSw";
@@ -625,6 +627,7 @@ namespace Optimizer
             // 
             // faxSw
             // 
+            this.faxSw.AnimationStep = 15;
             this.faxSw.Location = new System.Drawing.Point(337, 51);
             this.faxSw.Margin = new System.Windows.Forms.Padding(2);
             this.faxSw.Name = "faxSw";
@@ -639,6 +642,7 @@ namespace Optimizer
             // 
             // compatSw
             // 
+            this.compatSw.AnimationStep = 15;
             this.compatSw.Location = new System.Drawing.Point(337, 226);
             this.compatSw.Margin = new System.Windows.Forms.Padding(2);
             this.compatSw.Name = "compatSw";
@@ -653,6 +657,7 @@ namespace Optimizer
             // 
             // officeTelemetrySw
             // 
+            this.officeTelemetrySw.AnimationStep = 15;
             this.officeTelemetrySw.Location = new System.Drawing.Point(14, 261);
             this.officeTelemetrySw.Margin = new System.Windows.Forms.Padding(2);
             this.officeTelemetrySw.Name = "officeTelemetrySw";
@@ -667,6 +672,7 @@ namespace Optimizer
             // 
             // telemetryTasksSw
             // 
+            this.telemetryTasksSw.AnimationStep = 15;
             this.telemetryTasksSw.Location = new System.Drawing.Point(14, 226);
             this.telemetryTasksSw.Margin = new System.Windows.Forms.Padding(2);
             this.telemetryTasksSw.Name = "telemetryTasksSw";
@@ -681,6 +687,7 @@ namespace Optimizer
             // 
             // superfetchSw
             // 
+            this.superfetchSw.AnimationStep = 15;
             this.superfetchSw.Location = new System.Drawing.Point(337, 191);
             this.superfetchSw.Margin = new System.Windows.Forms.Padding(2);
             this.superfetchSw.Name = "superfetchSw";
@@ -695,6 +702,7 @@ namespace Optimizer
             // 
             // homegroupSw
             // 
+            this.homegroupSw.AnimationStep = 15;
             this.homegroupSw.Location = new System.Drawing.Point(337, 156);
             this.homegroupSw.Margin = new System.Windows.Forms.Padding(2);
             this.homegroupSw.Name = "homegroupSw";
@@ -709,6 +717,7 @@ namespace Optimizer
             // 
             // reportingSw
             // 
+            this.reportingSw.AnimationStep = 15;
             this.reportingSw.Location = new System.Drawing.Point(14, 191);
             this.reportingSw.Margin = new System.Windows.Forms.Padding(2);
             this.reportingSw.Name = "reportingSw";
@@ -723,6 +732,7 @@ namespace Optimizer
             // 
             // mediaSharingSw
             // 
+            this.mediaSharingSw.AnimationStep = 15;
             this.mediaSharingSw.Location = new System.Drawing.Point(337, 86);
             this.mediaSharingSw.Margin = new System.Windows.Forms.Padding(2);
             this.mediaSharingSw.Name = "mediaSharingSw";
@@ -737,6 +747,7 @@ namespace Optimizer
             // 
             // printSw
             // 
+            this.printSw.AnimationStep = 15;
             this.printSw.Location = new System.Drawing.Point(337, 16);
             this.printSw.Margin = new System.Windows.Forms.Padding(2);
             this.printSw.Name = "printSw";
@@ -751,6 +762,7 @@ namespace Optimizer
             // 
             // systemRestoreSw
             // 
+            this.systemRestoreSw.AnimationStep = 15;
             this.systemRestoreSw.Location = new System.Drawing.Point(14, 156);
             this.systemRestoreSw.Margin = new System.Windows.Forms.Padding(2);
             this.systemRestoreSw.Name = "systemRestoreSw";
@@ -765,6 +777,7 @@ namespace Optimizer
             // 
             // performanceSw
             // 
+            this.performanceSw.AnimationStep = 15;
             this.performanceSw.Location = new System.Drawing.Point(14, 16);
             this.performanceSw.Margin = new System.Windows.Forms.Padding(2);
             this.performanceSw.Name = "performanceSw";
@@ -779,6 +792,7 @@ namespace Optimizer
             // 
             // defenderSw
             // 
+            this.defenderSw.AnimationStep = 15;
             this.defenderSw.Location = new System.Drawing.Point(14, 86);
             this.defenderSw.Margin = new System.Windows.Forms.Padding(2);
             this.defenderSw.Name = "defenderSw";
@@ -793,6 +807,7 @@ namespace Optimizer
             // 
             // networkSw
             // 
+            this.networkSw.AnimationStep = 15;
             this.networkSw.Location = new System.Drawing.Point(14, 51);
             this.networkSw.Margin = new System.Windows.Forms.Padding(2);
             this.networkSw.Name = "networkSw";
@@ -819,7 +834,7 @@ namespace Optimizer
             this.restartButton.Name = "restartButton";
             this.restartButton.Size = new System.Drawing.Size(120, 31);
             this.restartButton.TabIndex = 30;
-            this.restartButton.Text = "Apply && Restart";
+            this.restartButton.Text = "Restart now";
             this.restartButton.UseVisualStyleBackColor = false;
             this.restartButton.Click += new System.EventHandler(this.button39_Click);
             // 
@@ -877,6 +892,7 @@ namespace Optimizer
             // 
             // leftTaskbarSw
             // 
+            this.leftTaskbarSw.AnimationStep = 15;
             this.leftTaskbarSw.Location = new System.Drawing.Point(6, 0);
             this.leftTaskbarSw.Margin = new System.Windows.Forms.Padding(2);
             this.leftTaskbarSw.Name = "leftTaskbarSw";
@@ -891,6 +907,7 @@ namespace Optimizer
             // 
             // snapAssistSw
             // 
+            this.snapAssistSw.AnimationStep = 15;
             this.snapAssistSw.Location = new System.Drawing.Point(6, 36);
             this.snapAssistSw.Margin = new System.Windows.Forms.Padding(2);
             this.snapAssistSw.Name = "snapAssistSw";
@@ -905,6 +922,7 @@ namespace Optimizer
             // 
             // classicContextSw
             // 
+            this.classicContextSw.AnimationStep = 15;
             this.classicContextSw.Location = new System.Drawing.Point(6, 216);
             this.classicContextSw.Margin = new System.Windows.Forms.Padding(2);
             this.classicContextSw.Name = "classicContextSw";
@@ -919,6 +937,7 @@ namespace Optimizer
             // 
             // widgetsSw
             // 
+            this.widgetsSw.AnimationStep = 15;
             this.widgetsSw.Location = new System.Drawing.Point(6, 72);
             this.widgetsSw.Margin = new System.Windows.Forms.Padding(2);
             this.widgetsSw.Name = "widgetsSw";
@@ -933,6 +952,7 @@ namespace Optimizer
             // 
             // classicRibbonSw
             // 
+            this.classicRibbonSw.AnimationStep = 15;
             this.classicRibbonSw.Location = new System.Drawing.Point(6, 180);
             this.classicRibbonSw.Margin = new System.Windows.Forms.Padding(2);
             this.classicRibbonSw.Name = "classicRibbonSw";
@@ -947,6 +967,7 @@ namespace Optimizer
             // 
             // smallerTaskbarSw
             // 
+            this.smallerTaskbarSw.AnimationStep = 15;
             this.smallerTaskbarSw.Location = new System.Drawing.Point(6, 144);
             this.smallerTaskbarSw.Margin = new System.Windows.Forms.Padding(2);
             this.smallerTaskbarSw.Name = "smallerTaskbarSw";
@@ -961,6 +982,7 @@ namespace Optimizer
             // 
             // chatSw
             // 
+            this.chatSw.AnimationStep = 15;
             this.chatSw.Location = new System.Drawing.Point(6, 108);
             this.chatSw.Margin = new System.Windows.Forms.Padding(2);
             this.chatSw.Name = "chatSw";
@@ -987,12 +1009,13 @@ namespace Optimizer
             this.restartButton10.Name = "restartButton10";
             this.restartButton10.Size = new System.Drawing.Size(120, 31);
             this.restartButton10.TabIndex = 31;
-            this.restartButton10.Text = "Apply && Restart";
+            this.restartButton10.Text = "Restart now";
             this.restartButton10.UseVisualStyleBackColor = false;
             this.restartButton10.Click += new System.EventHandler(this.button43_Click);
             // 
             // tpmSw
             // 
+            this.tpmSw.AnimationStep = 15;
             this.tpmSw.Location = new System.Drawing.Point(14, 374);
             this.tpmSw.Margin = new System.Windows.Forms.Padding(2);
             this.tpmSw.Name = "tpmSw";
@@ -1007,6 +1030,7 @@ namespace Optimizer
             // 
             // actionSw
             // 
+            this.actionSw.AnimationStep = 15;
             this.actionSw.Location = new System.Drawing.Point(14, 409);
             this.actionSw.Margin = new System.Windows.Forms.Padding(2);
             this.actionSw.Name = "actionSw";
@@ -1021,6 +1045,7 @@ namespace Optimizer
             // 
             // castSw
             // 
+            this.castSw.AnimationStep = 15;
             this.castSw.Location = new System.Drawing.Point(337, 267);
             this.castSw.Margin = new System.Windows.Forms.Padding(2);
             this.castSw.Name = "castSw";
@@ -1035,6 +1060,7 @@ namespace Optimizer
             // 
             // longPathsSw
             // 
+            this.longPathsSw.AnimationStep = 15;
             this.longPathsSw.Location = new System.Drawing.Point(14, 231);
             this.longPathsSw.Margin = new System.Windows.Forms.Padding(2);
             this.longPathsSw.Name = "longPathsSw";
@@ -1049,6 +1075,7 @@ namespace Optimizer
             // 
             // ccSw
             // 
+            this.ccSw.AnimationStep = 15;
             this.ccSw.Location = new System.Drawing.Point(337, 161);
             this.ccSw.Margin = new System.Windows.Forms.Padding(2);
             this.ccSw.Name = "ccSw";
@@ -1063,6 +1090,7 @@ namespace Optimizer
             // 
             // featuresSw
             // 
+            this.featuresSw.AnimationStep = 15;
             this.featuresSw.Location = new System.Drawing.Point(337, 374);
             this.featuresSw.Margin = new System.Windows.Forms.Padding(2);
             this.featuresSw.Name = "featuresSw";
@@ -1077,6 +1105,7 @@ namespace Optimizer
             // 
             // insiderSw
             // 
+            this.insiderSw.AnimationStep = 15;
             this.insiderSw.Location = new System.Drawing.Point(337, 339);
             this.insiderSw.Margin = new System.Windows.Forms.Padding(2);
             this.insiderSw.Name = "insiderSw";
@@ -1091,6 +1120,7 @@ namespace Optimizer
             // 
             // darkSw
             // 
+            this.darkSw.AnimationStep = 15;
             this.darkSw.Location = new System.Drawing.Point(14, 124);
             this.darkSw.Margin = new System.Windows.Forms.Padding(2);
             this.darkSw.Name = "darkSw";
@@ -1105,6 +1135,7 @@ namespace Optimizer
             // 
             // spellSw
             // 
+            this.spellSw.AnimationStep = 15;
             this.spellSw.Location = new System.Drawing.Point(14, 303);
             this.spellSw.Margin = new System.Windows.Forms.Padding(2);
             this.spellSw.Name = "spellSw";
@@ -1119,6 +1150,7 @@ namespace Optimizer
             // 
             // inkSw
             // 
+            this.inkSw.AnimationStep = 15;
             this.inkSw.Location = new System.Drawing.Point(14, 267);
             this.inkSw.Margin = new System.Windows.Forms.Padding(2);
             this.inkSw.Name = "inkSw";
@@ -1133,6 +1165,7 @@ namespace Optimizer
             // 
             // driversSw
             // 
+            this.driversSw.AnimationStep = 15;
             this.driversSw.Location = new System.Drawing.Point(337, 52);
             this.driversSw.Margin = new System.Windows.Forms.Padding(2);
             this.driversSw.Name = "driversSw";
@@ -1147,6 +1180,7 @@ namespace Optimizer
             // 
             // sensorSw
             // 
+            this.sensorSw.AnimationStep = 15;
             this.sensorSw.Location = new System.Drawing.Point(337, 232);
             this.sensorSw.Margin = new System.Windows.Forms.Padding(2);
             this.sensorSw.Name = "sensorSw";
@@ -1161,6 +1195,7 @@ namespace Optimizer
             // 
             // privacySw
             // 
+            this.privacySw.AnimationStep = 15;
             this.privacySw.Location = new System.Drawing.Point(337, 124);
             this.privacySw.Margin = new System.Windows.Forms.Padding(2);
             this.privacySw.Name = "privacySw";
@@ -1175,6 +1210,7 @@ namespace Optimizer
             // 
             // telemetryServicesSw
             // 
+            this.telemetryServicesSw.AnimationStep = 15;
             this.telemetryServicesSw.Location = new System.Drawing.Point(337, 88);
             this.telemetryServicesSw.Margin = new System.Windows.Forms.Padding(2);
             this.telemetryServicesSw.Name = "telemetryServicesSw";
@@ -1189,6 +1225,7 @@ namespace Optimizer
             // 
             // autoUpdatesSw
             // 
+            this.autoUpdatesSw.AnimationStep = 15;
             this.autoUpdatesSw.Location = new System.Drawing.Point(337, 16);
             this.autoUpdatesSw.Margin = new System.Windows.Forms.Padding(2);
             this.autoUpdatesSw.Name = "autoUpdatesSw";
@@ -1203,6 +1240,7 @@ namespace Optimizer
             // 
             // peopleSw
             // 
+            this.peopleSw.AnimationStep = 15;
             this.peopleSw.Location = new System.Drawing.Point(14, 196);
             this.peopleSw.Margin = new System.Windows.Forms.Padding(2);
             this.peopleSw.Name = "peopleSw";
@@ -1217,6 +1255,7 @@ namespace Optimizer
             // 
             // adsSw
             // 
+            this.adsSw.AnimationStep = 15;
             this.adsSw.Location = new System.Drawing.Point(14, 88);
             this.adsSw.Margin = new System.Windows.Forms.Padding(2);
             this.adsSw.Name = "adsSw";
@@ -1231,6 +1270,7 @@ namespace Optimizer
             // 
             // colorBarSw
             // 
+            this.colorBarSw.AnimationStep = 15;
             this.colorBarSw.Location = new System.Drawing.Point(14, 16);
             this.colorBarSw.Margin = new System.Windows.Forms.Padding(2);
             this.colorBarSw.Name = "colorBarSw";
@@ -1245,6 +1285,7 @@ namespace Optimizer
             // 
             // oldExplorerSw
             // 
+            this.oldExplorerSw.AnimationStep = 15;
             this.oldExplorerSw.Location = new System.Drawing.Point(14, 52);
             this.oldExplorerSw.Margin = new System.Windows.Forms.Padding(2);
             this.oldExplorerSw.Name = "oldExplorerSw";
@@ -1259,6 +1300,7 @@ namespace Optimizer
             // 
             // xboxSw
             // 
+            this.xboxSw.AnimationStep = 15;
             this.xboxSw.Location = new System.Drawing.Point(14, 339);
             this.xboxSw.Margin = new System.Windows.Forms.Padding(2);
             this.xboxSw.Name = "xboxSw";
@@ -1273,6 +1315,7 @@ namespace Optimizer
             // 
             // cortanaSw
             // 
+            this.cortanaSw.AnimationStep = 15;
             this.cortanaSw.Location = new System.Drawing.Point(337, 196);
             this.cortanaSw.Margin = new System.Windows.Forms.Padding(2);
             this.cortanaSw.Name = "cortanaSw";
@@ -1287,6 +1330,7 @@ namespace Optimizer
             // 
             // gameBarSw
             // 
+            this.gameBarSw.AnimationStep = 15;
             this.gameBarSw.Location = new System.Drawing.Point(337, 303);
             this.gameBarSw.Margin = new System.Windows.Forms.Padding(2);
             this.gameBarSw.Name = "gameBarSw";
@@ -1301,6 +1345,7 @@ namespace Optimizer
             // 
             // uODSw
             // 
+            this.uODSw.AnimationStep = 15;
             this.uODSw.Location = new System.Drawing.Point(14, 160);
             this.uODSw.Margin = new System.Windows.Forms.Padding(2);
             this.uODSw.Name = "uODSw";
@@ -1315,6 +1360,7 @@ namespace Optimizer
             // 
             // oldMixerSw
             // 
+            this.oldMixerSw.AnimationStep = 15;
             this.oldMixerSw.Location = new System.Drawing.Point(337, 409);
             this.oldMixerSw.Margin = new System.Windows.Forms.Padding(2);
             this.oldMixerSw.Name = "oldMixerSw";
@@ -1342,6 +1388,7 @@ namespace Optimizer
             // 
             // disableOneDriveSw
             // 
+            this.disableOneDriveSw.AnimationStep = 15;
             this.disableOneDriveSw.Location = new System.Drawing.Point(14, 16);
             this.disableOneDriveSw.Margin = new System.Windows.Forms.Padding(2);
             this.disableOneDriveSw.Name = "disableOneDriveSw";
@@ -1368,7 +1415,7 @@ namespace Optimizer
             this.restartButton8.Name = "restartButton8";
             this.restartButton8.Size = new System.Drawing.Size(120, 31);
             this.restartButton8.TabIndex = 32;
-            this.restartButton8.Text = "Apply && Restart";
+            this.restartButton8.Text = "Restart now";
             this.restartButton8.UseVisualStyleBackColor = false;
             this.restartButton8.Click += new System.EventHandler(this.button44_Click);
             // 
@@ -4250,6 +4297,32 @@ namespace Optimizer
             this.panel9.Size = new System.Drawing.Size(279, 333);
             this.panel9.TabIndex = 73;
             // 
+            // radioChinese
+            // 
+            this.radioChinese.AutoSize = true;
+            this.radioChinese.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioChinese.ForeColor = System.Drawing.Color.White;
+            this.radioChinese.Location = new System.Drawing.Point(157, 268);
+            this.radioChinese.Margin = new System.Windows.Forms.Padding(2);
+            this.radioChinese.Name = "radioChinese";
+            this.radioChinese.Size = new System.Drawing.Size(96, 25);
+            this.radioChinese.TabIndex = 102;
+            this.radioChinese.Tag = "";
+            this.radioChinese.Text = "简体中文";
+            this.radioChinese.UseVisualStyleBackColor = true;
+            this.radioChinese.Click += new System.EventHandler(this.radioChinese_Click);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(116, 269);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 101;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            // 
             // radioItalian
             // 
             this.radioItalian.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -4825,6 +4898,7 @@ namespace Optimizer
             // 
             // helpTipsToggle
             // 
+            this.helpTipsToggle.AnimationStep = 15;
             this.helpTipsToggle.Location = new System.Drawing.Point(14, 51);
             this.helpTipsToggle.Margin = new System.Windows.Forms.Padding(2);
             this.helpTipsToggle.Name = "helpTipsToggle";
@@ -4840,6 +4914,7 @@ namespace Optimizer
             // 
             // quickAccessToggle
             // 
+            this.quickAccessToggle.AnimationStep = 15;
             this.quickAccessToggle.Location = new System.Drawing.Point(14, 16);
             this.quickAccessToggle.Margin = new System.Windows.Forms.Padding(2);
             this.quickAccessToggle.Name = "quickAccessToggle";
@@ -5050,32 +5125,6 @@ namespace Optimizer
             this.helpBox.UseAnimation = false;
             this.helpBox.UseFading = false;
             // 
-            // radioChinese
-            // 
-            this.radioChinese.AutoSize = true;
-            this.radioChinese.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
-            this.radioChinese.ForeColor = System.Drawing.Color.White;
-            this.radioChinese.Location = new System.Drawing.Point(157, 268);
-            this.radioChinese.Margin = new System.Windows.Forms.Padding(2);
-            this.radioChinese.Name = "radioChinese";
-            this.radioChinese.Size = new System.Drawing.Size(96, 25);
-            this.radioChinese.TabIndex = 102;
-            this.radioChinese.Tag = "";
-            this.radioChinese.Text = "简体中文";
-            this.radioChinese.UseVisualStyleBackColor = true;
-            this.radioChinese.Click += new System.EventHandler(this.radioChinese_Click);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(116, 269);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(36, 22);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 101;
-            this.pictureBox7.TabStop = false;
-            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -5166,6 +5215,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox85)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -5180,7 +5230,6 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.picFOSS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFSF)).EndInit();
             this.launcherMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
