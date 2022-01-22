@@ -10,7 +10,7 @@ Optimizer is recommended after a fresh, clean installation of Windows to achieve
 
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/11.0/Optimizer-11.0.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/11.1/Optimizer-11.1.exe" target="_blank">
 		<img src="download-button.png">
 		<br>
 		<img src="flags.png">
@@ -26,7 +26,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Disable Windows 10 automatic updates
 * Download useful apps quickly at once
 * Uninstall UWP apps
-* Clean your system drive
+* Clean your system drive and major browsers' profile data
 * Fix common registry issues
 * Ping IPs and assess your latency
 * Search IPs on SHODAN.io
@@ -82,6 +82,6 @@ https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 11.0
-* Released: January 15, 2022
-* SHA256: 61CD9F1CDD7E0D0819945BD80CDB8C39BC9CB7EFE4C5F659F1EC100FD68FDA64
+* Latest version: 11.1
+* Released: January 23, 2022
+* SHA256: 4725C7F4A6CEC3C9FD7A3EEDDFBC6FB8BD04A1CDD4C438D8E5B9DF7E3194D961

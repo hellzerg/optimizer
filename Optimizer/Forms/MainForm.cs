@@ -860,22 +860,14 @@ namespace Optimizer
         {
             try
             {
-                if (checkTemp.Checked)
-                {
-                    CleanHelper.PreviewTemp();
-                }
-                if (checkMiniDumps.Checked)
-                {
-                    CleanHelper.PreviewMinidumps();
-                }
-                if (checkErrorReports.Checked)
-                {
-                    CleanHelper.PreviewErrorReports();
-                }
-                if (checkBin.Checked)
-                {
-                    CleanHelper.EmptyRecycleBin();
-                }
+                if (checkTemp.Checked) CleanHelper.PreviewTemp();
+                if (checkMiniDumps.Checked) CleanHelper.PreviewMinidumps();
+                if (checkErrorReports.Checked) CleanHelper.PreviewErrorReports();
+                if (checkBin.Checked) CleanHelper.EmptyRecycleBin();
+                CleanHelper.PreviewChromeClean(chromeCache.Checked, chromeCookies.Checked, chromeHistory.Checked, chromeSession.Checked, chromePws.Checked);
+                CleanHelper.PreviewFireFoxClean(firefoxCache.Checked, firefoxCookies.Checked, firefoxHistory.Checked);
+                CleanHelper.PreviewEdgeClean(edgeCache.Checked, edgeCookies.Checked, edgeHistory.Checked, edgeSession.Checked);
+                if (IECache.Checked) CleanHelper.PreviewInternetExplorerCache();
             }
             catch (Exception ex)
             {
@@ -1008,7 +1000,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void GetDesktopItems()

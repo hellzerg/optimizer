@@ -152,6 +152,27 @@ namespace Optimizer
             this.cleanerTab = new System.Windows.Forms.TabPage();
             this.cleanerTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.edgeSession = new Optimizer.ColoredCheck();
+            this.edgeHistory = new Optimizer.ColoredCheck();
+            this.edgeCookies = new Optimizer.ColoredCheck();
+            this.edgeCache = new Optimizer.ColoredCheck();
+            this.IECache = new Optimizer.ColoredCheck();
+            this.firefoxHistory = new Optimizer.ColoredCheck();
+            this.firefoxCookies = new Optimizer.ColoredCheck();
+            this.firefoxCache = new Optimizer.ColoredCheck();
+            this.chromePws = new Optimizer.ColoredCheck();
+            this.chromeSession = new Optimizer.ColoredCheck();
+            this.chromeHistory = new Optimizer.ColoredCheck();
+            this.chromeCookies = new Optimizer.ColoredCheck();
+            this.chromeCache = new Optimizer.ColoredCheck();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.lblPretext = new System.Windows.Forms.Label();
             this.lblFootprint = new System.Windows.Forms.Label();
             this.checkErrorReports = new Optimizer.ColoredCheck();
@@ -373,6 +394,10 @@ namespace Optimizer
             this.panelCommonApps.SuspendLayout();
             this.cleanerTab.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.pingerTab.SuspendLayout();
             this.panel7.SuspendLayout();
             this.hostsEditorTab.SuspendLayout();
@@ -2202,6 +2227,27 @@ namespace Optimizer
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.edgeSession);
+            this.panel1.Controls.Add(this.edgeHistory);
+            this.panel1.Controls.Add(this.edgeCookies);
+            this.panel1.Controls.Add(this.edgeCache);
+            this.panel1.Controls.Add(this.IECache);
+            this.panel1.Controls.Add(this.firefoxHistory);
+            this.panel1.Controls.Add(this.firefoxCookies);
+            this.panel1.Controls.Add(this.firefoxCache);
+            this.panel1.Controls.Add(this.chromePws);
+            this.panel1.Controls.Add(this.chromeSession);
+            this.panel1.Controls.Add(this.chromeHistory);
+            this.panel1.Controls.Add(this.chromeCookies);
+            this.panel1.Controls.Add(this.chromeCache);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.pictureBox11);
+            this.panel1.Controls.Add(this.pictureBox10);
+            this.panel1.Controls.Add(this.pictureBox9);
+            this.panel1.Controls.Add(this.pictureBox8);
             this.panel1.Controls.Add(this.lblPretext);
             this.panel1.Controls.Add(this.lblFootprint);
             this.panel1.Controls.Add(this.checkErrorReports);
@@ -2213,21 +2259,282 @@ namespace Optimizer
             this.panel1.Location = new System.Drawing.Point(11, 49);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(805, 333);
+            this.panel1.Size = new System.Drawing.Size(866, 514);
             this.panel1.TabIndex = 45;
+            // 
+            // edgeSession
+            // 
+            this.edgeSession.AutoSize = true;
+            this.edgeSession.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edgeSession.ForeColor = System.Drawing.Color.White;
+            this.edgeSession.Location = new System.Drawing.Point(523, 321);
+            this.edgeSession.Margin = new System.Windows.Forms.Padding(2);
+            this.edgeSession.Name = "edgeSession";
+            this.edgeSession.Size = new System.Drawing.Size(75, 23);
+            this.edgeSession.TabIndex = 69;
+            this.edgeSession.Text = "Session";
+            this.edgeSession.UseVisualStyleBackColor = true;
+            // 
+            // edgeHistory
+            // 
+            this.edgeHistory.AutoSize = true;
+            this.edgeHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edgeHistory.ForeColor = System.Drawing.Color.White;
+            this.edgeHistory.Location = new System.Drawing.Point(523, 294);
+            this.edgeHistory.Margin = new System.Windows.Forms.Padding(2);
+            this.edgeHistory.Name = "edgeHistory";
+            this.edgeHistory.Size = new System.Drawing.Size(74, 23);
+            this.edgeHistory.TabIndex = 68;
+            this.edgeHistory.Text = "History";
+            this.edgeHistory.UseVisualStyleBackColor = true;
+            // 
+            // edgeCookies
+            // 
+            this.edgeCookies.AutoSize = true;
+            this.edgeCookies.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edgeCookies.ForeColor = System.Drawing.Color.White;
+            this.edgeCookies.Location = new System.Drawing.Point(523, 267);
+            this.edgeCookies.Margin = new System.Windows.Forms.Padding(2);
+            this.edgeCookies.Name = "edgeCookies";
+            this.edgeCookies.Size = new System.Drawing.Size(77, 23);
+            this.edgeCookies.TabIndex = 67;
+            this.edgeCookies.Text = "Cookies";
+            this.edgeCookies.UseVisualStyleBackColor = true;
+            // 
+            // edgeCache
+            // 
+            this.edgeCache.AutoSize = true;
+            this.edgeCache.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edgeCache.ForeColor = System.Drawing.Color.White;
+            this.edgeCache.Location = new System.Drawing.Point(523, 240);
+            this.edgeCache.Margin = new System.Windows.Forms.Padding(2);
+            this.edgeCache.Name = "edgeCache";
+            this.edgeCache.Size = new System.Drawing.Size(66, 23);
+            this.edgeCache.TabIndex = 66;
+            this.edgeCache.Text = "Cache";
+            this.edgeCache.UseVisualStyleBackColor = true;
+            // 
+            // IECache
+            // 
+            this.IECache.AutoSize = true;
+            this.IECache.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IECache.ForeColor = System.Drawing.Color.White;
+            this.IECache.Location = new System.Drawing.Point(334, 240);
+            this.IECache.Margin = new System.Windows.Forms.Padding(2);
+            this.IECache.Name = "IECache";
+            this.IECache.Size = new System.Drawing.Size(66, 23);
+            this.IECache.TabIndex = 65;
+            this.IECache.Text = "Cache";
+            this.IECache.UseVisualStyleBackColor = true;
+            // 
+            // firefoxHistory
+            // 
+            this.firefoxHistory.AutoSize = true;
+            this.firefoxHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firefoxHistory.ForeColor = System.Drawing.Color.White;
+            this.firefoxHistory.Location = new System.Drawing.Point(523, 98);
+            this.firefoxHistory.Margin = new System.Windows.Forms.Padding(2);
+            this.firefoxHistory.Name = "firefoxHistory";
+            this.firefoxHistory.Size = new System.Drawing.Size(74, 23);
+            this.firefoxHistory.TabIndex = 64;
+            this.firefoxHistory.Text = "History";
+            this.firefoxHistory.UseVisualStyleBackColor = true;
+            // 
+            // firefoxCookies
+            // 
+            this.firefoxCookies.AutoSize = true;
+            this.firefoxCookies.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firefoxCookies.ForeColor = System.Drawing.Color.White;
+            this.firefoxCookies.Location = new System.Drawing.Point(523, 71);
+            this.firefoxCookies.Margin = new System.Windows.Forms.Padding(2);
+            this.firefoxCookies.Name = "firefoxCookies";
+            this.firefoxCookies.Size = new System.Drawing.Size(77, 23);
+            this.firefoxCookies.TabIndex = 63;
+            this.firefoxCookies.Text = "Cookies";
+            this.firefoxCookies.UseVisualStyleBackColor = true;
+            // 
+            // firefoxCache
+            // 
+            this.firefoxCache.AutoSize = true;
+            this.firefoxCache.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firefoxCache.ForeColor = System.Drawing.Color.White;
+            this.firefoxCache.Location = new System.Drawing.Point(523, 44);
+            this.firefoxCache.Margin = new System.Windows.Forms.Padding(2);
+            this.firefoxCache.Name = "firefoxCache";
+            this.firefoxCache.Size = new System.Drawing.Size(66, 23);
+            this.firefoxCache.TabIndex = 62;
+            this.firefoxCache.Text = "Cache";
+            this.firefoxCache.UseVisualStyleBackColor = true;
+            // 
+            // chromePws
+            // 
+            this.chromePws.AutoSize = true;
+            this.chromePws.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chromePws.ForeColor = System.Drawing.Color.White;
+            this.chromePws.Location = new System.Drawing.Point(334, 152);
+            this.chromePws.Margin = new System.Windows.Forms.Padding(2);
+            this.chromePws.Name = "chromePws";
+            this.chromePws.Size = new System.Drawing.Size(93, 23);
+            this.chromePws.TabIndex = 61;
+            this.chromePws.Text = "Passwords";
+            this.chromePws.UseVisualStyleBackColor = true;
+            // 
+            // chromeSession
+            // 
+            this.chromeSession.AutoSize = true;
+            this.chromeSession.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chromeSession.ForeColor = System.Drawing.Color.White;
+            this.chromeSession.Location = new System.Drawing.Point(334, 125);
+            this.chromeSession.Margin = new System.Windows.Forms.Padding(2);
+            this.chromeSession.Name = "chromeSession";
+            this.chromeSession.Size = new System.Drawing.Size(75, 23);
+            this.chromeSession.TabIndex = 60;
+            this.chromeSession.Text = "Session";
+            this.chromeSession.UseVisualStyleBackColor = true;
+            // 
+            // chromeHistory
+            // 
+            this.chromeHistory.AutoSize = true;
+            this.chromeHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chromeHistory.ForeColor = System.Drawing.Color.White;
+            this.chromeHistory.Location = new System.Drawing.Point(334, 98);
+            this.chromeHistory.Margin = new System.Windows.Forms.Padding(2);
+            this.chromeHistory.Name = "chromeHistory";
+            this.chromeHistory.Size = new System.Drawing.Size(74, 23);
+            this.chromeHistory.TabIndex = 59;
+            this.chromeHistory.Text = "History";
+            this.chromeHistory.UseVisualStyleBackColor = true;
+            // 
+            // chromeCookies
+            // 
+            this.chromeCookies.AutoSize = true;
+            this.chromeCookies.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chromeCookies.ForeColor = System.Drawing.Color.White;
+            this.chromeCookies.Location = new System.Drawing.Point(334, 71);
+            this.chromeCookies.Margin = new System.Windows.Forms.Padding(2);
+            this.chromeCookies.Name = "chromeCookies";
+            this.chromeCookies.Size = new System.Drawing.Size(77, 23);
+            this.chromeCookies.TabIndex = 58;
+            this.chromeCookies.Text = "Cookies";
+            this.chromeCookies.UseVisualStyleBackColor = true;
+            // 
+            // chromeCache
+            // 
+            this.chromeCache.AutoSize = true;
+            this.chromeCache.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chromeCache.ForeColor = System.Drawing.Color.White;
+            this.chromeCache.Location = new System.Drawing.Point(334, 44);
+            this.chromeCache.Margin = new System.Windows.Forms.Padding(2);
+            this.chromeCache.Name = "chromeCache";
+            this.chromeCache.Size = new System.Drawing.Size(66, 23);
+            this.chromeCache.TabIndex = 57;
+            this.chromeCache.Text = "Cache";
+            this.chromeCache.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label7.Location = new System.Drawing.Point(550, 212);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(123, 21);
+            this.label7.TabIndex = 56;
+            this.label7.Tag = "themeable";
+            this.label7.Text = "Microsoft Edge";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label6.Location = new System.Drawing.Point(361, 212);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(134, 21);
+            this.label6.TabIndex = 55;
+            this.label6.Tag = "themeable";
+            this.label6.Text = "Internet Explorer";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label5.Location = new System.Drawing.Point(550, 18);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(117, 21);
+            this.label5.TabIndex = 54;
+            this.label5.Tag = "themeable";
+            this.label5.Text = "Mozilla Firefox";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label4.Location = new System.Drawing.Point(362, 17);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(126, 21);
+            this.label4.TabIndex = 47;
+            this.label4.Tag = "themeable";
+            this.label4.Text = "Google Chrome";
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(523, 211);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 53;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(334, 211);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 52;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(334, 15);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 51;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(523, 17);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 50;
+            this.pictureBox8.TabStop = false;
             // 
             // lblPretext
             // 
             this.lblPretext.AutoSize = true;
             this.lblPretext.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPretext.ForeColor = System.Drawing.Color.Silver;
-            this.lblPretext.Location = new System.Drawing.Point(51, 262);
+            this.lblPretext.Location = new System.Drawing.Point(51, 416);
             this.lblPretext.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPretext.Name = "lblPretext";
-            this.lblPretext.Size = new System.Drawing.Size(123, 21);
+            this.lblPretext.Size = new System.Drawing.Size(199, 21);
             this.lblPretext.TabIndex = 49;
             this.lblPretext.Tag = "";
-            this.lblPretext.Text = "Size to be freed:";
+            this.lblPretext.Text = "Maximum size to be freed:";
             this.lblPretext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblFootprint
@@ -2235,7 +2542,7 @@ namespace Optimizer
             this.lblFootprint.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFootprint.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblFootprint.Location = new System.Drawing.Point(52, 283);
+            this.lblFootprint.Location = new System.Drawing.Point(52, 437);
             this.lblFootprint.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFootprint.Name = "lblFootprint";
             this.lblFootprint.Size = new System.Drawing.Size(119, 31);
@@ -2264,7 +2571,7 @@ namespace Optimizer
             this.cleanDriveB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.cleanDriveB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cleanDriveB.ForeColor = System.Drawing.Color.White;
-            this.cleanDriveB.Location = new System.Drawing.Point(29, 217);
+            this.cleanDriveB.Location = new System.Drawing.Point(29, 371);
             this.cleanDriveB.Margin = new System.Windows.Forms.Padding(2);
             this.cleanDriveB.Name = "cleanDriveB";
             this.cleanDriveB.Size = new System.Drawing.Size(120, 31);
@@ -5172,6 +5479,10 @@ namespace Optimizer
             this.cleanerTab.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.pingerTab.ResumeLayout(false);
             this.pingerTab.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -5560,6 +5871,27 @@ namespace Optimizer
         private Button AddCMDB;
         private ColoredRadio radioChinese;
         private PictureBox pictureBox7;
+        private Label label7;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private PictureBox pictureBox11;
+        private PictureBox pictureBox10;
+        private PictureBox pictureBox9;
+        private PictureBox pictureBox8;
+        private ColoredCheck chromePws;
+        private ColoredCheck chromeSession;
+        private ColoredCheck chromeHistory;
+        private ColoredCheck chromeCookies;
+        private ColoredCheck chromeCache;
+        private ColoredCheck firefoxHistory;
+        private ColoredCheck firefoxCookies;
+        private ColoredCheck firefoxCache;
+        private ColoredCheck edgeSession;
+        private ColoredCheck edgeHistory;
+        private ColoredCheck edgeCookies;
+        private ColoredCheck edgeCache;
+        private ColoredCheck IECache;
     }
 }
 

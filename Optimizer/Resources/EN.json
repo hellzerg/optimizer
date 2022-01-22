@@ -104,7 +104,7 @@
 	"checkMediaCache": "Media Player cache",
 	"checkErrorReports": "Error reports",
 	"cleanDriveB": "Clean",
-	"lblPretext": "Size to be freed:",
+	"lblPretext": "Maximum size to be freed:",
 	"cleanerTitle": "Clean up your system drive",
 	"pingerTitle": "Ping IP addresses and assess your latency",
 	"lblPinger": "IP / Domain name",
