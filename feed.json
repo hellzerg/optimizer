@@ -726,9 +726,8 @@
     {
         "Title": "Bulk Crap Uninstaller",
         "Link": "https://github.com/Klocman/Bulk-Crap-Uninstaller/releases/download/v5.1/BCUninstaller_5.1_setup.exe",
-        "Link64": "https://github.com/Klocman/Bulk-Crap-Uninstaller/releases/download/v5.1/BCUninstaller_5.1_setup.exe",
         "Tag": "cBulkCrap",
-        "Image": "",
+        "Image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.fosshub.com%2FBulk-Crap-Uninstaller.html&psig=AOvVaw2b2sBdU2EoQPM8VI83Gvwl&ust=1643285887619000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNj214-zz_UCFQAAAAAdAAAAABAD",
         "Group": "SystemTools"
     }
 ]
