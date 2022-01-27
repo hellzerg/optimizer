@@ -3171,5 +3171,10 @@ namespace Optimizer
         {
             radioChinese.PerformClick();
         }
+
+        private void radioEnglish_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

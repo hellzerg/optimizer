@@ -4852,6 +4852,7 @@ namespace Optimizer
             this.radioEnglish.Tag = "";
             this.radioEnglish.Text = "English";
             this.radioEnglish.UseVisualStyleBackColor = true;
+            this.radioEnglish.CheckedChanged += new System.EventHandler(this.radioEnglish_CheckedChanged);
             this.radioEnglish.Click += new System.EventHandler(this.radioEnglish_Click);
             // 
             // radioRussian
