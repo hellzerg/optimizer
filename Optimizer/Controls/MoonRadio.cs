@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public class ColoredCheck : CheckBox
+    public class MoonnRadio : RadioButton
     {
-        public ColoredCheck()
+        public MoonnRadio()
         {
             DoubleBuffered = true;
         }

@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    internal class ToolStripRendererMaterial : ToolStripProfessionalRenderer
+    internal class MoonMenuRenderer : ToolStripProfessionalRenderer
     {
-        internal ToolStripRendererMaterial() : base(new ColorsMaterial())
+        internal MoonMenuRenderer() : base(new ColorsMaterial())
         {
 
         }

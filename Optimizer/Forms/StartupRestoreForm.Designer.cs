@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.backupL = new System.Windows.Forms.Label();
-            this.listRestoreItems = new System.Windows.Forms.ListBox();
+            this.listRestoreItems = new MoonList();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtNoBackups = new System.Windows.Forms.Label();
             this.previewBackupB = new System.Windows.Forms.Button();
@@ -177,7 +177,7 @@
         #endregion
 
         private System.Windows.Forms.Label backupL;
-        private System.Windows.Forms.ListBox listRestoreItems;
+        private MoonList listRestoreItems;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button previewBackupB;
         private System.Windows.Forms.Button restoreBackupB;

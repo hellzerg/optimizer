@@ -34,10 +34,8 @@
 	"CleanPreviewForm": "Clean Preview",
 	"optionsTab": "Options",
 	"oldMixerSw": "Enable Classic Volume Mixer",
-	"colorBarSw": "Enable Taskbar Color",
 	"oldExplorerSw": "Restore Classic File Explorer",
 	"adsSw": "Disable Start Menu Ads",
-	"darkSw": "Enable Dark Theme",
 	"uODSw": "Uninstall OneDrive",
 	"peopleSw": "Disable My People",
 	"longPathsSw": "Enable Long Paths",
@@ -318,15 +316,12 @@ especially on HDDs.",
 	"compatTip": "Compatibility Assistant service detects known compatibility issues in older programs.",
 	"disableOneDriveTip": "Disables OneDrive cloud-storage integration.",
 	"oldMixerTip": "Restores the classic volume mixer control panel.",
-	"colorBarTip": "- Colorizes taskbar with your personalized color.
-- Disables transparency effects",
 	"oldExplorerTip": "- Disables Quick Access history
 - Sets File Explorer default view to This PC
 - Disables recents files
 - Removes Search, Task and Weather from taskbar
 - Disables File History",
 	"adsTip": "Prevents advertisements from showing up in Start Menu.",
-	"darkTip": "Enables Windows dark theme.",
 	"uODTip": "Completely removes OneDrive cloud-storage integration.",
 	"peopleTip": "My People is a new feature showing recent contacts in taskbar.",
 	"longPathsTip": "Removes maximum path length limitation of 256 characters.",

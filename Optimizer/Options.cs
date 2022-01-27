@@ -38,10 +38,8 @@ namespace Optimizer
 
         // windows 10
         public bool EnableLegacyVolumeSlider { get; set; }
-        public bool EnableTaskbarColor { get; set; }
         public bool DisableQuickAccessHistory { get; set; }
         public bool DisableStartMenuAds { get; set; }
-        public bool EnableDarkTheme { get; set; }
         public bool UninstallOneDrive { get; set; }
         public bool DisableMyPeople { get; set; }
         public bool DisableAutomaticUpdates { get; set; }
@@ -127,48 +125,64 @@ namespace Optimizer
 
         private static void SetTheme(Form f, Color c1, Color c2)
         {
-            Utilities.GetSelfAndChildrenRecursive(f).OfType<Button>().ToList().ForEach(b => b.BackColor = c1);
-            Utilities.GetSelfAndChildrenRecursive(f).OfType<Button>().ToList().ForEach(b => b.FlatAppearance.BorderColor = c1);
-            Utilities.GetSelfAndChildrenRecursive(f).OfType<Button>().ToList().ForEach(b => b.FlatAppearance.MouseDownBackColor = c2);
-            Utilities.GetSelfAndChildrenRecursive(f).OfType<Button>().ToList().ForEach(b => b.FlatAppearance.MouseOverBackColor = c2);
+            dynamic c;
 
-            foreach (ToggleSwitch tmp in Utilities.GetSelfAndChildrenRecursive(f).OfType<ToggleSwitch>().ToList())
+            Utilities.GetSelfAndChildrenRecursive(f).ToList().ForEach(x =>
             {
-                if ((string)tmp.Tag == _themeFlag)
+                c = x;
+
+                if (x is Button)
                 {
-                    tmp.SetRenderer(new ToggleSwitchRenderer());
+                    c.BackColor = c1;
+                    c.FlatAppearance.BorderColor = c1;
+                    c.FlatAppearance.MouseDownBackColor = c2;
+                    c.FlatAppearance.MouseOverBackColor = c2;
                 }
-            }
-            foreach (Label tmp in Utilities.GetSelfAndChildrenRecursive(f).OfType<Label>().ToList())
-            {
-                if ((string)tmp.Tag == _themeFlag)
+
+                if (x is ToggleCard)
                 {
-                    tmp.ForeColor = c1;
+                    c.Toggle.Invalidate();
                 }
-            }
-            foreach (LinkLabel tmp in Utilities.GetSelfAndChildrenRecursive(f).OfType<LinkLabel>().ToList())
-            {
-                if ((string)tmp.Tag == _themeFlag)
+
+                if (x is Label)
                 {
-                    tmp.LinkColor = c1;
-                    tmp.VisitedLinkColor = c1;
-                    tmp.ActiveLinkColor = c2;
+                    if ((string)c.Tag == _themeFlag)
+                    {
+                        c.ForeColor = c1;
+                    }
                 }
-            }
-            foreach (CheckBox tmp in Utilities.GetSelfAndChildrenRecursive(f).OfType<CheckBox>().ToList())
-            {
-                if ((string)tmp.Tag == _themeFlag)
+
+                if (x is LinkLabel)
                 {
-                    tmp.ForeColor = c1;
+                    if ((string)c.Tag == _themeFlag)
+                    {
+                        c.LinkColor = c1;
+                        c.VisitedLinkColor = c1;
+                        c.ActiveLinkColor = c2;
+                    }
                 }
-            }
-            foreach (RadioButton tmp in Utilities.GetSelfAndChildrenRecursive(f).OfType<RadioButton>().ToList())
-            {
-                if ((string)tmp.Tag == _themeFlag)
+
+                if (x is CheckBox)
                 {
-                    tmp.ForeColor = c1;
+                    if ((string)c.Tag == _themeFlag)
+                    {
+                        c.ForeColor = c1;
+                    }
                 }
-            }
+
+                if (x is RadioButton)
+                {
+                    if ((string)c.Tag == _themeFlag)
+                    {
+                        c.ForeColor = c1;
+                    }
+                }
+
+                if (x is MoonTabs)
+                {
+                    c.Invalidate();
+                }
+            });
         }
 
         internal static void LegacyCheck()
@@ -236,10 +250,8 @@ namespace Optimizer
                 CurrentOptions.DisableStickyKeys = false;
 
                 CurrentOptions.EnableLegacyVolumeSlider = false;
-                CurrentOptions.EnableTaskbarColor = false;
                 CurrentOptions.DisableQuickAccessHistory = false;
                 CurrentOptions.DisableStartMenuAds = false;
-                CurrentOptions.EnableDarkTheme = false;
                 CurrentOptions.UninstallOneDrive = false;
                 CurrentOptions.DisableMyPeople = false;
                 CurrentOptions.DisableAutomaticUpdates = false;

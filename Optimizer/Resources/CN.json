@@ -34,10 +34,8 @@
 	"CleanPreviewForm": "清除预览",
 	"optionsTab": "偏好选项",
 	"oldMixerSw": "启用经典音量混合器",
-	"colorBarSw": "启用任务栏颜色",
 	"oldExplorerSw": "恢复经典文件资源管理器",
 	"adsSw": "禁用开始菜单广告",
-	"darkSw": "启用暗黑主题",
 	"uODSw": "卸载 OneDrive",
 	"peopleSw": "禁用 My People",
 	"longPathsSw": "启用长路径支持",
@@ -319,15 +317,12 @@
 	"compatTip": "兼容性助手服务检测旧程序中的已知兼容性问题.",
 	"disableOneDriveTip": "禁用OneDrive云存储集成.",
 	"oldMixerTip": "恢复经典的音量混合器控制面板.",
-	"colorBarTip": "- 使用您的个性化颜色着色任务栏.
-    - 禁用透明效果",
 	"oldExplorerTip": "- 禁用快速访问历史记录
 	-将文件资源管理器默认视图设置为“此PC”
 	-禁用最近文件
 	-从任务栏移除搜索，任务和天气
 	-禁用“文件历史记录”功能",
 	"adsTip": "阻止广告显示在开始菜单.",
-	"darkTip": "启用 Windows 黑暗主题.",
 	"uODTip": "完全移除 OneDrive 云存储集成.",
 	"peopleTip": "My pepole是一个在任务栏显示最近联系人的新功能.",
 	"longPathsTip": "删除256个字符的最大路径长度限制.",

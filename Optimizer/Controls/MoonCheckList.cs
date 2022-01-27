@@ -3,16 +3,16 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public class ColoredCheckList : CheckedListBox
+    public class MoonCheckList : CheckedListBox
     {
-        public ColoredCheckList()
+        public MoonCheckList()
         {
             DoubleBuffered = true;
         }
 
         protected override void OnDrawItem(DrawItemEventArgs e)
         {
-            Color foreColor = Color.Silver;
+            Color foreColor = Color.White;
             Color accentColor = Color.MediumOrchid;
 
             switch (Options.CurrentOptions.Color)

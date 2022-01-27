@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    internal class ColoredProgress : ProgressBar
+    internal class MoonProgress : ProgressBar
     {
-        public ColoredProgress()
+        public MoonProgress()
         {
             DoubleBuffered = true;
             this.SetStyle(ControlStyles.UserPaint, true);

@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [11.2] - 2022-01-28
+- New: Interface has been slightly reworked to be easy on eyes
+- Couple of bug fixes
+
 ## [11.1] - 2022-01-23
 - New: Major browsers support in Cleaner (clear cache, cookies, history, session, passwords)
 

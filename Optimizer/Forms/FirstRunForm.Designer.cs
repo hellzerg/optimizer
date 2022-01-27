@@ -39,17 +39,17 @@ namespace Optimizer
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.radioFrench = new Optimizer.ColoredRadio();
-            this.radioPortuguese = new Optimizer.ColoredRadio();
-            this.radioSpanish = new Optimizer.ColoredRadio();
-            this.radioGerman = new Optimizer.ColoredRadio();
-            this.radioTurkish = new Optimizer.ColoredRadio();
-            this.radioHellenic = new Optimizer.ColoredRadio();
-            this.radioEnglish = new Optimizer.ColoredRadio();
-            this.radioRussian = new Optimizer.ColoredRadio();
-            this.radioItalian = new Optimizer.ColoredRadio();
+            this.radioFrench = new Optimizer.MoonnRadio();
+            this.radioPortuguese = new Optimizer.MoonnRadio();
+            this.radioSpanish = new Optimizer.MoonnRadio();
+            this.radioGerman = new Optimizer.MoonnRadio();
+            this.radioTurkish = new Optimizer.MoonnRadio();
+            this.radioHellenic = new Optimizer.MoonnRadio();
+            this.radioEnglish = new Optimizer.MoonnRadio();
+            this.radioRussian = new Optimizer.MoonnRadio();
+            this.radioItalian = new Optimizer.MoonnRadio();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.radioChinese = new Optimizer.ColoredRadio();
+            this.radioChinese = new Optimizer.MoonnRadio();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox88)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).BeginInit();
@@ -406,25 +406,25 @@ namespace Optimizer
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox88;
-        private ColoredRadio radioHellenic;
+        private MoonnRadio radioHellenic;
         private System.Windows.Forms.PictureBox pictureBox87;
-        private ColoredRadio radioEnglish;
-        private ColoredRadio radioRussian;
+        private MoonnRadio radioEnglish;
+        private MoonnRadio radioRussian;
         private System.Windows.Forms.PictureBox pictureBox86;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private ColoredRadio radioTurkish;
-        private ColoredRadio radioGerman;
+        private MoonnRadio radioTurkish;
+        private MoonnRadio radioGerman;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private ColoredRadio radioSpanish;
+        private MoonnRadio radioSpanish;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private ColoredRadio radioPortuguese;
+        private MoonnRadio radioPortuguese;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private ColoredRadio radioFrench;
+        private MoonnRadio radioFrench;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private ColoredRadio radioItalian;
+        private MoonnRadio radioItalian;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private ColoredRadio radioChinese;
+        private MoonnRadio radioChinese;
         private System.Windows.Forms.PictureBox pictureBox7;
     }
 }

@@ -240,18 +240,6 @@ namespace Optimizer
                 }
             }
 
-            if (CurrentSilentConfig.EnableTaskbarColor.HasValue)
-            {
-                if (CurrentSilentConfig.EnableTaskbarColor.Value)
-                {
-                    Optimize.EnableTaskbarColor();
-                }
-                else
-                {
-                    Optimize.DisableTaskbarColor();
-                }
-            }
-
             if (CurrentSilentConfig.DisableQuickAccessHistory.HasValue)
             {
                 if (CurrentSilentConfig.DisableQuickAccessHistory.Value)
@@ -273,18 +261,6 @@ namespace Optimizer
                 else
                 {
                     Optimize.EnableStartMenuAds();
-                }
-            }
-
-            if (CurrentSilentConfig.EnableDarkTheme.HasValue)
-            {
-                if (CurrentSilentConfig.EnableDarkTheme.Value)
-                {
-                    Optimize.EnableDarkTheme();
-                }
-                else
-                {
-                    Optimize.EnableLightTheme();
                 }
             }
 
@@ -722,10 +698,6 @@ namespace Optimizer
             {
                 Options.CurrentOptions.EnableLegacyVolumeSlider = CurrentSilentConfig.EnableLegacyVolumeSlider.Value;
             }
-            if (CurrentSilentConfig.EnableTaskbarColor.HasValue)
-            {
-                Options.CurrentOptions.EnableTaskbarColor = CurrentSilentConfig.EnableTaskbarColor.Value;
-            }
             if (CurrentSilentConfig.DisableQuickAccessHistory.HasValue)
             {
                 Options.CurrentOptions.DisableQuickAccessHistory = CurrentSilentConfig.DisableQuickAccessHistory.Value;
@@ -733,10 +705,6 @@ namespace Optimizer
             if (CurrentSilentConfig.DisableStartMenuAds.HasValue)
             {
                 Options.CurrentOptions.DisableStartMenuAds = CurrentSilentConfig.DisableStartMenuAds.Value;
-            }
-            if (CurrentSilentConfig.EnableDarkTheme.HasValue)
-            {
-                Options.CurrentOptions.EnableDarkTheme = CurrentSilentConfig.EnableDarkTheme.Value;
             }
             if (CurrentSilentConfig.UninstallOneDrive.HasValue)
             {

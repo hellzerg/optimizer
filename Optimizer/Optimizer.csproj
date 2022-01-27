@@ -85,6 +85,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\MoonList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MoonTabs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorOverrider.cs" />
+    <Compile Include="Controls\MoonToggle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ToggleCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToggleCard.Designer.cs">
+      <DependentUpon>ToggleCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,23 +113,23 @@
     <Compile Include="Controls\AppCard.Designer.cs">
       <DependentUpon>AppCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ColoredCheckList.cs">
+    <Compile Include="Controls\MoonCheckList.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\ColoredProgress.cs">
+    <Compile Include="Controls\MoonProgress.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\ToolStripRendererMaterial.cs" />
+    <Compile Include="Controls\MoonMenuRenderer.cs" />
     <Compile Include="ErrorLogger.cs" />
     <Compile Include="FeedApp.cs" />
     <Compile Include="ByteSize\BinaryByteSize.cs" />
     <Compile Include="ByteSize\ByteSize.cs" />
     <Compile Include="ByteSize\DecimalByteSize.cs" />
     <Compile Include="CleanHelper.cs" />
-    <Compile Include="Controls\ColoredCheck.cs">
+    <Compile Include="Controls\MoonCheck.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\ColoredRadio.cs">
+    <Compile Include="Controls\MoonRadio.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="EmbeddedAssembly.cs" />
@@ -188,13 +204,10 @@
     </Compile>
     <Compile Include="StartupBackupItem.cs" />
     <Compile Include="StartupItem.cs" />
-    <Compile Include="Controls\ToggleSwitch\ImageHelper.cs" />
-    <Compile Include="Controls\ToggleSwitch\ToggleSwitch.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\ToggleSwitch\ToggleSwitchRenderer.cs" />
-    <Compile Include="Controls\ToggleSwitch\ToggleSwitchRendererBase.cs" />
     <Compile Include="Utilities.cs" />
+    <EmbeddedResource Include="Controls\ToggleCard.resx">
+      <DependentUpon>ToggleCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
       <SubType>Designer</SubType>

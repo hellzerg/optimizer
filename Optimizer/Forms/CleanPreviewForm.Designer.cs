@@ -33,7 +33,7 @@ namespace Optimizer
             this.cancelBackup = new System.Windows.Forms.Button();
             this.cleanDriveB = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listPreview = new Optimizer.ColoredCheckList();
+            this.listPreview = new Optimizer.MoonCheckList();
             this.checkSelectAll = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -160,7 +160,7 @@ namespace Optimizer
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button cancelBackup;
         private System.Windows.Forms.Button cleanDriveB;
-        private ColoredCheckList listPreview;
+        private MoonCheckList listPreview;
         private System.Windows.Forms.LinkLabel checkSelectAll;
     }
 }

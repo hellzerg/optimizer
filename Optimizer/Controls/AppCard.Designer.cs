@@ -29,7 +29,7 @@ namespace Optimizer
         /// </summary>
         private void InitializeComponent()
         {
-            this.appTitle = new Optimizer.ColoredCheck();
+            this.appTitle = new Optimizer.MoonCheck();
             this.appImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.appImage)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +77,7 @@ namespace Optimizer
 
         #endregion
 
-        internal ColoredCheck appTitle;
+        internal MoonCheck appTitle;
         internal System.Windows.Forms.PictureBox appImage;
     }
 }

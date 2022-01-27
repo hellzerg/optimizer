@@ -25,10 +25,8 @@ namespace Optimizer
         public bool? DisableStickyKeys { get; set; }
 
         public bool? EnableLegacyVolumeSlider { get; set; }
-        public bool? EnableTaskbarColor { get; set; }
         public bool? DisableQuickAccessHistory { get; set; }
         public bool? DisableStartMenuAds { get; set; }
-        public bool? EnableDarkTheme { get; set; }
         public bool? UninstallOneDrive { get; set; }
         public bool? DisableMyPeople { get; set; }
         public bool? DisableAutomaticUpdates { get; set; }
