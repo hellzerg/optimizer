@@ -356,6 +356,7 @@ namespace Optimizer
             helpBox.SetToolTip(smallerTaskbarSw.Label, Options.TranslationList["smallerTaskbarTip"].ToString());
             helpBox.SetToolTip(classicRibbonSw.Label, Options.TranslationList["classicRibbonTip"].ToString());
             helpBox.SetToolTip(classicContextSw.Label, Options.TranslationList["classicContextTip"].ToString());
+            helpBox.SetToolTip(picUpdate, Options.TranslationList["linkUpdate"].ToString() + "!");
 
             //helpBox.ToolTipTitle = Options.TranslationList["tipWhatsThis"].ToString();
         }
