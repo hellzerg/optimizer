@@ -102,6 +102,7 @@ namespace Optimizer
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnStart.BackColor = System.Drawing.Color.MediumOrchid;
             this.btnStart.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnStart.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrchid;
             this.btnStart.FlatAppearance.BorderSize = 0;
             this.btnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrchid;
             this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrchid;

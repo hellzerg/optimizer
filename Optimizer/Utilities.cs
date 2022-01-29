@@ -10,8 +10,10 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Reflection;
+using System.Security.AccessControl;
 using System.Security.Principal;
 using System.ServiceProcess;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -563,6 +565,7 @@ namespace Optimizer
                 }
             }
 
+            Thread.Sleep(TimeSpan.FromSeconds(1));
             Process.Start(explorer);
         }
 
@@ -714,6 +717,131 @@ namespace Optimizer
         internal static void EnableGPEDitor()
         {
             Utilities.RunBatchFile(Required.ScriptsFolder + "GPEditEnablerInHome.bat");
+        }
+
+        internal static void TryDeleteRegistryValue(bool localMachine, string path, string valueName)
+        {
+            try
+            {
+                if (localMachine) Registry.LocalMachine.OpenSubKey(path, true).DeleteValue(valueName, false);
+                if (!localMachine) Registry.CurrentUser.OpenSubKey(path, true).DeleteValue(valueName, false);
+            }
+            catch { }
+        }
+
+        internal static void DisableProtectedService(string serviceName)
+        {
+            using (TokenPrivilege.TakeOwnership)
+            {
+                using (RegistryKey allServicesKey = Registry.LocalMachine.OpenSubKeyWritable(@"SYSTEM\CurrentControlSet\Services"))
+                {
+                    allServicesKey.GrantFullControlOnSubKey(serviceName);
+                    using (RegistryKey serviceKey = allServicesKey.OpenSubKeyWritable(serviceName))
+                    {
+                        foreach (string subkeyName in serviceKey.GetSubKeyNames())
+                        {
+                            serviceKey.TakeOwnershipOnSubKey(subkeyName);
+                            serviceKey.GrantFullControlOnSubKey(subkeyName);
+                        }
+                        serviceKey.SetValue("Start", "4", RegistryValueKind.DWord);
+                    }
+                }
+            }
+        }
+
+        internal static void RestoreWindowsPhotoViewer()
+        {
+            const string PHOTO_VIEWER_SHELL_COMMAND =
+                @"%SystemRoot%\System32\rundll32.exe ""%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll"", ImageView_Fullscreen %1";
+            const string PHOTO_VIEWER_CLSID = "{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}";
+
+            Registry.SetValue(@"HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open", "MuiVerb", "@photoviewer.dll,-3043");
+            Registry.SetValue(
+                @"HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open\command", valueName: null,
+                PHOTO_VIEWER_SHELL_COMMAND, RegistryValueKind.ExpandString
+            );
+            Registry.SetValue(@"HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open\DropTarget", "Clsid", PHOTO_VIEWER_CLSID);
+
+            string[] imageTypes = { "Paint.Picture", "giffile", "jpegfile", "pngfile" };
+            foreach (string type in imageTypes)
+            {
+                Registry.SetValue(
+                    $@"HKEY_CLASSES_ROOT\{type}\shell\open\command", valueName: null,
+                    PHOTO_VIEWER_SHELL_COMMAND, RegistryValueKind.ExpandString
+                );
+                Registry.SetValue($@"HKEY_CLASSES_ROOT\{type}\shell\open\DropTarget", "Clsid", PHOTO_VIEWER_CLSID);
+            }
+        }
+
+        internal static void EnableProtectedService(string serviceName)
+        {
+            using (TokenPrivilege.TakeOwnership)
+            {
+                using (RegistryKey allServicesKey = Registry.LocalMachine.OpenSubKeyWritable(@"SYSTEM\CurrentControlSet\Services"))
+                {
+                    allServicesKey.GrantFullControlOnSubKey(serviceName);
+                    using (RegistryKey serviceKey = allServicesKey.OpenSubKeyWritable(serviceName))
+                    {
+                        foreach (string subkeyName in serviceKey.GetSubKeyNames())
+                        {
+                            serviceKey.TakeOwnershipOnSubKey(subkeyName);
+                            serviceKey.GrantFullControlOnSubKey(subkeyName);
+                        }
+                        serviceKey.SetValue("Start", "2", RegistryValueKind.DWord);
+                    }
+                }
+            }
+        }
+
+        public static RegistryKey OpenSubKeyWritable(this RegistryKey registryKey, string subkeyName, RegistryRights? rights = null)
+        {
+            RegistryKey subKey = null;
+            if (rights == null)
+                subKey = registryKey.OpenSubKey(subkeyName, RegistryKeyPermissionCheck.ReadWriteSubTree);
+            else
+                subKey = registryKey.OpenSubKey(subkeyName, RegistryKeyPermissionCheck.ReadWriteSubTree, rights.Value);
+
+            if (subKey == null)
+            {
+                ErrorLogger.LogError("Utilities.OpenSubKeyWritable", $"Subkey {subkeyName} not found.", "-");
+            }
+
+            return subKey;
+        }
+
+        internal static SecurityIdentifier RetrieveCurrentUserIdentifier()
+            => WindowsIdentity.GetCurrent().User ?? throw new Exception("Unable to retrieve current user SID.");
+
+        internal static void GrantFullControlOnSubKey(this RegistryKey registryKey, string subkeyName)
+        {
+            using (RegistryKey subKey = registryKey.OpenSubKeyWritable(subkeyName,
+                RegistryRights.TakeOwnership | RegistryRights.ChangePermissions
+            ))
+            {
+                RegistrySecurity accessRules = subKey.GetAccessControl();
+                SecurityIdentifier currentUser = RetrieveCurrentUserIdentifier();
+                accessRules.SetOwner(currentUser);
+                accessRules.ResetAccessRule(
+                    new RegistryAccessRule(
+                        currentUser,
+                        RegistryRights.FullControl,
+                        InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit,
+                        PropagationFlags.None,
+                        AccessControlType.Allow
+                    )
+                );
+                subKey.SetAccessControl(accessRules);
+            }
+        }
+
+        internal static void TakeOwnershipOnSubKey(this RegistryKey registryKey, string subkeyName)
+        {
+            using (RegistryKey subKey = registryKey.OpenSubKeyWritable(subkeyName, RegistryRights.TakeOwnership))
+            {
+                RegistrySecurity accessRules = subKey.GetAccessControl();
+                accessRules.SetOwner(RetrieveCurrentUserIdentifier());
+                subKey.SetAccessControl(accessRules);
+            }
         }
 
         internal static string GetNETFramework()

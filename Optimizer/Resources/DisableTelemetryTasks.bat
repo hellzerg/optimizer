@@ -49,3 +49,15 @@ schtasks /change /tn "\Microsoft\Windows\AppID\SmartScreenSpecific" /disable
 schtasks /Change /TN "\Microsoft\Windows\WindowsUpdate\Automatic App Update" /Disable
 schtasks /Change /TN "\Microsoft\Windows\Time Synchronization\ForceSynchronizeTime" /Disable
 schtasks /Change /TN "\Microsoft\Windows\Time Synchronization\SynchronizeTime" /Disable
+schtasks /end /tn "\Microsoft\Windows\HelloFace\FODCleanupTask"
+schtasks /change /tn "\Microsoft\Windows\HelloFace\FODCleanupTask" /disable
+schtasks /end /tn "\Microsoft\Windows\Feedback\Siuf\DmClient"
+schtasks /change /tn "\Microsoft\Windows\Feedback\Siuf\DmClient" /disable
+schtasks /end /tn "\Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload"
+schtasks /change /tn "\Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload" /disable
+schtasks /end /tn "\Microsoft\Windows\Application Experience\PcaPatchDbTask"
+schtasks /change /tn "\Microsoft\Windows\Application Experience\PcaPatchDbTask" /disable
+schtasks /end /tn "\Microsoft\Windows\Device Information\Device"
+schtasks /change /tn "\Microsoft\Windows\Device Information\Device" /disable
+schtasks /end /tn "\Microsoft\Windows\Device Information\Device User"
+schtasks /change /tn "\Microsoft\Windows\Device Information\Device User" /disable

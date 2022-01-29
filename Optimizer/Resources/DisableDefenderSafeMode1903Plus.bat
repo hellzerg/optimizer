@@ -14,10 +14,10 @@ rem Exclusion in WD can be easily set with an elevated cmd, so that makes it sup
 rem WMIC /NAMESPACE:\\root\Microsoft\Windows\Defender PATH MSFT_MpPreference call Add ExclusionPath="xxxxxx
 
 rem To disable System Guard Runtime Monitor Broker
-rem reg add "HKLM\System\CurrentControlSet\Services\SgrmBroker" /v "Start" /t REG_DWORD /d "4" /f
+reg add "HKLM\System\CurrentControlSet\Services\SgrmBroker" /v "Start" /t REG_DWORD /d "4" /f
 
 rem To disable Windows Defender Security Center include this
-rem reg add "HKLM\System\CurrentControlSet\Services\SecurityHealthService" /v "Start" /t REG_DWORD /d "4" /f
+reg add "HKLM\System\CurrentControlSet\Services\SecurityHealthService" /v "Start" /t REG_DWORD /d "4" /f
 
 rem 1 - Disable Real-time protection
 reg delete "HKLM\Software\Policies\Microsoft\Windows Defender" /f

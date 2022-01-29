@@ -357,7 +357,7 @@ namespace Optimizer
             helpBox.SetToolTip(classicRibbonSw.Label, Options.TranslationList["classicRibbonTip"].ToString());
             helpBox.SetToolTip(classicContextSw.Label, Options.TranslationList["classicContextTip"].ToString());
 
-            helpBox.ToolTipTitle = Options.TranslationList["tipWhatsThis"].ToString();
+            //helpBox.ToolTipTitle = Options.TranslationList["tipWhatsThis"].ToString();
         }
 
         private void ToggleSwitch7_Click(object sender, EventArgs e)
@@ -998,7 +998,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GetDesktopItems()

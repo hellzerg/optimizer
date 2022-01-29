@@ -33,6 +33,7 @@ namespace Optimizer
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tpanel = new System.Windows.Forms.Panel();
+            this.picUpdate = new System.Windows.Forms.PictureBox();
             this.txtNetFw = new System.Windows.Forms.Label();
             this.txtBitness = new System.Windows.Forms.Label();
             this.txtOS = new System.Windows.Forms.Label();
@@ -62,8 +63,6 @@ namespace Optimizer
             this.trayRestartExplorer = new System.Windows.Forms.ToolStripMenuItem();
             this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.helpBox = new System.Windows.Forms.ToolTip(this.components);
-            this.picUpdate = new System.Windows.Forms.PictureBox();
             this.tabCollection = new Optimizer.MoonTabs();
             this.universalTab = new System.Windows.Forms.TabPage();
             this.reportingSw = new Optimizer.ToggleCard();
@@ -371,11 +370,12 @@ namespace Optimizer
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnResetConfig = new System.Windows.Forms.Button();
             this.lblTheming = new System.Windows.Forms.Label();
+            this.helpBox = new Optimizer.MoonTip();
             this.tpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
             this.launcherMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).BeginInit();
             this.tabCollection.SuspendLayout();
             this.universalTab.SuspendLayout();
             this.windows10Tab.SuspendLayout();
@@ -450,6 +450,19 @@ namespace Optimizer
             this.tpanel.Name = "tpanel";
             this.tpanel.Size = new System.Drawing.Size(1009, 64);
             this.tpanel.TabIndex = 1;
+            // 
+            // picUpdate
+            // 
+            this.picUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picUpdate.Image = ((System.Drawing.Image)(resources.GetObject("picUpdate.Image")));
+            this.picUpdate.Location = new System.Drawing.Point(963, 15);
+            this.picUpdate.Name = "picUpdate";
+            this.picUpdate.Size = new System.Drawing.Size(30, 30);
+            this.picUpdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUpdate.TabIndex = 71;
+            this.picUpdate.TabStop = false;
+            this.picUpdate.Visible = false;
+            this.picUpdate.Click += new System.EventHandler(this.picUpdate_Click);
             // 
             // txtNetFw
             // 
@@ -606,7 +619,7 @@ namespace Optimizer
             this.trayExit});
             this.launcherMenu.Name = "launcherMenu";
             this.launcherMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.launcherMenu.Size = new System.Drawing.Size(194, 266);
+            this.launcherMenu.Size = new System.Drawing.Size(194, 244);
             // 
             // trayStartup
             // 
@@ -720,26 +733,6 @@ namespace Optimizer
             this.launcherIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("launcherIcon.Icon")));
             this.launcherIcon.Text = "Optimizer";
             this.launcherIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.launcherIcon_MouseDoubleClick);
-            // 
-            // helpBox
-            // 
-            this.helpBox.IsBalloon = true;
-            this.helpBox.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.helpBox.UseAnimation = false;
-            this.helpBox.UseFading = false;
-            // 
-            // picUpdate
-            // 
-            this.picUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picUpdate.Image = ((System.Drawing.Image)(resources.GetObject("picUpdate.Image")));
-            this.picUpdate.Location = new System.Drawing.Point(963, 15);
-            this.picUpdate.Name = "picUpdate";
-            this.picUpdate.Size = new System.Drawing.Size(30, 30);
-            this.picUpdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picUpdate.TabIndex = 71;
-            this.picUpdate.TabStop = false;
-            this.picUpdate.Visible = false;
-            this.picUpdate.Click += new System.EventHandler(this.picUpdate_Click);
             // 
             // tabCollection
             // 
@@ -5230,6 +5223,17 @@ namespace Optimizer
             this.lblTheming.Tag = "themeable";
             this.lblTheming.Text = "Choose your theme";
             // 
+            // helpBox
+            // 
+            this.helpBox.AutoPopDelay = 90000;
+            this.helpBox.InitialDelay = 0;
+            this.helpBox.OwnerDraw = true;
+            this.helpBox.ReshowDelay = 0;
+            this.helpBox.ShowAlways = true;
+            this.helpBox.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.helpBox.UseAnimation = false;
+            this.helpBox.UseFading = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -5251,10 +5255,10 @@ namespace Optimizer
             this.Load += new System.EventHandler(this.Main_Load);
             this.tpanel.ResumeLayout(false);
             this.tpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.bpanel.ResumeLayout(false);
             this.launcherMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).EndInit();
             this.tabCollection.ResumeLayout(false);
             this.universalTab.ResumeLayout(false);
             this.windows10Tab.ResumeLayout(false);
@@ -5573,7 +5577,7 @@ namespace Optimizer
         private Panel panel9;
         private PictureBox pictureBox87;
         private PictureBox pictureBox86;
-        private ToolTip helpBox;
+        private MoonTip helpBox;
         private PictureBox pictureBox88;
         private MoonnRadio radioHellenic;
         private MoonnRadio radioEnglish;

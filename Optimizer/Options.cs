@@ -96,9 +96,9 @@ namespace Optimizer
                     ForegroundAccentColor = Color.Chocolate;
                     break;
                 case Theme.Lime:
-                    SetTheme(f, Color.LimeGreen, Color.ForestGreen);
-                    ForegroundColor = Color.LimeGreen;
-                    ForegroundAccentColor = Color.ForestGreen;
+                    SetTheme(f, Color.ForestGreen, Color.FromArgb(39, 159, 39));
+                    ForegroundColor = Color.ForestGreen;
+                    ForegroundAccentColor = Color.FromArgb(39, 159, 39);
                     break;
                 case Theme.Magma:
                     SetTheme(f, Color.Tomato, Color.Red);
@@ -178,10 +178,7 @@ namespace Optimizer
                     }
                 }
 
-                if (x is MoonTabs)
-                {
-                    c.Invalidate();
-                }
+                c.Invalidate();
             });
         }
 

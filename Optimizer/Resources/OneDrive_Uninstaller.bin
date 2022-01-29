@@ -23,6 +23,7 @@ echo.
 rd "%USERPROFILE%\OneDrive" /Q /S > NUL 2>&1
 rd "C:\OneDriveTemp" /Q /S > NUL 2>&1
 rd "%LOCALAPPDATA%\Microsoft\OneDrive" /Q /S > NUL 2>&1
+rd "%LOCALAPPDATA%\OneDrive" /Q /S > NUL 2>&1
 rd "%PROGRAMDATA%\Microsoft OneDrive" /Q /S > NUL 2>&1 
 
 echo Removing OneDrive from the Explorer Side Panel...

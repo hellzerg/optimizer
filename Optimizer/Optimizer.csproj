@@ -92,6 +92,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ColorOverrider.cs" />
+    <Compile Include="Controls\MoonTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\MoonToggle.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -204,6 +207,7 @@
     </Compile>
     <Compile Include="StartupBackupItem.cs" />
     <Compile Include="StartupItem.cs" />
+    <Compile Include="TokenPrivilege.cs" />
     <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="Controls\ToggleCard.resx">
       <DependentUpon>ToggleCard.cs</DependentUpon>

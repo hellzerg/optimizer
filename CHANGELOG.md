@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [11.3] - 2022-01-29
+- Quality improvements in many aspects (Telemetry services, Enhanced privacy, etc.)
+- Visual changes
+
 ## [11.2] - 2022-01-28
 - New: Interface has been slightly reworked to be easy on eyes
 - Couple of bug fixes

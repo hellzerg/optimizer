@@ -22,3 +22,9 @@ schtasks /change /tn "\Microsoft\Windows\FileHistory\File History (maintenance m
 schtasks /change /tn "\Microsoft\Windows\PI\Sqm-Tasks" /enable
 schtasks /change /tn "\Microsoft\Windows\NetTrace\GatherNetworkInfo" /enable
 schtasks /change /tn "\Microsoft\Windows\AppID\SmartScreenSpecific" /enable
+schtasks /change /tn "\Microsoft\Windows\HelloFace\FODCleanupTask" /enable
+schtasks /change /tn "\Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload" /enable
+schtasks /change /tn "\Microsoft\Windows\Feedback\Siuf\DmClient" /enable
+schtasks /change /tn "\Microsoft\Windows\Application Experience\PcaPatchDbTask" /enable
+schtasks /change /tn "\Microsoft\Windows\Device Information\Device" /enable
+schtasks /change /tn "\Microsoft\Windows\Device Information\Device User" /enable

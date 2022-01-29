@@ -13,29 +13,7 @@ namespace Optimizer
         protected override void OnDrawItem(DrawItemEventArgs e)
         {
             Color foreColor = Color.White;
-            Color accentColor = Color.MediumOrchid;
-
-            switch (Options.CurrentOptions.Color)
-            {
-                case Theme.Caramel:
-                    accentColor = Color.DarkOrange;
-                    break;
-                case Theme.Lime:
-                    accentColor = Color.LimeGreen;
-                    break;
-                case Theme.Magma:
-                    accentColor = Color.Tomato;
-                    break;
-                case Theme.Minimal:
-                    accentColor = Color.Gray;
-                    break;
-                case Theme.Ocean:
-                    accentColor = Color.DodgerBlue;
-                    break;
-                case Theme.Zerg:
-                    accentColor = Color.MediumOrchid;
-                    break;
-            }
+            Color accentColor = Options.ForegroundColor;
 
             if (this.Items.Count > 0)
             {
