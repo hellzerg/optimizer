@@ -252,8 +252,6 @@ namespace Optimizer
             this.toolHWGoogle = new System.Windows.Forms.ToolStripMenuItem();
             this.toolHWDuck = new System.Windows.Forms.ToolStripMenuItem();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.btnCopyHW = new System.Windows.Forms.Button();
-            this.btnSaveHW = new System.Windows.Forms.Button();
             this.hwDetailed = new Optimizer.ToggleCard();
             this.integratorTab = new System.Windows.Forms.TabPage();
             this.synapse = new Optimizer.MoonTabs();
@@ -396,6 +394,8 @@ namespace Optimizer
             this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.helpBox = new Optimizer.MoonTip();
+            this.btnCopyHW = new System.Windows.Forms.LinkLabel();
+            this.btnSaveHW = new System.Windows.Forms.LinkLabel();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -3521,52 +3521,14 @@ namespace Optimizer
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel11.Controls.Add(this.btnCopyHW);
             this.panel11.Controls.Add(this.btnSaveHW);
+            this.panel11.Controls.Add(this.btnCopyHW);
             this.panel11.Controls.Add(this.hwDetailed);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(3, 3);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(993, 35);
             this.panel11.TabIndex = 1;
-            // 
-            // btnCopyHW
-            // 
-            this.btnCopyHW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCopyHW.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnCopyHW.FlatAppearance.BorderSize = 0;
-            this.btnCopyHW.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnCopyHW.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnCopyHW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopyHW.ForeColor = System.Drawing.Color.White;
-            this.btnCopyHW.Location = new System.Drawing.Point(703, 4);
-            this.btnCopyHW.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCopyHW.Name = "btnCopyHW";
-            this.btnCopyHW.Size = new System.Drawing.Size(140, 25);
-            this.btnCopyHW.TabIndex = 91;
-            this.btnCopyHW.Tag = "themeable";
-            this.btnCopyHW.Text = "Copy";
-            this.btnCopyHW.UseVisualStyleBackColor = false;
-            this.btnCopyHW.Click += new System.EventHandler(this.btnCopyHW_Click);
-            // 
-            // btnSaveHW
-            // 
-            this.btnSaveHW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveHW.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnSaveHW.FlatAppearance.BorderSize = 0;
-            this.btnSaveHW.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSaveHW.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSaveHW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveHW.ForeColor = System.Drawing.Color.White;
-            this.btnSaveHW.Location = new System.Drawing.Point(847, 4);
-            this.btnSaveHW.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSaveHW.Name = "btnSaveHW";
-            this.btnSaveHW.Size = new System.Drawing.Size(140, 25);
-            this.btnSaveHW.TabIndex = 90;
-            this.btnSaveHW.Tag = "themeable";
-            this.btnSaveHW.Text = "Save";
-            this.btnSaveHW.UseVisualStyleBackColor = false;
-            this.btnSaveHW.Click += new System.EventHandler(this.btnSaveHW_Click);
             // 
             // hwDetailed
             // 
@@ -3632,7 +3594,7 @@ namespace Optimizer
             // 
             // integrator7
             // 
-            this.integrator7.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.integrator7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.integrator7.ForeColor = System.Drawing.Color.Silver;
             this.integrator7.Location = new System.Drawing.Point(6, 225);
             this.integrator7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -3645,12 +3607,12 @@ namespace Optimizer
             // integrator6
             // 
             this.integrator6.AutoSize = true;
-            this.integrator6.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.integrator6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.integrator6.ForeColor = System.Drawing.Color.Silver;
             this.integrator6.Location = new System.Drawing.Point(38, 183);
             this.integrator6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.integrator6.Name = "integrator6";
-            this.integrator6.Size = new System.Drawing.Size(122, 25);
+            this.integrator6.Size = new System.Drawing.Size(103, 21);
             this.integrator6.TabIndex = 9;
             this.integrator6.Tag = "";
             this.integrator6.Text = "• Commands";
@@ -3658,12 +3620,12 @@ namespace Optimizer
             // integrator5
             // 
             this.integrator5.AutoSize = true;
-            this.integrator5.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.integrator5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.integrator5.ForeColor = System.Drawing.Color.Silver;
             this.integrator5.Location = new System.Drawing.Point(38, 158);
             this.integrator5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.integrator5.Name = "integrator5";
-            this.integrator5.Size = new System.Drawing.Size(157, 25);
+            this.integrator5.Size = new System.Drawing.Size(133, 21);
             this.integrator5.TabIndex = 8;
             this.integrator5.Tag = "";
             this.integrator5.Text = "• Any type of file";
@@ -3671,12 +3633,12 @@ namespace Optimizer
             // integrator4
             // 
             this.integrator4.AutoSize = true;
-            this.integrator4.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.integrator4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.integrator4.ForeColor = System.Drawing.Color.Silver;
             this.integrator4.Location = new System.Drawing.Point(38, 132);
             this.integrator4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.integrator4.Name = "integrator4";
-            this.integrator4.Size = new System.Drawing.Size(181, 25);
+            this.integrator4.Size = new System.Drawing.Size(156, 21);
             this.integrator4.TabIndex = 7;
             this.integrator4.Tag = "";
             this.integrator4.Text = "• Links to webpages";
@@ -3684,12 +3646,12 @@ namespace Optimizer
             // integrator3
             // 
             this.integrator3.AutoSize = true;
-            this.integrator3.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.integrator3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.integrator3.ForeColor = System.Drawing.Color.Silver;
             this.integrator3.Location = new System.Drawing.Point(38, 106);
             this.integrator3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.integrator3.Name = "integrator3";
-            this.integrator3.Size = new System.Drawing.Size(194, 25);
+            this.integrator3.Size = new System.Drawing.Size(167, 21);
             this.integrator3.TabIndex = 6;
             this.integrator3.Tag = "";
             this.integrator3.Text = "• Shortcuts to folders";
@@ -3697,19 +3659,19 @@ namespace Optimizer
             // integrator2
             // 
             this.integrator2.AutoSize = true;
-            this.integrator2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.integrator2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.integrator2.ForeColor = System.Drawing.Color.Silver;
             this.integrator2.Location = new System.Drawing.Point(38, 81);
             this.integrator2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.integrator2.Name = "integrator2";
-            this.integrator2.Size = new System.Drawing.Size(138, 25);
+            this.integrator2.Size = new System.Drawing.Size(117, 21);
             this.integrator2.TabIndex = 5;
             this.integrator2.Tag = "";
             this.integrator2.Text = "• Any program";
             // 
             // integrator1
             // 
-            this.integrator1.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.integrator1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.integrator1.ForeColor = System.Drawing.Color.Silver;
             this.integrator1.Location = new System.Drawing.Point(6, 10);
             this.integrator1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -5344,7 +5306,7 @@ namespace Optimizer
             this.trayExit});
             this.launcherMenu.Name = "launcherMenu";
             this.launcherMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.launcherMenu.Size = new System.Drawing.Size(221, 356);
+            this.launcherMenu.Size = new System.Drawing.Size(221, 334);
             // 
             // trayDownSpeed
             // 
@@ -5510,6 +5472,44 @@ namespace Optimizer
             this.helpBox.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.helpBox.UseAnimation = false;
             this.helpBox.UseFading = false;
+            // 
+            // btnCopyHW
+            // 
+            this.btnCopyHW.ActiveLinkColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCopyHW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCopyHW.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopyHW.ForeColor = System.Drawing.Color.Silver;
+            this.btnCopyHW.LinkColor = System.Drawing.Color.Silver;
+            this.btnCopyHW.Location = new System.Drawing.Point(624, 4);
+            this.btnCopyHW.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.btnCopyHW.Name = "btnCopyHW";
+            this.btnCopyHW.Size = new System.Drawing.Size(180, 24);
+            this.btnCopyHW.TabIndex = 92;
+            this.btnCopyHW.TabStop = true;
+            this.btnCopyHW.Tag = "themeable";
+            this.btnCopyHW.Text = "Copy";
+            this.btnCopyHW.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCopyHW.VisitedLinkColor = System.Drawing.Color.Silver;
+            this.btnCopyHW.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnCopyHW_LinkClicked);
+            // 
+            // btnSaveHW
+            // 
+            this.btnSaveHW.ActiveLinkColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSaveHW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveHW.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveHW.ForeColor = System.Drawing.Color.Silver;
+            this.btnSaveHW.LinkColor = System.Drawing.Color.Silver;
+            this.btnSaveHW.Location = new System.Drawing.Point(808, 4);
+            this.btnSaveHW.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.btnSaveHW.Name = "btnSaveHW";
+            this.btnSaveHW.Size = new System.Drawing.Size(180, 24);
+            this.btnSaveHW.TabIndex = 93;
+            this.btnSaveHW.TabStop = true;
+            this.btnSaveHW.Tag = "themeable";
+            this.btnSaveHW.Text = "Save";
+            this.btnSaveHW.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSaveHW.VisitedLinkColor = System.Drawing.Color.Silver;
+            this.btnSaveHW.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnSaveHW_LinkClicked);
             // 
             // MainForm
             // 
@@ -5973,17 +5973,17 @@ namespace Optimizer
         private Panel panel11;
         private ImageList imagesHw;
         private ToggleCard hwDetailed;
-        private Button btnSaveHW;
         private ToolStripMenuItem trayHW;
         private ContextMenuStrip indiciumMenu;
         private ToolStripMenuItem toolHWCopy;
         private ToolStripMenuItem toolHWGoogle;
         private ToolStripMenuItem toolHWDuck;
-        private Button btnCopyHW;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem trayDownSpeed;
         private ToolStripSeparator seperatorNetMon;
         private ToolStripMenuItem trayUpSpeed;
+        private LinkLabel btnSaveHW;
+        private LinkLabel btnCopyHW;
     }
 }
 

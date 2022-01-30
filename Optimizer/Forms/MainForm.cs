@@ -3821,25 +3821,6 @@ namespace Optimizer
             }
         }
 
-        private void btnSaveHW_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog d = new SaveFileDialog();
-            d.InitialDirectory = Application.StartupPath;
-            d.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-            d.FileName = $"Optimizer_Hardware_{Environment.MachineName}_{DateTime.Now.ToShortDateString()}.txt";
-
-            if (d.ShowDialog() == DialogResult.OK) File.WriteAllText(d.FileName, GetSpecsToString(specsTree), Encoding.UTF8);
-        }
-
-        private void btnCopyHW_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Clipboard.SetText(GetSpecsToString(specsTree));
-            }
-            catch { }
-        }
-
         private string GetSpecsToString(TreeView trv)
         {
             StringBuilder sb = new StringBuilder();
@@ -3867,6 +3848,25 @@ namespace Optimizer
             {
                 specsTree.SelectedNode = e.Node;
             }
+        }
+
+        private void btnCopyHW_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(GetSpecsToString(specsTree));
+            }
+            catch { }
+        }
+
+        private void btnSaveHW_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SaveFileDialog d = new SaveFileDialog();
+            d.InitialDirectory = Application.StartupPath;
+            d.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            d.FileName = $"Optimizer_Hardware_{Environment.MachineName}_{DateTime.Now.ToShortDateString()}.txt";
+
+            if (d.ShowDialog() == DialogResult.OK) File.WriteAllText(d.FileName, GetSpecsToString(specsTree), Encoding.UTF8);
         }
     }
 }

@@ -1806,7 +1806,7 @@ any application only by typing your desired keyword.</value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAC8
-        GgAAAk1TRnQBSQFMAgEBCQEAAUABAQFAAQEBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
+        GgAAAk1TRnQBSQFMAgEBCQEAAUgBAQFIAQEBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
         AwABYAMAAQEBAAEgBgABwP8A/wD/AP8A/wD/AP8A/wAeAANHAYB0//8AiQADRwGAdP//AIkAAyoBQANH
         AYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANH
         AYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGA/wD/AP8A
@@ -1958,20 +1958,20 @@ any application only by typing your desired keyword.</value>
   </metadata>
   <data name="trayDownSpeed.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAACVSURBVGhD7c9bCsQgEERR978qd5YQKCFI5TVD7DbcA/Vj
-        q1QXAAAA4Htqrcs+Op4HC0RjgWgsEI0ForFAtPQLXBX8d/66vkBf4smsnw/hSmzR+HCB/rxF43FciRY3
-        v/NmOFfkl+i7GK7Qk+ibWK7Yneh5Dq7gWfQsF1fURddzcoX30bXcXPEtGs9h6vLN1OUBAHhfKStvXoLZ
-        PGw0bQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAJVJREFUaEPtz1sKxCAQRFH3vyp3lhAoIUjlNUPsNtwD9WOrVBcAAADge2qtyz46
+        ngcLRGOBaCwQjQWisUC09AtcFfx3/rq+QF/iyayfD+FKbNH4cIH+vEXjcVyJFje/82Y4V+SX6LsYrtCT
+        6JtYrtid6HkOruBZ9CwXV9RF13NyhffRtdxc8S0az2Hq8s3U5QEAeF8pK29egtk8bDRtAAAAAElFTkSu
+        QmCC
 </value>
   </data>
   <data name="trayUpSpeed.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAACVSURBVGhD7c9RCsQgDIRh738qb7aLMEKR2dW2YCL8H8xD
-        G5VJAQAAP9RaPy36PEsvf+QSY/kejXNzxa/RsZxcYRcdz8UV/Rddy8EVXImux3LF7kTPxHCFnkTP7eWK
-        9Lj5yp2tXIkWje0Czfi/R+N9ZiXuzMb5FrMCb+fh0hecYYFoLBCNBaKxQDQWiHb8AgAAAMBEKV9ExYLZ
-        y3qhowAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAJVJREFUaEPtz1EKxCAMhGHvfypvtoswQpHZ1bZgIvwfzEMblUkBAAA/1Fo/Lfo8
+        Sy9/5BJj+R6Nc3PFr9GxnFxhFx3PxRX9F13LwRVcia7HcsXuRM/EcIWeRM/t5Yr0uPnKna1ciRaN7QLN
+        +L9H431mJe7MxvkWswJv5+HSF5xhgWgsEI0ForFANBaIdvwCAAAAwEQpX0TFgtnLeqGjAAAAAElFTkSu
+        QmCC
 </value>
   </data>
   <data name="trayStartup.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

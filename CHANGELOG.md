@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [11.4] - 2022-01-30
+- New: Hardware specs tab
+- New: Network speed monitoring in Quick Access Menu (if enabled)
+
+## Verify your app using SHA256
+7A04483407F7493B6B18CFB56BFD42F1BE63CBAF3A4BD89CD25334E60DE318A7
+
 ## [11.3] - 2022-01-29
 - Quality improvements in many aspects (Telemetry services, Enhanced privacy, etc.)
 - Visual changes

@@ -10,7 +10,7 @@ Optimizer is recommended after a fresh, clean installation of Windows to achieve
 
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/11.3/Optimizer-11.3.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/11.4/Optimizer-11.4.exe" target="_blank">
 		<img src="download-button.png">
 		<br>
 		<img src="flags.png">
@@ -33,6 +33,8 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Flush DNS cache
 * Remove unwanted programs running at startup
 * Edit your HOSTS file
+* Network speed monitoring
+* Hardware inspection tool
 * Add items in desktop on right-click menu
 * Define custom commands for run dialog
 * Silent run support using a configuration file
@@ -82,6 +84,6 @@ https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 11.3
-* Released: January 29, 2022
-* SHA256: 1B1CD410F026507791BD75E23576137A67EEEDC28EF4E1F40346A0E74EBD87A4
+* Latest version: 11.4
+* Released: January 30, 2022
+* SHA256: 7A04483407F7493B6B18CFB56BFD42F1BE63CBAF3A4BD89CD25334E60DE318A7
