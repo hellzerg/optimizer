@@ -186,9 +186,9 @@ namespace Optimizer
             SolidBrush brushActiveText;
 
             using (Pen penActive = new Pen(Options.ForegroundColor))
-            using (Pen penBorder = new Pen(Color.FromArgb(40,40,40), 0))
+            using (Pen penBorder = new Pen(Color.FromArgb(40, 40, 40), 0))
             using (SolidBrush brushActive = new SolidBrush(Options.ForegroundColor))
-            using (SolidBrush brushInActive = new SolidBrush(Color.FromArgb(40,40,40)))
+            using (SolidBrush brushInActive = new SolidBrush(Color.FromArgb(40, 40, 40)))
             using (SolidBrush brushAlternative = new SolidBrush(Options.ForegroundColor))
             using (SolidBrush brushActiveIndicator = new SolidBrush(ControlPaint.Light(Options.ForegroundColor)))
             using (SolidBrush brushInActiveIndicator = new SolidBrush(Options.ForegroundColor))

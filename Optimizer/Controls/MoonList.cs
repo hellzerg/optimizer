@@ -25,12 +25,12 @@ namespace Optimizer
 
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(50,50,50)), e.Bounds);
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(50, 50, 50)), e.Bounds);
             }
 
             else
             {
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(20,20,20)), e.Bounds);
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(20, 20, 20)), e.Bounds);
 
             }
 

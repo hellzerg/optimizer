@@ -12,6 +12,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,6 +20,8 @@ namespace Optimizer
 {
     public partial class MainForm : Form
     {
+        Dictionary<string, string> translationList;
+
         ListViewColumnSorter _columnSorter;
 
         List<StartupItem> _startUpItems = new List<StartupItem>();
@@ -35,9 +38,9 @@ namespace Optimizer
         string _shodanIP = string.Empty;
         PingReply tmpReply;
 
-        //NetworkMonitor _networkMonitor;
-        //double uploadSpeed = 0;
-        //double downloadSpeed = 0;
+        NetworkMonitor _networkMonitor;
+        double uploadSpeed = 0;
+        double downloadSpeed = 0;
 
         DesktopItemType _desktopItemType = DesktopItemType.Program;
         DesktopTypePosition _desktopItemPosition = DesktopTypePosition.Top;
@@ -65,7 +68,13 @@ namespace Optimizer
         string _errorModernAppsMessage = "The following app(s) couldn't be uninstalled:\n";
         string _resetMessage = "Are you sure you want to reset configuration?\n\nThis will reset all your preferences, including any icons you extracted or downloaded using Integrator, but will not touch anything on your computer!";
 
+        string _byteSizeNullString = " b";
+        string _primaryItemTag = "_primary";
+
         ColorOverrider _colorOverrider;
+
+        List<TreeNode> _hwDetailed;
+        TreeNode[] _hwSummarized;
 
         private string NewVersionMessage(string latestVersion)
         {
@@ -504,7 +513,7 @@ namespace Optimizer
         }
 
         //INIT
-        public MainForm()
+        public MainForm(SplashForm _splashForm)
         {
             InitializeComponent();
 
@@ -515,9 +524,13 @@ namespace Optimizer
 
             EnableToggleEvents();
 
+            _splashForm.LoadingStatus.Text = "checking for requirements ...";
+
             // theming
             Options.ApplyTheme(this);
             launcherMenu.Renderer = new MoonMenuRenderer();
+            indiciumMenu.Renderer = new MoonMenuRenderer();
+
             progressDownloader.BackColor = Options.ForegroundColor;
             progressDownloader.ForeColor = Options.ForegroundAccentColor;
 
@@ -525,6 +538,9 @@ namespace Optimizer
             _trayMenu = Options.CurrentOptions.EnableTray;
             quickAccessToggle.ToggleChecked = Options.CurrentOptions.EnableTray;
             launcherIcon.Visible = Options.CurrentOptions.EnableTray;
+            seperatorNetMon.Visible = Options.CurrentOptions.EnableTray;
+            trayDownSpeed.Visible = Options.CurrentOptions.EnableTray;
+            trayUpSpeed.Visible = Options.CurrentOptions.EnableTray;
 
             // help tips
             helpBox.Active = Options.CurrentOptions.ShowHelp;
@@ -548,7 +564,7 @@ namespace Optimizer
 
             // system color overriding
             _colorOverrider = new ColorOverrider();
-            _colorOverrider.SetColor(KnownColor.Highlight, Color.FromArgb(50,50,50).ToArgb());
+            _colorOverrider.SetColor(KnownColor.Highlight, Color.FromArgb(50, 50, 50).ToArgb());
             _colorOverrider.SetColor(KnownColor.HighlightText, Color.White.ToArgb());
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
@@ -608,8 +624,12 @@ namespace Optimizer
                 txtOS.Text += string.Format(" ({0})", Utilities.GetWindows10Build());
             }
 
+            _splashForm.LoadingStatus.Text = "loading startup && hosts items ...";
+
             _columnSorter = new ListViewColumnSorter();
             listStartupItems.ListViewItemSorter = _columnSorter;
+
+            specsTree.ImageList = imagesHw;
 
             GetStartupItems();
             GetHostsEntries();
@@ -617,8 +637,12 @@ namespace Optimizer
             GetDesktopItems();
             GetCustomCommands();
 
+            _splashForm.LoadingStatus.Text = "getting feed ...";
             GetFeed();
             GetFootprint();
+
+            _splashForm.LoadingStatus.Text = "loading hardware specifications ...";
+            GetHardwareSpecs();
 
             LoadSettings();
 
@@ -677,32 +701,646 @@ namespace Optimizer
                 lblUpdateDisabled.Visible = true;
             }
 
-            //_networkMonitor = new NetworkMonitor();
+            // network monitoring
+            _networkMonitor = new NetworkMonitor();
+            if (Options.CurrentOptions.EnableTray) 
+            {
+                _networkMonitor.StartMonitoring();
+                NetworkMonitoring();
+            }
         }
 
-        //private void NetworkMonitoring()
-        //{
-        //    while (true)
-        //    {
-        //        downloadSpeed = 0;
-        //        uploadSpeed = 0;
+        private void GetHardwareSpecs()
+        {
+            GetCPUs();
+            GetRAM();
+            GetGPUs();
+            GetMotherboards();
+            GetStorage();
+            GetNetworkAdapters();
+            GetAudioDevices();
+            GetPeripherals();
+            GetOSInfo();
 
-        //        foreach (NetworkAdapter adapter in _networkMonitor.Adapters)
-        //        {
-        //            //adapter.Refresh();
-        //            downloadSpeed += Math.Round(adapter.DownloadSpeedMbps, 2);
-        //            uploadSpeed += Math.Round(adapter.UploadSpeedMbps, 2);
-        //        }
+            _hwDetailed = specsTree.Nodes.Cast<TreeNode>().ToList();
+            _hwSummarized = BuildHardwareSummaryNodes();
 
-        //        this.Text = string.Format("Optimizer - DOWN: {0} UP: {1}", downloadSpeed, uploadSpeed);
+            specsTree.ExpandAll();
+            specsTree.Nodes[0].EnsureVisible();
+        }
 
-        //        Thread.Sleep(1000);
-        //    }
-        //}
+        private TreeNode[] BuildHardwareSummaryNodes()
+        {
+            TreeNode osNode = new TreeNode("Operating System");
+            osNode.Name = "os";
+            osNode.Tag = _primaryItemTag;
+            osNode.SelectedImageIndex = 8;
+            HardwareSummary.OSInfo.ForEach(x => osNode.Nodes.Add(x));
+
+            TreeNode cpuNode = new TreeNode("Processors");
+            cpuNode.Name = "scpu";
+            cpuNode.Tag = _primaryItemTag;
+            cpuNode.SelectedImageIndex = 0;
+            HardwareSummary.CPUs.ForEach(x => cpuNode.Nodes.Add(x));
+
+            TreeNode ramNode = new TreeNode("Memory");
+            ramNode.Name = "sram";
+            ramNode.Tag = _primaryItemTag;
+            ramNode.SelectedImageIndex = 1;
+            ramNode.Nodes.Add(HardwareSummary.TotalRAM);
+
+            TreeNode moboNode = new TreeNode("Motherboards");
+            moboNode.Name = "smobo";
+            moboNode.Tag = _primaryItemTag;
+            moboNode.SelectedImageIndex = 3;
+            HardwareSummary.Motherboards.ForEach(x => moboNode.Nodes.Add(x));
+
+            TreeNode gpuNode = new TreeNode("Graphics");
+            gpuNode.Name = "sgpu";
+            gpuNode.Tag = _primaryItemTag;
+            gpuNode.SelectedImageIndex = 2;
+            HardwareSummary.GPUs.ForEach(x => gpuNode.Nodes.Add(x));
+
+            TreeNode diskNode = new TreeNode("Disk Drives");
+            diskNode.Name = "sdisk";
+            diskNode.Tag = _primaryItemTag;
+            diskNode.SelectedImageIndex = 4;
+            HardwareSummary.Disks.ForEach(x => diskNode.Nodes.Add(x));
+
+            TreeNode networkNode = new TreeNode("Network Adapters");
+            networkNode.Name = "sinet";
+            networkNode.Tag = _primaryItemTag;
+            networkNode.SelectedImageIndex = 5;
+            HardwareSummary.NetworkAdapters.ForEach(x => networkNode.Nodes.Add(x));
+
+            TreeNode biosNode = new TreeNode("BIOS");
+            biosNode.Tag = _primaryItemTag;
+            biosNode.SelectedImageIndex = 3;
+            HardwareSummary.BIOS.ForEach(x => biosNode.Nodes.Add(x));
+
+            return new TreeNode[]
+            {
+                osNode, cpuNode, ramNode, moboNode, gpuNode, diskNode, networkNode, biosNode
+            };
+        }
+
+        private void GetOSInfo()
+        {
+            HardwareSummary.OSInfo.Add($"{Utilities.GetOS()} ({(Environment.Is64BitOperatingSystem ? "64-bit" : "32-bit")})");
+            if (SystemInformation.PowerStatus.BatteryChargeStatus == BatteryChargeStatus.NoSystemBattery)
+            {
+                HardwareSummary.OSInfo.Add($"Desktop ({Environment.MachineName})");
+            }
+            else
+            {
+                HardwareSummary.OSInfo.Add($"Laptop ({Environment.MachineName})");
+            }
+        }
+
+        private void GetAudioDevices()
+        {
+            List<AudioDevice> audios = IndiciumHelper.GetAudioDevices();
+
+            if (audios.Count > 0)
+            {
+                foreach (AudioDevice device in audios)
+                {
+                    TreeNode node = new TreeNode(device.ProductName);
+
+                    node.Tag = _primaryItemTag;
+                    node.Nodes.Add("Manufacturer: " + device.Manufacturer);
+                    node.Nodes.Add("Status: " + device.Status);
+                    specsTree.Nodes["audio"].Nodes.Add(node);
+                }
+            }
+        }
+
+        private void GetPeripherals()
+        {
+            IndiciumHelper.GetPeripherals();
+
+            if (IndiciumHelper.Keyboards.Count > 0)
+            {
+                TreeNode kbNodes = new TreeNode("Keyboards");
+                kbNodes.Name = "keyboards";
+
+                foreach (Keyboard keyboard in IndiciumHelper.Keyboards)
+                {
+                    TreeNode node = new TreeNode(keyboard.Name);
+                    node.Tag = _primaryItemTag;
+                    node.Nodes.Add("Layout: " + keyboard.Layout);
+                    node.Nodes.Add("Function Keys: " + keyboard.FunctionKeys);
+                    node.Nodes.Add("Status: " + keyboard.Status);
+                    node.Nodes.Add("Locked: " + keyboard.Locked);
+                    kbNodes.Nodes.Add(node);
+                }
+                specsTree.Nodes["dev"].Nodes.Add(kbNodes);
+            }
+
+            if (IndiciumHelper.PointingDevices.Count > 0)
+            {
+                TreeNode pdNodes = new TreeNode("Pointing Devices");
+                pdNodes.Name = "pointings";
+
+                foreach (PointingDevice pointingDevice in IndiciumHelper.PointingDevices)
+                {
+                    TreeNode node = new TreeNode(pointingDevice.Name);
+                    node.Tag = _primaryItemTag;
+                    node.Nodes.Add("Manufacturer: " + pointingDevice.Manufacturer);
+                    node.Nodes.Add("Buttons: " + pointingDevice.Buttons);
+                    node.Nodes.Add("Pointing Type: " + pointingDevice.PointingType);
+                    node.Nodes.Add("Device Interface: " + pointingDevice.DeviceInterface);
+                    node.Nodes.Add("Hardware Type: " + pointingDevice.HardwareType);
+                    node.Nodes.Add("Status: " + pointingDevice.Status);
+                    node.Nodes.Add("Locked: " + pointingDevice.Locked);
+                    pdNodes.Nodes.Add(node);
+                }
+                specsTree.Nodes["dev"].Nodes.Add(pdNodes);
+            }
+        }
+
+        private void GetNetworkAdapters()
+        {
+            IndiciumHelper.GetNetworkAdapters();
+
+            if (IndiciumHelper.PhysicalAdapters.Count > 0)
+            {
+                TreeNode physicalsNode = new TreeNode("Physical Adapters");
+                physicalsNode.Name = "physicalAdapters";
+
+                foreach (NetworkDevice adapter in IndiciumHelper.PhysicalAdapters)
+                {
+                    TreeNode node = new TreeNode(adapter.ProductName);
+                    HardwareSummary.NetworkAdapters.Add(adapter.ProductName);
+
+                    node.Tag = _primaryItemTag;
+                    node.Nodes.Add("Manufacturer: " + adapter.Manufacturer);
+                    node.Nodes.Add("Adapter Type: " + adapter.AdapterType);
+                    node.Nodes.Add("MAC Address: " + adapter.MacAddress);
+                    //node.Nodes.Add("Physical Adapter: " + adapter.PhysicalAdapter);
+                    node.Nodes.Add("Service Name: " + adapter.ServiceName);
+                    physicalsNode.Nodes.Add(node);
+                }
+                specsTree.Nodes["inet"].Nodes.Add(physicalsNode);
+            }
+
+            if (IndiciumHelper.VirtualAdapters.Count > 0)
+            {
+                TreeNode virtualsNode = new TreeNode("Virtual Adapters");
+                virtualsNode.Name = "virtualAdapters";
+
+                foreach (NetworkDevice adapter in IndiciumHelper.VirtualAdapters)
+                {
+                    TreeNode node = new TreeNode(adapter.ProductName);
+
+                    node.Tag = _primaryItemTag;
+                    node.Nodes.Add("Manufacturer: " + adapter.Manufacturer);
+                    node.Nodes.Add("Adapter Type: " + adapter.AdapterType);
+                    node.Nodes.Add("MAC Address: " + adapter.MacAddress);
+                    //node.Nodes.Add("Physical Adapter: " + adapter.PhysicalAdapter);
+                    node.Nodes.Add("Service Name: " + adapter.ServiceName);
+                    virtualsNode.Nodes.Add(node);
+                }
+                specsTree.Nodes["inet"].Nodes.Add(virtualsNode);
+            }
+        }
+
+        private void GetStorage()
+        {
+            List<Disk> disks = IndiciumHelper.GetDisks();
+            IndiciumHelper.GetVolumes();
+
+            if (disks.Count > 0)
+            {
+                TreeNode disksNode = new TreeNode("Disk Drives");
+                disksNode.Name = "drives";
+
+                foreach (Disk disk in disks)
+                {
+                    TreeNode node = new TreeNode(disk.Model);
+                    node.Tag = _primaryItemTag;
+
+                    if (disk.Capacity.ToString() != _byteSizeNullString)
+                    {
+                        node.Nodes.Add("Size: " + disk.Capacity);
+                        HardwareSummary.Disks.Add($"{disk.Model} ({disk.Capacity})");
+                    }
+                    else
+                    {
+                        node.Nodes.Add("Size: -");
+                    }
+                    node.Nodes.Add("Firmware Revision: " + disk.FirmwareRevision);
+                    node.Nodes.Add("Media Type: " + disk.MediaType);
+                    node.Nodes.Add("Bytes/Sector: " + disk.BytesPerSector);
+
+                    disksNode.Nodes.Add(node);
+                }
+                specsTree.Nodes["disk"].Nodes.Add(disksNode);
+            }
+
+            if (IndiciumHelper.Opticals.Count > 0)
+            {
+                TreeNode opticalsNode = new TreeNode("Optical Drives");
+                opticalsNode.Name = "opticals";
+
+                foreach (Volume optical in IndiciumHelper.Opticals)
+                {
+                    string tmp = string.Empty;
+                    if (!string.IsNullOrEmpty(optical.DriveLetter))
+                    {
+                        tmp = " (" + optical.DriveLetter + ")";
+                    }
+                    else
+                    {
+                        tmp = "-";
+                    }
+
+                    TreeNode node = new TreeNode(optical.Label + tmp);
+                    node.Tag = _primaryItemTag;
+                    node.Nodes.Add("File System: " + optical.FileSystem);
+
+                    if (optical.Capacity.ToString() != _byteSizeNullString)
+                    {
+                        node.Nodes.Add("Size: " + optical.Capacity);
+                    }
+                    else
+                    {
+                        node.Nodes.Add("Size: -");
+                    }
+                    if (optical.UsedSpace.ToString() != _byteSizeNullString)
+                    {
+                        node.Nodes.Add("Used Space: " + optical.UsedSpace);
+                    }
+                    else
+                    {
+                        node.Nodes.Add("Used Space: -");
+                    }
+                    if (optical.FreeSpace.ToString() != _byteSizeNullString)
+                    {
+                        node.Nodes.Add("Free Space: " + optical.FreeSpace);
+                    }
+                    else
+                    {
+                        node.Nodes.Add("Free Space: -");
+                    }
+                    node.Nodes.Add("Indexing: " + optical.Indexing);
+                    node.Nodes.Add("Compressed: " + optical.Compressed);
+                    node.Nodes.Add("Drive Type: " + optical.DriveType);
+                    node.Nodes.Add("Block Size: " + optical.BlockSize);
+
+                    opticalsNode.Nodes.Add(node);
+                }
+                specsTree.Nodes["disk"].Nodes.Add(opticalsNode);
+            }
+
+            if (IndiciumHelper.Volumes.Count > 0)
+            {
+                TreeNode volumesNode = new TreeNode("Partitions");
+                volumesNode.Name = "volumes";
+
+                foreach (Volume volume in IndiciumHelper.Volumes)
+                {
+                    string tmp = string.Empty;
+                    if (!string.IsNullOrEmpty(volume.DriveLetter))
+                    {
+                        tmp = " (" + volume.DriveLetter + ")";
+                    }
+                    else
+                    {
+                        tmp = "-";
+                    }
+
+                    TreeNode node = new TreeNode(volume.Label + tmp);
+                    node.Tag = _primaryItemTag;
+
+                    node.Nodes.Add("File System: " + volume.FileSystem);
+                    if (volume.Capacity.ToString() != _byteSizeNullString)
+                    {
+                        node.Nodes.Add("Size: " + volume.Capacity);
+                    }
+                    else
+                    {
+                        node.Nodes.Add("Size: -");
+                    }
+                    if (volume.UsedSpace.ToString() != _byteSizeNullString)
+                    {
+                        node.Nodes.Add("Used Space: " + volume.UsedSpace);
+                    }
+                    else
+                    {
+                        node.Nodes.Add("Used Space: -");
+                    }
+                    if (volume.FreeSpace.ToString() != _byteSizeNullString)
+                    {
+                        node.Nodes.Add("Free Space: " + volume.FreeSpace);
+                    }
+                    else
+                    {
+                        node.Nodes.Add("Free Space: -");
+                    }
+                    node.Nodes.Add("Indexing: " + volume.Indexing);
+                    node.Nodes.Add("Compressed: " + volume.Compressed);
+                    node.Nodes.Add("Drive Type: " + volume.DriveType);
+                    node.Nodes.Add("Block Size: " + volume.BlockSize);
+
+                    volumesNode.Nodes.Add(node);
+                }
+                specsTree.Nodes["disk"].Nodes.Add(volumesNode);
+
+                if (IndiciumHelper.Removables.Count > 0)
+                {
+                    TreeNode removablesNode = new TreeNode("Removable Drives");
+                    removablesNode.Name = "removables";
+
+                    foreach (Volume removable in IndiciumHelper.Removables)
+                    {
+                        string tmp = string.Empty;
+                        if (!string.IsNullOrEmpty(removable.DriveLetter))
+                        {
+                            tmp = " (" + removable.DriveLetter + ")";
+                        }
+                        else
+                        {
+                            tmp = "-";
+                        }
+
+                        TreeNode node = new TreeNode(removable.Label + tmp);
+
+                        node.Tag = _primaryItemTag;
+
+                        node.Nodes.Add("File System: " + removable.FileSystem);
+                        if (removable.Capacity.ToString() != _byteSizeNullString)
+                        {
+                            node.Nodes.Add("Size: " + removable.Capacity);
+                        }
+                        else
+                        {
+                            node.Nodes.Add("Size: -");
+                        }
+                        if (removable.UsedSpace.ToString() != _byteSizeNullString)
+                        {
+                            node.Nodes.Add("Used Space: " + removable.UsedSpace);
+                        }
+                        else
+                        {
+                            node.Nodes.Add("Used Space: -");
+                        }
+                        if (removable.FreeSpace.ToString() != _byteSizeNullString)
+                        {
+                            node.Nodes.Add("Free Space: " + removable.FreeSpace);
+                        }
+                        else
+                        {
+                            node.Nodes.Add("Free Space: -");
+                        }
+                        node.Nodes.Add("Indexing: " + removable.Indexing);
+                        node.Nodes.Add("Compressed: " + removable.Compressed);
+                        node.Nodes.Add("Drive Type: " + removable.DriveType);
+                        node.Nodes.Add("Block Size: " + removable.BlockSize);
+                        removablesNode.Nodes.Add(node);
+                    }
+                    specsTree.Nodes["disk"].Nodes.Add(removablesNode);
+                }
+            }
+        }
+
+        private void GetCPUs()
+        {
+            List<CPU> cpus = IndiciumHelper.GetCPUs();
+
+            if (cpus.Count > 0)
+            {
+                foreach (CPU cpu in cpus)
+                {
+                    TreeNode node = new TreeNode(cpu.Name);
+                    node.Tag = _primaryItemTag;
+
+                    HardwareSummary.CPUs.Add($"{cpu.Name} ({cpu.Cores} Cores, {cpu.LogicalCpus} Threads)");
+
+                    node.Nodes.Add("Cores: " + cpu.Cores);
+                    node.Nodes.Add("Threads: " + cpu.LogicalCpus);
+                    //node.Nodes.Add("Logical CPUs: " + cpu.LogicalCpus);
+                    node.Nodes.Add("Virtualization: " + cpu.Virtualization);
+                    node.Nodes.Add("Data Execution Prevention: " + cpu.DataExecutionPrevention);
+                    node.Nodes.Add("L2 Cache: " + cpu.L2CacheSize);
+                    node.Nodes.Add("L3 Cache: " + cpu.L3CacheSize);
+                    node.Nodes.Add("Stepping: " + cpu.Stepping);
+                    node.Nodes.Add("Revision: " + cpu.Revision);
+
+                    specsTree.Nodes["cpu"].Nodes.Add(node);
+                }
+            }
+        }
+
+        private void GetMotherboards()
+        {
+            List<Motherboard> mobos = IndiciumHelper.GetMotherboards();
+
+            if (mobos.Count > 0)
+            {
+                foreach (Motherboard mobo in mobos)
+                {
+                    TreeNode node = new TreeNode(mobo.Manufacturer);
+                    TreeNode node2 = new TreeNode("BIOS");
+                    node.Tag = _primaryItemTag;
+                    node2.Tag = _primaryItemTag;
+
+                    HardwareSummary.Motherboards.Add($"{mobo.Manufacturer} ({mobo.SystemModel}) ({mobo.Product})");
+                    HardwareSummary.BIOS.Add($"{mobo.BIOSManufacturer} {mobo.BIOSName}");
+
+                    node.Nodes.Add("System: " + mobo.SystemModel);
+                    node.Nodes.Add("Chipset: " + mobo.Chipset);
+                    node.Nodes.Add("Product: " + mobo.Product);
+                    node.Nodes.Add("Model: " + mobo.Model);
+                    node.Nodes.Add("Version: " + mobo.Version);
+                    node.Nodes.Add("Revision: " + mobo.Revision);
+
+                    node2.Nodes.Add("Manufacturer: " + mobo.BIOSManufacturer);
+                    node2.Nodes.Add("Manufacturer: " + mobo.BIOSName);
+                    node2.Nodes.Add("Version: " + mobo.BIOSVersion);
+                    node2.Nodes.Add("Build Number: " + mobo.BIOSBuildNumber);
+
+                    specsTree.Nodes["mobo"].Nodes.Add(node);
+                    specsTree.Nodes["mobo"].Nodes.Add(node2);
+                }
+            }
+        }
+
+        private void GetGPUs()
+        {
+            List<GPU> gpus = IndiciumHelper.GetGPUs();
+
+            if (gpus.Count > 0)
+            {
+                foreach (GPU gpu in gpus)
+                {
+                    TreeNode node = new TreeNode(gpu.Name);
+                    node.Tag = _primaryItemTag;
+
+                    HardwareSummary.GPUs.Add($"{gpu.Name} ({gpu.Memory.ToString("GiB")})");
+
+                    node.Nodes.Add("Video Memory: " + gpu.Memory.ToString("GiB"));
+                    node.Nodes.Add("Video Memory Type: " + gpu.VideoMemoryType);
+                    node.Nodes.Add("DAC Type: " + gpu.DACType);
+                    node.Nodes.Add("Current Resolution: " + gpu.ResolutionX + " x " + gpu.ResolutionY);
+                    node.Nodes.Add("Current Refresh Rate: " + gpu.RefreshRate + " Hz");
+
+                    specsTree.Nodes["gpu"].Nodes.Add(node);
+                }
+            }
+        }
+
+        private void GetRAM()
+        {
+            List<RAM> ramInfo = IndiciumHelper.GetRAM();
+            VirtualMemory vm = IndiciumHelper.GetVM();
+
+            ByteSize totalRAM = new ByteSize(0);
+            string memoryType = string.Empty;
+            uint memorySpeed = 0;
+
+            if (ramInfo.Count > 0)
+            {
+                foreach (RAM ram in ramInfo)
+                {
+                    TreeNode node = new TreeNode(ram.BankLabel.ToLowerInvariant().Replace("bank", "Module"));
+                    node.Tag = _primaryItemTag;
+
+                    totalRAM += ram.Capacity;
+                    memorySpeed = ram.Speed;
+                    memoryType = ram.MemoryType;
+
+                    node.Nodes.Add("Manufacturer: " + ram.Manufacturer);
+                    node.Nodes.Add("Size: " + ram.Capacity.ToString("GiB"));
+                    node.Nodes.Add("Memory Type: " + ram.MemoryType);
+                    node.Nodes.Add("Speed: " + ram.Speed + " MHz");
+                    node.Nodes.Add("Form Factor: " + ram.FormFactor);
+
+                    specsTree.Nodes["ram"].Nodes.Add(node);
+                }
+
+                HardwareSummary.TotalRAM = $"{totalRAM.ToString("GiB")} {memoryType} @ {memorySpeed} MHz";
+            }
+
+            if (vm != null)
+            {
+                TreeNode node = new TreeNode("Virtual Memory");
+                node.Name = "vm";
+                node.Tag = _primaryItemTag;
+
+                node.Nodes.Add("Total: " + vm.TotalVirtualMemory.ToString("GiB"));
+                node.Nodes.Add("Available : " + vm.AvailableVirtualMemory.ToString("GiB"));
+                node.Nodes.Add("Used: " + vm.UsedVirtualMemory.ToString("GiB"));
+
+                specsTree.Nodes["ram"].Nodes.Add(node);
+            }
+        }
+
+        private void NetworkMonitoring()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                while (Options.CurrentOptions.EnableTray)
+                {
+                    downloadSpeed = 0;
+                    uploadSpeed = 0;
+
+                    foreach (NetworkAdapter adapter in _networkMonitor.Adapters)
+                    {
+                        //adapter.Refresh();
+                        downloadSpeed += Math.Round(adapter.DownloadSpeedKbps, 2);
+                        uploadSpeed += Math.Round(adapter.UploadSpeedKbps, 2);
+                    }
+
+                    this.Invoke(new Action(() =>
+                    {
+                        trayDownSpeed.Text = $"{downloadSpeed} KB/s";
+                        trayUpSpeed.Text = $"{uploadSpeed} KB/s";
+                    }));
+
+                    Thread.Sleep(1000);
+                }
+            });
+        }
+
+        private void TranslateIndicium()
+        {
+            if (hwDetailed.ToggleChecked)
+            {
+                // DETAILS TRANSLATION
+                TreeNode cpu = specsTree.Nodes["cpu"];
+                TreeNode ram = specsTree.Nodes["ram"];
+                TreeNode gpu = specsTree.Nodes["gpu"];
+                TreeNode mobo = specsTree.Nodes["mobo"];
+                TreeNode disk = specsTree.Nodes["disk"];
+                TreeNode inet = specsTree.Nodes["inet"];
+                TreeNode audio = specsTree.Nodes["audio"];
+                TreeNode dev = specsTree.Nodes["dev"];
+
+                if (cpu != null) cpu.Text = translationList["cpu"];
+                if (ram != null)
+                {
+                    ram.Text = translationList["ram"];
+                    TreeNode vm = ram.Nodes["vm"];
+                    if (vm != null) vm.Text = translationList["vm"];
+                }
+                if (gpu != null) gpu.Text = translationList["gpu"];
+                if (mobo != null) mobo.Text = translationList["mobo"];
+                if (disk != null)
+                {
+                    disk.Text = translationList["disk"];
+                    TreeNode disks = disk.Nodes["drives"];
+                    TreeNode vols = disk.Nodes["volumes"];
+                    TreeNode opticals = disk.Nodes["opticals"];
+                    TreeNode removables = disk.Nodes["removables"];
+                    if (disks != null) disks.Text = translationList["drives"];
+                    if (vols != null) vols.Text = translationList["volumes"];
+                    if (opticals != null) opticals.Text = translationList["opticals"];
+                    if (removables != null) removables.Text = translationList["removables"];
+                }
+                if (inet != null)
+                {
+                    inet.Text = translationList["inet"];
+                    TreeNode pas = inet.Nodes["physicalAdapters"];
+                    TreeNode vas = inet.Nodes["virtualAdapters"];
+                    if (pas != null) pas.Text = translationList["physicalAdapters"];
+                    if (vas != null) vas.Text = translationList["virtualAdapters"];
+                }
+                if (audio != null) audio.Text = translationList["audio"];
+                if (dev != null)
+                {
+                    dev.Text = translationList["dev"];
+                    TreeNode kbs = dev.Nodes["keyboards"];
+                    TreeNode pds = dev.Nodes["pointings"];
+                    if (kbs != null) kbs.Text = translationList["keyboards"];
+                    if (pds != null) pds.Text = translationList["pointings"];
+                }
+            }
+            else
+            {
+                // SUMMARY TRANSLATION
+                TreeNode os = specsTree.Nodes["os"];
+                TreeNode scpu = specsTree.Nodes["scpu"];
+                TreeNode sram = specsTree.Nodes["sram"];
+                TreeNode sgpu = specsTree.Nodes["sgpu"];
+                TreeNode smobo = specsTree.Nodes["smobo"];
+                TreeNode sdisk = specsTree.Nodes["sdisk"];
+                TreeNode sinet = specsTree.Nodes["sinet"];
+
+                if (os != null) os.Text = translationList["os"];
+                if (scpu != null) scpu.Text = translationList["cpu"];
+                if (sram != null) sram.Text = translationList["ram"];
+                if (sgpu != null) sgpu.Text = translationList["gpu"];
+                if (smobo != null) smobo.Text = translationList["mobo"];
+                if (sdisk != null) sdisk.Text = translationList["disk"];
+                if (sinet != null) sinet.Text = translationList["inet"];
+            }
+        }
 
         private void Translate(bool skipFull = false)
         {
-            Dictionary<string, string> translationList = Options.TranslationList.ToObject<Dictionary<string, string>>();
+            translationList = Options.TranslationList.ToObject<Dictionary<string, string>>();
+
             if (Environment.Is64BitOperatingSystem)
             {
                 translationList["txtBitness"] = translationList["txtBitness"].Replace("{BITS}", translationList["c64"]);
@@ -713,6 +1351,7 @@ namespace Optimizer
             }
 
             SetHelpBoxTranslation();
+            TranslateIndicium();
 
             if (!skipFull)
             {
@@ -729,6 +1368,7 @@ namespace Optimizer
                 listStartupItems.Columns[0].Text = translationList["startupItemName"];
                 listStartupItems.Columns[1].Text = translationList["startupItemLocation"];
                 listStartupItems.Columns[2].Text = translationList["startupItemType"];
+
                 trayStartup.Text = translationList["trayStartup"];
                 trayCleaner.Text = translationList["trayCleaner"];
                 trayPinger.Text = translationList["trayPinger"];
@@ -738,9 +1378,13 @@ namespace Optimizer
                 trayRegistry.Text = translationList["trayRegistry"];
                 trayRestartExplorer.Text = translationList["trayRestartExplorer"];
                 trayExit.Text = translationList["trayExit"];
+                trayHW.Text = translationList["trayHW"];
+
+                toolHWCopy.Text = translationList["toolHWCopy"];
+                toolHWDuck.Text = translationList["toolHWDuck"];
+                toolHWGoogle.Text = translationList["toolHWGoogle"];
 
                 Control element;
-
                 foreach (var x in translationList)
                 {
                     if (x.Key == null || x.Key == string.Empty) continue;
@@ -756,7 +1400,6 @@ namespace Optimizer
 
                     element.Text = x.Value;
                 }
-
             }
 
             txtVersion.Text = txtVersion.Text.Replace("{VN}", Program.GetCurrentVersionTostring());
@@ -1157,30 +1800,6 @@ namespace Optimizer
             }
         }
 
-        //private void button39_Click(object sender, EventArgs e)
-        //{
-        //    HelperForm f = new HelperForm(this, MessageType.Restart, _restartMessage);
-        //    f.ShowDialog();
-        //}
-
-        //private void button43_Click(object sender, EventArgs e)
-        //{
-        //    HelperForm f = new HelperForm(this, MessageType.Restart, _restartMessage);
-        //    f.ShowDialog();
-        //}
-
-        //private void button44_Click(object sender, EventArgs e)
-        //{
-        //    HelperForm f = new HelperForm(this, MessageType.Restart, _restartMessage);
-        //    f.ShowDialog();
-        //}
-
-        //private void button45_Click(object sender, EventArgs e)
-        //{
-        //    HelperForm f = new HelperForm(this, MessageType.Restart, _restartMessage);
-        //    f.ShowDialog();
-        //}
-
         private void checkSelectAll_CheckedChanged(object sender, EventArgs e)
         {
             checkTemp.Checked = checkSelectAll.Checked;
@@ -1386,16 +2005,7 @@ namespace Optimizer
         {
             if (tabCollection.SelectedTab == hostsEditorTab) txtIP.Focus();
 
-            if (tabCollection.SelectedTab == pingerTab)
-            {
-                txtPingInput.Focus();
-                //_networkMonitor.StartMonitoring();
-                //NetworkMonitoring();
-            }
-            //else
-            //{
-            //    _networkMonitor.StopMonitoring();
-            //}
+            if (tabCollection.SelectedTab == pingerTab) txtPingInput.Focus();      
         }
 
         private void button48_Click(object sender, EventArgs e)
@@ -3130,6 +3740,23 @@ namespace Optimizer
 
             _trayMenu = quickAccessToggle.ToggleChecked;
             launcherIcon.Visible = quickAccessToggle.ToggleChecked;
+
+            seperatorNetMon.Visible = Options.CurrentOptions.EnableTray;
+            trayDownSpeed.Visible = Options.CurrentOptions.EnableTray;
+            trayUpSpeed.Visible = Options.CurrentOptions.EnableTray;
+
+            if (Options.CurrentOptions.EnableTray)
+            {
+                if (_networkMonitor != null)
+                {
+                    _networkMonitor.StartMonitoring();
+                    NetworkMonitoring();
+                }
+            }
+            else
+            {
+                if (_networkMonitor != null) _networkMonitor.StopMonitoring();
+            }
         }
 
         private void helpTipsToggle_ToggleClicked(object sender, EventArgs e)
@@ -3143,6 +3770,103 @@ namespace Optimizer
         private void picUpdate_Click(object sender, EventArgs e)
         {
             CheckForUpdate();
+        }
+
+        private void hwDetailed_ToggleClicked(object sender, EventArgs e)
+        {
+            specsTree.Nodes.Clear();
+
+            if (hwDetailed.ToggleChecked)
+            {
+                specsTree.Nodes.AddRange(_hwDetailed.ToArray());
+            }
+            else
+            {
+                specsTree.Nodes.AddRange(_hwSummarized);
+            }
+
+            TranslateIndicium();
+            specsTree.ExpandAll();
+            specsTree.Nodes[0].EnsureVisible();
+        }
+
+        private void trayHW_Click(object sender, EventArgs e)
+        {
+            tabCollection.SelectedTab = indiciumTab;
+            RestoreWindow();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(specsTree.SelectedNode.Text);
+            }
+            catch { }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (specsTree.Nodes.Count > 0)
+            {
+                Utilities.SearchWith(specsTree.SelectedNode.Text, false);
+            }
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            if (specsTree.Nodes.Count > 0)
+            {
+                Utilities.SearchWith(specsTree.SelectedNode.Text, true);
+            }
+        }
+
+        private void btnSaveHW_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog d = new SaveFileDialog();
+            d.InitialDirectory = Application.StartupPath;
+            d.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            d.FileName = $"Optimizer_Hardware_{Environment.MachineName}_{DateTime.Now.ToShortDateString()}.txt";
+
+            if (d.ShowDialog() == DialogResult.OK) File.WriteAllText(d.FileName, GetSpecsToString(specsTree), Encoding.UTF8);
+        }
+
+        private void btnCopyHW_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(GetSpecsToString(specsTree));
+            }
+            catch { }
+        }
+
+        private string GetSpecsToString(TreeView trv)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (TreeNode node in trv.Nodes)
+            {
+                WriteNodeIntoString(0, node, sb);
+            }
+
+            return sb.ToString();
+        }
+
+        private void WriteNodeIntoString(int level, TreeNode node, StringBuilder sb)
+        {
+            sb.AppendLine(new string('\t', level) + node.Text);
+
+            foreach (TreeNode child in node.Nodes)
+            {
+                WriteNodeIntoString(level + 1, child, sb);
+            }
+        }
+
+        private void specsTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right || e.Button == MouseButtons.Left)
+            {
+                specsTree.SelectedNode = e.Node;
+            }
         }
     }
 }

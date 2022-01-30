@@ -884,5 +884,15 @@ namespace Optimizer
 
             return "4.0";
         }
+
+        internal static void SearchWith(string term, bool ddg)
+        {
+            try
+            {
+                if (ddg) Process.Start(string.Format("https://duckduckgo.com/?q={0}", term));
+                if (!ddg) Process.Start(string.Format("https://www.google.com/search?q={0}", term));
+            }
+            catch { }
+        }
     }
 }

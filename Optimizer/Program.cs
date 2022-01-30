@@ -136,7 +136,7 @@ namespace Optimizer
 
                                     StartSplashForm();
 
-                                    _MainForm = new MainForm();
+                                    _MainForm = new MainForm(_SplashForm);
                                     _MainForm.Load += MainForm_Load;
                                     Application.Run(_MainForm);
 
@@ -235,7 +235,7 @@ namespace Optimizer
                             {
                                 StartSplashForm();
 
-                                _MainForm = new MainForm();
+                                _MainForm = new MainForm(_SplashForm);
                                 _MainForm.Load += MainForm_Load;
 
                                 Application.Run(_MainForm);

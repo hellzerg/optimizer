@@ -76,7 +76,7 @@ namespace Optimizer
     {
         internal static Color ForegroundColor = Color.MediumOrchid;
         internal static Color ForegroundAccentColor = Color.DarkOrchid;
-        internal static Color BackgroundColor = Color.FromArgb(10,10,10);
+        internal static Color BackgroundColor = Color.FromArgb(10, 10, 10);
         internal static Color BackAccentColor = Color.FromArgb(40, 40, 40);
 
         readonly static string _themeFlag = "themeable";
@@ -139,19 +139,6 @@ namespace Optimizer
                     c.FlatAppearance.MouseOverBackColor = c2;
                 }
 
-                if (x is ToggleCard)
-                {
-                    c.Toggle.Invalidate();
-                }
-
-                if (x is Label)
-                {
-                    if ((string)c.Tag == _themeFlag)
-                    {
-                        c.ForeColor = c1;
-                    }
-                }
-
                 if (x is LinkLabel)
                 {
                     if ((string)c.Tag == _themeFlag)
@@ -162,15 +149,7 @@ namespace Optimizer
                     }
                 }
 
-                if (x is CheckBox)
-                {
-                    if ((string)c.Tag == _themeFlag)
-                    {
-                        c.ForeColor = c1;
-                    }
-                }
-
-                if (x is RadioButton)
+                if (x is CheckBox || x is RadioButton || x is Label)
                 {
                     if ((string)c.Tag == _themeFlag)
                     {

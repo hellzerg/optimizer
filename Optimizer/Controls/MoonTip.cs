@@ -36,14 +36,14 @@ namespace Optimizer
             Graphics g = e.Graphics;
 
             LinearGradientBrush b = new LinearGradientBrush(e.Bounds,
-                Color.FromArgb(40,40,40), Color.FromArgb(40, 40, 40), 45f);
+                Color.FromArgb(40, 40, 40), Color.FromArgb(40, 40, 40), 45f);
 
             g.FillRectangle(b, e.Bounds);
 
             g.DrawRectangle(new Pen(Color.FromArgb(40, 40, 40), 1), new Rectangle(e.Bounds.X, e.Bounds.Y,
                 e.Bounds.Width - 1, e.Bounds.Height - 1));
 
-            
+
             g.DrawString(e.ToolTipText, font, Brushes.White,
                 new PointF(e.Bounds.X + 6, e.Bounds.Y + 6)); // top layer
 

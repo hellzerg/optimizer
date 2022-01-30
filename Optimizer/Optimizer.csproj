@@ -98,6 +98,9 @@
     <Compile Include="Controls\MoonToggle.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\MoonTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ToggleCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
