@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [11.4] - 2022-01-30
-- New: Hardware specs tab
+- New: Hardware specifications inspection tool
 - New: Network speed monitoring in Quick Access Menu (if enabled)
 
 ## Verify your app using SHA256
