@@ -170,10 +170,13 @@ namespace Optimizer
                                     bool disableUWPTool = opts.Contains("uwp");
                                     bool disableAppsTool = opts.Contains("apps");
                                     bool disableHostsEditor = opts.Contains("hosts");
+                                    bool disableStartupTool = opts.Contains("startup");
+                                    bool disableCleaner = opts.Contains("cleaner");
+                                    bool disableIntegrator = opts.Contains("integrator");
 
                                     StartSplashForm();
 
-                                    _MainForm = new MainForm(_SplashForm, disableIndicium, disableHostsEditor, disableAppsTool, disableUWPTool);
+                                    _MainForm = new MainForm(_SplashForm, disableIndicium, disableHostsEditor, disableAppsTool, disableUWPTool, disableStartupTool, disableCleaner, disableIntegrator);
                                     _MainForm.Load += MainForm_Load;
                                     Application.Run(_MainForm);
 

@@ -513,7 +513,7 @@ namespace Optimizer
         }
 
         //INIT
-        public MainForm(SplashForm _splashForm, bool disableIndicium = false, bool disableHostsEditor = false, bool disableCommonApps = false, bool disableUWPApps = false)
+        public MainForm(SplashForm _splashForm, bool disableIndicium = false, bool disableHostsEditor = false, bool disableCommonApps = false, bool disableUWPApps = false, bool disableStartups = false, bool disableCleaner = false, bool disableIntegrator = false)
         {
             InitializeComponent();
 
@@ -651,8 +651,19 @@ namespace Optimizer
             listStartupItems.ListViewItemSorter = _columnSorter;
 
             specsTree.ImageList = imagesHw;
+            
+            // STARTUP ITEMS
+            if (!disableStartups)
+            {
+                GetStartupItems();
+            }
+            else
+            {
+                tabCollection.TabPages.Remove(startupTab);
+                launcherMenu.Items.RemoveByKey("trayStartup");
+            }
 
-            GetStartupItems();
+            // HOSTS EDITOR
             if (!disableHostsEditor)
             {
                 GetHostsEntries();
@@ -663,10 +674,20 @@ namespace Optimizer
                 launcherMenu.Items.RemoveByKey("trayHosts");
             }
 
-            GetDesktopItems();
-            GetCustomCommands();
+            // INTEGRATOR
+            if (!disableIntegrator)
+            {
+                GetDesktopItems();
+                GetCustomCommands();
+            }
+            else
+            {
+                tabCollection.TabPages.Remove(integratorTab);
+            }
 
             _splashForm.LoadingStatus.Text = "getting feed ...";
+
+            // APPS DOWNLOADER
             if (!disableCommonApps)
             {
                 GetFeed();
@@ -676,9 +697,21 @@ namespace Optimizer
                 tabCollection.TabPages.Remove(appsTab);
                 launcherMenu.Items.RemoveByKey("trayAD");
             }
-            GetFootprint();
+
+            // CLEANER
+            if (!disableCleaner)
+            {
+                GetFootprint();
+            }
+            else
+            {
+                tabCollection.TabPages.Remove(cleanerTab);
+                launcherMenu.Items.RemoveByKey("trayCleaner");
+            }
 
             _splashForm.LoadingStatus.Text = "loading hardware specifications ...";
+
+            // INDICIUM
             if (!disableIndicium)
             {
                 GetHardwareSpecs();
