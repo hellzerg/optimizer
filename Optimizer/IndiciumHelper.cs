@@ -22,36 +22,43 @@ namespace Optimizer
             List<CPU> CPUs = new List<CPU>();
             CPU cpu;
 
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
-            foreach (ManagementObject mo in searcher.Get())
+            try
             {
-                cpu = new CPU();
-
-                cpu.Name = Convert.ToString(mo.Properties["Name"].Value);
-                cpu.L2CacheSize = ByteSize.FromKiloBytes(Convert.ToDouble(mo.Properties["L2CacheSize"].Value));
-                cpu.L3CacheSize = ByteSize.FromKiloBytes(Convert.ToDouble(mo.Properties["L3CacheSize"].Value));
-                cpu.Cores = Convert.ToUInt32(mo.Properties["NumberOfCores"].Value);
-                cpu.Threads = Convert.ToUInt32(mo.Properties["ThreadCount"].Value);
-                cpu.LogicalCpus = Convert.ToUInt32(mo.Properties["NumberOfLogicalProcessors"].Value);
-                bool temp = Convert.ToBoolean(mo.Properties["VirtualizationFirmwareEnabled"].Value);
-                cpu.Virtualization = (temp) ? "Yes" : "No";
-                cpu.Stepping = Convert.ToString(mo.Properties["Description"].Value);
-                cpu.Revision = Convert.ToString(mo.Properties["Revision"].Value);
-
-                try
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
+                foreach (ManagementObject mo in searcher.Get())
                 {
-                    ManagementObjectSearcher searcher2 = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
-                    foreach (ManagementObject mo2 in searcher2.Get())
+                    cpu = new CPU();
+
+                    cpu.Name = Convert.ToString(mo.Properties["Name"].Value);
+                    cpu.L2CacheSize = ByteSize.FromKiloBytes(Convert.ToDouble(mo.Properties["L2CacheSize"].Value));
+                    cpu.L3CacheSize = ByteSize.FromKiloBytes(Convert.ToDouble(mo.Properties["L3CacheSize"].Value));
+                    cpu.Cores = Convert.ToUInt32(mo.Properties["NumberOfCores"].Value);
+                    cpu.Threads = Convert.ToUInt32(mo.Properties["ThreadCount"].Value);
+                    cpu.LogicalCpus = Convert.ToUInt32(mo.Properties["NumberOfLogicalProcessors"].Value);
+                    bool temp = Convert.ToBoolean(mo.Properties["VirtualizationFirmwareEnabled"].Value);
+                    cpu.Virtualization = (temp) ? "Yes" : "No";
+                    cpu.Stepping = Convert.ToString(mo.Properties["Description"].Value);
+                    cpu.Revision = Convert.ToString(mo.Properties["Revision"].Value);
+
+                    try
                     {
-                        bool temp2 = Convert.ToBoolean(mo2.Properties["DataExecutionPrevention_Available"].Value);
-                        cpu.DataExecutionPrevention = (temp2) ? "Yes" : "No";
+                        ManagementObjectSearcher searcher2 = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
+                        foreach (ManagementObject mo2 in searcher2.Get())
+                        {
+                            bool temp2 = Convert.ToBoolean(mo2.Properties["DataExecutionPrevention_Available"].Value);
+                            cpu.DataExecutionPrevention = (temp2) ? "Yes" : "No";
+                        }
                     }
+                    catch { }
+
+                    if (string.IsNullOrEmpty(cpu.Name)) cpu.Name = GetCPUNameAlternative();
+
+                    CPUs.Add(cpu);
                 }
-                catch { }
-
-                if (string.IsNullOrEmpty(cpu.Name)) cpu.Name = GetCPUNameAlternative();
-
-                CPUs.Add(cpu);
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("IndiciumHelper.GetCPUs", ex.Message, ex.StackTrace);
             }
 
             return CPUs;
@@ -69,12 +76,19 @@ namespace Optimizer
         {
             VirtualMemory vm = new VirtualMemory();
 
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
-            foreach (ManagementObject mo in searcher.Get())
+            try
             {
-                vm.TotalVirtualMemory = ByteSize.FromKiloBytes(Convert.ToUInt64(mo.Properties["TotalVirtualMemorySize"].Value));
-                vm.AvailableVirtualMemory = ByteSize.FromKiloBytes(Convert.ToUInt64(mo.Properties["FreeVirtualMemory"].Value));
-                vm.UsedVirtualMemory = vm.TotalVirtualMemory.Subtract(vm.AvailableVirtualMemory);
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
+                foreach (ManagementObject mo in searcher.Get())
+                {
+                    vm.TotalVirtualMemory = ByteSize.FromKiloBytes(Convert.ToUInt64(mo.Properties["TotalVirtualMemorySize"].Value));
+                    vm.AvailableVirtualMemory = ByteSize.FromKiloBytes(Convert.ToUInt64(mo.Properties["FreeVirtualMemory"].Value));
+                    vm.UsedVirtualMemory = vm.TotalVirtualMemory.Subtract(vm.AvailableVirtualMemory);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("IndiciumHelper.GetVM", ex.Message, ex.StackTrace);
             }
 
             return vm;
@@ -85,21 +99,28 @@ namespace Optimizer
             List<RAM> modules = new List<RAM>();
             RAM module;
 
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMemory");
-            foreach (ManagementObject mo in searcher.Get())
+            try
             {
-                module = new RAM();
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMemory");
+                foreach (ManagementObject mo in searcher.Get())
+                {
+                    module = new RAM();
 
-                module.BankLabel = Convert.ToString(mo.Properties["BankLabel"].Value);
-                module.Capacity = ByteSize.FromBytes(Convert.ToDouble(mo.Properties["Capacity"].Value));
-                module.Manufacturer = Convert.ToString(mo.Properties["Manufacturer"].Value);
-                module.Speed = Convert.ToUInt32(mo.Properties["Speed"].Value);
-                UInt16 memorytype = Convert.ToUInt16(mo.Properties["MemoryType"].Value);
-                UInt16 formfactor = Convert.ToUInt16(mo.Properties["FormFactor"].Value);
-                module.MemoryType = SanitizeMemoryType(memorytype);
-                module.FormFactor = SanitizeFormFactor(formfactor);
+                    module.BankLabel = Convert.ToString(mo.Properties["BankLabel"].Value);
+                    module.Capacity = ByteSize.FromBytes(Convert.ToDouble(mo.Properties["Capacity"].Value));
+                    module.Manufacturer = Convert.ToString(mo.Properties["Manufacturer"].Value);
+                    module.Speed = Convert.ToUInt32(mo.Properties["Speed"].Value);
+                    UInt16 memorytype = Convert.ToUInt16(mo.Properties["MemoryType"].Value);
+                    UInt16 formfactor = Convert.ToUInt16(mo.Properties["FormFactor"].Value);
+                    module.MemoryType = SanitizeMemoryType(memorytype);
+                    module.FormFactor = SanitizeFormFactor(formfactor);
 
-                modules.Add(module);
+                    modules.Add(module);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("IndiciumHelper.GetRAM", ex.Message, ex.StackTrace);
             }
 
             return modules;
@@ -109,57 +130,64 @@ namespace Optimizer
         {
             List<Motherboard> mobos = new List<Motherboard>();
 
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_BaseBoard");
-            foreach (ManagementObject mo in searcher.Get())
+            try
             {
-                Motherboard mobo = new Motherboard();
-
-                mobo.Model = Convert.ToString(mo.Properties["Model"].Value);
-                mobo.Manufacturer = Convert.ToString(mo.Properties["Manufacturer"].Value);
-                mobo.Product = Convert.ToString(mo.Properties["Product"].Value);
-                mobo.Version = Convert.ToString(mo.Properties["Version"].Value);
-
-                try
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_BaseBoard");
+                foreach (ManagementObject mo in searcher.Get())
                 {
-                    ManagementObjectSearcher searcher2 = new ManagementObjectSearcher("SELECT * FROM Win32_IDEController");
-                    foreach (ManagementObject mo2 in searcher2.Get())
+                    Motherboard mobo = new Motherboard();
+
+                    mobo.Model = Convert.ToString(mo.Properties["Model"].Value);
+                    mobo.Manufacturer = Convert.ToString(mo.Properties["Manufacturer"].Value);
+                    mobo.Product = Convert.ToString(mo.Properties["Product"].Value);
+                    mobo.Version = Convert.ToString(mo.Properties["Version"].Value);
+
+                    try
                     {
-                        mobo.Chipset = Convert.ToString(mo2.Properties["Description"].Value);
+                        ManagementObjectSearcher searcher2 = new ManagementObjectSearcher("SELECT * FROM Win32_IDEController");
+                        foreach (ManagementObject mo2 in searcher2.Get())
+                        {
+                            mobo.Chipset = Convert.ToString(mo2.Properties["Description"].Value);
+                        }
                     }
-                }
-                catch { }
+                    catch { }
 
-                try
-                {
-                    ManagementObjectSearcher searcher3 = new ManagementObjectSearcher("SELECT * FROM Win32_IDEController");
-                    foreach (ManagementObject mo3 in searcher3.Get())
+                    try
                     {
-                        mobo.Revision = Convert.ToString(mo3.Properties["RevisionNumber"].Value);
+                        ManagementObjectSearcher searcher3 = new ManagementObjectSearcher("SELECT * FROM Win32_IDEController");
+                        foreach (ManagementObject mo3 in searcher3.Get())
+                        {
+                            mobo.Revision = Convert.ToString(mo3.Properties["RevisionNumber"].Value);
+                        }
                     }
-                }
-                catch { }
+                    catch { }
 
-                try
-                {
-                    ManagementObjectSearcher searcher4 = new ManagementObjectSearcher("SELECT * FROM Win32_ComputerSystem");
-                    foreach (ManagementObject mo4 in searcher4.Get())
+                    try
                     {
-                        mobo.SystemModel = Convert.ToString(mo4.Properties["Model"].Value);
+                        ManagementObjectSearcher searcher4 = new ManagementObjectSearcher("SELECT * FROM Win32_ComputerSystem");
+                        foreach (ManagementObject mo4 in searcher4.Get())
+                        {
+                            mobo.SystemModel = Convert.ToString(mo4.Properties["Model"].Value);
+                        }
                     }
-                }
-                catch { }
+                    catch { }
 
-                ManagementObjectSearcher searcher5 = new ManagementObjectSearcher("SELECT * FROM Win32_BIOS");
-                foreach (ManagementObject mo5 in searcher5.Get())
-                {
-                    mobo.BIOSName = Convert.ToString(mo5.Properties["Name"].Value);
-                    mobo.BIOSManufacturer = Convert.ToString(mo5.Properties["Manufacturer"].Value);
-                    mobo.BIOSVersion = Convert.ToString(mo5.Properties["Version"].Value);
-                    mobo.BIOSBuildNumber = Convert.ToString(mo5.Properties["BuildNumber"].Value);
-                    //ReleaseDate = DateTime.Parse(mo.Properties["ReleaseDate"].Value.ToString());
-                }
+                    ManagementObjectSearcher searcher5 = new ManagementObjectSearcher("SELECT * FROM Win32_BIOS");
+                    foreach (ManagementObject mo5 in searcher5.Get())
+                    {
+                        mobo.BIOSName = Convert.ToString(mo5.Properties["Name"].Value);
+                        mobo.BIOSManufacturer = Convert.ToString(mo5.Properties["Manufacturer"].Value);
+                        mobo.BIOSVersion = Convert.ToString(mo5.Properties["Version"].Value);
+                        mobo.BIOSBuildNumber = Convert.ToString(mo5.Properties["BuildNumber"].Value);
+                        //ReleaseDate = DateTime.Parse(mo.Properties["ReleaseDate"].Value.ToString());
+                    }
 
-                mobos.Add(mobo);
+                    mobos.Add(mobo);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("IndiciumHelper.GetMotherboards", ex.Message, ex.StackTrace);
             }
 
             return mobos;
@@ -169,18 +197,25 @@ namespace Optimizer
         {
             List<Disk> disks = new List<Disk>();
 
-            ManagementObjectSearcher searcher2 = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
-            foreach (ManagementObject mo2 in searcher2.Get())
+            try
             {
-                Disk disk = new Disk();
+                ManagementObjectSearcher searcher2 = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
+                foreach (ManagementObject mo2 in searcher2.Get())
+                {
+                    Disk disk = new Disk();
 
-                disk.Model = Convert.ToString(mo2.Properties["Model"].Value);
-                disk.BytesPerSector = Convert.ToUInt32(mo2.Properties["BytesPerSector"].Value);
-                disk.FirmwareRevision = Convert.ToString(mo2.Properties["FirmwareRevision"].Value);
-                disk.MediaType = Convert.ToString(mo2.Properties["MediaType"].Value);
-                disk.Capacity = ByteSize.FromBytes(Convert.ToDouble(mo2.Properties["Size"].Value));
+                    disk.Model = Convert.ToString(mo2.Properties["Model"].Value);
+                    disk.BytesPerSector = Convert.ToUInt32(mo2.Properties["BytesPerSector"].Value);
+                    disk.FirmwareRevision = Convert.ToString(mo2.Properties["FirmwareRevision"].Value);
+                    disk.MediaType = Convert.ToString(mo2.Properties["MediaType"].Value);
+                    disk.Capacity = ByteSize.FromBytes(Convert.ToDouble(mo2.Properties["Size"].Value));
 
-                disks.Add(disk);
+                    disks.Add(disk);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("IndiciumHelper.GetDisks", ex.Message, ex.StackTrace);
             }
 
             return disks;
@@ -188,75 +223,96 @@ namespace Optimizer
 
         public static void GetVolumes()
         {
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Volume");
-            foreach (ManagementObject mo in searcher.Get())
+            try
             {
-                Volume volume = new Volume();
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Volume");
+                foreach (ManagementObject mo in searcher.Get())
+                {
+                    Volume volume = new Volume();
 
-                volume.BlockSize = Convert.ToUInt64(mo.Properties["BlockSize"].Value);
-                volume.Capacity = ByteSize.FromBytes(Convert.ToDouble(mo.Properties["Capacity"].Value));
-                bool temp = Convert.ToBoolean(mo.Properties["Compressed"].Value);
-                volume.Compressed = (temp) ? "Yes" : "No";
-                volume.DriveLetter = Convert.ToString(mo.Properties["DriveLetter"].Value);
-                UInt32 i = Convert.ToUInt32(mo.Properties["DriveType"].Value);
-                volume.DriveType = SanitizeDriveType(i);
-                volume.FileSystem = Convert.ToString(mo.Properties["FileSystem"].Value);
-                volume.FreeSpace = ByteSize.FromBytes(Convert.ToDouble(mo.Properties["FreeSpace"].Value));
-                volume.UsedSpace = volume.Capacity.Subtract(volume.FreeSpace);
-                bool temp2 = Convert.ToBoolean(mo.Properties["IndexingEnabled"].Value);
-                volume.Indexing = (temp2) ? "Yes" : "No";
-                volume.Label = Convert.ToString(mo.Properties["Label"].Value);
+                    volume.BlockSize = Convert.ToUInt64(mo.Properties["BlockSize"].Value);
+                    volume.Capacity = ByteSize.FromBytes(Convert.ToDouble(mo.Properties["Capacity"].Value));
+                    bool temp = Convert.ToBoolean(mo.Properties["Compressed"].Value);
+                    volume.Compressed = (temp) ? "Yes" : "No";
+                    volume.DriveLetter = Convert.ToString(mo.Properties["DriveLetter"].Value);
+                    UInt32 i = Convert.ToUInt32(mo.Properties["DriveType"].Value);
+                    volume.DriveType = SanitizeDriveType(i);
+                    volume.FileSystem = Convert.ToString(mo.Properties["FileSystem"].Value);
+                    volume.FreeSpace = ByteSize.FromBytes(Convert.ToDouble(mo.Properties["FreeSpace"].Value));
+                    volume.UsedSpace = volume.Capacity.Subtract(volume.FreeSpace);
+                    bool temp2 = Convert.ToBoolean(mo.Properties["IndexingEnabled"].Value);
+                    volume.Indexing = (temp2) ? "Yes" : "No";
+                    volume.Label = Convert.ToString(mo.Properties["Label"].Value);
 
-                if (i == 2)
-                {
-                    Removables.Add(volume);
+                    if (i == 2)
+                    {
+                        Removables.Add(volume);
+                    }
+                    else if (i == 5)
+                    {
+                        Opticals.Add(volume);
+                    }
+                    else
+                    {
+                        Volumes.Add(volume);
+                    }
                 }
-                else if (i == 5)
-                {
-                    Opticals.Add(volume);
-                }
-                else
-                {
-                    Volumes.Add(volume);
-                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("IndiciumHelper.GetVolumes", ex.Message, ex.StackTrace);
             }
         }
 
         public static void GetPeripherals()
         {
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Keyboard");
-            foreach (ManagementObject mo in searcher.Get())
+            try
             {
-                Keyboard keyboard = new Keyboard();
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Keyboard");
+                foreach (ManagementObject mo in searcher.Get())
+                {
+                    Keyboard keyboard = new Keyboard();
 
-                keyboard.Name = Convert.ToString(mo.Properties["Description"].Value);
-                keyboard.Layout = Convert.ToString(mo.Properties["Layout"].Value);
-                keyboard.Status = Convert.ToString(mo.Properties["Status"].Value);
-                keyboard.FunctionKeys = Convert.ToUInt16(mo.Properties["NumberOfFunctionKeys"].Value);
-                bool temp = Convert.ToBoolean(mo.Properties["IsLocked"].Value);
-                keyboard.Locked = (temp) ? "Yes" : "No";
+                    keyboard.Name = Convert.ToString(mo.Properties["Description"].Value);
+                    keyboard.Layout = Convert.ToString(mo.Properties["Layout"].Value);
+                    keyboard.Status = Convert.ToString(mo.Properties["Status"].Value);
+                    keyboard.FunctionKeys = Convert.ToUInt16(mo.Properties["NumberOfFunctionKeys"].Value);
+                    bool temp = Convert.ToBoolean(mo.Properties["IsLocked"].Value);
+                    keyboard.Locked = (temp) ? "Yes" : "No";
 
-                Keyboards.Add(keyboard);
+                    Keyboards.Add(keyboard);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("IndiciumHelper.GetKeyboards", ex.Message, ex.StackTrace);
             }
 
-            ManagementObjectSearcher searcher2 = new ManagementObjectSearcher("SELECT * FROM Win32_PointingDevice");
-            foreach (ManagementObject mo2 in searcher2.Get())
+            try
             {
-                PointingDevice pointingDevice = new PointingDevice();
+                ManagementObjectSearcher searcher2 = new ManagementObjectSearcher("SELECT * FROM Win32_PointingDevice");
+                foreach (ManagementObject mo2 in searcher2.Get())
+                {
+                    PointingDevice pointingDevice = new PointingDevice();
 
-                pointingDevice.Name = Convert.ToString(mo2.Properties["Description"].Value);
-                pointingDevice.Manufacturer = Convert.ToString(mo2.Properties["Manufacturer"].Value);
-                pointingDevice.Status = Convert.ToString(mo2.Properties["Status"].Value);
-                pointingDevice.Buttons = Convert.ToUInt16(mo2.Properties["NumberOfButtons"].Value);
-                bool temp = Convert.ToBoolean(mo2.Properties["IsLocked"].Value);
-                pointingDevice.Locked = (temp) ? "Yes" : "No";
-                pointingDevice.HardwareType = Convert.ToString(mo2.Properties["HardwareType"].Value);
-                UInt16 i = Convert.ToUInt16(mo2.Properties["PointingType"].Value);
-                pointingDevice.PointingType = SanitizePointingType(i);
-                UInt16 i2 = Convert.ToUInt16(mo2.Properties["DeviceInterface"].Value);
-                pointingDevice.DeviceInterface = SanitizeDeviceInterface(i2);
+                    pointingDevice.Name = Convert.ToString(mo2.Properties["Description"].Value);
+                    pointingDevice.Manufacturer = Convert.ToString(mo2.Properties["Manufacturer"].Value);
+                    pointingDevice.Status = Convert.ToString(mo2.Properties["Status"].Value);
+                    pointingDevice.Buttons = Convert.ToUInt16(mo2.Properties["NumberOfButtons"].Value);
+                    bool temp = Convert.ToBoolean(mo2.Properties["IsLocked"].Value);
+                    pointingDevice.Locked = (temp) ? "Yes" : "No";
+                    pointingDevice.HardwareType = Convert.ToString(mo2.Properties["HardwareType"].Value);
+                    UInt16 i = Convert.ToUInt16(mo2.Properties["PointingType"].Value);
+                    pointingDevice.PointingType = SanitizePointingType(i);
+                    UInt16 i2 = Convert.ToUInt16(mo2.Properties["DeviceInterface"].Value);
+                    pointingDevice.DeviceInterface = SanitizeDeviceInterface(i2);
 
-                PointingDevices.Add(pointingDevice);
+                    PointingDevices.Add(pointingDevice);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("IndiciumHelper.GetPointingDevices", ex.Message, ex.StackTrace);
             }
         }
 
@@ -264,21 +320,28 @@ namespace Optimizer
         {
             List<GPU> GPUs = new List<GPU>();
 
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
-            foreach (ManagementObject mo in searcher.Get())
+            try
             {
-                GPU gpu = new GPU();
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
+                foreach (ManagementObject mo in searcher.Get())
+                {
+                    GPU gpu = new GPU();
 
-                gpu.Name = Convert.ToString(mo.Properties["Name"].Value);
-                gpu.Memory = ByteSize.FromBytes(Convert.ToDouble(mo.Properties["AdapterRAM"].Value));
-                gpu.ResolutionX = Convert.ToUInt32(mo.Properties["CurrentHorizontalResolution"].Value);
-                gpu.ResolutionY = Convert.ToUInt32(mo.Properties["CurrentVerticalResolution"].Value);
-                gpu.RefreshRate = Convert.ToUInt32(mo.Properties["CurrentRefreshRate"].Value);
-                gpu.DACType = Convert.ToString(mo.Properties["AdapterDACType"].Value);
-                UInt16 vtype = Convert.ToUInt16(mo.Properties["VideoMemoryType"].Value);
-                gpu.VideoMemoryType = SanitizeVideoMemoryType(vtype);
+                    gpu.Name = Convert.ToString(mo.Properties["Name"].Value);
+                    gpu.Memory = ByteSize.FromBytes(Convert.ToDouble(mo.Properties["AdapterRAM"].Value));
+                    gpu.ResolutionX = Convert.ToUInt32(mo.Properties["CurrentHorizontalResolution"].Value);
+                    gpu.ResolutionY = Convert.ToUInt32(mo.Properties["CurrentVerticalResolution"].Value);
+                    gpu.RefreshRate = Convert.ToUInt32(mo.Properties["CurrentRefreshRate"].Value);
+                    gpu.DACType = Convert.ToString(mo.Properties["AdapterDACType"].Value);
+                    UInt16 vtype = Convert.ToUInt16(mo.Properties["VideoMemoryType"].Value);
+                    gpu.VideoMemoryType = SanitizeVideoMemoryType(vtype);
 
-                GPUs.Add(gpu);
+                    GPUs.Add(gpu);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("IndiciumHelper.GetGPUs", ex.Message, ex.StackTrace);
             }
 
             return GPUs;
@@ -286,27 +349,34 @@ namespace Optimizer
 
         public static void GetNetworkAdapters()
         {
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_NetworkAdapter");
-            foreach (ManagementObject mo in searcher.Get())
+            try
             {
-                NetworkDevice adapter = new NetworkDevice();
-
-                adapter.AdapterType = Convert.ToString(mo.Properties["AdapterType"].Value);
-                adapter.Manufacturer = Convert.ToString(mo.Properties["Manufacturer"].Value);
-                adapter.ProductName = Convert.ToString(mo.Properties["ProductName"].Value);
-                bool temp = Convert.ToBoolean(mo.Properties["PhysicalAdapter"].Value);
-                adapter.PhysicalAdapter = (temp) ? "Yes" : "No";
-                adapter.MacAddress = Convert.ToString(mo.Properties["MacAddress"].Value);
-                adapter.ServiceName = Convert.ToString(mo.Properties["ServiceName"].Value);
-
-                if (temp)
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_NetworkAdapter");
+                foreach (ManagementObject mo in searcher.Get())
                 {
-                    PhysicalAdapters.Add(adapter);
+                    NetworkDevice adapter = new NetworkDevice();
+
+                    adapter.AdapterType = Convert.ToString(mo.Properties["AdapterType"].Value);
+                    adapter.Manufacturer = Convert.ToString(mo.Properties["Manufacturer"].Value);
+                    adapter.ProductName = Convert.ToString(mo.Properties["ProductName"].Value);
+                    bool temp = Convert.ToBoolean(mo.Properties["PhysicalAdapter"].Value);
+                    adapter.PhysicalAdapter = (temp) ? "Yes" : "No";
+                    adapter.MacAddress = Convert.ToString(mo.Properties["MacAddress"].Value);
+                    adapter.ServiceName = Convert.ToString(mo.Properties["ServiceName"].Value);
+
+                    if (temp)
+                    {
+                        PhysicalAdapters.Add(adapter);
+                    }
+                    else
+                    {
+                        VirtualAdapters.Add(adapter);
+                    }
                 }
-                else
-                {
-                    VirtualAdapters.Add(adapter);
-                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("IndiciumHelper.GetNetworkAdapters", ex.Message, ex.StackTrace);
             }
         }
 
@@ -314,18 +384,25 @@ namespace Optimizer
         {
             List<AudioDevice> audioDevices = new List<AudioDevice>();
 
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_SoundDevice");
-            foreach (ManagementObject mo in searcher.Get())
+            try
             {
-                AudioDevice device = new AudioDevice();
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_SoundDevice");
+                foreach (ManagementObject mo in searcher.Get())
+                {
+                    AudioDevice device = new AudioDevice();
 
-                device.ProductName = Convert.ToString(mo.Properties["ProductName"].Value);
-                device.Manufacturer = Convert.ToString(mo.Properties["Manufacturer"].Value);
-                device.Status = Convert.ToString(mo.Properties["Status"].Value);
+                    device.ProductName = Convert.ToString(mo.Properties["ProductName"].Value);
+                    device.Manufacturer = Convert.ToString(mo.Properties["Manufacturer"].Value);
+                    device.Status = Convert.ToString(mo.Properties["Status"].Value);
 
-                audioDevices.Add(device);
+                    audioDevices.Add(device);
+                }
             }
-
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("IndiciumHelper.GetAudioDevices", ex.Message, ex.StackTrace);
+            }
+            
             return audioDevices;
         }
 

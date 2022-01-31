@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
@@ -11,10 +12,10 @@ namespace Optimizer
         /* VERSION PROPERTIES */
         /* DO NOT LEAVE THEM EMPTY */
 
-        internal readonly static float Major = 11;
-        internal readonly static float Minor = 4;
+        internal readonly static float Major = 0;
+        internal readonly static float Minor = 0;
 
-        internal readonly static bool EXPERIMENTAL_BUILD = false;
+        internal readonly static bool EXPERIMENTAL_BUILD = true;
 
         internal static string GetCurrentVersionTostring()
         {
@@ -147,6 +148,26 @@ namespace Optimizer
                                 if (arg == "/reset")
                                 {
                                     Utilities.ResetConfiguration(true);
+                                    return;
+                                }
+
+                                // other options 
+                                if (arg.StartsWith("/disable="))
+                                {
+                                    string x = arg.Replace("/disable=", string.Empty);
+                                    string[] opts = x.Split(',');
+
+                                    bool disableIndicium = opts.Contains("indicium");
+                                    bool disableUWPTool = opts.Contains("uwp");
+                                    bool disableAppsTool = opts.Contains("apps");
+                                    bool disableHostsEditor = opts.Contains("hosts");
+
+                                    StartSplashForm();
+
+                                    _MainForm = new MainForm(_SplashForm, disableIndicium, disableHostsEditor, disableAppsTool, disableUWPTool);
+                                    _MainForm.Load += MainForm_Load;
+                                    Application.Run(_MainForm);
+
                                     return;
                                 }
 

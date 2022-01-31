@@ -513,7 +513,7 @@ namespace Optimizer
         }
 
         //INIT
-        public MainForm(SplashForm _splashForm)
+        public MainForm(SplashForm _splashForm, bool disableIndicium = false, bool disableHostsEditor = false, bool disableCommonApps = false, bool disableUWPApps = false)
         {
             InitializeComponent();
 
@@ -591,7 +591,14 @@ namespace Optimizer
 
                 tabCollection.TabPages.Remove(windows10Tab);
 
-                GetModernApps(false);
+                if (!disableUWPApps)
+                {
+                    GetModernApps(false);
+                }
+                else
+                {
+                    tabCollection.TabPages.Remove(modernAppsTab);
+                }
             }
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
@@ -602,7 +609,14 @@ namespace Optimizer
                 tabCollection.TabPages.Remove(windows8Tab);
                 this.Controls.Remove(panelWin11Tweaks);
 
-                GetModernApps(false);
+                if (!disableUWPApps)
+                {
+                    GetModernApps(false);
+                }
+                else
+                {
+                    tabCollection.TabPages.Remove(modernAppsTab);
+                }
 
                 txtOS.Text += string.Format(" ({0})", Utilities.GetWindows10Build());
             }
@@ -619,7 +633,14 @@ namespace Optimizer
                 actionSw.Visible = false;
                 oldMixerSw.Visible = false;
 
-                GetModernApps(false);
+                if (!disableUWPApps)
+                {
+                    GetModernApps(false);
+                }
+                else
+                {
+                    tabCollection.TabPages.Remove(modernAppsTab);
+                }
 
                 txtOS.Text += string.Format(" ({0})", Utilities.GetWindows10Build());
             }
@@ -632,17 +653,41 @@ namespace Optimizer
             specsTree.ImageList = imagesHw;
 
             GetStartupItems();
-            GetHostsEntries();
+            if (!disableHostsEditor)
+            {
+                GetHostsEntries();
+            }
+            else
+            {
+                tabCollection.TabPages.Remove(hostsEditorTab);
+                launcherMenu.Items.RemoveByKey("trayHosts");
+            }
 
             GetDesktopItems();
             GetCustomCommands();
 
             _splashForm.LoadingStatus.Text = "getting feed ...";
-            GetFeed();
+            if (!disableCommonApps)
+            {
+                GetFeed();
+            }
+            else
+            {
+                tabCollection.TabPages.Remove(appsTab);
+                launcherMenu.Items.RemoveByKey("trayAD");
+            }
             GetFootprint();
 
             _splashForm.LoadingStatus.Text = "loading hardware specifications ...";
-            GetHardwareSpecs();
+            if (!disableIndicium)
+            {
+                GetHardwareSpecs();
+            }
+            else
+            {
+                tabCollection.TabPages.Remove(indiciumTab);
+                launcherMenu.Items.RemoveByKey("trayHW");
+            }
 
             LoadSettings();
 
@@ -706,7 +751,7 @@ namespace Optimizer
             if (Options.CurrentOptions.EnableTray) 
             {
                 _networkMonitor.StartMonitoring();
-                NetworkMonitoring();
+                NetworkLiveMonitoring();
             }
         }
 
@@ -1236,12 +1281,13 @@ namespace Optimizer
             }
         }
 
-        private void NetworkMonitoring()
+        private void NetworkLiveMonitoring()
         {
             Task.Factory.StartNew(() =>
             {
                 while (Options.CurrentOptions.EnableTray)
                 {
+                    // in BYTES
                     downloadSpeed = 0;
                     uploadSpeed = 0;
 
@@ -3750,7 +3796,7 @@ namespace Optimizer
                 if (_networkMonitor != null)
                 {
                     _networkMonitor.StartMonitoring();
-                    NetworkMonitoring();
+                    NetworkLiveMonitoring();
                 }
             }
             else
