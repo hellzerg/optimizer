@@ -33,10 +33,22 @@ namespace Optimizer
                     cpu.L2CacheSize = ByteSize.FromKiloBytes(Convert.ToDouble(mo.Properties["L2CacheSize"].Value));
                     cpu.L3CacheSize = ByteSize.FromKiloBytes(Convert.ToDouble(mo.Properties["L3CacheSize"].Value));
                     cpu.Cores = Convert.ToUInt32(mo.Properties["NumberOfCores"].Value);
-                    cpu.Threads = Convert.ToUInt32(mo.Properties["ThreadCount"].Value);
+
+                    // ThreadCount is for Windows 10+
+                    //cpu.Threads = Convert.ToUInt32(mo.Properties["ThreadCount"].Value);
+
                     cpu.LogicalCpus = Convert.ToUInt32(mo.Properties["NumberOfLogicalProcessors"].Value);
-                    bool temp = Convert.ToBoolean(mo.Properties["VirtualizationFirmwareEnabled"].Value);
-                    cpu.Virtualization = (temp) ? "Yes" : "No";
+
+                    if (Utilities.CurrentWindowsVersion != WindowsVersion.Windows7)
+                    {
+                        bool temp = Convert.ToBoolean(mo.Properties["VirtualizationFirmwareEnabled"].Value);
+                        cpu.Virtualization = (temp) ? "Yes" : "No";
+                    }
+                    else
+                    {
+                        cpu.Virtualization = "-";
+                    }
+                    
                     cpu.Stepping = Convert.ToString(mo.Properties["Description"].Value);
                     cpu.Revision = Convert.ToString(mo.Properties["Revision"].Value);
 
@@ -49,7 +61,10 @@ namespace Optimizer
                             cpu.DataExecutionPrevention = (temp2) ? "Yes" : "No";
                         }
                     }
-                    catch { }
+                    catch 
+                    {
+                        cpu.DataExecutionPrevention = "-";
+                    }
 
                     if (string.IsNullOrEmpty(cpu.Name)) cpu.Name = GetCPUNameAlternative();
 

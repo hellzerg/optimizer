@@ -1164,7 +1164,6 @@ namespace Optimizer
 
                     node.Nodes.Add("Cores: " + cpu.Cores);
                     node.Nodes.Add("Threads: " + cpu.LogicalCpus);
-                    //node.Nodes.Add("Logical CPUs: " + cpu.LogicalCpus);
                     node.Nodes.Add("Virtualization: " + cpu.Virtualization);
                     node.Nodes.Add("Data Execution Prevention: " + cpu.DataExecutionPrevention);
                     node.Nodes.Add("L2 Cache: " + cpu.L2CacheSize);

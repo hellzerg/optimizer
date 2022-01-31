@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [11.5] - 2022-01-31
+- Hotfix: Crashing when detecting CPU on Windows 7 (#90)
+
 ## [11.4] - 2022-01-30
 - New: Hardware specifications inspection tool
 - New: Network speed monitoring in Quick Access Menu (if enabled)
