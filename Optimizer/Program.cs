@@ -85,7 +85,7 @@ namespace Optimizer
                         HelperForm f = new HelperForm(null, MessageType.Error, _adminMissingMessage);
                         f.ShowDialog();
 
-                        Application.Exit();
+                        Environment.Exit(0);
                     }
                     else
                     {
@@ -149,6 +149,15 @@ namespace Optimizer
                                 {
                                     Utilities.ResetConfiguration(true);
                                     return;
+                                }
+
+                                // displays build info
+                                if (arg == "/version")
+                                {
+                                    if (!Program.EXPERIMENTAL_BUILD) MessageBox.Show($"Optimizer: {Program.GetCurrentVersionTostring()}\n\nCoded by: deadmoon © ∞\n\nhttps://github.com/hellzerg/optimizer", "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    else MessageBox.Show("Optimizer: EXPERIMENTAL BUILD. PLEASE DELETE AFTER TESTING.\n\nCoded by: deadmoon © ∞\n\nhttps://github.com/hellzerg/optimizer", "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    Environment.Exit(0);
                                 }
 
                                 // other options 
@@ -267,7 +276,7 @@ namespace Optimizer
                             HelperForm f = new HelperForm(null, MessageType.Error, _unsupportedMessage);
                             f.ShowDialog();
 
-                            Application.Exit();
+                            Environment.Exit(0);
                         }
                     }
                 }
