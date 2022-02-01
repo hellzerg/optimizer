@@ -74,8 +74,8 @@ namespace Optimizer
 
     internal static class Options
     {
-        internal static Color ForegroundColor = Color.MediumOrchid;
-        internal static Color ForegroundAccentColor = Color.DarkOrchid;
+        internal static Color ForegroundColor = Color.FromArgb(153, 102, 204);
+        internal static Color ForegroundAccentColor = Color.FromArgb(134, 89, 179);
         internal static Color BackgroundColor = Color.FromArgb(10, 10, 10);
         internal static Color BackAccentColor = Color.FromArgb(40, 40, 40);
 
@@ -90,35 +90,23 @@ namespace Optimizer
         {
             switch (CurrentOptions.Color)
             {
-                case Theme.Caramel:
-                    SetTheme(f, Color.DarkOrange, Color.Chocolate);
-                    ForegroundColor = Color.DarkOrange;
-                    ForegroundAccentColor = Color.Chocolate;
+                case Theme.Amber:
+                    SetTheme(f, Color.FromArgb(195, 146, 0), Color.FromArgb(171, 128, 0));
                     break;
-                case Theme.Lime:
-                    SetTheme(f, Color.ForestGreen, Color.FromArgb(39, 159, 39));
-                    ForegroundColor = Color.ForestGreen;
-                    ForegroundAccentColor = Color.FromArgb(39, 159, 39);
+                case Theme.Jade:
+                    SetTheme(f, Color.FromArgb(70, 175, 105), Color.FromArgb(61, 153, 92));
                     break;
-                case Theme.Magma:
-                    SetTheme(f, Color.Tomato, Color.Red);
-                    ForegroundColor = Color.Tomato;
-                    ForegroundAccentColor = Color.Red;
+                case Theme.Ruby:
+                    SetTheme(f, Color.FromArgb(205, 22, 39), Color.FromArgb(155, 17, 30));
                     break;
-                case Theme.Minimal:
+                case Theme.Silver:
                     SetTheme(f, Color.Gray, Color.DimGray);
-                    ForegroundColor = Color.Gray;
-                    ForegroundAccentColor = Color.DimGray;
                     break;
-                case Theme.Ocean:
-                    SetTheme(f, Color.DodgerBlue, Color.RoyalBlue);
-                    ForegroundColor = Color.DodgerBlue;
-                    ForegroundAccentColor = Color.RoyalBlue;
+                case Theme.Azurite:
+                    SetTheme(f, Color.FromArgb(0, 127, 255), Color.FromArgb(0, 111, 223));
                     break;
-                case Theme.Zerg:
-                    SetTheme(f, Color.MediumOrchid, Color.DarkOrchid);
-                    ForegroundColor = Color.MediumOrchid;
-                    ForegroundAccentColor = Color.DarkOrchid;
+                case Theme.Amethyst:
+                    SetTheme(f, Color.FromArgb(153, 102, 204), Color.FromArgb(134, 89, 179));
                     break;
             }
         }
@@ -126,6 +114,8 @@ namespace Optimizer
         private static void SetTheme(Form f, Color c1, Color c2)
         {
             dynamic c;
+            ForegroundColor = c1;
+            ForegroundAccentColor = c2;
 
             Utilities.GetSelfAndChildrenRecursive(f).ToList().ForEach(x =>
             {
@@ -137,6 +127,7 @@ namespace Optimizer
                     c.FlatAppearance.BorderColor = c1;
                     c.FlatAppearance.MouseDownBackColor = c2;
                     c.FlatAppearance.MouseOverBackColor = c2;
+                    c.FlatAppearance.BorderSize = 0;
                 }
 
                 if (x is LinkLabel)
@@ -201,7 +192,7 @@ namespace Optimizer
             if (!File.Exists(SettingsFile))
             {
                 // DEFAULT OPTIONS
-                CurrentOptions.Color = Theme.Zerg;
+                CurrentOptions.Color = Theme.Amethyst;
                 CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
                 Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
                 CurrentOptions.EnableTray = false;

@@ -32,14 +32,14 @@ namespace Optimizer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Processors", 0, 0);
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Memory", 1, 1);
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Graphics", 2, 2);
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Motherboard", 3, 3);
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Storage", 4, 4);
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Network Adapters", 5, 5);
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Audio", 6, 6);
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Peripherals", 7, 7);
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Processors", 0, 0);
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Memory", 1, 1);
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Graphics", 2, 2);
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Motherboard", 3, 3);
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Storage", 4, 4);
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Network Adapters", 5, 5);
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Audio", 6, 6);
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Peripherals", 7, 7);
             this.tpanel = new System.Windows.Forms.Panel();
             this.picUpdate = new System.Windows.Forms.PictureBox();
             this.txtNetFw = new System.Windows.Forms.Label();
@@ -346,12 +346,12 @@ namespace Optimizer
             this.radioRussian = new Optimizer.MoonnRadio();
             this.pictureBox86 = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.radioCaramel = new System.Windows.Forms.RadioButton();
-            this.radioZerg = new System.Windows.Forms.RadioButton();
-            this.radioOcean = new System.Windows.Forms.RadioButton();
-            this.radioMagma = new System.Windows.Forms.RadioButton();
-            this.radioLime = new System.Windows.Forms.RadioButton();
-            this.radioMinimal = new System.Windows.Forms.RadioButton();
+            this.rAmber = new System.Windows.Forms.RadioButton();
+            this.rAmethyst = new System.Windows.Forms.RadioButton();
+            this.rAzurite = new System.Windows.Forms.RadioButton();
+            this.rRuby = new System.Windows.Forms.RadioButton();
+            this.rJade = new System.Windows.Forms.RadioButton();
+            this.rSilver = new System.Windows.Forms.RadioButton();
             this.languagesL = new System.Windows.Forms.Label();
             this.lblUpdateDisabled = new System.Windows.Forms.Label();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
@@ -3429,47 +3429,47 @@ namespace Optimizer
             this.specsTree.ForeColor = System.Drawing.Color.White;
             this.specsTree.Location = new System.Drawing.Point(0, 0);
             this.specsTree.Name = "specsTree";
-            treeNode9.ImageIndex = 0;
-            treeNode9.Name = "cpu";
-            treeNode9.SelectedImageIndex = 0;
-            treeNode9.Text = "Processors";
-            treeNode10.ImageIndex = 1;
-            treeNode10.Name = "ram";
-            treeNode10.SelectedImageIndex = 1;
-            treeNode10.Text = "Memory";
-            treeNode11.ImageIndex = 2;
-            treeNode11.Name = "gpu";
-            treeNode11.SelectedImageIndex = 2;
-            treeNode11.Text = "Graphics";
-            treeNode12.ImageIndex = 3;
-            treeNode12.Name = "mobo";
-            treeNode12.SelectedImageIndex = 3;
-            treeNode12.Text = "Motherboard";
-            treeNode13.ImageIndex = 4;
-            treeNode13.Name = "disk";
-            treeNode13.SelectedImageIndex = 4;
-            treeNode13.Text = "Storage";
-            treeNode14.ImageIndex = 5;
-            treeNode14.Name = "inet";
-            treeNode14.SelectedImageIndex = 5;
-            treeNode14.Text = "Network Adapters";
-            treeNode15.ImageIndex = 6;
-            treeNode15.Name = "audio";
-            treeNode15.SelectedImageIndex = 6;
-            treeNode15.Text = "Audio";
-            treeNode16.ImageIndex = 7;
-            treeNode16.Name = "dev";
-            treeNode16.SelectedImageIndex = 7;
-            treeNode16.Text = "Peripherals";
+            treeNode1.ImageIndex = 0;
+            treeNode1.Name = "cpu";
+            treeNode1.SelectedImageIndex = 0;
+            treeNode1.Text = "Processors";
+            treeNode2.ImageIndex = 1;
+            treeNode2.Name = "ram";
+            treeNode2.SelectedImageIndex = 1;
+            treeNode2.Text = "Memory";
+            treeNode3.ImageIndex = 2;
+            treeNode3.Name = "gpu";
+            treeNode3.SelectedImageIndex = 2;
+            treeNode3.Text = "Graphics";
+            treeNode4.ImageIndex = 3;
+            treeNode4.Name = "mobo";
+            treeNode4.SelectedImageIndex = 3;
+            treeNode4.Text = "Motherboard";
+            treeNode5.ImageIndex = 4;
+            treeNode5.Name = "disk";
+            treeNode5.SelectedImageIndex = 4;
+            treeNode5.Text = "Storage";
+            treeNode6.ImageIndex = 5;
+            treeNode6.Name = "inet";
+            treeNode6.SelectedImageIndex = 5;
+            treeNode6.Text = "Network Adapters";
+            treeNode7.ImageIndex = 6;
+            treeNode7.Name = "audio";
+            treeNode7.SelectedImageIndex = 6;
+            treeNode7.Text = "Audio";
+            treeNode8.ImageIndex = 7;
+            treeNode8.Name = "dev";
+            treeNode8.SelectedImageIndex = 7;
+            treeNode8.Text = "Peripherals";
             this.specsTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16});
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.specsTree.Size = new System.Drawing.Size(991, 567);
             this.specsTree.TabIndex = 0;
             this.specsTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.specsTree_NodeMouseClick);
@@ -4930,100 +4930,100 @@ namespace Optimizer
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.radioCaramel);
-            this.panel8.Controls.Add(this.radioZerg);
-            this.panel8.Controls.Add(this.radioOcean);
-            this.panel8.Controls.Add(this.radioMagma);
-            this.panel8.Controls.Add(this.radioLime);
-            this.panel8.Controls.Add(this.radioMinimal);
+            this.panel8.Controls.Add(this.rAmber);
+            this.panel8.Controls.Add(this.rAmethyst);
+            this.panel8.Controls.Add(this.rAzurite);
+            this.panel8.Controls.Add(this.rRuby);
+            this.panel8.Controls.Add(this.rJade);
+            this.panel8.Controls.Add(this.rSilver);
             this.panel8.Location = new System.Drawing.Point(21, 120);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(326, 118);
             this.panel8.TabIndex = 72;
             // 
-            // radioCaramel
+            // rAmber
             // 
-            this.radioCaramel.AutoSize = true;
-            this.radioCaramel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioCaramel.ForeColor = System.Drawing.Color.DarkOrange;
-            this.radioCaramel.Location = new System.Drawing.Point(163, 11);
-            this.radioCaramel.Margin = new System.Windows.Forms.Padding(2);
-            this.radioCaramel.Name = "radioCaramel";
-            this.radioCaramel.Size = new System.Drawing.Size(87, 25);
-            this.radioCaramel.TabIndex = 52;
-            this.radioCaramel.Text = "Caramel";
-            this.radioCaramel.UseVisualStyleBackColor = true;
-            this.radioCaramel.CheckedChanged += new System.EventHandler(this.radioCaramel_CheckedChanged);
+            this.rAmber.AutoSize = true;
+            this.rAmber.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rAmber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(146)))), ((int)(((byte)(0)))));
+            this.rAmber.Location = new System.Drawing.Point(163, 11);
+            this.rAmber.Margin = new System.Windows.Forms.Padding(2);
+            this.rAmber.Name = "rAmber";
+            this.rAmber.Size = new System.Drawing.Size(78, 25);
+            this.rAmber.TabIndex = 52;
+            this.rAmber.Text = "Amber";
+            this.rAmber.UseVisualStyleBackColor = true;
+            this.rAmber.CheckedChanged += new System.EventHandler(this.radioCaramel_CheckedChanged);
             // 
-            // radioZerg
+            // rAmethyst
             // 
-            this.radioZerg.AutoSize = true;
-            this.radioZerg.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioZerg.ForeColor = System.Drawing.Color.MediumOrchid;
-            this.radioZerg.Location = new System.Drawing.Point(15, 69);
-            this.radioZerg.Margin = new System.Windows.Forms.Padding(2);
-            this.radioZerg.Name = "radioZerg";
-            this.radioZerg.Size = new System.Drawing.Size(62, 25);
-            this.radioZerg.TabIndex = 48;
-            this.radioZerg.Text = "Zerg";
-            this.radioZerg.UseVisualStyleBackColor = true;
-            this.radioZerg.CheckedChanged += new System.EventHandler(this.radioZerg_CheckedChanged);
+            this.rAmethyst.AutoSize = true;
+            this.rAmethyst.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rAmethyst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.rAmethyst.Location = new System.Drawing.Point(15, 11);
+            this.rAmethyst.Margin = new System.Windows.Forms.Padding(2);
+            this.rAmethyst.Name = "rAmethyst";
+            this.rAmethyst.Size = new System.Drawing.Size(98, 25);
+            this.rAmethyst.TabIndex = 48;
+            this.rAmethyst.Text = "Amethyst";
+            this.rAmethyst.UseVisualStyleBackColor = true;
+            this.rAmethyst.CheckedChanged += new System.EventHandler(this.radioZerg_CheckedChanged);
             // 
-            // radioOcean
+            // rAzurite
             // 
-            this.radioOcean.AutoSize = true;
-            this.radioOcean.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
-            this.radioOcean.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.radioOcean.Location = new System.Drawing.Point(15, 11);
-            this.radioOcean.Margin = new System.Windows.Forms.Padding(2);
-            this.radioOcean.Name = "radioOcean";
-            this.radioOcean.Size = new System.Drawing.Size(74, 25);
-            this.radioOcean.TabIndex = 49;
-            this.radioOcean.Text = "Ocean";
-            this.radioOcean.UseVisualStyleBackColor = true;
-            this.radioOcean.CheckedChanged += new System.EventHandler(this.radioOcean_CheckedChanged);
+            this.rAzurite.AutoSize = true;
+            this.rAzurite.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.rAzurite.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
+            this.rAzurite.Location = new System.Drawing.Point(15, 69);
+            this.rAzurite.Margin = new System.Windows.Forms.Padding(2);
+            this.rAzurite.Name = "rAzurite";
+            this.rAzurite.Size = new System.Drawing.Size(80, 25);
+            this.rAzurite.TabIndex = 49;
+            this.rAzurite.Text = "Azurite";
+            this.rAzurite.UseVisualStyleBackColor = true;
+            this.rAzurite.CheckedChanged += new System.EventHandler(this.radioOcean_CheckedChanged);
             // 
-            // radioMagma
+            // rRuby
             // 
-            this.radioMagma.AutoSize = true;
-            this.radioMagma.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioMagma.ForeColor = System.Drawing.Color.Tomato;
-            this.radioMagma.Location = new System.Drawing.Point(15, 40);
-            this.radioMagma.Margin = new System.Windows.Forms.Padding(2);
-            this.radioMagma.Name = "radioMagma";
-            this.radioMagma.Size = new System.Drawing.Size(83, 25);
-            this.radioMagma.TabIndex = 50;
-            this.radioMagma.Text = "Magma";
-            this.radioMagma.UseVisualStyleBackColor = true;
-            this.radioMagma.CheckedChanged += new System.EventHandler(this.radioMagma_CheckedChanged);
+            this.rRuby.AutoSize = true;
+            this.rRuby.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rRuby.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
+            this.rRuby.Location = new System.Drawing.Point(15, 40);
+            this.rRuby.Margin = new System.Windows.Forms.Padding(2);
+            this.rRuby.Name = "rRuby";
+            this.rRuby.Size = new System.Drawing.Size(65, 25);
+            this.rRuby.TabIndex = 50;
+            this.rRuby.Text = "Ruby";
+            this.rRuby.UseVisualStyleBackColor = true;
+            this.rRuby.CheckedChanged += new System.EventHandler(this.radioMagma_CheckedChanged);
             // 
-            // radioLime
+            // rJade
             // 
-            this.radioLime.AutoSize = true;
-            this.radioLime.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioLime.ForeColor = System.Drawing.Color.LimeGreen;
-            this.radioLime.Location = new System.Drawing.Point(163, 40);
-            this.radioLime.Margin = new System.Windows.Forms.Padding(2);
-            this.radioLime.Name = "radioLime";
-            this.radioLime.Size = new System.Drawing.Size(63, 25);
-            this.radioLime.TabIndex = 51;
-            this.radioLime.Text = "Lime";
-            this.radioLime.UseVisualStyleBackColor = true;
-            this.radioLime.CheckedChanged += new System.EventHandler(this.radioLime_CheckedChanged);
+            this.rJade.AutoSize = true;
+            this.rJade.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rJade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(175)))), ((int)(((byte)(105)))));
+            this.rJade.Location = new System.Drawing.Point(163, 40);
+            this.rJade.Margin = new System.Windows.Forms.Padding(2);
+            this.rJade.Name = "rJade";
+            this.rJade.Size = new System.Drawing.Size(61, 25);
+            this.rJade.TabIndex = 51;
+            this.rJade.Text = "Jade";
+            this.rJade.UseVisualStyleBackColor = true;
+            this.rJade.CheckedChanged += new System.EventHandler(this.radioLime_CheckedChanged);
             // 
-            // radioMinimal
+            // rSilver
             // 
-            this.radioMinimal.AutoSize = true;
-            this.radioMinimal.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioMinimal.ForeColor = System.Drawing.Color.Gray;
-            this.radioMinimal.Location = new System.Drawing.Point(163, 69);
-            this.radioMinimal.Margin = new System.Windows.Forms.Padding(2);
-            this.radioMinimal.Name = "radioMinimal";
-            this.radioMinimal.Size = new System.Drawing.Size(86, 25);
-            this.radioMinimal.TabIndex = 53;
-            this.radioMinimal.Text = "Minimal";
-            this.radioMinimal.UseVisualStyleBackColor = true;
-            this.radioMinimal.CheckedChanged += new System.EventHandler(this.radioMinimal_CheckedChanged);
+            this.rSilver.AutoSize = true;
+            this.rSilver.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rSilver.ForeColor = System.Drawing.Color.Gray;
+            this.rSilver.Location = new System.Drawing.Point(163, 69);
+            this.rSilver.Margin = new System.Windows.Forms.Padding(2);
+            this.rSilver.Name = "rSilver";
+            this.rSilver.Size = new System.Drawing.Size(68, 25);
+            this.rSilver.TabIndex = 53;
+            this.rSilver.Text = "Silver";
+            this.rSilver.UseVisualStyleBackColor = true;
+            this.rSilver.CheckedChanged += new System.EventHandler(this.radioMinimal_CheckedChanged);
             // 
             // languagesL
             // 
@@ -5756,12 +5756,12 @@ namespace Optimizer
         private System.Windows.Forms.Button RemoveOwnerB;
         private System.Windows.Forms.Button AddOwnerB;
         private System.Windows.Forms.TabPage optionsTab;
-        private System.Windows.Forms.RadioButton radioMinimal;
-        private System.Windows.Forms.RadioButton radioCaramel;
-        private System.Windows.Forms.RadioButton radioLime;
-        private System.Windows.Forms.RadioButton radioMagma;
-        private System.Windows.Forms.RadioButton radioOcean;
-        private System.Windows.Forms.RadioButton radioZerg;
+        private System.Windows.Forms.RadioButton rSilver;
+        private System.Windows.Forms.RadioButton rAmber;
+        private System.Windows.Forms.RadioButton rJade;
+        private System.Windows.Forms.RadioButton rRuby;
+        private System.Windows.Forms.RadioButton rAzurite;
+        private System.Windows.Forms.RadioButton rAmethyst;
         private System.Windows.Forms.Label lblTheming;
         private MoonList listCustomCommands;
         private System.Windows.Forms.Label removeCCL;

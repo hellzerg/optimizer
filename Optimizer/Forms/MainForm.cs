@@ -491,23 +491,23 @@ namespace Optimizer
         {
             switch (Options.CurrentOptions.Color)
             {
-                case Theme.Caramel:
-                    radioCaramel.Checked = true;
+                case Theme.Amber:
+                    rAmber.Checked = true;
                     break;
-                case Theme.Lime:
-                    radioLime.Checked = true;
+                case Theme.Jade:
+                    rJade.Checked = true;
                     break;
-                case Theme.Magma:
-                    radioMagma.Checked = true;
+                case Theme.Ruby:
+                    rRuby.Checked = true;
                     break;
-                case Theme.Minimal:
-                    radioMinimal.Checked = true;
+                case Theme.Silver:
+                    rSilver.Checked = true;
                     break;
-                case Theme.Ocean:
-                    radioOcean.Checked = true;
+                case Theme.Azurite:
+                    rAzurite.Checked = true;
                     break;
-                case Theme.Zerg:
-                    radioZerg.Checked = true;
+                case Theme.Amethyst:
+                    rAmethyst.Checked = true;
                     break;
             }
         }
@@ -2506,37 +2506,37 @@ namespace Optimizer
 
         private void radioOcean_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.Color = Theme.Ocean;
+            Options.CurrentOptions.Color = Theme.Azurite;
             Options.ApplyTheme(this);
         }
 
         private void radioMagma_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.Color = Theme.Magma;
+            Options.CurrentOptions.Color = Theme.Ruby;
             Options.ApplyTheme(this);
         }
 
         private void radioZerg_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.Color = Theme.Zerg;
+            Options.CurrentOptions.Color = Theme.Amethyst;
             Options.ApplyTheme(this);
         }
 
         private void radioMinimal_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.Color = Theme.Minimal;
+            Options.CurrentOptions.Color = Theme.Silver;
             Options.ApplyTheme(this);
         }
 
         private void radioCaramel_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.Color = Theme.Caramel;
+            Options.CurrentOptions.Color = Theme.Amber;
             Options.ApplyTheme(this);
         }
 
         private void radioLime_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.Color = Theme.Lime;
+            Options.CurrentOptions.Color = Theme.Jade;
             Options.ApplyTheme(this);
         }
 
