@@ -17,5 +17,5 @@
 #       38.25.63.10     x.acme.com              # x client host
 
 # localhost name resolution is handled within DNS itself.
-#	127.0.0.1       localhost
-#	::1             localhost
+127.0.0.1       localhost
+::1             localhost

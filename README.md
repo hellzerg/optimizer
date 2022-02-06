@@ -17,7 +17,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 	</a>
 </p> 
 
-* Multilingual support
+* Full multilingual support (10 languages available)
 * Speed up your system and network performance
 * Disable unnecessary Windows services
 * Disable Windows telemetry
@@ -55,7 +55,7 @@ https://github.com/hellzerg/optimizer/blob/master/CONFS.md
 ## Changelog: ##
 https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md
 
-## Early developmental images: ##
+## Early development images: ##
 https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ## Compatibility: ##
