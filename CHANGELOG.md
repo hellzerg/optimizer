@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [11.6] - 2022-02-08
+- New: Disable Google Chrome telemetry and software reporting tool
+- New: Disable Mozilla Firefox telemetry and data collection service
+- New: Disable Visual Studio telemetry, feedback and collector service
+- Improved: Office telemetry tweaks
+
 ## [11.5] - 2022-01-31
 - Hotfix: Crashing when detecting CPU on Windows 7 (#90)
 

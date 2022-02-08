@@ -32,14 +32,14 @@ namespace Optimizer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Processors", 0, 0);
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Memory", 1, 1);
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Graphics", 2, 2);
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Motherboard", 3, 3);
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Storage", 4, 4);
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Network Adapters", 5, 5);
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Audio", 6, 6);
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Peripherals", 7, 7);
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Processors", 0, 0);
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Memory", 1, 1);
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Graphics", 2, 2);
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Motherboard", 3, 3);
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Storage", 4, 4);
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Network Adapters", 5, 5);
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Audio", 6, 6);
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Peripherals", 7, 7);
             this.tpanel = new System.Windows.Forms.Panel();
             this.picUpdate = new System.Windows.Forms.PictureBox();
             this.txtNetFw = new System.Windows.Forms.Label();
@@ -51,6 +51,9 @@ namespace Optimizer
             this.bpanel = new System.Windows.Forms.Panel();
             this.tabCollection = new Optimizer.MoonTabs();
             this.universalTab = new System.Windows.Forms.TabPage();
+            this.chromeTelemetrySw = new Optimizer.ToggleCard();
+            this.ffTelemetrySw = new Optimizer.ToggleCard();
+            this.vsSw = new Optimizer.ToggleCard();
             this.reportingSw = new Optimizer.ToggleCard();
             this.systemRestoreSw = new Optimizer.ToggleCard();
             this.officeTelemetrySw = new Optimizer.ToggleCard();
@@ -602,6 +605,9 @@ namespace Optimizer
             // universalTab
             // 
             this.universalTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.universalTab.Controls.Add(this.chromeTelemetrySw);
+            this.universalTab.Controls.Add(this.ffTelemetrySw);
+            this.universalTab.Controls.Add(this.vsSw);
             this.universalTab.Controls.Add(this.reportingSw);
             this.universalTab.Controls.Add(this.systemRestoreSw);
             this.universalTab.Controls.Add(this.officeTelemetrySw);
@@ -624,6 +630,45 @@ namespace Optimizer
             this.universalTab.Size = new System.Drawing.Size(999, 610);
             this.universalTab.TabIndex = 0;
             this.universalTab.Text = "Universal";
+            // 
+            // chromeTelemetrySw
+            // 
+            this.chromeTelemetrySw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.chromeTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chromeTelemetrySw.ForeColor = System.Drawing.Color.White;
+            this.chromeTelemetrySw.LabelText = "Disable Google Chrome Telemetry";
+            this.chromeTelemetrySw.Location = new System.Drawing.Point(457, 324);
+            this.chromeTelemetrySw.Name = "chromeTelemetrySw";
+            this.chromeTelemetrySw.Size = new System.Drawing.Size(414, 24);
+            this.chromeTelemetrySw.TabIndex = 68;
+            this.chromeTelemetrySw.Tag = "themeable";
+            this.chromeTelemetrySw.ToggleChecked = false;
+            // 
+            // ffTelemetrySw
+            // 
+            this.ffTelemetrySw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ffTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ffTelemetrySw.ForeColor = System.Drawing.Color.White;
+            this.ffTelemetrySw.LabelText = "Disable Mozilla Firefox Telemetry";
+            this.ffTelemetrySw.Location = new System.Drawing.Point(457, 287);
+            this.ffTelemetrySw.Name = "ffTelemetrySw";
+            this.ffTelemetrySw.Size = new System.Drawing.Size(414, 24);
+            this.ffTelemetrySw.TabIndex = 67;
+            this.ffTelemetrySw.Tag = "themeable";
+            this.ffTelemetrySw.ToggleChecked = false;
+            // 
+            // vsSw
+            // 
+            this.vsSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.vsSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vsSw.ForeColor = System.Drawing.Color.White;
+            this.vsSw.LabelText = "Disable Visual Studio Telemetry";
+            this.vsSw.Location = new System.Drawing.Point(21, 325);
+            this.vsSw.Name = "vsSw";
+            this.vsSw.Size = new System.Drawing.Size(414, 24);
+            this.vsSw.TabIndex = 66;
+            this.vsSw.Tag = "themeable";
+            this.vsSw.ToggleChecked = false;
             // 
             // reportingSw
             // 
@@ -657,7 +702,7 @@ namespace Optimizer
             this.officeTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.officeTelemetrySw.ForeColor = System.Drawing.Color.White;
             this.officeTelemetrySw.LabelText = "Disable Office 2016 Telemetry";
-            this.officeTelemetrySw.Location = new System.Drawing.Point(21, 270);
+            this.officeTelemetrySw.Location = new System.Drawing.Point(21, 287);
             this.officeTelemetrySw.Name = "officeTelemetrySw";
             this.officeTelemetrySw.Size = new System.Drawing.Size(414, 24);
             this.officeTelemetrySw.TabIndex = 63;
@@ -3429,47 +3474,47 @@ namespace Optimizer
             this.specsTree.ForeColor = System.Drawing.Color.White;
             this.specsTree.Location = new System.Drawing.Point(0, 0);
             this.specsTree.Name = "specsTree";
-            treeNode1.ImageIndex = 0;
-            treeNode1.Name = "cpu";
-            treeNode1.SelectedImageIndex = 0;
-            treeNode1.Text = "Processors";
-            treeNode2.ImageIndex = 1;
-            treeNode2.Name = "ram";
-            treeNode2.SelectedImageIndex = 1;
-            treeNode2.Text = "Memory";
-            treeNode3.ImageIndex = 2;
-            treeNode3.Name = "gpu";
-            treeNode3.SelectedImageIndex = 2;
-            treeNode3.Text = "Graphics";
-            treeNode4.ImageIndex = 3;
-            treeNode4.Name = "mobo";
-            treeNode4.SelectedImageIndex = 3;
-            treeNode4.Text = "Motherboard";
-            treeNode5.ImageIndex = 4;
-            treeNode5.Name = "disk";
-            treeNode5.SelectedImageIndex = 4;
-            treeNode5.Text = "Storage";
-            treeNode6.ImageIndex = 5;
-            treeNode6.Name = "inet";
-            treeNode6.SelectedImageIndex = 5;
-            treeNode6.Text = "Network Adapters";
-            treeNode7.ImageIndex = 6;
-            treeNode7.Name = "audio";
-            treeNode7.SelectedImageIndex = 6;
-            treeNode7.Text = "Audio";
-            treeNode8.ImageIndex = 7;
-            treeNode8.Name = "dev";
-            treeNode8.SelectedImageIndex = 7;
-            treeNode8.Text = "Peripherals";
+            treeNode9.ImageIndex = 0;
+            treeNode9.Name = "cpu";
+            treeNode9.SelectedImageIndex = 0;
+            treeNode9.Text = "Processors";
+            treeNode10.ImageIndex = 1;
+            treeNode10.Name = "ram";
+            treeNode10.SelectedImageIndex = 1;
+            treeNode10.Text = "Memory";
+            treeNode11.ImageIndex = 2;
+            treeNode11.Name = "gpu";
+            treeNode11.SelectedImageIndex = 2;
+            treeNode11.Text = "Graphics";
+            treeNode12.ImageIndex = 3;
+            treeNode12.Name = "mobo";
+            treeNode12.SelectedImageIndex = 3;
+            treeNode12.Text = "Motherboard";
+            treeNode13.ImageIndex = 4;
+            treeNode13.Name = "disk";
+            treeNode13.SelectedImageIndex = 4;
+            treeNode13.Text = "Storage";
+            treeNode14.ImageIndex = 5;
+            treeNode14.Name = "inet";
+            treeNode14.SelectedImageIndex = 5;
+            treeNode14.Text = "Network Adapters";
+            treeNode15.ImageIndex = 6;
+            treeNode15.Name = "audio";
+            treeNode15.SelectedImageIndex = 6;
+            treeNode15.Text = "Audio";
+            treeNode16.ImageIndex = 7;
+            treeNode16.Name = "dev";
+            treeNode16.SelectedImageIndex = 7;
+            treeNode16.Text = "Peripherals";
             this.specsTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8});
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14,
+            treeNode15,
+            treeNode16});
             this.specsTree.Size = new System.Drawing.Size(991, 567);
             this.specsTree.TabIndex = 0;
             this.specsTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.specsTree_NodeMouseClick);
@@ -5984,6 +6029,9 @@ namespace Optimizer
         private ToolStripMenuItem trayUpSpeed;
         private LinkLabel btnSaveHW;
         private LinkLabel btnCopyHW;
+        private ToggleCard vsSw;
+        private ToggleCard chromeTelemetrySw;
+        private ToggleCard ffTelemetrySw;
     }
 }
 

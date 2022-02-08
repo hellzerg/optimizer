@@ -810,6 +810,23 @@ namespace Optimizer
 
         internal static void DisableOffice2016Telemetry()
         {
+            try
+            {
+                if (!File.Exists(Required.ScriptsFolder + "DisableOfficeTelemetryTasks.reg"))
+                {
+                    File.WriteAllText(Required.ScriptsFolder + "EnableOfficeTelemetryTasks.reg", Properties.Resources.EnableOfficeTelemetry);
+                }
+
+                if (!File.Exists(Required.ScriptsFolder + "DisableOfficeTelemetryTasks.bat"))
+                {
+                    File.WriteAllText(Required.ScriptsFolder + "EnableOfficeTelemetryTasks.bat", Properties.Resources.EnableOfficeTelemetryTasks);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.DisableOffice2016Telemetry", ex.Message, ex.StackTrace);
+            }
+
             Utilities.RunBatchFile(Required.ScriptsFolder + "DisableOfficeTelemetryTasks.bat");
             Utilities.ImportRegistryScript(Required.ScriptsFolder + "DisableOfficeTelemetryTasks.reg");
         }
@@ -1539,6 +1556,108 @@ namespace Optimizer
         internal static void DisableFileExplorerClassicRibbon()
         {
             Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked", true).DeleteValue("{e2bf9676-5f8f-435c-97eb-11607a5bedf7}", false);
+        }
+
+        // VISUAL STUDIO TELEMETRY
+        internal static void DisableVisualStudioTelemetry()
+        {
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\Telemetry", "TurnOffSwitch", 1);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableFeedbackDialog", 1);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableEmailInput", 1);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableScreenshotCapture", 1);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\VisualStudio\SQM", "OptIn", 0);
+
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\14.0\SQM", "OptIn", 0);
+                Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\15.0\SQM", "OptIn", 0);
+                Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\16.0\SQM", "OptIn", 0);
+            }
+            else
+            {
+                Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\14.0\SQM", "OptIn", 0);
+                Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM", "OptIn", 0);
+                Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\16.0\SQM", "OptIn", 0);
+            }
+
+            try
+            {
+                Utilities.DisableProtectedService("VSStandardCollectorService150");
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.DisableVisualStudioTelemetry", ex.Message, ex.StackTrace);
+            }
+        }
+
+        internal static void EnableVisualStudioTelemetry()
+        {
+            Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\VisualStudio\Telemetry", "TurnOffSwitch");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableFeedbackDialog");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableEmailInput");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableScreenshotCapture");
+            Utilities.TryDeleteRegistryValue(true, @"Software\Policies\Microsoft\VisualStudio\SQM", "OptIn");
+
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Microsoft\VSCommon\14.0\SQM", "OptIn");
+                Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Microsoft\VSCommon\15.0\SQM", "OptIn");
+                Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Microsoft\VSCommon\16.0\SQM", "OptIn");
+            }
+            else
+            {
+                Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Wow6432Node\Microsoft\VSCommon\14.0\SQM", "OptIn");
+                Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM", "OptIn");
+                Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Wow6432Node\Microsoft\VSCommon\16.0\SQM", "OptIn");
+            }
+
+            try
+            {
+                Utilities.EnableProtectedService("VSStandardCollectorService150");
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Optimize.EnableVisualStudioTelemetry", ex.Message, ex.StackTrace);
+            }
+        }
+
+        // CHROME TELEMETRY + SOFTWARE REPORTER TOOL
+        internal static void DisableChromeTelemetry()
+        {
+            Registry.SetValue(
+               @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\software_reporter_tool.exe",
+               "Debugger", @"%windir%\System32\taskkill.exe"
+            );
+
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome", "MetricsReportingEnabled", 0);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome", "ChromeCleanupReportingEnabled", 0);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome", "ChromeCleanupEnabled", 0);
+        }
+
+        internal static void EnableChromeTelemetry()
+        {
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Google\Chrome", "MetricsReportingEnabled");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Google\Chrome", "ChromeCleanupReportingEnabled");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Google\Chrome", "ChromeCleanupEnabled");
+        }
+
+        // FIREFOX TELEMETRY
+        internal static void DisableFirefoxTelemetry()
+        {
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Mozilla\Firefox", "DisableTelemetry", 1);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Mozilla\Firefox", "DisableDefaultBrowserAgent", 1);
+
+            Utilities.RunCommand("schtasks.exe /change /disable /tn \"\\Mozilla\\Firefox Default Browser Agent 308046B0AF4A39CB\"");
+            Utilities.RunCommand("schtasks.exe /change /disable /tn \"\\Mozilla\\Firefox Default Browser Agent D2CEEC440E2074BD\"");
+        }
+
+        internal static void EnableFirefoxTelemetry()
+        {
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Mozilla\Firefox", "DisableTelemetry");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Mozilla\Firefox", "DisableDefaultBrowserAgent");
+
+            Utilities.RunCommand("schtasks.exe /change /enable /tn \"\\Mozilla\\Firefox Default Browser Agent 308046B0AF4A39CB\"");
+            Utilities.RunCommand("schtasks.exe /change /enable /tn \"\\Mozilla\\Firefox Default Browser Agent D2CEEC440E2074BD\"");
         }
     }
 }

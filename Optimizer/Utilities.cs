@@ -505,6 +505,7 @@ namespace Optimizer
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 p.StartInfo.FileName = "cmd.exe";
                 p.StartInfo.Arguments = "/C " + command;
+                p.StartInfo.CreateNoWindow = true;
 
                 try
                 {

@@ -206,6 +206,41 @@ namespace Optimizer
                 }
             }
 
+            if (CurrentSilentConfig.DisableChromeTelemetry.HasValue)
+            {
+                if (CurrentSilentConfig.DisableChromeTelemetry.Value)
+                {
+                    Optimize.DisableChromeTelemetry();
+                }
+                else
+                {
+                    Optimize.EnableChromeTelemetry();
+                }
+            }
+
+            if (CurrentSilentConfig.DisableFirefoxTemeletry.HasValue)
+            {
+                if (CurrentSilentConfig.DisableFirefoxTemeletry.Value)
+                {
+                    Optimize.DisableFirefoxTelemetry();
+                }
+                else
+                {
+                    Optimize.EnableFirefoxTelemetry();
+                }
+            }
+
+            if (CurrentSilentConfig.DisableVisualStudioTelemetry.HasValue)
+            {
+                if (CurrentSilentConfig.DisableVisualStudioTelemetry.Value)
+                {
+                    Optimize.DisableVisualStudioTelemetry();
+                }
+                else
+                {
+                    Optimize.EnableVisualStudioTelemetry();
+                }
+            }
         }
 
         // silent config processing for Windows 8 tweaks
@@ -645,6 +680,18 @@ namespace Optimizer
             if (CurrentSilentConfig.DisableStickyKeys.HasValue)
             {
                 Options.CurrentOptions.DisableStickyKeys = CurrentSilentConfig.DisableStickyKeys.Value;
+            }
+            if (CurrentSilentConfig.DisableVisualStudioTelemetry.HasValue)
+            {
+                Options.CurrentOptions.DisableVisualStudioTelemetry = CurrentSilentConfig.DisableVisualStudioTelemetry.Value;
+            }
+            if (CurrentSilentConfig.DisableFirefoxTemeletry.HasValue)
+            {
+                Options.CurrentOptions.DisableFirefoxTemeletry = CurrentSilentConfig.DisableFirefoxTemeletry.Value;
+            }
+            if (CurrentSilentConfig.DisableChromeTelemetry.HasValue)
+            {
+                Options.CurrentOptions.DisableChromeTelemetry = CurrentSilentConfig.DisableChromeTelemetry.Value;
             }
         }
 

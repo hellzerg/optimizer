@@ -21,6 +21,9 @@
 	"superfetchSw": "Superfetch'i Devre Dışı Bırak",
 	"telemetryTasksSw": "Telemetri Görevlerini Devre Dışı Bırak",
 	"officeTelemetrySw": "Office 2016 Telemetrisini Devre Dışı Bırak",
+	"vsSW": "Visual Studio Telemetrisini Devre Dışı Bırak",
+	"ffTelemetrySw": "Firefox Telemetrisini Devre Dışı Bırakın",
+	"chromeTelemetrySw": "Chrome Telemetrisini Devre Dışı Bırak",
 	"compatSw": "Uyumluluk Asistanını Devre Dışı Bırak",
 	"smartScreenSw": "SmartScreen'i Devre Dışı Bırak",
 	"stickySw": "Yapışkan Tuşları Devre Dışı Bırak",
@@ -329,6 +332,11 @@ Windows'un durumunu bir öncekine döndürmeyi sağlayan bir özelliktir.",
 kullanım ve performans verilerini Microsoft'a gönderir.",
 	"officeTelemetryTip": "Office telemetrisi, gelecekteki iyileştirmeler için düzenli aralıklarla
 kullanım ve performans verilerini Microsoft'a gönderir.",
+	"ffTelemetryTip": "Mozilla Firefox telemetri ve veri raporlama hizmetlerini devre dısı bırakır.",
+	"vsTip": "SQM istemcisi de dahil olmak üzere Visual Studio telemetri
+ve geri bildirim ozelliklerini devre dısı bırakır.",
+	"chromeTelemetryTip": "Google Chrome telemetri ve yazılım raporlama aracını devre dısı bırakır
+(yuksek CPU kullanımına neden oldugu bilinmektedir).",
 	"printTip": "Yazıcıların algılanmasından, kurulmasından ve kullanılmasından yazdırma hizmeti sorumludur.",
 	"faxTip": "Faks servisi, faks gönderip almaktan sorumludur..",
 	"mediaSharingTip": "Media Player Sharing, Windows Media Player için ev medyası paylaşımı sağlar.",

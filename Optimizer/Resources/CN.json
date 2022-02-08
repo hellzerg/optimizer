@@ -20,6 +20,9 @@
 	"superfetchSw": "禁用 Superfetch",
 	"telemetryTasksSw": "禁用遥测任务",
 	"officeTelemetrySw": "禁用 Office 2016 遥测",
+	"vsSW": "禁用 Visual Studio 遥测",
+	"ffTelemetrySw": "禁用 Mozilla Firefox 遥测",
+	"chromeTelemetrySw": "禁用 Google Chrome 遥测",
 	"compatSw": "禁用兼容性助手",
 	"smartScreenSw": "禁用 SmartScreen",
 	"stickySw": "禁用粘滞键",
@@ -331,6 +334,10 @@
 	以备将来改进.",
 	"officeTelemetryTip": "Office 2016 遥测系统定期发送使用情况和
 	性能数据到微软，以备将来改进.",
+	"ffTelemetryTip": "禁用 Mozilla Firefox 遥测和数据报告服务.",
+	"vsTip": "禁用 Visual Studio 遥测和反馈功能，包括 SQM 客户端.",
+	"chromeTelemetryTip": "禁用 Google Chrome 遥测和软件报告工具
+（众所周知会导致高 CPU 使用率).",
 	"printTip": "打印服务部门负责检测、安装和使用打印机.",
 	"faxTip": "传真业务负责发送和接收传真.",
 	"mediaSharingTip": "媒体播放器共享为Windows媒体播放器提供家庭媒体共享.",

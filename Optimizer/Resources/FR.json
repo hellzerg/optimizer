@@ -21,6 +21,9 @@
 	"superfetchSw": "Desactiver Superfetch",
 	"telemetryTasksSw": "Desactiver les taches de telemetrie",
 	"officeTelemetrySw": "Desactiver la telemetrie d'Office 2016",
+	"vsSW": "Disabilita la telemetria di Visual Studio",
+	"ffTelemetrySw": "Disabilita la telemetria di Firefox",
+	"chromeTelemetrySw": "Disabilita la telemetria di Chrome",
 	"compatSw": "Desactiver l'assistant de compatibilite",
 	"smartScreenSw": "Desactiver SmartScreen",
 	"stickySw": "Desactiver les Touches Remanentes",
@@ -329,6 +332,10 @@ a un etat anterieur de Windows afin de resoudre des dysfonctionnements ou d'autr
 pour des ameliorations futures.",
 	"officeTelemetryTip": "La telemetrie d'Office envoie periodiquement des donnees
 d'utilisation et de performance a Microsoft, en vue d'ameliorations futures.",
+	"ffTelemetryTip": "Desactive les services de telemetrie et de rapport de donnees de Firefox.",
+	"vsTip": "Desactive les fonctionnalites de telemetrie et de retroaction de Visual Studio.",
+	"chromeTelemetryTip": "Desactive la telemetrie Chrome et l'outil de creation de rapports logiciels
+(connu pour provoquer une utilisation elevee du processeur).",
 	"printTip": "Le service d'impression est responsable de la detection, de l'installation et de l'utilisation des imprimantes.",
 	"faxTip": "Le service de fax est responsable de l'envoi et de la reception des fax.",
 	"mediaSharingTip": "Media Player Sharing permet le partage de medias a domicile pour Windows Media Player.",

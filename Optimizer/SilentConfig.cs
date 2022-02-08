@@ -17,12 +17,16 @@ namespace Optimizer
         public bool? DisableHomeGroup { get; set; }
         public bool? DisableSuperfetch { get; set; }
         public bool? DisableTelemetryTasks { get; set; }
-        public bool? DisableOffice2016Telemetry { get; set; }
         public bool? DisableCompatibilityAssistant { get; set; }
         public bool? DisableFaxService { get; set; }
         public bool? DisableSmartScreen { get; set; }
         public bool? DisableCloudClipboard { get; set; }
         public bool? DisableStickyKeys { get; set; }
+
+        public bool? DisableOffice2016Telemetry { get; set; }
+        public bool? DisableVisualStudioTelemetry { get; set; }
+        public bool? DisableFirefoxTemeletry { get; set; }
+        public bool? DisableChromeTelemetry { get; set; }
 
         public bool? EnableLegacyVolumeSlider { get; set; }
         public bool? DisableQuickAccessHistory { get; set; }

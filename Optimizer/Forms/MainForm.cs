@@ -225,6 +225,48 @@ namespace Optimizer
             chatSw.ToggleClicked += new EventHandler(chatSw_Click);
             classicRibbonSw.ToggleClicked += new EventHandler(ClassicRibbonSw_Click);
             classicContextSw.ToggleClicked += new EventHandler(ClassicContextSw_Click);
+            ffTelemetrySw.ToggleClicked += new EventHandler(FfTelemetrySw_ToggleClicked);
+            chromeTelemetrySw.ToggleClicked += new EventHandler(ChromeTelemetrySw_ToggleClicked);
+            vsSw.ToggleClicked += new EventHandler(VsSw_ToggleClicked);
+        }
+
+        private void VsSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (vsSw.ToggleChecked)
+            {
+                Optimize.DisableVisualStudioTelemetry();
+            }
+            else
+            {
+                Optimize.EnableVisualStudioTelemetry();
+            }
+            Options.CurrentOptions.DisableVisualStudioTelemetry = vsSw.ToggleChecked;
+        }
+
+        private void ChromeTelemetrySw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (chromeTelemetrySw.ToggleChecked)
+            {
+                Optimize.DisableChromeTelemetry();
+            }
+            else
+            {
+                Optimize.EnableChromeTelemetry();
+            }
+            Options.CurrentOptions.DisableChromeTelemetry = chromeTelemetrySw.ToggleChecked;
+        }
+
+        private void FfTelemetrySw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (ffTelemetrySw.ToggleChecked)
+            {
+                Optimize.DisableFirefoxTelemetry();
+            }
+            else
+            {
+                Optimize.EnableFirefoxTelemetry();
+            }
+            Options.CurrentOptions.DisableFirefoxTemeletry = ffTelemetrySw.ToggleChecked;
         }
 
         private void ClassicContextSw_Click(object sender, EventArgs e)
@@ -366,6 +408,9 @@ namespace Optimizer
             helpBox.SetToolTip(classicRibbonSw.Label, Options.TranslationList["classicRibbonTip"].ToString());
             helpBox.SetToolTip(classicContextSw.Label, Options.TranslationList["classicContextTip"].ToString());
             helpBox.SetToolTip(picUpdate, Options.TranslationList["linkUpdate"].ToString() + "!");
+            helpBox.SetToolTip(ffTelemetrySw.Label, Options.TranslationList["ffTelemetryTip"].ToString());
+            helpBox.SetToolTip(vsSw.Label, Options.TranslationList["vsTip"].ToString());
+            helpBox.SetToolTip(chromeTelemetrySw.Label, Options.TranslationList["chromeTelemetryTip"].ToString());
 
             //helpBox.ToolTipTitle = Options.TranslationList["tipWhatsThis"].ToString();
         }
@@ -1674,6 +1719,9 @@ namespace Optimizer
             faxSw.ToggleChecked = Options.CurrentOptions.DisableFaxService;
             smartScreenSw.ToggleChecked = Options.CurrentOptions.DisableSmartScreen;
             stickySw.ToggleChecked = Options.CurrentOptions.DisableStickyKeys;
+            ffTelemetrySw.ToggleChecked = Options.CurrentOptions.DisableFirefoxTemeletry;
+            vsSw.ToggleChecked = Options.CurrentOptions.DisableVisualStudioTelemetry;
+            chromeTelemetrySw.ToggleChecked = Options.CurrentOptions.DisableChromeTelemetry;
         }
 
         private void LoadWindowsVIIIToggleStates()
@@ -3358,7 +3406,7 @@ namespace Optimizer
                 for (int i = 0; i < 9; i++)
                 {
                     // wait before each pinging
-                    System.Threading.Thread.Sleep(888);
+                    Thread.Sleep(888);
 
                     tmpReply = Utilities.PingHost(txtPingInput.Text);
 
