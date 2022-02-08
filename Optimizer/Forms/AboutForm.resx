@@ -117,28 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAA3NJREFUeF7tku1t3DAUBI30mHrcV9pIQQmM7AHOYXy+D1FaUjPA/PBZopb73puI
-        iIiIiIiIiIiIiIj08Ovn7z8f5k85E5fhuwQn5Hr4F/NvWRka/GfzmKwIDZzM47ISNOhb5jVZARrwPeZ1
-        mRka7CPmGJkRGugz5jiZCRrkK+ZYmQEa4BbmeGmGBrel+Yw0QgMbYT4nTdCgRprPSgM0oD3M5+VIaDB7
-        mhhyBDSQI0wc2RMaxJEmluwBDaDBxJORUPEtJqKMgkpvMjFlBFR4k4kpI6DCm0xMGQEV3mRiygio8CYT
-        U0ZAhTeZmDICKrzJxJQRUOFNJqaMgApvMjFlBFR4k4kpI6DCm0xMGQEV3mRiygio8CYTU0ZAhTeZmDIC
-        KrzJxJQRUOFNJqaMgApvMjFlBFR4k4kpI6DCm0xMGQEV3mRiygio8CYTs49LwPf39x/5aTo+F91oYvZx
-        HXTGJbi+Q5uJ2QeF/XCmJaD8TSZmHxT2szMsAeVuMjH7oLBk8xJQ3iYTsw8Ke8vGJaCcTSZmHxT2HpuW
-        gPI1mZh9UNhHbFgCytVkYvZBYZ/xyCWgPE0mZh8U9hWPWALK0WRi9kFht3DPJaDvN5mYfVDYLd1jCei7
-        TSZmHxR2hCOXgL7XZGL2QWFHOmIJ6DtNJmYfFHYPt1wCOr/JxOyDwu7pFktA5zaZmH1Q2CN8ZQnovCYT
-        sw8Ke6TPLAGd02Ri9kFhG3xkCej9JhOzEwrc4j1LQO81mZi9UOgmby0BPd9kYvZD4ZukJaDnmkzMeaBL
-        NPl5Cej/TSbmfNBlmvxYAvq9yVQ5L3Qpvc9UOD90Ob1tqlsHuqSyqWw96LL6v6lqXejS+s9UtD50+bOb
-        as4DlXBWU8n5oDLOZqo4L1TKWUwFQuWsbq4uF6ikVc2V5RoqazVzVfkKKm0Vc0X5DipvdnM1uRcqcVZz
-        JXkUKnM2cxV5Fip1FnMFeRUqt91El62gkltNZNkaKrvNRJVRUOktJqKMhso/2kSTvaAhHGUiyd7QMPY2
-        UeQoaCh7mQhyNDSc0ebT0gINaZT5pLRBw9rafEpaoaFtZT4h7dDwXjVHyyzQEJ81R8ps0DAfNUfJrNBQ
-        7zVHyOzQcL8zr8oq0JC/Mq/IatCwr82jsio09It5RFbH4ct/S5CfRERERERERERERERE5CZvb38B7qmZ
-        VUrZey8AAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="t1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

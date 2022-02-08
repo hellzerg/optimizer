@@ -333,6 +333,8 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\optimiz.png" />
+    <None Include="Resources\logo.png" />
     <EmbeddedResource Include="Newtonsoft.Json.dll" />
     <Content Include="optimizer.ico" />
   </ItemGroup>
