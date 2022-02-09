@@ -138,7 +138,7 @@
 	"refreshHostsB": "刷新",
 	"removeAllHostsB": "删除所有",
 	"regFixB": "修复",
-	"regLbl": "(有些变化可能需要这样做)",
+	"regLbl": "(有些更改可能需要这样做)",
 	"checkRestartExplorer": "同时重新启动资源管理器来应用更改",
 	"checkRegistryEditor": "注册表编辑器",
 	"checkFirewall": "Windows 防火墙",
@@ -263,7 +263,7 @@
 	"linkInvalid": "链接不再有效",
 	"noErrorsM": "没有错误要显示!",
 	"hostNotFound": "找不到主机",
-	"pinging": "32字节的ping - 9次...",
+	"pinging": "ping 32字节 - 9次...",
 	"latency": "延迟",
 	"lblSystemTools": "系统 && 工具",
 	"lblInternet": "互联网",
@@ -337,8 +337,8 @@
 	"ffTelemetryTip": "禁用 Mozilla Firefox 遥测和数据报告服务.",
 	"vsTip": "禁用 Visual Studio 遥测和反馈功能，包括 SQM 客户端.",
 	"chromeTelemetryTip": "禁用 Google Chrome 遥测和软件报告工具
-（众所周知会导致高 CPU 使用率).",
-	"printTip": "打印服务部门负责检测、安装和使用打印机.",
+（可能会导致CPU使用率变高).",
+	"printTip": "打印服务负责检测、安装和使用打印机.",
 	"faxTip": "传真业务负责发送和接收传真.",
 	"mediaSharingTip": "媒体播放器共享为Windows媒体播放器提供家庭媒体共享.",
 	"stickyTip": "Sticky Keys是一个帮助Windows用户使用的辅助功能
