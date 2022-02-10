@@ -324,6 +324,10 @@ namespace Optimizer
             this.ccFileL = new System.Windows.Forms.Label();
             this.ccL = new System.Windows.Forms.Label();
             this.optionsTab = new System.Windows.Forms.TabPage();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.quickAccessToggle = new Optimizer.ToggleCard();
             this.helpTipsToggle = new Optimizer.ToggleCard();
             this.pictureBox85 = new System.Windows.Forms.PictureBox();
@@ -357,9 +361,6 @@ namespace Optimizer
             this.rSilver = new System.Windows.Forms.RadioButton();
             this.languagesL = new System.Windows.Forms.Label();
             this.lblUpdateDisabled = new System.Windows.Forms.Label();
-            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
-            this.picFOSS = new System.Windows.Forms.PictureBox();
-            this.picFSF = new System.Windows.Forms.PictureBox();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.btnOpenConf = new System.Windows.Forms.Button();
             this.lblTroubleshoot = new System.Windows.Forms.Label();
@@ -448,6 +449,9 @@ namespace Optimizer
             this.tabPage11.SuspendLayout();
             this.panel6.SuspendLayout();
             this.optionsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox85)).BeginInit();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -461,8 +465,6 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox86)).BeginInit();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picFOSS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFSF)).BeginInit();
             this.launcherMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -4600,6 +4602,10 @@ namespace Optimizer
             // optionsTab
             // 
             this.optionsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.optionsTab.Controls.Add(this.pictureBox14);
+            this.optionsTab.Controls.Add(this.pictureBox13);
+            this.optionsTab.Controls.Add(this.pictureBox12);
+            this.optionsTab.Controls.Add(this.linkLabel1);
             this.optionsTab.Controls.Add(this.quickAccessToggle);
             this.optionsTab.Controls.Add(this.helpTipsToggle);
             this.optionsTab.Controls.Add(this.pictureBox85);
@@ -4607,9 +4613,6 @@ namespace Optimizer
             this.optionsTab.Controls.Add(this.panel8);
             this.optionsTab.Controls.Add(this.languagesL);
             this.optionsTab.Controls.Add(this.lblUpdateDisabled);
-            this.optionsTab.Controls.Add(this.linkLabel6);
-            this.optionsTab.Controls.Add(this.picFOSS);
-            this.optionsTab.Controls.Add(this.picFSF);
             this.optionsTab.Controls.Add(this.linkLabel5);
             this.optionsTab.Controls.Add(this.btnOpenConf);
             this.optionsTab.Controls.Add(this.lblTroubleshoot);
@@ -4627,6 +4630,56 @@ namespace Optimizer
             this.optionsTab.Size = new System.Drawing.Size(999, 610);
             this.optionsTab.TabIndex = 6;
             this.optionsTab.Text = "Options";
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
+            this.pictureBox14.Location = new System.Drawing.Point(957, 568);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox14.TabIndex = 92;
+            this.pictureBox14.TabStop = false;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(957, 484);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox13.TabIndex = 91;
+            this.pictureBox13.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(957, 526);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox12.TabIndex = 90;
+            this.pictureBox12.TabStop = false;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel1.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel1.Location = new System.Drawing.Point(795, 525);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(158, 28);
+            this.linkLabel1.TabIndex = 89;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Tag = "themeable";
+            this.linkLabel1.Text = "Discord support";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
             // 
             // quickAccessToggle
             // 
@@ -5097,60 +5150,21 @@ namespace Optimizer
             this.lblUpdateDisabled.Text = "Disabled in experimental builds";
             this.lblUpdateDisabled.Visible = false;
             // 
-            // linkLabel6
-            // 
-            this.linkLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabel6.AutoSize = true;
-            this.linkLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel6.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel6.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel6.Location = new System.Drawing.Point(890, 471);
-            this.linkLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(105, 21);
-            this.linkLabel6.TabIndex = 68;
-            this.linkLabel6.TabStop = true;
-            this.linkLabel6.Tag = "themeable";
-            this.linkLabel6.Text = "Open Source";
-            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
-            // 
-            // picFOSS
-            // 
-            this.picFOSS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picFOSS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picFOSS.BackgroundImage")));
-            this.picFOSS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picFOSS.Location = new System.Drawing.Point(894, 385);
-            this.picFOSS.Name = "picFOSS";
-            this.picFOSS.Size = new System.Drawing.Size(96, 84);
-            this.picFOSS.TabIndex = 67;
-            this.picFOSS.TabStop = false;
-            // 
-            // picFSF
-            // 
-            this.picFSF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picFSF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picFSF.BackgroundImage")));
-            this.picFSF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picFSF.Location = new System.Drawing.Point(882, 497);
-            this.picFSF.Name = "picFSF";
-            this.picFSF.Size = new System.Drawing.Size(108, 84);
-            this.picFSF.TabIndex = 66;
-            this.picFSF.TabStop = false;
-            // 
             // linkLabel5
             // 
             this.linkLabel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel5.ForeColor = System.Drawing.Color.DodgerBlue;
             this.linkLabel5.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel5.Location = new System.Drawing.Point(835, 584);
+            this.linkLabel5.Location = new System.Drawing.Point(754, 568);
             this.linkLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(160, 21);
+            this.linkLabel5.Size = new System.Drawing.Size(198, 28);
             this.linkLabel5.TabIndex = 65;
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Tag = "themeable";
-            this.linkLabel5.Text = "GNU GPL 3.0 License";
+            this.linkLabel5.Text = "GNU GPL 3.0 license";
             this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
             // 
             // btnOpenConf
@@ -5215,12 +5229,12 @@ namespace Optimizer
             // 
             // l2
             // 
-            this.l2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.l2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.l2.AutoSize = true;
             this.l2.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l2.ForeColor = System.Drawing.Color.DodgerBlue;
             this.l2.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.l2.Location = new System.Drawing.Point(6, 576);
+            this.l2.Location = new System.Drawing.Point(795, 483);
             this.l2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.l2.Name = "l2";
             this.l2.Size = new System.Drawing.Size(157, 28);
@@ -5649,6 +5663,9 @@ namespace Optimizer
             this.panel6.ResumeLayout(false);
             this.optionsTab.ResumeLayout(false);
             this.optionsTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox85)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
@@ -5664,8 +5681,6 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox86)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picFOSS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFSF)).EndInit();
             this.launcherMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -5880,10 +5895,7 @@ namespace Optimizer
         private System.Windows.Forms.ToolStripMenuItem trayHosts;
         private System.Windows.Forms.ToolStripMenuItem trayAD;
         private System.Windows.Forms.ToolStripMenuItem trayExit;
-        private System.Windows.Forms.PictureBox picFSF;
         private System.Windows.Forms.LinkLabel linkLabel5;
-        private System.Windows.Forms.LinkLabel linkLabel6;
-        private System.Windows.Forms.PictureBox picFOSS;
         private System.Windows.Forms.Label lblUpdateDisabled;
         private System.Windows.Forms.ToolStripMenuItem trayRestartExplorer;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -6032,6 +6044,10 @@ namespace Optimizer
         private ToggleCard vsSw;
         private ToggleCard chromeTelemetrySw;
         private ToggleCard ffTelemetrySw;
+        private LinkLabel linkLabel1;
+        private PictureBox pictureBox13;
+        private PictureBox pictureBox12;
+        private PictureBox pictureBox14;
     }
 }
 

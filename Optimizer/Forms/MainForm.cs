@@ -51,7 +51,7 @@ namespace Optimizer
         readonly string _feedImages = "https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed.zip";
 
         readonly string _licenseLink = "https://www.gnu.org/licenses/gpl-3.0.en.html";
-        readonly string _openSourceLink = "https://opensource.org/";
+        readonly string _discordLink = "https://discord.gg/rZh8BhmmQv";
 
         readonly string _latestVersionLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/version.txt";
         readonly string _changelogLink = "https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md";
@@ -3603,11 +3603,6 @@ namespace Optimizer
             Process.Start(_licenseLink);
         }
 
-        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start(_openSourceLink);
-        }
-
         private void restartExpolorerItem_Click(object sender, EventArgs e)
         {
             Utilities.RestartExplorer();
@@ -4015,6 +4010,11 @@ namespace Optimizer
             d.FileName = $"Optimizer_Hardware_{Environment.MachineName}_{DateTime.Now.ToShortDateString()}.txt";
 
             if (d.ShowDialog() == DialogResult.OK) File.WriteAllText(d.FileName, GetSpecsToString(specsTree), Encoding.UTF8);
+        }
+
+        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(_discordLink);
         }
     }
 }
