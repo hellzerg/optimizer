@@ -41,6 +41,7 @@ namespace Optimizer
         NetworkMonitor _networkMonitor;
         double uploadSpeed = 0;
         double downloadSpeed = 0;
+        bool _networkMonitoringSupported = true;
 
         DesktopItemType _desktopItemType = DesktopItemType.Program;
         DesktopTypePosition _desktopItemPosition = DesktopTypePosition.Top;
@@ -825,12 +826,7 @@ namespace Optimizer
             }
 
             // network monitoring
-            _networkMonitor = new NetworkMonitor();
-            if (Options.CurrentOptions.EnableTray) 
-            {
-                _networkMonitor.StartMonitoring();
-                NetworkLiveMonitoring();
-            }
+            InitNetworkMonitoring();
         }
 
         private void GetHardwareSpecs()
@@ -849,7 +845,8 @@ namespace Optimizer
             _hwSummarized = BuildHardwareSummaryNodes();
 
             specsTree.ExpandAll();
-            specsTree.Nodes[0].EnsureVisible();
+            if (specsTree.Nodes.Count > 0) specsTree.Nodes[0].EnsureVisible();
+
         }
 
         private TreeNode[] BuildHardwareSummaryNodes()
@@ -1358,8 +1355,41 @@ namespace Optimizer
             }
         }
 
+        private void InitNetworkMonitoring()
+        {
+            try
+            {
+                if (Options.CurrentOptions.EnableTray)
+                {
+                    _networkMonitor = new NetworkMonitor();
+                    _networkMonitor.StartMonitoring();
+                    _networkMonitoringSupported = true;
+                    NetworkLiveMonitoring();
+                }
+            }
+            catch (Exception ex)
+            {
+                _networkMonitoringSupported = false;
+                DisposeNetworkMonitoring();
+                ErrorLogger.LogError("MainForm.NETWORK-MONITORING", ex.Message, ex.StackTrace);
+            }
+            finally
+            {
+                seperatorNetMon.Visible = _networkMonitoringSupported;
+                trayDownSpeed.Visible = _networkMonitoringSupported;
+                trayUpSpeed.Visible = _networkMonitoringSupported;
+            }
+        }
+
+        private void DisposeNetworkMonitoring()
+        {
+            if (_networkMonitor != null) _networkMonitor.StopMonitoring();
+        }
+
         private void NetworkLiveMonitoring()
         {
+            if (!_networkMonitoringSupported) return;
+
             Task.Factory.StartNew(() =>
             {
                 while (Options.CurrentOptions.EnableTray)
@@ -3867,21 +3897,13 @@ namespace Optimizer
             _trayMenu = quickAccessToggle.ToggleChecked;
             launcherIcon.Visible = quickAccessToggle.ToggleChecked;
 
-            seperatorNetMon.Visible = Options.CurrentOptions.EnableTray;
-            trayDownSpeed.Visible = Options.CurrentOptions.EnableTray;
-            trayUpSpeed.Visible = Options.CurrentOptions.EnableTray;
-
             if (Options.CurrentOptions.EnableTray)
             {
-                if (_networkMonitor != null)
-                {
-                    _networkMonitor.StartMonitoring();
-                    NetworkLiveMonitoring();
-                }
+                InitNetworkMonitoring();
             }
             else
             {
-                if (_networkMonitor != null) _networkMonitor.StopMonitoring();
+                DisposeNetworkMonitoring();
             }
         }
 

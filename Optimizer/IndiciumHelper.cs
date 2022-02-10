@@ -48,7 +48,7 @@ namespace Optimizer
                     {
                         cpu.Virtualization = "-";
                     }
-                    
+
                     cpu.Stepping = Convert.ToString(mo.Properties["Description"].Value);
                     cpu.Revision = Convert.ToString(mo.Properties["Revision"].Value);
 
@@ -61,7 +61,7 @@ namespace Optimizer
                             cpu.DataExecutionPrevention = (temp2) ? "Yes" : "No";
                         }
                     }
-                    catch 
+                    catch
                     {
                         cpu.DataExecutionPrevention = "-";
                     }
@@ -417,7 +417,7 @@ namespace Optimizer
             {
                 ErrorLogger.LogError("IndiciumHelper.GetAudioDevices", ex.Message, ex.StackTrace);
             }
-            
+
             return audioDevices;
         }
 

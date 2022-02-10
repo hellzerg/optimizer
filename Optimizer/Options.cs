@@ -242,6 +242,9 @@ namespace Optimizer
                 CurrentOptions.EnableLongPaths = false;
                 CurrentOptions.RemoveCastToDevice = false;
                 CurrentOptions.DisableActionCenter = false;
+                CurrentOptions.DisableVisualStudioTelemetry = false;
+                CurrentOptions.DisableFirefoxTemeletry = false;
+                CurrentOptions.DisableChromeTelemetry = false;
 
                 CurrentOptions.DisableOneDrive = false;
 
