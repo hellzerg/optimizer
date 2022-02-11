@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -154,8 +155,28 @@ namespace Optimizer
                                 // displays build info
                                 if (arg == "/version")
                                 {
-                                    if (!Program.EXPERIMENTAL_BUILD) MessageBox.Show($"Optimizer: {Program.GetCurrentVersionTostring()}\n\nCoded by: deadmoon © ∞\n\nhttps://github.com/hellzerg/optimizer", "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    if (!EXPERIMENTAL_BUILD) MessageBox.Show($"Optimizer: {GetCurrentVersionTostring()}\n\nCoded by: deadmoon © ∞\n\nhttps://github.com/hellzerg/optimizer", "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     else MessageBox.Show("Optimizer: EXPERIMENTAL BUILD. PLEASE DELETE AFTER TESTING.\n\nCoded by: deadmoon © ∞\n\nhttps://github.com/hellzerg/optimizer", "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    Environment.Exit(0);
+                                }
+
+                                // instruct to restart in safe-mode
+                                if (arg == "/restart=safemode")
+                                {
+                                    Utilities.RunCommand("bcdedit /set {current} safeboot Minimal");
+                                    Thread.Sleep(500);
+                                    Utilities.Reboot();
+
+                                    Environment.Exit(0);
+                                }
+
+                                // instruct to restart normally
+                                if (arg == "/restart=normal")
+                                {
+                                    Utilities.RunCommand("bcdedit /deletevalue {current} safeboot");
+                                    Thread.Sleep(500);
+                                    Utilities.Reboot();
 
                                     Environment.Exit(0);
                                 }
