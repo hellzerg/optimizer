@@ -522,10 +522,7 @@ namespace Optimizer
 
         internal static void FindFile(string fileName)
         {
-            if (File.Exists(fileName))
-            {
-                Process.Start("explorer.exe", "/select, " + fileName);
-            }
+            if (File.Exists(fileName)) Process.Start("explorer.exe", $"/select, \"{fileName}\"");
         }
 
         internal static string GetShortcutTargetFile(string shortcutFilename)
