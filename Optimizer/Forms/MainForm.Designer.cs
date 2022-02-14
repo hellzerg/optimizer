@@ -5589,6 +5589,7 @@ namespace Optimizer
             this.Text = "Optimizer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.tpanel.ResumeLayout(false);
             this.tpanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).EndInit();

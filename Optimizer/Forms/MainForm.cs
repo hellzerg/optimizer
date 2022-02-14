@@ -77,6 +77,12 @@ namespace Optimizer
         List<TreeNode> _hwDetailed;
         TreeNode[] _hwSummarized;
 
+        Size _sizeDefault = new Size(1025, 744);
+        Size _sizeRussian = new Size(1298, 744);
+        Size _sizeHellenic = new Size(1076, 744);
+        Size _sizeTurkish = new Size(1081, 744);
+        Size _sizeFrench = new Size(1037, 744);
+
         private string NewVersionMessage(string latestVersion)
         {
             return Options.TranslationList["newVersion"].ToString().Replace("{LATEST}", latestVersion).Replace("{CURRENT}", Program.GetCurrentVersionTostring());
@@ -781,15 +787,61 @@ namespace Optimizer
                 Translate();
             }
 
-            if (Options.CurrentOptions.LanguageCode == LanguageCode.RU) radioRussian.Checked = true;
-            if (Options.CurrentOptions.LanguageCode == LanguageCode.TR) radioTurkish.Checked = true;
-            if (Options.CurrentOptions.LanguageCode == LanguageCode.EL) radioHellenic.Checked = true;
-            if (Options.CurrentOptions.LanguageCode == LanguageCode.DE) radioGerman.Checked = true;
-            if (Options.CurrentOptions.LanguageCode == LanguageCode.PT) radioPortuguese.Checked = true;
-            if (Options.CurrentOptions.LanguageCode == LanguageCode.FR) radioFrench.Checked = true;
-            if (Options.CurrentOptions.LanguageCode == LanguageCode.ES) radioSpanish.Checked = true;
-            if (Options.CurrentOptions.LanguageCode == LanguageCode.IT) radioItalian.Checked = true;
-            if (Options.CurrentOptions.LanguageCode == LanguageCode.CN) radioChinese.Checked = true;
+            // set default window size to fit content
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.RU)
+            {
+                radioRussian.Checked = true;
+                this.MinimumSize = _sizeRussian;
+                this.Size = _sizeRussian;
+            }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.TR)
+            {
+                radioTurkish.Checked = true;
+                this.MinimumSize = _sizeTurkish;
+                this.Size = _sizeTurkish;
+            }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.EL)
+            {
+                radioHellenic.Checked = true;
+                this.MinimumSize = _sizeHellenic;
+                this.Size = _sizeHellenic;
+            }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.DE)
+            {
+                radioGerman.Checked = true;
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.PT)
+            {
+                radioPortuguese.Checked = true;
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.FR)
+            {
+                radioFrench.Checked = true;
+                this.MinimumSize = _sizeFrench;
+                this.Size = _sizeFrench;
+            }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.ES)
+            {
+                radioSpanish.Checked = true;
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.IT)
+            {
+                radioItalian.Checked = true;
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.CN)
+            {
+                radioChinese.Checked = true;
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
 
             Program._MainForm = this;
 
@@ -3699,7 +3751,11 @@ namespace Optimizer
         {
             radioEnglish.Checked = true;
             Options.CurrentOptions.LanguageCode = LanguageCode.EN;
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
             Options.SaveSettings();
+
             Options.LoadTranslation();
             Translate();
         }
@@ -3709,6 +3765,10 @@ namespace Optimizer
             radioRussian.Checked = true;
             Options.CurrentOptions.LanguageCode = LanguageCode.RU;
             Options.SaveSettings();
+            this.MinimumSize = _sizeRussian;
+            this.Size = _sizeRussian;
+            this.CenterToScreen();
+
             Options.LoadTranslation();
             Translate();
         }
@@ -3723,6 +3783,10 @@ namespace Optimizer
             radioHellenic.Checked = true;
             Options.CurrentOptions.LanguageCode = LanguageCode.EL;
             Options.SaveSettings();
+            this.MinimumSize = _sizeHellenic;
+            this.Size = _sizeHellenic;
+            this.CenterToScreen();
+
             Options.LoadTranslation();
             Translate();
         }
@@ -3737,6 +3801,10 @@ namespace Optimizer
             radioTurkish.Checked = true;
             Options.CurrentOptions.LanguageCode = LanguageCode.TR;
             Options.SaveSettings();
+            this.MinimumSize = _sizeTurkish;
+            this.Size = _sizeTurkish;
+            this.CenterToScreen();
+
             Options.LoadTranslation();
             Translate();
         }
@@ -3746,6 +3814,10 @@ namespace Optimizer
             radioGerman.Checked = true;
             Options.CurrentOptions.LanguageCode = LanguageCode.DE;
             Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
             Options.LoadTranslation();
             Translate();
         }
@@ -3765,6 +3837,10 @@ namespace Optimizer
             radioSpanish.Checked = true;
             Options.CurrentOptions.LanguageCode = LanguageCode.ES;
             Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
             Options.LoadTranslation();
             Translate();
         }
@@ -3774,6 +3850,10 @@ namespace Optimizer
             radioPortuguese.Checked = true;
             Options.CurrentOptions.LanguageCode = LanguageCode.PT;
             Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
             Options.LoadTranslation();
             Translate();
         }
@@ -3813,6 +3893,10 @@ namespace Optimizer
             radioFrench.Checked = true;
             Options.CurrentOptions.LanguageCode = LanguageCode.FR;
             Options.SaveSettings();
+            this.MinimumSize = _sizeFrench;
+            this.Size = _sizeFrench;
+            this.CenterToScreen();
+
             Options.LoadTranslation();
             Translate();
         }
@@ -3851,6 +3935,10 @@ namespace Optimizer
             radioItalian.Checked = true;
             Options.CurrentOptions.LanguageCode = LanguageCode.IT;
             Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
             Options.LoadTranslation();
             Translate();
         }
@@ -3875,6 +3963,10 @@ namespace Optimizer
             radioChinese.Checked = true;
             Options.CurrentOptions.LanguageCode = LanguageCode.CN;
             Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
             Options.LoadTranslation();
             Translate();
         }
@@ -4015,6 +4107,11 @@ namespace Optimizer
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(_discordLink);
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            Clipboard.SetText(this.Size.Width.ToString() + "," + this.Size.Height.ToString());
         }
     }
 }
