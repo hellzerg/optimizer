@@ -85,5 +85,5 @@ https://github.com/hellzerg/optimizer/blob/master/FEED.md
 ## Details: ##
 
 * Latest version: 11.8
-* Released: February 10, 2022
+* Released: February 21, 2022
 * SHA256: EB819CD2E2B65BA895662F72E7376661200FC83D10434B5FBE8DA5C2339C3616
