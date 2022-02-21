@@ -8,6 +8,11 @@ optimizer.exe /unsafe
 - Restart in SAFE MODE
 - Execute: optimizer.exe /disabledefender
 
+## How to restart in SAFE MODE / NORMAL easily ##
+
+- optimizer.exe /restart=safemode
+- optimizer.exe /restart=normal
+
 ## You may disable specific tools for troubleshooting purposes ##
 #### Available list: ####
 
@@ -15,6 +20,9 @@ optimizer.exe /unsafe
 * Common Apps downloader tool (apps)
 * HOSTS Editor tool (hosts)
 * UWP Apps Uninstaller (uwp)
+* Startup items tool (startup)
+* Cleaner utility (cleaner)
+* Integrator tool (integrator)
 
 #### Examples ####
 
