@@ -1411,9 +1411,10 @@ namespace Optimizer
         {
             try
             {
+                _networkMonitor = new NetworkMonitor();
+
                 if (Options.CurrentOptions.EnableTray)
                 {
-                    _networkMonitor = new NetworkMonitor();
                     _networkMonitor.StartMonitoring();
                     _networkMonitoringSupported = true;
                     NetworkLiveMonitoring();
@@ -4107,11 +4108,6 @@ namespace Optimizer
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(_discordLink);
-        }
-
-        private void MainForm_Resize(object sender, EventArgs e)
-        {
-            Clipboard.SetText(this.Size.Width.ToString() + "," + this.Size.Height.ToString());
         }
     }
 }

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [11.8] - 2022-02-21
+- New: Restart in normal and minimal safe-mode from command-line
+- Hotfix: Faster network monitoring initialization
+- Hotfix: Resize main window based on each language for maximum visibility
+- Minor visual changes
+
 ## [11.7] - 2022-02-10
 - Hotfix: Hangs on loading in case network monitoring is not supported (#93, #95)
 
