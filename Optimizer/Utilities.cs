@@ -736,6 +736,8 @@ namespace Optimizer
                     allServicesKey.GrantFullControlOnSubKey(serviceName);
                     using (RegistryKey serviceKey = allServicesKey.OpenSubKeyWritable(serviceName))
                     {
+                        if (serviceKey == null) return;
+
                         foreach (string subkeyName in serviceKey.GetSubKeyNames())
                         {
                             serviceKey.TakeOwnershipOnSubKey(subkeyName);
@@ -780,6 +782,8 @@ namespace Optimizer
                     allServicesKey.GrantFullControlOnSubKey(serviceName);
                     using (RegistryKey serviceKey = allServicesKey.OpenSubKeyWritable(serviceName))
                     {
+                        if (serviceKey == null) return;
+
                         foreach (string subkeyName in serviceKey.GetSubKeyNames())
                         {
                             serviceKey.TakeOwnershipOnSubKey(subkeyName);
@@ -794,6 +798,7 @@ namespace Optimizer
         public static RegistryKey OpenSubKeyWritable(this RegistryKey registryKey, string subkeyName, RegistryRights? rights = null)
         {
             RegistryKey subKey = null;
+
             if (rights == null)
                 subKey = registryKey.OpenSubKey(subkeyName, RegistryKeyPermissionCheck.ReadWriteSubTree);
             else
@@ -891,6 +896,38 @@ namespace Optimizer
                 if (!ddg) Process.Start(string.Format("https://www.google.com/search?q={0}", term));
             }
             catch { }
+        }
+
+        internal static void PreventProcessFromRunning(string pName)
+        {
+            try
+            {
+                using (RegistryKey ifeo = Registry.LocalMachine.OpenSubKeyWritable(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
+                {
+                    if (ifeo == null) return;
+
+                    ifeo.GrantFullControlOnSubKey("Image File Execution Options");
+
+                    using (RegistryKey k = ifeo.OpenSubKeyWritable("Image File Execution Options"))
+                    {
+                        if (k == null) return;
+
+                        k.CreateSubKey(pName);
+                        k.GrantFullControlOnSubKey(pName);
+
+                        using (RegistryKey f = k.OpenSubKeyWritable(pName))
+                        {
+                            if (f == null) return;
+
+                            f.SetValue("Debugger", @"%windir%\System32\taskkill.exe");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Utilities.PreventProcessFromRunning", ex.Message, ex.StackTrace);
+            }
         }
     }
 }

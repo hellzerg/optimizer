@@ -118,6 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="picLab.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAASJJREFUaEPtjkEOBCEIBOf/P51X7F44EIKTUsG+WAkHsYF6Lhcx7/v+dsrW6Mik
+        ZsrW6MikZsrW6CFiJCODyJGMDCJHMjKIHMnIIHIkI4PIkYwMIkcyMogcycggciQjg8iRjAwiRzIyiBzJ
+        yCByJCODyJGMDCJHMjKiHCkb1ZPJkbJxPZkcKRvXkonNlK3RMSs0m28lyhChlZk2iEj273u+f5QoMRLJ
+        /n0v/h2DSoz+fT/+tROPrwhU7Fim4njFjiUqD1fuwoyOxjfBz8zOLvF1MOsR/NzK/BRfx7Iewc+tzE+x
+        e2g06/vZfwkVR0azvp/9l1Bx4Gve/40yy7QuN1pvtC0OtN1pWxxouxMXnyo7v0+2/ETZ+X2y5SfKzl8u
+        fTzPH/7wS2w8ChpKAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="picUpdate.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -849,7 +860,7 @@ any application only by typing your desired keyword.</value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAC8
-        GgAAAk1TRnQBSQFMAgEBCQEAAbABAQGwAQEBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
+        GgAAAk1TRnQBSQFMAgEBCQEAAdgBAQHYAQEBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
         AwABYAMAAQEBAAEgBgABwP8A/wD/AP8A/wD/AP8A/wAeAANHAYB0//8AiQADRwGAdP//AIkAAyoBQANH
         AYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANH
         AYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGA/wD/AP8A

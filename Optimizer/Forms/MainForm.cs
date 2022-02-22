@@ -415,6 +415,7 @@ namespace Optimizer
             helpBox.SetToolTip(classicRibbonSw.Label, Options.TranslationList["classicRibbonTip"].ToString());
             helpBox.SetToolTip(classicContextSw.Label, Options.TranslationList["classicContextTip"].ToString());
             helpBox.SetToolTip(picUpdate, Options.TranslationList["linkUpdate"].ToString() + "!");
+            helpBox.SetToolTip(picLab, Options.TranslationList["lblLab"].ToString());
             helpBox.SetToolTip(ffTelemetrySw.Label, Options.TranslationList["ffTelemetryTip"].ToString());
             helpBox.SetToolTip(vsSw.Label, Options.TranslationList["vsTip"].ToString());
             helpBox.SetToolTip(chromeTelemetrySw.Label, Options.TranslationList["chromeTelemetryTip"].ToString());
@@ -874,7 +875,7 @@ namespace Optimizer
             if (Program.EXPERIMENTAL_BUILD)
             {
                 btnUpdate.Enabled = false;
-                lblUpdateDisabled.Visible = true;
+                picLab.Visible = true;
             }
 
             // network monitoring

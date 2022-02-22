@@ -9,17 +9,12 @@ namespace Optimizer
     {
         readonly static string DiagnosisAutoLoggerFolder = Path.Combine(CleanHelper.ProgramData, @"Microsoft\Diagnosis\ETLLogs\AutoLogger");
 
+      
+
         internal static void DisableTelemetryRunner()
         {
-            Registry.SetValue(
-               @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\CompatTelRunner.exe",
-               "Debugger", @"%windir%\System32\taskkill.exe"
-            );
-
-            Registry.SetValue(
-                @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DeviceCensus.exe",
-                "Debugger", @"%windir%\System32\taskkill.exe"
-            );
+            Utilities.PreventProcessFromRunning("CompatTelRunner.exe");
+            Utilities.PreventProcessFromRunning("DeviceCensus.exe");
         }
 
         internal static void EnablePerformanceTweaks()
@@ -1624,10 +1619,7 @@ namespace Optimizer
         // CHROME TELEMETRY + SOFTWARE REPORTER TOOL
         internal static void DisableChromeTelemetry()
         {
-            Registry.SetValue(
-               @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\software_reporter_tool.exe",
-               "Debugger", @"%windir%\System32\taskkill.exe"
-            );
+            Utilities.PreventProcessFromRunning("software_reporter_tool.exe");
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome", "MetricsReportingEnabled", 0);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome", "ChromeCleanupReportingEnabled", 0);
