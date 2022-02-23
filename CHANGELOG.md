@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [11.9] - 2022-02-23
+- Hotfix: Permissions issue on Windows 11 (#97)
+
 ## [11.8] - 2022-02-21
 - New: Restart in normal and minimal safe-mode from command-line
 - Hotfix: Faster network monitoring initialization
