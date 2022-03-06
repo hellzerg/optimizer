@@ -97,6 +97,7 @@
         PT,  // portuguese
         FR, // french
         IT, // italian
-        CN // chinese
+        CN, // chinese
+        CZ // czech
     }
 }

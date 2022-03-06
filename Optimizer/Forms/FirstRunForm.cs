@@ -8,6 +8,7 @@ namespace Optimizer
         public FirstRunForm()
         {
             InitializeComponent();
+            Options.ApplyTheme(this);
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -136,6 +137,18 @@ namespace Optimizer
         private void radioChinese_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.LanguageCode = LanguageCode.CN;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            radioCzech.PerformClick();
+        }
+
+        private void radioCzech_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.CZ;
             Options.SaveSettings();
             Options.LoadTranslation();
         }

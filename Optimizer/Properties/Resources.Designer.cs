@@ -88,6 +88,26 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brazil {
+            get {
+                object obj = ResourceManager.GetObject("brazil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap china {
+            get {
+                object obj = ResourceManager.GetObject("china", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;btnAbout&quot;: &quot;确定&quot;,
         ///	&quot;restartButton&quot;: &quot;现在重启&quot;,
@@ -111,6 +131,38 @@ namespace Optimizer.Properties {
         internal static string CN {
             get {
                 return ResourceManager.GetString("CN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;btnAbout&quot;: &quot;OK&quot;,
+        ///	&quot;restartButton&quot;: &quot;Restartovat nyní&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Restartovat nyní&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Restartovat nyní&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Restartovat a použít změny?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Verze: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Pracujete s {BITS}&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;Dostupná aktualizace&quot;,
+        ///	&quot;lblLab&quot;: &quot;Experimentální sestavení\n(po testování smazat)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Povolit vylepšení výkonu&quot;,
+        ///	&quot;networkSw&quot;: &quot;Zakázat omezení sítě&quot;,
+        ///	&quot;defenderSw&quot;: &quot;Zakázat Windows Defender&quot;,
+        ///	&quot;systemRestore [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CZ {
+            get {
+                return ResourceManager.GetString("CZ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap czech {
+            get {
+                object obj = ResourceManager.GetObject("czech", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -410,6 +462,26 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap france {
+            get {
+                object obj = ResourceManager.GetObject("france", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap germany {
+            get {
+                object obj = ResourceManager.GetObject("germany", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to @echo off 
         ///pushd &quot;%~dp0&quot; 
         ///dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &gt;List.txt 
@@ -420,6 +492,16 @@ namespace Optimizer.Properties {
         internal static string GPEditEnablerInHome {
             get {
                 return ResourceManager.GetString("GPEditEnablerInHome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap greece {
+            get {
+                object obj = ResourceManager.GetObject("greece", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -475,6 +557,16 @@ namespace Optimizer.Properties {
         internal static string IT {
             get {
                 return ResourceManager.GetString("IT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap italy {
+            get {
+                object obj = ResourceManager.GetObject("italy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -577,6 +669,26 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap russia {
+            get {
+                object obj = ResourceManager.GetObject("russia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spain {
+            get {
+                object obj = ResourceManager.GetObject("spain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
         ///
         ///[HKEY_CLASSES_ROOT\DesktopBackground\Shell\SystemShortcuts]
@@ -637,6 +749,26 @@ namespace Optimizer.Properties {
         internal static string TR {
             get {
                 return ResourceManager.GetString("TR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap turkey {
+            get {
+                object obj = ResourceManager.GetObject("turkey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap united_kingdom {
+            get {
+                object obj = ResourceManager.GetObject("united_kingdom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

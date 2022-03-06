@@ -274,6 +274,7 @@
     </Compile>
     <None Include="Resources\AddOpenWithCMD.reg" />
     <None Include="Resources\CN.json" />
+    <None Include="Resources\CZ.json" />
     <None Include="Resources\DE.json" />
     <None Include="Resources\DesktopShortcuts.reg" />
     <None Include="Resources\DisableDefenderSafeMode1903Plus.bat" />
@@ -333,6 +334,17 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\united-kingdom.png" />
+    <None Include="Resources\turkey.png" />
+    <None Include="Resources\spain.png" />
+    <None Include="Resources\russia.png" />
+    <None Include="Resources\italy.png" />
+    <None Include="Resources\greece.png" />
+    <None Include="Resources\germany.png" />
+    <None Include="Resources\france.png" />
+    <None Include="Resources\czech.png" />
+    <None Include="Resources\china.png" />
+    <None Include="Resources\brazil.png" />
     <None Include="Resources\optimiz.png" />
     <None Include="Resources\logo.png" />
     <EmbeddedResource Include="Newtonsoft.Json.dll" />

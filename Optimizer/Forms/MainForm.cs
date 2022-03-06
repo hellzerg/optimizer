@@ -843,6 +843,12 @@ namespace Optimizer
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.CZ)
+            {
+                radioCzech.Checked = true;
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
 
             Program._MainForm = this;
 
@@ -4109,6 +4115,24 @@ namespace Optimizer
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(_discordLink);
+        }
+
+        private void pictureBox15_Click(object sender, EventArgs e)
+        {
+            radioCzech.PerformClick();
+        }
+
+        private void radioCzech_Click(object sender, EventArgs e)
+        {
+            radioCzech.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.CZ;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
         }
     }
 }

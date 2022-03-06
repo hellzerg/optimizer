@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [12.0] - 2022-03-06
+- New: Fully translated into Czech (thanks to https://github.com/tomlonghorn - Tom Longhorn)
+
 ## [11.9] - 2022-02-23
 - Hotfix: Permissions issue on Windows 11 (#97)
 

@@ -10,14 +10,14 @@ Optimizer is recommended after a fresh, clean installation of Windows to achieve
 
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/11.9/Optimizer-11.9.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/12.0/Optimizer-12.0.exe" target="_blank">
 		<img src="download-button.png">
 		<br>
 		<img src="flags.png">
 	</a>
 </p> 
 
-* Full multilingual support (10 languages available)
+* Full multilingual support (11 languages available)
 * Speed up your system and network performance
 * Disable unnecessary Windows services
 * Disable Windows telemetry
@@ -78,12 +78,13 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * https://github.com/RAFF47 - RAFF for French translation
 * https://github.com/Ziocash - Ziocash for Italian translation
 * https://github.com/btwise - btwise for Chinese translation
+* https://github.com/tomlonghorn - Tom Longhorn for Czech translation
 
 ## How to include an app in Common Apps - Pull Request
 https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 11.9
-* Released: February 23, 2022
-* SHA256: 241D411AFFE5D2B4BD628818CEEE6E7DF3DBAC68A34F45301C58E62A32738F8D
+* Latest version: 12.0
+* Released: March 6, 2022
+* SHA256: F723CC3C8347A9586CB66353D36A33E8C9C3DFCF548D5DB6E7001CEE674348CB
