@@ -362,7 +362,7 @@ namespace Optimizer
             this.radioCzech.Size = new System.Drawing.Size(81, 25);
             this.radioCzech.TabIndex = 102;
             this.radioCzech.Tag = "";
-            this.radioCzech.Text = "Ceština";
+            this.radioCzech.Text = "Čeština";
             this.radioCzech.UseVisualStyleBackColor = true;
             this.radioCzech.CheckedChanged += new System.EventHandler(this.radioCzech_CheckedChanged);
             // 
