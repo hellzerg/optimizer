@@ -11,7 +11,7 @@ Optimizer is recommended after a fresh, clean installation of Windows to achieve
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 <p align="center">
 	<a href="https://github.com/hellzerg/optimizer/releases/download/12.0/Optimizer-12.0.exe" target="_blank">
-		<img src="download-button.png">
+		<img src="https://cdn.discordapp.com/attachments/840247220405927963/952717627040628777/downloadmadebyjisll.png">
 		<br>
 		<img src="flags.png">
 	</a>
