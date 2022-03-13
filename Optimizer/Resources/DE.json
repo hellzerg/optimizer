@@ -5,7 +5,7 @@
 	"restartButton10": "Jetzt neustarten",
 	"restartAndApply": "Neustarten, um Änderungen anzuwenden?",
 	"txtVersion": "Version: {VN}",
-	"txtBitness": "SBetriebssystem: {BITS}",
+	"txtBitness": "Betriebssystem: {BITS}",
 	"linkUpdate": "Update verfügbar",
 	"lblLab": "Experimenteller Build\n(nach dem Testen löschen)",
 	"performanceSw": "Leistungsoptimierungen aktivieren",
