@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="banner.png">
+   <img src="https://cdn.discordapp.com/attachments/840247220405927963/952717059387711508/banneroptimizerbyjisll.png">
 </p> 
 
 ## Summary: ##
