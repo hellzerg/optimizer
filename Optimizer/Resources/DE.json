@@ -221,7 +221,7 @@
 	"removeCCB": "Entfernen",
 	"removeCCL": "Vorhandene Befehle entfernen",
 	"btnCreateCustomCommand": "Erstellen",
-	"ccSchlüsselwortL": "Schlüsselwort",
+	"ccKeywordL": "Schlüsselwort",
 	"ccFileL": "Dateispeicherort",
 	"ccL": "Definieren Sie Ihre eigenen Ausführungsbefehle",
 	"btnYes": "Ja",
