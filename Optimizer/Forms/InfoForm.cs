@@ -37,11 +37,6 @@ namespace Optimizer
             }
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void Info_Load(object sender, EventArgs e)
         {
 
@@ -54,6 +49,11 @@ namespace Optimizer
                 Clipboard.SetText(txtInfo.Text);
             }
             catch { }
+        }
+
+        private void btnOK_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -30,11 +30,11 @@ namespace Optimizer
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkSelectAll = new System.Windows.Forms.LinkLabel();
             this.cancelBackup = new System.Windows.Forms.Button();
             this.cleanDriveB = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.listPreview = new Optimizer.MoonCheckList();
-            this.checkSelectAll = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -51,10 +51,26 @@ namespace Optimizer
             this.panel2.Size = new System.Drawing.Size(834, 38);
             this.panel2.TabIndex = 1;
             // 
+            // checkSelectAll
+            // 
+            this.checkSelectAll.AutoSize = true;
+            this.checkSelectAll.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkSelectAll.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.checkSelectAll.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.checkSelectAll.Location = new System.Drawing.Point(2, 7);
+            this.checkSelectAll.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.checkSelectAll.Name = "checkSelectAll";
+            this.checkSelectAll.Size = new System.Drawing.Size(75, 21);
+            this.checkSelectAll.TabIndex = 87;
+            this.checkSelectAll.TabStop = true;
+            this.checkSelectAll.Tag = "themeable";
+            this.checkSelectAll.Text = "Select all";
+            this.checkSelectAll.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.checkSelectAll_LinkClicked);
+            // 
             // cancelBackup
             // 
             this.cancelBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelBackup.BackColor = System.Drawing.Color.DodgerBlue;
+            this.cancelBackup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.cancelBackup.FlatAppearance.BorderSize = 0;
             this.cancelBackup.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.cancelBackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -73,7 +89,7 @@ namespace Optimizer
             // cleanDriveB
             // 
             this.cleanDriveB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cleanDriveB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.cleanDriveB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.cleanDriveB.FlatAppearance.BorderSize = 0;
             this.cleanDriveB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.cleanDriveB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -111,22 +127,6 @@ namespace Optimizer
             this.listPreview.Name = "listPreview";
             this.listPreview.Size = new System.Drawing.Size(832, 524);
             this.listPreview.TabIndex = 0;
-            // 
-            // checkSelectAll
-            // 
-            this.checkSelectAll.AutoSize = true;
-            this.checkSelectAll.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkSelectAll.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.checkSelectAll.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.checkSelectAll.Location = new System.Drawing.Point(2, 7);
-            this.checkSelectAll.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.checkSelectAll.Name = "checkSelectAll";
-            this.checkSelectAll.Size = new System.Drawing.Size(75, 21);
-            this.checkSelectAll.TabIndex = 87;
-            this.checkSelectAll.TabStop = true;
-            this.checkSelectAll.Tag = "themeable";
-            this.checkSelectAll.Text = "Select all";
-            this.checkSelectAll.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.checkSelectAll_LinkClicked);
             // 
             // CleanPreviewForm
             // 

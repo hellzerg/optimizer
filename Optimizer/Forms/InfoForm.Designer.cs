@@ -28,30 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOK = new System.Windows.Forms.Button();
             this.txtInfo = new System.Windows.Forms.TextBox();
             this.copyIPB = new System.Windows.Forms.Button();
+            this.btnOK = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnOK
-            // 
-            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnOK.FlatAppearance.BorderSize = 0;
-            this.btnOK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOK.ForeColor = System.Drawing.Color.White;
-            this.btnOK.Location = new System.Drawing.Point(522, 492);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(2);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(159, 31);
-            this.btnOK.TabIndex = 32;
-            this.btnOK.Tag = "themeable";
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = false;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // txtInfo
             // 
@@ -75,7 +55,7 @@
             // copyIPB
             // 
             this.copyIPB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.copyIPB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.copyIPB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.copyIPB.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.copyIPB.FlatAppearance.BorderSize = 0;
             this.copyIPB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
@@ -92,17 +72,35 @@
             this.copyIPB.UseVisualStyleBackColor = false;
             this.copyIPB.Click += new System.EventHandler(this.copyIPB_Click);
             // 
+            // btnOK
+            // 
+            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.btnOK.FlatAppearance.BorderSize = 0;
+            this.btnOK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOK.ForeColor = System.Drawing.Color.White;
+            this.btnOK.Location = new System.Drawing.Point(522, 492);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(159, 31);
+            this.btnOK.TabIndex = 35;
+            this.btnOK.Tag = "themeable";
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click_1);
+            // 
             // InfoForm
             // 
-            this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CancelButton = this.btnOK;
             this.ClientSize = new System.Drawing.Size(692, 534);
+            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.copyIPB);
             this.Controls.Add(this.txtInfo);
-            this.Controls.Add(this.btnOK);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -120,9 +118,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.TextBox txtInfo;
         private System.Windows.Forms.Button copyIPB;
+        private System.Windows.Forms.Button btnOK;
     }
 }

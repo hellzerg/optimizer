@@ -65,12 +65,6 @@ namespace Optimizer
             this.Close();
         }
 
-        private void btnYes_Click(object sender, EventArgs e)
-        {
-            Confirm();
-            this.Close();
-        }
-
         private void Messager_Load(object sender, EventArgs e)
         {
             CheckForIllegalCrossThreadCalls = false;
@@ -94,5 +88,10 @@ namespace Optimizer
             }
         }
 
+        private void btnYes_Click_1(object sender, EventArgs e)
+        {
+            Confirm();
+            this.Close();
+        }
     }
 }

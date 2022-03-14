@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.lblMessage = new System.Windows.Forms.Label();
-            this.btnYes = new System.Windows.Forms.Button();
             this.btnNo = new System.Windows.Forms.Button();
+            this.btnYes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMessage
@@ -43,30 +43,10 @@
             this.lblMessage.TabIndex = 0;
             this.lblMessage.Text = "Restart to apply changes?";
             // 
-            // btnYes
-            // 
-            this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnYes.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnYes.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnYes.FlatAppearance.BorderSize = 0;
-            this.btnYes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnYes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnYes.ForeColor = System.Drawing.Color.White;
-            this.btnYes.Location = new System.Drawing.Point(358, 128);
-            this.btnYes.Margin = new System.Windows.Forms.Padding(2);
-            this.btnYes.Name = "btnYes";
-            this.btnYes.Size = new System.Drawing.Size(96, 31);
-            this.btnYes.TabIndex = 31;
-            this.btnYes.Tag = "themeable";
-            this.btnYes.Text = "Yes";
-            this.btnYes.UseVisualStyleBackColor = false;
-            this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
-            // 
             // btnNo
             // 
             this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.btnNo.DialogResult = System.Windows.Forms.DialogResult.No;
             this.btnNo.FlatAppearance.BorderSize = 0;
             this.btnNo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
@@ -83,16 +63,35 @@
             this.btnNo.UseVisualStyleBackColor = false;
             this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
             // 
+            // btnYes
+            // 
+            this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnYes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.btnYes.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnYes.FlatAppearance.BorderSize = 0;
+            this.btnYes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnYes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnYes.ForeColor = System.Drawing.Color.White;
+            this.btnYes.Location = new System.Drawing.Point(357, 127);
+            this.btnYes.Margin = new System.Windows.Forms.Padding(2);
+            this.btnYes.Name = "btnYes";
+            this.btnYes.Size = new System.Drawing.Size(96, 31);
+            this.btnYes.TabIndex = 33;
+            this.btnYes.Tag = "themeable";
+            this.btnYes.Text = "Yes";
+            this.btnYes.UseVisualStyleBackColor = false;
+            this.btnYes.Click += new System.EventHandler(this.btnYes_Click_1);
+            // 
             // HelperForm
             // 
-            this.AcceptButton = this.btnYes;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnNo;
             this.ClientSize = new System.Drawing.Size(463, 169);
-            this.Controls.Add(this.btnNo);
             this.Controls.Add(this.btnYes);
+            this.Controls.Add(this.btnNo);
             this.Controls.Add(this.lblMessage);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ForeColor = System.Drawing.Color.White;
@@ -112,7 +111,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblMessage;
-        private System.Windows.Forms.Button btnYes;
         private System.Windows.Forms.Button btnNo;
+        private System.Windows.Forms.Button btnYes;
     }
 }
