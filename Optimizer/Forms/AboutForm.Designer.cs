@@ -1,4 +1,4 @@
-﻿namespace Optimizer
+namespace Optimizer
 {
     partial class AboutForm
     {
@@ -32,9 +32,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.l1 = new System.Windows.Forms.Label();
             this.l2 = new System.Windows.Forms.LinkLabel();
-            this.btnAbout = new System.Windows.Forms.Button();
             this.t1 = new System.Windows.Forms.Timer(this.components);
             this.t2 = new System.Windows.Forms.Timer(this.components);
+            this.btnAbout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,26 +73,6 @@
             this.l2.Tag = "themeable";
             this.l2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.l2_LinkClicked);
             // 
-            // btnAbout
-            // 
-            this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbout.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAbout.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAbout.FlatAppearance.BorderSize = 0;
-            this.btnAbout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAbout.ForeColor = System.Drawing.Color.White;
-            this.btnAbout.Location = new System.Drawing.Point(274, 10);
-            this.btnAbout.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(103, 31);
-            this.btnAbout.TabIndex = 36;
-            this.btnAbout.Tag = "themeable";
-            this.btnAbout.Text = "OK";
-            this.btnAbout.UseVisualStyleBackColor = false;
-            this.btnAbout.Click += new System.EventHandler(this.button7_Click);
-            // 
             // t1
             // 
             this.t1.Interval = 350;
@@ -103,13 +83,29 @@
             this.t2.Interval = 350;
             this.t2.Tick += new System.EventHandler(this.t2_Tick);
             // 
+            // btnAbout
+            // 
+            this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.btnAbout.FlatAppearance.BorderSize = 0;
+            this.btnAbout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbout.ForeColor = System.Drawing.Color.White;
+            this.btnAbout.Location = new System.Drawing.Point(271, 10);
+            this.btnAbout.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(105, 31);
+            this.btnAbout.TabIndex = 37;
+            this.btnAbout.Tag = "themeable";
+            this.btnAbout.Text = "OK";
+            this.btnAbout.UseVisualStyleBackColor = false;
+            // 
             // AboutForm
             // 
-            this.AcceptButton = this.btnAbout;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CancelButton = this.btnAbout;
             this.ClientSize = new System.Drawing.Size(387, 108);
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.l2);
@@ -138,8 +134,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label l1;
         private System.Windows.Forms.LinkLabel l2;
-        private System.Windows.Forms.Button btnAbout;
         private System.Windows.Forms.Timer t1;
         private System.Windows.Forms.Timer t2;
+        private System.Windows.Forms.Button btnAbout;
     }
 }
