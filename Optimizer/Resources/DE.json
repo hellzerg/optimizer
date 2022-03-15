@@ -126,7 +126,7 @@
 	"lblDomain": "Domain",
 	"chkBlock": "Blockieren",
 	"addHostB": "Hinzufügen",
-	"lblLock": "Sperren Sie die HOSTS-Datei, um die zu schützen",
+	"lblLock": "Sperren Sie die HOSTS-Datei, um sie zu schützen",
 	"chkReadOnly": "Schreibgeschützt",
 	"lblAdblock": "Vorgefertigte Adblocker",
 	"lblAdblockSub": "(wird Ihre aktuelle Konfiguration löschen)",
@@ -158,7 +158,7 @@
 	"radioLime": "Limette",
 	"radioMinimal": "Minimal",
 	"lblUpdating": "Prüfen && aktualisieren",
-	"btnUpdate": "Auf Update prüfen",
+	"btnUpdate": "Auf Updates prüfen",
 	"btnChangelog": "Änderungen anzeigen",
 	"lblUpdateDisabled": "Deaktiviert in experimentellen Builds",
 	"lblTroubleshoot": "Fehlersuche",
@@ -179,7 +179,7 @@
 	"tabPage11": "Dialog ausführen",
 	"addItemL": "Ein Element hinzufügen oder ändern",
 	"itemtype": "Elementtyp",
-	"radioProgramm": "Programm",
+	"radioProgram": "Programm",
 	"radioFolder": "Ordner",
 	"radioLink": "Link",
 	"radioFile": "Datei",
@@ -307,10 +307,11 @@
 	"physicalAdapters": "Physische Adapter",
 	"virtualAdapters": "Virtuelle Adapter",
 	"keyboards": "Tastaturen",
-	"pointings": "Zeigegerate",
+	"pointings": "Zeigegeräte",
 	"performanceTip": "Sammlung von internen Windows-Einstellungen zur Leistungsoptimierung. Völlig sicher in der Anwendung.
 
-- Verringert die Wartezeit vor dem Beenden von nicht reagierenden Prozessen.
+- Verringert 
+	Wartezeit vor dem Beenden von nicht reagierenden Prozessen.
 - Verringert die Verzögerung der Menüanzeige.
 - Deaktiviert die Benachrichtigung bei geringem Speicherplatz.
 - Deaktiviert die Funktion Schütteln zum Minimieren.
@@ -324,7 +325,7 @@ Windows Defender ist der integrierte Virenschutz in Windows-Systemen.",
 	"systemRestoreTip": "Die Systemwiederherstellung ist eine Funktion, mit der der jetzige Zustand von Windows auf einen früheren Zustand zurückgesetzt werden kann, um Fehlfunktionen oder anderen Problemen zu lösen.",
 	"reportingTip": "Die Fehlerberichterstattung sammelt Anwendungsabstürze und -fehler und sendet sie an Microsoft.",
 	"telemetryTasksTip": "Telemetrie-Dienste senden in regelmäßigen Abständen Nutzungs- und Leistungsdaten an Microsoft, um zukünftige Verbesserungen zu ermöglichen.",
-	"officeTelemetryTip": "Office-Telemetrie-Dienste sendeen regelmäßig Nutzungs- und Leistungsdaten an Microsoft, für künftige Verbesserungen.",
+	"officeTelemetryTip": "Office-Telemetrie-Dienste senden regelmäßig Nutzungs- und Leistungsdaten an Microsoft, für künftige Verbesserungen.",
 	"ffTelemetryTip": "Deaktiviert Mozilla Firefox Telemetrie- und Datenberichtsdienste.",
 	"vsTip": "Deaktiviert Telemetrie- und Feedback-Funktionen von Visual Studio, einschließlich des SQM-Clients.",
 	"chromeTelemetryTip": "Deaktiviert das Telemetrie- und Software-Berichtstool von Google Chrome.
@@ -341,7 +342,7 @@ Windows Defender ist der integrierte Virenschutz in Windows-Systemen.",
 	"oldExplorerTip": "Deaktiviert den Zugriff und entfernt das häufig verwendete Bedienfeld Dateien im Windows Explorer.",
 	"adsTip": "Verhindert die Anzeige von Werbung im Startmenü",
 	"uODTip": "Entfernt die OneDrive-Cloudspeicher-Integration vollständig.",
-	"peopleTip": "My people ist eine neue Funktion, die aktuelle Kontakte in der Taskleiste anzeigt.",
+	"peopleTip": "My People ist eine neue Funktion, die aktuelle Kontakte in der Taskleiste anzeigt.",
 	"longPathsTip": "Entfernt die maximale Pfadlängenbegrenzung von 256 Zeichen.",
 	"inkTip": "Windows Ink fügt Unterstützung für digitale Stifte zum Zeichnen auf dem Bildschirm hinzu.",
 	"spellTip": "Nur Touch-Tastatur-Funktionen wie:
