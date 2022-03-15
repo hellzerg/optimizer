@@ -55,7 +55,7 @@ namespace Optimizer
             // 
             this.checkSelectAll.AutoSize = true;
             this.checkSelectAll.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkSelectAll.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.checkSelectAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.checkSelectAll.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.checkSelectAll.Location = new System.Drawing.Point(2, 7);
             this.checkSelectAll.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);

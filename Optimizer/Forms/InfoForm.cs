@@ -37,6 +37,11 @@ namespace Optimizer
             }
         }
 
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void Info_Load(object sender, EventArgs e)
         {
 

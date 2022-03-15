@@ -51,8 +51,6 @@ namespace Optimizer
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.radioChinese = new Optimizer.MoonnRadio();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.radioCzech = new Optimizer.MoonnRadio();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox88)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox86)).BeginInit();
@@ -63,12 +61,11 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox88
             // 
-            this.pictureBox88.Image = global::Optimizer.Properties.Resources.greece;
+            this.pictureBox88.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox88.Image")));
             this.pictureBox88.Location = new System.Drawing.Point(12, 70);
             this.pictureBox88.Name = "pictureBox88";
             this.pictureBox88.Size = new System.Drawing.Size(36, 22);
@@ -79,7 +76,7 @@ namespace Optimizer
             // 
             // pictureBox87
             // 
-            this.pictureBox87.Image = global::Optimizer.Properties.Resources.russia;
+            this.pictureBox87.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox87.Image")));
             this.pictureBox87.Location = new System.Drawing.Point(12, 41);
             this.pictureBox87.Name = "pictureBox87";
             this.pictureBox87.Size = new System.Drawing.Size(36, 22);
@@ -90,7 +87,7 @@ namespace Optimizer
             // 
             // pictureBox86
             // 
-            this.pictureBox86.Image = global::Optimizer.Properties.Resources.united_kingdom;
+            this.pictureBox86.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox86.Image")));
             this.pictureBox86.Location = new System.Drawing.Point(12, 12);
             this.pictureBox86.Name = "pictureBox86";
             this.pictureBox86.Size = new System.Drawing.Size(36, 22);
@@ -112,7 +109,7 @@ namespace Optimizer
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.White;
-            this.btnStart.Location = new System.Drawing.Point(11, 200);
+            this.btnStart.Location = new System.Drawing.Point(11, 176);
             this.btnStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(289, 31);
@@ -124,7 +121,7 @@ namespace Optimizer
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Optimizer.Properties.Resources.turkey;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(158, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(36, 22);
@@ -135,7 +132,7 @@ namespace Optimizer
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Optimizer.Properties.Resources.germany;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(12, 99);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(36, 22);
@@ -146,7 +143,7 @@ namespace Optimizer
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Optimizer.Properties.Resources.spain;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(158, 39);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(36, 22);
@@ -157,7 +154,7 @@ namespace Optimizer
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::Optimizer.Properties.Resources.brazil;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(158, 68);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(36, 22);
@@ -168,7 +165,7 @@ namespace Optimizer
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::Optimizer.Properties.Resources.france;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(159, 97);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(36, 22);
@@ -316,7 +313,7 @@ namespace Optimizer
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::Optimizer.Properties.Resources.italy;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(12, 128);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(36, 22);
@@ -342,7 +339,7 @@ namespace Optimizer
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::Optimizer.Properties.Resources.china;
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(159, 128);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(36, 22);
@@ -351,32 +348,6 @@ namespace Optimizer
             this.pictureBox7.TabStop = false;
             this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
-            // radioCzech
-            // 
-            this.radioCzech.AutoSize = true;
-            this.radioCzech.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
-            this.radioCzech.ForeColor = System.Drawing.Color.White;
-            this.radioCzech.Location = new System.Drawing.Point(53, 156);
-            this.radioCzech.Margin = new System.Windows.Forms.Padding(2);
-            this.radioCzech.Name = "radioCzech";
-            this.radioCzech.Size = new System.Drawing.Size(81, 25);
-            this.radioCzech.TabIndex = 102;
-            this.radioCzech.Tag = "";
-            this.radioCzech.Text = "Čeština";
-            this.radioCzech.UseVisualStyleBackColor = true;
-            this.radioCzech.CheckedChanged += new System.EventHandler(this.radioCzech_CheckedChanged);
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::Optimizer.Properties.Resources.czech;
-            this.pictureBox8.Location = new System.Drawing.Point(12, 157);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(36, 22);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 101;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
-            // 
             // FirstRunForm
             // 
             this.AcceptButton = this.btnStart;
@@ -384,9 +355,7 @@ namespace Optimizer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnStart;
-            this.ClientSize = new System.Drawing.Size(311, 242);
-            this.Controls.Add(this.radioCzech);
-            this.Controls.Add(this.pictureBox8);
+            this.ClientSize = new System.Drawing.Size(311, 218);
             this.Controls.Add(this.radioChinese);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.radioItalian);
@@ -430,7 +399,6 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,7 +427,5 @@ namespace Optimizer
         private System.Windows.Forms.PictureBox pictureBox6;
         private MoonnRadio radioChinese;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private MoonnRadio radioCzech;
-        private System.Windows.Forms.PictureBox pictureBox8;
     }
 }

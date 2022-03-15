@@ -92,14 +92,15 @@
             this.btnAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbout.ForeColor = System.Drawing.Color.White;
-            this.btnAbout.Location = new System.Drawing.Point(271, 10);
+            this.btnAbout.Location = new System.Drawing.Point(273, 11);
             this.btnAbout.Margin = new System.Windows.Forms.Padding(2);
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(105, 31);
+            this.btnAbout.Size = new System.Drawing.Size(103, 31);
             this.btnAbout.TabIndex = 37;
             this.btnAbout.Tag = "themeable";
             this.btnAbout.Text = "OK";
             this.btnAbout.UseVisualStyleBackColor = false;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
             // AboutForm
             // 

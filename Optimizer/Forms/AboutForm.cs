@@ -14,11 +14,6 @@ namespace Optimizer
             btnAbout.Text = Options.TranslationList["btnAbout"].ToString();
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void About_Load(object sender, EventArgs e)
         {
             t1.Interval = 50;
@@ -133,6 +128,11 @@ namespace Optimizer
         private void l2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/hellzerg/optimizer");
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
