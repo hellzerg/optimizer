@@ -32,14 +32,14 @@ namespace Optimizer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Processors", 0, 0);
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Memory", 1, 1);
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Graphics", 2, 2);
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Motherboard", 3, 3);
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Storage", 4, 4);
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Network Adapters", 5, 5);
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Audio", 6, 6);
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Peripherals", 7, 7);
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Processors", 0, 0);
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Memory", 1, 1);
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Graphics", 2, 2);
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Motherboard", 3, 3);
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Storage", 4, 4);
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Network Adapters", 5, 5);
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Audio", 6, 6);
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Peripherals", 7, 7);
             this.tpanel = new System.Windows.Forms.Panel();
             this.picLab = new System.Windows.Forms.PictureBox();
             this.picUpdate = new System.Windows.Forms.PictureBox();
@@ -560,7 +560,7 @@ namespace Optimizer
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::Optimizer.Properties.Resources.logo;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(10, 10);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
@@ -1394,7 +1394,7 @@ namespace Optimizer
             // 
             // uninstallModernAppsButton
             // 
-            this.uninstallModernAppsButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.uninstallModernAppsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.uninstallModernAppsButton.FlatAppearance.BorderSize = 0;
             this.uninstallModernAppsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.uninstallModernAppsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -1411,7 +1411,7 @@ namespace Optimizer
             // 
             // refreshModernAppsButton
             // 
-            this.refreshModernAppsButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.refreshModernAppsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.refreshModernAppsButton.FlatAppearance.BorderSize = 0;
             this.refreshModernAppsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.refreshModernAppsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -1430,7 +1430,7 @@ namespace Optimizer
             // 
             this.txtModernAppsTitle.AutoSize = true;
             this.txtModernAppsTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModernAppsTitle.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.txtModernAppsTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.txtModernAppsTitle.Location = new System.Drawing.Point(6, 10);
             this.txtModernAppsTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtModernAppsTitle.Name = "txtModernAppsTitle";
@@ -1717,7 +1717,7 @@ namespace Optimizer
             // 
             this.startupTitle.AutoSize = true;
             this.startupTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startupTitle.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.startupTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.startupTitle.Location = new System.Drawing.Point(6, 10);
             this.startupTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.startupTitle.Name = "startupTitle";
@@ -1860,7 +1860,7 @@ namespace Optimizer
             // 
             this.appsTitle.AutoSize = true;
             this.appsTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appsTitle.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.appsTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.appsTitle.Location = new System.Drawing.Point(5, 7);
             this.appsTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.appsTitle.Name = "appsTitle";
@@ -1871,7 +1871,7 @@ namespace Optimizer
             // 
             // btnGetFeed
             // 
-            this.btnGetFeed.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGetFeed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnGetFeed.FlatAppearance.BorderSize = 0;
             this.btnGetFeed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnGetFeed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -2105,7 +2105,7 @@ namespace Optimizer
             // 
             this.cleanerTitle.AutoSize = true;
             this.cleanerTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cleanerTitle.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.cleanerTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.cleanerTitle.Location = new System.Drawing.Point(6, 10);
             this.cleanerTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cleanerTitle.Name = "cleanerTitle";
@@ -2454,7 +2454,7 @@ namespace Optimizer
             // 
             // cleanDriveB
             // 
-            this.cleanDriveB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.cleanDriveB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.cleanDriveB.FlatAppearance.BorderSize = 0;
             this.cleanDriveB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.cleanDriveB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -2554,7 +2554,7 @@ namespace Optimizer
             // 
             // btnOpenNetwork
             // 
-            this.btnOpenNetwork.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnOpenNetwork.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnOpenNetwork.FlatAppearance.BorderSize = 0;
             this.btnOpenNetwork.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOpenNetwork.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -2573,8 +2573,8 @@ namespace Optimizer
             // 
             this.txtIPv6A.AutoSize = true;
             this.txtIPv6A.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPv6A.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.txtIPv6A.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.txtIPv6A.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.txtIPv6A.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.txtIPv6A.Location = new System.Drawing.Point(618, 335);
             this.txtIPv6A.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtIPv6A.Name = "txtIPv6A";
@@ -2589,8 +2589,8 @@ namespace Optimizer
             // 
             this.txtIPv6.AutoSize = true;
             this.txtIPv6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPv6.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.txtIPv6.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.txtIPv6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.txtIPv6.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.txtIPv6.Location = new System.Drawing.Point(618, 311);
             this.txtIPv6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtIPv6.Name = "txtIPv6";
@@ -2618,8 +2618,8 @@ namespace Optimizer
             // 
             this.txtIPv4A.AutoSize = true;
             this.txtIPv4A.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPv4A.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.txtIPv4A.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.txtIPv4A.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.txtIPv4A.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.txtIPv4A.Location = new System.Drawing.Point(618, 271);
             this.txtIPv4A.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtIPv4A.Name = "txtIPv4A";
@@ -2647,8 +2647,8 @@ namespace Optimizer
             // 
             this.txtIPv4.AutoSize = true;
             this.txtIPv4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPv4.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.txtIPv4.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.txtIPv4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.txtIPv4.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.txtIPv4.Location = new System.Drawing.Point(618, 247);
             this.txtIPv4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtIPv4.Name = "txtIPv4";
@@ -2674,7 +2674,7 @@ namespace Optimizer
             // 
             // flushCacheB
             // 
-            this.flushCacheB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.flushCacheB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.flushCacheB.FlatAppearance.BorderSize = 0;
             this.flushCacheB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.flushCacheB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -2691,7 +2691,7 @@ namespace Optimizer
             // 
             // btnExport
             // 
-            this.btnExport.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnExport.FlatAppearance.BorderSize = 0;
             this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -2708,7 +2708,7 @@ namespace Optimizer
             // 
             // copyB
             // 
-            this.copyB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.copyB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.copyB.FlatAppearance.BorderSize = 0;
             this.copyB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.copyB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -2725,7 +2725,7 @@ namespace Optimizer
             // 
             // copyIPB
             // 
-            this.copyIPB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.copyIPB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.copyIPB.FlatAppearance.BorderSize = 0;
             this.copyIPB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.copyIPB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -2781,7 +2781,7 @@ namespace Optimizer
             // 
             // btnShodan
             // 
-            this.btnShodan.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnShodan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnShodan.FlatAppearance.BorderSize = 0;
             this.btnShodan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnShodan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -2798,7 +2798,7 @@ namespace Optimizer
             // 
             // btnPing
             // 
-            this.btnPing.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnPing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnPing.FlatAppearance.BorderSize = 0;
             this.btnPing.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnPing.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -2844,7 +2844,7 @@ namespace Optimizer
             // 
             this.pingerTitle.AutoSize = true;
             this.pingerTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pingerTitle.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.pingerTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.pingerTitle.Location = new System.Drawing.Point(6, 10);
             this.pingerTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.pingerTitle.Name = "pingerTitle";
@@ -2932,7 +2932,7 @@ namespace Optimizer
             // lblAdblock
             // 
             this.lblAdblock.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdblock.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblAdblock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.lblAdblock.Location = new System.Drawing.Point(322, 254);
             this.lblAdblock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAdblock.Name = "lblAdblock";
@@ -2962,7 +2962,7 @@ namespace Optimizer
             // 
             // adblockUlti
             // 
-            this.adblockUlti.BackColor = System.Drawing.Color.DodgerBlue;
+            this.adblockUlti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.adblockUlti.FlatAppearance.BorderSize = 0;
             this.adblockUlti.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.adblockUlti.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -2979,7 +2979,7 @@ namespace Optimizer
             // 
             // adblockP
             // 
-            this.adblockP.BackColor = System.Drawing.Color.DodgerBlue;
+            this.adblockP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.adblockP.FlatAppearance.BorderSize = 0;
             this.adblockP.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.adblockP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -2996,7 +2996,7 @@ namespace Optimizer
             // 
             // adblockS
             // 
-            this.adblockS.BackColor = System.Drawing.Color.DodgerBlue;
+            this.adblockS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.adblockS.FlatAppearance.BorderSize = 0;
             this.adblockS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.adblockS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -3013,7 +3013,7 @@ namespace Optimizer
             // 
             // adblockBasic
             // 
-            this.adblockBasic.BackColor = System.Drawing.Color.DodgerBlue;
+            this.adblockBasic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.adblockBasic.FlatAppearance.BorderSize = 0;
             this.adblockBasic.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.adblockBasic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -3096,7 +3096,7 @@ namespace Optimizer
             // 
             // refreshHostsB
             // 
-            this.refreshHostsB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.refreshHostsB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.refreshHostsB.FlatAppearance.BorderSize = 0;
             this.refreshHostsB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.refreshHostsB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -3113,7 +3113,7 @@ namespace Optimizer
             // 
             // removeHostB
             // 
-            this.removeHostB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.removeHostB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.removeHostB.FlatAppearance.BorderSize = 0;
             this.removeHostB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.removeHostB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -3130,7 +3130,7 @@ namespace Optimizer
             // 
             // removeAllHostsB
             // 
-            this.removeAllHostsB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.removeAllHostsB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.removeAllHostsB.Enabled = false;
             this.removeAllHostsB.FlatAppearance.BorderSize = 0;
             this.removeAllHostsB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
@@ -3149,7 +3149,7 @@ namespace Optimizer
             // 
             // addHostB
             // 
-            this.addHostB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.addHostB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.addHostB.FlatAppearance.BorderSize = 0;
             this.addHostB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.addHostB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -3194,7 +3194,7 @@ namespace Optimizer
             // 
             this.lblDomain.AutoSize = true;
             this.lblDomain.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDomain.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblDomain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.lblDomain.Location = new System.Drawing.Point(323, 54);
             this.lblDomain.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDomain.Name = "lblDomain";
@@ -3207,7 +3207,7 @@ namespace Optimizer
             // 
             this.lblIP.AutoSize = true;
             this.lblIP.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIP.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblIP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.lblIP.Location = new System.Drawing.Point(323, 0);
             this.lblIP.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIP.Name = "lblIP";
@@ -3220,7 +3220,7 @@ namespace Optimizer
             // 
             this.hostsTitle.AutoSize = true;
             this.hostsTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hostsTitle.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.hostsTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.hostsTitle.Location = new System.Drawing.Point(6, 10);
             this.hostsTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.hostsTitle.Name = "hostsTitle";
@@ -3283,7 +3283,7 @@ namespace Optimizer
             // 
             // regFixB
             // 
-            this.regFixB.BackColor = System.Drawing.Color.DodgerBlue;
+            this.regFixB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.regFixB.FlatAppearance.BorderSize = 0;
             this.regFixB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.regFixB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -3449,7 +3449,7 @@ namespace Optimizer
             // 
             this.registryTitle.AutoSize = true;
             this.registryTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registryTitle.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.registryTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.registryTitle.Location = new System.Drawing.Point(6, 10);
             this.registryTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.registryTitle.Name = "registryTitle";
@@ -3491,47 +3491,47 @@ namespace Optimizer
             this.specsTree.ForeColor = System.Drawing.Color.White;
             this.specsTree.Location = new System.Drawing.Point(0, 0);
             this.specsTree.Name = "specsTree";
-            treeNode9.ImageIndex = 0;
-            treeNode9.Name = "cpu";
-            treeNode9.SelectedImageIndex = 0;
-            treeNode9.Text = "Processors";
-            treeNode10.ImageIndex = 1;
-            treeNode10.Name = "ram";
-            treeNode10.SelectedImageIndex = 1;
-            treeNode10.Text = "Memory";
-            treeNode11.ImageIndex = 2;
-            treeNode11.Name = "gpu";
-            treeNode11.SelectedImageIndex = 2;
-            treeNode11.Text = "Graphics";
-            treeNode12.ImageIndex = 3;
-            treeNode12.Name = "mobo";
-            treeNode12.SelectedImageIndex = 3;
-            treeNode12.Text = "Motherboard";
-            treeNode13.ImageIndex = 4;
-            treeNode13.Name = "disk";
-            treeNode13.SelectedImageIndex = 4;
-            treeNode13.Text = "Storage";
-            treeNode14.ImageIndex = 5;
-            treeNode14.Name = "inet";
-            treeNode14.SelectedImageIndex = 5;
-            treeNode14.Text = "Network Adapters";
-            treeNode15.ImageIndex = 6;
-            treeNode15.Name = "audio";
-            treeNode15.SelectedImageIndex = 6;
-            treeNode15.Text = "Audio";
-            treeNode16.ImageIndex = 7;
-            treeNode16.Name = "dev";
-            treeNode16.SelectedImageIndex = 7;
-            treeNode16.Text = "Peripherals";
+            treeNode1.ImageIndex = 0;
+            treeNode1.Name = "cpu";
+            treeNode1.SelectedImageIndex = 0;
+            treeNode1.Text = "Processors";
+            treeNode2.ImageIndex = 1;
+            treeNode2.Name = "ram";
+            treeNode2.SelectedImageIndex = 1;
+            treeNode2.Text = "Memory";
+            treeNode3.ImageIndex = 2;
+            treeNode3.Name = "gpu";
+            treeNode3.SelectedImageIndex = 2;
+            treeNode3.Text = "Graphics";
+            treeNode4.ImageIndex = 3;
+            treeNode4.Name = "mobo";
+            treeNode4.SelectedImageIndex = 3;
+            treeNode4.Text = "Motherboard";
+            treeNode5.ImageIndex = 4;
+            treeNode5.Name = "disk";
+            treeNode5.SelectedImageIndex = 4;
+            treeNode5.Text = "Storage";
+            treeNode6.ImageIndex = 5;
+            treeNode6.Name = "inet";
+            treeNode6.SelectedImageIndex = 5;
+            treeNode6.Text = "Network Adapters";
+            treeNode7.ImageIndex = 6;
+            treeNode7.Name = "audio";
+            treeNode7.SelectedImageIndex = 6;
+            treeNode7.Text = "Audio";
+            treeNode8.ImageIndex = 7;
+            treeNode8.Name = "dev";
+            treeNode8.SelectedImageIndex = 7;
+            treeNode8.Text = "Peripherals";
             this.specsTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16});
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.specsTree.Size = new System.Drawing.Size(991, 567);
             this.specsTree.TabIndex = 0;
             this.specsTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.specsTree_NodeMouseClick);
@@ -4683,8 +4683,8 @@ namespace Optimizer
             this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel1.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.linkLabel1.Location = new System.Drawing.Point(795, 525);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel1.Name = "linkLabel1";
@@ -5141,7 +5141,7 @@ namespace Optimizer
             // 
             this.languagesL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.languagesL.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.languagesL.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.languagesL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.languagesL.Location = new System.Drawing.Point(711, 9);
             this.languagesL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.languagesL.Name = "languagesL";
@@ -5156,8 +5156,8 @@ namespace Optimizer
             this.linkLabel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel5.AutoSize = true;
             this.linkLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel5.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel5.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.linkLabel5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.linkLabel5.Location = new System.Drawing.Point(754, 568);
             this.linkLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel5.Name = "linkLabel5";
@@ -5170,7 +5170,7 @@ namespace Optimizer
             // 
             // btnOpenConf
             // 
-            this.btnOpenConf.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnOpenConf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnOpenConf.FlatAppearance.BorderSize = 0;
             this.btnOpenConf.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOpenConf.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -5189,7 +5189,7 @@ namespace Optimizer
             // 
             this.lblTroubleshoot.AutoSize = true;
             this.lblTroubleshoot.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTroubleshoot.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblTroubleshoot.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.lblTroubleshoot.Location = new System.Drawing.Point(17, 398);
             this.lblTroubleshoot.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTroubleshoot.Name = "lblTroubleshoot";
@@ -5202,7 +5202,7 @@ namespace Optimizer
             // 
             this.lblUpdating.AutoSize = true;
             this.lblUpdating.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdating.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblUpdating.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.lblUpdating.Location = new System.Drawing.Point(17, 256);
             this.lblUpdating.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUpdating.Name = "lblUpdating";
@@ -5213,7 +5213,7 @@ namespace Optimizer
             // 
             // btnViewLog
             // 
-            this.btnViewLog.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnViewLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnViewLog.FlatAppearance.BorderSize = 0;
             this.btnViewLog.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnViewLog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -5233,8 +5233,8 @@ namespace Optimizer
             this.l2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.l2.AutoSize = true;
             this.l2.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l2.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.l2.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.l2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.l2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.l2.Location = new System.Drawing.Point(795, 483);
             this.l2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.l2.Name = "l2";
@@ -5247,7 +5247,7 @@ namespace Optimizer
             // 
             // btnChangelog
             // 
-            this.btnChangelog.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnChangelog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnChangelog.FlatAppearance.BorderSize = 0;
             this.btnChangelog.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnChangelog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -5264,7 +5264,7 @@ namespace Optimizer
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -5281,7 +5281,7 @@ namespace Optimizer
             // 
             // btnResetConfig
             // 
-            this.btnResetConfig.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnResetConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnResetConfig.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.btnResetConfig.FlatAppearance.BorderSize = 0;
             this.btnResetConfig.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
@@ -5301,7 +5301,7 @@ namespace Optimizer
             // 
             this.lblTheming.AutoSize = true;
             this.lblTheming.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTheming.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblTheming.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.lblTheming.Location = new System.Drawing.Point(17, 96);
             this.lblTheming.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTheming.Name = "lblTheming";

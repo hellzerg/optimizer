@@ -100,7 +100,7 @@ namespace Optimizer
             // 
             this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnStart.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnStart.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrchid;
             this.btnStart.FlatAppearance.BorderSize = 0;
@@ -269,7 +269,7 @@ namespace Optimizer
             this.radioEnglish.AutoSize = true;
             this.radioEnglish.Checked = true;
             this.radioEnglish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Underline);
-            this.radioEnglish.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.radioEnglish.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.radioEnglish.Location = new System.Drawing.Point(53, 11);
             this.radioEnglish.Margin = new System.Windows.Forms.Padding(2);
             this.radioEnglish.Name = "radioEnglish";

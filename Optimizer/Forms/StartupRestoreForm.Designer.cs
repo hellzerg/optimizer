@@ -42,7 +42,7 @@
             // 
             this.backupL.AutoSize = true;
             this.backupL.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backupL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.backupL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.backupL.Location = new System.Drawing.Point(7, 9);
             this.backupL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.backupL.Name = "backupL";
@@ -95,7 +95,7 @@
             // 
             // previewBackupB
             // 
-            this.previewBackupB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.previewBackupB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.previewBackupB.FlatAppearance.BorderSize = 0;
             this.previewBackupB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.previewBackupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -112,7 +112,7 @@
             // 
             // restoreBackupB
             // 
-            this.restoreBackupB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.restoreBackupB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.restoreBackupB.FlatAppearance.BorderSize = 0;
             this.restoreBackupB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.restoreBackupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
@@ -130,7 +130,7 @@
             // deleteBackupB
             // 
             this.deleteBackupB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.deleteBackupB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.deleteBackupB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.deleteBackupB.FlatAppearance.BorderSize = 0;
             this.deleteBackupB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.deleteBackupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
