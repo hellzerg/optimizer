@@ -72,9 +72,9 @@ namespace Optimizer
             // pictureBox88
             // 
             this.pictureBox88.Image = global::Optimizer.Properties.Resources.greece;
-            this.pictureBox88.Location = new System.Drawing.Point(12, 70);
+            this.pictureBox88.Location = new System.Drawing.Point(13, 72);
             this.pictureBox88.Name = "pictureBox88";
-            this.pictureBox88.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox88.Size = new System.Drawing.Size(32, 19);
             this.pictureBox88.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox88.TabIndex = 83;
             this.pictureBox88.TabStop = false;
@@ -83,9 +83,9 @@ namespace Optimizer
             // pictureBox87
             // 
             this.pictureBox87.Image = global::Optimizer.Properties.Resources.russia;
-            this.pictureBox87.Location = new System.Drawing.Point(12, 41);
+            this.pictureBox87.Location = new System.Drawing.Point(13, 43);
             this.pictureBox87.Name = "pictureBox87";
-            this.pictureBox87.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox87.Size = new System.Drawing.Size(32, 19);
             this.pictureBox87.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox87.TabIndex = 82;
             this.pictureBox87.TabStop = false;
@@ -94,9 +94,9 @@ namespace Optimizer
             // pictureBox86
             // 
             this.pictureBox86.Image = global::Optimizer.Properties.Resources.united_kingdom;
-            this.pictureBox86.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox86.Location = new System.Drawing.Point(13, 14);
             this.pictureBox86.Name = "pictureBox86";
-            this.pictureBox86.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox86.Size = new System.Drawing.Size(32, 19);
             this.pictureBox86.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox86.TabIndex = 81;
             this.pictureBox86.TabStop = false;
@@ -128,9 +128,9 @@ namespace Optimizer
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Optimizer.Properties.Resources.turkey;
-            this.pictureBox1.Location = new System.Drawing.Point(158, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(159, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox1.Size = new System.Drawing.Size(32, 19);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 87;
             this.pictureBox1.TabStop = false;
@@ -139,9 +139,9 @@ namespace Optimizer
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Optimizer.Properties.Resources.germany;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 99);
+            this.pictureBox2.Location = new System.Drawing.Point(13, 101);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox2.Size = new System.Drawing.Size(32, 19);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 89;
             this.pictureBox2.TabStop = false;
@@ -150,9 +150,9 @@ namespace Optimizer
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Optimizer.Properties.Resources.spain;
-            this.pictureBox3.Location = new System.Drawing.Point(158, 39);
+            this.pictureBox3.Location = new System.Drawing.Point(159, 41);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox3.Size = new System.Drawing.Size(32, 19);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 91;
             this.pictureBox3.TabStop = false;
@@ -161,9 +161,9 @@ namespace Optimizer
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Optimizer.Properties.Resources.brazil;
-            this.pictureBox4.Location = new System.Drawing.Point(158, 68);
+            this.pictureBox4.Location = new System.Drawing.Point(159, 70);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox4.Size = new System.Drawing.Size(32, 19);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 93;
             this.pictureBox4.TabStop = false;
@@ -172,9 +172,9 @@ namespace Optimizer
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Optimizer.Properties.Resources.france;
-            this.pictureBox5.Location = new System.Drawing.Point(159, 97);
+            this.pictureBox5.Location = new System.Drawing.Point(160, 99);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox5.Size = new System.Drawing.Size(32, 19);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 95;
             this.pictureBox5.TabStop = false;
@@ -320,9 +320,9 @@ namespace Optimizer
             // pictureBox6
             // 
             this.pictureBox6.Image = global::Optimizer.Properties.Resources.italy;
-            this.pictureBox6.Location = new System.Drawing.Point(12, 128);
+            this.pictureBox6.Location = new System.Drawing.Point(13, 130);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox6.Size = new System.Drawing.Size(32, 19);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 97;
             this.pictureBox6.TabStop = false;
@@ -346,9 +346,9 @@ namespace Optimizer
             // pictureBox7
             // 
             this.pictureBox7.Image = global::Optimizer.Properties.Resources.china;
-            this.pictureBox7.Location = new System.Drawing.Point(159, 128);
+            this.pictureBox7.Location = new System.Drawing.Point(160, 130);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox7.Size = new System.Drawing.Size(32, 19);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 99;
             this.pictureBox7.TabStop = false;
@@ -372,9 +372,9 @@ namespace Optimizer
             // pictureBox8
             // 
             this.pictureBox8.Image = global::Optimizer.Properties.Resources.czech;
-            this.pictureBox8.Location = new System.Drawing.Point(12, 157);
+            this.pictureBox8.Location = new System.Drawing.Point(13, 159);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox8.Size = new System.Drawing.Size(32, 19);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 101;
             this.pictureBox8.TabStop = false;
@@ -398,9 +398,9 @@ namespace Optimizer
             // pictureBox9
             // 
             this.pictureBox9.Image = global::Optimizer.Properties.Resources.taiwan;
-            this.pictureBox9.Location = new System.Drawing.Point(159, 158);
+            this.pictureBox9.Location = new System.Drawing.Point(160, 160);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox9.Size = new System.Drawing.Size(32, 19);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox9.TabIndex = 103;
             this.pictureBox9.TabStop = false;
