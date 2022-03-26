@@ -13,7 +13,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 	<a href="https://github.com/hellzerg/optimizer/releases/download/12.2/Optimizer-12.2.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
-		<img src="https://cdn.discordapp.com/attachments/840247220405927963/952720540949413927/flagsmadebyjisll.png">
+		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
 	</a>
 </p> 
 

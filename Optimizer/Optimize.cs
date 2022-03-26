@@ -328,12 +328,12 @@ namespace Optimizer
 
             Utilities.StopService("VSS");
 
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore", "DisableConfig", "00000001", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore", "DisableConfig", "1", RegistryValueKind.DWord);
         }
 
         internal static void EnableSystemRestore()
         {
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore", "DisableConfig", "00000000", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore", "DisableConfig", "0", RegistryValueKind.DWord);
 
             Utilities.StartService("VSS");
         }
@@ -464,12 +464,12 @@ namespace Optimizer
 
         internal static void EnableLegacyVolumeSlider()
         {
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\MTCUVC", "EnableMtcUvc", "00000000", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\MTCUVC", "EnableMtcUvc", "0", RegistryValueKind.DWord);
         }
 
         internal static void DisableLegacyVolumeSlider()
         {
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\MTCUVC", "EnableMtcUvc", "00000001", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\MTCUVC", "EnableMtcUvc", "1", RegistryValueKind.DWord);
         }
 
         internal static void EnableTaskbarColor()
@@ -1138,8 +1138,8 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer", "HideSCAMeetNow", "1", RegistryValueKind.DWord);
 
             // Disable File History
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\FileHistory", "Disabled", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\File History", "Disabled", "1", RegistryValueKind.DWord);
+            //Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\FileHistory", "Disabled", "1", RegistryValueKind.DWord);
+            //Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\File History", "Disabled", "1", RegistryValueKind.DWord);
 
             // Disable News and Weather
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Feeds", "ShellFeedsTaskbarViewMode", "2", RegistryValueKind.DWord);
@@ -1168,10 +1168,12 @@ namespace Optimizer
                 k.DeleteValue("ShowTaskViewButton", false);
             }
 
-            Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\FileHistory", true).DeleteValue("Disabled", false);
-            Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\File History", true).DeleteValue("Disabled", false);
+            //Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\FileHistory", true).DeleteValue("Disabled", false);
+            //Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\File History", true).DeleteValue("Disabled", false);
+
             Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Search", true).DeleteValue("SearchboxTaskbarMode", false);
             Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Feeds", true).DeleteValue("ShellFeedsTaskbarViewMode", false);
+
             Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer", true).DeleteValue("HideSCAMeetNow", false);
             Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer", true).DeleteValue(@"HideSCAMeetNow", false);
         }
