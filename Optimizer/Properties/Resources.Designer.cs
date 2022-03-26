@@ -142,13 +142,13 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton10&quot;: &quot;Restartovat nyní&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Restartovat a použít změny?&quot;,
         ///	&quot;txtVersion&quot;: &quot;Verze: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;Pracujete s {BITS}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Pracujete s {BITS}ovou verzí&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Dostupná aktualizace&quot;,
         ///	&quot;lblLab&quot;: &quot;Experimentální sestavení\n(po testování smazat)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Povolit vylepšení výkonu&quot;,
-        ///	&quot;networkSw&quot;: &quot;Zakázat omezení sítě&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Povolit Vylepšení výkonu&quot;,
+        ///	&quot;networkSw&quot;: &quot;Zakázat Omezení sítě&quot;,
         ///	&quot;defenderSw&quot;: &quot;Zakázat Windows Defender&quot;,
-        ///	&quot;systemRestore [rest of string was truncated]&quot;;.
+        ///	&quot;sys [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CZ {
             get {
@@ -169,17 +169,17 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
-        ///	&quot;restartButton&quot;: &quot;Jetzt neustarten&quot;,
-        ///	&quot;restartButton8&quot;: &quot;Jetzt neustarten&quot;,
-        ///	&quot;restartButton10&quot;: &quot;Jetzt neustarten&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Neustarten, um Änderungen anzuwenden?&quot;,
+        ///	&quot;restartButton&quot;: &quot;Jetzt neu starten&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Jetzt neu starten&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Jetzt neu starten&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Neu starten, um Änderungen anzuwenden?&quot;,
         ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;Sie arbeiten mit {BITS}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Betriebssystem: {BITS}&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Update verfügbar&quot;,
         ///	&quot;lblLab&quot;: &quot;Experimenteller Build\n(nach dem Testen löschen)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Leistungsoptimierungen aktivieren&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Leistungsoptimierung aktivieren&quot;,
         ///	&quot;networkSw&quot;: &quot;Netzwerkdrosselung deaktivieren&quot;,
-        ///	&quot;defenderSw&quot;: &quot;Windows Defender deak [rest of string was truncated]&quot;;.
+        ///	&quot;defenderSw&quot;: &quot;Windows  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DE {
             get {
@@ -547,12 +547,12 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton10&quot;: &quot;riavvia ora&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Riavviare per applicare le modifiche?&quot;,
         ///	&quot;txtVersion&quot;: &quot;Versione: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;Archiettura: {BITS}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Architettura: {BITS}&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Aggiornamento disponibile&quot;,
         ///	&quot;lblLab&quot;: &quot;Build sperimentale\n(cancellare dopo il test)&quot;,
         ///	&quot;performanceSw&quot;: &quot;Abilita miglioramento prestazioni&quot;,
         ///	&quot;networkSw&quot;: &quot;Disabilita rallentamento della rete&quot;,
-        ///	&quot;defenderSw&quot;: &quot;Disabilita Windows Defender&quot;, [rest of string was truncated]&quot;;.
+        ///	&quot;defenderSw&quot;: &quot;Disabilita Windows Defender&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string IT {
             get {
@@ -732,6 +732,16 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap taiwan {
+            get {
+                object obj = ResourceManager.GetObject("taiwan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;şimdi yeniden başlat&quot;,
@@ -759,6 +769,33 @@ namespace Optimizer.Properties {
             get {
                 object obj = ResourceManager.GetObject("turkey", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;btnAbout&quot;: &quot;確定&quot;,
+        ///	&quot;restartButton&quot;: &quot;現在重啟&quot;,
+        ///	&quot;restartButton8&quot;: &quot;現在重啟&quot;,
+        ///	&quot;restartButton10&quot;: &quot;現在重啟&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;重新啟動以應用更改?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;版本: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;您使用的是{BITS}&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;更新可用&quot;,
+        ///	&quot;lblLab&quot;: &quot;實驗構建\n(刪除後測試)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;啟用性能調整&quot;,
+        ///	&quot;networkSw&quot;: &quot;禁用網路節流&quot;,
+        ///	&quot;defenderSw&quot;: &quot;禁用 Windows Defender&quot;,
+        ///	&quot;systemRestoreSw&quot;: &quot;禁用 System Restore&quot;,
+        ///	&quot;printSw&quot;: &quot;禁用列印服務&quot;,
+        ///	&quot;mediaSharingSw&quot;: &quot;禁用媒體播放器分享&quot;,
+        ///	&quot;faxSw&quot;: &quot;禁用傳真服務&quot;,
+        ///	&quot;reportingSw&quot;: &quot;禁用錯誤報告&quot;,
+        ///	&quot;homegroupSw&quot;: &quot;禁用 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TW {
+            get {
+                return ResourceManager.GetString("TW", resourceCulture);
             }
         }
         

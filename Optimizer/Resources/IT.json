@@ -5,7 +5,7 @@
 	"restartButton10": "riavvia ora",
 	"restartAndApply": "Riavviare per applicare le modifiche?",
 	"txtVersion": "Versione: {VN}",
-	"txtBitness": "Archiettura: {BITS}",
+	"txtBitness": "Architettura: {BITS}",
 	"linkUpdate": "Aggiornamento disponibile",
 	"lblLab": "Build sperimentale\n(cancellare dopo il test)",
 	"performanceSw": "Abilita miglioramento prestazioni",

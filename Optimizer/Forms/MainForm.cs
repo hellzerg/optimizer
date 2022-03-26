@@ -843,6 +843,12 @@ namespace Optimizer
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.TW)
+            {
+                radioTaiwan.Checked = true;
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.CZ)
             {
                 radioCzech.Checked = true;
@@ -4133,6 +4139,24 @@ namespace Optimizer
 
             Options.LoadTranslation();
             Translate();
+        }
+
+        private void radioTaiwan_Click(object sender, EventArgs e)
+        {
+            radioTaiwan.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.TW;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox16_Click(object sender, EventArgs e)
+        {
+            radioTaiwan.PerformClick();
         }
     }
 }

@@ -53,6 +53,8 @@ namespace Optimizer
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.radioCzech = new Optimizer.MoonnRadio();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.radioTaiwan = new Optimizer.MoonnRadio();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox88)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox86)).BeginInit();
@@ -64,6 +66,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox88
@@ -377,6 +380,32 @@ namespace Optimizer
             this.pictureBox8.TabStop = false;
             this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
+            // radioTaiwan
+            // 
+            this.radioTaiwan.AutoSize = true;
+            this.radioTaiwan.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioTaiwan.ForeColor = System.Drawing.Color.White;
+            this.radioTaiwan.Location = new System.Drawing.Point(200, 157);
+            this.radioTaiwan.Margin = new System.Windows.Forms.Padding(2);
+            this.radioTaiwan.Name = "radioTaiwan";
+            this.radioTaiwan.Size = new System.Drawing.Size(62, 25);
+            this.radioTaiwan.TabIndex = 104;
+            this.radioTaiwan.Tag = "";
+            this.radioTaiwan.Text = "國語";
+            this.radioTaiwan.UseVisualStyleBackColor = true;
+            this.radioTaiwan.CheckedChanged += new System.EventHandler(this.radioTaiwan_CheckedChanged);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::Optimizer.Properties.Resources.taiwan;
+            this.pictureBox9.Location = new System.Drawing.Point(159, 158);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 103;
+            this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
+            // 
             // FirstRunForm
             // 
             this.AcceptButton = this.btnStart;
@@ -385,6 +414,8 @@ namespace Optimizer
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnStart;
             this.ClientSize = new System.Drawing.Size(311, 242);
+            this.Controls.Add(this.radioTaiwan);
+            this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.radioCzech);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.radioChinese);
@@ -431,6 +462,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,5 +493,7 @@ namespace Optimizer
         private System.Windows.Forms.PictureBox pictureBox7;
         private MoonnRadio radioCzech;
         private System.Windows.Forms.PictureBox pictureBox8;
+        private MoonnRadio radioTaiwan;
+        private System.Windows.Forms.PictureBox pictureBox9;
     }
 }

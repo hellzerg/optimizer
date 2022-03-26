@@ -98,6 +98,7 @@
         FR, // french
         IT, // italian
         CN, // chinese
-        CZ // czech
+        CZ, // czech
+        TW // taiwan
     }
 }

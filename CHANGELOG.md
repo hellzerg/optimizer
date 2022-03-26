@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [12.1] - 2022-03-26
+- New: Fully translated into Taiwanese (thanks to https://github.com/H3XDaemon - H3XDaemon)
+- New: Added ShareX in Common Apps feed
+- Improved: Fixed translation issues on German and Italian languages
+- Removed: Hardware-accelerated GPU scheduling from Xbox Live toggle
+
 ## [12.0] - 2022-03-06
 - New: Fully translated into Czech (thanks to https://github.com/tomlonghorn - Tom Longhorn)
 

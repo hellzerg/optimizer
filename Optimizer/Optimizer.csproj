@@ -299,6 +299,7 @@
     <None Include="Resources\SystemShortcuts.reg" />
     <None Include="Resources\SystemTools.reg" />
     <None Include="Resources\TR.json" />
+    <None Include="Resources\TW.json" />
     <None Include="Resources\WindowsApps.reg" />
   </ItemGroup>
   <ItemGroup>
@@ -334,6 +335,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\taiwan.png" />
     <None Include="Resources\united-kingdom.png" />
     <None Include="Resources\turkey.png" />
     <None Include="Resources\spain.png" />

@@ -152,5 +152,17 @@ namespace Optimizer
             Options.SaveSettings();
             Options.LoadTranslation();
         }
+
+        private void radioTaiwan_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.TW;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            radioTaiwan.PerformClick();
+        }
     }
 }
