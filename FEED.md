@@ -20,7 +20,7 @@
   "Title": "Google Chrome",
   "Link": "<link_x86>",
   "Link64": "<link_x64>",
-  "Tag":"cChrome",
+  "Tag": "cChrome",
   "Image": "<link_to_png>",
   "Group": "Internet"
 }
