@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [12.2] - 2022-03-26
+- Hotfix: Crash when loading German language
+
 ## [12.1] - 2022-03-26
 - New: Fully translated into Taiwanese (thanks to https://github.com/H3XDaemon - H3XDaemon)
 - New: Added ShareX in Common Apps feed

@@ -13,7 +13,7 @@
 	"defenderSw": "Windows Defender deaktivieren",
 	"systemRestoreSw": "Systemwiederherstellung deaktivieren",
 	"printSw": "Druckdienst deaktivieren",
-	"mediaSharingSw": "Freigabe des Media Players deaktivieren",
+	"mediaSharingSw": "Media Player-Freigabe deaktivieren",
 	"faxSw": "Faxdienst deaktivieren",
 	"reportingSw": "Fehlerberichterstattung deaktivieren",
 	"homegroupSw": "Heimnetzgruppe deaktivieren",
@@ -36,26 +36,26 @@
 	"integratorTab": "Integrator",
 	"optionsTab": "Optionen",
 	"oldMixerSw": "Klassischen Lautstärkemixer aktivieren",
-	"oldExplorerSw": "Klassischen Datei-Explorer wiederherstellen",
+	"oldExplorerSw": " Klassischen Datei-Explorer wiederherstellen",
 	"adsSw": "Startmenü-Werbung deaktivieren",
 	"uODSw": "OneDrive deinstallieren",
 	"peopleSw": "My People deaktivieren",
 	"longPathsSw": "Lange Pfade aktivieren",
 	"autoUpdatesSw": "Automatische Updates deaktivieren",
 	"driversSw": "Treiber von Updates ausschließen",
-	"telemetryServicesSw": "Telemetrie-Dienste deaktivieren",
+	"telemetryServicesSw": "Telemetriedienste deaktivieren",
 	"privacySw": "Datenschutz verstärken",
 	"ccSw": "Cloud-Zwischenablage deaktivieren",
 	"cortanaSw": "Cortana deaktivieren",
 	"sensorSw": "Sensordienste deaktivieren",
 	"castSw": " Auf Gerät übertragen entfernen",
-        "inkSw": "Windows Ink deaktivieren",
+	"inkSw": "Windows Ink deaktivieren",
 	"spellSw": "Rechtschreibprüfung deaktivieren",
 	"xboxSw": "Xbox Live deaktivieren",
 	"gameBarSw": "Spieleleiste deaktivieren",
 	"insiderSw": "Insider-Dienst deaktivieren",
 	"featuresSw": "Feature-Updates deaktivieren",
-	"actionSw": "Benachrichtigungszentrale deaktivieren",
+	"actionSw": " Benachrichtigungszentrale deaktivieren",
 	"disableOneDriveSw": "OneDrive deaktivieren",
 	"tpmSw": "TPM 2.0-Prüfung deaktivieren",
 	"leftTaskbarSw": "Taskleiste nach links ausrichten",
@@ -63,7 +63,7 @@
 	"widgetsSw": "Widgets deaktivieren",
 	"chatSw": "Chat deaktivieren",
 	"smallerTaskbarSw": "Taskleiste verkleinern",
-	"classicRibbonSw": "Klassisches Menüband im Explorer aktivieren",
+	"classicRibbonSw": "Klassisches Menüband aktivieren ",
 	"classicContextSw": "Klassisches Rechtsklick-Menü aktivieren",
 	"refreshModernAppsButton": "Aktualisieren",
 	"uninstallModernAppsButton": "Deinstallieren",
@@ -108,7 +108,7 @@
 	"lblPretext": "Maximal freizugebender Speicher:",
 	"cleanerTitle": "Systemlaufwerk bereinigen",
 	"pingerTitle": "IP-Adressen anpingen und die Latenzzeit ermitteln",
-        "lblPinger": "IP / Domainname",
+	"lblPinger": "IP / Domainname",
 	"lblDNS": "Empfohlene Cloudflare-DNS\n(zum kopieren anklicken)",
 	"btnOpenNetwork": "Netzwerkverbindungen öffnen",
 	"copyIPB": " Kopieren",
@@ -138,7 +138,7 @@
 	"regFixB": "Beheben",
 	"regLbl": "(einige Änderungen könnten dies erfordern)",
 	"checkRestartExplorer": "Neustart des Explorers, um die Änderungen zu übernehmen",
-	"checkRegistryEditor": "Registrierungs-Editor", 
+	"checkRegistryEditor": "Registrierungs-Editor",
 	"checkFirewall": "Windows-Firewall",
 	"checkContextMenu": "Rechtsklickmenü",
 	"checkRunDialog": "Dialog ausführen",
@@ -150,7 +150,7 @@
 	"registryTitle": "Behebung allgemeiner Registrierungsprobleme",
 	"quickAccessToggle": "Schnellzugriffsmenü anzeigen",
 	"helpTipsToggle": "Hilfemeldungen anzeigen",
-	"lblTheming": "Wählen Sie Ihr Theme aus",
+	"lblTheming": "Wählen Sie Ihr Theme",
 	"radioOcean": "Ozean",
 	"radioMagma": "Magma",
 	"radioZerg": "Zerg",
@@ -165,7 +165,7 @@
 	"btnViewLog": "Fehler anzeigen",
 	"btnOpenConf": "Konfigurationsordner anzeigen",
 	"btnResetConfig": "Konfiguration zurücksetzen",
-	"integrator1": "Der Intergrator ist in der Lage, vollständig angepasste\nElemente im Rechtsklick-Menü des Dektop hinzuzufügen:",
+	"integrator1": "Der Integrator ist in der Lage, vollständig angepasste\nEinträge im Rechtsklick-Menü des Desktop hinzuzufügen:",
 	"integrator2": "- Jedes Programm",
 	"integrator3": "- Verknüpfungen zu Ordnern",
 	"integrator4": "- Links zum Internet",
@@ -194,25 +194,25 @@
 	"checkDefaultFolderIcon": "Standard-Ordnersymbol verwenden",
 	"checkFavicon": "Website-Symbol (Favicon) herunterladen",
 	"checkNoIcon": "Kein Icon",
-	"dnsCacheM": "DNS-Cache wird gerade generiert, versuchen Sie es später nochmal!",
+	"dnsCacheM": "DNS-Cache wird gerade generiert, versuchen Sie es später noch einmal!",
 	"itemposition": "Elementposition",
 	"radioTop": "Oben",
 	"radioMiddle": "Mitte",
-	"radioBottom": "Unten",	
-        "security": "Sicherheit",
+	"radioBottom": "Unten",
+	"security": "Sicherheit",
 	"checkShift": "Nur anzeigen, wenn SHIFT gedrückt wird",
 	"itemnamegroup": "Elementname im Menü",
 	"btnAddItem": "Hinzufügen/Ändern",
 	"removeIntegratorItemsL": "Vorhandene Desktop-Elemente entfernen",
 	"removeDIB": "Entfernen",
-	"refreshIIB": "Akualisieren",
-	"removeAllIIB": "Alle entfernen",
+	"refreshIIB": "Aktualisieren",
+	"removeAllIIB": "Alles entfernen",
 	"PMB": "Power-Menü hinzufügen",
 	"STB": "Systemwerkzeuge hinzufügen",
 	"WAB": "Windows-Anwendungen hinzufügen",
-        "SSB": "System-Verknüpfungen hinzufügen",
+	"SSB": "System-Verknüpfungen hinzufügen",
 	"DSB": "Desktop-Verknüpfungen hinzufügen",
-	"AddOwnerB": "Eigentümer hinzufügen",
+	"AddOwnerB": " Eigentümer hinzufügen",
 	"RemoveOwnerB": "Eigentum entfernen",
 	"AddCMDB": "Öffnen mit CMD hinzufügen",
 	"DeleteCMDB": "Öffnen mit CMD entfernen",
@@ -239,7 +239,7 @@
 	"argInvalidMsg": "Ungültiges Argument! Beispiel: Optimizer.exe /silent.conf",
 	"StartupPreviewForm": "Startup Elemente Vorschau",
 	"StartupRestoreForm": "Startup-Elemente wiederherstellen",
-        "backupL": "Startobjekte wiederherstellen",
+	"backupL": "Startobjekte wiederherstellen",
 	"txtNoBackups": "Keine Backups gefunden",
 	"previewBackupB": "Vorschau",
 	"restoreBackupB": "Wiederherstellen",
@@ -251,26 +251,26 @@
 	"removeAllItems": "Sind Sie sicher, dass Sie alle Desktopelemente löschen möchten?",
 	"removeModernApps": "Sind Sie sicher, dass Sie die folgende(n) App(s) deinstallieren möchten?",
 	"errorModernApps": "Die folgende(n) App(s) konnte(n) nicht deinstalliert werden:\n",
-	"resetMessage": "Sind Sie sicher, dass Sie die Konfiguration zurücksetzen wollen? \nDies setzt alle Ihre Einstellungen zurück, einschließlich aller Symbole, die Sie mit Integrator extrahiert oder heruntergeladen haben, ändert aber keinerlei Dinge auf Ihrem Computer!",
-	"newVersion": "Es ist eine neue Version verfügbar!\n\nLetzte Version: {LATEST}\nAktuelle Version: {CURRENT}\n\nMöchten Sie die Version {LATEST}\njetzt herunterladen?\n\nDie App wird in ein paar Sekunden neu gestartet.",
+	"resetMessage": "Sind Sie sicher, dass Sie die Konfiguration zurücksetzen möchten?\nDies setzt alle Ihre Einstellungen zurück, einschließlich aller Symbole, die Sie mit Integrator extrahiert oder heruntergeladen haben, verändert jedoch nichts auf Ihrem Computer!",
+	"newVersion": "Es ist eine neue Version verfügbar!\n\nNLetzte Version: {LATEST}\nAktuelle Version: {CURRENT}\n\nMöchten Sie die Version {LATEST} jetzt herunterladen?\n\nDie App wird in ein paar Sekunden neu gestartet.",
 	"downloadsFinished": "Abgeschlossen",
 	"downloadDirInvalid": "Der angegebene Download-Ordner ist nicht gültig",
 	"no64Download": "Keine 64-Bit verfügbar, 32-Bit herunterladen",
 	"no32Download": "Kein 32-Bit verfügbar, Überspringen",
 	"installing": "Installieren",
 	"linkInvalid": "Link ist nicht mehr gültig",
-	"noErrorsM": "Es sind keine Fehler zu sehen!",
+	"noErrorsM": "Kein Fehler zum anzeigen!",
 	"hostNotFound": "Kein Host gefunden",
 	"pinging": "Pinging mit 32 Bytes - 9 mal...",
 	"latency": "LATENZ",
-        "lblSystemTools": "System && Werkzeuge",
+	"lblSystemTools": "System && Werkzeuge",
 	"lblInternet": "Internet",
 	"lblCoding": "Programmierung",
 	"lblVideoSound": "Video && Audio",
 	"min": "Min",
 	"max": "Max",
 	"avg": "Durchschnitt",
-	"timeout": "Die Anfrage ist zeitlich beendet.",
+	"timeout": "Anfrage ist zeitlich abgelaufen.",
 	"languagesL": "Sprache wählen",
 	"trayStartup": "Startup Manager",
 	"trayCleaner": "Laufwerksreiniger",
@@ -310,74 +310,76 @@
 	"pointings": "Zeigegeräte",
 	"performanceTip": "Sammlung von internen Windows-Einstellungen zur Leistungsoptimierung. Völlig sicher in der Anwendung.
 
-- Verringert die Wartezeit vor dem Beenden von nicht reagierenden Prozessen.
-- Verringert die Verzögerung der Menüanzeige.
-- Deaktiviert die Benachrichtigung bei geringem Speicherplatz.
-- Deaktiviert die Funktion Schütteln zum Minimieren.
-- Zeigt immer Dateierweiterungen an
-- Zeigt versteckte Dateien an",
-    "networkTip": "Windows implementiert einen Mechanismus zur Netzwerkdrosselung, der den Netzwerkverkehr einschränkt, wenn Multimedia-Anwendungen ausgeführt werden. Dies kann auch die Netzwerkleistung verringern, wenn Sie Online-Spiele spielen.",
-    "defenderTip": "⚠ Windows Defender kann in Windows 10 Version 1903 und höher NICHT deaktiviert werden.
-	
-Windows Defender ist der integrierte Virenschutz in Windows-Systemen.",
+	- Verringert Wartezeit vor dem Beenden von nicht reagierenden Prozessen.
+	- Verringert die Verzögerung der Menüanzeige.
+	- Deaktiviert die Benachrichtigung bei geringem Speicherplatz.
+	- Deaktiviert die Funktion Schütteln zum Minimieren.
+	- Zeigt immer Dateierweiterungen an
+	- Zeigt versteckte Dateien ",
+	"networkTip": "Windows implementiert einen Mechanismus zur Netzwerkdrosselung, der den Netzwerkverkehr einschränkt, wenn Multimedia-Anwendungen ausgeführt werden. Dies kann auch die Netzwerkleistung verringern, wenn Sie Online-Spiele spielen.",
+	"defenderTip": "⚠ Windows Defender kann in Windows 10 Version 1903 und höher NICHT deaktiviert werden.
+
+	Windows Defender ist der integrierte Virenschutz in Windows - Systemen.
+	",
 	"smartScreenTip": "SmartScreen scannt automatisch Dateien, Downloads und Websites, blockiert bereits bekannte gefährliche Inhalte und warnt Sie, bevor Sie diese ausführen.",
-	"systemRestoreTip": "Die Systemwiederherstellung ist eine Funktion, mit der der aktuelle Zustand von Windows auf einen früheren Zustand zurückgesetzt werden kann, um Fehlfunktionen oder andere Probleme zu beheben.",
+	"systemRestoreTip": "Die Systemwiederherstellung ist eine Funktion, mit der der jetzige Zustand von Windows auf einen früheren Zustand zurückgesetzt werden kann, um Fehlfunktionen oder anderen Problemen zu lösen.",
 	"reportingTip": "Die Fehlerberichterstattung sammelt Anwendungsabstürze und -fehler und sendet sie an Microsoft.",
 	"telemetryTasksTip": "Telemetrie-Dienste senden in regelmäßigen Abständen Nutzungs- und Leistungsdaten an Microsoft, um zukünftige Verbesserungen zu ermöglichen.",
 	"officeTelemetryTip": "Office-Telemetrie-Dienste senden regelmäßig Nutzungs- und Leistungsdaten an Microsoft, für künftige Verbesserungen.",
 	"ffTelemetryTip": "Deaktiviert Mozilla Firefox Telemetrie- und Datenberichtsdienste.",
 	"vsTip": "Deaktiviert Telemetrie- und Feedback-Funktionen von Visual Studio, einschließlich des SQM-Clients.",
 	"chromeTelemetryTip": "Deaktiviert das Telemetrie- und Software-Berichtstool von Google Chrome.
-(bekannt dafür, dass es eine hohe CPU-Auslastung verursacht).",
+		(bekannt dafür, dass es eine hohe CPU - Auslastung verursacht).
+	",
 	"printTip": "Der Druckdienst ist für das Erkennen, Installieren und Verwenden von Druckern zuständig.",
 	"faxTip": "Der Faxdienst ist für das Senden und Empfangen von Faxnachrichten zuständig.",
-	"mediaSharingTip": "Die Media Player-Freigabe ist für die Freigabe von Heim-Medien mit dem Windows Media Player zuständig.",
-	"stickyTip": "Sticky Keys": "Sticky Keys ist eine Zugänglichkeitsfunktion, die Windows-Benutzern mit körperlichen Behinderungen helfen soll, die Art von Bewegungen zu reduzieren, die mit Verletzungen durch wiederholte Belastung verbunden sind."
+	"mediaSharingTip": "Die Media Player-Freigabe ist für die Freigabe von Heim-Medien für den Windows Media Player zuständig.",
+	"stickyTip": "Sticky Keys ist eine Zugänglichkeitsfunktion, die Windows-Benutzern mit körperlichen Behinderungen helfen soll, die Art von Bewegungen zu reduzieren, die mit Verletzungen durch wiederholte Belastung verbunden sind.",
 	"homegroupTip": "Heimnetzgruppe ist eine Funktion, die die gemeinsame Nutzung von Dateien in einem Heimnetzwerk mit Windows Explorer ermöglicht.",
-	"superfetchTip": "Superfetch lädt häufig verwendete Anwendungen in den Arbeitsspeicher vor, was zu einer hohen Festplattenauslastung führt, insbesondere auf Festplatten.", "compatTip",
+	"superfetchTip": "Superfetch lädt häufig verwendete Anwendungen in den Arbeitsspeicher vor, was zu einer hohen Festplattenauslastung führt, insbesondere auf Festplatten.",
 	"compatTip": "Der Kompatibilitätsassistent erkennt bekannte Kompatibilitätsprobleme in älteren Programmen.",
-	"disableOneDriveTip": "Deaktiviert die OneDrive-Cloudspeicher-Integration.",
+	"disableOneDriveTip": "Deaktiviert die OneDrive-Cloud-Speicher-Integration.",
 	"oldMixerTip": "Stellt das klassische Lautstärkemixer-Bedienfeld wieder her.",
 	"oldExplorerTip": "Deaktiviert den Zugriff und entfernt das häufig verwendete Bedienfeld Dateien im Windows Explorer.",
 	"adsTip": "Verhindert die Anzeige von Werbung im Startmenü",
-	"uODTip": "Entfernt die OneDrive-Cloudspeicher-Integration vollständig",
+	"uODTip": "Entfernt die OneDrive-Cloudspeicher-Integration vollständig.",
 	"peopleTip": "My People ist eine neue Funktion, die aktuelle Kontakte in der Taskleiste anzeigt.",
 	"longPathsTip": "Entfernt die maximale Pfadlängenbegrenzung von 256 Zeichen.",
 	"inkTip": "Windows Ink fügt Unterstützung für digitale Stifte zum Zeichnen auf dem Bildschirm hinzu.",
-	"spellTip": "Nur Touch-Tastaturfunktionen wie:
+	"spellTip": "Nur Touch-Tastatur-Funktionen wie:
 
-- Auto-Korrektur
-- Textvorschläge
-- Rechtschreibprüfung",
-"xboxTip": "Xbox Live-Dienste bieten Streaming-, Aufnahme- und soziale Funktionen für Xbox-Spiele.",
-"actionTip": "Das Benachrichtigungscenter ist ein zentraler Ort für Benachrichtigungen und Schnellaktionskacheln, wie z.B. Wi-Fi, Bluetooth, usw.",
-"autoUpdatesTip": "Deaktiviert den automatischen Download und die Installation von Windows-Updates. Stattdessen gibt es eine Benachrichtigung, wenn neue Updates verfügbar sind. Außerdem wird der Dienst Bereitstellungsoptimierung deaktiviert.",
-"driversTip": "Nützlich, wenn Windows Update ständig einen ordnungsgemäß funktionierenden Treiber durch einen fehlerhaften ersetzt.",
-"telemetryServicesTip": "Telemetrie-Dienste verfolgen und protokollieren Nutzungsdaten und senden Rückmeldungen an Microsoft zur Analyse.",
-"privacyTip": "Zusätzliche Datenschutz-Tweaks, die Folgendes deaktivieren:
+		- Auto-Korrektur 
+		-Textvorschläge 
+		-Rechtschreibprüfung ",
+	"xboxTip": "Xbox Live-Dienste bieten Streaming-, Aufnahme- und soziale Funktionen für Xbox-Spiele.",
+	"actionTip": "Das Benachrichtigungscenter ist ein zentraler Ort für Benachrichtigungen und Schnellaktionskacheln, wie Wi-Fi, Bluetooth, etc.",
+	"autoUpdatesTip": "Deaktiviert das automatische Herunterladen und Installieren von Windows-Updates. Stattdessen erfolgt eine Benachrichtigung, wenn neue Updates verfügbar sind. Außerdem wird der Dienst Bereitstellungsoptimierung deaktiviert.",
+	"driversTip": "Nützlich, wenn Windows Update ständig einen ordnungsgemäß funktionierenden Treiber durch einen fehlerhaften ersetzt.",
+	"telemetryServicesTip": "Telemetrie-Dienste verfolgen und protokollieren Nutzungsdaten und senden Feedback and Microsoft zur Analyse.",
+	"privacyTip": "Zusätzliche Datenschutz-Tweaks, die Folgendes deaktivieren:
 
-- Biometrie
-- Geolokalisierung
-- Geräteübergreifende Freigabe von Apps
-- Text-Logger
-- Diagnose",
-"ccTip": "Die Cloud-Zwischenablage gibt die Daten der Zwischenablage für alle Ihre Geräte frei. So können Sie auf einem Gerät kopieren und auf einem anderen einfügen. Erfordert die Anmeldung bei einem Microsoft-Konto.",
-"cortanaTip": "Cortana ist eine virtuelle KI-basierte Assistentin.
+		- Biometrie 
+		- Geolokalisierung
+		- Geräteübergreifende Freigabe von Apps
+		- Text-Logger 
+		- Diagnose ",
+	"ccTip": "Die Cloud-Zwischenablage gibt die Daten der Zwischenablage für alle Geräte frei. So können Sie auf einem Gerät kopieren und auf einem anderen einfügen. Erfordert die Anmeldung bei einem Microsoft-Konto.",
+	"cortanaTip": "Cortana ist eine virtuelle KI-basierte Assistentin.
 
-- Deaktiviert Cortana.
-- Deaktiviert die Websuche im Startmenü
-- Verhindert, dass der Suchverlauf gespeichert wird",
-"sensorTip": "Dienste, die die Funktionalität von Sensoren verwalten, wie z.B. automatische Drehung, automatische Helligkeit, etc. Nützlich nur für Tablets oder Geräte mit Touchscreens.",
-"castTip": "Entfernt den Rechtsklick, um Medieninhalte auf Miracast-Geräte zu übertragen.",
-"gameBarTip": "Game Bar ist ein Zugriffsmenü für Xbox Spieldienste.",
-"insiderTip": "Das Windows Insider-Programm ermöglicht es Ihnen, die neuesten Funktionen zu testen, bevor sie für die Öffentlichkeit freigegeben werden. Es wird als unnötiger Service für Benutzer angesehen, die nicht daran teilnehmen möchten.",
-"featuresTip": "Feature-Updates sind technisch gesehen neue Versionen von Windows, die ein Upgrade erfordern. Sie gelten jedoch als riskantes Verfahren. Sie werden normalerweise halbjährlich veröffentlicht.",
-"tpmTip": "Umgeht die Anforderungen für Secure Boot und TPM 2.0 und ermöglicht ein Upgrade auf Windows 11.",
-"leftTaskbarTip": "Richtet die Taskleistensymbole nach links aus.",
-"snapAssistTip": "Deaktiviert Snap Assist-Flyout, wenn der Mauszeiger über die Maximierungsschaltflächen bewegt wird.",
-"widgetsTip": "Deaktivieren Sie die Widgets-Funktion und entfernen Sie das Widgets-Symbol aus der Taskleiste.",
-"chatTip": "Entfernt das Chat-Symbol aus der Taskleiste.",
-"smallerTaskbarTip": "Verringert die Größe der Taskleiste und der Symbole.",
-"classicRibbonTip": "Stellt das klassische Windows 10-Menüband im Datei-Explorer wieder her.",
-"classicContextTip": "Stellt das klassische Rechtsklickmenü wieder her und entfernt die Option 'Weitere Optionen anzeigen'."
+		- Deaktiviert Cortana.
+		- Deaktiviert die Websuche im Startmenü
+		- Verhindert, dass der Suchverlauf gespeichert wird ",
+	"sensorTip": "Dienste, die die Funktionalität von Sensoren verwalten, wie z.B automatische Drehung, automatische Helligkeit, etc. Nützlich nur für Tablets oder Geräte mit Touchscreen.",
+	"castTip": "Entfernt den Rechtsklick, um Medieninhalte an Miracast-Geräte zu übertragen.",
+	"gameBarTip": "Game Bar ist ein Zugriffsmenü für Xbox Spieldienste.",
+	"insiderTip": "Das Windows Insider-Programm ermöglicht es Ihnen, die neuesten Funktionen zu testen, bevor sie für die Öffentlichkeit freigegeben werden. Es wird als unnötiger Service für Benutzer angesehen, die nicht daran teilnehmen möchten.",
+	"featuresTip": "Feature-Updates sind technisch gesehen neue Versionen von Windows, die ein Upgrade erfordern. Sie gelten jedoch als riskantes Verfahren. Sie werden normalerweise halbjährlich veröffentlicht.",
+	"tpmTip": "Umgeht die Anforderungen für Secure Boot und TPM 2.0 und ermöglicht ein Upgrade auf Windows 11.",
+	"leftTaskbarTip": "Richtet die Taskleistensymbole nach links aus.",
+	"snapAssistTip": "Deaktiviert Snap-Assist-Flyout, wenn der Mauszeiger über der Maximierungsschaltflächen bewegt wird.",
+	"widgetsTip": "Deaktiviert die Widgets-Funktion und entfernt das Widgets-Symbol aus der Taskleiste.",
+	"chatTip": "Entfernt das Chat-Symbol aus der Taskleiste.",
+	"smallerTaskbarTip": "Verringert die Größe der Taskleiste und der Symbole.",
+	"classicRibbonTip": "Stellt das klassische Windows 10-Menüband im Datei-Explorer wieder her.",
+	"classicContextTip": "Stellt das klassische Rechtsklickmenü wieder her und entfernt die Option 'Weitere Optionen anzeigen'."
 }

@@ -10,8 +10,8 @@ Optimizer is recommended after a fresh, clean installation of Windows to achieve
 
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/12.1/Optimizer-12.1.exe" target="_blank">
-		<img src="https://cdn.discordapp.com/attachments/840247220405927963/952717627040628777/downloadmadebyjisll.png">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/12.2/Optimizer-12.2.exe" target="_blank">
+		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://cdn.discordapp.com/attachments/840247220405927963/952720540949413927/flagsmadebyjisll.png">
 	</a>
@@ -86,6 +86,6 @@ https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 12.1
+* Latest version: 12.2
 * Released: March 26, 2022
-* SHA256: 280E80DAE8291BD571534B7A3D4FA753CB9D21F6915E49525735657C29061226
+* SHA256: A5AC1EAA021D77F0400ACC37319E6DCBCB10A99CF3E7802FB9D6CFD8F6B44AB1
