@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="https://cdn.discordapp.com/attachments/840247220405927963/952717059387711508/banneroptimizerbyjisll.png">
+   <img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/banner.png">
 </p> 
 
 ## Summary: ##
@@ -17,7 +17,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 	</a>
 </p> 
 
-* Full multilingual support (11 languages available)
+* Full multilingual support (12 languages available)
 * Speed up your system and network performance
 * Disable unnecessary Windows services
 * Disable Windows telemetry
