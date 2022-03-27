@@ -307,9 +307,10 @@ Sicura da applicare.
 - Disabilita la funzionalità \"scuoti per ridurre ad icona\".
 - Mostra sempre estensioni file.
 - Mostra file nascosti.",
-	"networkTip": "Windows implements a network throttling mechanism that will restrict
-network traffic when running multimedia apps. It can also reduce network's
-performance when playing online games.",
+	"networkTip": "Windows implementa un meccanismo di rallentamento
+	della rete che limiterà il traffico di
+ 	rete durante l'esecuzione di app multimediali. 
+ 	Può anche ridurre le prestazioni di rete mentre si gioca online.",
 	"defenderTip": "⚠ Windows Defender NON PUÒ essere disabilitato in Windows 10 versione 1903 e superiori.
 
 Windows Defender è l'antivirus intrinseco di Windows.",
