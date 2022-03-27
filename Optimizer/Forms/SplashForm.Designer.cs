@@ -50,7 +50,7 @@ namespace Optimizer
             // LoadingStatus
             // 
             this.LoadingStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LoadingStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoadingStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoadingStatus.ForeColor = System.Drawing.Color.Silver;
             this.LoadingStatus.Location = new System.Drawing.Point(0, 199);
             this.LoadingStatus.Name = "LoadingStatus";

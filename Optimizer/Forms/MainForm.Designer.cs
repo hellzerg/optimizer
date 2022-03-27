@@ -210,14 +210,8 @@ namespace Optimizer
             this.pingerTitle = new System.Windows.Forms.Label();
             this.hostsEditorTab = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lblAdblockSub = new System.Windows.Forms.Label();
             this.linkAdvancedEdit = new System.Windows.Forms.LinkLabel();
-            this.lblAdblock = new System.Windows.Forms.Label();
             this.linkRestoreDefault = new System.Windows.Forms.LinkLabel();
-            this.adblockUlti = new System.Windows.Forms.Button();
-            this.adblockP = new System.Windows.Forms.Button();
-            this.adblockS = new System.Windows.Forms.Button();
-            this.adblockBasic = new System.Windows.Forms.Button();
             this.lblLock = new System.Windows.Forms.Label();
             this.chkReadOnly = new Optimizer.MoonCheck();
             this.panelList = new System.Windows.Forms.Panel();
@@ -325,6 +319,8 @@ namespace Optimizer
             this.ccFileL = new System.Windows.Forms.Label();
             this.ccL = new System.Windows.Forms.Label();
             this.optionsTab = new System.Windows.Forms.TabPage();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
@@ -454,6 +450,7 @@ namespace Optimizer
             this.tabPage11.SuspendLayout();
             this.panel6.SuspendLayout();
             this.optionsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -2878,14 +2875,8 @@ namespace Optimizer
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.lblAdblockSub);
             this.panel4.Controls.Add(this.linkAdvancedEdit);
-            this.panel4.Controls.Add(this.lblAdblock);
             this.panel4.Controls.Add(this.linkRestoreDefault);
-            this.panel4.Controls.Add(this.adblockUlti);
-            this.panel4.Controls.Add(this.adblockP);
-            this.panel4.Controls.Add(this.adblockS);
-            this.panel4.Controls.Add(this.adblockBasic);
             this.panel4.Controls.Add(this.lblLock);
             this.panel4.Controls.Add(this.chkReadOnly);
             this.panel4.Controls.Add(this.panelList);
@@ -2904,18 +2895,6 @@ namespace Optimizer
             this.panel4.Size = new System.Drawing.Size(987, 537);
             this.panel4.TabIndex = 53;
             // 
-            // lblAdblockSub
-            // 
-            this.lblAdblockSub.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdblockSub.ForeColor = System.Drawing.Color.Silver;
-            this.lblAdblockSub.Location = new System.Drawing.Point(325, 279);
-            this.lblAdblockSub.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAdblockSub.Name = "lblAdblockSub";
-            this.lblAdblockSub.Size = new System.Drawing.Size(313, 25);
-            this.lblAdblockSub.TabIndex = 68;
-            this.lblAdblockSub.Tag = "";
-            this.lblAdblockSub.Text = "(will delete your current config)";
-            // 
             // linkAdvancedEdit
             // 
             this.linkAdvancedEdit.ActiveLinkColor = System.Drawing.Color.WhiteSmoke;
@@ -2923,7 +2902,7 @@ namespace Optimizer
             this.linkAdvancedEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkAdvancedEdit.ForeColor = System.Drawing.Color.Silver;
             this.linkAdvancedEdit.LinkColor = System.Drawing.Color.Silver;
-            this.linkAdvancedEdit.Location = new System.Drawing.Point(1, 428);
+            this.linkAdvancedEdit.Location = new System.Drawing.Point(323, 338);
             this.linkAdvancedEdit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkAdvancedEdit.Name = "linkAdvancedEdit";
             this.linkAdvancedEdit.Size = new System.Drawing.Size(132, 21);
@@ -2935,29 +2914,17 @@ namespace Optimizer
             this.linkAdvancedEdit.VisitedLinkColor = System.Drawing.Color.Silver;
             this.linkAdvancedEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
-            // lblAdblock
-            // 
-            this.lblAdblock.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdblock.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblAdblock.Location = new System.Drawing.Point(322, 254);
-            this.lblAdblock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAdblock.Name = "lblAdblock";
-            this.lblAdblock.Size = new System.Drawing.Size(281, 25);
-            this.lblAdblock.TabIndex = 67;
-            this.lblAdblock.Tag = "themeable";
-            this.lblAdblock.Text = "Pre-made adblocks";
-            // 
             // linkRestoreDefault
             // 
             this.linkRestoreDefault.ActiveLinkColor = System.Drawing.Color.WhiteSmoke;
-            this.linkRestoreDefault.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.linkRestoreDefault.AutoSize = true;
             this.linkRestoreDefault.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkRestoreDefault.ForeColor = System.Drawing.Color.Silver;
             this.linkRestoreDefault.LinkColor = System.Drawing.Color.Silver;
-            this.linkRestoreDefault.Location = new System.Drawing.Point(0, 515);
+            this.linkRestoreDefault.Location = new System.Drawing.Point(323, 369);
             this.linkRestoreDefault.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkRestoreDefault.Name = "linkRestoreDefault";
-            this.linkRestoreDefault.Size = new System.Drawing.Size(494, 21);
+            this.linkRestoreDefault.Size = new System.Drawing.Size(123, 21);
             this.linkRestoreDefault.TabIndex = 51;
             this.linkRestoreDefault.TabStop = true;
             this.linkRestoreDefault.Tag = "";
@@ -2965,74 +2932,6 @@ namespace Optimizer
             this.linkRestoreDefault.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkRestoreDefault.VisitedLinkColor = System.Drawing.Color.Silver;
             this.linkRestoreDefault.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
-            // 
-            // adblockUlti
-            // 
-            this.adblockUlti.BackColor = System.Drawing.Color.DodgerBlue;
-            this.adblockUlti.FlatAppearance.BorderSize = 0;
-            this.adblockUlti.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.adblockUlti.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.adblockUlti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adblockUlti.ForeColor = System.Drawing.Color.White;
-            this.adblockUlti.Location = new System.Drawing.Point(485, 351);
-            this.adblockUlti.Margin = new System.Windows.Forms.Padding(2);
-            this.adblockUlti.Name = "adblockUlti";
-            this.adblockUlti.Size = new System.Drawing.Size(153, 31);
-            this.adblockUlti.TabIndex = 66;
-            this.adblockUlti.Text = "AdBlock Ultimate\r\n";
-            this.adblockUlti.UseVisualStyleBackColor = false;
-            this.adblockUlti.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // adblockP
-            // 
-            this.adblockP.BackColor = System.Drawing.Color.DodgerBlue;
-            this.adblockP.FlatAppearance.BorderSize = 0;
-            this.adblockP.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.adblockP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.adblockP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adblockP.ForeColor = System.Drawing.Color.White;
-            this.adblockP.Location = new System.Drawing.Point(485, 316);
-            this.adblockP.Margin = new System.Windows.Forms.Padding(2);
-            this.adblockP.Name = "adblockP";
-            this.adblockP.Size = new System.Drawing.Size(153, 31);
-            this.adblockP.TabIndex = 65;
-            this.adblockP.Text = "AdBlock + Porn";
-            this.adblockP.UseVisualStyleBackColor = false;
-            this.adblockP.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // adblockS
-            // 
-            this.adblockS.BackColor = System.Drawing.Color.DodgerBlue;
-            this.adblockS.FlatAppearance.BorderSize = 0;
-            this.adblockS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.adblockS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.adblockS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adblockS.ForeColor = System.Drawing.Color.White;
-            this.adblockS.Location = new System.Drawing.Point(327, 351);
-            this.adblockS.Margin = new System.Windows.Forms.Padding(2);
-            this.adblockS.Name = "adblockS";
-            this.adblockS.Size = new System.Drawing.Size(153, 31);
-            this.adblockS.TabIndex = 64;
-            this.adblockS.Text = "AdBlock + Social";
-            this.adblockS.UseVisualStyleBackColor = false;
-            this.adblockS.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // adblockBasic
-            // 
-            this.adblockBasic.BackColor = System.Drawing.Color.DodgerBlue;
-            this.adblockBasic.FlatAppearance.BorderSize = 0;
-            this.adblockBasic.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.adblockBasic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.adblockBasic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adblockBasic.ForeColor = System.Drawing.Color.White;
-            this.adblockBasic.Location = new System.Drawing.Point(327, 316);
-            this.adblockBasic.Margin = new System.Windows.Forms.Padding(2);
-            this.adblockBasic.Name = "adblockBasic";
-            this.adblockBasic.Size = new System.Drawing.Size(153, 31);
-            this.adblockBasic.TabIndex = 63;
-            this.adblockBasic.Text = "AdBlock Basic";
-            this.adblockBasic.UseVisualStyleBackColor = false;
-            this.adblockBasic.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblLock
             // 
@@ -4623,6 +4522,8 @@ namespace Optimizer
             // optionsTab
             // 
             this.optionsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.optionsTab.Controls.Add(this.pictureBox17);
+            this.optionsTab.Controls.Add(this.linkLabel2);
             this.optionsTab.Controls.Add(this.pictureBox14);
             this.optionsTab.Controls.Add(this.pictureBox13);
             this.optionsTab.Controls.Add(this.pictureBox12);
@@ -4651,6 +4552,34 @@ namespace Optimizer
             this.optionsTab.TabIndex = 6;
             this.optionsTab.Text = "Options";
             // 
+            // pictureBox17
+            // 
+            this.pictureBox17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
+            this.pictureBox17.Location = new System.Drawing.Point(957, 492);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox17.TabIndex = 94;
+            this.pictureBox17.TabStop = false;
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel2.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel2.Location = new System.Drawing.Point(822, 490);
+            this.linkLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(130, 28);
+            this.linkLabel2.TabIndex = 93;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Tag = "themeable";
+            this.linkLabel2.Text = "Open Source";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked_1);
+            // 
             // pictureBox14
             // 
             this.pictureBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -4666,7 +4595,7 @@ namespace Optimizer
             // 
             this.pictureBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
-            this.pictureBox13.Location = new System.Drawing.Point(957, 484);
+            this.pictureBox13.Location = new System.Drawing.Point(957, 454);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(32, 32);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -4677,7 +4606,7 @@ namespace Optimizer
             // 
             this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(957, 526);
+            this.pictureBox12.Location = new System.Drawing.Point(957, 530);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(32, 32);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -4691,7 +4620,7 @@ namespace Optimizer
             this.linkLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.ForeColor = System.Drawing.Color.DodgerBlue;
             this.linkLabel1.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel1.Location = new System.Drawing.Point(795, 525);
+            this.linkLabel1.Location = new System.Drawing.Point(795, 529);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(158, 28);
@@ -4789,7 +4718,7 @@ namespace Optimizer
             // 
             // pictureBox16
             // 
-            this.pictureBox16.Image = global::Optimizer.Properties.Resources.taiwan;
+            this.pictureBox16.Image = global::Optimizer.Properties.Resources.china;
             this.pictureBox16.Location = new System.Drawing.Point(120, 329);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(32, 19);
@@ -5301,7 +5230,7 @@ namespace Optimizer
             this.l2.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l2.ForeColor = System.Drawing.Color.DodgerBlue;
             this.l2.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.l2.Location = new System.Drawing.Point(795, 483);
+            this.l2.Location = new System.Drawing.Point(795, 453);
             this.l2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.l2.Name = "l2";
             this.l2.Size = new System.Drawing.Size(157, 28);
@@ -5731,6 +5660,7 @@ namespace Optimizer
             this.panel6.ResumeLayout(false);
             this.optionsTab.ResumeLayout(false);
             this.optionsTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
@@ -5914,12 +5844,6 @@ namespace Optimizer
         private MoonCheck chkReadOnly;
         private System.Windows.Forms.Label lblLock;
         private MoonCheck chkBlock;
-        private System.Windows.Forms.Button adblockBasic;
-        private System.Windows.Forms.Label lblAdblockSub;
-        private System.Windows.Forms.Label lblAdblock;
-        private System.Windows.Forms.Button adblockUlti;
-        private System.Windows.Forms.Button adblockP;
-        private System.Windows.Forms.Button adblockS;
         private System.Windows.Forms.TabPage appsTab;
         private System.Windows.Forms.Button btnDownloadApps;
         private System.Windows.Forms.Label appsTitle;
@@ -6122,6 +6046,8 @@ namespace Optimizer
         private PictureBox pictureBox15;
         private MoonnRadio radioTaiwan;
         private PictureBox pictureBox16;
+        private PictureBox pictureBox17;
+        private LinkLabel linkLabel2;
     }
 }
 

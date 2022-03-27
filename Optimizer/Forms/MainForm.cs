@@ -52,6 +52,7 @@ namespace Optimizer
 
         readonly string _licenseLink = "https://www.gnu.org/licenses/gpl-3.0.en.html";
         readonly string _discordLink = "https://discord.gg/rZh8BhmmQv";
+        readonly string _githubProjectLink = "https://github.com/hellzerg/optimizer";
 
         readonly string _latestVersionLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/version.txt";
         readonly string _changelogLink = "https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md";
@@ -1902,10 +1903,6 @@ namespace Optimizer
             chkBlock.Enabled = !chkReadOnly.Checked;
             txtDomain.Enabled = !chkReadOnly.Checked;
             txtIP.Enabled = !chkReadOnly.Checked;
-            adblockBasic.Enabled = !chkReadOnly.Checked;
-            adblockS.Enabled = !chkReadOnly.Checked;
-            adblockP.Enabled = !chkReadOnly.Checked;
-            adblockUlti.Enabled = !chkReadOnly.Checked;
 
             ((Control)this.hostsEditorTab).Enabled = true;
 
@@ -3174,36 +3171,8 @@ namespace Optimizer
             chkBlock.Enabled = !chkReadOnly.Checked;
             txtDomain.Enabled = !chkReadOnly.Checked;
             txtIP.Enabled = !chkReadOnly.Checked;
-            adblockBasic.Enabled = !chkReadOnly.Checked;
-            adblockS.Enabled = !chkReadOnly.Checked;
-            adblockP.Enabled = !chkReadOnly.Checked;
-            adblockUlti.Enabled = !chkReadOnly.Checked;
 
             txtIP.Focus();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            HostsHelper.AdblockBasic();
-            GetHostsEntries();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            HostsHelper.AdBlockWithPorn();
-            GetHostsEntries();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            HostsHelper.AdBlockWithSocial();
-            GetHostsEntries();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            HostsHelper.AdBlockWithSocial();
-            GetHostsEntries();
         }
 
         private void RenderAppDownloaderBusy()
@@ -3456,7 +3425,6 @@ namespace Optimizer
         {
             AboutForm f = new AboutForm();
             f.ShowDialog(this);
-            //Process.Start("https://github.com/hellzerg/optimizer");
         }
 
         private void btnViewLog_Click(object sender, EventArgs e)
@@ -3676,7 +3644,10 @@ namespace Optimizer
 
         private void button10_Click(object sender, EventArgs e)
         {
-            Utilities.FlushDNSCache();
+            if (MessageBox.Show("Are you sure you wish to flush the DNS cache of Windows?\n\nThis will cause internet disconnection for a moment and it may be needed a restart to function properly.", "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Utilities.FlushDNSCache();
+            }
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -4157,6 +4128,11 @@ namespace Optimizer
         private void pictureBox16_Click(object sender, EventArgs e)
         {
             radioTaiwan.PerformClick();
+        }
+
+        private void linkLabel2_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(_githubProjectLink);
         }
     }
 }

@@ -426,12 +426,7 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ipconfig /release
-        ///ipconfig /renew
-        ///arp -d *
-        ///nbtstat -R
-        ///nbtstat -RR
-        ///ipconfig /flushdns
+        ///   Looks up a localized string similar to ipconfig /flushdns
         ///ipconfig /registerdns.
         /// </summary>
         internal static string FlushDNSCache {
@@ -728,16 +723,6 @@ namespace Optimizer.Properties {
         internal static string SystemTools {
             get {
                 return ResourceManager.GetString("SystemTools", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap taiwan {
-            get {
-                object obj = ResourceManager.GetObject("taiwan", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

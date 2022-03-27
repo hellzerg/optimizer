@@ -14,10 +14,10 @@ namespace Optimizer
         internal static string NewLine = Environment.NewLine;
         internal static readonly string HostsFile = CleanHelper.System32Folder + "\\drivers\\etc\\hosts";
 
-        static string AdBlockBasicLink = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts";
-        static string AdBlockWithPornLink = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts";
-        static string AdBlockWithSocialLink = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-social/hosts";
-        static string AdBlockUltimateLink = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts";
+        //static string AdBlockBasicLink = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts";
+        //static string AdBlockWithPornLink = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts";
+        //static string AdBlockWithSocialLink = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-social/hosts";
+        //static string AdBlockUltimateLink = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts";
 
         static WebClient _client = new WebClient()
         {
@@ -42,77 +42,77 @@ namespace Optimizer
             }
         }
 
-        internal static void AdblockBasic()
-        {
-            try
-            {
-                if (File.Exists(HostsFile))
-                {
-                    File.Delete(HostsFile);
-                }
+        //internal static void AdblockBasic()
+        //{
+        //    try
+        //    {
+        //        if (File.Exists(HostsFile))
+        //        {
+        //            File.Delete(HostsFile);
+        //        }
 
-                File.WriteAllText(HostsFile, _client.DownloadString(AdBlockBasicLink));
-            }
-            catch (Exception ex)
-            {
-                ErrorLogger.LogError("HostsHelper.AdblockBasic", ex.Message, ex.StackTrace);
-                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
+        //        File.WriteAllText(HostsFile, _client.DownloadString(AdBlockBasicLink));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ErrorLogger.LogError("HostsHelper.AdblockBasic", ex.Message, ex.StackTrace);
+        //        MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+        //}
 
-        internal static void AdBlockWithPorn()
-        {
-            try
-            {
-                if (File.Exists(HostsFile))
-                {
-                    File.Delete(HostsFile);
-                }
+        //internal static void AdBlockWithPorn()
+        //{
+        //    try
+        //    {
+        //        if (File.Exists(HostsFile))
+        //        {
+        //            File.Delete(HostsFile);
+        //        }
 
-                File.WriteAllText(HostsFile, _client.DownloadString(AdBlockWithPornLink));
-            }
-            catch (Exception ex)
-            {
-                ErrorLogger.LogError("HostsHelper.AdBlockWithPorn", ex.Message, ex.StackTrace);
-                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
+        //        File.WriteAllText(HostsFile, _client.DownloadString(AdBlockWithPornLink));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ErrorLogger.LogError("HostsHelper.AdBlockWithPorn", ex.Message, ex.StackTrace);
+        //        MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+        //}
 
-        internal static void AdBlockWithSocial()
-        {
-            try
-            {
-                if (File.Exists(HostsFile))
-                {
-                    File.Delete(HostsFile);
-                }
+        //internal static void AdBlockWithSocial()
+        //{
+        //    try
+        //    {
+        //        if (File.Exists(HostsFile))
+        //        {
+        //            File.Delete(HostsFile);
+        //        }
 
-                File.WriteAllText(HostsFile, _client.DownloadString(AdBlockWithSocialLink));
-            }
-            catch (Exception ex)
-            {
-                ErrorLogger.LogError("HostsHelper.AdBlockWithSocial", ex.Message, ex.StackTrace);
-                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
+        //        File.WriteAllText(HostsFile, _client.DownloadString(AdBlockWithSocialLink));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ErrorLogger.LogError("HostsHelper.AdBlockWithSocial", ex.Message, ex.StackTrace);
+        //        MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+        //}
 
-        internal static void AdBlockUltimate()
-        {
-            try
-            {
-                if (File.Exists(HostsFile))
-                {
-                    File.Delete(HostsFile);
-                }
+        //internal static void AdBlockUltimate()
+        //{
+        //    try
+        //    {
+        //        if (File.Exists(HostsFile))
+        //        {
+        //            File.Delete(HostsFile);
+        //        }
 
-                File.WriteAllText(HostsFile, _client.DownloadString(AdBlockUltimateLink));
-            }
-            catch (Exception ex)
-            {
-                ErrorLogger.LogError("HostsHelper.AdBlockUltimate", ex.Message, ex.StackTrace);
-                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
+        //        File.WriteAllText(HostsFile, _client.DownloadString(AdBlockUltimateLink));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ErrorLogger.LogError("HostsHelper.AdBlockUltimate", ex.Message, ex.StackTrace);
+        //        MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+        //}
 
         internal static string[] ReadHosts()
         {
