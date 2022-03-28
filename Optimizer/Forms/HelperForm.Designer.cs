@@ -1,4 +1,4 @@
-﻿namespace Optimizer
+namespace Optimizer
 {
     partial class HelperForm
     {

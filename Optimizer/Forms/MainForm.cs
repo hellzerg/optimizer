@@ -55,7 +55,7 @@ namespace Optimizer
         readonly string _githubProjectLink = "https://github.com/hellzerg/optimizer";
 
         readonly string _latestVersionLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/version.txt";
-        readonly string _changelogLink = "https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md";
+        //readonly string _changelogLink = "https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md";
         readonly string _changelogRawLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/CHANGELOG.md";
 
         string _noNewVersionMessage = "You already have the latest version!";
@@ -707,7 +707,7 @@ namespace Optimizer
             listStartupItems.ListViewItemSorter = _columnSorter;
 
             specsTree.ImageList = imagesHw;
-            
+
             // STARTUP ITEMS
             if (!disableStartups)
             {
@@ -818,8 +818,6 @@ namespace Optimizer
 
             // network monitoring
             InitNetworkMonitoring();
-
-            ParseChangelog();
         }
 
         private void LoadTranslationAndSetSize()
@@ -2239,7 +2237,7 @@ namespace Optimizer
         {
             if (tabCollection.SelectedTab == hostsEditorTab) txtIP.Focus();
 
-            if (tabCollection.SelectedTab == pingerTab) txtPingInput.Focus();      
+            if (tabCollection.SelectedTab == pingerTab) txtPingInput.Focus();
         }
 
         private void button48_Click(object sender, EventArgs e)
@@ -3163,15 +3161,16 @@ namespace Optimizer
 
         private void btnChangelog_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Process.Start(_changelogLink);
-            }
-            catch (Exception ex)
-            {
-                ErrorLogger.LogError("MainForm.btnChangelog_Click", ex.Message, ex.StackTrace);
-                MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //try
+            //{
+            //    Process.Start(_changelogLink);
+            //}
+            //catch (Exception ex)
+            //{
+            //    ErrorLogger.LogError("MainForm.btnChangelog_Click", ex.Message, ex.StackTrace);
+            //    MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            ParseChangelog();
         }
 
         private void chkReadOnly_CheckedChanged(object sender, EventArgs e)
@@ -4186,30 +4185,32 @@ namespace Optimizer
             {
                 ErrorLogger.LogError("MainForm.ParseChangelog", ex.Message, ex.StackTrace);
                 MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
             if (changelogText.Count == 0) return;
 
             int markVersion = 0;
-  
             for (int d = 0; d < changelogText.Count; d++)
             {
                 if (changelogText[d].Contains($"## [{Program.GetCurrentVersionTostring()}]"))
                 {
                     markVersion = d;
-                  //  MessageBox.Show(changelogText[d]);
                     break;
                 }
-                else
-                {
-                    continue;
-                  
-                }
+                else continue;
             }
-            //MessageBox.Show("MARK: " + markVersion);
+
             changelogText.RemoveRange(markVersion, changelogText.Count - markVersion);
 
-            MessageBox.Show(string.Join(Environment.NewLine, changelogText.ToArray()));
+            if (changelogText.Count <= 0)
+            {
+                MessageBox.Show(_noNewVersionMessage, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            InfoForm f = new InfoForm(string.Join(Environment.NewLine, changelogText).Replace('-', '•'));
+            f.ShowDialog(this);
         }
     }
 }

@@ -45,7 +45,8 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\bin\release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -152,6 +153,12 @@
     <Compile Include="Forms\CleanPreviewForm.Designer.cs">
       <DependentUpon>CleanPreviewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\HelperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HelperForm.designer.cs">
+      <DependentUpon>HelperForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Hardware.cs" />
     <Compile Include="Forms\HostsEditorForm.cs">
       <SubType>Form</SubType>
@@ -181,12 +188,6 @@
     <Compile Include="Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\HelperForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\HelperForm.Designer.cs">
-      <DependentUpon>HelperForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Required.cs" />
     <Compile Include="SilentConfig.cs" />
     <Compile Include="SilentOps.cs" />
@@ -228,6 +229,9 @@
     <EmbeddedResource Include="Forms\CleanPreviewForm.resx">
       <DependentUpon>CleanPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HelperForm.resx">
+      <DependentUpon>HelperForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\HostsEditorForm.resx">
       <DependentUpon>HostsEditorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,9 +251,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Forms\HelperForm.resx">
-      <DependentUpon>HelperForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>

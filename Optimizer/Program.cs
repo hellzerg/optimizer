@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -14,7 +13,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 12;
-        internal readonly static float Minor = 3;
+        internal readonly static float Minor = 4;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
