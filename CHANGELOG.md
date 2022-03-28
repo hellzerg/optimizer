@@ -1,7 +1,3 @@
-# Optimizer Changelog
-
-All notable changes to this project will be documented in this file.
-
 ## [12.3] - 2022-03-27
 - Hotfix: Italian translation
 - Hotfix: Flush DNS cache now requires confirmation

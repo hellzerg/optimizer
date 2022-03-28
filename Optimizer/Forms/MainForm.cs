@@ -56,6 +56,7 @@ namespace Optimizer
 
         readonly string _latestVersionLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/version.txt";
         readonly string _changelogLink = "https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md";
+        readonly string _changelogRawLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/CHANGELOG.md";
 
         string _noNewVersionMessage = "You already have the latest version!";
         string _betaVersionMessage = "You are using an experimental version!";
@@ -69,6 +70,7 @@ namespace Optimizer
         string _removeModernAppsMessage = "Are you sure you want to uninstall the following app(s)?";
         string _errorModernAppsMessage = "The following app(s) couldn't be uninstalled:\n";
         string _resetMessage = "Are you sure you want to reset configuration?\n\nThis will reset all your preferences, including any icons you extracted or downloaded using Integrator, but will not touch anything on your computer!";
+        string _flushDNSMessage = "Are you sure you wish to flush the DNS cache of Windows?\n\nThis will cause internet disconnection for a moment and it may be needed a restart to function properly.";
 
         string _byteSizeNullString = " b";
         string _primaryItemTag = "_primary";
@@ -79,7 +81,7 @@ namespace Optimizer
         TreeNode[] _hwSummarized;
 
         Size _sizeDefault = new Size(1025, 744);
-        Size _sizeRussian = new Size(1298, 744);
+        Size _sizeRussian = new Size(1365, 744);
         Size _sizeHellenic = new Size(1076, 744);
         Size _sizeTurkish = new Size(1081, 744);
         Size _sizeFrench = new Size(1037, 744);
@@ -778,7 +780,50 @@ namespace Optimizer
 
             LoadSettings();
 
-            // Translation-related
+            LoadTranslationAndSetSize();
+
+            Program._MainForm = this;
+
+            if (string.IsNullOrEmpty(Options.CurrentOptions.AppsFolder))
+            {
+                txtDownloadFolder.Text = Path.Combine(Application.StartupPath, "Optimizer Downloads");
+                Options.CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
+                Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
+                Options.SaveSettings();
+            }
+            else
+            {
+                if (!Directory.Exists(Options.CurrentOptions.AppsFolder))
+                {
+                    try
+                    {
+                        Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
+                    }
+                    catch (Exception ex)
+                    {
+                        txtDownloadFolder.Text = string.Empty;
+                        ErrorLogger.LogError("MainForm.INIT", ex.Message, ex.StackTrace);
+                    }
+                }
+                txtDownloadFolder.Text = Options.CurrentOptions.AppsFolder;
+            }
+
+            if (!Program.EXPERIMENTAL_BUILD && Utilities.IsInternetAvailable()) CheckForUpdate(true);
+
+            if (Program.EXPERIMENTAL_BUILD)
+            {
+                btnUpdate.Enabled = false;
+                picLab.Visible = true;
+            }
+
+            // network monitoring
+            InitNetworkMonitoring();
+
+            ParseChangelog();
+        }
+
+        private void LoadTranslationAndSetSize()
+        {
             if (Options.CurrentOptions.LanguageCode == LanguageCode.EN)
             {
                 radioEnglish.Checked = true;
@@ -856,43 +901,12 @@ namespace Optimizer
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
-
-            Program._MainForm = this;
-
-            if (string.IsNullOrEmpty(Options.CurrentOptions.AppsFolder))
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.KO)
             {
-                txtDownloadFolder.Text = Path.Combine(Application.StartupPath, "Optimizer Downloads");
-                Options.CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
-                Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
-                Options.SaveSettings();
+                radioKorean.Checked = true;
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
             }
-            else
-            {
-                if (!Directory.Exists(Options.CurrentOptions.AppsFolder))
-                {
-                    try
-                    {
-                        Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
-                    }
-                    catch (Exception ex)
-                    {
-                        txtDownloadFolder.Text = string.Empty;
-                        ErrorLogger.LogError("MainForm.INIT", ex.Message, ex.StackTrace);
-                    }
-                }
-                txtDownloadFolder.Text = Options.CurrentOptions.AppsFolder;
-            }
-
-            if (!Program.EXPERIMENTAL_BUILD && Utilities.IsInternetAvailable()) CheckForUpdate(true);
-
-            if (Program.EXPERIMENTAL_BUILD)
-            {
-                btnUpdate.Enabled = false;
-                picLab.Visible = true;
-            }
-
-            // network monitoring
-            InitNetworkMonitoring();
         }
 
         private void GetHardwareSpecs()
@@ -1584,6 +1598,7 @@ namespace Optimizer
                 _removeModernAppsMessage = Options.TranslationList["removeModernApps"];
                 _errorModernAppsMessage = Options.TranslationList["errorModernApps"];
                 _resetMessage = Options.TranslationList["resetMessage"];
+                _flushDNSMessage = Options.TranslationList["flushDNSMessage"];
 
                 listStartupItems.Columns[0].Text = translationList["startupItemName"];
                 listStartupItems.Columns[1].Text = translationList["startupItemLocation"];
@@ -3644,7 +3659,7 @@ namespace Optimizer
 
         private void button10_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you wish to flush the DNS cache of Windows?\n\nThis will cause internet disconnection for a moment and it may be needed a restart to function properly.", "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(_flushDNSMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Utilities.FlushDNSCache();
             }
@@ -4070,25 +4085,6 @@ namespace Optimizer
             }
         }
 
-        private void btnCopyHW_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            try
-            {
-                Clipboard.SetText(GetSpecsToString(specsTree));
-            }
-            catch { }
-        }
-
-        private void btnSaveHW_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            SaveFileDialog d = new SaveFileDialog();
-            d.InitialDirectory = Application.StartupPath;
-            d.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-            d.FileName = $"Optimizer_Hardware_{Environment.MachineName}_{DateTime.Now.ToShortDateString()}.txt";
-
-            if (d.ShowDialog() == DialogResult.OK) File.WriteAllText(d.FileName, GetSpecsToString(specsTree), Encoding.UTF8);
-        }
-
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(_discordLink);
@@ -4133,6 +4129,87 @@ namespace Optimizer
         private void linkLabel2_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(_githubProjectLink);
+        }
+
+        private void radioKorean_Click(object sender, EventArgs e)
+        {
+            radioKorean.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.KO;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox18_Click(object sender, EventArgs e)
+        {
+            radioKorean.PerformClick();
+        }
+
+        private void btnCopyHW_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(GetSpecsToString(specsTree));
+            }
+            catch { }
+        }
+
+        private void btnSaveHW_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog d = new SaveFileDialog();
+            d.InitialDirectory = Application.StartupPath;
+            d.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            d.FileName = $"Optimizer_Hardware_{Environment.MachineName}_{DateTime.Now.ToShortDateString()}.txt";
+
+            if (d.ShowDialog() == DialogResult.OK) File.WriteAllText(d.FileName, GetSpecsToString(specsTree), Encoding.UTF8);
+        }
+
+        private void ParseChangelog()
+        {
+            WebClient client = new WebClient
+            {
+                Encoding = Encoding.UTF8
+            };
+
+            List<string> changelogText = new List<string>();
+
+            try
+            {
+                changelogText = client.DownloadString(_changelogRawLink).Trim().Split(
+                    new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("MainForm.ParseChangelog", ex.Message, ex.StackTrace);
+                MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            if (changelogText.Count == 0) return;
+
+            int markVersion = 0;
+  
+            for (int d = 0; d < changelogText.Count; d++)
+            {
+                if (changelogText[d].Contains($"## [{Program.GetCurrentVersionTostring()}]"))
+                {
+                    markVersion = d;
+                  //  MessageBox.Show(changelogText[d]);
+                    break;
+                }
+                else
+                {
+                    continue;
+                  
+                }
+            }
+            //MessageBox.Show("MARK: " + markVersion);
+            changelogText.RemoveRange(markVersion, changelogText.Count - markVersion);
+
+            MessageBox.Show(string.Join(Environment.NewLine, changelogText.ToArray()));
         }
     }
 }

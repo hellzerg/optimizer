@@ -99,6 +99,7 @@
         IT, // italian
         CN, // chinese
         CZ, // czech
-        TW // taiwan
+        TW, // taiwan
+        KO // korean
     }
 }

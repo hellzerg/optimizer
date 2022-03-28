@@ -17,7 +17,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 	</a>
 </p> 
 
-* Full multilingual support (12 languages available)
+* Full multilingual support (13 languages available)
 * Speed up your system and network performance
 * Disable unnecessary Windows services
 * Disable Windows telemetry
@@ -80,6 +80,7 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * https://github.com/btwise - btwise for Chinese translation
 * https://github.com/tomlonghorn - Tom Longhorn for Czech translation
 * https://github.com/H3XDaemon - H3XDaemon for Taiwanese translation
+* https://github.com/VenusGirl - VenusGirl for Korean translation
 
 ## How to include an app in Common Apps - Pull Request
 https://github.com/hellzerg/optimizer/blob/master/FEED.md

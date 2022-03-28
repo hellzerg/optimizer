@@ -72,6 +72,7 @@
 	"chkSelectAllModernApps": "Selectionner tout",
 	"chkOnlyRemovable": "Uniquement les desinstallables",
 	"txtUWP": "Si vous desinstallez Store\nvous ne pourrez pas\ninstaller de nouvelles applications UWP !\n\nDe plus, certaines applications\nne peuvent pas etre desinstallees.\n\nComme Microsoft Edge,\nParametres, etc.",
+	"flushDNSMessage": "Êtes-vous sûr de vouloir vider le cache DNS de Windows?\n\nCela entraînera une déconnexion d'Internet pendant un moment et un redémarrage peut être nécessaire pour que le système fonctionne correctement.",
 	"startupTitle": "Choisissez vos elements de demarrage",
 	"removeStartupItemB": "Supprimer",
 	"locateFileB": "Localiser le fichier",

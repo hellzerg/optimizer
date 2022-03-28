@@ -230,6 +230,7 @@
 	"HostsEditorForm": "Επεξεργασία αρχείου Hosts",
 	"savebtn": "Αποθήκευση",
 	"closebtn": "Κλείσιμο",
+	"flushDNSMessage": "Είστε σίγουροι ότι θέλετε να καθαρίσετε την μνήμη DNS?\n\nΑυτό ίσως σας αποσυνδέσει απο το διαδίκτυο στιγμιαία.",
 	"adminMissingMsg": "Το Optimizer πρέπει να εκτελεστεί ως διαχειριστής!\nΗ εφαρμογή θα κλείσει τώρα ...",
 	"unsupportedMsg": "Το Optimizer λειτουργεί σε Windows 7 ή νεότερη έκδοση!\nΗ εφαρμογή θα κλείσει τώρα ...",
 	"confInvalidVersionMsg": "Λανθασμένη έκδοση Windows",

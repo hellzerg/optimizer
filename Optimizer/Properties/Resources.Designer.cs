@@ -566,6 +566,41 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {	
+        ///	&quot;btnAbout&quot;: &quot;확인&quot;,
+        ///	&quot;restartButton&quot;: &quot;지금 다시 시작&quot;,
+        ///	&quot;restartButton8&quot;: &quot;지금 다시 시작&quot;,
+        ///	&quot;restartButton10&quot;: &quot;지금 다시 시작&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;변경을 적용하려면 다시 시작하시겠습니까?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;버전: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;{BITS}로 작업중입니다&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;업데이트 가능&quot;,
+        ///	&quot;lblLab&quot;: &quot;실험 빌드\n(테스트 후 삭제)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;성능 조정을 활성화&quot;,
+        ///	&quot;networkSw&quot;: &quot;네트워크 조절 사용 안 함&quot;,
+        ///	&quot;defenderSw&quot;: &quot;Windows Defender 사용 안 함&quot;,
+        ///	&quot;systemRestoreSw&quot;: &quot;시스템 복원 사용 안 함&quot;,
+        ///	&quot;printSw&quot;: &quot;인쇄 서비스 사용 안 함&quot;,
+        ///	&quot;mediaSharingSw&quot;: &quot;미디어 플레이어 공유 사용 안 함&quot;,
+        ///	&quot;fa [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string KO {
+            get {
+                return ResourceManager.GetString("KO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap korea {
+            get {
+                object obj = ResourceManager.GetObject("korea", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap logo {

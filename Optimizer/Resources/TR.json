@@ -72,6 +72,7 @@
 	"chkSelectAllModernApps": "Hepsini seç",
 	"chkOnlyRemovable": "Yalnızca Kaldırılabilir Olanlar",
 	"txtUWP": "Eğer Microsoft Mağazasını kaldırırsanız\nYeni UWP Uygulamalarını yükleyemezsiniz!\n\nAyrıca bazı uygulamalar kaldırılamaz.\nMicrosoft Edge, Ayarlar gibi..",
+	"flushDNSMessage": "Windows'un DNS önbelleğini temizlemek istediğinizden emin misiniz?\n\nBu, bir an için internet bağlantısının kesilmesine neden olur ve düzgün çalışması için yeniden başlatma gerekebilir.",
 	"startupTitle": "Başlangıç öğelerinizi seçin",
 	"removeStartupItemB": "Kaldır",
 	"locateFileB": "Dosyayı bul",

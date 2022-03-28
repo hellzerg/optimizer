@@ -164,5 +164,17 @@ namespace Optimizer
         {
             radioTaiwan.PerformClick();
         }
+
+        private void radioKorean_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.KO;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            radioChinese.PerformClick();
+        }
     }
 }
