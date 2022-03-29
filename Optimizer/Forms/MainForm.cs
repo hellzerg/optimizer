@@ -4209,7 +4209,7 @@ namespace Optimizer
                 return;
             }
 
-            InfoForm f = new InfoForm(string.Join(Environment.NewLine, changelogText).Replace('-', '•'));
+            InfoForm f = new InfoForm(string.Join(Environment.NewLine, changelogText).Replace("##", "➤"));
             f.ShowDialog(this);
         }
     }
