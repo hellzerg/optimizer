@@ -242,6 +242,18 @@ namespace Optimizer
             Utilities.RunCommand("shutdown /r /t 0");
         }
 
+        internal static void DisableHibernation()
+        {
+            Utilities.RunCommand("powercfg -h off");
+            Utilities.RunCommand("powercfg -h off");
+        }
+
+        internal static void EnableHibernation()
+        {
+            Utilities.RunCommand("powercfg -h on");
+            Utilities.RunCommand("powercfg -h on");
+        }
+
         internal static void ActivateMainForm()
         {
             Program._MainForm.Activate();
