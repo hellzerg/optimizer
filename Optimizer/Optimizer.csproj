@@ -89,6 +89,9 @@
     <Compile Include="Controls\MoonList.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\MoonSelect.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\MoonTabs.cs">
       <SubType>Component</SubType>
     </Compile>
