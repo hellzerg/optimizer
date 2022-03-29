@@ -23,7 +23,7 @@
 	"vsSW": "Visual Studio 원격 측정 사용 안 함",
 	"ffTelemetrySw": "Mozilla Firefox 원격 측정 사용 안 함",
 	"chromeTelemetrySw": "Google Chrome 원격 측정 사용 안 함",
-    "compatSw": "호환성 지원 사용 안 함",
+	"compatSw": "호환성 지원 사용 안 함",
 	"smartScreenSw": "SmartScreen 사용 안 함",
 	"stickySw": "고정 키 사용 안 함",
 	"universalTab": "일반",
@@ -47,13 +47,13 @@
 	"telemetryServicesSw": "원격 측정 서비스 사용 안 함",
 	"privacySw": "개인 정보 강화",
 	"ccSw": "클라우드 클립보드 사용 안 함",
-	"cortanaSw": "코타나 사용 안 함",
+	"cortanaSw": "Cortana 사용 안 함",
 	"sensorSw": "센서 서비스 사용 안 함",
 	"castSw": "장치에 캐스트 제거",
 	"inkSw": "Windows 잉크 사용 안 함",
 	"spellSw": "맟춤법 검사 사용 안 함",
-	"xboxSw": "Xbox 라이브 사용 안 함",
-	"gameBarSw": "Game 바 사용 안 함",
+	"xboxSw": "Xbox Live 사용 안 함",
+	"gameBarSw": "Game Bar 사용 안 함",
 	"insiderSw": "Insider 서비스 사용 안 함",
 	"featuresSw": "기능 업데이트 사용 안 함",
 	"actionSw": "알림 센터 사용 안 함",
@@ -364,7 +364,7 @@ Microsoft로 전송합니다.",
 - 자동 수정
 - 텍스트 제안
 - 맞춤법 검사",
-	"xboxTip": "Xbox 라이브 서비스는 Xbox 게임을 위한 스트리밍, 녹음 및 소셜 기능을 제공합니다.",
+	"xboxTip": "Xbox Live 서비스는 Xbox 게임을 위한 스트리밍, 녹음 및 소셜 기능을 제공합니다.",
 	"actionTip": "알림 센터는 Wi-Fi, 블루투스 등과 같은 알림 및 빠른 액션 타일의 
 중심 장소입니다.",
 	"autoUpdatesTip": "Windows 업데이트의 자동 다운로드 및 설치를 실행 중지합니다.
@@ -384,16 +384,16 @@ Microsoft로 전송합니다.",
 	"ccTip": "클라우드 클립보드는 클립보드 데이터를 장치 간에 공유합니다.
 한 장치에 복사하고 다른 장치에 붙여넣을 수 있습니다.
 Microsoft 계정 로그인이 필요합니다.",
-	"cortanaTip": "코타나는 AI 기반의 가상 비서입니다.
+	"cortanaTip": "Cortana는 AI 기반의 가상 비서입니다.
 
-- 코타나 사용 안 함
+- Cortana 사용 안 함
 - 시작 메뉴에서 웹 검색을 사용 안 함
 - 검색 기록 보관 금지",
 	"sensorTip": "자동 회전, 자동 밝기 등과 같은 센서의 기능을 
 관리하는 서비스입니다.
 터치 스크린이 있는 태블릿 또는 장치에만 유용합니다.",
 	"castTip": "마우스 오른쪽 버튼을 클릭하여 미디어 콘텐츠를 Miracast 장치와 공유합니다.",
-	"gameBarTip": "Game 바는 Xbox 게임 서비스를 위한 빠른 접근 메뉴입니다.",
+	"gameBarTip": "Game Bar는 Xbox 게임 서비스를 위한 빠른 접근 메뉴입니다.",
 	"insiderTip": "Windows Insider 프로그램을 사용하면 최신 기능이 일반에 공개되기 전에
 테스트할 수 있습니다.
 참여를 원하지 않는 사용자에게는 불필요한 서비스로 간주됩니다.",
