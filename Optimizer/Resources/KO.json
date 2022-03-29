@@ -23,7 +23,7 @@
 	"vsSW": "Visual Studio 원격 측정 사용 안 함",
 	"ffTelemetrySw": "Mozilla Firefox 원격 측정 사용 안 함",
 	"chromeTelemetrySw": "Google Chrome 원격 측정 사용 안 함",
-	"compatSw": "호환성 지원 사용 안 함",
+    "compatSw": "호환성 지원 사용 안 함",
 	"smartScreenSw": "SmartScreen 사용 안 함",
 	"stickySw": "고정 키 사용 안 함",
 	"universalTab": "일반",
@@ -60,7 +60,7 @@
 	"disableOneDriveSw": "OneDrive 사용 안 함",
 	"tpmSw": "TPM 2.0 확인 사용 안 함",
 	"leftTaskbarSw": "작업 표시줄 왼쪽으로 정렬",
-	"snapAssistSw": "스냅 어시스트 사용 안 함",
+	"snapAssistSw": "스냅 레이아웃 사용 안 함",
 	"widgetsSw": "위젯 사용 안 함",
 	"chatSw": "채팅 사용 안 함",
 	"smallerTaskbarSw": "작업 표시줄 작게 만들기",
@@ -251,7 +251,7 @@
 	"removeAllItems": "모든 바탕화면 항목을 삭제하시겠습니까?",
 	"removeModernApps": "다음 앱을 제거하시겠습니까?",
 	"errorModernApps": "다음 앱을 제거할 수 없습니다\n",
-	"resetMessage": "구성을 재설정하시겠습니까?\n이렇게 하면 Integrator를 사용하여 압축을 풀거나 다운로드한 아이콘을 포함하여\n모든 기본 설정이 재설정되지만 컴퓨터의 아무 것도 건드리지 않습니다!",
+	"resetMessage": "구성을 재설정하시겠습니까?\n이렇게 하면 통합기를 사용하여 압축을 풀거나 다운로드한 아이콘을 포함하여\n모든 기본 설정이 재설정되지만 컴퓨터의 아무 것도 건드리지 않습니다!",
 	"newVersion": "사용 가능한 새 버전이 있습니다!\n\n최신 버전: {LATEST}\n현재 버번: {CURRENT}\n\n지금 다운로드하시겠습니까?\n\n몇 초 후에 앱이 다시 시작됩니다.",
 	"flushDNSMessage": "Windows의 DNS 캐시를 플러시하시겠습니까?\n\n이로 인해 인터넷 연결이 잠시 끊기고 제대로 작동하려면 다시 시작해야 할 수 있습니다.",
 	"downloadsFinished": "마침",
@@ -263,7 +263,7 @@
 	"noErrorsM": "표시할 오류가 없습니다!",
 	"hostNotFound": "호스트를 찾을 수 없습니다",
 	"pinging": "32바이트로 핑 - 9회...",
-	"latency": "LATENCY",
+	"latency": "지연",
 	"lblSystemTools": "시스템 및 도구",
 	"lblInternet": "인터넷",
 	"lblCoding": "코딩",
@@ -326,10 +326,10 @@
 Windows Defender는 Windows 시스템에 내장된 바이러스 백신입니다.",
 	"smartScreenTip": "SmartScreen은 파일, 다운로드 및 웹 사이트를 자동으로 검색하여
 이미 알려진 위험한 콘텐츠를 차단하고 이를 실행하기 전에 경고합니다.",
-	"systemRestoreTip": "시스템 복원은 Windows 상태를 이전 상태로 되돌려 오작동이나 
+	"systemRestoreTip": "시스템 복원은 Windows 상태를 이전 상태로 되돌려 오작동이나
 기타 문제로부터 복구할 수 있는 기능입니다.",
 	"reportingTip": "오류 보고는 응용 프로그램 충돌 및 오류를 수집하여 Microsoft로 보냅니다.",
-	"telemetryTasksTip": "원격 측정 서비스는 향후 개선을 위해 사용 및 성능 데이터를 정기적으로 
+	"telemetryTasksTip": "원격 측정 서비스는 향후 개선을 위해 사용 및 성능 데이터를 정기적으로
 Microsoft로 전송합니다.",
 	"officeTelemetryTip": "Office 원격 측정 기능은 향후 개선을 위해 사용량 및 성능 데이터를
  Microsoft로 정기적으로 전송합니다.",
@@ -342,9 +342,9 @@ Microsoft로 전송합니다.",
 	"stickyTip": "고정 키는 신체적 장애가 있는 Windows 사용자가 반복적인 
 긴장 손상과 관련된 움직임을 줄일 수 있도록 도와주는 
 접근성 기능입니다.",
-	"homegroupTip": "홈그룹은 Windows 탐색기를 사용하여 홈 네트워크에서 파일을 
+	"homegroupTip": "홈그룹은 Windows 탐색기를 사용하여 홈 네트워크에서 파일을
 공유할 수 있는 기능입니다.",
-	"superfetchTip": "Superfetch는 일반적으로 사용되는 앱을 RAM에 미리 로드하여 특히 HDD에서 
+	"superfetchTip": "Superfetch는 일반적으로 사용되는 앱을 RAM에 미리 로드하여 특히 HDD에서
 디스크 사용량이 높습니다.",
 	"compatTip": "호환성 지원 서비스는 이전 프로그램에서 알려진 호환성 문제를 탐지합니다.",
 	"disableOneDriveTip": "OneDrive 클라우드-저장소 통합을 실행 중지합니다.",
@@ -358,21 +358,21 @@ Microsoft로 전송합니다.",
 	"uODTip": "OneDrive 클라우드-저장소 통합을 완전히 제거합니다.",
 	"peopleTip": "피플은 작업 표시줄에 최근 연락처를 표시하는 새로운 기능입니다.",
 	"longPathsTip": "최대 경로 길이 제한인 256자를 제거합니다.",
-	"inkTip": "Windows 잉크는 화면에 그릴 수 있는 디지털 펜을 지원합니다.",
+	"inkTip": "Windows Ink는 화면에 그릴 수 있는 디지털 펜을 지원합니다.",
 	"spellTip": "터치 키보드 기능은 다음과 같습니다:
 
 - 자동 수정
 - 텍스트 제안
-- 맞춤법 검사",
+- 맞춤법 검사
 	"xboxTip": "Xbox Live 서비스는 Xbox 게임을 위한 스트리밍, 녹음 및 소셜 기능을 제공합니다.",
-	"actionTip": "알림 센터는 Wi-Fi, 블루투스 등과 같은 알림 및 빠른 액션 타일의 
+	"actionTip": "알림 센터는 Wi-Fi, 블루투스 등과 같은 알림 및 빠른 동작 타일의
 중심 장소입니다.",
 	"autoUpdatesTip": "Windows 업데이트의 자동 다운로드 및 설치를 실행 중지합니다.
 대신 새 업데이트를 사용할 수 있을 때 알림이 표시됩니다.
 또한 배달 최적화 서비스를 실행 중지합니다.",
-	"driversTip": "Windows Update가 올바르게 작동하는 드라이버를 장애가 있는 드라이버로 
+	"driversTip": "Windows Update가 올바르게 작동하는 드라이버를 장애가 있는 드라이버로
 지속적으로 교체할 때 유용합니다.",
-	"telemetryServicesTip": "원격 측정 서비스는 Microsoft에 분석을 위한 피드백을 보내는 사용 데이터를 
+	"telemetryServicesTip": "원격 측정 서비스는 Microsoft에 분석을 위한 피드백을 보내는 사용 데이터를
 추적 및 기록합니다.",
 	"privacyTip": "추가 개인 정보를 조정하면 다음이 비활성화됩니다:
 
@@ -389,7 +389,7 @@ Microsoft 계정 로그인이 필요합니다.",
 - Cortana 사용 안 함
 - 시작 메뉴에서 웹 검색을 사용 안 함
 - 검색 기록 보관 금지",
-	"sensorTip": "자동 회전, 자동 밝기 등과 같은 센서의 기능을 
+	"sensorTip": "자동 회전, 자동 밝기 등과 같은 센서의 기능을
 관리하는 서비스입니다.
 터치 스크린이 있는 태블릿 또는 장치에만 유용합니다.",
 	"castTip": "마우스 오른쪽 버튼을 클릭하여 미디어 콘텐츠를 Miracast 장치와 공유합니다.",
@@ -401,7 +401,7 @@ Microsoft 계정 로그인이 필요합니다.",
 그러나 이러한 시술은 위험한 절차로 간주됩니다. 일반적으로 반년마다 출시됩니다.",
 	"tpmTip": "Secure Boot 및 TPM 2.0 요구 사항을 무시하고 Windows 11로 업그레이드할 수 있습니다.",
 	"leftTaskbarTip": "작업 표시줄 아이콘을 왼쪽으로 정렬합니다.",
-	"snapAssistTip": "최대화 버튼을 맴돌 때 스냅 어시스트 플라이아웃을 비활성화합니다.",
+	"snapAssistTip": "최대화 버튼을 맴돌 때 스냅 레이아웃 플라이아웃을 비활성화합니다.",
 	"widgetsTip": "위젯 기능을 사용하지 않도록 설정하고 작업 표시줄에서 위젯 아이콘을 제거합니다.",
 	"chatTip": "작업 표시줄에서 채팅 아이콘을 제거합니다.",
 	"smallerTaskbarTip": "작업 표시줄 크기와 아이콘을 더 작게 만듭니다.",
