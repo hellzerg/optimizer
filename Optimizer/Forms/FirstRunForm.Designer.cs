@@ -261,10 +261,10 @@ namespace Optimizer
             this.radioTaiwan.Location = new System.Drawing.Point(200, 157);
             this.radioTaiwan.Margin = new System.Windows.Forms.Padding(2);
             this.radioTaiwan.Name = "radioTaiwan";
-            this.radioTaiwan.Size = new System.Drawing.Size(62, 25);
+            this.radioTaiwan.Size = new System.Drawing.Size(96, 25);
             this.radioTaiwan.TabIndex = 104;
             this.radioTaiwan.Tag = "";
-            this.radioTaiwan.Text = "國語";
+            this.radioTaiwan.Text = "繁體中文";
             this.radioTaiwan.UseVisualStyleBackColor = true;
             this.radioTaiwan.CheckedChanged += new System.EventHandler(this.radioTaiwan_CheckedChanged);
             // 
