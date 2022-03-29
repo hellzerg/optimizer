@@ -1,5 +1,5 @@
-{	
-	"btnAbout": "확인",
+{
+     "btnAbout": "확인",
 	"restartButton": "지금 다시 시작",
 	"restartButton8": "지금 다시 시작",
 	"restartButton10": "지금 다시 시작",
@@ -33,7 +33,7 @@
 	"cleanerTab": "청소",
 	"pingerTab": "핑 도구",
 	"registryFixerTab": "레지스트리",
-	"integratorTab": "통합I",
+	"integratorTab": "통합",
 	"CleanPreviewForm": "미리보기 지우기",
 	"optionsTab": "옵션",
 	"oldMixerSw": "클래식 볼륨 믹서 사용",
@@ -42,7 +42,7 @@
 	"uODSw": "OneDrive 제거",
 	"peopleSw": "피플 사용 안 함",
 	"longPathsSw": "긴 경로 사용",
-	"autoUpdatesSw": "자동 버데이트 사용 안 함",
+	"autoUpdatesSw": "자동 업데이트 사용 안 함",
 	"driversSw": "업데이트에서 드라이버 제외",
 	"telemetryServicesSw": "원격 측정 서비스 사용 안 함",
 	"privacySw": "개인 정보 강화",
@@ -54,7 +54,7 @@
 	"spellSw": "맟춤법 검사 사용 안 함",
 	"xboxSw": "Xbox 라이브 사용 안 함",
 	"gameBarSw": "Game 바 사용 안 함",
-	"insiderSw": "인사이더 서비스 사용 안 함",
+	"insiderSw": "Insider 서비스 사용 안 함",
 	"featuresSw": "기능 업데이트 사용 안 함",
 	"actionSw": "알림 센터 사용 안 함",
 	"disableOneDriveSw": "OneDrive 사용 안 함",
@@ -62,7 +62,7 @@
 	"leftTaskbarSw": "작업 표시줄 왼쪽으로 정렬",
 	"snapAssistSw": "스냅 어시스트 사용 안 함",
 	"widgetsSw": "위젯 사용 안 함",
-	"chatSw": "Disable 채팅 사용 안 함",
+	"chatSw": "채팅 사용 안 함",
 	"smallerTaskbarSw": "작업 표시줄 작게 만들기",
 	"classicRibbonSw": "탐색기에서 클래식 리본 사용",
 	"classicContextSw": "클래식 오른쪽 클릭 메뉴 사용",
@@ -70,9 +70,8 @@
 	"uninstallModernAppsButton": "설치 제거",
 	"txtModernAppsTitle": "불필요한 UWP 앱 제거",
 	"chkSelectAllModernApps": "모두 선택",
-	"chkOnlyRemovable": "제거 가능만",
-	"txtUWP": "Store를 제거하면 Store\n새 UWP 앱을 설치할 수 없습니다!\n\n또한 일부 앱을\n제거할 수 없습니다.\n\nMicrosoft Edge,\n설정 등입니다.",
-	"flushDNSMessage": "Windows의 DNS 캐시를 플러시하시겠습니까?\n\n이로 인해 잠시 인터넷 연결이 끊기며 제대로 작동하려면 다시 시작해야 할 수 있습니다.",
+	"chkOnlyRemovable": "제거 가능한 것만",
+	"txtUWP": "Store를 제거하면\n새 UWP 앱을 설치할 수 없습니다!\n\n또한 일부 앱을\n제거할 수 없습니다.\n\nMicrosoft Edge,\n설정 등입니다.",
 	"startupTitle": "시작 항목을 선택하십시오",
 	"removeStartupItemB": "삭제",
 	"locateFileB": "파일 찾기",
@@ -89,7 +88,7 @@
 	"txtFeedError": "인터넷에 연결되어 있지 않습니다. 링크를 다시 새로 고치십시오",
 	"appsTitle": "유용한 앱을 빠르게 다운로드하여 설치",
 	"btnGetFeed": "링크 새로 고침",
-	"bitPref": "비트 환경 설정 설정",
+	"bitPref": "비트 환경 설정을 설정",
 	"linkWarnings": "경고 보이기",
 	"txtDownloadStatus": "유휴",
 	"goToDownloadsB": "다운로드로 이동",
@@ -106,11 +105,11 @@
 	"checkMediaCache": "미디어 플레이어 캐시",
 	"checkErrorReports": "오류 보고",
 	"cleanDriveB": "지우기",
-	"lblPretext": "사용 가능한 최대 크기::",
+	"lblPretext": "사용 가능한 최대 크기:",
 	"cleanerTitle": "시스템 드라이브 청소",
 	"pingerTitle": "IP 주소 핑 및 대기 시간 평가",
 	"lblPinger": "IP / 도메인 이름",
-	"lblDNS": "권장 Cloudflare DNS\n(클릭해서 복사)",
+	"lblDNS": "Cloudflare DNS 권장\n(클릭해서 복사)",
 	"btnOpenNetwork": "네트워크 연결 열기",
 	"copyIPB": "복사",
 	"copyB": "IP 복사",
@@ -119,7 +118,7 @@
 	"lblResults": "결과",
 	"flushCacheB": "DNS 캐시 플러시",
 	"btnExport": "내보내기",
-	"hostsTitle": "호스트 파일을 효율적으로 편집",
+	"hostsTitle": "hosts 파일을 효율적으로 편집",
 	"linkLocate": "위치",
 	"linkAdvancedEdit": "고급 편집기",
 	"linkRestoreDefault": "기본값 복원",
@@ -172,11 +171,11 @@
 	"integrator4": "• 웹 링크",
 	"integrator5": "• 모든 유형의 파일",
 	"integrator6": "• 명령",
-	"integrator7": "항목에는 사용자 지정 아이콘과 위치가 있을 수 있습니다.\n또한 SHIFT 키를 눌러서만 액세스할 수 있으며\n숨길 수 있습니다.\n또한 대화상자 실행에 대한\n사용자 정의 명령을 만들 수 있으므로 원하는 키워드를 입력하는 것만으로\n응용 프로그램을 쉽게 시작할 수 있습니다.",
+	"integrator7": "항목에는 사용자 지정 아이콘과 위치가 있을 수 있습니다.\n또한 SHIFT 키를 눌러서만 액세스할 수 있으며\n숨길 수 있습니다.\n또한 대화상자 실행에 대한 사용자 정의 명령을 만들 수 있으므로\n원하는 키워드를 입력하는 것만으로\n응용 프로그램을 쉽게 시작할 수 있습니다.",
 	"integratorInfoTab": "정보",
 	"tabPage8": "추가/수정",
 	"tabPage9": "삭제",
-	"tabPage10": "준비 메뉴",
+	"tabPage10": "메뉴 준비",
 	"tabPage11": "대화 상자 실행",
 	"addItemL": "항목 추가 또는 수정",
 	"itemtype": "항목 유형",
@@ -217,7 +216,7 @@
 	"RemoveOwnerB": "'소유권 취득' 삭제",
 	"AddCMDB": "'CMD로 열기' 추가",
 	"DeleteCMDB": "'CMD로 열기' 삭제",
-	"readyMenusL": "유용한 미리 만든 메뉴 추가",
+	"readyMenusL": "유용하고 사전 제작된 메뉴 추가",
 	"refreshCCB": "새로 고침",
 	"removeCCB": "삭제",
 	"removeCCL": "기존 명령 삭제",
@@ -228,7 +227,7 @@
 	"btnYes": "예",
 	"btnNo": "아니오",
 	"btnOk": "확인",
-	"HostsEditorForm": "호스트 편집기",
+	"HostsEditorForm": "Hosts 편집기",
 	"savebtn": "저장",
 	"closebtn": "닫기",
 	"adminMissingMsg": "Optimizer를 관리자로 실행해야 합니다!\n지금 앱이 닫힙니다...",
@@ -254,6 +253,7 @@
 	"errorModernApps": "다음 앱을 제거할 수 없습니다\n",
 	"resetMessage": "구성을 재설정하시겠습니까?\n이렇게 하면 Integrator를 사용하여 압축을 풀거나 다운로드한 아이콘을 포함하여\n모든 기본 설정이 재설정되지만 컴퓨터의 아무 것도 건드리지 않습니다!",
 	"newVersion": "사용 가능한 새 버전이 있습니다!\n\n최신 버전: {LATEST}\n현재 버번: {CURRENT}\n\n지금 다운로드하시겠습니까?\n\n몇 초 후에 앱이 다시 시작됩니다.",
+	"flushDNSMessage": "Windows의 DNS 캐시를 플러시하시겠습니까?\n\n이로 인해 인터넷 연결이 잠시 끊기고 제대로 작동하려면 다시 시작해야 할 수 있습니다.",
 	"downloadsFinished": "마침",
 	"downloadDirInvalid": "지정한 다운로드 폴더가 잘못되었습니다",
 	"no64Download": "사용 가능한 64비트 없음, 32비트 다운로드 중",
@@ -318,8 +318,8 @@
 - 흔들기-최소화 기능을 사용하지 않습니다
 - 항상 파일 확장자를 표시합니다
 - 숨겨진 파일을 표시합니다",
-	"networkTip": "Windows에서는 멀티미디어 앱을 실행할 때 네트워크 트래픽을 
-제한하는 네트워크 조절 메커니즘을 구현합니다. 또한 온라인 게임을 할 때
+	"networkTip": "Windows에서는 멀티미디어 앱을 실행할 때 네트워크 트래픽을 제한하는
+네트워크 조절 메커니즘을 구현합니다. 또한 온라인 게임을 할 때
 네트워크 성능을 저하시킬 수 있습니다.",
 	"defenderTip": "⚠ Windows 10 버전 1903 이상에서는 Windows Defender를 비활성화할 수 없습니다.
 
@@ -331,8 +331,8 @@ Windows Defender는 Windows 시스템에 내장된 바이러스 백신입니다.
 	"reportingTip": "오류 보고는 응용 프로그램 충돌 및 오류를 수집하여 Microsoft로 보냅니다.",
 	"telemetryTasksTip": "원격 측정 서비스는 향후 개선을 위해 사용 및 성능 데이터를 정기적으로 
 Microsoft로 전송합니다.",
-	"officeTelemetryTip": "Office 원격 측정 기능은 향후 개선을 위해 
-사용량 및 성능 데이터를 Microsoft로 정기적으로 전송합니다.",
+	"officeTelemetryTip": "Office 원격 측정 기능은 향후 개선을 위해 사용량 및 성능 데이터를
+ Microsoft로 정기적으로 전송합니다.",
 	"ffTelemetryTip": "Mozilla Firefox 원격 측정 및 데이터 보고 서비스를 사용하지 않도록 설정합니다.",
 	"vsTip": "SQM 클라이언트를 포함한 Visual Studio 원격 측정 및 피드백 기능을 사용하지 않도록 설정합니다.",
 	"chromeTelemetryTip": "Google Chrome 원격 측정 및 소프트웨어 보고 도구 (일반적으로 CPU 사용량이 높은 것으로 알려져 있음)를 사용하지 않습니다.",
@@ -350,7 +350,7 @@ Microsoft로 전송합니다.",
 	"disableOneDriveTip": "OneDrive 클라우드-저장소 통합을 실행 중지합니다.",
 	"oldMixerTip": "기존 볼륨 믹서 제어판을 복원합니다.",
 	"oldExplorerTip": "- 빠른 접근 기록을 사용하지 않습니다
-- File Explorer 기본 보기를 이 PC로 설정
+- 파일 탐색기 기본 보기를 이 PC로 설정
 - 파일을 받지 않도록 설정
 - 작업 표시줄에서 검색, 작업 및 날씨를 제거
 - 파일 기록을 사용하지 않음",
@@ -363,8 +363,8 @@ Microsoft로 전송합니다.",
 
 - 자동 수정
 - 텍스트 제안
-- 맞춤법 검사",
-	"xboxTip": "Xbox Live 서비스는 Xbox 게임을 위한 스트리밍, 녹음 및 소셜 기능을 제공합니다.",
+- 맞춤법 검사
+	"xboxTip": "Xbox 라이브 서비스는 Xbox 게임을 위한 스트리밍, 녹음 및 소셜 기능을 제공합니다.",
 	"actionTip": "알림 센터는 Wi-Fi, 블루투스 등과 같은 알림 및 빠른 액션 타일의 
 중심 장소입니다.",
 	"autoUpdatesTip": "Windows 업데이트의 자동 다운로드 및 설치를 실행 중지합니다.
@@ -393,7 +393,7 @@ Microsoft 계정 로그인이 필요합니다.",
 관리하는 서비스입니다.
 터치 스크린이 있는 태블릿 또는 장치에만 유용합니다.",
 	"castTip": "마우스 오른쪽 버튼을 클릭하여 미디어 콘텐츠를 Miracast 장치와 공유합니다.",
-	"gameBarTip": "게임 바는 Xbox 게임 서비스를 위한 빠른 접근 메뉴입니다.",
+	"gameBarTip": "Game 바는 Xbox 게임 서비스를 위한 빠른 접근 메뉴입니다.",
 	"insiderTip": "Windows Insider 프로그램을 사용하면 최신 기능이 일반에 공개되기 전에
 테스트할 수 있습니다.
 참여를 원하지 않는 사용자에게는 불필요한 서비스로 간주됩니다.",
