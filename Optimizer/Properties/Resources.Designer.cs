@@ -566,8 +566,8 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {	
-        ///	&quot;btnAbout&quot;: &quot;확인&quot;,
+        ///   Looks up a localized string similar to {
+        ///     &quot;btnAbout&quot;: &quot;확인&quot;,
         ///	&quot;restartButton&quot;: &quot;지금 다시 시작&quot;,
         ///	&quot;restartButton8&quot;: &quot;지금 다시 시작&quot;,
         ///	&quot;restartButton10&quot;: &quot;지금 다시 시작&quot;,
@@ -581,8 +581,7 @@ namespace Optimizer.Properties {
         ///	&quot;defenderSw&quot;: &quot;Windows Defender 사용 안 함&quot;,
         ///	&quot;systemRestoreSw&quot;: &quot;시스템 복원 사용 안 함&quot;,
         ///	&quot;printSw&quot;: &quot;인쇄 서비스 사용 안 함&quot;,
-        ///	&quot;mediaSharingSw&quot;: &quot;미디어 플레이어 공유 사용 안 함&quot;,
-        ///	&quot;fa [rest of string was truncated]&quot;;.
+        ///	&quot;mediaSharingSw&quot;: &quot;Media Player 공유 사용 안 함&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string KO {
             get {
@@ -679,18 +678,18 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
-        ///	&quot;btnAbout&quot;: &quot;Ок&quot;,
-        ///	&quot;restartButton&quot;: &quot;перезагрузить сейчас&quot;,
-        ///	&quot;restartButton8&quot;: &quot;перезагрузить сейчас&quot;,
-        ///	&quot;restartButton10&quot;: &quot;перезагрузить сейчас&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;перезагрузить, чтобы изменения вступили в силу?&quot;,
+        ///	&quot;btnAbout&quot;: &quot;OK&quot;,
+        ///	&quot;restartButton&quot;: &quot;Перезапустить сейчас&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Перезапустить сейчас&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Перезапустить сейчас&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Перезапустить, чтобы применить изменения?&quot;,
         ///	&quot;txtVersion&quot;: &quot;Версия: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;Вы работаете с {BITS}&quot;,
-        ///	&quot;CleanPreviewForm&quot;: &quot;Чистый предварительный просмотр&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;обновление доступно&quot;,
-        ///	&quot;lblLab&quot;: &quot;экспериментальная сборка\n(удалить после тестирования)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Вкл Настройки производительности&quot;,
-        ///	&quot;n [rest of string was truncated]&quot;;.
+        ///	&quot;linkUpdate&quot;: &quot;Доступно новое обновление&quot;,
+        ///	&quot;lblLab&quot;: &quot;Экспериментальная версия\n(удалить после тестирования)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Включить настройки оптимизации&quot;,
+        ///	&quot;networkSw&quot;: &quot;Отключить троттлинг сети&quot;,
+        ///	&quot;defenderSw&quot;: &quot;Отк [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RU {
             get {

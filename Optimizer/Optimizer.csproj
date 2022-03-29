@@ -273,45 +273,45 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\AddOpenWithCMD.reg" />
-    <None Include="Resources\CN.json" />
-    <None Include="Resources\CZ.json" />
-    <None Include="Resources\DE.json" />
-    <None Include="Resources\DesktopShortcuts.reg" />
-    <None Include="Resources\DisableDefenderSafeMode1903Plus.bat" />
-    <None Include="Resources\DisableOfficeTelemetry.reg" />
-    <None Include="Resources\EN.json" />
-    <None Include="Resources\EnableOfficeTelemetry.reg" />
-    <None Include="Resources\EnableOfficeTelemetryTasks.bat" />
-    <None Include="Resources\EnableTelemetryTasks.bat" />
-    <None Include="Resources\EnableXboxTasks.bat" />
-    <None Include="Resources\EL.json" />
-    <None Include="Resources\ES.json" />
-    <None Include="Resources\FlushDNSCache.bat" />
-    <None Include="Resources\FR.json" />
-    <None Include="Resources\GPEditEnablerInHome.bat" />
-    <None Include="Resources\hosts" />
-    <None Include="Resources\InstallTakeOwnership.reg" />
-    <None Include="Resources\IT.json" />
-    <None Include="Resources\KO.json" />
-    <None Include="Resources\PowerMenu.reg" />
-    <None Include="Resources\PT.json" />
-    <None Include="Resources\RemoveTakeOwnership.reg" />
-    <None Include="Resources\RU.json" />
-    <None Include="Resources\SystemShortcuts.reg" />
-    <None Include="Resources\SystemTools.reg" />
-    <None Include="Resources\TR.json" />
-    <None Include="Resources\TW.json" />
-    <None Include="Resources\WindowsApps.reg" />
+    <None Include="Resources\Scripts\AddOpenWithCMD.reg" />
+    <None Include="Resources\i18n\CN.json" />
+    <None Include="Resources\i18n\CZ.json" />
+    <None Include="Resources\i18n\DE.json" />
+    <None Include="Resources\Scripts\DesktopShortcuts.reg" />
+    <None Include="Resources\Scripts\DisableDefenderSafeMode1903Plus.bat" />
+    <None Include="Resources\Scripts\DisableOfficeTelemetry.reg" />
+    <None Include="Resources\i18n\EN.json" />
+    <None Include="Resources\Scripts\EnableOfficeTelemetry.reg" />
+    <None Include="Resources\Scripts\EnableOfficeTelemetryTasks.bat" />
+    <None Include="Resources\Scripts\EnableTelemetryTasks.bat" />
+    <None Include="Resources\Scripts\EnableXboxTasks.bat" />
+    <None Include="Resources\i18n\EL.json" />
+    <None Include="Resources\i18n\ES.json" />
+    <None Include="Resources\Scripts\FlushDNSCache.bat" />
+    <None Include="Resources\i18n\FR.json" />
+    <None Include="Resources\Scripts\GPEditEnablerInHome.bat" />
+    <None Include="Resources\Scripts\hosts" />
+    <None Include="Resources\Scripts\InstallTakeOwnership.reg" />
+    <None Include="Resources\i18n\IT.json" />
+    <None Include="Resources\i18n\KO.json" />
+    <None Include="Resources\Scripts\PowerMenu.reg" />
+    <None Include="Resources\i18n\PT.json" />
+    <None Include="Resources\Scripts\RemoveTakeOwnership.reg" />
+    <None Include="Resources\i18n\RU.json" />
+    <None Include="Resources\Scripts\SystemShortcuts.reg" />
+    <None Include="Resources\Scripts\SystemTools.reg" />
+    <None Include="Resources\i18n\TR.json" />
+    <None Include="Resources\i18n\TW.json" />
+    <None Include="Resources\Scripts\WindowsApps.reg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\DisableOfficeTelemetryTasks.bat" />
-    <None Include="Resources\DisableTelemetryTasks.bat" />
-    <None Include="Resources\DisableXboxTasks.bat" />
-    <None Include="Resources\OneDrive_Uninstaller.bin" />
+    <None Include="Resources\Scripts\DisableOfficeTelemetryTasks.bat" />
+    <None Include="Resources\Scripts\DisableTelemetryTasks.bat" />
+    <None Include="Resources\Scripts\DisableXboxTasks.bat" />
+    <None Include="Resources\Scripts\OneDrive_Uninstaller.bin" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -337,21 +337,21 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\korea.png" />
-    <None Include="Resources\taiwan.png" />
-    <None Include="Resources\united-kingdom.png" />
-    <None Include="Resources\turkey.png" />
-    <None Include="Resources\spain.png" />
-    <None Include="Resources\russia.png" />
-    <None Include="Resources\italy.png" />
-    <None Include="Resources\greece.png" />
-    <None Include="Resources\germany.png" />
-    <None Include="Resources\france.png" />
-    <None Include="Resources\czech.png" />
-    <None Include="Resources\china.png" />
-    <None Include="Resources\brazil.png" />
-    <None Include="Resources\optimiz.png" />
-    <None Include="Resources\logo.png" />
+    <None Include="Resources\Flags\korea.png" />
+    <None Include="Resources\Flags\taiwan.png" />
+    <None Include="Resources\Flags\united-kingdom.png" />
+    <None Include="Resources\Flags\turkey.png" />
+    <None Include="Resources\Flags\spain.png" />
+    <None Include="Resources\Flags\russia.png" />
+    <None Include="Resources\Flags\italy.png" />
+    <None Include="Resources\Flags\greece.png" />
+    <None Include="Resources\Flags\germany.png" />
+    <None Include="Resources\Flags\france.png" />
+    <None Include="Resources\Flags\czech.png" />
+    <None Include="Resources\Flags\china.png" />
+    <None Include="Resources\Flags\brazil.png" />
+    <None Include="Resources\Assets\optimiz.png" />
+    <None Include="Resources\Assets\logo.png" />
     <EmbeddedResource Include="Newtonsoft.Json.dll" />
     <Content Include="optimizer.ico" />
   </ItemGroup>
