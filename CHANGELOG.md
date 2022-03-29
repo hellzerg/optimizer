@@ -1,3 +1,9 @@
+## [12.4] - 2022-03-29
+- New: Fully translated into Korean (thanks to https://github.com/VenusGirl - VenusGirl)
+- New: Updated Newtonsoft.Json from version 12.0.2 to 13.0.1
+- Hotfix: Translation additions and fixes in all supported languages
+- Improved: Performance Tweaks
+
 ## [12.3] - 2022-03-27
 - Hotfix: Italian translation
 - Hotfix: Flush DNS cache now requires confirmation
