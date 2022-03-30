@@ -33,8 +33,6 @@ namespace Optimizer
         public bool DisableFaxService { get; set; }
         public bool DisableSmartScreen { get; set; }
         public bool DisableCloudClipboard { get; set; }
-        public bool DisableStickyKeys { get; set; }
-        public bool DisableHibernate { get; set; }
 
         // apps telemetry
         public bool DisableOffice2016Telemetry { get; set; }
@@ -226,8 +224,6 @@ namespace Optimizer
                 CurrentOptions.DisableCompatibilityAssistant = false;
                 CurrentOptions.DisableFaxService = false;
                 CurrentOptions.DisableSmartScreen = false;
-                CurrentOptions.DisableStickyKeys = false;
-                CurrentOptions.DisableHibernate = false;
 
                 CurrentOptions.EnableLegacyVolumeSlider = false;
                 CurrentOptions.DisableQuickAccessHistory = false;
