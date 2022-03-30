@@ -34,6 +34,7 @@ namespace Optimizer
         public bool DisableSmartScreen { get; set; }
         public bool DisableCloudClipboard { get; set; }
         public bool DisableStickyKeys { get; set; }
+        public bool DisableHibernate { get; set; }
 
         // apps telemetry
         public bool DisableOffice2016Telemetry { get; set; }
@@ -112,6 +113,12 @@ namespace Optimizer
                     break;
                 case Theme.Amethyst:
                     SetTheme(f, Color.FromArgb(153, 102, 204), Color.FromArgb(134, 89, 179));
+                    break;
+                case Theme.MagentaLight:
+                    SetTheme(f, Color.FromArgb(209, 56, 255), Color.FromArgb(126, 16, 158));
+                    break;
+                case Theme.LightPinkRed:
+                    SetTheme(f, Color.FromArgb(255, 95, 101), Color.FromArgb(163, 65, 67));
                     break;
             }
         }
@@ -220,6 +227,7 @@ namespace Optimizer
                 CurrentOptions.DisableFaxService = false;
                 CurrentOptions.DisableSmartScreen = false;
                 CurrentOptions.DisableStickyKeys = false;
+                CurrentOptions.DisableHibernate = false;
 
                 CurrentOptions.EnableLegacyVolumeSlider = false;
                 CurrentOptions.DisableQuickAccessHistory = false;

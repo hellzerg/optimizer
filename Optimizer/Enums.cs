@@ -62,7 +62,9 @@
         Amber,
         Ruby,
         Jade,
-        Silver
+        Silver,
+        MagentaLight,
+        LightPinkRed
     }
 
     internal enum RecycleFlag : int
