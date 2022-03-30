@@ -239,20 +239,6 @@ namespace Optimizer
             ffTelemetrySw.ToggleClicked += new EventHandler(FfTelemetrySw_ToggleClicked);
             chromeTelemetrySw.ToggleClicked += new EventHandler(ChromeTelemetrySw_ToggleClicked);
             vsSw.ToggleClicked += new EventHandler(VsSw_ToggleClicked);
-            hibernateSw.ToggleClicked += new EventHandler(HibernateSw_ToggleClicked);
-        }
-
-        private void HibernateSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (hibernateSw.ToggleChecked)
-            {
-                Optimize.DisableHibernate();
-            }
-            else
-            {
-                Optimize.EnableHibernate();
-            }
-            Options.CurrentOptions.DisableHibernate = hibernateSw.ToggleChecked;
         }
 
         private void VsSw_ToggleClicked(object sender, EventArgs e)
@@ -437,7 +423,6 @@ namespace Optimizer
             helpBox.SetToolTip(ffTelemetrySw.Label, Options.TranslationList["ffTelemetryTip"].ToString());
             helpBox.SetToolTip(vsSw.Label, Options.TranslationList["vsTip"].ToString());
             helpBox.SetToolTip(chromeTelemetrySw.Label, Options.TranslationList["chromeTelemetryTip"].ToString());
-            helpBox.SetToolTip(hibernateSw.Label, Options.TranslationList["hibernateTip"].ToString());
 
             //helpBox.ToolTipTitle = Options.TranslationList["tipWhatsThis"].ToString();
         }
@@ -1855,7 +1840,6 @@ namespace Optimizer
             ffTelemetrySw.ToggleChecked = Options.CurrentOptions.DisableFirefoxTemeletry;
             vsSw.ToggleChecked = Options.CurrentOptions.DisableVisualStudioTelemetry;
             chromeTelemetrySw.ToggleChecked = Options.CurrentOptions.DisableChromeTelemetry;
-            hibernateSw.ToggleChecked = Options.CurrentOptions.DisableHibernate;
         }
 
         private void LoadWindowsVIIIToggleStates()
