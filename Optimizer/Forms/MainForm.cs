@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -238,6 +239,20 @@ namespace Optimizer
             ffTelemetrySw.ToggleClicked += new EventHandler(FfTelemetrySw_ToggleClicked);
             chromeTelemetrySw.ToggleClicked += new EventHandler(ChromeTelemetrySw_ToggleClicked);
             vsSw.ToggleClicked += new EventHandler(VsSw_ToggleClicked);
+            hibernateSw.ToggleClicked += new EventHandler(HibernateSw_ToggleClicked);
+        }
+
+        private void HibernateSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (hibernateSw.ToggleChecked)
+            {
+                Optimize.DisableHibernate();
+            }
+            else
+            {
+                Optimize.EnableHibernate();
+            }
+            Options.CurrentOptions.DisableHibernate = hibernateSw.ToggleChecked;
         }
 
         private void VsSw_ToggleClicked(object sender, EventArgs e)
@@ -422,6 +437,7 @@ namespace Optimizer
             helpBox.SetToolTip(ffTelemetrySw.Label, Options.TranslationList["ffTelemetryTip"].ToString());
             helpBox.SetToolTip(vsSw.Label, Options.TranslationList["vsTip"].ToString());
             helpBox.SetToolTip(chromeTelemetrySw.Label, Options.TranslationList["chromeTelemetryTip"].ToString());
+            helpBox.SetToolTip(hibernateSw.Label, Options.TranslationList["hibernateTip"].ToString());
 
             //helpBox.ToolTipTitle = Options.TranslationList["tipWhatsThis"].ToString();
         }
@@ -477,6 +493,7 @@ namespace Optimizer
             }
             Options.CurrentOptions.DisableStickyKeys = stickySw.ToggleChecked;
         }
+
 
         private void ToggleSwitch37_Click(object sender, EventArgs e)
         {
@@ -565,6 +582,12 @@ namespace Optimizer
                 case Theme.Amethyst:
                     rAmethyst.Checked = true;
                     break;
+                case Theme.MagentaLight:
+                    rMagentaLight.Checked = true;
+                    break;
+                case Theme.LightPinkRed:
+                    rLightPinkRed.Checked = true;
+                    break;
             }
         }
 
@@ -580,7 +603,7 @@ namespace Optimizer
 
             EnableToggleEvents();
 
-            _splashForm.LoadingStatus.Text = "checking for requirements ...";
+            _splashForm.LoadingStatus.Text = "Checking for requirements...";
 
             // theming
             Options.ApplyTheme(this);
@@ -701,7 +724,7 @@ namespace Optimizer
                 txtOS.Text += string.Format(" ({0})", Utilities.GetWindows10Build());
             }
 
-            _splashForm.LoadingStatus.Text = "loading startup && hosts items ...";
+            _splashForm.LoadingStatus.Text = "Loading startup && hosts elements...";
 
             _columnSorter = new ListViewColumnSorter();
             listStartupItems.ListViewItemSorter = _columnSorter;
@@ -765,7 +788,7 @@ namespace Optimizer
                 launcherMenu.Items.RemoveByKey("trayCleaner");
             }
 
-            _splashForm.LoadingStatus.Text = "loading hardware specifications ...";
+            _splashForm.LoadingStatus.Text = "Hardware specifications being loaded...";
 
             // INDICIUM
             if (!disableIndicium)
@@ -824,7 +847,7 @@ namespace Optimizer
         {
             if (Options.CurrentOptions.LanguageCode == LanguageCode.EN)
             {
-                boxLang.Text = "English";
+                radioEnglish.Checked = true;
                 Translate(true);
             }
             else
@@ -835,73 +858,73 @@ namespace Optimizer
             // set default window size to fit content
             if (Options.CurrentOptions.LanguageCode == LanguageCode.RU)
             {
-                boxLang.Text = "русский";
+                radioRussian.Checked = true;
                 this.MinimumSize = _sizeRussian;
                 this.Size = _sizeRussian;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.TR)
             {
-                boxLang.Text = "Türkçe";
+                radioTurkish.Checked = true;
                 this.MinimumSize = _sizeTurkish;
                 this.Size = _sizeTurkish;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.EL)
             {
-                boxLang.Text = "Ελληνικά";
+                radioHellenic.Checked = true;
                 this.MinimumSize = _sizeHellenic;
                 this.Size = _sizeHellenic;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.DE)
             {
-                boxLang.Text = "Deutsch";
+                radioGerman.Checked = true;
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.PT)
             {
-                boxLang.Text = "Português";
+                radioPortuguese.Checked = true;
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.FR)
             {
-                boxLang.Text = "Français";
+                radioFrench.Checked = true;
                 this.MinimumSize = _sizeFrench;
                 this.Size = _sizeFrench;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.ES)
             {
-                boxLang.Text = "Español";
+                radioSpanish.Checked = true;
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.IT)
             {
-                boxLang.Text = "Italiano";
+                radioItalian.Checked = true;
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.CN)
             {
-                boxLang.Text = "简体中文";
+                radioChinese.Checked = true;
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.TW)
             {
-                boxLang.Text = "繁體中文";
+                radioTaiwan.Checked = true;
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.CZ)
             {
-                boxLang.Text = "Čeština";
+                radioCzech.Checked = true;
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.KO)
             {
-                boxLang.Text = "한국어";
+                radioKorean.Checked = true;
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
@@ -1832,6 +1855,7 @@ namespace Optimizer
             ffTelemetrySw.ToggleChecked = Options.CurrentOptions.DisableFirefoxTemeletry;
             vsSw.ToggleChecked = Options.CurrentOptions.DisableVisualStudioTelemetry;
             chromeTelemetrySw.ToggleChecked = Options.CurrentOptions.DisableChromeTelemetry;
+            hibernateSw.ToggleChecked = Options.CurrentOptions.DisableHibernate;
         }
 
         private void LoadWindowsVIIIToggleStates()
@@ -1878,7 +1902,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GetDesktopItems()
@@ -2691,6 +2715,18 @@ namespace Optimizer
         private void radioLime_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.Color = Theme.Jade;
+            Options.ApplyTheme(this);
+        }
+
+        private void radioMagentaLight_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.Color = Theme.MagentaLight;
+            Options.ApplyTheme(this);
+        }
+
+        private void radioLightPinkRed_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.Color = Theme.LightPinkRed;
             Options.ApplyTheme(this);
         }
 
@@ -3736,6 +3772,132 @@ namespace Optimizer
             }
         }
 
+        private void pictureBox86_Click(object sender, EventArgs e)
+        {
+            radioEnglish.PerformClick();
+        }
+
+        private void pictureBox87_Click(object sender, EventArgs e)
+        {
+            radioRussian.PerformClick();
+        }
+
+        private void radioEnglish_Click(object sender, EventArgs e)
+        {
+            radioEnglish.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.EN;
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+            Options.SaveSettings();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void radioRussian_Click(object sender, EventArgs e)
+        {
+            radioRussian.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.RU;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeRussian;
+            this.Size = _sizeRussian;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox88_Click(object sender, EventArgs e)
+        {
+            radioHellenic.PerformClick();
+        }
+
+        private void radioHellenic_Click(object sender, EventArgs e)
+        {
+            radioHellenic.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.EL;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeHellenic;
+            this.Size = _sizeHellenic;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox89_Click(object sender, EventArgs e)
+        {
+            radioTurkish.PerformClick();
+        }
+
+        private void radioTurkish_Click(object sender, EventArgs e)
+        {
+            radioTurkish.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.TR;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeTurkish;
+            this.Size = _sizeTurkish;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void radioGerman_Click(object sender, EventArgs e)
+        {
+            radioGerman.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.DE;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            radioGerman.PerformClick();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            radioSpanish.PerformClick();
+        }
+
+        private void radioSpanish_Click(object sender, EventArgs e)
+        {
+            radioSpanish.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.ES;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void radioPortuguese_Click(object sender, EventArgs e)
+        {
+            radioPortuguese.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.PT;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            radioPortuguese.PerformClick();
+        }
+
         private void txtIPv4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Clipboard.SetText(txtIPv4.Text);
@@ -3759,6 +3921,24 @@ namespace Optimizer
         private void btnOpenNetwork_Click(object sender, EventArgs e)
         {
             Process.Start("NCPA.cpl");
+        }
+
+        private void radioFrench_Click(object sender, EventArgs e)
+        {
+            radioFrench.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.FR;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeFrench;
+            this.Size = _sizeFrench;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            radioFrench.PerformClick();
         }
 
         private void listStartupItems_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -3785,6 +3965,24 @@ namespace Optimizer
             RestoreWindow();
         }
 
+        private void radioItalian_Click(object sender, EventArgs e)
+        {
+            radioItalian.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.IT;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            radioItalian.PerformClick();
+        }
+
         private void AddCMDB_Click(object sender, EventArgs e)
         {
             Integrator.InstallOpenWithCMD();
@@ -3793,6 +3991,24 @@ namespace Optimizer
         private void DeleteCMDB_Click(object sender, EventArgs e)
         {
             Integrator.DeleteOpenWithCMD();
+        }
+
+        private void radioChinese_Click(object sender, EventArgs e)
+        {
+            radioChinese.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.CN;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            radioChinese.PerformClick();
         }
 
         private void quickAccessToggle_ToggleClicked(object sender, EventArgs e)
@@ -3909,9 +4125,63 @@ namespace Optimizer
             Process.Start(_discordLink);
         }
 
+        private void pictureBox15_Click(object sender, EventArgs e)
+        {
+            radioCzech.PerformClick();
+        }
+
+        private void radioCzech_Click(object sender, EventArgs e)
+        {
+            radioCzech.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.CZ;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void radioTaiwan_Click(object sender, EventArgs e)
+        {
+            radioTaiwan.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.TW;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox16_Click(object sender, EventArgs e)
+        {
+            radioTaiwan.PerformClick();
+        }
+
         private void linkLabel2_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(_githubProjectLink);
+        }
+
+        private void radioKorean_Click(object sender, EventArgs e)
+        {
+            radioKorean.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.KO;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox18_Click(object sender, EventArgs e)
+        {
+            radioKorean.PerformClick();
         }
 
         private void btnCopyHW_Click(object sender, EventArgs e)
@@ -3977,110 +4247,6 @@ namespace Optimizer
 
             InfoForm f = new InfoForm(string.Join(Environment.NewLine, changelogText).Replace("##", "➤"));
             f.ShowDialog(this);
-        }
-
-        private void boxLang_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // LANGUAGE SELECTION PROCESSING
-
-            if (boxLang.Text == "English")
-            {
-                picFlag.Image = Properties.Resources.united_kingdom;
-                Options.CurrentOptions.LanguageCode = LanguageCode.EN;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
-            }
-            else if (boxLang.Text == "русский")
-            {
-                picFlag.Image = Properties.Resources.russia;
-                Options.CurrentOptions.LanguageCode = LanguageCode.RU;
-                this.MinimumSize = _sizeRussian;
-                this.Size = _sizeRussian;
-            }
-            else if (boxLang.Text == "Ελληνικά")
-            {
-                picFlag.Image = Properties.Resources.greece;
-                Options.CurrentOptions.LanguageCode = LanguageCode.EL;
-                this.MinimumSize = _sizeHellenic;
-                this.Size = _sizeHellenic;
-            }
-            else if (boxLang.Text == "Deutsch")
-            {
-                picFlag.Image = Properties.Resources.germany;
-                Options.CurrentOptions.LanguageCode = LanguageCode.DE;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
-            }
-            else if (boxLang.Text == "Italiano")
-            {
-                picFlag.Image = Properties.Resources.italy;
-                Options.CurrentOptions.LanguageCode = LanguageCode.IT;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
-            }
-            else if (boxLang.Text == "Čeština")
-            {
-                picFlag.Image = Properties.Resources.czech;
-                Options.CurrentOptions.LanguageCode = LanguageCode.CZ;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
-            }
-            else if (boxLang.Text == "Türkçe")
-            {
-                picFlag.Image = Properties.Resources.turkey;
-                Options.CurrentOptions.LanguageCode = LanguageCode.TR;
-                this.MinimumSize = _sizeTurkish;
-                this.Size = _sizeTurkish;
-            }
-            else if (boxLang.Text == "Español")
-            {
-                picFlag.Image = Properties.Resources.spain;
-                Options.CurrentOptions.LanguageCode = LanguageCode.ES;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
-            }
-            else if (boxLang.Text == "Português")
-            {
-                picFlag.Image = Properties.Resources.brazil;
-                Options.CurrentOptions.LanguageCode = LanguageCode.PT;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
-            }
-            else if (boxLang.Text == "Français")
-            {
-                picFlag.Image = Properties.Resources.france;
-                Options.CurrentOptions.LanguageCode = LanguageCode.FR;
-                this.MinimumSize = _sizeFrench;
-                this.Size = _sizeFrench;
-            }
-            else if (boxLang.Text == "简体中文")
-            {
-                picFlag.Image = Properties.Resources.china;
-                Options.CurrentOptions.LanguageCode = LanguageCode.CN;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
-            }
-            else if (boxLang.Text == "繁體中文")
-            {
-                picFlag.Image = Properties.Resources.china;
-                Options.CurrentOptions.LanguageCode = LanguageCode.TW;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
-            }
-            else if (boxLang.Text == "한국어")
-            {
-                picFlag.Image = Properties.Resources.korea;
-                Options.CurrentOptions.LanguageCode = LanguageCode.KO;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
-            }
-
-            this.CenterToScreen();
-            Options.SaveSettings();
-            Options.LoadTranslation();
-            Translate();
-
-            optionsTab.Focus();
         }
     }
 }
