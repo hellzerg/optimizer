@@ -404,6 +404,8 @@ namespace Optimizer
             this.helpBox = new Optimizer.MoonTip();
             this.radioTaiwan = new Optimizer.MoonnRadio();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.radioPolish = new Optimizer.MoonnRadio();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).BeginInit();
@@ -473,6 +475,7 @@ namespace Optimizer
             this.panel8.SuspendLayout();
             this.launcherMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             this.SuspendLayout();
             // 
             // tpanel
@@ -4743,6 +4746,8 @@ namespace Optimizer
             // panel9
             // 
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel9.Controls.Add(this.radioPolish);
+            this.panel9.Controls.Add(this.pictureBox17);
             this.panel9.Controls.Add(this.radioTaiwan);
             this.panel9.Controls.Add(this.pictureBox16);
             this.panel9.Controls.Add(this.radioCzech);
@@ -5637,6 +5642,32 @@ namespace Optimizer
             this.pictureBox16.TabStop = false;
             this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click);
             // 
+            // radioPolish
+            // 
+            this.radioPolish.AutoSize = true;
+            this.radioPolish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioPolish.ForeColor = System.Drawing.Color.White;
+            this.radioPolish.Location = new System.Drawing.Point(157, 326);
+            this.radioPolish.Margin = new System.Windows.Forms.Padding(2);
+            this.radioPolish.Name = "radioPolish";
+            this.radioPolish.Size = new System.Drawing.Size(62, 25);
+            this.radioPolish.TabIndex = 106;
+            this.radioPolish.Tag = "";
+            this.radioPolish.Text = "Polish";
+            this.radioPolish.UseVisualStyleBackColor = true;
+            this.radioPolish.Click += new System.EventHandler(this.radioPolish_Click);
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.Image = global::Optimizer.Properties.Resources.taiwan;
+            this.pictureBox17.Location = new System.Drawing.Point(116, 327);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(36, 22);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox17.TabIndex = 105;
+            this.pictureBox17.TabStop = false;
+            this.pictureBox17.Click += new System.EventHandler(this.pictureBox17_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -6122,6 +6153,8 @@ namespace Optimizer
         private PictureBox pictureBox15;
         private MoonnRadio radioTaiwan;
         private PictureBox pictureBox16;
+        private MoonnRadio radioPolish;
+        private PictureBox pictureBox17;
     }
 }
 

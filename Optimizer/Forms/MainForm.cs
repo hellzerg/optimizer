@@ -855,6 +855,12 @@ namespace Optimizer
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.PL)
+            {
+                radioPolish.Checked = true;
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
 
             Program._MainForm = this;
 
@@ -4157,6 +4163,24 @@ namespace Optimizer
         private void pictureBox16_Click(object sender, EventArgs e)
         {
             radioTaiwan.PerformClick();
+        }
+
+        private void radioPolish_Click(object sender, EventArgs e)
+        {
+            radioPolish.Checked = true;
+            Options.CurrentOptions.LanguageCode = LanguageCode.PL;
+            Options.SaveSettings();
+            this.MinimumSize = _sizeDefault;
+            this.Size = _sizeDefault;
+            this.CenterToScreen();
+
+            Options.LoadTranslation();
+            Translate();
+        }
+
+        private void pictureBox17_Click(object sender, EventArgs e)
+        {
+            radioPolish.PerformClick();
         }
     }
 }

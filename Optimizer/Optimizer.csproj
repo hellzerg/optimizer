@@ -292,6 +292,7 @@
     <None Include="Resources\hosts" />
     <None Include="Resources\InstallTakeOwnership.reg" />
     <None Include="Resources\IT.json" />
+    <None Include="Resources\PL.json" />
     <None Include="Resources\PowerMenu.reg" />
     <None Include="Resources\PT.json" />
     <None Include="Resources\RemoveTakeOwnership.reg" />
@@ -335,6 +336,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\poland.png" />
     <None Include="Resources\taiwan.png" />
     <None Include="Resources\united-kingdom.png" />
     <None Include="Resources\turkey.png" />

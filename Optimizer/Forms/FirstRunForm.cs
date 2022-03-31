@@ -160,9 +160,21 @@ namespace Optimizer
             Options.LoadTranslation();
         }
 
+        private void radioPolish_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.PL;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
+
         private void pictureBox9_Click(object sender, EventArgs e)
         {
             radioTaiwan.PerformClick();
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            radioPolish.PerformClick();
         }
     }
 }

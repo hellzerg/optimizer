@@ -5,7 +5,7 @@
 	"restartButton10": "Uruchom ponownie",
 	"restartAndApply": "Uruchomić ponownie aby zastosować zmiany?",
 	"txtVersion": "Obecna wersja: {VN}",
-	"txtBitness": "Operujesz na {BITS} bitach",
+	"txtBitness": "Praca na {BITS} bitach",
 	"linkUpdate": "Dostępna aktualizacja",
 	"lblLab": "Eksperymentalna kompilacja\n(usuwana po testowaniu)",
 	"performanceSw": "Włącz ulepszenia wydajności",
@@ -70,7 +70,7 @@
 	"uninstallModernAppsButton": "Odinstaluj",
 	"txtModernAppsTitle": "Odinstaluj niechciane aplikacje UWP",
 	"chkSelectAllModernApps": "Zaznacz wszystko",
-	"chkOnlyRemovable": "Tylko możliwe do usunięcia",
+	"chkOnlyRemovable": "Ukryj nieusuwalne",
 	"txtUWP": "Jeśli odinstalujesz Microsoft Store\nnie będziesz w stanie\ninstalować aplikacji UWP\n\nNiektóre programy nie mogą\nbyć odinstalowane t.j.\n\nMicrosoft Edge,\nUstawienia, itp.",
 	"startupTitle": "Wybierz elementy autostartu",
 	"removeStartupItemB": "Usuń",
@@ -90,9 +90,9 @@
 	"btnGetFeed": "Odśwież łącza",
 	"bitPref": "Ustaw preferowaną ilość bitów",
 	"linkWarnings": "Zobacz ostrzeżenia",
-	"txtDownloadStatus": "Bezczynny",
+	"txtDownloadStatus": "W gotowości",
 	"goToDownloadsB": "Przejdź do Pobranych",
-	"btnDownloadApps": "Pobrane",
+	"btnDownloadApps": "Pobierz",
 	"cAutoInstall": "Zainstaluj po pobraniu",
 	"setDownDirLbl": "Wybierz folder docelowy:",
 	"c64": "64-bit",
@@ -105,14 +105,14 @@
 	"checkMediaCache": "Pamięć podręczna Windows Media Player",
 	"checkErrorReports": "Raporty o błedach",
 	"cleanDriveB": "Oczyszczanie",
-	"lblPretext": "Maksymalna oczyszczalny rozmiar:",
+	"lblPretext": "Maksymalny oczyszczalny rozmiar:",
 	"cleanerTitle": "Oczyść dysk systemowy",
-	"pingerTitle": "Zpinguj adres IP i określ opóźnienie",
+	"pingerTitle": "Pinguj adres IP i określ opóźnienie",
 	"lblPinger": "IP / Nazwa domeny",
 	"lblDNS": "Rekomendowany DNS Cloudflare\n(kliknij, aby skopiować)",
 	"btnOpenNetwork": "Otwórz sieć",
-	"copyIPB": "Skopiuj",
-	"copyB": "Skopiuj IP",
+	"copyIPB": "Kopiuj",
+	"copyB": "Kopiuj IP",
 	"btnShodan": "Sprawdź na SHODAN.io",
 	"btnPing": "Pinguj",
 	"lblResults": "Rezultat",
@@ -130,8 +130,8 @@
 	"chkReadOnly": "Tylko do odczytu",
 	"lblAdblock": "Gotowe blokery reklam",
 	"lblAdblockSub": "(usunie obecną konfigurację)",
-	"adblockS": "AdBlock + Social",
-	"adblockP": "AdBlock + Porn",
+	"adblockS": "AdBlock + Social Media",
+	"adblockP": "AdBlock + Porno",
 	"removeHostB": "Usuń",
 	"refreshHostsB": "Odśwież",
 	"removeAllHostsB": "Usuń wszystko",
@@ -283,10 +283,10 @@
 	"trayExit": "Wyjdź",
 	"tipWhatsThis": "Co to jest?",
 	"hwDetailed": "Szczegóły",
-	"btnCopyHW": "Skopiuj",
+	"btnCopyHW": "Kopiuj",
 	"btnSaveHW": "Wklej",
 	"indiciumTab": "Sprzęt",
-	"toolHWCopy": "Skopiuj",
+	"toolHWCopy": "Kopiuj",
 	"toolHWGoogle": "Wyszukaj w Google",
 	"toolHWDuck": "Wyszukaj w DuckDuckGo",
 	"trayHW": "Informacje o sprzęcie",
@@ -308,102 +308,101 @@
 	"virtualAdapters": "Wirtualne Adapters",
 	"keyboards": "Klawiatury",
 	"pointings": "Urządzenia wskazujące",
-	"performanceTip": "Collection of internal Windows settings to optimize performance.
-Completely safe to apply.
+	"performanceTip": "Zbiór wewnętrznych ustawień systemu Windows w celu optymalizacji wydajności.
+Całkowicie bezpieczny w aplikacji.
+	
+- Skraca czas oczekiwania przed zabiciem niereagujących procesów.
+- Zmniejsza czas opóźnienia wyświetlania menu.
+- Wyłącza powiadomienie o sprawdzaniu małej ilości miejsca na dysku
+- Wyłącza funkcję wstrząsania, aby zminimalizować
+- Zawsze pokazuje rozszerzenia plików
+- Pokazuje ukryte pliki",
+	"networkTip": "Windows implementuje mechanizm ograniczania przepustowości sieci, który ograniczy
+ruch sieciowy podczas uruchamiania aplikacji multimedialnych. Może również zmniejszyć sieć
+wydajność podczas grania w gry online.",
+	"defenderTip": "⚠ Windows Defender NIE MOŻE być wyłączony w systemie Windows 10 w wersji 1903 i nowszych.
+	
+Windows Defender to wbudowany program antywirusowy w systemach Windows.",
+	"smartScreenTip": "SmartScreen automatycznie skanuje pliki, pliki do pobrania i strony internetowe, blokując
+znane już niebezpieczne treści i ostrzega przed ich uruchomieniem.",
+	"systemRestoreTip": "Przywracanie systemu to funkcja, która pozwala przywrócić stan systemu Windows
+do poprzedniego w celu odzyskania sprawności po awariach lub innych problemach.",
+	"reportingTip": "Raportowanie błędów zbiera informacje o awariach i błędach aplikacji i wysyła je do firmy Microsoft.",
+	"telemetryTasksTip": "Usługi telemetryczne okresowo wysyłają dane dotyczące użytkowania i wydajności do firmy Microsoft,
+dla przyszłej poprawy.",
+	"officeTelemetryTip": "Telemetria pakietu Office cyklicznie wysyła informacje o użyciu i
+dane dotyczące wydajności do firmy Microsoft w celu przyszłej poprawy.",
+	"ffTelemetryTip": "Wyłącza usługi telemetrii i raportowania danych Mozilla Firefox.",
+	"vsTip": "Wyłącza funkcje telemetryczne i informacje zwrotne w programie Visual Studio, w tym klienta SQM.",
+	"chromeTelemetryTip": "Wyłącza narzędzie do raportowania telemetrii i oprogramowania Google Chrome (znane z tego, że powoduje wysokie zużycie procesora).",
+	"printTip": "Usługa drukowania jest odpowiedzialna za wykrywanie, instalowanie i wykorzystywanie drukarek.",
+	"faxTip": "Usługa faksu odpowiada za wysyłanie i odbieranie faksów.",
+	"mediaSharingTip": "Udostępnianie odtwarzacza multimediów zapewnia udostępnianie multimediów w domu dla programu Windows Media Player.",
+	"stickyTip": "Sticky Keys to funkcja ułatwień dostępu, która pomaga użytkownikom systemu Windows w
+niepełnosprawności fizycznej ograniczająca często
+powtarzające i przeciążające ruchy.",
+	"homegroupTip": "HomeGroup to funkcja umożliwiająca udostępnianie plików
+w sieci domowej za pomocą Eksploratora Windows.",
+	"superfetchTip": "Superfetch wstępnie ładuje powszechnie używane aplikacje do pamięci RAM, powodując duże zużycie dysku,
+szczególnie na dyskach twardych.",
+	"compatTip": "Usługa Compatibility Assistant wykrywa znane problemy ze zgodnością w starszych programach.",
+	"disableOneDriveTip": "Wyłącza integrację z pamięcią masową w chmurze OneDrive.",
+	"oldMixerTip": "Przywraca klasyczny Mikser Głośności.",
+	"oldExplorerTip": "- Wyłącza historię szybkiego dostępu
+- Ustawia domyślne miejsce Eksploratora Windows na 'Ten Komputer'
+- Wyłącza ostatnie pliki
+- Usuwa wyszukiwanie, zadania i pogodę z paska zadań
+- Wyłącza historię plików",
+	"adsTip": "Zapobiega wyświetlaniu reklam w menu Start.",
+	"uODTip": "Całkowicie usuwa integrację pamięcią masową w chmurze - OneDrive.",
+	"peopleTip": "My People to nowa funkcja pokazująca ostatnie kontakty na pasku zadań.",
+	"longPathsTip": "Usuwa ograniczenie maksymalnej długości ścieżki do 256 znaków.",
+	"inkTip": "Windows Ink zapewnia obsługę cyfrowych pisaków do rysowania na ekranie.",
+	"spellTip": "Funkcje klawiatury dotykowej, takie jak:
+	
+- Auto-korekta
+- Sugestie tekstowe
+- Sprawdzanie pisowni",
+	"xboxTip": "Usługi Xbox Live oferują przesyłanie strumieniowe, nagrywanie i funkcje społecznościowe w grach na konsolę Xbox.",
+	"actionTip": "Centrum powiadomień to centralne miejsce na powiadomienia i kafelki szybkiej akcji,
+jak Wi-Fi, Bluetooth itp.",
+	"autoUpdatesTip": "Wyłącza automatyczne pobieranie i instalację aktualizacji systemu Windows.
+Zamiast tego pojawia się powiadomienie, gdy dostępne są nowe aktualizacje.
+Wyłącza również usługę Delivery Optimization.",
+	"driversTip": "Przydatne, gdy Windows Update stale zastępuje poprawnie
+działający sterownik wadliwym.",
+	"telemetryServicesTip": "Usługi telemetryczne śledzą i rejestrują dane o użytkowaniu, wysyłając informacje zwrotne 
+do analizy dla Microsoft.",
+	"privacyTip": "Dodatkowe poprawki prywatności wyłączające następujące elementy:
 
-- Reduces waiting time before killing unresponsive processes.
-- Decreases menu show delay time.
-- Wyłączs low disk space check notification
-- Wyłączs shake-to-minimize feature
-- Always shows file extensions
-- Shows hidden files",
-	"networkTip": "Windows implements a network throttling mechanism that will restrict
-network traffic when running multimedia apps. It can also reduce network's
-performance when playing online games.",
-	"defenderTip": "⚠ Windows Defender CANNOT be disabled in Windows 10 version 1903 and higher.
+- Biometria
+- Geolokalizacja
+- Udostępniaj aplikacje na różnych urządzeniach
+- Rejestrator tekstu
+- Diagnostyka",
+	"ccTip": "Cloud Clipboard udostępnia dane ze schowka na Twoich urządzeniach.
+Umożliwia kopiowanie na jednym urządzeniu i wklejanie na innym.
+Wymaga logowania do konta Microsoft.",
+	"cortanaTip": "Cortana to wirtualny asystent oparty na sztucznej inteligencji.
 
-Windows Defender is the built-in antivirus in Windows systems.",
-	"smartScreenTip": "SmartScreen automatically scans files, downloads and websites, blocking
-already-known dangerous content and warns you before running them.",
-	"systemRestoreTip": "System Restore is a feature that allows to revert Windows' state
-to a previous one to recover from malfunctions or other problems.",
-	"reportingTip": "Error Reporting collects application crashes and errors and send them to Microsoft.",
-	"telemetryTasksTip": "Telemetry services periodically sends usage and performance data to Microsoft,
-for future improvement.",
-	"officeTelemetryTip": "Office telemetry periodically sends usage and
-performance data to Microsoft, for future improvement.",
-	"ffTelemetryTip": "Wyłączs Mozilla Firefox telemetry and data reporting services.",
-	"vsTip": "Wyłączs Visual Studio telemetry and feedback features, including SQM client.",
-	"chromeTelemetryTip": "Wyłączs Google Chrome telemetry and software reporting tool (famously known to cause high CPU usage).",
-	"printTip": "Print service is responsible for detecting, installing and utilizing printers.",
-	"faxTip": "Fax service is responsible for sending and receiving faxes.",
-	"mediaSharingTip": "Media Player Sharing provides home media sharing for Windows Media Player.",
-	"stickyTip": "Sticky Keys is an accessibility feature to help Windows users with
-physical disabilities reducing the sort of movement associated with 
-repetitive strain injury.",
-	"homegroupTip": "HomeGroup is a feature which allows to share files
-on a home network using Windows Explorer.",
-	"superfetchTip": "Superfetch preloads commonly used apps to RAM, causing high disk usage,
-especially on HDDs.",
-	"compatTip": "Compatibility Assistant service detects known compatibility issues in older programs.",
-	"disableOneDriveTip": "Wyłączs OneDrive cloud-storage integration.",
-	"oldMixerTip": "Restores the classic volume mixer control panel.",
-	"oldExplorerTip": "- Wyłączs Quick Access history
-- Sets File Explorer default view to This PC
-- Wyłączs recents files
-- Removes Search, Task and Weather from taskbar
-- Wyłączs File History",
-	"adsTip": "Prevents advertisements from showing up in Start Menu.",
-	"uODTip": "Completely removes OneDrive cloud-storage integration.",
-	"peopleTip": "My People is a new feature showing recent contacts in taskbar.",
-	"longPathsTip": "Removes maximum path length limitation of 256 characters.",
-	"inkTip": "Windows Ink provides support for digital pens, to draw on screen.",
-	"spellTip": "Touch-keyboard only features like:
-
-- Auto-correction
-- Text suggestions
-- Spell-check",
-	"xboxTip": "Xbox Live services offer streaming, recording and social features for Xbox games.",
-	"actionTip": "Notification Center is a central place for notifications and quick action tiles,
-like Wi-Fi, Bluetooth, etc.",
-	"autoUpdatesTip": "Wyłączs automatic downloading and installation of Windows updates.
-Instead, there is a notification when new updates are available.
-It also disables Delivery Optimization service.",
-	"driversTip": "Useful when Windows Update constantly replaces a properly
-working driver with a faulty one.",
-	"telemetryServicesTip": "Telemetry services track and log usage data sending feedback
-for analysis to Microsoft.",
-	"privacyTip": "Extra privacy tweaks disabling the following:
-
-- Biometrics
-- Geolocation
-- Share apps across devices
-- Text logger
-- Diagnostics",
-	"ccTip": "Cloud Clipboard shares clipboard data across your devices.
-It allows to copy on one device and paste on another.
-Requires Microsoft account sign-in.",
-	"cortanaTip": "Cortana is a virtual AI-based assistant.
-
-- Wyłączs Cortana.
-- Wyłączs web search in Start Menu
-- Prevents from keeping search history",
-	"sensorTip": "Services that manage sensors' functionality,
-like auto-rotation, auto-brightness, etc.
-Useful only for tablets or devices with touch-screen.",
-	"castTip": "Removes right-click to share media content to Miracast devices.",
-	"gameBarTip": "Game Bar is a quick-access menu for Xbox gaming services.",
-	"insiderTip": "Windows Insider program allows you to test out latest features
-before they are released to public.
-It's considered an unnecessary service for users who don't wish to participate.",
-	"featuresTip": "Feature Updates are technically new versions of Windows, that require an upgrade.
-However, they are considered a risky procedure. They are usually semi-annual releases.",
-	"tpmTip": "Bypasses Secure Boot and TPM 2.0 requirements, allowing the upgrading to Windows 11.",
-	"leftTaskbarTip": "Aligns taskbar icons to the left.",
-	"snapAssistTip": "Wyłączs Snap Assist Flyout when hovering maximize buttons.",
-	"widgetsTip": "Wyłączs Widgets feature and removes Widgets icon from taskbar.",
-	"chatTip": "Removes Chat icon from taskbar.",
-	"smallerTaskbarTip": "Makes taskbar size and icons smaller.",
+- Wyłącza Cortanę.
+- Wyłącza wyszukiwanie internetowe w menu Start
+- Zapobiega przechowywaniu historii wyszukiwania",
+	"sensorTip": "Usługi zarządzające funkcjonalnością czujników,
+jak auto-obracanie, auto-jasność itp.
+Przydatne tylko dla tabletów lub urządzeń z ekranem dotykowym.",
+	"castTip": "Usuwa menu kontekstowe udostępniania zawartości multimedialnej na urządzenia Miracast.",
+	"gameBarTip": "Pasek gier to menu szybkiego dostępu do usług gier Xbox.",
+	"insiderTip": "Program Windows Insider umożliwia testowanie najnowszych funkcji
+zanim zostaną udostępnione publicznie.
+Jest to uważane za niepotrzebną usługę dla użytkowników, którzy nie chcą brać udziału.",
+	"featuresTip": "Aktualizacje funkcji to technicznie nowe wersje systemu Windows, które wymagają uaktualnienia. Uważa się je, za ryzykowną procedurę. Są to zazwyczaj wydania półroczne.",
+	"tpmTip": "Omija wymagania bezpiecznego rozruchu i TPM 2.0, umożliwiając aktualizację do systemu Windows 11.",
+	"leftTaskbarTip": "Wyrównuje ikony paska zadań do lewej.",
+	"snapAssistTip": "Wyłącza Snap Assist Flyout po najechaniu na przycisk maksymalizacji.",
+	"widgetsTip": "Wyłącza funkcję widżetów i usuwa ikonę widżetów z paska zadań.",
+	"chatTip": "Usuwa ikonę czatu z paska zadań.",
+	"smallerTaskbarTip": "Przywraca klasyczny pasek funkcyjny z systemu Windows 10 w Eksploratorze plików.",
 	"classicRibbonTip": "Restores classic ribbon bar from Windows 10 in File Explorer.",
-	"classicContextTip": "Restores classic right-click menu, removing 'Show more options'."
+	"classicContextTip": "Przywraca klasyczne menu prawego przycisku myszy, usuwając 'Pokaż więcej opcji'."
 }
