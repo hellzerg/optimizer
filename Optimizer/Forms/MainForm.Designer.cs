@@ -624,9 +624,9 @@ namespace Optimizer
             this.chromeTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chromeTelemetrySw.ForeColor = System.Drawing.Color.White;
             this.chromeTelemetrySw.LabelText = "Disable Google Chrome Telemetry";
-            this.chromeTelemetrySw.Location = new System.Drawing.Point(457, 324);
+            this.chromeTelemetrySw.Location = new System.Drawing.Point(21, 399);
             this.chromeTelemetrySw.Name = "chromeTelemetrySw";
-            this.chromeTelemetrySw.Size = new System.Drawing.Size(414, 24);
+            this.chromeTelemetrySw.Size = new System.Drawing.Size(490, 24);
             this.chromeTelemetrySw.TabIndex = 68;
             this.chromeTelemetrySw.Tag = "themeable";
             this.chromeTelemetrySw.ToggleChecked = false;
@@ -637,9 +637,9 @@ namespace Optimizer
             this.ffTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ffTelemetrySw.ForeColor = System.Drawing.Color.White;
             this.ffTelemetrySw.LabelText = "Disable Mozilla Firefox Telemetry";
-            this.ffTelemetrySw.Location = new System.Drawing.Point(457, 287);
+            this.ffTelemetrySw.Location = new System.Drawing.Point(21, 362);
             this.ffTelemetrySw.Name = "ffTelemetrySw";
-            this.ffTelemetrySw.Size = new System.Drawing.Size(414, 24);
+            this.ffTelemetrySw.Size = new System.Drawing.Size(490, 24);
             this.ffTelemetrySw.TabIndex = 67;
             this.ffTelemetrySw.Tag = "themeable";
             this.ffTelemetrySw.ToggleChecked = false;
@@ -652,7 +652,7 @@ namespace Optimizer
             this.vsSw.LabelText = "Disable Visual Studio Telemetry";
             this.vsSw.Location = new System.Drawing.Point(21, 325);
             this.vsSw.Name = "vsSw";
-            this.vsSw.Size = new System.Drawing.Size(414, 24);
+            this.vsSw.Size = new System.Drawing.Size(490, 24);
             this.vsSw.TabIndex = 66;
             this.vsSw.Tag = "themeable";
             this.vsSw.ToggleChecked = false;
@@ -691,7 +691,7 @@ namespace Optimizer
             this.officeTelemetrySw.LabelText = "Disable Office 2016 Telemetry";
             this.officeTelemetrySw.Location = new System.Drawing.Point(21, 287);
             this.officeTelemetrySw.Name = "officeTelemetrySw";
-            this.officeTelemetrySw.Size = new System.Drawing.Size(414, 24);
+            this.officeTelemetrySw.Size = new System.Drawing.Size(490, 24);
             this.officeTelemetrySw.TabIndex = 63;
             this.officeTelemetrySw.Tag = "themeable";
             this.officeTelemetrySw.ToggleChecked = false;
@@ -4649,7 +4649,7 @@ namespace Optimizer
             // boxLang
             // 
             this.boxLang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.boxLang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.boxLang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.boxLang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.boxLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxLang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -4667,6 +4667,7 @@ namespace Optimizer
             "Español",
             "Português",
             "Français",
+            "Polski",
             "简体中文",
             "繁體中文",
             "한국어"});

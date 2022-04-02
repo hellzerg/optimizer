@@ -1,3 +1,6 @@
+## [12.5] - 2022-04-2
+- New: Fully translated into Polish (thanks to https://github.com/factuall - Adrian Nieściur)
+
 ## [12.4] - 2022-03-29
 - New: Fully translated into Korean (thanks to https://github.com/VenusGirl - VenusGirl)
 - New: Updated Newtonsoft.Json from version 12.0.2 to 13.0.1

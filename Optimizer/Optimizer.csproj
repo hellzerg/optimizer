@@ -276,6 +276,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\i18n\PL.json" />
     <None Include="Resources\Scripts\AddOpenWithCMD.reg" />
     <None Include="Resources\i18n\CN.json" />
     <None Include="Resources\i18n\CZ.json" />
@@ -340,6 +341,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Flags\poland.png" />
     <None Include="Resources\Flags\korea.png" />
     <None Include="Resources\Flags\taiwan.png" />
     <None Include="Resources\Flags\united-kingdom.png" />

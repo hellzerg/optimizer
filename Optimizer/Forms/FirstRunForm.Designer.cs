@@ -57,6 +57,8 @@ namespace Optimizer
             this.radioHellenic = new Optimizer.MoonnRadio();
             this.radioEnglish = new Optimizer.MoonnRadio();
             this.radioRussian = new Optimizer.MoonnRadio();
+            this.radioPolish = new Optimizer.MoonnRadio();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox88)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox86)).BeginInit();
@@ -70,6 +72,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox88
@@ -230,7 +233,7 @@ namespace Optimizer
             // pictureBox10
             // 
             this.pictureBox10.Image = global::Optimizer.Properties.Resources.korea;
-            this.pictureBox10.Location = new System.Drawing.Point(13, 188);
+            this.pictureBox10.Location = new System.Drawing.Point(160, 189);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(32, 19);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -243,7 +246,7 @@ namespace Optimizer
             this.radioKorean.AutoSize = true;
             this.radioKorean.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioKorean.ForeColor = System.Drawing.Color.White;
-            this.radioKorean.Location = new System.Drawing.Point(53, 185);
+            this.radioKorean.Location = new System.Drawing.Point(200, 186);
             this.radioKorean.Margin = new System.Windows.Forms.Padding(2);
             this.radioKorean.Name = "radioKorean";
             this.radioKorean.Size = new System.Drawing.Size(76, 25);
@@ -435,6 +438,32 @@ namespace Optimizer
             this.radioRussian.UseVisualStyleBackColor = true;
             this.radioRussian.CheckedChanged += new System.EventHandler(this.radioRussian_CheckedChanged);
             // 
+            // radioPolish
+            // 
+            this.radioPolish.AutoSize = true;
+            this.radioPolish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioPolish.ForeColor = System.Drawing.Color.White;
+            this.radioPolish.Location = new System.Drawing.Point(53, 185);
+            this.radioPolish.Margin = new System.Windows.Forms.Padding(2);
+            this.radioPolish.Name = "radioPolish";
+            this.radioPolish.Size = new System.Drawing.Size(69, 25);
+            this.radioPolish.TabIndex = 108;
+            this.radioPolish.Tag = "";
+            this.radioPolish.Text = "Polski";
+            this.radioPolish.UseVisualStyleBackColor = true;
+            this.radioPolish.CheckedChanged += new System.EventHandler(this.radioPolish_CheckedChanged);
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::Optimizer.Properties.Resources.poland;
+            this.pictureBox11.Location = new System.Drawing.Point(13, 188);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(32, 19);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 107;
+            this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
+            // 
             // FirstRunForm
             // 
             this.AcceptButton = this.btnStart;
@@ -443,6 +472,8 @@ namespace Optimizer
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnStart;
             this.ClientSize = new System.Drawing.Size(311, 267);
+            this.Controls.Add(this.radioPolish);
+            this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.radioKorean);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.radioTaiwan);
@@ -495,6 +526,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -529,5 +561,7 @@ namespace Optimizer
         private System.Windows.Forms.PictureBox pictureBox9;
         private MoonnRadio radioKorean;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private MoonnRadio radioPolish;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

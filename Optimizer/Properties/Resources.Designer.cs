@@ -620,6 +620,37 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;btnAbout&quot;: &quot;OK&quot;,
+        ///	&quot;restartButton&quot;: &quot;Uruchom ponownie&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Uruchom ponownie&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Uruchom ponownie&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Uruchomić ponownie aby zastosować zmiany?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Obecna wersja: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Praca na {BITS} bitach&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;Dostępna aktualizacja&quot;,
+        ///	&quot;lblLab&quot;: &quot;Eksperymentalna kompilacja\n(usuwana po testowaniu)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Włącz ulepszenia wydajności&quot;,
+        ///	&quot;networkSw&quot;: &quot;Wyłącz Network Throttling&quot;,
+        ///	&quot;defenderSw&quot;: &quot;Wyłą [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PL {
+            get {
+                return ResourceManager.GetString("PL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap poland {
+            get {
+                object obj = ResourceManager.GetObject("poland", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
         ///
         ///[HKEY_CLASSES_ROOT\DesktopBackground\Shell\Power Menu]

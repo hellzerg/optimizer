@@ -100,6 +100,7 @@
         CN, // chinese
         CZ, // czech
         TW, // taiwan
-        KO // korean
+        KO, // korean
+        PL // polish
     }
 }

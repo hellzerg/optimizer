@@ -176,5 +176,17 @@ namespace Optimizer
         {
             radioChinese.PerformClick();
         }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            radioPolish.PerformClick();
+        }
+
+        private void radioPolish_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.PL;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
     }
 }
