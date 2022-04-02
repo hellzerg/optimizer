@@ -17,7 +17,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 	</a>
 </p> 
 
-* Full multilingual support (13 languages available)
+* Full multilingual support (14 languages available)
 * Speed up your system and network performance
 * Disable unnecessary Windows services
 * Disable Windows telemetry
