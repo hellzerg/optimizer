@@ -1,3 +1,6 @@
+## [12.7] - 2022-04-3
+- New: Fully translated into Arabic (thanks to https://github.com/MesterPerfect - MesterPerfect)
+
 ## [12.6] - 2022-04-3
 - New: Redesigned Cleaner tool
 - Hotfix: Enable Classic Ribbon registry key fixed

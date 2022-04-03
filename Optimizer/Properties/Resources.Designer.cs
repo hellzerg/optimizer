@@ -88,6 +88,28 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;btnAbout&quot;: &quot;حسنا&quot;,
+        ///	&quot;restartButton&quot;: &quot;إعادة التشغيل الآن&quot;,
+        ///	&quot;restartButton8&quot;: &quot;إعادة التشغيل الآن&quot;,
+        ///	&quot;restartButton10&quot;: &quot;إعادة التشغيل الآن&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;إعادة التشغيل لتطبيق التغييرات؟&quot;,
+        ///	&quot;txtVersion&quot;: &quot;الإصدار: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;أنت تعمل مع {BITS}&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;تحديث متاح&quot;,
+        ///	&quot;lblLab&quot;: &quot;بناء تجريبي\n(حذف بعد التجربة) &quot;,
+        ///	&quot;performanceSw&quot;: &quot;تفعيل تعديلات الأداء&quot;,
+        ///	&quot;networkSw&quot;: &quot;تعطيل خنق الشبكة&quot;,
+        ///	&quot;defenderSw&quot;: &quot;تعطيل Windows Defender&quot;,
+        ///	&quot;systemRestoreSw&quot;: &quot;تعطيل إستعادة ال [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string AR {
+            get {
+                return ResourceManager.GetString("AR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap brazil {
@@ -288,6 +310,16 @@ namespace Optimizer.Properties {
         internal static string DisableXboxTasks {
             get {
                 return ResourceManager.GetString("DisableXboxTasks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap egypt {
+            get {
+                object obj = ResourceManager.GetObject("egypt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

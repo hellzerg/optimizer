@@ -10,7 +10,7 @@ Optimizer is recommended after a fresh, clean installation of Windows to achieve
 
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/12.6/Optimizer-12.6.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/12.7/Optimizer-12.7.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -81,12 +81,13 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * https://github.com/H3XDaemon - H3XDaemon for Taiwanese translation
 * https://github.com/VenusGirl - VenusGirl for Korean translation
 * https://github.com/factuall - Adrian Nieściur for Polish translation
+* https://github.com/MesterPerfect - MesterPerfect for Arabic translation
 
 ## How to include an app in Common Apps - Pull Request
 https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 12.6
+* Latest version: 12.7
 * Released: April 3, 2022
-* SHA256: A8F95E41116DE86A7545F1D7730D0FE8638ACA918FCF9110DC28C8CCA78A2E19
+* SHA256: B4BE437377C1A2D5FF449BDE15A7E5D5D1BF5F384DA6579D9E09E139FA784C46

@@ -4723,7 +4723,8 @@ namespace Optimizer
             "Polski",
             "简体中文",
             "繁體中文",
-            "한국어"});
+            "한국어",
+            "العربية"});
             this.boxLang.Location = new System.Drawing.Point(92, 3);
             this.boxLang.Name = "boxLang";
             this.boxLang.Size = new System.Drawing.Size(212, 29);

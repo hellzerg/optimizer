@@ -101,6 +101,7 @@
         CZ, // czech
         TW, // taiwan
         KO, // korean
-        PL // polish
+        PL, // polish
+        AR // arabic
     }
 }

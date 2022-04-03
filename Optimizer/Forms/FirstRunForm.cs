@@ -188,5 +188,17 @@ namespace Optimizer
             Options.SaveSettings();
             Options.LoadTranslation();
         }
+
+        private void radioArabic_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.AR;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            radioArabic.PerformClick();
+        }
     }
 }

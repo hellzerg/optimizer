@@ -914,6 +914,12 @@ namespace Optimizer
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.AR)
+            {
+                boxLang.Text = "العربية";
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
         }
 
         private void GetHardwareSpecs()
@@ -4098,6 +4104,13 @@ namespace Optimizer
             {
                 picFlag.Image = Properties.Resources.poland;
                 Options.CurrentOptions.LanguageCode = LanguageCode.PL;
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
+            else if (boxLang.Text == "العربية")
+            {
+                picFlag.Image = Properties.Resources.egypt;
+                Options.CurrentOptions.LanguageCode = LanguageCode.AR;
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
