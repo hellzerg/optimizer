@@ -1,3 +1,8 @@
+## [12.6] - 2022-04-3
+- New: Redesigned Cleaner tool
+- Hotfix: Enable Classic Ribbon registry key fixed
+- Hotfix: Translation issues
+
 ## [12.5] - 2022-04-2
 - New: Fully translated into Polish (thanks to https://github.com/factuall - Adrian Nieściur)
 

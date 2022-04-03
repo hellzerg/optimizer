@@ -178,6 +178,19 @@ namespace Optimizer
                     }
                     catch { continue; }
                 }
+
+                //DirectoryInfo di;
+                //foreach (string x in PreviewCleanList)
+                //{
+                //    try
+                //    {
+                //        if (!Directory.Exists(x)) { continue; }
+                //        System.Windows.Forms.MessageBox.Show(x);
+                //        di = new DirectoryInfo(x);
+                //        totalSize += totalSize.AddBytes(di.EnumerateFiles("*", SearchOption.AllDirectories).Sum(file => file.Length));
+                //    }
+                //    catch { continue; }
+                //}
             }
             catch (Exception ex)
             {

@@ -26,6 +26,7 @@
     "compatSw": "호환성 지원 사용 안 함",
 	"smartScreenSw": "SmartScreen 사용 안 함",
 	"stickySw": "고정 키 사용 안 함",
+	"analyzeDriveB": "분석하다",
 	"universalTab": "일반",
 	"modernAppsTab": "UWP 앱",
 	"startupTab": "시작",

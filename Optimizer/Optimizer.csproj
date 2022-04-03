@@ -150,12 +150,6 @@
     <Compile Include="Forms\FirstRunForm.Designer.cs">
       <DependentUpon>FirstRunForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CleanPreviewForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CleanPreviewForm.Designer.cs">
-      <DependentUpon>CleanPreviewForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\HelperForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,9 +222,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FirstRunForm.resx">
       <DependentUpon>FirstRunForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CleanPreviewForm.resx">
-      <DependentUpon>CleanPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HelperForm.resx">
       <DependentUpon>HelperForm.cs</DependentUpon>
@@ -356,7 +347,6 @@
     <None Include="Resources\Flags\china.png" />
     <None Include="Resources\Flags\brazil.png" />
     <None Include="Resources\Assets\optimiz.png" />
-    <None Include="Resources\Assets\logo.png" />
     <EmbeddedResource Include="Newtonsoft.Json.dll" />
     <Content Include="optimizer.ico" />
   </ItemGroup>

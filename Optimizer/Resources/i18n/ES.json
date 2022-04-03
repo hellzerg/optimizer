@@ -26,6 +26,7 @@
 	"chromeTelemetrySw": "Deshabilitar la telemetría de Google Chrome",
 	"compatSw": "Desactivar Asistente de compatibilidad",
 	"smartScreenSw": "Desactivar SmartScreen",
+	"analyzeDriveB": "Analizar",
 	"stickySw": "Desactivar teclas adhesivas",
 	"universalTab": "Universal",
 	"modernAppsTab": "Apps UWP",

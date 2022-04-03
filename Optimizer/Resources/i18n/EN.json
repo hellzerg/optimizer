@@ -76,6 +76,7 @@
 	"removeStartupItemB": "Delete",
 	"locateFileB": "Locate file",
 	"findInRegB": "Find in Registry",
+	"analyzeDriveB": "Analyze",
 	"refreshStartupB": "Refresh",
 	"restoreStartupB": "Restore",
 	"backupStartupB": "Backup",

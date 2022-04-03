@@ -86,6 +86,9 @@ namespace Optimizer
         Size _sizeTurkish = new Size(1081, 744);
         Size _sizeFrench = new Size(1037, 744);
 
+        bool _cleanSelectAll = true;
+        List<string> _cleanPreviewList;
+
         private string NewVersionMessage(string latestVersion)
         {
             return Options.TranslationList["newVersion"].ToString().Replace("{LATEST}", latestVersion).Replace("{CURRENT}", Program.GetCurrentVersionTostring());
@@ -1739,14 +1742,13 @@ namespace Optimizer
             }
         }
 
-        private void CleanPC()
+        private void PreviewCleanPC()
         {
             try
             {
                 if (checkTemp.Checked) CleanHelper.PreviewTemp();
                 if (checkMiniDumps.Checked) CleanHelper.PreviewMinidumps();
                 if (checkErrorReports.Checked) CleanHelper.PreviewErrorReports();
-                if (checkBin.Checked) CleanHelper.EmptyRecycleBin();
                 CleanHelper.PreviewChromeClean(chromeCache.Checked, chromeCookies.Checked, chromeHistory.Checked, chromeSession.Checked, chromePws.Checked);
                 CleanHelper.PreviewFireFoxClean(firefoxCache.Checked, firefoxCookies.Checked, firefoxHistory.Checked);
                 CleanHelper.PreviewEdgeClean(edgeCache.Checked, edgeCookies.Checked, edgeHistory.Checked, edgeSession.Checked);
@@ -1758,9 +1760,34 @@ namespace Optimizer
             }
             finally
             {
-                if (CleanHelper.PreviewCleanList.Count > 0) new CleanPreviewForm(CleanHelper.PreviewCleanList).ShowDialog();
+                //if (CleanHelper.PreviewCleanList.Count > 0) new CleanPreviewForm(CleanHelper.PreviewCleanList).ShowDialog();
+                _cleanPreviewList = CleanHelper.PreviewCleanList;
+
+                _cleanPreviewList.Sort();
+                listCleanPreview.Items.AddRange(_cleanPreviewList.ToArray());
+
+                for (int i = 0; i < listCleanPreview.Items.Count; i++)
+                {
+                    listCleanPreview.SetItemChecked(i, true);
+                }
+
                 GetFootprint();
             }
+        }
+
+        private void CleanPC()
+        {
+            for (int i = 0; i < listCleanPreview.CheckedItems.Count; i++)
+            {
+                CleanHelper.PreviewCleanList.Add(listCleanPreview.CheckedItems[i].ToString());
+            }
+
+            if (checkBin.Checked) CleanHelper.EmptyRecycleBin();
+
+            CleanHelper.Clean();
+
+            listCleanPreview.Items.Clear();
+            CleanHelper.PreviewCleanList.Clear();
         }
 
         private bool FixRegistry()
@@ -1884,7 +1911,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GetDesktopItems()
@@ -2036,19 +2063,6 @@ namespace Optimizer
                 Options.CurrentOptions.AppsFolder = txtDownloadFolder.Text;
                 Options.SaveSettings();
             }
-        }
-
-        private void checkSelectAll_CheckedChanged(object sender, EventArgs e)
-        {
-            checkTemp.Checked = checkSelectAll.Checked;
-            checkMiniDumps.Checked = checkSelectAll.Checked;
-            checkErrorReports.Checked = checkSelectAll.Checked;
-        }
-
-        private void button20_Click(object sender, EventArgs e)
-        {
-            CleanHelper.PreviewCleanList.Clear();
-            CleanPC();
         }
 
         private void button32_Click(object sender, EventArgs e)
@@ -4094,6 +4108,27 @@ namespace Optimizer
             Translate();
 
             optionsTab.Focus();
+        }
+
+        private void cleanDriveB_Click(object sender, EventArgs e)
+        {
+            CleanPC();
+        }
+
+        private void checkSelectAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            _cleanSelectAll = !_cleanSelectAll;
+            for (int i = 0; i < listCleanPreview.Items.Count; i++)
+            {
+                listCleanPreview.SetItemChecked(i, _cleanSelectAll);
+            }
+        }
+
+        private void analyzeDriveB_Click(object sender, EventArgs e)
+        {
+            CleanHelper.PreviewCleanList.Clear();
+            listCleanPreview.Items.Clear();
+            PreviewCleanPC();
         }
     }
 }

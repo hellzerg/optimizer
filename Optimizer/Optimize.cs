@@ -1556,12 +1556,12 @@ namespace Optimizer
 
         internal static void EnableFileExplorerClassicRibbon()
         {
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked", "{e2bf9676-5f8f-435c-97eb-11607a5bedf7}", "");
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\CLSID\{d93ed569-3b3e-4bff-8355-3c44f6a52bb5}\InprocServer32", "", "");
         }
 
         internal static void DisableFileExplorerClassicRibbon()
         {
-            Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked", true).DeleteValue("{e2bf9676-5f8f-435c-97eb-11607a5bedf7}", false);
+            Registry.CurrentUser.DeleteSubKeyTree(@"Software\Classes\CLSID\{d93ed569-3b3e-4bff-8355-3c44f6a52bb5}", false);
         }
 
         // VISUAL STUDIO TELEMETRY

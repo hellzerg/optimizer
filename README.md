@@ -10,7 +10,7 @@ Optimizer is recommended after a fresh, clean installation of Windows to achieve
 
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/12.5/Optimizer-12.5.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/12.6/Optimizer-12.6.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -88,6 +88,6 @@ https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 12.5
-* Released: April 2, 2022
-* SHA256: 511B91ACC4A663DCB08FF5ABA241022131C6D805EE8F9D6CD22B9FF723C98C28
+* Latest version: 12.6
+* Released: April 3, 2022
+* SHA256: A8F95E41116DE86A7545F1D7730D0FE8638ACA918FCF9110DC28C8CCA78A2E19

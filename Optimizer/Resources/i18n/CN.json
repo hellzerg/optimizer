@@ -121,6 +121,7 @@
 	"btnExport": "导出",
 	"hostsTitle": "地编辑主机hosts文件",
 	"linkLocate": "定位",
+	"analyzeDriveB": "分析",
 	"linkAdvancedEdit": "高级编辑",
 	"linkRestoreDefault": "恢复为默认",
 	"lblIP": "IP 地址",
