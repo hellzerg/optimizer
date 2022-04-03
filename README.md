@@ -68,8 +68,7 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * ByteSize from https://github.com/omar/ByteSize
 * Thanks for this really tiny, yet extremely useful library
 
-## Thanks to: ##
-* aplenaki for Hellenic translation
+## Credits for translating: ##
 * https://github.com/mrkaban - mrkaban for Russian translation
 * https://github.com/theflamehd - theflamehd for German translation
 * https://github.com/Kheasyque - Kheasyque for Turkish translation
