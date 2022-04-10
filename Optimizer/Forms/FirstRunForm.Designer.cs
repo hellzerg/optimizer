@@ -116,6 +116,7 @@ namespace Optimizer
             this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStart.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnStart.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrchid;
             this.btnStart.FlatAppearance.BorderSize = 0;
@@ -247,6 +248,7 @@ namespace Optimizer
             // radioKorean
             // 
             this.radioKorean.AutoSize = true;
+            this.radioKorean.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioKorean.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioKorean.ForeColor = System.Drawing.Color.White;
             this.radioKorean.Location = new System.Drawing.Point(200, 186);
@@ -262,6 +264,7 @@ namespace Optimizer
             // radioTaiwan
             // 
             this.radioTaiwan.AutoSize = true;
+            this.radioTaiwan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioTaiwan.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioTaiwan.ForeColor = System.Drawing.Color.White;
             this.radioTaiwan.Location = new System.Drawing.Point(200, 157);
@@ -277,6 +280,7 @@ namespace Optimizer
             // radioCzech
             // 
             this.radioCzech.AutoSize = true;
+            this.radioCzech.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioCzech.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioCzech.ForeColor = System.Drawing.Color.White;
             this.radioCzech.Location = new System.Drawing.Point(53, 156);
@@ -292,6 +296,7 @@ namespace Optimizer
             // radioChinese
             // 
             this.radioChinese.AutoSize = true;
+            this.radioChinese.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioChinese.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioChinese.ForeColor = System.Drawing.Color.White;
             this.radioChinese.Location = new System.Drawing.Point(200, 127);
@@ -307,6 +312,7 @@ namespace Optimizer
             // radioItalian
             // 
             this.radioItalian.AutoSize = true;
+            this.radioItalian.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioItalian.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioItalian.ForeColor = System.Drawing.Color.White;
             this.radioItalian.Location = new System.Drawing.Point(53, 127);
@@ -322,6 +328,7 @@ namespace Optimizer
             // radioFrench
             // 
             this.radioFrench.AutoSize = true;
+            this.radioFrench.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioFrench.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioFrench.ForeColor = System.Drawing.Color.White;
             this.radioFrench.Location = new System.Drawing.Point(200, 96);
@@ -337,6 +344,7 @@ namespace Optimizer
             // radioPortuguese
             // 
             this.radioPortuguese.AutoSize = true;
+            this.radioPortuguese.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioPortuguese.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioPortuguese.ForeColor = System.Drawing.Color.White;
             this.radioPortuguese.Location = new System.Drawing.Point(199, 67);
@@ -352,6 +360,7 @@ namespace Optimizer
             // radioSpanish
             // 
             this.radioSpanish.AutoSize = true;
+            this.radioSpanish.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioSpanish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioSpanish.ForeColor = System.Drawing.Color.White;
             this.radioSpanish.Location = new System.Drawing.Point(199, 38);
@@ -367,6 +376,7 @@ namespace Optimizer
             // radioGerman
             // 
             this.radioGerman.AutoSize = true;
+            this.radioGerman.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioGerman.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioGerman.ForeColor = System.Drawing.Color.White;
             this.radioGerman.Location = new System.Drawing.Point(53, 98);
@@ -382,6 +392,7 @@ namespace Optimizer
             // radioTurkish
             // 
             this.radioTurkish.AutoSize = true;
+            this.radioTurkish.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioTurkish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioTurkish.ForeColor = System.Drawing.Color.White;
             this.radioTurkish.Location = new System.Drawing.Point(199, 9);
@@ -397,6 +408,7 @@ namespace Optimizer
             // radioHellenic
             // 
             this.radioHellenic.AutoSize = true;
+            this.radioHellenic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioHellenic.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioHellenic.ForeColor = System.Drawing.Color.White;
             this.radioHellenic.Location = new System.Drawing.Point(53, 69);
@@ -413,6 +425,7 @@ namespace Optimizer
             // 
             this.radioEnglish.AutoSize = true;
             this.radioEnglish.Checked = true;
+            this.radioEnglish.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioEnglish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Underline);
             this.radioEnglish.ForeColor = System.Drawing.Color.MediumOrchid;
             this.radioEnglish.Location = new System.Drawing.Point(53, 11);
@@ -429,6 +442,7 @@ namespace Optimizer
             // radioRussian
             // 
             this.radioRussian.AutoSize = true;
+            this.radioRussian.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioRussian.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioRussian.ForeColor = System.Drawing.Color.White;
             this.radioRussian.Location = new System.Drawing.Point(53, 40);
@@ -444,6 +458,7 @@ namespace Optimizer
             // radioPolish
             // 
             this.radioPolish.AutoSize = true;
+            this.radioPolish.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioPolish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioPolish.ForeColor = System.Drawing.Color.White;
             this.radioPolish.Location = new System.Drawing.Point(53, 185);
@@ -470,6 +485,7 @@ namespace Optimizer
             // radioArabic
             // 
             this.radioArabic.AutoSize = true;
+            this.radioArabic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioArabic.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioArabic.ForeColor = System.Drawing.Color.White;
             this.radioArabic.Location = new System.Drawing.Point(53, 214);

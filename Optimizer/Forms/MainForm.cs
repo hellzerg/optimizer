@@ -583,7 +583,7 @@ namespace Optimizer
 
             EnableToggleEvents();
 
-            _splashForm.LoadingStatus.Text = "checking for requirements ...";
+            _splashForm.LoadingStatus.Text = "Checking for requirements...";
 
             // theming
             Options.ApplyTheme(this);
@@ -704,7 +704,7 @@ namespace Optimizer
                 txtOS.Text += string.Format(" ({0})", Utilities.GetWindows10Build());
             }
 
-            _splashForm.LoadingStatus.Text = "loading startup && hosts items ...";
+            _splashForm.LoadingStatus.Text = "Loading startup && hosts items...";
 
             _columnSorter = new ListViewColumnSorter();
             listStartupItems.ListViewItemSorter = _columnSorter;
@@ -744,7 +744,7 @@ namespace Optimizer
                 tabCollection.TabPages.Remove(integratorTab);
             }
 
-            _splashForm.LoadingStatus.Text = "getting feed ...";
+            _splashForm.LoadingStatus.Text = "Getting feed...";
 
             // APPS DOWNLOADER
             if (!disableCommonApps)
@@ -768,7 +768,7 @@ namespace Optimizer
                 launcherMenu.Items.RemoveByKey("trayCleaner");
             }
 
-            _splashForm.LoadingStatus.Text = "loading hardware specifications ...";
+            _splashForm.LoadingStatus.Text = "Loading hardware specifications...";
 
             // INDICIUM
             if (!disableIndicium)

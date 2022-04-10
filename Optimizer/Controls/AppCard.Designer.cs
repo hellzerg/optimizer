@@ -38,6 +38,7 @@ namespace Optimizer
             // 
             this.appTitle.AutoSize = true;
             this.appTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.appTitle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.appTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.appTitle.Location = new System.Drawing.Point(36, 4);

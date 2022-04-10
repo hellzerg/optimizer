@@ -57,6 +57,7 @@ namespace Optimizer
             // Toggle
             // 
             this.Toggle.AutoSize = true;
+            this.Toggle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Toggle.ForeColor = System.Drawing.Color.White;
             this.Toggle.Location = new System.Drawing.Point(0, 1);
             this.Toggle.MinimumSize = new System.Drawing.Size(46, 22);

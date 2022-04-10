@@ -10,7 +10,7 @@
 	"lblLab": "Experimental build\n(delete after testing)",
 	"performanceSw": "Enable Performance Tweaks",
 	"networkSw": "Disable Network Throttling",
-	"defenderSw": "Disable Windows Defender",
+	"defenderSw": "Disable Windows Defender ⚠️",
 	"systemRestoreSw": "Disable System Restore",
 	"printSw": "Disable Print Service",
 	"mediaSharingSw": "Disable Media Player Sharing",

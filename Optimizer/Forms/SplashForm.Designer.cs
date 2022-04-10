@@ -56,7 +56,7 @@ namespace Optimizer
             this.LoadingStatus.Name = "LoadingStatus";
             this.LoadingStatus.Size = new System.Drawing.Size(458, 59);
             this.LoadingStatus.TabIndex = 2;
-            this.LoadingStatus.Text = "loading settings ...";
+            this.LoadingStatus.Text = "Loading settings...";
             this.LoadingStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox2
@@ -87,6 +87,7 @@ namespace Optimizer
             this.MinimizeBox = false;
             this.Name = "SplashForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Splash Screen";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
