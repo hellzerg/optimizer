@@ -4,11 +4,12 @@
 
 ## Summary: ##
 
-Portable utility that helps you restore your privacy and increase your security.
+Portable utility that helps you restore your privacy and increase your security;
 
 Optimizer is recommended after a fresh, clean installation of Windows to achieve maximum privacy and security.
 
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
+Join our support server if you need any help. https://discord.gg/3KEyXwGHux
 <p align="center">
 	<a href="https://github.com/hellzerg/optimizer/releases/download/12.7/Optimizer-12.7.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
