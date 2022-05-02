@@ -51,7 +51,7 @@ Restart in SAFE-MODE and run Optimizer with ```/disabledefender``` switch
 
 -OR-
 
-Execute ```/restart=disabledefender``` switch and let Optimizer do the rest automatically
+Execute Optimizer with ```/restart=disabledefender``` switch and let it do the rest automatically
 
 ## Command-line options and silent configuration files: ##
 https://github.com/hellzerg/optimizer/blob/master/CONFS.md
