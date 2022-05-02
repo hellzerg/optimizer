@@ -1,21 +1,25 @@
 ## Run Optimizer on Windows Server 2008-2012-2016-2019-2022 ##
 #### Some options might not work properly ####
-optimizer.exe /unsafe
+- ```optimizer.exe /unsafe```
 
 ## How to disable Windows Defender in Windows 10 1903 and later ##
 #### https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/security-malware-windows-defender-disableantispyware "DisableAntiSpyware" is discontinued and will be ignored on client devices, as of version 1903. ####
 
 - Restart in SAFE MODE
-- Execute: optimizer.exe /disabledefender
+- Execute: ```optimizer.exe /disabledefender```
 
 -OR-
 
-- Execute: optimizer.exe /restart=disabledefender and let Optimizer do the rest automatically
+- Execute: ```optimizer.exe /restart=disabledefender``` and let Optimizer do the rest automatically
 
 ## How to restart in SAFE MODE / NORMAL easily ##
 
-- optimizer.exe /restart=safemode
-- optimizer.exe /restart=normal
+- ```optimizer.exe /restart=safemode```
+- ```optimizer.exe /restart=normal```
+
+## Display version info from command line using:
+
+- ```optimizer.exe /version```
 
 ## You may disable specific tools for troubleshooting purposes ##
 #### Available list: ####
@@ -30,21 +34,21 @@ optimizer.exe /unsafe
 
 #### Examples ####
 
-- optimizer.exe /disable=indicium,uwp
-- optimizer.exe /disable=indicium,uwp,hosts
+- ```optimizer.exe /disable=indicium,uwp```
+- ```optimizer.exe /disable=indicium,uwp,hosts```
 
 ## Reset Optimizer configuration might fix it when can't open ##
-optimizer.exe /reset
+```optimizer.exe /reset```
 
 ## You can execute Optimizer silently, applying tweaks according to a configuration file. ##
 
 Download the configuration file based on your Windows version and edit it accordingly.
 
-* true: applies the specific option
-* false: resets the specific option
-* null: ignores the specific option
+* ```true```: applies the specific option
+* ```false```: resets the specific option
+* ```null```: ignores the specific option
 
-Then, execute it like this: optimizer.exe /win10.conf
+Then, execute it like this: ```optimizer.exe /win10.conf```
 
 ### For Windows 7: ###
 https://github.com/hellzerg/optimizer/blob/master/confs/win7.conf
