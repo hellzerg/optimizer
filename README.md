@@ -66,7 +66,7 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 * .NET Framework 4.5.2
 * Compatible with Windows 7, 8, 8.1, 10, 11
-* Can run under Windows Server 2008, 2012, 2016, 2019, 2022 using /unsafe switch
+* Can run under Windows Server 2008, 2012, 2016, 2019, 2022 using ```/unsafe``` switch
 
 ## Tools used: ##
 * ByteSize from https://github.com/omar/ByteSize
