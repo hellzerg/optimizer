@@ -6,6 +6,7 @@
 	"restartAndApply": "Uruchom ponownie, aby zastosować zmiany?",
 	"onedriveM": "Czy na pewno chcesz odinstalować OneDrive? Spowoduje to usunięcie plików pulpitu i dokumentów! Używaj tej opcji tylko na koncie lokalnym!",
 	"txtVersion": "Wersja: {VN}",
+	"systemRestoreM": "Czy na pewno chcesz wyłączyć Przywracanie systemu? Spowoduje to usunięcie bieżących obrazów kopii zapasowych!",
 	"txtBitness": "Wersja bitowa: {BITS}",
 	"linkUpdate": "Aktualizacja dostępna",
 	"lblLab": "Build eksperymentalny\n(usuń po testach)",

@@ -8,6 +8,7 @@
 	"txtBitness": "Betriebssystem: {BITS}",
 	"onedriveM": "Möchten Sie OneDrive wirklich deinstallieren? Dadurch werden Ihre Desktop und Dokumentdateien gelöscht! Verwenden Sie diese Option nur auf einem lokalen konto!",
 	"linkUpdate": "Update verfügbar",
+	"systemRestoreM": "Möchten Sie die Systemwiederherstellung wirklich deaktivieren? Dadurch werden Ihre aktuellen Backup-Images gelöscht!",
 	"lblLab": "Experimenteller Build\n(nach dem Testen löschen)",
 	"performanceSw": "Leistungsoptimierung aktivieren",
 	"networkSw": "Netzwerkdrosselung deaktivieren",

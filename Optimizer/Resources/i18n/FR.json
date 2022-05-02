@@ -6,6 +6,7 @@
 	"restartAndApply": "Redemarrer pour appliquer les changements?",
 	"onedriveM": "Voulez-vous vraiment désinstaller OneDrive? Cela supprimera vos fichiers de bureau et de document! N'utilisez cette option que sur un compte local!",
 	"txtVersion": "Version: {VN}",
+	"systemRestoreM": "Voulez-vous vraiment désactiver la restauration du système? Cela supprimera vos images de sauvegarde actuelles!",
 	"txtBitness": "Vous travaillez avec {BITS}",
 	"linkUpdate": "Mise a jour disponible",
 	"CleanPreviewForm": "Nettoyer L'aperçu",

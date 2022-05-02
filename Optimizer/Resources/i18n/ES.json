@@ -6,6 +6,7 @@
 	"restartAndApply": "Reiniciar para aplicar cambios?",
 	"onedriveM": "¿Seguro que quieres desinstalar OneDrive? ¡Esto eliminará sus archivos de escritorio y documentos! ¡Use esta opción solo en una cuenta local!",
 	"txtVersion": "Versión: {VN}",
+	"systemRestoreM": "¿Está seguro de que desea deshabilitar Restaurar sistema? ¡Esto eliminará sus imágenes de respaldo actuales!",
 	"txtBitness": "Sistema de {BITS}",
 	"linkUpdate": "Actualización disponible",
 	"lblLab": "Lanzamiento experimental\n(eliminar después de la prueba)",

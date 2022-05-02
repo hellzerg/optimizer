@@ -53,6 +53,7 @@ namespace Optimizer
         readonly string _licenseLink = "https://www.gnu.org/licenses/gpl-3.0.en.html";
         readonly string _discordLink = "https://discord.gg/rZh8BhmmQv";
         readonly string _githubProjectLink = "https://github.com/hellzerg/optimizer";
+        readonly string _paypalSupportLink = "https://www.paypal.com/paypalme/supportoptimizer";
 
         readonly string _latestVersionLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/version.txt";
         //readonly string _changelogLink = "https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md";
@@ -76,6 +77,7 @@ namespace Optimizer
         string _primaryItemTag = "_primary";
 
         bool _skipOneDrive = false;
+        bool _skipSystemRestore = false;
 
         ColorOverrider _colorOverrider;
 
@@ -583,7 +585,7 @@ namespace Optimizer
 
             CheckForIllegalCrossThreadCalls = false;
 
-            _splashForm.LoadingStatus.Text = "checking for requirements ...";
+            _splashForm.LoadingStatus.Text = "checking for requirements";
 
             // theming
             Options.ApplyTheme(this);
@@ -703,7 +705,7 @@ namespace Optimizer
                 txtOS.Text += string.Format(" ({0})", Utilities.GetWindows10Build());
             }
 
-            _splashForm.LoadingStatus.Text = "loading startup && hosts items ...";
+            _splashForm.LoadingStatus.Text = "loading startup && hosts items";
 
             _columnSorter = new ListViewColumnSorter();
             listStartupItems.ListViewItemSorter = _columnSorter;
@@ -743,7 +745,7 @@ namespace Optimizer
                 tabCollection.TabPages.Remove(integratorTab);
             }
 
-            _splashForm.LoadingStatus.Text = "getting feed ...";
+            _splashForm.LoadingStatus.Text = "getting feed";
 
             // APPS DOWNLOADER
             if (!disableCommonApps)
@@ -767,7 +769,7 @@ namespace Optimizer
                 launcherMenu.Items.RemoveByKey("trayCleaner");
             }
 
-            _splashForm.LoadingStatus.Text = "loading hardware specifications ...";
+            _splashForm.LoadingStatus.Text = "loading hardware specifications";
 
             // INDICIUM
             if (!disableIndicium)
@@ -2859,13 +2861,23 @@ namespace Optimizer
         {
             if (systemRestoreSw.ToggleChecked)
             {
+                if (MessageBox.Show(Options.TranslationList["systemRestoreM"].ToString(), "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    _skipSystemRestore = true;
+                    systemRestoreSw.ToggleChecked = false;
+                    return;
+                }
+
+                _skipSystemRestore = false;
                 Optimize.DisableSystemRestore();
             }
             else
             {
+                if (_skipSystemRestore) return;
+
                 Optimize.EnableSystemRestore();
             }
-            Options.CurrentOptions.DisableSystemRestore = systemRestoreSw.ToggleChecked;
+            if (!_skipSystemRestore) Options.CurrentOptions.DisableSystemRestore = systemRestoreSw.ToggleChecked;
         }
 
         private void toggleSwitch5_Click(object sender, EventArgs e)
@@ -4156,6 +4168,11 @@ namespace Optimizer
             CleanHelper.PreviewCleanList.Clear();
             listCleanPreview.Items.Clear();
             PreviewCleanPC();
+        }
+
+        private void linkLabel3_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(_paypalSupportLink);
         }
     }
 }

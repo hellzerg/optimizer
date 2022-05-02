@@ -410,5 +410,6 @@ However, they are considered a risky procedure. They are usually semi-annual rel
 	"classicRibbonTip": "Restores classic ribbon bar from Windows 10 in File Explorer.",
 	"classicContextTip": "Restores classic right-click menu, removing 'Show more options'.",
 	"gameModeSw": "Enable Gaming Mode",
-	"gameModeTip": "Enables Gaming mode in combination with hardware accelerated GPU scheduling."
+	"gameModeTip": "Enables Gaming mode in combination with hardware accelerated GPU scheduling.",
+	"systemRestoreM": "Are you sure you want to disable System Restore? This will delete your current backup images!"
 }

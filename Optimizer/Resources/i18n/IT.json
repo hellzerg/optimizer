@@ -8,6 +8,7 @@
 	"txtBitness": "Architettura: {BITS}",
 	"linkUpdate": "Aggiornamento disponibile",
 	"lblLab": "Build sperimentale\n(cancellare dopo il test)",
+	"systemRestoreM": "Sei sicuro di voler disabilitare Ripristino configurazione di sistema? Questo cancellerà le tue attuali immagini di backup!",
 	"onedriveM": "Sei sicuro di voler disinstallare OneDrive? Questo cancellerà i tuoi file desktop e documenti! Usa questa opzione solo su un account locale!",
 	"performanceSw": "Abilita miglioramento prestazioni",
 	"networkSw": "Disabilita rallentamento della rete",

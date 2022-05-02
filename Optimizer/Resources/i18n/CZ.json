@@ -6,6 +6,7 @@
 	"restartAndApply": "Restartovat a použít změny?",
 	"txtVersion": "Verze: {VN}",
 	"onedriveM": "Opravdu chcete odinstalovat OneDrive? Tím smažete soubory plochy a dokumentů! Tuto možnost používejte pouze na místním účtu!",
+	"systemRestoreM": "Opravdu chcete zakázat Obnovení systému? Tím se odstraní vaše aktuální záložní obrázky!",
 	"txtBitness": "Pracujete s {BITS}ovou verzí",
 	"linkUpdate": "Dostupná aktualizace",
 	"lblLab": "Experimentální sestavení\n(po testování smazat)",

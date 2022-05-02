@@ -7,6 +7,7 @@
 	"txtVersion": "版本: {VN}",
 	"txtBitness": "您使用的是{BITS}",
 	"onedriveM": "确定要卸载 OneDrive 吗？ 这将删除您的桌面和文档文件！ 仅在本地帐户上使用此选项！",
+	"systemRestoreM": "您确定要禁用系统还原吗？ 这将删除您当前的备份图像！",
 	"linkUpdate": "更新可用",
 	"lblLab": "实验构建\n(删除后测试)",
 	"performanceSw": "启用性能调整",

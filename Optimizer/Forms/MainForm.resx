@@ -414,6 +414,22 @@ It can also create custom commands
 for Run Dialog, making it easy to launch
 any application only by typing your desired keyword.</value>
   </data>
+  <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAmxJREFUeF7tjwlqxDAQBPc5+/8PJgR6YBAlq3XYloMLCnbdGmn68/Ly8vJyMd/v
+        94dU/L+goj3qmmdBRVao6/eFlj5DPbcPtOQV6vn7oKXuUOtcCy1yp1rrGmiBHdR650IP76TWPAd6cEe1
+        7lrooZ3V2mugB56g1p+HLm85C93Zq9afgy5uuQq6u1fVGIMudAwo6zGgrEfV6YcucwwoG3H2LtXpgy5y
+        DSgbdfY+1fKhS1wDykadvU+1POgC14CyGQPKXFWvDQ27BpRlM5STAWWOqteGhl0DyrIEnctmKG+pem1o
+        2DWgLFueKf+XBuXvHlXvGBrsMaAsm88EOS8t8/K/q2rWoSHXgLIsQeey5Znyv6tq1qEh14CybIZysjwb
+        5G+OqlmHhlwDymakO4Pye0vVrENDrgFlowbu95aqWYeGHAPKRg1qGX1vqZp1aMgxoGzEgLI/j7IjVbMO
+        DTkGlPWYoTxs5TVVsw4NOQaUZV1oNmzlR6pmHRpyDCgLM5Q7BpQ5qmYdGmoZUJYNKHOdnVfNOjTUMqAs
+        65ypGVDWo2rWoaGWAWVZ50xphvJeVbMODbUMKMvSGYdyZkbVPIYGj3SWDOhbJuerVb02NHykszidoW9n
+        qnptaPhIF5orv52p6nnQBT065Zwzq1QtH7rENaAs65xZpWr1QRc5OsWcM6tUnX7oMkennHNmlaozBl3Y
+        0oVmV6sa49ClT1I15qCLn6DWXwM9sLNaey300I5q3XOgB3dSa54LPbyDWu8aaIE71VrXQovcoda5D1rq
+        CvX8HtCCZ6pn94OWXameeQZUYERd93yoHKnjLy+n8/n8AhEOmzfy+EY4AAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="pictureBox17.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -699,7 +715,7 @@ any application only by typing your desired keyword.</value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAC8
-        GgAAAk1TRnQBSQFMAgEBCQEAASgBBAEoAQQBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
+        GgAAAk1TRnQBSQFMAgEBCQEAATgBBAE4AQQBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
         AwABYAMAAQEBAAEgBgABwP8A/wD/AP8A/wD/AP8A/wAeAANHAYB0//8AiQADRwGAdP//AIkAAyoBQANH
         AYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANH
         AYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGAA0cBgANHAYADRwGA/wD/AP8A
