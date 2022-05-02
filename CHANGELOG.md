@@ -1,7 +1,7 @@
 ## [12.8] - 2022-05-02
 - New: Enable Gaming Mode (plus hardware-accelerated GPU scheduling)
 - New: Added Brave browser in Common Apps
-- New: Disable Defender in safe-mode automatically (/restart=disabledefender switch)
+- New: Disable Defender automatically (```/restart=disabledefender``` switch)
 - Hotfix: Warning if choosing to Uninstall OneDrive
 - Hotfix: Performance Tweaks do not disable tray grouping (arrow icon)
 - Hotfix: Translation fixes in almost all languages
