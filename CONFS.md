@@ -24,13 +24,13 @@
 ## You may disable specific tools for troubleshooting purposes ##
 #### Available list: ####
 
-* Hardware inspection utility (indicium)
-* Common Apps downloader tool (apps)
-* HOSTS Editor tool (hosts)
-* UWP Apps Uninstaller (uwp)
-* Startup items tool (startup)
-* Cleaner utility (cleaner)
-* Integrator tool (integrator)
+* Hardware inspection utility (```indicium```)
+* Common Apps downloader tool (```apps```)
+* HOSTS Editor tool (```hosts```)
+* UWP Apps Uninstaller (```uwp```)
+* Startup items tool (```startup```)
+* Cleaner utility (```cleaner```)
+* Integrator tool (```integrator```)
 
 #### Examples ####
 
