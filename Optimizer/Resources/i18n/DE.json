@@ -6,6 +6,7 @@
 	"restartAndApply": "Neu starten, um Änderungen anzuwenden?",
 	"txtVersion": "Version: {VN}",
 	"txtBitness": "Betriebssystem: {BITS}",
+	"onedriveM": "Möchten Sie OneDrive wirklich deinstallieren? Dadurch werden Ihre Desktop und Dokumentdateien gelöscht! Verwenden Sie diese Option nur auf einem lokalen konto!",
 	"linkUpdate": "Update verfügbar",
 	"lblLab": "Experimenteller Build\n(nach dem Testen löschen)",
 	"performanceSw": "Leistungsoptimierung aktivieren",
@@ -383,5 +384,7 @@
 	"chatTip": "Entfernt das Chat-Symbol aus der Taskleiste.",
 	"smallerTaskbarTip": "Verringert die Größe der Taskleiste und der Symbole.",
 	"classicRibbonTip": "Stellt das klassische Windows 10-Menüband im Datei-Explorer wieder her.",
-	"classicContextTip": "Stellt das klassische Rechtsklickmenü wieder her und entfernt die Option 'Weitere Optionen anzeigen'."
+	"classicContextTip": "Stellt das klassische Rechtsklickmenü wieder her und entfernt die Option 'Weitere Optionen anzeigen'.",
+	"gameModeSw": "Spielemodus aktivieren",
+	"gameModeTip": "Aktiviert den Gaming-Modus in Kombination mit hardwarebeschleunigter GPU-Planung."
 }

@@ -71,6 +71,7 @@
 	"txtModernAppsTitle": "Uninstall unwanted UWP apps",
 	"chkSelectAllModernApps": "Select all",
 	"chkOnlyRemovable": "Only Uninstall-ables",
+	"onedriveM": "Are you sure you want to uninstall OneDrive? This will delete your Desktop and Document files! Only use this option on a local account!",
 	"txtUWP": "If you uninstall Store\nyou won't be able\nto install new UWP apps!\n\nAlso, some apps\ncan't be uninstalled.\n\nLike Microsoft Edge,\nSettings, etc.",
 	"startupTitle": "Choose your startup items",
 	"removeStartupItemB": "Delete",
@@ -407,5 +408,7 @@ However, they are considered a risky procedure. They are usually semi-annual rel
 	"chatTip": "Removes Chat icon from taskbar.",
 	"smallerTaskbarTip": "Makes taskbar size and icons smaller.",
 	"classicRibbonTip": "Restores classic ribbon bar from Windows 10 in File Explorer.",
-	"classicContextTip": "Restores classic right-click menu, removing 'Show more options'."
+	"classicContextTip": "Restores classic right-click menu, removing 'Show more options'.",
+	"gameModeSw": "Enable Gaming Mode",
+	"gameModeTip": "Enables Gaming mode in combination with hardware accelerated GPU scheduling."
 }

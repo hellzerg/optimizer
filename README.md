@@ -10,7 +10,7 @@ Optimizer is recommended after a fresh, clean installation of Windows to achieve
 
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/12.7/Optimizer-12.7.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/12.8/Optimizer-12.8.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -48,6 +48,8 @@ https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
 ## How to effectively disable Defender in Windows 10 1903 and later ##
 #### (https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/security-malware-windows-defender-disableantispyware) ####
 Restart in SAFE-MODE and run Optimizer with "/disabledefender" switch
+-OR-
+Execute "/restart=disabledefender" switch and let Optimizer do the rest automatically
 
 ## Command-line options and silent configuration files: ##
 https://github.com/hellzerg/optimizer/blob/master/CONFS.md
@@ -88,6 +90,6 @@ https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 12.7
-* Released: April 3, 2022
-* SHA256: B4BE437377C1A2D5FF449BDE15A7E5D5D1BF5F384DA6579D9E09E139FA784C46
+* Latest version: 12.8
+* Released: May 2, 2022
+* SHA256: 430B48D945F655EFC4AEAB4986E1FB1F1A6807E6E2F3C80B19A6CF8E7A484A88

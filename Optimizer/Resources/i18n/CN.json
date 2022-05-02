@@ -6,6 +6,7 @@
 	"restartAndApply": "重新启动以应用更改?",
 	"txtVersion": "版本: {VN}",
 	"txtBitness": "您使用的是{BITS}",
+	"onedriveM": "确定要卸载 OneDrive 吗？ 这将删除您的桌面和文档文件！ 仅在本地帐户上使用此选项！",
 	"linkUpdate": "更新可用",
 	"lblLab": "实验构建\n(删除后测试)",
 	"performanceSw": "启用性能调整",
@@ -405,5 +406,7 @@
 	"chatTip": "从任务栏移除聊天图标.",
 	"smallerTaskbarTip": "使任务栏大小和图标更小.",
 	"classicRibbonTip": "在文件资源管理器中恢复Windows 10的经典色带条.",
-	"classicContextTip": "恢复经典的右键菜单，删除 “显示更多选项”."
+	"classicContextTip": "恢复经典的右键菜单，删除 “显示更多选项”.",
+	"gameModeSw": "启用游戏模式",
+	"gameModeTip": "结合硬件加速 GPU 调度启用游戏模式"
 }

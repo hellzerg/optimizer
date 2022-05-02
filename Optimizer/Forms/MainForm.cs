@@ -75,6 +75,8 @@ namespace Optimizer
         string _byteSizeNullString = " b";
         string _primaryItemTag = "_primary";
 
+        bool _skipOneDrive = false;
+
         ColorOverrider _colorOverrider;
 
         List<TreeNode> _hwDetailed;
@@ -194,7 +196,6 @@ namespace Optimizer
 
         private void EnableToggleEvents()
         {
-            actionSw.ToggleClicked += new EventHandler(ToggleSwitch7_Click);
             officeTelemetrySw.ToggleClicked += new EventHandler(toggleSwitch12_Click);
             telemetryTasksSw.ToggleClicked += new EventHandler(toggleSwitch11_Click);
             superfetchSw.ToggleClicked += new EventHandler(toggleSwitch10_Click);
@@ -241,6 +242,20 @@ namespace Optimizer
             ffTelemetrySw.ToggleClicked += new EventHandler(FfTelemetrySw_ToggleClicked);
             chromeTelemetrySw.ToggleClicked += new EventHandler(ChromeTelemetrySw_ToggleClicked);
             vsSw.ToggleClicked += new EventHandler(VsSw_ToggleClicked);
+            gameModeSw.ToggleClicked += new EventHandler(GameModeSw_ToggleClicked);
+        }
+
+        private void GameModeSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (gameModeSw.ToggleChecked)
+            {
+                Optimize.EnableGamingMode();
+            }
+            else
+            {
+                Optimize.DisableGamingMode();
+            }
+            Options.CurrentOptions.EnableGamingMode = gameModeSw.ToggleChecked;
         }
 
         private void VsSw_ToggleClicked(object sender, EventArgs e)
@@ -400,7 +415,6 @@ namespace Optimizer
             helpBox.SetToolTip(inkSw.Label, Options.TranslationList["inkTip"].ToString());
             helpBox.SetToolTip(spellSw.Label, Options.TranslationList["spellTip"].ToString());
             helpBox.SetToolTip(xboxSw.Label, Options.TranslationList["xboxTip"].ToString());
-            helpBox.SetToolTip(actionSw.Label, Options.TranslationList["actionTip"].ToString());
             helpBox.SetToolTip(autoUpdatesSw.Label, Options.TranslationList["autoUpdatesTip"].ToString());
             helpBox.SetToolTip(driversSw.Label, Options.TranslationList["driversTip"].ToString());
             helpBox.SetToolTip(telemetryServicesSw.Label, Options.TranslationList["telemetryServicesTip"].ToString());
@@ -425,21 +439,9 @@ namespace Optimizer
             helpBox.SetToolTip(ffTelemetrySw.Label, Options.TranslationList["ffTelemetryTip"].ToString());
             helpBox.SetToolTip(vsSw.Label, Options.TranslationList["vsTip"].ToString());
             helpBox.SetToolTip(chromeTelemetrySw.Label, Options.TranslationList["chromeTelemetryTip"].ToString());
+            helpBox.SetToolTip(gameModeSw.Label, Options.TranslationList["gameModeTip"].ToString());
 
             //helpBox.ToolTipTitle = Options.TranslationList["tipWhatsThis"].ToString();
-        }
-
-        private void ToggleSwitch7_Click(object sender, EventArgs e)
-        {
-            if (actionSw.ToggleChecked)
-            {
-                Optimize.DisableActionCenter();
-            }
-            else
-            {
-                Optimize.EnableActionCenter();
-            }
-            Options.CurrentOptions.DisableActionCenter = actionSw.ToggleChecked;
         }
 
         private void ToggleSwitch40_Click(object sender, EventArgs e)
@@ -581,8 +583,6 @@ namespace Optimizer
 
             CheckForIllegalCrossThreadCalls = false;
 
-            EnableToggleEvents();
-
             _splashForm.LoadingStatus.Text = "checking for requirements ...";
 
             // theming
@@ -689,7 +689,6 @@ namespace Optimizer
                 tabCollection.TabPages.Remove(windows8Tab);
                 windows10Tab.Text = "Windows 11";
                 panelWin11Tweaks.Visible = true;
-                actionSw.Visible = false;
                 oldMixerSw.Visible = false;
 
                 if (!disableUWPApps)
@@ -821,6 +820,9 @@ namespace Optimizer
 
             // network monitoring
             InitNetworkMonitoring();
+
+            // make toggles function
+            EnableToggleEvents();
         }
 
         private void LoadTranslationAndSetSize()
@@ -1900,7 +1902,7 @@ namespace Optimizer
             ccSw.ToggleChecked = Options.CurrentOptions.DisableCloudClipboard;
             longPathsSw.ToggleChecked = Options.CurrentOptions.EnableLongPaths;
             castSw.ToggleChecked = Options.CurrentOptions.RemoveCastToDevice;
-            actionSw.ToggleChecked = Options.CurrentOptions.DisableActionCenter;
+            gameModeSw.ToggleChecked = Options.CurrentOptions.EnableGamingMode;
         }
 
         private void LoadWindowsXIToggleStates()
@@ -1917,7 +1919,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void GetDesktopItems()
@@ -3000,15 +3002,27 @@ namespace Optimizer
         {
             if (uODSw.ToggleChecked)
             {
+                if (MessageBox.Show(Options.TranslationList["onedriveM"].ToString(), "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    _skipOneDrive = true;
+                    uODSw.ToggleChecked = false;
+                    return;
+                }
+
+                _skipOneDrive = false;
+
                 Task t = new Task(() => Optimize.UninstallOneDrive());
                 t.Start();
             }
             else
             {
+                if (_skipOneDrive) return;
+
                 Task t = new Task(() => Optimize.InstallOneDrive());
                 t.Start();
             }
-            Options.CurrentOptions.UninstallOneDrive = uODSw.ToggleChecked;
+
+            if (!_skipOneDrive) Options.CurrentOptions.UninstallOneDrive = uODSw.ToggleChecked;
         }
 
         private void toggleSwitch25_Click(object sender, EventArgs e)

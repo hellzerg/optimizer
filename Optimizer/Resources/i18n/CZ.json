@@ -5,6 +5,7 @@
 	"restartButton10": "Restartovat nyní",
 	"restartAndApply": "Restartovat a použít změny?",
 	"txtVersion": "Verze: {VN}",
+	"onedriveM": "Opravdu chcete odinstalovat OneDrive? Tím smažete soubory plochy a dokumentů! Tuto možnost používejte pouze na místním účtu!",
 	"txtBitness": "Pracujete s {BITS}ovou verzí",
 	"linkUpdate": "Dostupná aktualizace",
 	"lblLab": "Experimentální sestavení\n(po testování smazat)",
@@ -407,5 +408,7 @@ Je to však považováno za riskantní procedůru. Obvykle se jedná o půlročn
 	"chatTip": "Odstraní ikonu Chatu z hlavního panelu.",
 	"smallerTaskbarTip": "Zmenší velikost hlavního panelu a ikon.",
 	"classicRibbonTip": "Obnoví klasický pás karet ze systému Windows 10 v Průzkumníkovi souborů.",
-	"classicContextTip": "Obnoví klasickou nabídku kliknutí pravým tlačítkem myši a odstraní 'Zobrazit další možnosti'."
+	"classicContextTip": "Obnoví klasickou nabídku kliknutí pravým tlačítkem myši a odstraní 'Zobrazit další možnosti'.",
+	"gameModeSw": "Povolit herní režim",
+	"gameModeTip": "Umožňuje herní režim v kombinaci s hardwarově akcelerovaným plánováním GPU."
 }

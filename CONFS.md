@@ -8,6 +8,10 @@ optimizer.exe /unsafe
 - Restart in SAFE MODE
 - Execute: optimizer.exe /disabledefender
 
+-OR-
+
+- Execute: optimizer.exe /restart=disabledefender and let Optimizer do the rest automatically
+
 ## How to restart in SAFE MODE / NORMAL easily ##
 
 - optimizer.exe /restart=safemode

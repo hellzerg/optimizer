@@ -13,7 +13,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 12;
-        internal readonly static float Minor = 7;
+        internal readonly static float Minor = 8;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
@@ -163,24 +163,33 @@ namespace Optimizer
                                 // instruct to restart in safe-mode
                                 if (arg == "/restart=safemode")
                                 {
-                                    Utilities.RunCommand("bcdedit /set {current} safeboot Minimal");
-                                    Thread.Sleep(500);
-                                    Utilities.Reboot();
-
-                                    Environment.Exit(0);
+                                    RestartInSafeMode();
                                 }
 
                                 // instruct to restart normally
                                 if (arg == "/restart=normal")
                                 {
-                                    Utilities.RunCommand("bcdedit /deletevalue {current} safeboot");
-                                    Thread.Sleep(500);
-                                    Utilities.Reboot();
-
-                                    Environment.Exit(0);
+                                    RestartInNormalMode();
                                 }
 
-                                // other options 
+                                // disable defender automatically
+                                if (arg == "/restart=disabledefender")
+                                {
+                                    // set RunOnce instruction
+                                    Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce", "*OptimizerDisableDefender", Assembly.GetExecutingAssembly().Location + " /silentdisabledefender", Microsoft.Win32.RegistryValueKind.String);
+
+                                    RestartInSafeMode();
+                                }
+
+                                // return from safe-mode automatically
+                                if (arg == "/silentdisabledefender")
+                                {
+                                    DisableDefenderInSafeMode();
+
+                                    RestartInNormalMode();
+                                }
+
+                                // other options for disabling specific tools
                                 if (arg.StartsWith("/disable="))
                                 {
                                     string x = arg.Replace("/disable=", string.Empty);
@@ -206,17 +215,10 @@ namespace Optimizer
                                 // disables Defender in SAFE MODE (for Windows 10 1903+ / works in Windows 11 as well)
                                 if (arg == "/disabledefender")
                                 {
-                                    File.WriteAllText("DisableDefenderSafeMode.bat", Properties.Resources.DisableDefenderSafeMode1903Plus);
-
-                                    Utilities.RunBatchFile("DisableDefenderSafeMode.bat");
-                                    Thread.Sleep(1000);
-                                    Utilities.RunBatchFile("DisableDefenderSafeMode.bat");
-                                    Thread.Sleep(1000);
-
-                                    File.Delete("DisableDefenderSafeMode.bat");
+                                    DisableDefenderInSafeMode();
 
                                     MessageBox.Show("Windows Defender has been completely disabled successfully.", "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                                    Environment.Exit(0);
                                     return;
                                 }
 
@@ -304,6 +306,41 @@ namespace Optimizer
                     }
                 }
             }
+        }
+
+        //internal static void ForceExit()
+        //{
+        //    Environment.Exit(0);
+        //}
+
+        private static void RestartInSafeMode()
+        {
+            Utilities.RunCommand("bcdedit /set {current} safeboot Minimal");
+            Thread.Sleep(500);
+            Utilities.Reboot();
+
+            Environment.Exit(0);
+        }
+
+        private static void RestartInNormalMode()
+        {
+            Utilities.RunCommand("bcdedit /deletevalue {current} safeboot");
+            Thread.Sleep(500);
+            Utilities.Reboot();
+
+            Environment.Exit(0);
+        }
+
+        private static void DisableDefenderInSafeMode()
+        {
+            File.WriteAllText("DisableDefenderSafeMode.bat", Properties.Resources.DisableDefenderSafeMode1903Plus);
+
+            Utilities.RunBatchFile("DisableDefenderSafeMode.bat");
+            Thread.Sleep(1000);
+            Utilities.RunBatchFile("DisableDefenderSafeMode.bat");
+            Thread.Sleep(1000);
+
+            File.Delete("DisableDefenderSafeMode.bat");
         }
 
         private static void StartSplashForm()

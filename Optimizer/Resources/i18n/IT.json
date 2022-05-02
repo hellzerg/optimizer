@@ -8,6 +8,7 @@
 	"txtBitness": "Architettura: {BITS}",
 	"linkUpdate": "Aggiornamento disponibile",
 	"lblLab": "Build sperimentale\n(cancellare dopo il test)",
+	"onedriveM": "Sei sicuro di voler disinstallare OneDrive? Questo cancellerà i tuoi file desktop e documenti! Usa questa opzione solo su un account locale!",
 	"performanceSw": "Abilita miglioramento prestazioni",
 	"networkSw": "Disabilita rallentamento della rete",
 	"defenderSw": "Disabilita Windows Defender",
@@ -27,7 +28,7 @@
 	"smartScreenSw": "Disabilita SmartScreen",
 	"stickySw": "Disabilita tasti permanenti",
 	"universalTab": "Universale",
-	"analyzeDriveB": "Analizzare",
+	"analyzeDriveB": "Analizza",
 	"modernAppsTab": "App UWP",
 	"startupTab": "Avvio",
 	"appsTab": "App comuni",
@@ -37,7 +38,7 @@
 	"integratorTab": "Integrazione",
 	"optionsTab": "Opzioni",
 	"oldMixerSw": "Abilita mixer volume classico",
-	"oldExplorerSw": "Disabilita strico accesso rapido",
+	"oldExplorerSw": "Disabilita storico accesso rapido",
 	"adsSw": "Disabilita annunci menu Start",
 	"uODSw": "Disinstalla OneDrive",
 	"peopleSw": "Disabilita persone",
@@ -402,5 +403,7 @@ Tuttavia, sono considerate procedure rischiose. Sono normalmente una release ogn
 	"chatTip": "Rimouve l'icona della Chat dalla barra delle applicazioni.",
 	"smallerTaskbarTip": "Riduci barra delle applicazioni e icone.",
 	"classicRibbonTip": "Riprista il menu di Esplora File di Windows 10.",
-	"classicContextTip": "Ripristina il menu contestuale classico, rimuovendo 'Mostra più opzioni'."
+	"classicContextTip": "Ripristina il menu contestuale classico, rimuovendo 'Mostra più opzioni'.",
+	"gameModeSw": "Abilita la modalità di gioco",
+	"gameModeTip": "Abilita la modalità di gioco in combinazione con la pianificazione GPU con accelerazione hardware."
 }

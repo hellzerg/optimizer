@@ -4,6 +4,7 @@
 	"restartButton8": "reinicie agora",
 	"restartButton10": "reinicie agora",
 	"restartAndApply": "Reiniciar para aplicar as alterações?",
+	"onedriveM": "Tem certeza de que deseja desinstalar o OneDrive? Isso excluirá seus arquivos da área de trabalho e de documentos! Use esta opção apenas em uma conta local!",
 	"CleanPreviewForm": "Antevisão Limpa",
 	"txtVersion": "Versão: {VN}",
 	"txtBitness": "A arquitetura do seu computador é de {BITS}.",
@@ -402,5 +403,7 @@ No entanto, eles são considerados um procedimento arriscado. Geralmente são la
 	"chatTip": "Remove o ícone de bate-papo da barra de tarefas.",
 	"smallerTaskbarTip": "Diminui o tamanho e os ícones da barra de tarefas.",
 	"classicRibbonTip": "Restaura a barra de fita clássica do Windows 10 no File Explorer.",
-	"classicContextTip": "Restaura o menu clássico do botão direito, removendo 'Mostrar mais opções'."
+	"classicContextTip": "Restaura o menu clássico do botão direito, removendo 'Mostrar mais opções'.",
+	"gameModeSw": "Ativar o modo de jogo",
+	"gameModeTip": "Ativa o modo de jogo em combinação com o agendamento de GPU acelerado por hardware."
 }

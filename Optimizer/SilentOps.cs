@@ -263,6 +263,18 @@ namespace Optimizer
         // silent config processing for Windows 10 tweaks
         internal static void ProcessSilentConfigWindows10()
         {
+            if (CurrentSilentConfig.EnableGamingMode.HasValue)
+            {
+                if (CurrentSilentConfig.EnableGamingMode.Value)
+                {
+                    Optimize.EnableGamingMode();
+                }
+                else
+                {
+                    Optimize.DisableGamingMode();
+                }
+            }
+
             if (CurrentSilentConfig.EnableLegacyVolumeSlider.HasValue)
             {
                 if (CurrentSilentConfig.EnableLegacyVolumeSlider.Value)
@@ -504,18 +516,6 @@ namespace Optimizer
                     Optimize.AddCastToDevice();
                 }
             }
-
-            if (CurrentSilentConfig.DisableActionCenter.HasValue)
-            {
-                if (CurrentSilentConfig.DisableActionCenter.Value)
-                {
-                    Optimize.DisableActionCenter();
-                }
-                else
-                {
-                    Optimize.EnableActionCenter();
-                }
-            }
         }
 
         // silent config processing for Windows 11 tweaks
@@ -745,6 +745,10 @@ namespace Optimizer
             {
                 Options.CurrentOptions.EnableLegacyVolumeSlider = CurrentSilentConfig.EnableLegacyVolumeSlider.Value;
             }
+            if (CurrentSilentConfig.EnableGamingMode.HasValue)
+            {
+                Options.CurrentOptions.EnableGamingMode = CurrentSilentConfig.EnableGamingMode.Value;
+            }
             if (CurrentSilentConfig.DisableQuickAccessHistory.HasValue)
             {
                 Options.CurrentOptions.DisableQuickAccessHistory = CurrentSilentConfig.DisableQuickAccessHistory.Value;
@@ -820,10 +824,6 @@ namespace Optimizer
             if (CurrentSilentConfig.RemoveCastToDevice.HasValue)
             {
                 Options.CurrentOptions.RemoveCastToDevice = CurrentSilentConfig.RemoveCastToDevice.Value;
-            }
-            if (CurrentSilentConfig.DisableActionCenter.HasValue)
-            {
-                Options.CurrentOptions.DisableActionCenter = CurrentSilentConfig.DisableActionCenter.Value;
             }
         }
     }

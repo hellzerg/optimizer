@@ -61,7 +61,7 @@ namespace Optimizer
         public bool DisableFeatureUpdates { get; set; }
         public bool EnableLongPaths { get; set; }
         public bool RemoveCastToDevice { get; set; }
-        public bool DisableActionCenter { get; set; }
+        public bool EnableGamingMode { get; set; }
 
         // windows 8
         public bool DisableOneDrive { get; set; }
@@ -220,7 +220,7 @@ namespace Optimizer
                 CurrentOptions.DisableFaxService = false;
                 CurrentOptions.DisableSmartScreen = false;
                 CurrentOptions.DisableStickyKeys = false;
-
+                CurrentOptions.EnableGamingMode = false;
                 CurrentOptions.EnableLegacyVolumeSlider = false;
                 CurrentOptions.DisableQuickAccessHistory = false;
                 CurrentOptions.DisableStartMenuAds = false;
@@ -241,7 +241,7 @@ namespace Optimizer
                 CurrentOptions.DisableCloudClipboard = false;
                 CurrentOptions.EnableLongPaths = false;
                 CurrentOptions.RemoveCastToDevice = false;
-                CurrentOptions.DisableActionCenter = false;
+     
                 CurrentOptions.DisableVisualStudioTelemetry = false;
                 CurrentOptions.DisableFirefoxTemeletry = false;
                 CurrentOptions.DisableChromeTelemetry = false;

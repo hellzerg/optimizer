@@ -6,7 +6,7 @@ namespace Optimizer
     public partial class ToggleCard : UserControl
     {
         public event EventHandler ToggleClicked;
-
+        
         public ToggleCard()
         {
             InitializeComponent();

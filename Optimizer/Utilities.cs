@@ -648,7 +648,7 @@ namespace Optimizer
             }
             finally
             {
-                if (withoutRestart == false)
+                if (!withoutRestart)
                 {
                     // BYPASS SINGLE-INSTANCE MECHANISM
                     if (Program.MUTEX != null)
@@ -660,7 +660,6 @@ namespace Optimizer
 
                     Application.Restart();
                 }
-
             }
         }
 

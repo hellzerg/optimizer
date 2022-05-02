@@ -1,12 +1,22 @@
+## [12.8] - 2022-05-02
+- New: Enable Gaming Mode (plus hardware-accelerated GPU scheduling)
+- New: Added Brave browser in Common Apps
+- New: Disable Defender in safe-mode automatically (/restart=disabledefender switch)
+- Hotfix: Warning if choosing to Uninstall OneDrive
+- Hotfix: Performance Tweaks do not disable tray grouping (arrow icon)
+- Hotfix: Translation fixes in almost all languages
+- Improved: Slightly faster loading time
+- Removed: Disable Notification/Action Center
+
 ## [12.7] - 2022-04-3
 - New: Fully translated into Arabic (thanks to https://github.com/MesterPerfect - MesterPerfect)
 
-## [12.6] - 2022-04-3
+## [12.6] - 2022-04-03
 - New: Redesigned Cleaner tool
 - Hotfix: Enable Classic Ribbon registry key fixed
 - Hotfix: Translation issues
 
-## [12.5] - 2022-04-2
+## [12.5] - 2022-04-02
 - New: Fully translated into Polish (thanks to https://github.com/factuall - Adrian Nieściur)
 
 ## [12.4] - 2022-03-29

@@ -47,7 +47,7 @@ namespace Optimizer
         public bool? DisableFeatureUpdates { get; set; }
         public bool? EnableLongPaths { get; set; }
         public bool? RemoveCastToDevice { get; set; }
-        public bool? DisableActionCenter { get; set; }
+        public bool? EnableGamingMode { get; set; }
 
         public bool? DisableOneDrive { get; set; }
 
