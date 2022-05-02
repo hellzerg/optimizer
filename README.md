@@ -48,7 +48,9 @@ https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
 ## How to effectively disable Defender in Windows 10 1903 and later ##
 #### (https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/security-malware-windows-defender-disableantispyware) ####
 Restart in SAFE-MODE and run Optimizer with "/disabledefender" switch
+
 -OR-
+
 Execute "/restart=disabledefender" switch and let Optimizer do the rest automatically
 
 ## Command-line options and silent configuration files: ##
