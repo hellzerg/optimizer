@@ -1,34 +1,34 @@
 ## Frequently Asked Questions for using Optimizer safely ##
 
-- Do I need to restart my computer for the app to take effect?<br>
+- *Do I need to restart my computer for the app to take effect?*<br>
 Absolutely, yes.
 
-- Do I need to keep the app running in the background?<br>
+- *Do I need to keep the app running in the background?*<br>
 No. You just need to enable your preferred options and restart.
 
-- My Desktop files and documents got suddenly deleted! Why?<br>
+- *My Desktop files and documents got suddenly deleted! Why?*<br>
 You shouldn't **Uninstall OneDrive** on a Windows 10/11 with Microsoft-synced account setup.
 It's strongly advisable to **Uninstall OneDrive** only on a fresh Windows installation, before
 setting up Microsoft account.
 
-- How can I disable **Windows Defender** on Windows 10/11?<br>
+- *How can I disable **Windows Defender** on Windows 10/11?*<br>
 The **Disable Windows Defender** toggle is working only on Windows 7/8/8.1.
 In order to effectively disable **Windows Defender** on Windows 10/11 you need to restart in safe-mode.
 You may easily do this just by executing the app with ```/restart=disabledefender```. This command
 will automatically restart in safe-mode, disable **Windows Defender** and finally restart normally again.
 You may anytime enable **Windows Defender** again with ```/restart=enabledefender```.
 
-- Should I disable **System Restore**?<br>
+- *Should I disable **System Restore**?*<br>
 It's up to you, but keep in mind that by disabling it your current backups will get deleted.
 
-- Should I disable **Print Service** or **Fax Service**?<br>
+- *Should I disable **Print Service** or **Fax Service**?*<br>
 In case you are actively using printer and/or fax devices, you shouldn't disable them.
 
-- My digital pen is not working, why?<br>
+- *My digital pen is not working, why?*<br>
 Reset **Disable Windows Ink**, restart your computer and your pen should be functional again.
 
-- My clipboard history stopped working, why?<br>
+- *My clipboard history stopped working, why?*<br>
 Reset **Disable Cloud Clipboard** and it's should be fine.
 
-- Should I disable **Sensor Services**?<br>
+- *Should I disable **Sensor Services**?*<br>
 If your device is a tablet, has various sensors (proximity, auto-brightness, etc) or a touch-screen, you shouldn't disable this.
