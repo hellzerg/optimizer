@@ -1572,6 +1572,16 @@ namespace Optimizer
             Registry.CurrentUser.DeleteSubKeyTree(@"Software\Classes\CLSID\{d93ed569-3b3e-4bff-8355-3c44f6a52bb5}", false);
         }
 
+        internal static void EnableFilesCompactMode()
+        {
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "UseCompactMode", 1, RegistryValueKind.DWord);
+        }
+
+        internal static void DisableFilesCompactMode()
+        {
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "UseCompactMode", 0, RegistryValueKind.DWord);
+        }
+
         // VISUAL STUDIO TELEMETRY
         internal static void DisableVisualStudioTelemetry()
         {
