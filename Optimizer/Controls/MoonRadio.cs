@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public class MoonnRadio : RadioButton
+    public class MoonRadio : RadioButton
     {
-        public MoonnRadio()
+        public MoonRadio()
         {
             DoubleBuffered = true;
         }
