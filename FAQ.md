@@ -8,7 +8,7 @@ No. You just need to enable your preferred options and restart.
 
 - *My Desktop files and documents got suddenly deleted! Why?*<br>
 You shouldn't **Uninstall OneDrive** on a Windows 10/11 with Microsoft-synced account setup.
-It's strongly advisable to **Uninstall OneDrive** only on a fresh Windows installation, before
+It's strongly advised to **Uninstall OneDrive** only on a fresh Windows installation, before
 setting up Microsoft account.
 
 - *How can I disable **Windows Defender** on Windows 10/11?*<br>
