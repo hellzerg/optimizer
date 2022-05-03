@@ -277,6 +277,7 @@
     <None Include="Resources\Scripts\DisableDefenderSafeMode1903Plus.bat" />
     <None Include="Resources\Scripts\DisableOfficeTelemetry.reg" />
     <None Include="Resources\i18n\EN.json" />
+    <None Include="Resources\Scripts\EnableDefenderSafeMode1903Plus.bat" />
     <None Include="Resources\Scripts\EnableOfficeTelemetry.reg" />
     <None Include="Resources\Scripts\EnableOfficeTelemetryTasks.bat" />
     <None Include="Resources\Scripts\EnableTelemetryTasks.bat" />

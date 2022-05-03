@@ -13,7 +13,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 12;
-        internal readonly static float Minor = 8;
+        internal readonly static float Minor = 9;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
@@ -160,6 +160,16 @@ namespace Optimizer
                                     Environment.Exit(0);
                                 }
 
+                                // hibernation switches
+                                if (arg == "/disablehibernate")
+                                {
+                                    Utilities.DisableHibernation();
+                                }
+                                if (arg == "/enablehibernate")
+                                {
+                                    Utilities.EnableHibernation();
+                                }
+
                                 // instruct to restart in safe-mode
                                 if (arg == "/restart=safemode")
                                 {
@@ -181,11 +191,25 @@ namespace Optimizer
                                     RestartInSafeMode();
                                 }
 
+                                // enable defender automatically
+                                if (arg == "/restart=enabledefender")
+                                {
+                                    // set RunOnce instruction
+                                    Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce", "*OptimizerEnableDefender", Assembly.GetExecutingAssembly().Location + " /silentenabledefender", Microsoft.Win32.RegistryValueKind.String);
+
+                                    RestartInSafeMode();
+                                }
+
                                 // return from safe-mode automatically
                                 if (arg == "/silentdisabledefender")
                                 {
                                     DisableDefenderInSafeMode();
+                                    RestartInNormalMode();
+                                }
 
+                                if (arg == "/silentenabledefender")
+                                {
+                                    EnableDefenderInSafeMode();
                                     RestartInNormalMode();
                                 }
 
@@ -341,6 +365,18 @@ namespace Optimizer
             Thread.Sleep(1000);
 
             File.Delete("DisableDefenderSafeMode.bat");
+        }
+
+        private static void EnableDefenderInSafeMode()
+        {
+            File.WriteAllText("EnableDefenderSafeMode.bat", Properties.Resources.EnableDefenderSafeMode1903Plus);
+
+            Utilities.RunBatchFile("EnableDefenderSafeMode.bat");
+            Thread.Sleep(1000);
+            Utilities.RunBatchFile("EnableDefenderSafeMode.bat");
+            Thread.Sleep(1000);
+
+            File.Delete("EnableDefenderSafeMode.bat");
         }
 
         private static void StartSplashForm()

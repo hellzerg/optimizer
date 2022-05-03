@@ -10,12 +10,19 @@ namespace Optimizer
         public ToggleCard()
         {
             InitializeComponent();
+
+            this.AccessibleRole = AccessibleRole.CheckButton;
+            this.AccessibleName = LabelText;
         }
 
         public string LabelText
         {
             get { return Label.Text; }
-            set { Label.Text = value; }
+            set 
+            { 
+                Label.Text = value;
+                this.AccessibleName = value;
+            }
         }
 
         public bool ToggleChecked

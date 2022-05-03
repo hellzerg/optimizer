@@ -621,16 +621,18 @@ namespace Optimizer
             this.universalTab.Controls.Add(this.superfetchSw);
             this.universalTab.Controls.Add(this.faxSw);
             this.universalTab.Controls.Add(this.performanceSw);
-            this.universalTab.Location = new System.Drawing.Point(4, 25);
+            this.universalTab.Location = new System.Drawing.Point(4, 24);
             this.universalTab.Margin = new System.Windows.Forms.Padding(2);
             this.universalTab.Name = "universalTab";
             this.universalTab.Padding = new System.Windows.Forms.Padding(2);
-            this.universalTab.Size = new System.Drawing.Size(999, 610);
+            this.universalTab.Size = new System.Drawing.Size(999, 611);
             this.universalTab.TabIndex = 0;
             this.universalTab.Text = "Universal";
             // 
             // chromeTelemetrySw
             // 
+            this.chromeTelemetrySw.AccessibleName = "Disable Google Chrome Telemetry";
+            this.chromeTelemetrySw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.chromeTelemetrySw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.chromeTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chromeTelemetrySw.ForeColor = System.Drawing.Color.White;
@@ -644,6 +646,8 @@ namespace Optimizer
             // 
             // ffTelemetrySw
             // 
+            this.ffTelemetrySw.AccessibleName = "Disable Mozilla Firefox Telemetry";
+            this.ffTelemetrySw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.ffTelemetrySw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ffTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ffTelemetrySw.ForeColor = System.Drawing.Color.White;
@@ -657,6 +661,8 @@ namespace Optimizer
             // 
             // vsSw
             // 
+            this.vsSw.AccessibleName = "Disable Visual Studio Telemetry";
+            this.vsSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.vsSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.vsSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vsSw.ForeColor = System.Drawing.Color.White;
@@ -670,6 +676,8 @@ namespace Optimizer
             // 
             // reportingSw
             // 
+            this.reportingSw.AccessibleName = "Disable Error Reporting";
+            this.reportingSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.reportingSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.reportingSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportingSw.ForeColor = System.Drawing.Color.White;
@@ -683,6 +691,8 @@ namespace Optimizer
             // 
             // systemRestoreSw
             // 
+            this.systemRestoreSw.AccessibleName = "Disable System Restore";
+            this.systemRestoreSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.systemRestoreSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.systemRestoreSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.systemRestoreSw.ForeColor = System.Drawing.Color.White;
@@ -696,6 +706,8 @@ namespace Optimizer
             // 
             // officeTelemetrySw
             // 
+            this.officeTelemetrySw.AccessibleName = "Disable Office 2016 Telemetry";
+            this.officeTelemetrySw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.officeTelemetrySw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.officeTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.officeTelemetrySw.ForeColor = System.Drawing.Color.White;
@@ -709,6 +721,8 @@ namespace Optimizer
             // 
             // smartScreenSw
             // 
+            this.smartScreenSw.AccessibleName = "Disable SmartScreen";
+            this.smartScreenSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.smartScreenSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.smartScreenSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.smartScreenSw.ForeColor = System.Drawing.Color.White;
@@ -722,6 +736,8 @@ namespace Optimizer
             // 
             // networkSw
             // 
+            this.networkSw.AccessibleName = "Disable Network Throttling";
+            this.networkSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.networkSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.networkSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.networkSw.ForeColor = System.Drawing.Color.White;
@@ -735,6 +751,8 @@ namespace Optimizer
             // 
             // telemetryTasksSw
             // 
+            this.telemetryTasksSw.AccessibleName = "Disable Telemetry Tasks";
+            this.telemetryTasksSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.telemetryTasksSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.telemetryTasksSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.telemetryTasksSw.ForeColor = System.Drawing.Color.White;
@@ -748,6 +766,8 @@ namespace Optimizer
             // 
             // defenderSw
             // 
+            this.defenderSw.AccessibleName = "Disable Windows Defender";
+            this.defenderSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.defenderSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.defenderSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.defenderSw.ForeColor = System.Drawing.Color.White;
@@ -761,6 +781,8 @@ namespace Optimizer
             // 
             // homegroupSw
             // 
+            this.homegroupSw.AccessibleName = "Disable HomeGroup";
+            this.homegroupSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.homegroupSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.homegroupSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homegroupSw.ForeColor = System.Drawing.Color.White;
@@ -774,6 +796,8 @@ namespace Optimizer
             // 
             // stickySw
             // 
+            this.stickySw.AccessibleName = "Disable Sticky Keys";
+            this.stickySw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.stickySw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.stickySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stickySw.ForeColor = System.Drawing.Color.White;
@@ -787,6 +811,8 @@ namespace Optimizer
             // 
             // compatSw
             // 
+            this.compatSw.AccessibleName = "Disable Compatibility Assistant";
+            this.compatSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.compatSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.compatSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.compatSw.ForeColor = System.Drawing.Color.White;
@@ -800,6 +826,8 @@ namespace Optimizer
             // 
             // mediaSharingSw
             // 
+            this.mediaSharingSw.AccessibleName = "Disable Media Player Sharing";
+            this.mediaSharingSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.mediaSharingSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.mediaSharingSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mediaSharingSw.ForeColor = System.Drawing.Color.White;
@@ -813,6 +841,8 @@ namespace Optimizer
             // 
             // printSw
             // 
+            this.printSw.AccessibleName = "Disable Print Service";
+            this.printSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.printSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.printSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printSw.ForeColor = System.Drawing.Color.White;
@@ -826,6 +856,8 @@ namespace Optimizer
             // 
             // superfetchSw
             // 
+            this.superfetchSw.AccessibleName = "Disable Superfetch";
+            this.superfetchSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.superfetchSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.superfetchSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.superfetchSw.ForeColor = System.Drawing.Color.White;
@@ -839,6 +871,8 @@ namespace Optimizer
             // 
             // faxSw
             // 
+            this.faxSw.AccessibleName = "Disable Fax Service";
+            this.faxSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.faxSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.faxSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.faxSw.ForeColor = System.Drawing.Color.White;
@@ -852,6 +886,8 @@ namespace Optimizer
             // 
             // performanceSw
             // 
+            this.performanceSw.AccessibleName = "Enable Performance Tweaks";
+            this.performanceSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.performanceSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.performanceSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.performanceSw.ForeColor = System.Drawing.Color.White;
@@ -889,16 +925,18 @@ namespace Optimizer
             this.windows10Tab.Controls.Add(this.oldExplorerSw);
             this.windows10Tab.Controls.Add(this.adsSw);
             this.windows10Tab.Controls.Add(this.panelWin11Tweaks);
-            this.windows10Tab.Location = new System.Drawing.Point(4, 25);
+            this.windows10Tab.Location = new System.Drawing.Point(4, 24);
             this.windows10Tab.Margin = new System.Windows.Forms.Padding(2);
             this.windows10Tab.Name = "windows10Tab";
             this.windows10Tab.Padding = new System.Windows.Forms.Padding(2);
-            this.windows10Tab.Size = new System.Drawing.Size(999, 610);
+            this.windows10Tab.Size = new System.Drawing.Size(999, 611);
             this.windows10Tab.TabIndex = 1;
             this.windows10Tab.Text = "Windows 10";
             // 
             // gameModeSw
             // 
+            this.gameModeSw.AccessibleName = "Enable Gaming Mode";
+            this.gameModeSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.gameModeSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.gameModeSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gameModeSw.ForeColor = System.Drawing.Color.White;
@@ -912,6 +950,8 @@ namespace Optimizer
             // 
             // featuresSw
             // 
+            this.featuresSw.AccessibleName = "Disable Feature Updates";
+            this.featuresSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.featuresSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.featuresSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.featuresSw.ForeColor = System.Drawing.Color.White;
@@ -925,6 +965,8 @@ namespace Optimizer
             // 
             // oldMixerSw
             // 
+            this.oldMixerSw.AccessibleName = "Enable Classic Volume Mixer";
+            this.oldMixerSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.oldMixerSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.oldMixerSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.oldMixerSw.ForeColor = System.Drawing.Color.White;
@@ -938,6 +980,8 @@ namespace Optimizer
             // 
             // insiderSw
             // 
+            this.insiderSw.AccessibleName = "Disable Insider Service";
+            this.insiderSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.insiderSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.insiderSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.insiderSw.ForeColor = System.Drawing.Color.White;
@@ -951,6 +995,8 @@ namespace Optimizer
             // 
             // castSw
             // 
+            this.castSw.AccessibleName = "Remove Cast to Device";
+            this.castSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.castSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.castSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.castSw.ForeColor = System.Drawing.Color.White;
@@ -964,6 +1010,8 @@ namespace Optimizer
             // 
             // gameBarSw
             // 
+            this.gameBarSw.AccessibleName = "Disable Game Bar";
+            this.gameBarSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.gameBarSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.gameBarSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gameBarSw.ForeColor = System.Drawing.Color.White;
@@ -977,6 +1025,8 @@ namespace Optimizer
             // 
             // sensorSw
             // 
+            this.sensorSw.AccessibleName = "Disable Sensor Services";
+            this.sensorSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.sensorSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.sensorSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sensorSw.ForeColor = System.Drawing.Color.White;
@@ -990,6 +1040,8 @@ namespace Optimizer
             // 
             // ccSw
             // 
+            this.ccSw.AccessibleName = "Disable Cloud Clipboard";
+            this.ccSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.ccSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ccSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ccSw.ForeColor = System.Drawing.Color.White;
@@ -1003,6 +1055,8 @@ namespace Optimizer
             // 
             // cortanaSw
             // 
+            this.cortanaSw.AccessibleName = "Disable Cortana";
+            this.cortanaSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.cortanaSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cortanaSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cortanaSw.ForeColor = System.Drawing.Color.White;
@@ -1016,6 +1070,8 @@ namespace Optimizer
             // 
             // privacySw
             // 
+            this.privacySw.AccessibleName = "Enhance Privacy";
+            this.privacySw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.privacySw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.privacySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.privacySw.ForeColor = System.Drawing.Color.White;
@@ -1029,6 +1085,8 @@ namespace Optimizer
             // 
             // driversSw
             // 
+            this.driversSw.AccessibleName = "Exclude Drivers from Update";
+            this.driversSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.driversSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.driversSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.driversSw.ForeColor = System.Drawing.Color.White;
@@ -1042,6 +1100,8 @@ namespace Optimizer
             // 
             // telemetryServicesSw
             // 
+            this.telemetryServicesSw.AccessibleName = "Disable Telemetry Services";
+            this.telemetryServicesSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.telemetryServicesSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.telemetryServicesSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.telemetryServicesSw.ForeColor = System.Drawing.Color.White;
@@ -1055,6 +1115,8 @@ namespace Optimizer
             // 
             // autoUpdatesSw
             // 
+            this.autoUpdatesSw.AccessibleName = "Disable Automatic Updates";
+            this.autoUpdatesSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.autoUpdatesSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.autoUpdatesSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.autoUpdatesSw.ForeColor = System.Drawing.Color.White;
@@ -1068,6 +1130,8 @@ namespace Optimizer
             // 
             // tpmSw
             // 
+            this.tpmSw.AccessibleName = "Disable TPM 2.0 Check";
+            this.tpmSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.tpmSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.tpmSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpmSw.ForeColor = System.Drawing.Color.White;
@@ -1081,6 +1145,8 @@ namespace Optimizer
             // 
             // xboxSw
             // 
+            this.xboxSw.AccessibleName = "Disable Xbox Live";
+            this.xboxSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.xboxSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.xboxSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xboxSw.ForeColor = System.Drawing.Color.White;
@@ -1094,6 +1160,8 @@ namespace Optimizer
             // 
             // inkSw
             // 
+            this.inkSw.AccessibleName = "Disable Windows Ink";
+            this.inkSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.inkSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.inkSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inkSw.ForeColor = System.Drawing.Color.White;
@@ -1107,6 +1175,8 @@ namespace Optimizer
             // 
             // spellSw
             // 
+            this.spellSw.AccessibleName = "Disable Spell Checking";
+            this.spellSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.spellSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.spellSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spellSw.ForeColor = System.Drawing.Color.White;
@@ -1120,6 +1190,8 @@ namespace Optimizer
             // 
             // longPathsSw
             // 
+            this.longPathsSw.AccessibleName = "Enable Long Paths";
+            this.longPathsSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.longPathsSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.longPathsSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.longPathsSw.ForeColor = System.Drawing.Color.White;
@@ -1133,6 +1205,8 @@ namespace Optimizer
             // 
             // uODSw
             // 
+            this.uODSw.AccessibleName = "Uninstall OneDrive";
+            this.uODSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.uODSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.uODSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uODSw.ForeColor = System.Drawing.Color.White;
@@ -1146,6 +1220,8 @@ namespace Optimizer
             // 
             // peopleSw
             // 
+            this.peopleSw.AccessibleName = "Disable My People";
+            this.peopleSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.peopleSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.peopleSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.peopleSw.ForeColor = System.Drawing.Color.White;
@@ -1159,6 +1235,8 @@ namespace Optimizer
             // 
             // oldExplorerSw
             // 
+            this.oldExplorerSw.AccessibleName = "Restore Classic Windows Explorer";
+            this.oldExplorerSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.oldExplorerSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.oldExplorerSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.oldExplorerSw.ForeColor = System.Drawing.Color.White;
@@ -1172,6 +1250,8 @@ namespace Optimizer
             // 
             // adsSw
             // 
+            this.adsSw.AccessibleName = "Disable Start Menu Ads";
+            this.adsSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.adsSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.adsSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adsSw.ForeColor = System.Drawing.Color.White;
@@ -1200,6 +1280,8 @@ namespace Optimizer
             // 
             // classicRibbonSw
             // 
+            this.classicRibbonSw.AccessibleName = "Enable Classic Ribbon in Explorer";
+            this.classicRibbonSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.classicRibbonSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.classicRibbonSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.classicRibbonSw.ForeColor = System.Drawing.Color.White;
@@ -1213,6 +1295,8 @@ namespace Optimizer
             // 
             // snapAssistSw
             // 
+            this.snapAssistSw.AccessibleName = "Disable Snap Assist";
+            this.snapAssistSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.snapAssistSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.snapAssistSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.snapAssistSw.ForeColor = System.Drawing.Color.White;
@@ -1226,6 +1310,8 @@ namespace Optimizer
             // 
             // widgetsSw
             // 
+            this.widgetsSw.AccessibleName = "Disable Widgets";
+            this.widgetsSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.widgetsSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.widgetsSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.widgetsSw.ForeColor = System.Drawing.Color.White;
@@ -1239,6 +1325,8 @@ namespace Optimizer
             // 
             // leftTaskbarSw
             // 
+            this.leftTaskbarSw.AccessibleName = "Align Taskbar to Left";
+            this.leftTaskbarSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.leftTaskbarSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.leftTaskbarSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leftTaskbarSw.ForeColor = System.Drawing.Color.White;
@@ -1252,6 +1340,8 @@ namespace Optimizer
             // 
             // classicContextSw
             // 
+            this.classicContextSw.AccessibleName = "Enable Classic Right-Click Menu";
+            this.classicContextSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.classicContextSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.classicContextSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.classicContextSw.ForeColor = System.Drawing.Color.White;
@@ -1265,6 +1355,8 @@ namespace Optimizer
             // 
             // chatSw
             // 
+            this.chatSw.AccessibleName = "Disable Chat";
+            this.chatSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.chatSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.chatSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chatSw.ForeColor = System.Drawing.Color.White;
@@ -1278,6 +1370,8 @@ namespace Optimizer
             // 
             // smallerTaskbarSw
             // 
+            this.smallerTaskbarSw.AccessibleName = "Make Taskbar Smaller";
+            this.smallerTaskbarSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.smallerTaskbarSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.smallerTaskbarSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.smallerTaskbarSw.ForeColor = System.Drawing.Color.White;
@@ -1293,16 +1387,18 @@ namespace Optimizer
             // 
             this.windows8Tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.windows8Tab.Controls.Add(this.disableOneDriveSw);
-            this.windows8Tab.Location = new System.Drawing.Point(4, 25);
+            this.windows8Tab.Location = new System.Drawing.Point(4, 24);
             this.windows8Tab.Margin = new System.Windows.Forms.Padding(2);
             this.windows8Tab.Name = "windows8Tab";
             this.windows8Tab.Padding = new System.Windows.Forms.Padding(2);
-            this.windows8Tab.Size = new System.Drawing.Size(999, 610);
+            this.windows8Tab.Size = new System.Drawing.Size(999, 611);
             this.windows8Tab.TabIndex = 2;
             this.windows8Tab.Text = "Windows 8.1";
             // 
             // disableOneDriveSw
             // 
+            this.disableOneDriveSw.AccessibleName = "Disable OneDrive";
+            this.disableOneDriveSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.disableOneDriveSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.disableOneDriveSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.disableOneDriveSw.ForeColor = System.Drawing.Color.White;
@@ -1324,10 +1420,10 @@ namespace Optimizer
             this.modernAppsTab.Controls.Add(this.refreshModernAppsButton);
             this.modernAppsTab.Controls.Add(this.txtModernAppsTitle);
             this.modernAppsTab.Controls.Add(this.panelModernAppsList);
-            this.modernAppsTab.Location = new System.Drawing.Point(4, 25);
+            this.modernAppsTab.Location = new System.Drawing.Point(4, 24);
             this.modernAppsTab.Name = "modernAppsTab";
             this.modernAppsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.modernAppsTab.Size = new System.Drawing.Size(999, 610);
+            this.modernAppsTab.Size = new System.Drawing.Size(999, 611);
             this.modernAppsTab.TabIndex = 11;
             this.modernAppsTab.Text = "UWP Apps";
             // 
@@ -1462,10 +1558,10 @@ namespace Optimizer
             this.startupTab.Controls.Add(this.panel3);
             this.startupTab.Controls.Add(this.removeStartupItemB);
             this.startupTab.Controls.Add(this.startupTitle);
-            this.startupTab.Location = new System.Drawing.Point(4, 25);
+            this.startupTab.Location = new System.Drawing.Point(4, 24);
             this.startupTab.Margin = new System.Windows.Forms.Padding(2);
             this.startupTab.Name = "startupTab";
-            this.startupTab.Size = new System.Drawing.Size(999, 610);
+            this.startupTab.Size = new System.Drawing.Size(999, 611);
             this.startupTab.TabIndex = 7;
             this.startupTab.Text = "Startup";
             // 
@@ -1721,10 +1817,10 @@ namespace Optimizer
             this.appsTab.Controls.Add(this.panel10);
             this.appsTab.Controls.Add(this.panelCommonApps);
             this.appsTab.Controls.Add(this.groupSystemTools);
-            this.appsTab.Location = new System.Drawing.Point(4, 25);
+            this.appsTab.Location = new System.Drawing.Point(4, 24);
             this.appsTab.Name = "appsTab";
             this.appsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.appsTab.Size = new System.Drawing.Size(999, 610);
+            this.appsTab.Size = new System.Drawing.Size(999, 611);
             this.appsTab.TabIndex = 12;
             this.appsTab.Text = "Common Apps";
             // 
@@ -1736,7 +1832,7 @@ namespace Optimizer
             this.txtFeedError.ForeColor = System.Drawing.Color.Gold;
             this.txtFeedError.Location = new System.Drawing.Point(3, 47);
             this.txtFeedError.Name = "txtFeedError";
-            this.txtFeedError.Size = new System.Drawing.Size(993, 440);
+            this.txtFeedError.Size = new System.Drawing.Size(993, 441);
             this.txtFeedError.TabIndex = 171;
             this.txtFeedError.Text = "No internet connection, try refreshing links again";
             this.txtFeedError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1883,7 +1979,7 @@ namespace Optimizer
             this.panelCommonApps.Controls.Add(this.bitPref);
             this.panelCommonApps.Controls.Add(this.goToDownloadsB);
             this.panelCommonApps.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelCommonApps.Location = new System.Drawing.Point(3, 487);
+            this.panelCommonApps.Location = new System.Drawing.Point(3, 488);
             this.panelCommonApps.Name = "panelCommonApps";
             this.panelCommonApps.Size = new System.Drawing.Size(993, 120);
             this.panelCommonApps.TabIndex = 162;
@@ -2075,11 +2171,11 @@ namespace Optimizer
             this.cleanerTab.Controls.Add(this.panel14);
             this.cleanerTab.Controls.Add(this.panel13);
             this.cleanerTab.Controls.Add(this.panel1);
-            this.cleanerTab.Location = new System.Drawing.Point(4, 25);
+            this.cleanerTab.Location = new System.Drawing.Point(4, 24);
             this.cleanerTab.Margin = new System.Windows.Forms.Padding(2);
             this.cleanerTab.Name = "cleanerTab";
             this.cleanerTab.Padding = new System.Windows.Forms.Padding(2);
-            this.cleanerTab.Size = new System.Drawing.Size(999, 610);
+            this.cleanerTab.Size = new System.Drawing.Size(999, 611);
             this.cleanerTab.TabIndex = 5;
             this.cleanerTab.Text = "Cleaner";
             // 
@@ -2090,7 +2186,7 @@ namespace Optimizer
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(221, 2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(776, 545);
+            this.panel14.Size = new System.Drawing.Size(776, 546);
             this.panel14.TabIndex = 51;
             // 
             // listCleanPreview
@@ -2104,7 +2200,7 @@ namespace Optimizer
             this.listCleanPreview.HorizontalScrollbar = true;
             this.listCleanPreview.Location = new System.Drawing.Point(0, 0);
             this.listCleanPreview.Name = "listCleanPreview";
-            this.listCleanPreview.Size = new System.Drawing.Size(774, 543);
+            this.listCleanPreview.Size = new System.Drawing.Size(774, 544);
             this.listCleanPreview.TabIndex = 1;
             // 
             // panel13
@@ -2116,7 +2212,7 @@ namespace Optimizer
             this.panel13.Controls.Add(this.cleanDriveB);
             this.panel13.Controls.Add(this.lblFootprint);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel13.Location = new System.Drawing.Point(221, 547);
+            this.panel13.Location = new System.Drawing.Point(221, 548);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(776, 61);
             this.panel13.TabIndex = 50;
@@ -2145,7 +2241,7 @@ namespace Optimizer
             this.checkSelectAll.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkSelectAll.ForeColor = System.Drawing.Color.DodgerBlue;
             this.checkSelectAll.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.checkSelectAll.Location = new System.Drawing.Point(528, -1);
+            this.checkSelectAll.Location = new System.Drawing.Point(528, 1);
             this.checkSelectAll.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.checkSelectAll.Name = "checkSelectAll";
             this.checkSelectAll.Size = new System.Drawing.Size(247, 20);
@@ -2238,7 +2334,7 @@ namespace Optimizer
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(219, 606);
+            this.panel1.Size = new System.Drawing.Size(219, 607);
             this.panel1.TabIndex = 47;
             // 
             // label8
@@ -2321,7 +2417,7 @@ namespace Optimizer
             this.IECache.AutoSize = true;
             this.IECache.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IECache.ForeColor = System.Drawing.Color.White;
-            this.IECache.Location = new System.Drawing.Point(9, 569);
+            this.IECache.Location = new System.Drawing.Point(10, 569);
             this.IECache.Margin = new System.Windows.Forms.Padding(2);
             this.IECache.Name = "IECache";
             this.IECache.Size = new System.Drawing.Size(66, 23);
@@ -2451,7 +2547,7 @@ namespace Optimizer
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.DarkGray;
-            this.label6.Location = new System.Drawing.Point(32, 545);
+            this.label6.Location = new System.Drawing.Point(33, 545);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(125, 20);
@@ -2498,7 +2594,7 @@ namespace Optimizer
             // pictureBox10
             // 
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(9, 544);
+            this.pictureBox10.Location = new System.Drawing.Point(10, 544);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(20, 20);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2599,10 +2695,10 @@ namespace Optimizer
             this.pingerTab.Controls.Add(this.txtPingInput);
             this.pingerTab.Controls.Add(this.lblPinger);
             this.pingerTab.Controls.Add(this.pingerTitle);
-            this.pingerTab.Location = new System.Drawing.Point(4, 25);
+            this.pingerTab.Location = new System.Drawing.Point(4, 24);
             this.pingerTab.Name = "pingerTab";
             this.pingerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.pingerTab.Size = new System.Drawing.Size(999, 610);
+            this.pingerTab.Size = new System.Drawing.Size(999, 611);
             this.pingerTab.TabIndex = 13;
             this.pingerTab.Text = "Pinger";
             // 
@@ -2913,11 +3009,11 @@ namespace Optimizer
             this.hostsEditorTab.Controls.Add(this.panel4);
             this.hostsEditorTab.Controls.Add(this.hostsTitle);
             this.hostsEditorTab.Controls.Add(this.linkLocate);
-            this.hostsEditorTab.Location = new System.Drawing.Point(4, 25);
+            this.hostsEditorTab.Location = new System.Drawing.Point(4, 24);
             this.hostsEditorTab.Margin = new System.Windows.Forms.Padding(2);
             this.hostsEditorTab.Name = "hostsEditorTab";
             this.hostsEditorTab.Padding = new System.Windows.Forms.Padding(2);
-            this.hostsEditorTab.Size = new System.Drawing.Size(999, 610);
+            this.hostsEditorTab.Size = new System.Drawing.Size(999, 611);
             this.hostsEditorTab.TabIndex = 9;
             this.hostsEditorTab.Text = "Hosts";
             // 
@@ -3209,11 +3305,11 @@ namespace Optimizer
             this.registryFixerTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.registryFixerTab.Controls.Add(this.panel2);
             this.registryFixerTab.Controls.Add(this.registryTitle);
-            this.registryFixerTab.Location = new System.Drawing.Point(4, 25);
+            this.registryFixerTab.Location = new System.Drawing.Point(4, 24);
             this.registryFixerTab.Margin = new System.Windows.Forms.Padding(2);
             this.registryFixerTab.Name = "registryFixerTab";
             this.registryFixerTab.Padding = new System.Windows.Forms.Padding(2);
-            this.registryFixerTab.Size = new System.Drawing.Size(999, 610);
+            this.registryFixerTab.Size = new System.Drawing.Size(999, 611);
             this.registryFixerTab.TabIndex = 8;
             this.registryFixerTab.Text = "Registry";
             // 
@@ -3419,10 +3515,10 @@ namespace Optimizer
             this.indiciumTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.indiciumTab.Controls.Add(this.panel12);
             this.indiciumTab.Controls.Add(this.panel11);
-            this.indiciumTab.Location = new System.Drawing.Point(4, 25);
+            this.indiciumTab.Location = new System.Drawing.Point(4, 24);
             this.indiciumTab.Name = "indiciumTab";
             this.indiciumTab.Padding = new System.Windows.Forms.Padding(3);
-            this.indiciumTab.Size = new System.Drawing.Size(999, 610);
+            this.indiciumTab.Size = new System.Drawing.Size(999, 611);
             this.indiciumTab.TabIndex = 14;
             this.indiciumTab.Text = "Hardware";
             // 
@@ -3433,7 +3529,7 @@ namespace Optimizer
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(3, 38);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(993, 569);
+            this.panel12.Size = new System.Drawing.Size(993, 570);
             this.panel12.TabIndex = 2;
             // 
             // specsTree
@@ -3488,7 +3584,7 @@ namespace Optimizer
             treeNode6,
             treeNode7,
             treeNode8});
-            this.specsTree.Size = new System.Drawing.Size(991, 567);
+            this.specsTree.Size = new System.Drawing.Size(991, 568);
             this.specsTree.TabIndex = 0;
             this.specsTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.specsTree_NodeMouseClick);
             // 
@@ -3588,6 +3684,8 @@ namespace Optimizer
             // 
             // hwDetailed
             // 
+            this.hwDetailed.AccessibleName = "Detailed View";
+            this.hwDetailed.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.hwDetailed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.hwDetailed.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hwDetailed.ForeColor = System.Drawing.Color.White;
@@ -3604,11 +3702,11 @@ namespace Optimizer
             // 
             this.integratorTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.integratorTab.Controls.Add(this.synapse);
-            this.integratorTab.Location = new System.Drawing.Point(4, 25);
+            this.integratorTab.Location = new System.Drawing.Point(4, 24);
             this.integratorTab.Margin = new System.Windows.Forms.Padding(2);
             this.integratorTab.Name = "integratorTab";
             this.integratorTab.Padding = new System.Windows.Forms.Padding(2);
-            this.integratorTab.Size = new System.Drawing.Size(999, 610);
+            this.integratorTab.Size = new System.Drawing.Size(999, 611);
             this.integratorTab.TabIndex = 10;
             this.integratorTab.Text = "Integrator";
             // 
@@ -3627,7 +3725,7 @@ namespace Optimizer
             this.synapse.Name = "synapse";
             this.synapse.Padding = new System.Drawing.Point(0, 0);
             this.synapse.SelectedIndex = 0;
-            this.synapse.Size = new System.Drawing.Size(995, 606);
+            this.synapse.Size = new System.Drawing.Size(995, 607);
             this.synapse.TabIndex = 0;
             // 
             // integratorInfoTab
@@ -3644,7 +3742,7 @@ namespace Optimizer
             this.integratorInfoTab.Margin = new System.Windows.Forms.Padding(2);
             this.integratorInfoTab.Name = "integratorInfoTab";
             this.integratorInfoTab.Padding = new System.Windows.Forms.Padding(2);
-            this.integratorInfoTab.Size = new System.Drawing.Size(987, 577);
+            this.integratorInfoTab.Size = new System.Drawing.Size(987, 579);
             this.integratorInfoTab.TabIndex = 0;
             this.integratorInfoTab.Text = "Info";
             // 
@@ -3752,7 +3850,7 @@ namespace Optimizer
             this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage8.Size = new System.Drawing.Size(987, 577);
+            this.tabPage8.Size = new System.Drawing.Size(987, 579);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Add/Modify";
             // 
@@ -4096,7 +4194,7 @@ namespace Optimizer
             this.tabPage9.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage9.Size = new System.Drawing.Size(987, 577);
+            this.tabPage9.Size = new System.Drawing.Size(987, 579);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Remove";
             // 
@@ -4208,7 +4306,7 @@ namespace Optimizer
             this.tabPage10.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage10.Size = new System.Drawing.Size(987, 577);
+            this.tabPage10.Size = new System.Drawing.Size(987, 579);
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Ready Menus";
             // 
@@ -4396,7 +4494,7 @@ namespace Optimizer
             this.tabPage11.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage11.Size = new System.Drawing.Size(987, 577);
+            this.tabPage11.Size = new System.Drawing.Size(987, 579);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Run Dialog";
             // 
@@ -4597,11 +4695,11 @@ namespace Optimizer
             this.optionsTab.Controls.Add(this.lblTheming);
             this.optionsTab.Controls.Add(this.quickAccessToggle);
             this.optionsTab.Controls.Add(this.helpTipsToggle);
-            this.optionsTab.Location = new System.Drawing.Point(4, 25);
+            this.optionsTab.Location = new System.Drawing.Point(4, 24);
             this.optionsTab.Margin = new System.Windows.Forms.Padding(2);
             this.optionsTab.Name = "optionsTab";
             this.optionsTab.Padding = new System.Windows.Forms.Padding(2);
-            this.optionsTab.Size = new System.Drawing.Size(999, 610);
+            this.optionsTab.Size = new System.Drawing.Size(999, 611);
             this.optionsTab.TabIndex = 6;
             this.optionsTab.Text = "Options";
             // 
@@ -5048,6 +5146,8 @@ namespace Optimizer
             // 
             // quickAccessToggle
             // 
+            this.quickAccessToggle.AccessibleName = "Show Quick Access Menu";
+            this.quickAccessToggle.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.quickAccessToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.quickAccessToggle.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quickAccessToggle.ForeColor = System.Drawing.Color.White;
@@ -5062,6 +5162,8 @@ namespace Optimizer
             // 
             // helpTipsToggle
             // 
+            this.helpTipsToggle.AccessibleName = "Show Help Messages";
+            this.helpTipsToggle.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.helpTipsToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.helpTipsToggle.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.helpTipsToggle.ForeColor = System.Drawing.Color.White;
@@ -5456,7 +5558,7 @@ namespace Optimizer
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel bpanel;
-        private MoonTabs tabCollection;
+        private Optimizer.MoonTabs tabCollection;
         private System.Windows.Forms.TabPage universalTab;
         private System.Windows.Forms.TabPage windows10Tab;
         private System.Windows.Forms.TabPage windows8Tab;
@@ -5502,7 +5604,7 @@ namespace Optimizer
         private System.Windows.Forms.Button addHostB;
         private System.Windows.Forms.TextBox txtIP;
         private System.Windows.Forms.TabPage integratorTab;
-        private MoonTabs synapse;
+        private Optimizer.MoonTabs synapse;
         private System.Windows.Forms.TabPage integratorInfoTab;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage9;

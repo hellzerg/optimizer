@@ -12,6 +12,15 @@
 
 - Execute: ```optimizer.exe /restart=disabledefender``` and let Optimizer do the rest automatically
 
+## How to re-enable Windows Defender ##
+
+- Restart in SAFE MODE
+- Execute: ```optimizer.exe /enabledefender```
+
+-OR-
+
+- Execute: ```optimizer.exe /restart=enabledefender``` and let Optimizer do the rest automatically
+
 ## How to restart in SAFE MODE / NORMAL easily ##
 
 - ```optimizer.exe /restart=safemode```
@@ -39,6 +48,11 @@
 
 ## Reset Optimizer configuration might fix it when can't open ##
 ```optimizer.exe /reset```
+
+## How to disable/enable Windows Hibernate function from command-line ##
+
+- ```optimizer.exe /disablehibernate```
+- ```optimizer.exe /enablehibernate```
 
 ## You can execute Optimizer silently, applying tweaks according to a configuration file. ##
 

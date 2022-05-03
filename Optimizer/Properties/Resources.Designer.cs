@@ -94,14 +94,10 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton8&quot;: &quot;إعادة التشغيل الآن&quot;,
         ///	&quot;restartButton10&quot;: &quot;إعادة التشغيل الآن&quot;,
         ///	&quot;restartAndApply&quot;: &quot;إعادة التشغيل لتطبيق التغييرات؟&quot;,
+        ///	&quot;onedriveM&quot;: &quot;هل أنت متأكد من أنك تريد إزالة تثبيت OneDrive؟ يؤدي هذا إلى حذف ملفات سطح المكتب والمستندات الخاصة بك! استخدم هذا الخيار فقط في حساب محلي!&quot;,
+        ///	&quot;systemRestoreM&quot;: &quot;هل أنت متأكد أنك تريد تعطيل استعادة النظام؟ سيؤدي هذا إلى حذف صورك الاحتياطية الحالية!&quot;,
         ///	&quot;txtVersion&quot;: &quot;الإصدار: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;أنت تعمل مع {BITS}&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;تحديث متاح&quot;,
-        ///	&quot;lblLab&quot;: &quot;بناء تجريبي\n(حذف بعد التجربة) &quot;,
-        ///	&quot;performanceSw&quot;: &quot;تفعيل تعديلات الأداء&quot;,
-        ///	&quot;networkSw&quot;: &quot;تعطيل خنق الشبكة&quot;,
-        ///	&quot;defenderSw&quot;: &quot;تعطيل Windows Defender&quot;,
-        ///	&quot;systemRestoreSw&quot;: &quot;تعطيل إستعادة ال [rest of string was truncated]&quot;;.
+        ///	&quot;txt [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AR {
             get {
@@ -138,17 +134,15 @@ namespace Optimizer.Properties {
         ///	&quot;restartAndApply&quot;: &quot;重新启动以应用更改?&quot;,
         ///	&quot;txtVersion&quot;: &quot;版本: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;您使用的是{BITS}&quot;,
+        ///	&quot;onedriveM&quot;: &quot;确定要卸载 OneDrive 吗？ 这将删除您的桌面和文档文件！ 仅在本地帐户上使用此选项！&quot;,
+        ///	&quot;systemRestoreM&quot;: &quot;您确定要禁用系统还原吗？ 这将删除您当前的备份图像！&quot;,
         ///	&quot;linkUpdate&quot;: &quot;更新可用&quot;,
         ///	&quot;lblLab&quot;: &quot;实验构建\n(删除后测试)&quot;,
         ///	&quot;performanceSw&quot;: &quot;启用性能调整&quot;,
         ///	&quot;networkSw&quot;: &quot;禁用网络节流&quot;,
         ///	&quot;defenderSw&quot;: &quot;禁用 Windows Defender&quot;,
         ///	&quot;systemRestoreSw&quot;: &quot;禁用 System Restore&quot;,
-        ///	&quot;printSw&quot;: &quot;禁用打印服务&quot;,
-        ///	&quot;mediaSharingSw&quot;: &quot;禁用媒体播放器共享&quot;,
-        ///	&quot;faxSw&quot;: &quot;禁用传真服务&quot;,
-        ///	&quot;reportingSw&quot;: &quot;禁用错误报告&quot;,
-        ///	&quot;homegroupSw&quot;: &quot;禁用 [rest of string was truncated]&quot;;.
+        ///	&quot;printS [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CN {
             get {
@@ -164,13 +158,9 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton10&quot;: &quot;Restartovat nyní&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Restartovat a použít změny?&quot;,
         ///	&quot;txtVersion&quot;: &quot;Verze: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;Pracujete s {BITS}ovou verzí&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;Dostupná aktualizace&quot;,
-        ///	&quot;lblLab&quot;: &quot;Experimentální sestavení\n(po testování smazat)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Povolit Vylepšení výkonu&quot;,
-        ///	&quot;networkSw&quot;: &quot;Zakázat Omezení sítě&quot;,
-        ///	&quot;defenderSw&quot;: &quot;Zakázat Windows Defender&quot;,
-        ///	&quot;sys [rest of string was truncated]&quot;;.
+        ///	&quot;onedriveM&quot;: &quot;Opravdu chcete odinstalovat OneDrive? Tím smažete soubory plochy a dokumentů! Tuto možnost používejte pouze na místním účtu!&quot;,
+        ///	&quot;systemRestoreM&quot;: &quot;Opravdu chcete zakázat Obnovení systému? Tím se odstraní vaše aktuální záložní obrázky!&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Pracujete s {BIT [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CZ {
             get {
@@ -197,11 +187,9 @@ namespace Optimizer.Properties {
         ///	&quot;restartAndApply&quot;: &quot;Neu starten, um Änderungen anzuwenden?&quot;,
         ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;Betriebssystem: {BITS}&quot;,
+        ///	&quot;onedriveM&quot;: &quot;Möchten Sie OneDrive wirklich deinstallieren? Dadurch werden Ihre Desktop und Dokumentdateien gelöscht! Verwenden Sie diese Option nur auf einem lokalen konto!&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Update verfügbar&quot;,
-        ///	&quot;lblLab&quot;: &quot;Experimenteller Build\n(nach dem Testen löschen)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Leistungsoptimierung aktivieren&quot;,
-        ///	&quot;networkSw&quot;: &quot;Netzwerkdrosselung deaktivieren&quot;,
-        ///	&quot;defenderSw&quot;: &quot;Windows  [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestor [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DE {
             get {
@@ -334,10 +322,8 @@ namespace Optimizer.Properties {
         ///	&quot;txtBitness&quot;: &quot;Αρχιτεκτονική {BITS}&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Διαθέσιμη ενημέρωση&quot;,
         ///	&quot;lblLab&quot;: &quot;Πειραματική έκδοση&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Βελτιστοποίηση Απόδοσης Συστήματος&quot;,
-        ///	&quot;networkSw&quot;: &quot;Βελτιστοποίηση Δικτύου&quot;,
-        ///	&quot;defenderSw&quot;: &quot;Απενεργοποίηση Windows Defender&quot;,
-        ///	&quot;systemResto [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestoreM&quot;: &quot;Είστε σίγουροι ότι θέλετε να απενεργοποιήσετε τα αντίγραφα ασφαλείας; Αυτό θα διαγράψει τα υπάρχοντα αντίγραφα!&quot;,
+        ///	&quot;onedriveM&quot;: &quot;Είστε σίγο [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EL {
             get {
@@ -364,6 +350,23 @@ namespace Optimizer.Properties {
         internal static string EN {
             get {
                 return ResourceManager.GetString("EN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to reg add &quot;HKLM\Software\Microsoft\Windows Defender\Features&quot; /v &quot;TamperProtection&quot; /t REG_DWORD /d &quot;1&quot; /f
+        ///
+        ///reg add &quot;HKLM\System\CurrentControlSet\Services\SgrmBroker&quot; /v &quot;Start&quot; /t REG_DWORD /d &quot;2&quot; /f
+        ///
+        ///reg add &quot;HKLM\System\CurrentControlSet\Services\SecurityHealthService&quot; /v &quot;Start&quot; /t REG_DWORD /d &quot;2&quot; /f
+        ///
+        ///rem 1 - Disable Real-time protection
+        ///reg delete &quot;HKLM\Software\Policies\Microsoft\Windows Defender&quot; /f
+        ///reg add &quot;HKLM\Software\Policies\Microsoft\Windows Defender&quot; /v &quot;DisableAntiSpyware&quot; /t REG_DWO [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EnableDefenderSafeMode1903Plus {
+            get {
+                return ResourceManager.GetString("EnableDefenderSafeMode1903Plus", resourceCulture);
             }
         }
         
@@ -439,17 +442,13 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
-        ///	&quot;restartButton&quot;: &quot;reiniciar ahora&quot;,
-        ///	&quot;restartButton8&quot;: &quot;reiniciar ahora&quot;,
-        ///	&quot;restartButton10&quot;: &quot;reiniciar ahora&quot;,
+        ///	&quot;restartButton&quot;: &quot;Reiniciar ahora&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Reiniciar ahora&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Reiniciar ahora&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Reiniciar para aplicar cambios?&quot;,
+        ///	&quot;onedriveM&quot;: &quot;¿Seguro que quieres desinstalar OneDrive? ¡Esto eliminará sus archivos de escritorio y documentos! ¡Use esta opción solo en una cuenta local!&quot;,
         ///	&quot;txtVersion&quot;: &quot;Versión: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;Estas trabajando con {BITS}&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;Actualización disponible&quot;,
-        ///	&quot;lblLab&quot;: &quot;Lamzamiento experimental\n(eliminar después de la prueba)&quot;,
-        ///	&quot;CleanPreviewForm&quot;: &quot;Vista Previa Limpia&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Habilitar ajustes de rendimiento&quot;,
-        ///	&quot;networkSw&quot;: &quot;Deshabilitar la  [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestoreM&quot;: &quot;¿Está seguro de que desea deshabilitar Restaurar sistema? ¡Esto eliminará sus imágenes de respaldo actu [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ES {
             get {
@@ -474,13 +473,9 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton8&quot;: &quot;redemarrer maintenant&quot;,
         ///	&quot;restartButton10&quot;: &quot;redemarrer maintenant&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Redemarrer pour appliquer les changements?&quot;,
+        ///	&quot;onedriveM&quot;: &quot;Voulez-vous vraiment désinstaller OneDrive? Cela supprimera vos fichiers de bureau et de document! N&apos;utilisez cette option que sur un compte local!&quot;,
         ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;Vous travaillez avec {BITS}&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;Mise a jour disponible&quot;,
-        ///	&quot;CleanPreviewForm&quot;: &quot;Nettoyer L&apos;aperçu&quot;,
-        ///	&quot;lblLab&quot;: &quot;build Experimental\n(supprimer apres avoir teste)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Activer les Tweaks de Performance&quot;,
-        ///	 [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestoreM&quot;: &quot;Voulez-vous vraiment désactiver la restauration du système? Cela sup [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string FR {
             get {
@@ -577,9 +572,8 @@ namespace Optimizer.Properties {
         ///	&quot;txtBitness&quot;: &quot;Architettura: {BITS}&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Aggiornamento disponibile&quot;,
         ///	&quot;lblLab&quot;: &quot;Build sperimentale\n(cancellare dopo il test)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Abilita miglioramento prestazioni&quot;,
-        ///	&quot;networkSw&quot;: &quot;Disabilita rallentamento della rete&quot;,
-        ///	&quot;defenderSw&quot;: &quot;Disabilita Windows Defender&quot; [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestoreM&quot;: &quot;Sei sicuro di voler disabilitare Ripristino configurazione di sistema? Questo cancellerà le tue attuali immagini di backup!&quot;,
+        ///	&quot;oned [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string IT {
             get {
@@ -604,16 +598,15 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton8&quot;: &quot;지금 다시 시작&quot;,
         ///	&quot;restartButton10&quot;: &quot;지금 다시 시작&quot;,
         ///	&quot;restartAndApply&quot;: &quot;변경을 적용하려면 다시 시작하시겠습니까?&quot;,
+        ///	&quot;onedriveM&quot;: &quot;OneDrive를 제거하시겠습니까? 데스크탑 및 문서 파일이 삭제됩니다! 로컬 계정에서만 이 옵션을 사용하십시오!&quot;,
+        ///	&quot;systemRestoreM&quot;: &quot;시스템 복원을 비활성화하시겠습니까? 현재 백업 이미지가 삭제됩니다!&quot;,
         ///	&quot;txtVersion&quot;: &quot;버전: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;{BITS}로 작업중입니다&quot;,
         ///	&quot;linkUpdate&quot;: &quot;업데이트 가능&quot;,
         ///	&quot;lblLab&quot;: &quot;실험 빌드\n(테스트 후 삭제)&quot;,
         ///	&quot;performanceSw&quot;: &quot;성능 조정을 활성화&quot;,
         ///	&quot;networkSw&quot;: &quot;네트워크 조절 사용 안 함&quot;,
-        ///	&quot;defenderSw&quot;: &quot;Windows Defender 사용 안 함&quot;,
-        ///	&quot;systemRestoreSw&quot;: &quot;시스템 복원 사용 안 함&quot;,
-        ///	&quot;printSw&quot;: &quot;인쇄 서비스 사용 안 함&quot;,
-        ///	&quot;mediaSharingSw&quot;: &quot;Media Player 공유 사용 안 함&quot; [rest of string was truncated]&quot;;.
+        ///	&quot;defenderS [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string KO {
             get {
@@ -654,17 +647,13 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
-        ///	&quot;restartButton&quot;: &quot;Uruchom ponownie&quot;,
-        ///	&quot;restartButton8&quot;: &quot;Uruchom ponownie&quot;,
-        ///	&quot;restartButton10&quot;: &quot;Uruchom ponownie&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Uruchomić ponownie aby zastosować zmiany?&quot;,
-        ///	&quot;txtVersion&quot;: &quot;Obecna wersja: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;Praca na {BITS} bitach&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;Dostępna aktualizacja&quot;,
-        ///	&quot;lblLab&quot;: &quot;Eksperymentalna kompilacja\n(usuwana po testowaniu)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Włącz ulepszenia wydajności&quot;,
-        ///	&quot;networkSw&quot;: &quot;Wyłącz Network Throttling&quot;,
-        ///	&quot;defenderSw&quot;: &quot;Wyłą [rest of string was truncated]&quot;;.
+        ///	&quot;restartButton&quot;: &quot;Uruchom ponownie teraz&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Uruchom ponownie teraz&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Uruchom ponownie teraz&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Uruchom ponownie, aby zastosować zmiany?&quot;,
+        ///	&quot;onedriveM&quot;: &quot;Czy na pewno chcesz odinstalować OneDrive? Spowoduje to usunięcie plików pulpitu i dokumentów! Używaj tej opcji tylko na koncie lokalnym!&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Wersja: {VN}&quot;,
+        ///	&quot;systemRestoreM&quot;: &quot;Czy na pewno chcesz wyłączyć Przywracanie systemu? Spowoduje to usunięcie bież [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PL {
             get {
@@ -710,13 +699,9 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton8&quot;: &quot;reinicie agora&quot;,
         ///	&quot;restartButton10&quot;: &quot;reinicie agora&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Reiniciar para aplicar as alterações?&quot;,
+        ///	&quot;onedriveM&quot;: &quot;Tem certeza de que deseja desinstalar o OneDrive? Isso excluirá seus arquivos da área de trabalho e de documentos! Use esta opção apenas em uma conta local!&quot;,
         ///	&quot;CleanPreviewForm&quot;: &quot;Antevisão Limpa&quot;,
-        ///	&quot;txtVersion&quot;: &quot;Versão: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;A arquitetura do seu computador é de {BITS}.&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;Nova atualização disponível&quot;,
-        ///	&quot;lblLab&quot;: &quot;Experimentar nova implementação\n(deletar após teste)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Habilitar ajustes de desempenho&quot;,
-        ///	&quot;networkSw&quot;: &quot;Des [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestoreM&quot;: &quot;Tem certeza de que deseja desativar a Restauração do sistema? Isso excluirá suas imag [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PT {
             get {
@@ -748,11 +733,8 @@ namespace Optimizer.Properties {
         ///	&quot;restartAndApply&quot;: &quot;Перезапустить, чтобы применить изменения?&quot;,
         ///	&quot;txtVersion&quot;: &quot;Версия: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;Вы работаете с {BITS}&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;Доступно новое обновление&quot;,
-        ///	&quot;lblLab&quot;: &quot;Экспериментальная версия\n(удалить после тестирования)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Включить настройки оптимизации&quot;,
-        ///	&quot;networkSw&quot;: &quot;Отключить троттлинг сети&quot;,
-        ///	&quot;defenderSw&quot;: &quot;Отк [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestoreM&quot;: &quot;Вы уверены, что хотите отключить восстановление системы? Это удалит ваши текущие резервные изображения!&quot;,
+        ///	&quot;onedriveM&quot;: &quot;Вы уверены, что хотите удалить OneDrive? Это удалит файлы рабочего стола и документов [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RU {
             get {
@@ -830,13 +812,11 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton8&quot;: &quot;şimdi yeniden başlat&quot;,
         ///	&quot;restartButton10&quot;: &quot;şimdi yeniden başlat&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Değişiklikleri uygulamak için yeniden başlatılsın mı?&quot;,
+        ///	&quot;onedriveM&quot;: &quot;OneDrive&apos;ı kaldırmak istediğinizden emin misiniz? Bu, Masaüstü ve Belge dosyalarınızı siler! Bu seçeneği yalnızca yerel bir hesapta kullanın!&quot;,
         ///	&quot;txtVersion&quot;: &quot;Versiyon: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;{BITS} ile çalışıyor.&quot;,
         ///	&quot;CleanPreviewForm&quot;: &quot;Temiz Önizleme&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;Güncelleme Mevcut&quot;,
-        ///	&quot;lblLab&quot;: &quot;Deneysel Yapı\n(Testten sonra silin)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Performans Ayarlarını Etkinleştir&quot;,
-        ///	&quot;networkSw&quot;: &quot;Ağ Kısıtlamasını [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestor [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TR {
             get {
@@ -861,7 +841,9 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton8&quot;: &quot;現在重啟&quot;,
         ///	&quot;restartButton10&quot;: &quot;現在重啟&quot;,
         ///	&quot;restartAndApply&quot;: &quot;重新啟動以應用更改?&quot;,
+        ///	&quot;onedriveM&quot;: &quot;確定要卸載 OneDrive 嗎？ 這將刪除您的桌面和文檔文件！ 僅在本地帳戶上使用此選項！&quot;,
         ///	&quot;txtVersion&quot;: &quot;版本: {VN}&quot;,
+        ///	&quot;systemRestoreM&quot;: &quot;您確定要禁用系統還原嗎？ 這將刪除您當前的備份圖像！&quot;,
         ///	&quot;txtBitness&quot;: &quot;您使用的是{BITS}&quot;,
         ///	&quot;linkUpdate&quot;: &quot;更新可用&quot;,
         ///	&quot;lblLab&quot;: &quot;實驗構建\n(刪除後測試)&quot;,
@@ -869,11 +851,7 @@ namespace Optimizer.Properties {
         ///	&quot;networkSw&quot;: &quot;禁用網路節流&quot;,
         ///	&quot;defenderSw&quot;: &quot;禁用 Windows Defender&quot;,
         ///	&quot;systemRestoreSw&quot;: &quot;禁用 System Restore&quot;,
-        ///	&quot;printSw&quot;: &quot;禁用列印服務&quot;,
-        ///	&quot;mediaSharingSw&quot;: &quot;禁用媒體播放器分享&quot;,
-        ///	&quot;faxSw&quot;: &quot;禁用傳真服務&quot;,
-        ///	&quot;reportingSw&quot;: &quot;禁用錯誤報告&quot;,
-        ///	&quot;homegroupSw&quot;: &quot;禁用 [rest of string was truncated]&quot;;.
+        ///	&quot;printS [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TW {
             get {
