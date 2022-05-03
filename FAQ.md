@@ -1,4 +1,4 @@
-## Frequently Asked Questions for using Optimizer safely ##
+## [FAQ] Frequently Asked Questions ##
 
 - *Do I need to restart my computer for the app to take effect?*<br>
 Absolutely, yes.
