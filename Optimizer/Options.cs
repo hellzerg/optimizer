@@ -241,7 +241,7 @@ namespace Optimizer
                 CurrentOptions.DisableCloudClipboard = false;
                 CurrentOptions.EnableLongPaths = false;
                 CurrentOptions.RemoveCastToDevice = false;
-     
+
                 CurrentOptions.DisableVisualStudioTelemetry = false;
                 CurrentOptions.DisableFirefoxTemeletry = false;
                 CurrentOptions.DisableChromeTelemetry = false;

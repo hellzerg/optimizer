@@ -6,7 +6,7 @@ namespace Optimizer
     public partial class ToggleCard : UserControl
     {
         public event EventHandler ToggleClicked;
-        
+
         public ToggleCard()
         {
             InitializeComponent();
@@ -18,8 +18,8 @@ namespace Optimizer
         public string LabelText
         {
             get { return Label.Text; }
-            set 
-            { 
+            set
+            {
                 Label.Text = value;
                 this.AccessibleName = value;
             }
