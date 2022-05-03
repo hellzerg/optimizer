@@ -4,6 +4,7 @@
   A: Absolutely, yes.
 
 - Q: Do I need to keep the app running in the background?
+
 A: No. You just need to enable your preferred options and restart.
 
 - Q: My Desktop files and documents got suddenly deleted! Why?
