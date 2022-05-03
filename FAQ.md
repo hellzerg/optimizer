@@ -1,6 +1,6 @@
 ## [FAQ] Frequently Asked Questions ##
 
-- *Do I need to restart my computer for the app to take effect?*<br>
+- *Do I need to restart my computer for the changes to take effect?*<br>
 Absolutely, yes.
 
 - *Do I need to keep the app running in the background?*<br>
