@@ -533,6 +533,18 @@ namespace Optimizer
                 }
             }
 
+            if (CurrentSilentConfig.CompactMode.HasValue)
+            {
+                if (CurrentSilentConfig.CompactMode.Value)
+                {
+                    Optimize.EnableFilesCompactMode();
+                }
+                else
+                {
+                    Optimize.DisableFilesCompactMode();
+                }
+            }
+
             if (CurrentSilentConfig.DisableSnapAssist.HasValue)
             {
                 if (CurrentSilentConfig.DisableSnapAssist.Value)
@@ -708,6 +720,10 @@ namespace Optimizer
             if (CurrentSilentConfig.TaskbarToLeft.HasValue)
             {
                 Options.CurrentOptions.TaskbarToLeft = CurrentSilentConfig.TaskbarToLeft.Value;
+            }
+            if (CurrentSilentConfig.CompactMode.HasValue)
+            {
+                Options.CurrentOptions.CompactMode = CurrentSilentConfig.CompactMode.Value;
             }
             if (CurrentSilentConfig.DisableSnapAssist.HasValue)
             {

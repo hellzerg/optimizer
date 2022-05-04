@@ -254,9 +254,11 @@
 	"removeModernApps": "Jesteś pewien że chcesz odinstalować następujące programy?",
 	"errorModernApps": "Następujące programy nie mogły zostać odinstalowane:\n",
 	"resetMessage": "Jesteś pewien że chcesz zresetować konfigurację?\nSpowoduje to zresetowanie wszystkich ustawień użytkownika, w tym wszystkich ikon rozpakowanych lub pobranych przy użyciu Integratora, ale nie będzie ingerować w nic co zostało zmienione na komputerze!",
-	"newVersion": "Dostępna jest nowsza wersja!\n\nNajnowsza wersja: {LATEST}\nAkutalna wersja: {CURRENT}\n\nCzy chcesz pobrać ją teraz?\n\nProgram uruchomi się ponownie za kilka sekund.",
+	"newVersion": "Dostępna jest nowsza wersja! Czy chcesz pobrać ją teraz?\nProgram uruchomi się ponownie za kilka sekund.",
 	"flushDNSMessage": "Czy na pewno chcesz wyczyścić pamięć podręczną DNS systemu Windows?\n\nSpowoduje to chwilowe odłączenie od Internetu i być może będzie konieczne ponowne uruchomienie komputera, aby połączenie Internetowe mógło działać prawidłowo.",
 	"downloadsFinished": "Gotowe",
+	"latestVersionM": "Najnowsza wersja: {LATEST}",
+	"currentVersionM": "Akutalna wersja: {CURRENT}",
 	"downloadDirInvalid": "Podany folder pobierania jest nieprawidłowy",
 	"no64Download": "Wersja 64-bitowa nie dostępna, pobrano wersję 32-bitową!",
 	"no32Download": "Wersja 32-bitowa nie dostępna, pominięto pobieranie!",
@@ -408,5 +410,7 @@ Są one jednak uważane za ryzykowną procedurę. Zazwyczaj są wydawane co pó�
 	"classicRibbonTip": "Przywraca klasyczną wstążkę z systemu Windows 10 w Eksploratorze plików.",
 	"classicContextTip": "Przywraca klasyczne menu kontekstowe, usuwając opcję 'Pokaż więcej opcji'.",
 	"gameModeSw": "Włącz tryb gier",
-	"gameModeTip": "Włącza tryb gier w połączeniu z przyspieszaniem sprzętowym harmonogramu GPU."
+	"gameModeTip": "Włącza tryb gier w połączeniu z przyspieszaniem sprzętowym harmonogramu GPU.",
+	"compactModeSw": "Włącz tryb kompaktowy w Eksploratorze",
+	"compactModeTip": "Zmniejsza dodatkową przestrzeń i dopełnienie między plikami w Eksploratorze plików."
 }

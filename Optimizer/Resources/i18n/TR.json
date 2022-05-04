@@ -256,8 +256,10 @@
 	"removeModernApps": "Seçilen uygulamaları kaldırmak istediğinizden emin misiniz?",
 	"errorModernApps": "Seçilen uygulamalar kaldırılamadı:\n",
 	"resetMessage": "Yapılandırmayı sıfırlamak istediğinizden emin misiniz?\nEntegratör'ü kullanarak çıkardığınız veya indirdiğiniz simgeler de dahil olmak üzere tüm tercihlerinizi sıfırlar,\nancak bilgisayarınızdaki hiçbir şeye dokunmaz!",
-	"newVersion": "Yeni bir sürüm mevcut!\n\nEn son sürüm: {LATEST}\nŞimdiki versiyonu: {CURRENT}\n\nŞimdi indirmek istiyor musunuz?\n\nUygulama birkaç saniye içinde yeniden başlayacaktır.",
+	"newVersion": "Yeni bir sürüm mevcut! Şimdi indirmek istiyor musunuz?\nUygulama birkaç saniye içinde yeniden başlayacaktır.",
 	"downloadsFinished": "Tamamlandı",
+	"latestVersionM": "En son sürüm: {LATEST}",
+	"currentVersionM": "Şimdiki versiyonu: {CURRENT}",
 	"downloadDirInvalid": "Belirtilen indirme klasörü geçerli değil",
 	"no64Download": "64 bit mevcut değil, 32 bit indiriliyor",
 	"no32Download": "32 bit mevcut değil, atlanıyor",
@@ -409,5 +411,7 @@ Ancak, riskli bir prosedür olarak kabul edilirler. Genellikle altı aylık yay�
 	"classicRibbonTip": "Dosya Gezgini'nde Windows 10'dan klasik şerit çubuğunu geri yükler.",
 	"classicContextTip": "'Daha fazla seçenek göster' seçeneğini kaldırarak klasik sağ tıklama menüsünü geri yükler.",
 	"gameModeSw": "Oyun Modunu Etkinleştir",
-	"gameModeTip": "Donanım hızlandırmalı GPU zamanlaması ile birlikte Oyun modunu etkinleştirir."
+	"gameModeTip": "Donanım hızlandırmalı GPU zamanlaması ile birlikte Oyun modunu etkinleştirir.",
+	"compactModeSw": "Explorer'da Kompakt Modu Etkinleştir",
+	"compactModeTip": "Dosya Gezgini'ndeki dosyalar arasındaki fazladan boşluğu ve dolguyu azaltır."
 }

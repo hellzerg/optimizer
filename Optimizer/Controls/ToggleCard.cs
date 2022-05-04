@@ -16,10 +16,10 @@ namespace Optimizer
             Toggle.IsAccessible = true;
             Panel.IsAccessible = true;
 
-            this.AccessibleRole = AccessibleRole.StaticText;
-            Label.AccessibleRole = AccessibleRole.StaticText;
-            Toggle.AccessibleRole = AccessibleRole.StaticText;
-            Panel.AccessibleRole = AccessibleRole.StaticText;
+            //this.AccessibleRole = AccessibleRole.CheckButton;
+            //Label.AccessibleRole = AccessibleRole.CheckButton;
+            //Toggle.AccessibleRole = AccessibleRole.CheckButton;
+            //Panel.AccessibleRole = AccessibleRole.CheckButton;
 
             this.AccessibleName = LabelText;
             Label.AccessibleName = LabelText;
@@ -49,28 +49,6 @@ namespace Optimizer
         private void Toggle_CheckedChanged(object sender, EventArgs e)
         {
             if (ToggleClicked != null) ToggleClicked(sender, e);
-        }
-
-        private void Label_MouseEnter(object sender, EventArgs e)
-        {
-            //Label.Focus();
-            //Label.Select();
-        }
-
-        private void Label_MouseHover(object sender, EventArgs e)
-        {
-            //Label.Focus();
-            //Label.Select();
-        }
-
-        private void Panel_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Panel_MouseHover(object sender, EventArgs e)
-        {
-
         }
     }
 }

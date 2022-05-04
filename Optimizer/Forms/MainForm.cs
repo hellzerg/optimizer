@@ -61,6 +61,7 @@ namespace Optimizer
 
         string _noNewVersionMessage = "You already have the latest version!";
         string _betaVersionMessage = "You are using an experimental version!";
+        string _newVersionMessage = "There is a new version available! Do you want to download it now?\nApp will restart in a few seconds.";
 
         readonly string _blockedIP = "0.0.0.0";
 
@@ -93,10 +94,7 @@ namespace Optimizer
         bool _cleanSelectAll = true;
         List<string> _cleanPreviewList;
 
-        private string NewVersionMessage(string latestVersion)
-        {
-            return Options.TranslationList["newVersion"].ToString().Replace("{LATEST}", latestVersion).Replace("{CURRENT}", Program.GetCurrentVersionTostring());
-        }
+        UpdateForm _updateForm;
 
         private string NewDownloadLink(string latestVersion)
         {
@@ -132,9 +130,9 @@ namespace Optimizer
                         return;
                     }
 
-                    if (MessageBox.Show(NewVersionMessage(latestVersion), "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    _updateForm = new UpdateForm(_newVersionMessage, true, ParseChangelog(), latestVersion);
+                    if (_updateForm.ShowDialog() == DialogResult.Yes)
                     {
-                        // PATCHING PROCESS
                         try
                         {
                             Assembly currentAssembly = Assembly.GetEntryAssembly();
@@ -187,11 +185,19 @@ namespace Optimizer
                 }
                 else if (float.Parse(latestVersion) == Program.GetCurrentVersion())
                 {
-                    if (!silentCheck) MessageBox.Show(_noNewVersionMessage, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!silentCheck)
+                    {
+                        _updateForm = new UpdateForm(_noNewVersionMessage, false, string.Empty, latestVersion);
+                        _updateForm.ShowDialog();
+                    }
                 }
                 else
                 {
-                    if (!silentCheck) MessageBox.Show(_betaVersionMessage, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!silentCheck)
+                    {
+                        _updateForm = new UpdateForm(_betaVersionMessage, false, string.Empty, latestVersion);
+                        _updateForm.ShowDialog();
+                    }
                 }
             }
         }
@@ -245,6 +251,20 @@ namespace Optimizer
             chromeTelemetrySw.ToggleClicked += new EventHandler(ChromeTelemetrySw_ToggleClicked);
             vsSw.ToggleClicked += new EventHandler(VsSw_ToggleClicked);
             gameModeSw.ToggleClicked += new EventHandler(GameModeSw_ToggleClicked);
+            compactModeSw.ToggleClicked += CompactModeSw_ToggleClicked;
+        }
+
+        private void CompactModeSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (compactModeSw.ToggleChecked)
+            {
+                Optimize.EnableFilesCompactMode();
+            }
+            else
+            {
+                Optimize.DisableFilesCompactMode();
+            }
+            Options.CurrentOptions.CompactMode = compactModeSw.ToggleChecked;
         }
 
         private void GameModeSw_ToggleClicked(object sender, EventArgs e)
@@ -442,6 +462,7 @@ namespace Optimizer
             helpBox.SetToolTip(vsSw.Label, Options.TranslationList["vsTip"].ToString());
             helpBox.SetToolTip(chromeTelemetrySw.Label, Options.TranslationList["chromeTelemetryTip"].ToString());
             helpBox.SetToolTip(gameModeSw.Label, Options.TranslationList["gameModeTip"].ToString());
+            helpBox.SetToolTip(compactModeSw.Label, Options.TranslationList["compactModeTip"].ToString());
 
             //helpBox.ToolTipTitle = Options.TranslationList["tipWhatsThis"].ToString();
         }
@@ -1608,6 +1629,7 @@ namespace Optimizer
             {
                 _noNewVersionMessage = Options.TranslationList["noNewVersion"];
                 _betaVersionMessage = Options.TranslationList["betaVersion"];
+                _newVersionMessage = Options.TranslationList["newVersion"];
                 _restartMessage = Options.TranslationList["restartAndApply"];
                 _removeStartupItemsMessage = Options.TranslationList["removeAllStartup"];
                 _removeHostsEntriesMessage = Options.TranslationList["removeAllHosts"];
@@ -1659,7 +1681,8 @@ namespace Optimizer
 
         private void GetFootprint()
         {
-            ByteSize footprint = CleanHelper.CheckFootprint();
+            ByteSize footprint = CleanHelper.PreviewSizeToBeFreed;
+            //ByteSize footprint = CleanHelper.CheckFootprint();
             lblFootprint.Text = footprint.ToString();
         }
 
@@ -1770,7 +1793,6 @@ namespace Optimizer
             }
             finally
             {
-                //if (CleanHelper.PreviewCleanList.Count > 0) new CleanPreviewForm(CleanHelper.PreviewCleanList).ShowDialog();
                 _cleanPreviewList = CleanHelper.PreviewCleanList;
 
                 _cleanPreviewList.Sort();
@@ -3211,20 +3233,6 @@ namespace Optimizer
             CheckForUpdate();
         }
 
-        private void btnChangelog_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    Process.Start(_changelogLink);
-            //}
-            //catch (Exception ex)
-            //{
-            //    ErrorLogger.LogError("MainForm.btnChangelog_Click", ex.Message, ex.StackTrace);
-            //    MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            ParseChangelog();
-        }
-
         private void chkReadOnly_CheckedChanged(object sender, EventArgs e)
         {
             HostsHelper.ReadOnly(chkReadOnly.Checked);
@@ -3573,11 +3581,6 @@ namespace Optimizer
             });
 
             pinger.Start();
-        }
-
-        private void btnCheckFootprint_Click(object sender, EventArgs e)
-        {
-            CleanHelper.CheckFootprint();
         }
 
         private void btnShodan_Click(object sender, EventArgs e)
@@ -3985,7 +3988,7 @@ namespace Optimizer
             if (d.ShowDialog() == DialogResult.OK) File.WriteAllText(d.FileName, GetSpecsToString(specsTree), Encoding.UTF8);
         }
 
-        private void ParseChangelog()
+        private string ParseChangelog()
         {
             WebClient client = new WebClient
             {
@@ -4003,10 +4006,10 @@ namespace Optimizer
             {
                 ErrorLogger.LogError("MainForm.ParseChangelog", ex.Message, ex.StackTrace);
                 MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                return string.Empty;
             }
 
-            if (changelogText.Count == 0) return;
+            if (changelogText.Count == 0) return string.Empty;
 
             int markVersion = 0;
             for (int d = 0; d < changelogText.Count; d++)
@@ -4024,11 +4027,10 @@ namespace Optimizer
             if (changelogText.Count <= 0)
             {
                 MessageBox.Show(_noNewVersionMessage, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                return string.Empty;
             }
 
-            InfoForm f = new InfoForm(string.Join(Environment.NewLine, changelogText).Replace("##", "➤"));
-            f.ShowDialog(this);
+            return string.Join(Environment.NewLine, changelogText).Replace("##", "➤");
         }
 
         private void boxLang_SelectedIndexChanged(object sender, EventArgs e)
@@ -4165,6 +4167,7 @@ namespace Optimizer
 
         private void analyzeDriveB_Click(object sender, EventArgs e)
         {
+            CleanHelper.PreviewSizeToBeFreed = new ByteSize(0);
             CleanHelper.PreviewCleanList.Clear();
             listCleanPreview.Items.Clear();
             PreviewCleanPC();

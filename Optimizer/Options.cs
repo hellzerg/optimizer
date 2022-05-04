@@ -75,6 +75,7 @@ namespace Optimizer
         public bool ClassicRibbon { get; set; }
         public bool ClassicMenu { get; set; }
         public bool DisableTPMCheck { get; set; }
+        public bool CompactMode { get; set; }
     }
 
     internal static class Options
@@ -256,6 +257,7 @@ namespace Optimizer
                 CurrentOptions.ClassicRibbon = false;
                 CurrentOptions.ClassicMenu = false;
                 CurrentOptions.DisableTPMCheck = false;
+                CurrentOptions.CompactMode = false;
 
                 using (FileStream fs = File.Open(SettingsFile, FileMode.CreateNew))
                 using (StreamWriter sw = new StreamWriter(fs))

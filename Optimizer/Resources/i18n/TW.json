@@ -258,7 +258,9 @@
 	"removeModernApps": "您確定要解除安裝以下應用程式嗎??",
 	"errorModernApps": "以下應用程式無法解除安裝:\n",
 	"resetMessage": "您確定要重設配置嗎?\n這將重設所有您的首選項，包括您提取的任何圖示\n或使用Integrator下載，但不會變更您的計算機上的任何東西!",
-	"newVersion": "有一個新的版本可用!\n\n最新版本: {LATEST}\n當前版本: {CURRENT}\n\n你想現在下載嗎?\n\n應用程式將在幾秒鐘內重新啟動.",
+	"newVersion": "有一個新的版本可用! 你想現在下載嗎?\n應用程式將在幾秒鐘內重新啟動.",
+	"latestVersionM": "n最新版本: {LATEST}",
+	"currentVersionM": "n當前版本: {CURRENT}",
 	"downloadsFinished": "完成",
 	"downloadDirInvalid": "指定的下載資料夾無效",
 	"no64Download": "沒有64位可用，正在下載32位",
@@ -409,5 +411,7 @@
 	"classicRibbonTip": "在文件資源管理器中恢復Windows 10的經典色帶條.",
 	"classicContextTip": "恢復經典的右鍵選單，而不是 Windows 11 的新選單.",
 	"gameModeSw": "啟用遊戲模式",
-	"gameModeTip": "結合硬件加速 GPU 調度啟用遊戲模式。"
+	"gameModeTip": "結合硬件加速 GPU 調度啟用遊戲模式。",
+	"compactModeSw": "在資源管理器中啟用緊湊模式",
+	"compactModeTip": "減少文件資源管理器中文件之間的額外空間和填充。"
 }

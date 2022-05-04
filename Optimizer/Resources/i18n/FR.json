@@ -256,8 +256,10 @@
 	"removeModernApps": "Etes-vous sur de vouloir desinstaller les applications suivantes?",
 	"errorModernApps": "L'application suivante n'a pas pu etre desinstallee :\n",
 	"resetMessage": "Etes-vous sur de vouloir reinitialiser la configuration?\nCeci reinitialisera toutes vos preferences, y compris les icones que vous avez extraites\nou telechargees a l'aide d'Integrator, mais ne touchera rien sur votre ordinateur !",
-	"newVersion": "Une nouvelle version est disponible!\n\nDerniere version: {LATEST}\nVersion actuelle: {CURRENT}\n\nVoulez-vous la telecharger maintenant?\n\nL'application va redemarrer dans quelques secondes.",
+	"newVersion": "Une nouvelle version est disponible! Voulez-vous la telecharger maintenant?\nL'application va redemarrer dans quelques secondes.",
 	"downloadsFinished": "Fini",
+	"latestVersionM": "Derniere version: {LATEST}",
+	"currentVersionM": "Version actuelle: {CURRENT}",
 	"downloadDirInvalid": "Le dossier de telechargement specifie n'est pas valide",
 	"no64Download": "Pas de 64 bits disponibles, telechargement en 32 bits",
 	"no32Download": "Pas de 32 bits disponibles, suivant",
@@ -408,5 +410,7 @@ Cependant, elles sont considerees comme une procedure risquee. Il s'agit general
 	"classicRibbonTip": "Restaure la barre d'options classique de Windows 10 dans l'explorateur de fichiers.",
 	"classicContextTip": "Restaure le menu contextuel classique en supprimant 'Afficher plus d'options'.",
 	"gameModeSw": "Activer le mode jeu",
-	"gameModeTip": "Active le mode Gaming en combinaison avec la planification GPU accélérée par le matériel."
+	"gameModeTip": "Active le mode Gaming en combinaison avec la planification GPU accélérée par le matériel.",
+	"compactModeSw": "Activer le mode compact dans l'explorateur",
+	"compactModeTip": "Réduit l'espace supplémentaire et le rembourrage entre les fichiers dans l'explorateur de fichiers."
 }

@@ -257,8 +257,10 @@
 	"removeAllItems": "您确定要删除所有桌面项目吗?",
 	"removeModernApps": "您确定要卸载以下应用程序吗??",
 	"errorModernApps": "以下应用程序无法卸载:\n",
+	"latestVersionM": "最新版本: {LATEST}",
+	"currentVersionM": "当前版本: {CURRENT}",
 	"resetMessage": "您确定要重置配置吗?\n这将重置所有您的首选项，包括您提取的任何图标\n或使用Integrator下载，但不会接触您的计算机上的任何东西!",
-	"newVersion": "有一个新的版本可用!\n\n最新版本: {LATEST}\n当前版本: {CURRENT}\n\n你想现在下载吗?\n\n应用程序将在几秒钟内重新启动.",
+	"newVersion": "有一个新的版本可用! 你想现在下载吗?\n应用程序将在几秒钟内重新启动.",
 	"downloadsFinished": "完成",
 	"downloadDirInvalid": "指定的下载文件夹无效",
 	"no64Download": "没有64位可用，正在下载32位",
@@ -409,5 +411,7 @@
 	"classicRibbonTip": "在文件资源管理器中恢复Windows 10的经典色带条.",
 	"classicContextTip": "恢复经典的右键菜单，删除 “显示更多选项”.",
 	"gameModeSw": "启用游戏模式",
-	"gameModeTip": "结合硬件加速 GPU 调度启用游戏模式"
+	"gameModeTip": "结合硬件加速 GPU 调度启用游戏模式",
+	"compactModeSw": "在资源管理器中启用紧凑模式",
+	"compactModeTip": "减少文件资源管理器中文件之间的额外空间和填充。"
 }

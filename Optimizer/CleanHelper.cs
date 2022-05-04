@@ -82,6 +82,8 @@ namespace Optimizer
 
         internal static List<string> PreviewCleanList = new List<string>();
 
+        internal static ByteSize PreviewSizeToBeFreed = new ByteSize(0);
+
         internal static void PreviewFolder(string path)
         {
             try
@@ -136,67 +138,55 @@ namespace Optimizer
         internal static void PreviewTemp()
         {
             PreviewFolder(TempFolder);
+            PreviewSizeToBeFreed += CalculateSize(TempFolder);
         }
 
         internal static void PreviewMinidumps()
         {
-            PreviewFolder(OSDriveWindows + "\\Minidump");
+            PreviewFolder(Path.Combine(OSDriveWindows, "Minidump"));
+            PreviewSizeToBeFreed += CalculateSize(Path.Combine(OSDriveWindows, "Minidump"));
         }
 
         internal static void PreviewErrorReports()
         {
-            PreviewFolder(ProfileAppDataLocal + "\\Microsoft\\Windows\\WER\\ReportArchive");
-            PreviewFolder(ProfileAppDataLocal + "\\Microsoft\\Windows\\WER\\ReportQueue");
-            PreviewFolder(ProfileAppDataLocal + "\\Microsoft\\Windows\\WER\\Temp");
-            PreviewFolder(ProfileAppDataLocal + "\\Microsoft\\Windows\\WER\\ERC");
-            PreviewFolder(ProgramData + "\\Microsoft\\Windows\\WER\\ReportArchive");
-            PreviewFolder(ProgramData + "\\Microsoft\\Windows\\WER\\ReportQueue");
-            PreviewFolder(ProgramData + "\\Microsoft\\Windows\\WER\\Temp");
-            PreviewFolder(ProgramData + "\\Microsoft\\Windows\\WER\\ERC");
+            PreviewFolder(Path.Combine(ProfileAppDataLocal, "Microsoft\\Windows\\WER\\ReportArchive"));
+            PreviewFolder(Path.Combine(ProfileAppDataLocal, "Microsoft\\Windows\\WER\\ReportQueue"));
+            PreviewFolder(Path.Combine(ProfileAppDataLocal, "Microsoft\\Windows\\WER\\Temp"));
+            PreviewFolder(Path.Combine(ProfileAppDataLocal, "Microsoft\\Windows\\WER\\ERC"));
+            PreviewFolder(Path.Combine(ProgramData, "Microsoft\\Windows\\WER\\ReportArchive"));
+            PreviewFolder(Path.Combine(ProgramData,"Microsoft\\Windows\\WER\\ReportQueue"));
+            PreviewFolder(Path.Combine(ProgramData, "Microsoft\\Windows\\WER\\Temp"));
+            PreviewFolder(Path.Combine(ProgramData, "Microsoft\\Windows\\WER\\ERC"));
+
+            PreviewSizeToBeFreed += CalculateSize(Path.Combine(ProfileAppDataLocal, "Microsoft\\Windows\\WER\\ReportArchive"));
+            PreviewSizeToBeFreed += CalculateSize(Path.Combine(ProfileAppDataLocal, "Microsoft\\Windows\\WER\\ReportQueue"));
+            PreviewSizeToBeFreed += CalculateSize(Path.Combine(ProfileAppDataLocal, "Microsoft\\Windows\\WER\\Temp"));
+            PreviewSizeToBeFreed += CalculateSize(Path.Combine(ProfileAppDataLocal, "Microsoft\\Windows\\WER\\ERC"));
+            PreviewSizeToBeFreed += CalculateSize(Path.Combine(ProgramData, "Microsoft\\Windows\\WER\\ReportArchive"));
+            PreviewSizeToBeFreed += CalculateSize(Path.Combine(ProgramData, "Microsoft\\Windows\\WER\\ReportQueue"));
+            PreviewSizeToBeFreed += CalculateSize(Path.Combine(ProgramData, "Microsoft\\Windows\\WER\\Temp"));
+            PreviewSizeToBeFreed += CalculateSize(Path.Combine(ProgramData, "Microsoft\\Windows\\WER\\ERC"));
         }
 
-        internal static ByteSize CheckFootprint()
+        internal static ByteSize CalculateSize(string fileOrFolder)
         {
             ByteSize totalSize = new ByteSize(0);
-            List<DirectoryInfo> dirs = new List<DirectoryInfo>();
+            bool isFolder = Directory.Exists(fileOrFolder);
 
             try
             {
-                foreach (string x in ieCache) dirs.Add(new DirectoryInfo(x));
-                dirs.Add(new DirectoryInfo(chromeFolder));
-                dirs.Add(new DirectoryInfo(@"C:\Users\deadmoon\AppData\Local\Microsoft\Edge"));
-                dirs.Add(new DirectoryInfo(firefoxLocal));
-                dirs.Add(new DirectoryInfo(firefoxRoaming));
-                dirs.Add(new DirectoryInfo(TempFolder));
-
-                foreach (DirectoryInfo di in dirs)
+                if (isFolder)
                 {
-                    try
-                    {
-                        if (!Directory.Exists(di.FullName)) { continue; }
-                        totalSize += totalSize.AddBytes(di.EnumerateFiles("*", SearchOption.AllDirectories).Sum(file => file.Length));
-                    }
-                    catch { continue; }
+                    DirectoryInfo dir = new DirectoryInfo(fileOrFolder);
+                    totalSize += totalSize.AddBytes(dir.EnumerateFiles("*", SearchOption.AllDirectories).Sum(file => file.Length));
                 }
-
-                //DirectoryInfo di;
-                //foreach (string x in PreviewCleanList)
-                //{
-                //    try
-                //    {
-                //        if (!Directory.Exists(x)) { continue; }
-                //        System.Windows.Forms.MessageBox.Show(x);
-                //        di = new DirectoryInfo(x);
-                //        totalSize += totalSize.AddBytes(di.EnumerateFiles("*", SearchOption.AllDirectories).Sum(file => file.Length));
-                //    }
-                //    catch { continue; }
-                //}
+                else
+                {
+                    FileInfo file = new FileInfo(fileOrFolder);
+                    totalSize = totalSize.AddBytes(file.Length);
+                }
             }
-            catch (Exception ex)
-            {
-                ErrorLogger.LogError("CleanHelper.CleanLogs", ex.Message, ex.StackTrace);
-                return totalSize;
-            }
+            catch { }
 
             return totalSize;
         }
@@ -208,6 +198,7 @@ namespace Optimizer
                 foreach (string x in edgeCache)
                 {
                     PreviewFolder(x);
+                    PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
 
@@ -216,12 +207,14 @@ namespace Optimizer
                 foreach (string x in edgeCookies)
                 {
                     PreviewFolder(x);
+                    PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
 
             if (seachHistory)
             {
                 PreviewFolder(edgeHistory);
+                PreviewSizeToBeFreed += CalculateSize(edgeHistory);
             }
 
             if (session)
@@ -229,6 +222,7 @@ namespace Optimizer
                 foreach (string x in edgeSession)
                 {
                     PreviewFolder(x);
+                    PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
         }
@@ -238,6 +232,7 @@ namespace Optimizer
             foreach (string x in ieCache)
             {
                 PreviewFolder(x);
+                PreviewSizeToBeFreed += CalculateSize(x);
             }
         }
 
@@ -250,27 +245,31 @@ namespace Optimizer
                     if (cookies)
                     {
                         PreviewFolder(Path.Combine(x, "cookies.sqlite"));
+                        PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "cookies.sqlite"));
                     }
 
                     if (searchHistory)
                     {
                         PreviewFolder(Path.Combine(x, "places.sqlite"));
+                        PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "places.sqlite"));
                     }
 
                     if (cache)
                     {
                         PreviewFolder(Path.Combine(x, "shader-cache"));
+                        PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "shader-cache"));
                     }
                 }
             }
 
             if (cache)
             {
-                foreach (string x in Directory.EnumerateFiles(firefoxLocal))
+                foreach (string x in Directory.EnumerateDirectories(firefoxLocal))
                 {
                     if (x.ToLowerInvariant().Contains("release"))
                     {
                         PreviewFolder(Path.Combine(x, "cache2"));
+                        PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "cache2"));
                     }
                 }
             }
@@ -283,6 +282,7 @@ namespace Optimizer
                 foreach (string x in chromeUserDataCacheDirs)
                 {
                     PreviewFolder(Path.Combine(chromeFolder, x));
+                    PreviewSizeToBeFreed += CalculateSize(Path.Combine(chromeFolder, x));
                 }
             }
 
@@ -291,6 +291,7 @@ namespace Optimizer
                 foreach (string x in chromeSessionDirs)
                 {
                     PreviewFolder(x);
+                    PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
 
@@ -299,6 +300,7 @@ namespace Optimizer
                 foreach (string x in chromeCookiesDirs)
                 {
                     PreviewFolder(x);
+                    PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
 
@@ -307,12 +309,14 @@ namespace Optimizer
                 foreach (string x in chromeHistoryDirs)
                 {
                     PreviewFolder(x);
+                    PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
 
             if (passwords)
             {
                 PreviewFolder(chromePasswordsDir);
+                PreviewSizeToBeFreed += CalculateSize(chromePasswordsDir);
             }
         }
     }

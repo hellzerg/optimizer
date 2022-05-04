@@ -246,8 +246,10 @@
 	"removeModernApps": "Sei sicuro di voler disinstallare le seguenti app?",
 	"errorModernApps": "Le seguenti applicazioni non possono essere disinstallate:\n",
 	"resetMessage": "Sei sicuro di voler reimpostare la configurazione?\nQuesto reimposterà tutte le tue preferenze, comprese icone estratte\n o scaricate usando l'integratore, ma non toccherà niente sul tuo computer!",
-	"newVersion": "C'è una nuova versione disponibile!\n\nUltima versione: {LATEST}\nVersione attuale: {CURRENT}\n\nVuoi scaricarla adesso?\n\nL'app si riavvierà tra pochi secondi.",
+	"newVersion": "C'è una nuova versione disponibile! Vuoi scaricarla adesso?\nL'app si riavvierà tra pochi secondi.",
 	"downloadsFinished": "Completato",
+	"latestVersionM": "Ultima versione: {LATEST}",
+	"currentVersionM": "Versione attuale: {CURRENT}",
 	"downloadDirInvalid": "La cartella di download specificata non è valida",
 	"no64Download": "64-bit non disponibile, download 32-bit in corso",
 	"no32Download": "32-bit non disponibile, impossibile proseguire",
@@ -406,5 +408,7 @@ Tuttavia, sono considerate procedure rischiose. Sono normalmente una release ogn
 	"classicRibbonTip": "Riprista il menu di Esplora File di Windows 10.",
 	"classicContextTip": "Ripristina il menu contestuale classico, rimuovendo 'Mostra più opzioni'.",
 	"gameModeSw": "Abilita la modalità di gioco",
-	"gameModeTip": "Abilita la modalità di gioco in combinazione con la pianificazione GPU con accelerazione hardware."
+	"gameModeTip": "Abilita la modalità di gioco in combinazione con la pianificazione GPU con accelerazione hardware.",
+	"compactModeSw": "Abilita la modalità compatta in Explorer",
+	"compactModeTip": "Riduce lo spazio aggiuntivo e il riempimento tra i file in Esplora file."
 }

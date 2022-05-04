@@ -59,5 +59,6 @@ namespace Optimizer
         public bool? ClassicRibbon { get; set; }
         public bool? ClassicMenu { get; set; }
         public bool? DisableTPMCheck { get; set; }
+        public bool? CompactMode { get; set; }
     }
 }

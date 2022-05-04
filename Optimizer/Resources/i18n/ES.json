@@ -256,8 +256,10 @@
 	"removeModernApps": "¿Está seguro de que desea desinstalar las siguientes aplicaciones?",
 	"errorModernApps": "No se pudieron desinstalar la(s) siguientes aplicaciones:\n",
 	"resetMessage": "¿Estás seguro de que quieres restablecer la configuración?\nEsto restablecerá todas sus preferencias, incluidos los iconos que extrajo\no descargado usando Integrator, ¡Pero no tocará nada en su computadora!",
-	"newVersion": "¡Hay una nueva versión disponible!\n\nUltima versión: {LATEST}\nVersión actual: {CURRENT}\n\n¿Quieres descargarlo ahora?\n\nLa aplicación se reiniciará en unos segundos.",
+	"newVersion": "¡Hay una nueva versión disponible! ¿Quieres descargarlo ahora?\nLa aplicación se reiniciará en unos segundos.",
 	"downloadsFinished": "Terminado",
+	"latestVersionM": "Ultima versión: {LATEST}",
+	"currentVersionM": "Versión actual: {CURRENT}",
 	"downloadDirInvalid": "La carpeta de descarga especificada no es válida",
 	"no64Download": "No hay 64 bits disponibles, descargando 32 bits",
 	"no32Download": "No hay 32 bits disponibles, omitiendo",
@@ -408,5 +410,7 @@ Sin embargo, se consideran un procedimiento riesgoso. Suelen ser lanzamientos se
 	"classicRibbonTip": "Restaura la barra de cinta clásica de Windows 10 en el Explorador de archivos.",
 	"classicContextTip": "Restaura el menú clásico del botón derecho del ratón, eliminando 'Mostrar más opciones'.",
 	"gameModeSw": "Habilitar modo de juego",
-	"gameModeTip": "Habilita el modo de juego en combinación con la programación de GPU acelerada por hardware."
+	"gameModeTip": "Habilita el modo de juego en combinación con la programación de GPU acelerada por hardware.",
+	"compactModeSw": "Habilitar el modo compacto en Explorer",
+	"compactModeTip": "Reduce el espacio adicional y el relleno entre los archivos en el Explorador de archivos."
 }

@@ -255,8 +255,10 @@
 	"removeAllItems": "Opravdu chcete smazat všechny položky na ploše?",
 	"removeModernApps": "Opravdu chcete odinstalovat následující aplikace?",
 	"errorModernApps": "Následující aplikace se nepodařilo odinstalovat:\n",
+	"latestVersionM": "Nejnovější verze: {LATEST}",
+	"currentVersionM": "Současná verze: {CURRENT}",
 	"resetMessage": "Opravdu chcete resetovat konfiguraci?\nTím se resetují všechny vaše předvolby, včetně všech extrahovaných ikon\nkteré jste stáhli pomocí Integrátoru, ale program se nedotkne ničeho na vašem počítači!",
-	"newVersion": "K dispozici je nová verze!\n\nNejnovější verze: {LATEST}\nSoučasná verze: {CURRENT}\n\nChcete si je nyní stáhnout?\n\nAplikace se za několik sekund restartuje.",
+	"newVersion": "K dispozici je nová verze! Chcete si je nyní stáhnout?\nAplikace se za několik sekund restartuje.",
 	"downloadsFinished": "Dokončeno",
 	"downloadDirInvalid": "Zadaná složka pro stahování není platná",
 	"no64Download": "Není k dispozici 64bitová verze, stahuje se 32bitová verze",
@@ -411,5 +413,7 @@ Je to však považováno za riskantní procedůru. Obvykle se jedná o půlročn
 	"classicRibbonTip": "Obnoví klasický pás karet ze systému Windows 10 v Průzkumníkovi souborů.",
 	"classicContextTip": "Obnoví klasickou nabídku kliknutí pravým tlačítkem myši a odstraní 'Zobrazit další možnosti'.",
 	"gameModeSw": "Povolit herní režim",
-	"gameModeTip": "Umožňuje herní režim v kombinaci s hardwarově akcelerovaným plánováním GPU."
+	"gameModeTip": "Umožňuje herní režim v kombinaci s hardwarově akcelerovaným plánováním GPU.",
+	"compactModeSw": "Povolte v Průzkumníkovi kompaktní režim",
+	"compactModeTip": "Snižuje prostor navíc a odsazení mezi soubory v Průzkumníkovi souborů."
 }

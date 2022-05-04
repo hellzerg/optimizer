@@ -1,3 +1,9 @@
+## [13.0] - 2022-05-04
+- New: Enable Compact mode in Files for Windows 11 (removes extra space between files)
+- New: Cleaner now estimates size based on your preferences
+- New: Shiny new update window
+- Hotfix: Using ```/disablehibernate & /enablehibernate``` switches throws config not found error
+
 ## [12.9] - 2022-05-03
 - New: Enable Defender automatically (```/restart=enabledefender``` switch)
 - New: Enable/Disable hibernation from command-line (```/disablehibernate & /enablehibernate```)

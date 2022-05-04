@@ -253,8 +253,10 @@
 	"removeAllItems": "Are you sure you want to delete all desktop items?",
 	"removeModernApps": "Are you sure you want to uninstall the following app(s)?",
 	"errorModernApps": "The following app(s) couldn't be uninstalled:\n",
+	"latestVersionM": "Latest version: {LATEST}",
+	"currentVersionM": "Current version: {CURRENT}",
 	"resetMessage": "Are you sure you want to reset configuration?\nThis will reset all your preferences, including any icons you extracted\nor downloaded using Integrator, but will not touch anything on your computer!",
-	"newVersion": "There is a new version available!\n\nLatest version: {LATEST}\nCurrent version: {CURRENT}\n\nDo you want to download it now?\n\nApp will restart in a few seconds.",
+	"newVersion": "There is a new version available! Do you want to download it now?\nApp will restart in a few seconds.",
 	"flushDNSMessage": "Are you sure you wish to flush the DNS cache of Windows?\n\nThis will cause internet disconnection for a moment and it may be needed a restart to function properly.",
 	"downloadsFinished": "Finished",
 	"downloadDirInvalid": "Download folder specified is not valid",
@@ -411,5 +413,7 @@ However, they are considered a risky procedure. They are usually semi-annual rel
 	"classicContextTip": "Restores classic right-click menu, removing 'Show more options'.",
 	"gameModeSw": "Enable Gaming Mode",
 	"gameModeTip": "Enables Gaming mode in combination with hardware accelerated GPU scheduling.",
-	"systemRestoreM": "Are you sure you want to disable System Restore? This will delete your current backup images!"
+	"systemRestoreM": "Are you sure you want to disable System Restore? This will delete your current backup images!",
+	"compactModeSw": "Enable Compact Mode in Explorer",
+	"compactModeTip": "Reduces extra space and padding between the files in Files Explorer."
 }

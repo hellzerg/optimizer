@@ -255,8 +255,10 @@
 	"removeAllItems": "Sind Sie sicher, dass Sie alle Desktopelemente löschen möchten?",
 	"removeModernApps": "Sind Sie sicher, dass Sie die folgende(n) App(s) deinstallieren möchten?",
 	"errorModernApps": "Die folgende(n) App(s) konnte(n) nicht deinstalliert werden:\n",
+	"latestVersionM": "NLetzte Version: {LATEST}",
+	"currentVersionM": "Aktuelle Version: {CURRENT}",
 	"resetMessage": "Sind Sie sicher, dass Sie die Konfiguration zurücksetzen möchten?\nDies setzt alle Ihre Einstellungen zurück, einschließlich aller Symbole, die Sie mit Integrator extrahiert oder heruntergeladen haben, verändert jedoch nichts auf Ihrem Computer!",
-	"newVersion": "Es ist eine neue Version verfügbar!\n\nNLetzte Version: {LATEST}\nAktuelle Version: {CURRENT}\n\nMöchten Sie die Version {LATEST} jetzt herunterladen?\n\nDie App wird in ein paar Sekunden neu gestartet.",
+	"newVersion": "Es ist eine neue Version verfügbar! Möchten Sie jetzt herunterladen?\nDie App wird in ein paar Sekunden neu gestartet.",
 	"downloadsFinished": "Abgeschlossen",
 	"downloadDirInvalid": "Der angegebene Download-Ordner ist nicht gültig",
 	"no64Download": "Keine 64-Bit verfügbar, 32-Bit herunterladen",
@@ -387,5 +389,7 @@
 	"classicRibbonTip": "Stellt das klassische Windows 10-Menüband im Datei-Explorer wieder her.",
 	"classicContextTip": "Stellt das klassische Rechtsklickmenü wieder her und entfernt die Option 'Weitere Optionen anzeigen'.",
 	"gameModeSw": "Spielemodus aktivieren",
-	"gameModeTip": "Aktiviert den Gaming-Modus in Kombination mit hardwarebeschleunigter GPU-Planung."
+	"gameModeTip": "Aktiviert den Gaming-Modus in Kombination mit hardwarebeschleunigter GPU-Planung.",
+	"compactModeSw": "Aktivieren Sie den Kompaktmodus im Explorer",
+	"compactModeTip": "Reduziert zusätzlichen Platz und Auffüllung zwischen den Dateien im Datei-Explorer."
 }

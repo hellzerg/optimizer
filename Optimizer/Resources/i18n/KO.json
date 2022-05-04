@@ -254,8 +254,10 @@
 	"removeAllItems": "모든 바탕화면 항목을 삭제하시겠습니까?",
 	"removeModernApps": "다음 앱을 제거하시겠습니까?",
 	"errorModernApps": "다음 앱을 제거할 수 없습니다\n",
+	"latestVersionM": "최신 버전: {LATEST}",
+	"currentVersionM": "현재 버번: {CURRENT}",
 	"resetMessage": "구성을 재설정하시겠습니까?\n이렇게 하면 통합기를 사용하여 압축을 풀거나 다운로드한 아이콘을 포함하여\n모든 기본 설정이 재설정되지만 컴퓨터의 아무 것도 건드리지 않습니다!",
-	"newVersion": "사용 가능한 새 버전이 있습니다!\n\n최신 버전: {LATEST}\n현재 버번: {CURRENT}\n\n지금 다운로드하시겠습니까?\n\n몇 초 후에 앱이 다시 시작됩니다.",
+	"newVersion": "사용 가능한 새 버전이 있습니다! 지금 다운로드하시겠습니까?\n몇 초 후에 앱이 다시 시작됩니다.",
 	"flushDNSMessage": "Windows의 DNS 캐시를 플러시하시겠습니까?\n\n이로 인해 인터넷 연결이 잠시 끊기고 제대로 작동하려면 다시 시작해야 할 수 있습니다.",
 	"downloadsFinished": "마침",
 	"downloadDirInvalid": "지정한 다운로드 폴더가 잘못되었습니다",
@@ -411,5 +413,7 @@ Microsoft 계정 로그인이 필요합니다.",
 	"classicRibbonTip": "Windows 10에서 파일 탐색기의 기존 리본 막대를 복원합니다.",
 	"classicContextTip": "'추가 옵션 표시'를 제거하여 기존 마우스 오른쪽 버튼 메뉴를 복원합니다.",
 	"gameModeSw": "게임 모드 활성화",
-	"gameModeTip": "하드웨어 가속 GPU 스케줄링과 함께 게임 모드를 활성화합니다."
+	"gameModeTip": "하드웨어 가속 GPU 스케줄링과 함께 게임 모드를 활성화합니다.",
+	"compactModeSw": "탐색기에서 압축 모드 활성화",
+	"compactModeTip": "파일 탐색기에서 파일 사이의 추가 공간과 패딩을 줄입니다."
 }
