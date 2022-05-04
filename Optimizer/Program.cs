@@ -164,10 +164,12 @@ namespace Optimizer
                                 if (arg == "/disablehibernate")
                                 {
                                     Utilities.DisableHibernation();
+                                    Environment.Exit(0);
                                 }
                                 if (arg == "/enablehibernate")
                                 {
                                     Utilities.EnableHibernation();
+                                    Environment.Exit(0);
                                 }
 
                                 // instruct to restart in safe-mode
