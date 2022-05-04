@@ -319,6 +319,7 @@ namespace Optimizer
             this.peopleSw = new Optimizer.ToggleCard();
             this.oldExplorerSw = new Optimizer.ToggleCard();
             this.adsSw = new Optimizer.ToggleCard();
+            this.compactModeSw = new Optimizer.ToggleCard();
             this.classicRibbonSw = new Optimizer.ToggleCard();
             this.snapAssistSw = new Optimizer.ToggleCard();
             this.widgetsSw = new Optimizer.ToggleCard();
@@ -384,7 +385,6 @@ namespace Optimizer
             this.quickAccessToggle = new Optimizer.ToggleCard();
             this.helpTipsToggle = new Optimizer.ToggleCard();
             this.helpBox = new Optimizer.MoonTip();
-            this.compactModeSw = new Optimizer.ToggleCard();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).BeginInit();
@@ -541,7 +541,7 @@ namespace Optimizer
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::Optimizer.Properties.Resources.logo;
+            this.pictureBox1.Image = global::Optimizer.Properties.Resources.logoAmethyst;
             this.pictureBox1.Location = new System.Drawing.Point(10, 10);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
@@ -1059,7 +1059,7 @@ namespace Optimizer
             this.appsTab.Padding = new System.Windows.Forms.Padding(3);
             this.appsTab.Size = new System.Drawing.Size(999, 611);
             this.appsTab.TabIndex = 12;
-            this.appsTab.Text = "Common Apps";
+            this.appsTab.Text = "Apps";
             // 
             // txtFeedError
             // 
@@ -4468,6 +4468,21 @@ namespace Optimizer
             this.adsSw.Tag = "themeable";
             this.adsSw.ToggleChecked = false;
             // 
+            // compactModeSw
+            // 
+            this.compactModeSw.AccessibleName = "Enable Compact Mode in Explorer";
+            this.compactModeSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
+            this.compactModeSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.compactModeSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.compactModeSw.ForeColor = System.Drawing.Color.White;
+            this.compactModeSw.LabelText = "Enable Compact Mode in Explorer";
+            this.compactModeSw.Location = new System.Drawing.Point(437, 123);
+            this.compactModeSw.Name = "compactModeSw";
+            this.compactModeSw.Size = new System.Drawing.Size(414, 24);
+            this.compactModeSw.TabIndex = 112;
+            this.compactModeSw.Tag = "themeable";
+            this.compactModeSw.ToggleChecked = false;
+            // 
             // classicRibbonSw
             // 
             this.classicRibbonSw.AccessibleName = "Enable Classic Ribbon in Explorer";
@@ -5419,21 +5434,6 @@ namespace Optimizer
             this.helpBox.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.helpBox.UseAnimation = false;
             this.helpBox.UseFading = false;
-            // 
-            // compactModeSw
-            // 
-            this.compactModeSw.AccessibleName = "Enable Compact Mode in Explorer";
-            this.compactModeSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
-            this.compactModeSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.compactModeSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.compactModeSw.ForeColor = System.Drawing.Color.White;
-            this.compactModeSw.LabelText = "Enable Compact Mode in Explorer";
-            this.compactModeSw.Location = new System.Drawing.Point(437, 123);
-            this.compactModeSw.Name = "compactModeSw";
-            this.compactModeSw.Size = new System.Drawing.Size(414, 24);
-            this.compactModeSw.TabIndex = 112;
-            this.compactModeSw.Tag = "themeable";
-            this.compactModeSw.ToggleChecked = false;
             // 
             // MainForm
             // 

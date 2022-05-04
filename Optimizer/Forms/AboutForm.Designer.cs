@@ -40,11 +40,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Optimizer.Properties.Resources.logo;
+            this.pictureBox1.Image = global::Optimizer.Properties.Resources.logoAmethyst;
             this.pictureBox1.Location = new System.Drawing.Point(10, 10);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(88, 86);
+            this.pictureBox1.Size = new System.Drawing.Size(86, 86);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;

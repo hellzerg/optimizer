@@ -343,6 +343,23 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Assets\loadingSilver.gif" />
+    <None Include="Resources\Assets\loadingRuby.gif" />
+    <None Include="Resources\Assets\loadingJade.gif" />
+    <None Include="Resources\Assets\loadingAzurite.gif" />
+    <None Include="Resources\Assets\loadingAmethyst.gif" />
+    <None Include="Resources\Assets\loadingAmber.gif" />
+    <None Include="Resources\Assets\bannerSilver.png" />
+    <None Include="Resources\Assets\bannerRuby.png" />
+    <None Include="Resources\Assets\bannerJade.png" />
+    <None Include="Resources\Assets\bannerAzurite.png" />
+    <None Include="Resources\Assets\bannerAmethyst.png" />
+    <None Include="Resources\Assets\bannerAmber.png" />
+    <None Include="Resources\Assets\logoSilver.png" />
+    <None Include="Resources\Assets\logoRuby.png" />
+    <None Include="Resources\Assets\logoJade.png" />
+    <None Include="Resources\Assets\logoAzurite.png" />
+    <None Include="Resources\Assets\logoAmber.png" />
     <None Include="Resources\Flags\egypt.png" />
     <None Include="Resources\Flags\poland.png" />
     <None Include="Resources\Flags\korea.png" />
@@ -358,7 +375,7 @@
     <None Include="Resources\Flags\czech.png" />
     <None Include="Resources\Flags\china.png" />
     <None Include="Resources\Flags\brazil.png" />
-    <None Include="Resources\Assets\optimiz.png" />
+    <None Include="Resources\Assets\logoAmethyst.png" />
     <EmbeddedResource Include="Newtonsoft.Json.dll" />
     <Content Include="optimizer.ico" />
   </ItemGroup>

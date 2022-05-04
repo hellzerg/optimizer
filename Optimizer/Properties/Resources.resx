@@ -211,8 +211,8 @@
   <data name="CN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\i18n\CN.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Assets\optimiz.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logoAmethyst" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\logoAmethyst.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\i18n\CZ.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
@@ -273,5 +273,56 @@
   </data>
   <data name="EnableDefenderSafeMode1903Plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Scripts\EnableDefenderSafeMode1903Plus.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="logoAmber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\logoAmber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logoAzurite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\logoAzurite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logoJade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\logoJade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logoRuby" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\logoRuby.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logoSilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\logoSilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bannerAmber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\bannerAmber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bannerAmethyst" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\bannerAmethyst.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bannerAzurite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\bannerAzurite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bannerJade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\bannerJade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bannerRuby" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\bannerRuby.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bannerSilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\bannerSilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loadingAmber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\loadingAmber.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loadingAmethyst" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\loadingAmethyst.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loadingAzurite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\loadingAzurite.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loadingJade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\loadingJade.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loadingRuby" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\loadingRuby.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loadingSilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\loadingSilver.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

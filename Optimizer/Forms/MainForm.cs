@@ -577,21 +577,27 @@ namespace Optimizer
             {
                 case Theme.Amber:
                     rAmber.Checked = true;
+                    pictureBox1.Image = Properties.Resources.logoAmber;
                     break;
                 case Theme.Jade:
                     rJade.Checked = true;
+                    pictureBox1.Image = Properties.Resources.logoJade;
                     break;
                 case Theme.Ruby:
                     rRuby.Checked = true;
+                    pictureBox1.Image = Properties.Resources.logoRuby;
                     break;
                 case Theme.Silver:
                     rSilver.Checked = true;
+                    pictureBox1.Image = Properties.Resources.logoSilver;
                     break;
                 case Theme.Azurite:
                     rAzurite.Checked = true;
+                    pictureBox1.Image = Properties.Resources.logoAzurite;
                     break;
                 case Theme.Amethyst:
                     rAmethyst.Checked = true;
+                    pictureBox1.Image = Properties.Resources.logoAmethyst;
                     break;
             }
         }
@@ -2713,36 +2719,42 @@ namespace Optimizer
         private void radioOcean_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.Color = Theme.Azurite;
+            pictureBox1.Image = Properties.Resources.logoAzurite;
             Options.ApplyTheme(this);
         }
 
         private void radioMagma_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.Color = Theme.Ruby;
+            pictureBox1.Image = Properties.Resources.logoRuby;
             Options.ApplyTheme(this);
         }
 
         private void radioZerg_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.Color = Theme.Amethyst;
+            pictureBox1.Image = Properties.Resources.logoAmethyst;
             Options.ApplyTheme(this);
         }
 
         private void radioMinimal_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.Color = Theme.Silver;
+            pictureBox1.Image = Properties.Resources.logoSilver;
             Options.ApplyTheme(this);
         }
 
         private void radioCaramel_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.Color = Theme.Amber;
+            pictureBox1.Image = Properties.Resources.logoAmber;
             Options.ApplyTheme(this);
         }
 
         private void radioLime_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.Color = Theme.Jade;
+            pictureBox1.Image = Properties.Resources.logoJade;
             Options.ApplyTheme(this);
         }
 
