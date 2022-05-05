@@ -50,7 +50,7 @@ namespace Optimizer
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bpanel = new System.Windows.Forms.Panel();
-            this.tabCollection = new Optimizer.MoonTabs();
+            this.tabCollection = new System.Windows.Forms.TabControl();
             this.universalTab = new System.Windows.Forms.TabPage();
             this.windows10Tab = new System.Windows.Forms.TabPage();
             this.panelWin11Tweaks = new System.Windows.Forms.Panel();
@@ -120,14 +120,13 @@ namespace Optimizer
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pingerTab = new System.Windows.Forms.TabPage();
-            this.btnOpenNetwork = new System.Windows.Forms.Button();
-            this.txtIPv6A = new System.Windows.Forms.LinkLabel();
-            this.txtIPv6 = new System.Windows.Forms.LinkLabel();
+            this.linkDNSv6A = new System.Windows.Forms.LinkLabel();
+            this.linkDNSv4A = new System.Windows.Forms.LinkLabel();
+            this.linkDNSv6 = new System.Windows.Forms.LinkLabel();
+            this.linkDNSv4 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtIPv4A = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtIPv4 = new System.Windows.Forms.LinkLabel();
-            this.lblDNS = new System.Windows.Forms.Label();
+            this.btnOpenNetwork = new System.Windows.Forms.Button();
             this.flushCacheB = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.copyB = new System.Windows.Forms.Button();
@@ -170,7 +169,7 @@ namespace Optimizer
             this.btnCopyHW = new System.Windows.Forms.Button();
             this.btnSaveHW = new System.Windows.Forms.Button();
             this.integratorTab = new System.Windows.Forms.TabPage();
-            this.synapse = new Optimizer.MoonTabs();
+            this.synapse = new System.Windows.Forms.TabControl();
             this.integratorInfoTab = new System.Windows.Forms.TabPage();
             this.integrator7 = new System.Windows.Forms.Label();
             this.integrator6 = new System.Windows.Forms.Label();
@@ -353,6 +352,8 @@ namespace Optimizer
             this.checkTemp = new Optimizer.MoonCheck();
             this.checkBin = new Optimizer.MoonCheck();
             this.checkMiniDumps = new Optimizer.MoonCheck();
+            this.boxAdapter = new Optimizer.MoonSelect();
+            this.boxDNS = new Optimizer.MoonSelect();
             this.listPingResults = new Optimizer.MoonList();
             this.chkReadOnly = new Optimizer.MoonCheck();
             this.listHostEntries = new Optimizer.MoonList();
@@ -1633,14 +1634,15 @@ namespace Optimizer
             // pingerTab
             // 
             this.pingerTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.pingerTab.Controls.Add(this.btnOpenNetwork);
-            this.pingerTab.Controls.Add(this.txtIPv6A);
-            this.pingerTab.Controls.Add(this.txtIPv6);
+            this.pingerTab.Controls.Add(this.linkDNSv6A);
+            this.pingerTab.Controls.Add(this.linkDNSv4A);
+            this.pingerTab.Controls.Add(this.linkDNSv6);
+            this.pingerTab.Controls.Add(this.linkDNSv4);
             this.pingerTab.Controls.Add(this.label3);
-            this.pingerTab.Controls.Add(this.txtIPv4A);
             this.pingerTab.Controls.Add(this.label1);
-            this.pingerTab.Controls.Add(this.txtIPv4);
-            this.pingerTab.Controls.Add(this.lblDNS);
+            this.pingerTab.Controls.Add(this.boxAdapter);
+            this.pingerTab.Controls.Add(this.boxDNS);
+            this.pingerTab.Controls.Add(this.btnOpenNetwork);
             this.pingerTab.Controls.Add(this.flushCacheB);
             this.pingerTab.Controls.Add(this.btnExport);
             this.pingerTab.Controls.Add(this.copyB);
@@ -1659,6 +1661,92 @@ namespace Optimizer
             this.pingerTab.TabIndex = 13;
             this.pingerTab.Text = "Pinger";
             // 
+            // linkDNSv6A
+            // 
+            this.linkDNSv6A.AutoSize = true;
+            this.linkDNSv6A.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkDNSv6A.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.linkDNSv6A.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkDNSv6A.Location = new System.Drawing.Point(541, 251);
+            this.linkDNSv6A.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkDNSv6A.Name = "linkDNSv6A";
+            this.linkDNSv6A.Size = new System.Drawing.Size(15, 20);
+            this.linkDNSv6A.TabIndex = 103;
+            this.linkDNSv6A.TabStop = true;
+            this.linkDNSv6A.Tag = "themeable";
+            this.linkDNSv6A.Text = "-";
+            // 
+            // linkDNSv4A
+            // 
+            this.linkDNSv4A.AutoSize = true;
+            this.linkDNSv4A.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkDNSv4A.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.linkDNSv4A.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkDNSv4A.Location = new System.Drawing.Point(540, 194);
+            this.linkDNSv4A.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkDNSv4A.Name = "linkDNSv4A";
+            this.linkDNSv4A.Size = new System.Drawing.Size(15, 20);
+            this.linkDNSv4A.TabIndex = 102;
+            this.linkDNSv4A.TabStop = true;
+            this.linkDNSv4A.Tag = "themeable";
+            this.linkDNSv4A.Text = "-";
+            // 
+            // linkDNSv6
+            // 
+            this.linkDNSv6.AutoSize = true;
+            this.linkDNSv6.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkDNSv6.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.linkDNSv6.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkDNSv6.Location = new System.Drawing.Point(541, 228);
+            this.linkDNSv6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkDNSv6.Name = "linkDNSv6";
+            this.linkDNSv6.Size = new System.Drawing.Size(15, 20);
+            this.linkDNSv6.TabIndex = 101;
+            this.linkDNSv6.TabStop = true;
+            this.linkDNSv6.Tag = "themeable";
+            this.linkDNSv6.Text = "-";
+            // 
+            // linkDNSv4
+            // 
+            this.linkDNSv4.AutoSize = true;
+            this.linkDNSv4.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkDNSv4.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.linkDNSv4.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkDNSv4.Location = new System.Drawing.Point(541, 171);
+            this.linkDNSv4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkDNSv4.Name = "linkDNSv4";
+            this.linkDNSv4.Size = new System.Drawing.Size(15, 20);
+            this.linkDNSv4.TabIndex = 100;
+            this.linkDNSv4.TabStop = true;
+            this.linkDNSv4.Tag = "themeable";
+            this.linkDNSv4.Text = "-";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Silver;
+            this.label3.Location = new System.Drawing.Point(459, 229);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 20);
+            this.label3.TabIndex = 99;
+            this.label3.Tag = "";
+            this.label3.Text = "DNS IPv6:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(459, 172);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 20);
+            this.label1.TabIndex = 98;
+            this.label1.Tag = "";
+            this.label1.Text = "DNS IPv4:";
+            // 
             // btnOpenNetwork
             // 
             this.btnOpenNetwork.BackColor = System.Drawing.Color.DodgerBlue;
@@ -1667,117 +1755,14 @@ namespace Optimizer
             this.btnOpenNetwork.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOpenNetwork.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenNetwork.ForeColor = System.Drawing.Color.White;
-            this.btnOpenNetwork.Location = new System.Drawing.Point(579, 381);
+            this.btnOpenNetwork.Location = new System.Drawing.Point(463, 332);
             this.btnOpenNetwork.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpenNetwork.Name = "btnOpenNetwork";
-            this.btnOpenNetwork.Size = new System.Drawing.Size(200, 29);
+            this.btnOpenNetwork.Size = new System.Drawing.Size(212, 29);
             this.btnOpenNetwork.TabIndex = 92;
             this.btnOpenNetwork.Text = "Open Network Connections";
             this.btnOpenNetwork.UseVisualStyleBackColor = false;
             this.btnOpenNetwork.Click += new System.EventHandler(this.btnOpenNetwork_Click);
-            // 
-            // txtIPv6A
-            // 
-            this.txtIPv6A.AutoSize = true;
-            this.txtIPv6A.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPv6A.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.txtIPv6A.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.txtIPv6A.Location = new System.Drawing.Point(618, 335);
-            this.txtIPv6A.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtIPv6A.Name = "txtIPv6A";
-            this.txtIPv6A.Size = new System.Drawing.Size(164, 21);
-            this.txtIPv6A.TabIndex = 91;
-            this.txtIPv6A.TabStop = true;
-            this.txtIPv6A.Tag = "themeable";
-            this.txtIPv6A.Text = "2606:4700:4700::1001";
-            this.txtIPv6A.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.txtIPv6A_LinkClicked);
-            // 
-            // txtIPv6
-            // 
-            this.txtIPv6.AutoSize = true;
-            this.txtIPv6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPv6.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.txtIPv6.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.txtIPv6.Location = new System.Drawing.Point(618, 311);
-            this.txtIPv6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtIPv6.Name = "txtIPv6";
-            this.txtIPv6.Size = new System.Drawing.Size(158, 21);
-            this.txtIPv6.TabIndex = 90;
-            this.txtIPv6.TabStop = true;
-            this.txtIPv6.Tag = "themeable";
-            this.txtIPv6.Text = "2606:4700:4700::1111";
-            this.txtIPv6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.txtIPv6_LinkClicked);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(575, 313);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 19);
-            this.label3.TabIndex = 89;
-            this.label3.Tag = "";
-            this.label3.Text = "IPv6:";
-            // 
-            // txtIPv4A
-            // 
-            this.txtIPv4A.AutoSize = true;
-            this.txtIPv4A.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPv4A.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.txtIPv4A.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.txtIPv4A.Location = new System.Drawing.Point(618, 271);
-            this.txtIPv4A.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtIPv4A.Name = "txtIPv4A";
-            this.txtIPv4A.Size = new System.Drawing.Size(52, 21);
-            this.txtIPv4A.TabIndex = 88;
-            this.txtIPv4A.TabStop = true;
-            this.txtIPv4A.Tag = "themeable";
-            this.txtIPv4A.Text = "1.0.0.1";
-            this.txtIPv4A.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.txtIPv4A_LinkClicked);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(575, 250);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 19);
-            this.label1.TabIndex = 87;
-            this.label1.Tag = "";
-            this.label1.Text = "IPv4:";
-            // 
-            // txtIPv4
-            // 
-            this.txtIPv4.AutoSize = true;
-            this.txtIPv4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPv4.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.txtIPv4.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.txtIPv4.Location = new System.Drawing.Point(618, 247);
-            this.txtIPv4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtIPv4.Name = "txtIPv4";
-            this.txtIPv4.Size = new System.Drawing.Size(46, 21);
-            this.txtIPv4.TabIndex = 86;
-            this.txtIPv4.TabStop = true;
-            this.txtIPv4.Tag = "themeable";
-            this.txtIPv4.Text = "1.1.1.1";
-            this.txtIPv4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.txtIPv4_LinkClicked);
-            // 
-            // lblDNS
-            // 
-            this.lblDNS.AutoSize = true;
-            this.lblDNS.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDNS.ForeColor = System.Drawing.Color.Silver;
-            this.lblDNS.Location = new System.Drawing.Point(575, 196);
-            this.lblDNS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDNS.Name = "lblDNS";
-            this.lblDNS.Size = new System.Drawing.Size(204, 38);
-            this.lblDNS.TabIndex = 85;
-            this.lblDNS.Tag = "";
-            this.lblDNS.Text = "Recommended Cloudflare DNS\r\n(click to copy)";
             // 
             // flushCacheB
             // 
@@ -1787,10 +1772,10 @@ namespace Optimizer
             this.flushCacheB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.flushCacheB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flushCacheB.ForeColor = System.Drawing.Color.White;
-            this.flushCacheB.Location = new System.Drawing.Point(579, 414);
+            this.flushCacheB.Location = new System.Drawing.Point(463, 299);
             this.flushCacheB.Margin = new System.Windows.Forms.Padding(2);
             this.flushCacheB.Name = "flushCacheB";
-            this.flushCacheB.Size = new System.Drawing.Size(200, 29);
+            this.flushCacheB.Size = new System.Drawing.Size(212, 29);
             this.flushCacheB.TabIndex = 84;
             this.flushCacheB.Text = "Flush DNS cache";
             this.flushCacheB.UseVisualStyleBackColor = false;
@@ -1804,7 +1789,7 @@ namespace Optimizer
             this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(26, 512);
+            this.btnExport.Location = new System.Drawing.Point(28, 494);
             this.btnExport.Margin = new System.Windows.Forms.Padding(2);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(107, 29);
@@ -1821,10 +1806,10 @@ namespace Optimizer
             this.copyB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.copyB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.copyB.ForeColor = System.Drawing.Color.White;
-            this.copyB.Location = new System.Drawing.Point(265, 116);
+            this.copyB.Location = new System.Drawing.Point(26, 151);
             this.copyB.Margin = new System.Windows.Forms.Padding(2);
             this.copyB.Name = "copyB";
-            this.copyB.Size = new System.Drawing.Size(146, 31);
+            this.copyB.Size = new System.Drawing.Size(160, 31);
             this.copyB.TabIndex = 82;
             this.copyB.Text = "Copy IP";
             this.copyB.UseVisualStyleBackColor = false;
@@ -1838,10 +1823,10 @@ namespace Optimizer
             this.copyIPB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.copyIPB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.copyIPB.ForeColor = System.Drawing.Color.White;
-            this.copyIPB.Location = new System.Drawing.Point(415, 116);
+            this.copyIPB.Location = new System.Drawing.Point(190, 151);
             this.copyIPB.Margin = new System.Windows.Forms.Padding(2);
             this.copyIPB.Name = "copyIPB";
-            this.copyIPB.Size = new System.Drawing.Size(146, 31);
+            this.copyIPB.Size = new System.Drawing.Size(160, 31);
             this.copyIPB.TabIndex = 81;
             this.copyIPB.Text = "Copy";
             this.copyIPB.UseVisualStyleBackColor = false;
@@ -1851,20 +1836,20 @@ namespace Optimizer
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.listPingResults);
-            this.panel7.Location = new System.Drawing.Point(26, 200);
+            this.panel7.Location = new System.Drawing.Point(28, 219);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(544, 307);
+            this.panel7.Size = new System.Drawing.Size(322, 270);
             this.panel7.TabIndex = 80;
             // 
             // lblResults
             // 
             this.lblResults.AutoSize = true;
-            this.lblResults.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResults.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResults.ForeColor = System.Drawing.Color.Silver;
-            this.lblResults.Location = new System.Drawing.Point(21, 176);
+            this.lblResults.Location = new System.Drawing.Point(23, 195);
             this.lblResults.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblResults.Name = "lblResults";
-            this.lblResults.Size = new System.Drawing.Size(62, 21);
+            this.lblResults.Size = new System.Drawing.Size(54, 19);
             this.lblResults.TabIndex = 60;
             this.lblResults.Tag = "";
             this.lblResults.Text = "Results";
@@ -1877,7 +1862,7 @@ namespace Optimizer
             this.btnShodan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnShodan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShodan.ForeColor = System.Drawing.Color.White;
-            this.btnShodan.Location = new System.Drawing.Point(101, 116);
+            this.btnShodan.Location = new System.Drawing.Point(26, 116);
             this.btnShodan.Margin = new System.Windows.Forms.Padding(2);
             this.btnShodan.Name = "btnShodan";
             this.btnShodan.Size = new System.Drawing.Size(160, 31);
@@ -1894,10 +1879,10 @@ namespace Optimizer
             this.btnPing.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnPing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPing.ForeColor = System.Drawing.Color.White;
-            this.btnPing.Location = new System.Drawing.Point(26, 116);
+            this.btnPing.Location = new System.Drawing.Point(190, 116);
             this.btnPing.Margin = new System.Windows.Forms.Padding(2);
             this.btnPing.Name = "btnPing";
-            this.btnPing.Size = new System.Drawing.Size(71, 31);
+            this.btnPing.Size = new System.Drawing.Size(160, 31);
             this.btnPing.TabIndex = 58;
             this.btnPing.Text = "Ping";
             this.btnPing.UseVisualStyleBackColor = false;
@@ -1912,7 +1897,7 @@ namespace Optimizer
             this.txtPingInput.Location = new System.Drawing.Point(26, 83);
             this.txtPingInput.Margin = new System.Windows.Forms.Padding(2);
             this.txtPingInput.Name = "txtPingInput";
-            this.txtPingInput.Size = new System.Drawing.Size(535, 29);
+            this.txtPingInput.Size = new System.Drawing.Size(324, 29);
             this.txtPingInput.TabIndex = 56;
             this.txtPingInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPingInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPingInput_KeyDown);
@@ -1920,12 +1905,12 @@ namespace Optimizer
             // lblPinger
             // 
             this.lblPinger.AutoSize = true;
-            this.lblPinger.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPinger.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPinger.ForeColor = System.Drawing.Color.Silver;
             this.lblPinger.Location = new System.Drawing.Point(23, 60);
             this.lblPinger.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPinger.Name = "lblPinger";
-            this.lblPinger.Size = new System.Drawing.Size(139, 21);
+            this.lblPinger.Size = new System.Drawing.Size(122, 19);
             this.lblPinger.TabIndex = 57;
             this.lblPinger.Tag = "";
             this.lblPinger.Text = "IP / Domain name";
@@ -4927,13 +4912,51 @@ namespace Optimizer
             this.checkMiniDumps.Text = "BSOD Minidumps";
             this.checkMiniDumps.UseVisualStyleBackColor = true;
             // 
+            // boxAdapter
+            // 
+            this.boxAdapter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.boxAdapter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.boxAdapter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.boxAdapter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.boxAdapter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxAdapter.ForeColor = System.Drawing.Color.White;
+            this.boxAdapter.FormattingEnabled = true;
+            this.boxAdapter.Location = new System.Drawing.Point(460, 83);
+            this.boxAdapter.Name = "boxAdapter";
+            this.boxAdapter.Size = new System.Drawing.Size(414, 29);
+            this.boxAdapter.TabIndex = 97;
+            // 
+            // boxDNS
+            // 
+            this.boxDNS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.boxDNS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.boxDNS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.boxDNS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.boxDNS.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxDNS.ForeColor = System.Drawing.Color.White;
+            this.boxDNS.FormattingEnabled = true;
+            this.boxDNS.Items.AddRange(new object[] {
+            "Automatic",
+            "Cloudflare DNS",
+            "Open DNS",
+            "Quad9 DNS",
+            "Google DNS",
+            "Alternate DNS",
+            "Adguard DNS",
+            "CleanBrowsing",
+            "CleanBrowsing (adult filter)"});
+            this.boxDNS.Location = new System.Drawing.Point(460, 118);
+            this.boxDNS.Name = "boxDNS";
+            this.boxDNS.Size = new System.Drawing.Size(414, 29);
+            this.boxDNS.TabIndex = 96;
+            // 
             // listPingResults
             // 
             this.listPingResults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.listPingResults.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listPingResults.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listPingResults.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.listPingResults.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listPingResults.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listPingResults.ForeColor = System.Drawing.Color.White;
             this.listPingResults.FormattingEnabled = true;
             this.listPingResults.HorizontalScrollbar = true;
@@ -4941,7 +4964,7 @@ namespace Optimizer
             this.listPingResults.Location = new System.Drawing.Point(0, 0);
             this.listPingResults.Margin = new System.Windows.Forms.Padding(2);
             this.listPingResults.Name = "listPingResults";
-            this.listPingResults.Size = new System.Drawing.Size(542, 305);
+            this.listPingResults.Size = new System.Drawing.Size(320, 268);
             this.listPingResults.TabIndex = 79;
             // 
             // chkReadOnly
@@ -5556,7 +5579,7 @@ namespace Optimizer
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel bpanel;
-        private Optimizer.MoonTabs tabCollection;
+        private System.Windows.Forms.TabControl tabCollection;
         private System.Windows.Forms.TabPage universalTab;
         private System.Windows.Forms.TabPage windows10Tab;
         private System.Windows.Forms.TabPage windows8Tab;
@@ -5602,7 +5625,7 @@ namespace Optimizer
         private System.Windows.Forms.Button addHostB;
         private System.Windows.Forms.TextBox txtIP;
         private System.Windows.Forms.TabPage integratorTab;
-        private Optimizer.MoonTabs synapse;
+        private System.Windows.Forms.TabControl synapse;
         private System.Windows.Forms.TabPage integratorInfoTab;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage9;
@@ -5765,13 +5788,6 @@ namespace Optimizer
         private Label lblCoding;
         private Label lblSystemTools;
         private Label lblInternet;
-        private Label lblDNS;
-        private LinkLabel txtIPv4;
-        private LinkLabel txtIPv6A;
-        private LinkLabel txtIPv6;
-        private Label label3;
-        private LinkLabel txtIPv4A;
-        private Label label1;
         private Button btnOpenNetwork;
         private Panel panelWin11Tweaks;
         private ToolStripMenuItem trayRegistry;
@@ -5894,6 +5910,14 @@ namespace Optimizer
         private PictureBox pictureBox3;
         private LinkLabel linkLabel3;
         private ToggleCard compactModeSw;
+        private MoonSelect boxDNS;
+        private MoonSelect boxAdapter;
+        private Label label3;
+        private Label label1;
+        private LinkLabel linkDNSv6;
+        private LinkLabel linkDNSv4;
+        private LinkLabel linkDNSv6A;
+        private LinkLabel linkDNSv4A;
     }
 }
 

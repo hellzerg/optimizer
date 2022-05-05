@@ -80,6 +80,8 @@ namespace Optimizer
         bool _skipOneDrive = false;
         bool _skipSystemRestore = false;
 
+        string[] _currentDNS;
+
         ColorOverrider _colorOverrider;
 
         List<TreeNode> _hwDetailed;
@@ -603,7 +605,7 @@ namespace Optimizer
         }
 
         //INIT
-        public MainForm(SplashForm _splashForm, bool disableIndicium = false, bool disableHostsEditor = false, bool disableCommonApps = false, bool disableUWPApps = false, bool disableStartups = false, bool disableCleaner = false, bool disableIntegrator = false)
+        public MainForm(SplashForm _splashForm, bool disableIndicium = false, bool disableHostsEditor = false, bool disableCommonApps = false, bool disableUWPApps = false, bool disableStartups = false, bool disableCleaner = false, bool disableIntegrator = false, bool disablePinger = false)
         {
             InitializeComponent();
 
@@ -809,6 +811,21 @@ namespace Optimizer
                 launcherMenu.Items.RemoveByKey("trayHW");
             }
 
+            // PINGER
+            if (!disablePinger)
+            {
+                LoadPingerDNSConfig();
+                DisplayCurrentDNS();
+
+                boxDNS.SelectedIndexChanged += boxDNS_SelectedIndexChanged;
+                boxAdapter.SelectedIndexChanged += boxAdapter_SelectedIndexChanged;
+            }
+            else
+            {
+                tabCollection.TabPages.Remove(pingerTab);
+                launcherMenu.Items.RemoveByKey("trayPinger");
+            }
+
             LoadSettings();
 
             LoadTranslationAndSetSize();
@@ -839,7 +856,7 @@ namespace Optimizer
                 txtDownloadFolder.Text = Options.CurrentOptions.AppsFolder;
             }
 
-            if (!Program.EXPERIMENTAL_BUILD && Utilities.IsInternetAvailable()) CheckForUpdate(true);
+            if (!Program.EXPERIMENTAL_BUILD && PingerHelper.IsInternetAvailable()) CheckForUpdate(true);
 
             if (Program.EXPERIMENTAL_BUILD)
             {
@@ -852,6 +869,73 @@ namespace Optimizer
 
             // make toggles function
             EnableToggleEvents();
+        }
+
+        private void LoadPingerDNSConfig()
+        {
+            boxAdapter.Items.AddRange(PingerHelper.GetActiveNetworkAdapters().Select(z => z.Description).ToArray());
+            if (boxAdapter.Items.Count > 0) boxAdapter.SelectedIndex = 0;
+
+            linkDNSv4.LinkClicked += linkDNSIP_LinkClicked;
+            linkDNSv4A.LinkClicked += linkDNSIP_LinkClicked;
+            linkDNSv6.LinkClicked += linkDNSIP_LinkClicked;
+            linkDNSv6A.LinkClicked += linkDNSIP_LinkClicked;
+
+            LoadNetworkAdapterConfig();
+        }
+
+        private void LoadNetworkAdapterConfig()
+        {
+            if (boxAdapter.Items.Count <= 0) return;
+
+            PingerHelper.GetActiveNetworkAdapters();
+            _currentDNS = PingerHelper.GetDNSFromNetworkAdapter(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex]).ToArray();
+
+            if (PingerHelper.CloudflareDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            {
+                boxDNS.Text = "Cloudflare DNS";
+                return;
+            }
+            else if (PingerHelper.OpenDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            {
+                boxDNS.Text = "Open DNS";
+                return;
+            }
+            else if (PingerHelper.Quad9DNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            {
+                boxDNS.Text = "Quad9 DNS";
+                return;
+            }
+            else if (PingerHelper.GoogleDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            {
+                boxDNS.Text = "Google DNS";
+                return;
+            }
+            else if (PingerHelper.AlternateDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            {
+                boxDNS.Text = "Alternate DNS";
+                return;
+            }
+            else if (PingerHelper.AdguardDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            {
+                boxDNS.Text = "Adguard DNS";
+                return;
+            }
+            else if (PingerHelper.CleanBrowsingDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            {
+                boxDNS.Text = "CleanBrowsing";
+                return;
+            }
+            else if (PingerHelper.CleanBrowsingAdultDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            {
+                boxDNS.Text = "CleanBrowsing (adult filter)";
+                return;
+            }
+            else
+            {
+                boxDNS.Text = "Automatic";
+                return;
+            }
         }
 
         private void LoadTranslationAndSetSize()
@@ -3539,7 +3623,7 @@ namespace Optimizer
 
             listPingResults.Items.Clear();
 
-            if (Utilities.PingHost(txtPingInput.Text) == null)
+            if (PingerHelper.PingHost(txtPingInput.Text) == null)
             {
                 listPingResults.Items.Add(string.Format("{0} [{1}]", Options.TranslationList["hostNotFound"], txtPingInput.Text));
                 return;
@@ -3550,15 +3634,15 @@ namespace Optimizer
                 btnShodan.Enabled = false;
                 btnPing.Enabled = false;
 
-                listPingResults.Items.Add(string.Format("{0} [{1}]", Options.TranslationList["pinging"], txtPingInput.Text));
+                listPingResults.Items.Add(string.Format("{0}", Options.TranslationList["pinging"]));
                 listPingResults.Items.Add("");
 
                 for (int i = 0; i < 9; i++)
                 {
                     // wait before each pinging
-                    Thread.Sleep(888);
+                    Thread.Sleep(1000);
 
-                    tmpReply = Utilities.PingHost(txtPingInput.Text);
+                    tmpReply = PingerHelper.PingHost(txtPingInput.Text);
 
                     if (tmpReply.Address == null)
                     {
@@ -3727,7 +3811,7 @@ namespace Optimizer
         {
             if (MessageBox.Show(_flushDNSMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Utilities.FlushDNSCache();
+                PingerHelper.FlushDNSCache();
             }
         }
 
@@ -3801,26 +3885,6 @@ namespace Optimizer
                     ErrorLogger.LogError("MainForm.BackupStartupItems", ex.Message, ex.StackTrace);
                 }
             }
-        }
-
-        private void txtIPv4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Clipboard.SetText(txtIPv4.Text);
-        }
-
-        private void txtIPv4A_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Clipboard.SetText(txtIPv4A.Text);
-        }
-
-        private void txtIPv6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Clipboard.SetText(txtIPv6.Text);
-        }
-
-        private void txtIPv6A_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Clipboard.SetText(txtIPv6A.Text);
         }
 
         private void btnOpenNetwork_Click(object sender, EventArgs e)
@@ -4188,6 +4252,121 @@ namespace Optimizer
         private void linkLabel3_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(_paypalSupportLink);
+        }
+
+        private void linkDNSIP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(((LinkLabel)sender).Text);
+            }
+            catch { }
+        }
+
+        private void boxDNS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (boxDNS.Text == "Automatic")
+            {
+                PingerHelper.ResetDefaultDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name);
+                PingerHelper.GetActiveNetworkAdapters();
+                DisplayCurrentDNS();
+                return;
+            }
+            else if (boxDNS.Text == "Cloudflare DNS")
+            {
+                PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, PingerHelper.CloudflareDNSv4, PingerHelper.CloudflareDNSv6);
+                PingerHelper.GetActiveNetworkAdapters();
+                DisplayCurrentDNS();
+                return;
+            }
+            else if (boxDNS.Text == "Open DNS")
+            {
+                PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, PingerHelper.OpenDNSv4, PingerHelper.OpenDNSv6);
+                PingerHelper.GetActiveNetworkAdapters();
+                DisplayCurrentDNS();
+                return;
+            }
+            else if (boxDNS.Text == "Quad9 DNS")
+            {
+                PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, PingerHelper.Quad9DNSv4, PingerHelper.Quad9DNSv6);
+                PingerHelper.GetActiveNetworkAdapters();
+                DisplayCurrentDNS();
+                return;
+            }
+            else if (boxDNS.Text == "Google DNS")
+            {
+                PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, PingerHelper.GoogleDNSv4, PingerHelper.GoogleDNSv6);
+                PingerHelper.GetActiveNetworkAdapters();
+                DisplayCurrentDNS();
+                return;
+            }
+            else if (boxDNS.Text == "Alternate DNS")
+            {
+                PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, PingerHelper.AlternateDNSv4, PingerHelper.AlternateDNSv6);
+                PingerHelper.GetActiveNetworkAdapters();
+                DisplayCurrentDNS();
+                return;
+            }
+            else if (boxDNS.Text == "Adguard DNS")
+            {
+                PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, PingerHelper.AdguardDNSv4, PingerHelper.AdguardDNSv6);
+                PingerHelper.GetActiveNetworkAdapters();
+                DisplayCurrentDNS();
+                return;
+            }
+            else if (boxDNS.Text == "CleanBrowsing")
+            {
+                PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, PingerHelper.CleanBrowsingDNSv4, PingerHelper.CleanBrowsingDNSv6);
+                PingerHelper.GetActiveNetworkAdapters();
+                DisplayCurrentDNS();
+                return;
+            }
+            else if (boxDNS.Text == "CleanBrowsing (adult filter)")
+            {
+                PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, PingerHelper.CleanBrowsingAdultDNSv4, PingerHelper.CleanBrowsingAdultDNSv6);
+                PingerHelper.GetActiveNetworkAdapters();
+                DisplayCurrentDNS();
+                return;
+            }
+        }
+
+        private void DisplayCurrentDNS()
+        {
+            _currentDNS = PingerHelper.GetDNSFromNetworkAdapter(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex]).ToArray();
+
+            try
+            {
+                if (_currentDNS.Length == 1)
+                {
+                    linkDNSv4.Text = _currentDNS[0];
+                }
+                else if (_currentDNS.Length == 2)
+                {
+                    linkDNSv4.Text = _currentDNS[0];
+                    linkDNSv4A.Text = _currentDNS[1];
+                }
+                else if (_currentDNS.Length == 3)
+                {
+                    linkDNSv6.Text = _currentDNS[0];
+                    linkDNSv4.Text = _currentDNS[1];
+                    linkDNSv4A.Text = _currentDNS[2];
+                }
+                else if (_currentDNS.Length == 4)
+                {
+                    linkDNSv4.Text = _currentDNS[2];
+                    linkDNSv4A.Text = _currentDNS[3];
+                    linkDNSv6.Text = _currentDNS[0];
+                    linkDNSv6A.Text = _currentDNS[1];
+                }
+            }
+            catch { }
+            finally { pingerTab.Focus(); }
+        }
+
+        private void boxAdapter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadNetworkAdapterConfig();
+            pingerTab.Focus();
         }
     }
 }

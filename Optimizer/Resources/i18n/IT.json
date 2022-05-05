@@ -104,7 +104,6 @@
 	"cleanerTitle": "Clean up your system drive",
 	"pingerTitle": "Ping IP addresses and assess your latency",
 	"lblPinger": "IP / Domain name",
-	"lblDNS": "DNS Cloudflare consigliato\n(clicca per copiare)",
 	"btnOpenNetwork": "Apri connessioni di rete",
 	"copyIPB": "Copia",
 	"copyB": "Copia IP",

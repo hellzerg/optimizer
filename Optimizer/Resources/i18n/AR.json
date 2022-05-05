@@ -112,7 +112,6 @@
 	"cleanerTitle": "تنظيف محرك النظام الخاص بك",
 	"pingerTitle": "عناوين Ping IP وتقييم وقت الاستجابة الخاص بك",
 	"lblPinger": "IP / اسم النطاق",
-	"lblDNS":  "موصى به Cloudflare DNS\n(انقر للنسخ)",
 	"btnOpenNetwork": "افتح اتصالات الشبكة",
 	"copyIPB": "نسخ",
 	"copyB": "نسخ IP",

@@ -113,7 +113,6 @@
 	"cleanerTitle": "Systemlaufwerk bereinigen",
 	"pingerTitle": "IP-Adressen anpingen und die Latenzzeit ermitteln",
 	"lblPinger": "IP / Domainname",
-	"lblDNS": "Empfohlene Cloudflare-DNS\n(zum kopieren anklicken)",
 	"btnOpenNetwork": "Netzwerkverbindungen öffnen",
 	"copyIPB": " Kopieren",
 	"copyB": "IP kopieren",

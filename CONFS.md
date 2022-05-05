@@ -40,6 +40,7 @@
 * Startup items tool (```startup```)
 * Cleaner utility (```cleaner```)
 * Integrator tool (```integrator```)
+* Pinger tool (```pinger```)
 
 #### Examples ####
 

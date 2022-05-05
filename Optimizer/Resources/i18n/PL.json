@@ -111,7 +111,6 @@
 	"cleanerTitle": "Wyczyść swój dysk systemowy",
 	"pingerTitle": "Pinguj adresy IP i określ opóźnienie",
 	"lblPinger": "IP / Nazwa Domeny",
-	"lblDNS": "Rekomendowany DNS Cloudflare\n(kliknij, aby skopiować)",
 	"btnOpenNetwork": "Otwórz 'Połączenia Sieciowe'",
 	"copyIPB": "Kopiuj",
 	"copyB": "Kopiuj IP",

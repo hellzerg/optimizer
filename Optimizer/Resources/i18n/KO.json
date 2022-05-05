@@ -112,7 +112,6 @@
 	"cleanerTitle": "시스템 드라이브 청소",
 	"pingerTitle": "IP 주소 핑 및 대기 시간 평가",
 	"lblPinger": "IP / 도메인 이름",
-	"lblDNS": "Cloudflare DNS 권장\n(클릭해서 복사)",
 	"btnOpenNetwork": "네트워크 연결 열기",
 	"copyIPB": "복사",
 	"copyB": "IP 복사",

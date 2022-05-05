@@ -113,7 +113,6 @@
 	"cleanerTitle": "清理您的系統驅動器",
 	"pingerTitle": "Ping IP位址和評估您的延遲",
 	"lblPinger": "IP / 域名",
-	"lblDNS": "推薦 Cloudflare DNS\n(單擊複製)",
 	"btnOpenNetwork": "打開網路連接設置",
 	"copyIPB": "複製",
 	"copyB": "複製 IP",

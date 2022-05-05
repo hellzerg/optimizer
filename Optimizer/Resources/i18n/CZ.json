@@ -113,7 +113,6 @@
 	"cleanerTitle": "Vyčistit systémovou jednotku",
 	"pingerTitle": "Ping IP adres a vyhodnocení latence",
 	"lblPinger": "IP / Název domény",
-	"lblDNS": "Doporučeno Cloudflare DNS\n(kliknutím zkopírujete)",
 	"btnOpenNetwork": "Otevřít síťová připojení",
 	"copyIPB": "Kopírovat",
 	"copyB": "Zkopírovat IP",

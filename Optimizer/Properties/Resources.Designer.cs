@@ -517,16 +517,6 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ipconfig /flushdns
-        ///ipconfig /registerdns.
-        /// </summary>
-        internal static string FlushDNSCache {
-            get {
-                return ResourceManager.GetString("FlushDNSCache", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;redemarrer maintenant&quot;,

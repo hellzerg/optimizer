@@ -36,10 +36,6 @@ namespace Optimizer
 
         internal static WindowsVersion CurrentWindowsVersion = WindowsVersion.Unsupported;
 
-        internal static Ping pinger = new Ping();
-
-        static IPAddress addressToPing;
-
         static string productName = string.Empty;
         static string buildNumber = string.Empty;
 
@@ -166,8 +162,8 @@ namespace Optimizer
             }
             return legit;
         }
-        // DEPRECATED
 
+        // DEPRECATED
         //internal static string GetEdgeDownloadFolder()
         //{
         //    string current = string.Empty;
@@ -671,49 +667,6 @@ namespace Optimizer
 
             if (!process.Start()) tcs.SetException(new Exception("Failed to start process."));
             return tcs.Task;
-        }
-
-        internal static PingReply PingHost(string nameOrAddress)
-        {
-            PingReply reply;
-            try
-            {
-                addressToPing = Dns.GetHostAddresses(nameOrAddress)
-                    .First(address => address.AddressFamily == AddressFamily.InterNetwork);
-
-                reply = pinger.Send(addressToPing);
-                return reply;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        internal static bool IsInternetAvailable()
-        {
-            const int timeout = 1000;
-            const string host = "1.1.1.1";
-
-            var ping = new Ping();
-            var buffer = new byte[32];
-            var pingOptions = new PingOptions();
-
-            try
-            {
-                var reply = ping.Send(host, timeout, buffer, pingOptions);
-                return (reply != null && reply.Status == IPStatus.Success);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        internal static void FlushDNSCache()
-        {
-            Utilities.RunBatchFile(Required.ScriptsFolder + "FlushDNSCache.bat");
-            //Utilities.RunCommand("ipconfig /release && ipconfig /renew && arp -d * && nbtstat -R && nbtstat -RR && ipconfig /flushdns && ipconfig /registerdns");
         }
 
         internal static string SanitizeFileFolderName(string fileName)

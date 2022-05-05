@@ -113,7 +113,6 @@
 	"cleanerTitle": "Nettoyer votre disque systeme",
 	"pingerTitle": "Ping des adresses IP et evaluer votre latence",
 	"lblPinger": "IP / Nom de domaine",
-	"lblDNS": "Recommendation Cloudflare DNS\n(cliquez pour copier)",
 	"btnOpenNetwork": "Ouvrir les connexions reseau",
 	"copyIPB": "Copier",
 	"copyB": "Copier l'IP",

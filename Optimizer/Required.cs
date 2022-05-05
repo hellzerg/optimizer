@@ -46,7 +46,6 @@ namespace Optimizer
             ScriptsFolder + "EnableXboxTasks.bat",
             ScriptsFolder + "OneDrive_Uninstaller.cmd",
             ScriptsFolder + "GPEditEnablerInHome.bat",
-            ScriptsFolder + "FlushDNSCache.bat",
             ScriptsFolder + "AddOpenWithCMD.reg"
         };
 
@@ -62,7 +61,6 @@ namespace Optimizer
             Properties.Resources.EnableXboxTasks,
             Encoding.UTF8.GetString(Properties.Resources.OneDrive_Uninstaller),
             Properties.Resources.GPEditEnablerInHome,
-            Properties.Resources.FlushDNSCache,
             Properties.Resources.AddOpenWithCMD
         };
 
