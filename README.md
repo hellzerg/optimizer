@@ -38,7 +38,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Define custom commands for run dialog
 * Silent run support using a configuration file
 
-## 💾 Downloads: ##
+## ⬇️ Downloads: ##
 https://github.com/hellzerg/optimizer/releases
 
 ## 🖼️ Screenshots: ##
@@ -75,6 +75,9 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ## ☕ Buy me a delicious espresso ##
 Support my hard work by donating me through [PayPal](https://www.paypal.com/paypalme/supportoptimizer)
+
+## 🌐 Join our Discord community:
+[Discord server](https://discord.gg/rZh8BhmmQv)
 
 ## ❤️ Tools used: ##
 * [ByteSize](https://github.com/omar/ByteSize) | Thanks for this really tiny, yet extremely useful library
