@@ -69,6 +69,12 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * Compatible with Windows 7, 8, 8.1, 10, 11
 * Can run under Windows Server 2008, 2012, 2016, 2019, 2022 using ```/unsafe``` switch
 
+## #️ Details: ##
+
+* Latest version: 13.1
+* Released: May 7, 2022
+* SHA256: 3DEA7B625265F9C99610886D7DE25851E2EB7AD6581E0B46336D4ED43D137693
+
 ## ❤️ Tools used: ##
 * ByteSize from https://github.com/omar/ByteSize
 * Thanks for this really tiny, yet extremely useful library
@@ -90,9 +96,3 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ## How to include an app in Common Apps - Pull Request
 https://github.com/hellzerg/optimizer/blob/master/FEED.md
-
-## #️ Details: ##
-
-* Latest version: 13.1
-* Released: May 7, 2022
-* SHA256: 3DEA7B625265F9C99610886D7DE25851E2EB7AD6581E0B46336D4ED43D137693
