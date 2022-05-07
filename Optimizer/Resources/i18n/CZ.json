@@ -74,7 +74,6 @@
 	"txtModernAppsTitle": "Odinstalovat nepotřebné UWP aplikace",
 	"chkSelectAllModernApps": "Vybrat vše",
 	"chkOnlyRemovable": "Pouze s možností odinstalace",
-	"txtUWP": "Pokud odinstaluje Store\nnebudete moci\ninstalovat nové UWP aplikace!\n\nNěkteré aplikace\nnemohou být odinstalovány.\n\nJako například Microsoft Edge,\nNastavení, atd.",
 	"startupTitle": "Vyberte, jaké položky se mají spustit po spuštění systému",
 	"flushDNSMessage": "Jste si jisti, že chcete propláchnout mezipaměť DNS systému Windows?\n\nTo na chvíli způsobí odpojení od internetu a pro správnou funkci může být nutný restart.",
 	"removeStartupItemB": "Odstranit",

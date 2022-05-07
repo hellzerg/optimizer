@@ -73,7 +73,6 @@
 	"txtModernAppsTitle": "卸载不想要的UWP应用程序",
 	"chkSelectAllModernApps": "全选",
 	"chkOnlyRemovable": "只卸载可以卸载的程序",
-	"txtUWP": "如果你卸载了应用商店App Store\n，你将无法安装新的UWP应用程序!此外，有些应用程序不能卸载。就像Microsoft Edge,设置等.",
 	"flushDNSMessage": "您确定要刷新 Windows 的 DNS 缓存吗?\n\n这将导致互联网断开一会儿，可能需要重新启动才能正常运行.",
 	"startupTitle": "选择启动项目",
 	"removeStartupItemB": "删除",

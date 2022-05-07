@@ -73,7 +73,6 @@
 	"txtModernAppsTitle": "Odinstaluj niechciane aplikacje UPW",
 	"chkSelectAllModernApps": "Zaznacz wszystko",
 	"chkOnlyRemovable": "Ukryj nie możliwe do odinstalowania",
-	"txtUWP": "Jeśli odinstalujesz Microsoft Store\nnie będziesz w stanie\nto instalować aplikacji UWP!\n\nNiektóre programy nie mogą\nbyć odinstalowane.\n\nTakie jak Microsoft Edge,\nUstawienia, itd.",
 	"startupTitle": "Wybierz elementy autostartu",
 	"removeStartupItemB": "Usuń",
 	"locateFileB": "Otwórz lokalizację",

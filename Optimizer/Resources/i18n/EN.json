@@ -72,7 +72,6 @@
 	"chkSelectAllModernApps": "Select all",
 	"chkOnlyRemovable": "Only Uninstall-ables",
 	"onedriveM": "Are you sure you want to uninstall OneDrive? This will delete your Desktop and Document files! Only use this option on a local account!",
-	"txtUWP": "If you uninstall Store\nyou won't be able\nto install new UWP apps!\n\nAlso, some apps\ncan't be uninstalled.\n\nLike Microsoft Edge,\nSettings, etc.",
 	"startupTitle": "Choose your startup items",
 	"removeStartupItemB": "Delete",
 	"locateFileB": "Locate file",

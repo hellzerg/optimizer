@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Management.Automation;
 using System.Reflection;
 using System.Security.AccessControl;
 using System.Security.Principal;
@@ -18,16 +17,6 @@ namespace Optimizer
 {
     internal static class Utilities
     {
-        internal static readonly string LocalMachineRun = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
-        internal static readonly string LocalMachineRunOnce = "Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce";
-        internal static readonly string LocalMachineRunWoW = "Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run";
-        internal static readonly string LocalMachineRunOnceWow = "Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\RunOnce";
-        internal static readonly string CurrentUserRun = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
-        internal static readonly string CurrentUserRunOnce = "Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce";
-
-        internal static readonly string LocalMachineStartupFolder = CleanHelper.ProgramData + "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup";
-        internal static readonly string CurrentUserStartupFolder = CleanHelper.ProfileAppDataRoaming + "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup";
-
         // DEPRECATED
         //internal readonly static string DefaultEdgeDownloadFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
 
@@ -286,162 +275,6 @@ namespace Optimizer
             }
         }
 
-        private static void GetRegistryStartupItemsHelper(ref List<StartupItem> list, StartupItemLocation location, StartupItemType type)
-        {
-            string keyPath = string.Empty;
-            RegistryKey hive = null;
-
-            if (location == StartupItemLocation.HKLM)
-            {
-                hive = Registry.LocalMachine;
-
-                if (type == StartupItemType.Run)
-                {
-                    keyPath = LocalMachineRun;
-                }
-                else if (type == StartupItemType.RunOnce)
-                {
-                    keyPath = LocalMachineRunOnce;
-                }
-            }
-            else if (location == StartupItemLocation.HKLMWoW)
-            {
-                hive = Registry.LocalMachine;
-
-                if (type == StartupItemType.Run)
-                {
-                    keyPath = LocalMachineRunWoW;
-                }
-                else if (type == StartupItemType.RunOnce)
-                {
-                    keyPath = LocalMachineRunOnceWow;
-                }
-            }
-            else if (location == StartupItemLocation.HKCU)
-            {
-                hive = Registry.CurrentUser;
-
-                if (type == StartupItemType.Run)
-                {
-                    keyPath = CurrentUserRun;
-                }
-                else if (type == StartupItemType.RunOnce)
-                {
-                    keyPath = CurrentUserRunOnce;
-                }
-            }
-
-            if (hive != null)
-            {
-                try
-                {
-                    RegistryKey key = hive.OpenSubKey(keyPath, true);
-
-                    if (key != null)
-                    {
-                        string[] valueNames = key.GetValueNames();
-
-                        foreach (string x in valueNames)
-                        {
-                            try
-                            {
-                                RegistryStartupItem item = new RegistryStartupItem();
-                                item.Name = x;
-                                item.FileLocation = key.GetValue(x).ToString();
-                                item.Key = key;
-                                item.RegistryLocation = location;
-                                item.StartupType = type;
-
-                                list.Add(item);
-                            }
-                            catch (Exception ex)
-                            {
-                                ErrorLogger.LogError("Utilities.GetRegistryStartupItemsHelper", ex.Message, ex.StackTrace);
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ErrorLogger.LogError("Utilities.GetRegistryStartupItemsHelper", ex.Message, ex.StackTrace);
-                }
-            }
-        }
-
-        private static void GetFolderStartupItemsHelper(ref List<StartupItem> list, string[] files, string[] shortcuts)
-        {
-            foreach (string file in files)
-            {
-                try
-                {
-                    FolderStartupItem item = new FolderStartupItem();
-                    item.Name = Path.GetFileNameWithoutExtension(file);
-                    item.FileLocation = file;
-                    item.Shortcut = file;
-                    item.RegistryLocation = StartupItemLocation.Folder;
-
-                    list.Add(item);
-                }
-                catch (Exception ex)
-                {
-                    ErrorLogger.LogError("Utilities.GetFolderStartupItemsHelper", ex.Message, ex.StackTrace);
-                }
-            }
-
-            foreach (string shortcut in shortcuts)
-            {
-                try
-                {
-                    FolderStartupItem item = new FolderStartupItem();
-                    item.Name = Path.GetFileNameWithoutExtension(shortcut);
-                    item.FileLocation = GetShortcutTargetFile(shortcut);
-                    item.Shortcut = shortcut;
-                    item.RegistryLocation = StartupItemLocation.Folder;
-
-                    list.Add(item);
-                }
-                catch (Exception ex)
-                {
-                    ErrorLogger.LogError("Utilities.GetFolderStartupItemsHelper", ex.Message, ex.StackTrace);
-                }
-            }
-        }
-
-        internal static List<StartupItem> GetStartupItems()
-        {
-            List<StartupItem> startupItems = new List<StartupItem>();
-
-            GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKLM, StartupItemType.Run);
-            GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKLM, StartupItemType.RunOnce);
-
-            GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKCU, StartupItemType.Run);
-            GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKCU, StartupItemType.RunOnce);
-
-            if (Environment.Is64BitOperatingSystem)
-            {
-                GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKLMWoW, StartupItemType.Run);
-                GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKLMWoW, StartupItemType.RunOnce);
-            }
-
-            if (Directory.Exists(CurrentUserStartupFolder))
-            {
-                string[] currentUserFiles = Directory.EnumerateFiles(CurrentUserStartupFolder, "*.*", SearchOption.AllDirectories)
-                .Where(s => s.EndsWith(".exe") || s.EndsWith(".bat")).ToArray();
-                string[] currentUserShortcuts = Directory.GetFiles(CurrentUserStartupFolder, "*.lnk", SearchOption.AllDirectories);
-                GetFolderStartupItemsHelper(ref startupItems, currentUserFiles, currentUserShortcuts);
-            }
-
-            if (Directory.Exists(LocalMachineStartupFolder))
-            {
-                string[] localMachineFiles = Directory.EnumerateFiles(LocalMachineStartupFolder, "*.*", SearchOption.AllDirectories)
-                .Where(s => s.EndsWith(".exe") || s.EndsWith(".bat")).ToArray();
-                string[] localMachineShortcuts = Directory.GetFiles(LocalMachineStartupFolder, "*.lnk", SearchOption.AllDirectories);
-                GetFolderStartupItemsHelper(ref startupItems, localMachineFiles, localMachineShortcuts);
-            }
-
-            return startupItems;
-        }
-
         internal static void EnableFirewall()
         {
             RunCommand("netsh advfirewall set currentprofile state on");
@@ -585,50 +418,6 @@ namespace Optimizer
             }
         }
 
-        internal static List<string> GetModernApps(bool showAll)
-        {
-            List<string> modernApps = new List<string>();
-
-            using (PowerShell script = PowerShell.Create())
-            {
-                if (showAll)
-                {
-                    script.AddScript("Get-AppxPackage -AllUsers | Select -Unique Name | Out-String -Stream");
-                }
-                else
-                {
-                    script.AddScript(@"Get-AppxPackage -AllUsers | Where {$_.NonRemovable -like ""False""} | Select -Unique Name | Out-String -Stream");
-                }
-
-                string tmp = string.Empty;
-                foreach (PSObject x in script.Invoke())
-                {
-                    tmp = x.ToString().Trim();
-                    if (!string.IsNullOrEmpty(tmp) && !tmp.Contains("---") && !tmp.Equals("Name"))
-                    {
-                        modernApps.Add(tmp);
-                    }
-                }
-            }
-
-            return modernApps;
-        }
-
-        internal static bool UninstallModernApp(string appName)
-        {
-            using (PowerShell script = PowerShell.Create())
-            {
-                script.AddScript(string.Format("Get-AppxPackage -AllUsers *{0}* | Remove-AppxPackage", appName));
-
-                script.Invoke();
-
-                return script.Streams.Error.Count > 0;
-
-                // not working on Windows 7 anymore
-                //return script.HadErrors;
-            }
-        }
-
         internal static void ResetConfiguration(bool withoutRestart = false)
         {
             try
@@ -761,7 +550,7 @@ namespace Optimizer
             RegistryKey subKey = null;
 
             if (rights == null)
-                subKey = registryKey.OpenSubKey(subkeyName, RegistryKeyPermissionCheck.ReadWriteSubTree);
+                subKey = registryKey.OpenSubKey(subkeyName, RegistryKeyPermissionCheck.ReadWriteSubTree, RegistryRights.FullControl);
             else
                 subKey = registryKey.OpenSubKey(subkeyName, RegistryKeyPermissionCheck.ReadWriteSubTree, rights.Value);
 
@@ -885,20 +674,20 @@ namespace Optimizer
         {
             try
             {
-                using (RegistryKey ifeo = Registry.LocalMachine.OpenSubKeyWritable(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
+                using (RegistryKey ifeo = Registry.LocalMachine.OpenSubKeyWritable(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", RegistryRights.FullControl))
                 {
                     if (ifeo == null) return;
 
                     ifeo.GrantFullControlOnSubKey("Image File Execution Options");
 
-                    using (RegistryKey k = ifeo.OpenSubKeyWritable("Image File Execution Options"))
+                    using (RegistryKey k = ifeo.OpenSubKeyWritable("Image File Execution Options", RegistryRights.FullControl))
                     {
                         if (k == null) return;
 
                         k.CreateSubKey(pName);
                         k.GrantFullControlOnSubKey(pName);
 
-                        using (RegistryKey f = k.OpenSubKeyWritable(pName))
+                        using (RegistryKey f = k.OpenSubKeyWritable(pName, RegistryRights.FullControl))
                         {
                             if (f == null) return;
 

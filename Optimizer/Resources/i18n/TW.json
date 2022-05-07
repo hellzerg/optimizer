@@ -74,7 +74,6 @@
 	"txtModernAppsTitle": "解除安裝不想要的UWP應用程式",
 	"chkSelectAllModernApps": "全選",
 	"chkOnlyRemovable": "只解除安裝可以解除安裝的程序",
-	"txtUWP": "如果你解除安裝了應用商店App Store\n，你將無法安裝新的UWP應用程式!此外，有些應用程式不能解除安裝。就像Microsoft Edge,設置等.",
 	"flushDNSMessage": "您確定要刷新 Windows 的 DNS 緩存嗎?\n\n這會讓網路斷開一下子，可能需要重新啟動才能正常運作.",
 	"startupTitle": "選擇啟動項目",
 	"removeStartupItemB": "刪除",

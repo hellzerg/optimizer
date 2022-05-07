@@ -2051,6 +2051,7 @@ namespace Optimizer
             classicRibbonSw.ToggleChecked = Options.CurrentOptions.ClassicRibbon;
             classicContextSw.ToggleChecked = Options.CurrentOptions.ClassicMenu;
             tpmSw.ToggleChecked = Options.CurrentOptions.DisableTPMCheck;
+            compactModeSw.ToggleChecked = Options.CurrentOptions.CompactMode;
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -2101,7 +2102,7 @@ namespace Optimizer
 
         private void GetStartupItems()
         {
-            _startUpItems = Utilities.GetStartupItems();
+            _startUpItems = StartupHelper.GetStartupItems();
             listStartupItems.Items.Clear();
 
             for (int i = 0; i < _startUpItems.Count; i++)
@@ -2121,7 +2122,7 @@ namespace Optimizer
             listModernApps.Enabled = false;
 
             listModernApps.Items.Clear();
-            _modernApps = Utilities.GetModernApps(showAll);
+            _modernApps = UWPHelper.GetUWPApps(showAll);
 
             foreach (string x in _modernApps)
             {
@@ -2164,7 +2165,7 @@ namespace Optimizer
 
                     foreach (string app in listModernApps.CheckedItems)
                     {
-                        await Task.Run(() => errorOccured = Utilities.UninstallModernApp(app));
+                        await Task.Run(() => errorOccured = UWPHelper.UninstallUWPApp(app));
 
                         if (errorOccured)
                         {

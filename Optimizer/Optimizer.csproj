@@ -219,9 +219,11 @@
       <DependentUpon>StartupRestoreForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StartupBackupItem.cs" />
+    <Compile Include="StartupHelper.cs" />
     <Compile Include="StartupItem.cs" />
     <Compile Include="TokenPrivilege.cs" />
     <Compile Include="Utilities.cs" />
+    <Compile Include="UWPHelper.cs" />
     <EmbeddedResource Include="Controls\ToggleCard.resx">
       <DependentUpon>ToggleCard.cs</DependentUpon>
     </EmbeddedResource>

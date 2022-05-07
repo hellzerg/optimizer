@@ -74,7 +74,6 @@
 	"txtModernAppsTitle": "Desinstalar UWP apps no deseadas",
 	"chkSelectAllModernApps": "Seleccionar todo",
 	"chkOnlyRemovable": "Solo desinstalables",
-	"txtUWP": "Si desinstala Store\nno podrás\ninstalar nuevas aplicaciones para UWP!\n\nAdemás, algunas aplicaciones\nno se pueden desinstalar.\n\nEjem. Microsoft Edge,\nSettings, etc.",
 	"flushDNSMessage": "¿Está seguro de que desea vaciar la caché DNS de Windows?\n\nEsto causará la desconexión de Internet por un momento y puede ser necesario un reinicio para que funcione correctamente.",
 	"startupTitle": "Elija sus elementos de inicio",
 	"removeStartupItemB": "Borrar",

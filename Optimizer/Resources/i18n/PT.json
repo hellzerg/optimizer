@@ -74,7 +74,6 @@
 	"txtModernAppsTitle": "Desinstalar Aplicativos Indesejados",
 	"chkSelectAllModernApps": "Selecionar Todos",
 	"chkOnlyRemovable": "Apenas Desinstaláveis",
-	"txtUWP": "Se você desinstalar a loja de aplicativos 'Microsoft Store'\nvocê não vai poder instalar novos aplicativos da loja!\n\nAlém disso, alguns aplicativos\nnão pode ser desinstalado.\n\nComo o navegador Microsoft Edge,\nConfigurações, etc.",
 	"startupTitle": "Escolha os aplicativos que iniciarão com o sistema",
 	"flushDNSMessage": "Você tem certeza de que deseja lavar o cache DNS do Windows?\n\nIsto causará a desconexão da Internet por um momento e pode ser necessário reiniciar para funcionar corretamente.",
 	"removeStartupItemB": "Remover",

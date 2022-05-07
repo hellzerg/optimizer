@@ -124,11 +124,11 @@ namespace Optimizer
 
                         if (x.StartupType == StartupItemType.Run.ToString())
                         {
-                            keyPath = Utilities.LocalMachineRun;
+                            keyPath = StartupHelper.LocalMachineRun;
                         }
                         else if (x.StartupType == StartupItemType.RunOnce.ToString())
                         {
-                            keyPath = Utilities.LocalMachineRunOnce;
+                            keyPath = StartupHelper.LocalMachineRunOnce;
                         }
                     }
                     else if (x.RegistryLocation == StartupItemLocation.HKLMWoW.ToString())
@@ -137,11 +137,11 @@ namespace Optimizer
 
                         if (x.StartupType == StartupItemType.Run.ToString())
                         {
-                            keyPath = Utilities.LocalMachineRunWoW;
+                            keyPath = StartupHelper.LocalMachineRunWoW;
                         }
                         else if (x.StartupType == StartupItemType.RunOnce.ToString())
                         {
-                            keyPath = Utilities.LocalMachineRunOnceWow;
+                            keyPath = StartupHelper.LocalMachineRunOnceWow;
                         }
                     }
                     else if (x.RegistryLocation == StartupItemLocation.HKCU.ToString())
@@ -150,11 +150,11 @@ namespace Optimizer
 
                         if (x.StartupType == StartupItemType.Run.ToString())
                         {
-                            keyPath = Utilities.CurrentUserRun;
+                            keyPath = StartupHelper.CurrentUserRun;
                         }
                         else if (x.StartupType == StartupItemType.RunOnce.ToString())
                         {
-                            keyPath = Utilities.CurrentUserRunOnce;
+                            keyPath = StartupHelper.CurrentUserRunOnce;
                         }
                     }
 

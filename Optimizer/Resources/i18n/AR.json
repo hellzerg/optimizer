@@ -73,7 +73,6 @@
 	"txtModernAppsTitle": "قم بإلغاء تثبيت تطبيقات UWP غير المرغوب فيها",
 	"chkSelectAllModernApps": "تحديد الكل",
 	"chkOnlyRemovable": "فقط إلغاء التثبيت",
-	"txtUWP": "إذا قمت بإلغاء تثبيت المتجر\nفلن تتمكن\n من تثبيت تطبيقات UWP الجديدة!\n\nأيضًا، لا يمكن إزالة بعض التطبيقات.\n\nمثل Microsoft Edge،\nالإعدادات، وما إلى ذلك.",
 	"startupTitle": "اختر عناصر بدء التشغيل الخاصة بك",
 	"removeStartupItemB": "حذف",
 	"locateFileB": "Locate file",

@@ -107,7 +107,6 @@ namespace Optimizer
             this.modernAppsTab = new System.Windows.Forms.TabPage();
             this.chkOnlyRemovable = new Optimizer.MoonCheck();
             this.chkSelectAllModernApps = new Optimizer.MoonCheck();
-            this.txtUWP = new System.Windows.Forms.Label();
             this.uninstallModernAppsButton = new System.Windows.Forms.Button();
             this.refreshModernAppsButton = new System.Windows.Forms.Button();
             this.txtModernAppsTitle = new System.Windows.Forms.Label();
@@ -1430,7 +1429,6 @@ namespace Optimizer
             this.modernAppsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.modernAppsTab.Controls.Add(this.chkOnlyRemovable);
             this.modernAppsTab.Controls.Add(this.chkSelectAllModernApps);
-            this.modernAppsTab.Controls.Add(this.txtUWP);
             this.modernAppsTab.Controls.Add(this.uninstallModernAppsButton);
             this.modernAppsTab.Controls.Add(this.refreshModernAppsButton);
             this.modernAppsTab.Controls.Add(this.txtModernAppsTitle);
@@ -1469,20 +1467,6 @@ namespace Optimizer
             this.chkSelectAllModernApps.Text = "Select all";
             this.chkSelectAllModernApps.UseVisualStyleBackColor = true;
             this.chkSelectAllModernApps.CheckedChanged += new System.EventHandler(this.chkSelectAllModernApps_CheckedChanged);
-            // 
-            // txtUWP
-            // 
-            this.txtUWP.AutoSize = true;
-            this.txtUWP.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUWP.ForeColor = System.Drawing.Color.Silver;
-            this.txtUWP.Location = new System.Drawing.Point(499, 195);
-            this.txtUWP.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtUWP.Name = "txtUWP";
-            this.txtUWP.Size = new System.Drawing.Size(160, 231);
-            this.txtUWP.TabIndex = 51;
-            this.txtUWP.Tag = "";
-            this.txtUWP.Text = "IMPORTANT:\r\n\r\nIf you uninstall Store\r\nyou won\'t be able\r\nto install new apps!\r\n\r\n" +
-    "Also, some apps\r\ncan\'t be uninstalled.\r\n\r\nLike Microsoft Edge,\r\nSettings, etc.";
             // 
             // uninstallModernAppsButton
             // 
@@ -3887,7 +3871,7 @@ namespace Optimizer
             this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage8.Size = new System.Drawing.Size(987, 578);
+            this.tabPage8.Size = new System.Drawing.Size(987, 577);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Add/Modify";
             // 
@@ -4231,7 +4215,7 @@ namespace Optimizer
             this.tabPage9.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage9.Size = new System.Drawing.Size(987, 578);
+            this.tabPage9.Size = new System.Drawing.Size(987, 577);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Remove";
             // 
@@ -4481,7 +4465,7 @@ namespace Optimizer
             this.tabPage11.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage11.Size = new System.Drawing.Size(987, 578);
+            this.tabPage11.Size = new System.Drawing.Size(987, 577);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Run Dialog";
             // 
@@ -5655,7 +5639,6 @@ namespace Optimizer
         private MoonCheckList listModernApps;
         private System.Windows.Forms.Button uninstallModernAppsButton;
         private System.Windows.Forms.Button refreshModernAppsButton;
-        private System.Windows.Forms.Label txtUWP;
         private MoonCheck chkSelectAllModernApps;
         private System.Windows.Forms.Button btnResetConfig;
         private System.Windows.Forms.Button btnUpdate;

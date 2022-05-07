@@ -74,7 +74,6 @@
 	"txtModernAppsTitle": "Удалить ненужные UWP приложения",
 	"chkSelectAllModernApps": "Выбрать все",
 	"chkOnlyRemovable": "Только деинсталляторы",
-	"txtUWP": "Если вы удалите Магазин,\nто вы не сможете\nустановить новые UWP приложения!\n\nКроме того, некоторые приложения\nнельзя будет удалить.\n\nКак Microsoft Edge,\nНастройки и т.д.",
 	"startupTitle": "Выберите элементы автозагрузки",
 	"removeStartupItemB": "Удалить",
 	"locateFileB": "Найти файл",

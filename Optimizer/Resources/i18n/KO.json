@@ -74,7 +74,6 @@
 	"txtModernAppsTitle": "불필요한 UWP 앱 제거",
 	"chkSelectAllModernApps": "모두 선택",
 	"chkOnlyRemovable": "제거 가능한 것만",
-	"txtUWP": "Store를 제거하면\n새 UWP 앱을 설치할 수 없습니다!\n\n또한 일부 앱을\n제거할 수 없습니다.\n\nMicrosoft Edge,\n설정 등입니다.",
 	"startupTitle": "시작 항목을 선택하십시오",
 	"removeStartupItemB": "삭제",
 	"locateFileB": "파일 찾기",

@@ -2,7 +2,7 @@
    <img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/banner.png">
 </p> 
 
-## Summary: ##
+## ℹ️ Summary: ##
 
 Portable utility that helps you restore your privacy and increase your security.
 
@@ -39,41 +39,41 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Define custom commands for run dialog
 * Silent run support using a configuration file
 
-## Downloads: ##
+## ☁️ Downloads: ##
 https://github.com/hellzerg/optimizer/releases
 
-## Screenshots: ##
+## 🖼️ Screenshots: ##
 https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
 
-## How to effectively disable Defender in Windows 10 1903 and later ##
+## 🆘 How to effectively disable Defender in Windows 10 1903 and later ##
 #### (https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/security-malware-windows-defender-disableantispyware) ####
 Restart in SAFE-MODE and run Optimizer with ```/disabledefender``` switch
 <br>-OR-<br>
 Execute Optimizer with ```/restart=disabledefender``` switch and let it do the rest automatically
 
-## Command-line options and silent configuration files: ##
+## 🔨 Command-line options and silent configuration files: ##
 https://github.com/hellzerg/optimizer/blob/master/CONFS.md
 
-## Frequently asked questions section: ##
+## ❓ Frequently asked questions section: ##
 https://github.com/hellzerg/optimizer/blob/master/FAQ.md
 
-## Changelog: ##
+## 📜 Changelog: ##
 https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md
 
-## Early development images: ##
+## 🖼️ Early development images: ##
 https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
-## Compatibility: ##
+## 💻 Compatibility: ##
 
 * .NET Framework 4.5.2
 * Compatible with Windows 7, 8, 8.1, 10, 11
 * Can run under Windows Server 2008, 2012, 2016, 2019, 2022 using ```/unsafe``` switch
 
-## Tools used: ##
+## ❤️ Tools used: ##
 * ByteSize from https://github.com/omar/ByteSize
 * Thanks for this really tiny, yet extremely useful library
 
-## Credits for translating: ##
+## ❤️ Credits for translating: ##
 * https://github.com/mrkaban - mrkaban for Russian translation
 * https://github.com/theflamehd - theflamehd for German translation
 * https://github.com/Kheasyque - Kheasyque for Turkish translation
@@ -91,7 +91,7 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 ## How to include an app in Common Apps - Pull Request
 https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
-## Details: ##
+## #️ Details: ##
 
 * Latest version: 13.1
 * Released: May 7, 2022

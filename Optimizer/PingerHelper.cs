@@ -7,7 +7,7 @@ using System.Net.Sockets;
 
 namespace Optimizer
 {
-    internal class PingerHelper
+    internal static class PingerHelper
     {
         internal static string[] GoogleDNSv4 = { "8.8.8.8", "8.8.4.4" };
         internal static string[] GoogleDNSv6 = { "2001:4860:4860::8888", "2001:4860:4860::8844" };
