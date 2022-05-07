@@ -165,6 +165,13 @@ namespace Optimizer
             this.cleanDriveB = new System.Windows.Forms.Button();
             this.lblFootprint = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bravePasswords = new Optimizer.MoonCheck();
+            this.braveSession = new Optimizer.MoonCheck();
+            this.braveHistory = new Optimizer.MoonCheck();
+            this.braveCookies = new Optimizer.MoonCheck();
+            this.braveCache = new Optimizer.MoonCheck();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.edgeSession = new Optimizer.MoonCheck();
@@ -404,6 +411,7 @@ namespace Optimizer
             this.panel14.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -1884,7 +1892,7 @@ namespace Optimizer
             this.groupSoundVideo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.groupSoundVideo.Location = new System.Drawing.Point(749, 64);
             this.groupSoundVideo.Name = "groupSoundVideo";
-            this.groupSoundVideo.Size = new System.Drawing.Size(227, 421);
+            this.groupSoundVideo.Size = new System.Drawing.Size(227, 591);
             this.groupSoundVideo.TabIndex = 166;
             // 
             // lblInternet
@@ -1908,7 +1916,7 @@ namespace Optimizer
             this.groupCoding.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.groupCoding.Location = new System.Drawing.Point(517, 64);
             this.groupCoding.Name = "groupCoding";
-            this.groupCoding.Size = new System.Drawing.Size(226, 421);
+            this.groupCoding.Size = new System.Drawing.Size(226, 591);
             this.groupCoding.TabIndex = 165;
             // 
             // groupInternet
@@ -1919,7 +1927,7 @@ namespace Optimizer
             this.groupInternet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.groupInternet.Location = new System.Drawing.Point(265, 64);
             this.groupInternet.Name = "groupInternet";
-            this.groupInternet.Size = new System.Drawing.Size(246, 421);
+            this.groupInternet.Size = new System.Drawing.Size(246, 591);
             this.groupInternet.TabIndex = 164;
             // 
             // panel10
@@ -2161,7 +2169,7 @@ namespace Optimizer
             this.groupSystemTools.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.groupSystemTools.Location = new System.Drawing.Point(13, 64);
             this.groupSystemTools.Name = "groupSystemTools";
-            this.groupSystemTools.Size = new System.Drawing.Size(246, 421);
+            this.groupSystemTools.Size = new System.Drawing.Size(246, 591);
             this.groupSystemTools.TabIndex = 162;
             // 
             // cleanerTab
@@ -2301,7 +2309,15 @@ namespace Optimizer
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.bravePasswords);
+            this.panel1.Controls.Add(this.braveSession);
+            this.panel1.Controls.Add(this.braveHistory);
+            this.panel1.Controls.Add(this.braveCookies);
+            this.panel1.Controls.Add(this.braveCache);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.edgeSession);
@@ -2335,6 +2351,94 @@ namespace Optimizer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(219, 606);
             this.panel1.TabIndex = 47;
+            // 
+            // bravePasswords
+            // 
+            this.bravePasswords.AutoSize = true;
+            this.bravePasswords.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bravePasswords.ForeColor = System.Drawing.Color.White;
+            this.bravePasswords.Location = new System.Drawing.Point(9, 676);
+            this.bravePasswords.Margin = new System.Windows.Forms.Padding(2);
+            this.bravePasswords.Name = "bravePasswords";
+            this.bravePasswords.Size = new System.Drawing.Size(93, 23);
+            this.bravePasswords.TabIndex = 78;
+            this.bravePasswords.Text = "Passwords";
+            this.bravePasswords.UseVisualStyleBackColor = true;
+            // 
+            // braveSession
+            // 
+            this.braveSession.AutoSize = true;
+            this.braveSession.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.braveSession.ForeColor = System.Drawing.Color.White;
+            this.braveSession.Location = new System.Drawing.Point(9, 649);
+            this.braveSession.Margin = new System.Windows.Forms.Padding(2);
+            this.braveSession.Name = "braveSession";
+            this.braveSession.Size = new System.Drawing.Size(75, 23);
+            this.braveSession.TabIndex = 77;
+            this.braveSession.Text = "Session";
+            this.braveSession.UseVisualStyleBackColor = true;
+            // 
+            // braveHistory
+            // 
+            this.braveHistory.AutoSize = true;
+            this.braveHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.braveHistory.ForeColor = System.Drawing.Color.White;
+            this.braveHistory.Location = new System.Drawing.Point(9, 622);
+            this.braveHistory.Margin = new System.Windows.Forms.Padding(2);
+            this.braveHistory.Name = "braveHistory";
+            this.braveHistory.Size = new System.Drawing.Size(74, 23);
+            this.braveHistory.TabIndex = 76;
+            this.braveHistory.Text = "History";
+            this.braveHistory.UseVisualStyleBackColor = true;
+            // 
+            // braveCookies
+            // 
+            this.braveCookies.AutoSize = true;
+            this.braveCookies.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.braveCookies.ForeColor = System.Drawing.Color.White;
+            this.braveCookies.Location = new System.Drawing.Point(9, 595);
+            this.braveCookies.Margin = new System.Windows.Forms.Padding(2);
+            this.braveCookies.Name = "braveCookies";
+            this.braveCookies.Size = new System.Drawing.Size(77, 23);
+            this.braveCookies.TabIndex = 75;
+            this.braveCookies.Text = "Cookies";
+            this.braveCookies.UseVisualStyleBackColor = true;
+            // 
+            // braveCache
+            // 
+            this.braveCache.AutoSize = true;
+            this.braveCache.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.braveCache.ForeColor = System.Drawing.Color.White;
+            this.braveCache.Location = new System.Drawing.Point(9, 568);
+            this.braveCache.Margin = new System.Windows.Forms.Padding(2);
+            this.braveCache.Name = "braveCache";
+            this.braveCache.Size = new System.Drawing.Size(66, 23);
+            this.braveCache.TabIndex = 74;
+            this.braveCache.Text = "Cache";
+            this.braveCache.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DarkGray;
+            this.label9.Location = new System.Drawing.Point(30, 543);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(107, 20);
+            this.label9.TabIndex = 73;
+            this.label9.Tag = "";
+            this.label9.Text = "Brave Browser";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(7, 542);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 72;
+            this.pictureBox4.TabStop = false;
             // 
             // label8
             // 
@@ -2416,7 +2520,7 @@ namespace Optimizer
             this.IECache.AutoSize = true;
             this.IECache.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IECache.ForeColor = System.Drawing.Color.White;
-            this.IECache.Location = new System.Drawing.Point(10, 569);
+            this.IECache.Location = new System.Drawing.Point(10, 725);
             this.IECache.Margin = new System.Windows.Forms.Padding(2);
             this.IECache.Name = "IECache";
             this.IECache.Size = new System.Drawing.Size(66, 23);
@@ -2546,7 +2650,7 @@ namespace Optimizer
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.DarkGray;
-            this.label6.Location = new System.Drawing.Point(33, 545);
+            this.label6.Location = new System.Drawing.Point(33, 701);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(125, 20);
@@ -2593,7 +2697,7 @@ namespace Optimizer
             // pictureBox10
             // 
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(10, 544);
+            this.pictureBox10.Location = new System.Drawing.Point(9, 700);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(20, 20);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -5440,6 +5544,7 @@ namespace Optimizer
             this.panel13.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -5849,6 +5954,13 @@ namespace Optimizer
         private ToggleCard SSB;
         private ToggleCard STB;
         private ToggleCard WAB;
+        private Label label9;
+        private PictureBox pictureBox4;
+        private MoonCheck bravePasswords;
+        private MoonCheck braveSession;
+        private MoonCheck braveHistory;
+        private MoonCheck braveCookies;
+        private MoonCheck braveCache;
     }
 }
 

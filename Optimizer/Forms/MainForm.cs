@@ -1897,6 +1897,7 @@ namespace Optimizer
                 CleanHelper.PreviewChromeClean(chromeCache.Checked, chromeCookies.Checked, chromeHistory.Checked, chromeSession.Checked, chromePws.Checked);
                 CleanHelper.PreviewFireFoxClean(firefoxCache.Checked, firefoxCookies.Checked, firefoxHistory.Checked);
                 CleanHelper.PreviewEdgeClean(edgeCache.Checked, edgeCookies.Checked, edgeHistory.Checked, edgeSession.Checked);
+                CleanHelper.PreviewBraveClean(braveCache.Checked, braveCookies.Checked, braveHistory.Checked, braveSession.Checked, bravePasswords.Checked);
                 if (IECache.Checked) CleanHelper.PreviewInternetExplorerCache();
             }
             catch (Exception ex)

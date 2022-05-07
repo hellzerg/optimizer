@@ -80,6 +80,30 @@ namespace Optimizer
             Path.Combine(ProfileAppDataLocal, "Microsoft\\Edge\\User Data\\Default\\Service Worker\\Database"),
         };
 
+        // BRAVE FOLDERS
+        static string braveFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data");
+        static string[] braveUserDataCacheDirs = { "Default\\Cache", "Default\\Code Cache\\", "Default\\GPUCache\\", "ShaderCache", "Default\\Service Worker\\CacheStorage\\", "Default\\Service Worker\\ScriptCache\\", "GrShaderCache\\GPUCache\\", "Default\\File System\\", "Default\\JumpListIconsMostVisited\\", "Default\\JumpListIconsRecentClosed\\", "Default\\Service Worker\\Database" };
+        static string bravePasswordsDir = Path.Combine(ProfileAppDataLocal, "BraveSoftware\\Brave-Browser\\User Data\\Default\\Login Data");
+        static string[] braveSessionDirs =
+        {
+            Path.Combine(ProfileAppDataLocal, "BraveSoftware\\Brave-Browser\\User Data\\Default\\Sessions"),
+            Path.Combine(ProfileAppDataLocal, "BraveSoftware\\Brave-Browser\\User Data\\Default\\Session Storage"),
+            Path.Combine(ProfileAppDataLocal, "BraveSoftware\\Brave-Browser\\User Data\\Default\\Extension State"),
+        };
+        static string[] braveCookiesDirs =
+        {
+            Path.Combine(ProfileAppDataLocal, "BraveSoftware\\Brave-Browser\\User Data\\Default\\IndexedDB"),
+            Path.Combine(ProfileAppDataLocal, "BraveSoftware\\Brave-Browser\\User Data\\Default\\Cookies"),
+            Path.Combine(ProfileAppDataLocal, "BraveSoftware\\Brave-Browser\\User Data\\Default\\Cookies-journal")
+        };
+        static string[] braveHistoryDirs =
+        {
+            Path.Combine(ProfileAppDataLocal, "BraveSoftware\\Brave-Browser\\User Data\\Default\\History"),
+            Path.Combine(ProfileAppDataLocal, "BraveSoftware\\Brave-Browser\\User Data\\Default\\History Provider Cache"),
+            Path.Combine(ProfileAppDataLocal, "BraveSoftware\\Brave-Browser\\User Data\\Default\\History-journal")
+        };
+
+
         internal static List<string> PreviewCleanList = new List<string>();
 
         internal static ByteSize PreviewSizeToBeFreed = new ByteSize(0);
@@ -272,6 +296,51 @@ namespace Optimizer
                         PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "cache2"));
                     }
                 }
+            }
+        }
+
+        internal static void PreviewBraveClean(bool cache, bool cookies, bool searchHistory, bool session, bool passwords)
+        {
+            if (cache)
+            {
+                foreach (string x in braveUserDataCacheDirs)
+                {
+                    PreviewFolder(Path.Combine(braveFolder, x));
+                    PreviewSizeToBeFreed += CalculateSize(Path.Combine(braveFolder, x));
+                }
+            }
+
+            if (session)
+            {
+                foreach (string x in braveSessionDirs)
+                {
+                    PreviewFolder(x);
+                    PreviewSizeToBeFreed += CalculateSize(x);
+                }
+            }
+
+            if (cookies)
+            {
+                foreach (string x in braveCookiesDirs)
+                {
+                    PreviewFolder(x);
+                    PreviewSizeToBeFreed += CalculateSize(x);
+                }
+            }
+
+            if (searchHistory)
+            {
+                foreach (string x in braveHistoryDirs)
+                {
+                    PreviewFolder(x);
+                    PreviewSizeToBeFreed += CalculateSize(x);
+                }
+            }
+
+            if (passwords)
+            {
+                PreviewFolder(bravePasswordsDir);
+                PreviewSizeToBeFreed += CalculateSize(bravePasswordsDir);
             }
         }
 
