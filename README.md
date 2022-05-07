@@ -39,7 +39,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Define custom commands for run dialog
 * Silent run support using a configuration file
 
-## ⭳ Downloads: ##
+## 💾 Downloads: ##
 https://github.com/hellzerg/optimizer/releases
 
 ## 🖼️ Screenshots: ##
