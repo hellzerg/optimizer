@@ -4,11 +4,10 @@
 
 ## ℹ️ Summary: ##
 
-Portable utility that helps you restore your privacy and increase your security.
-
-Optimizer is recommended after a fresh, clean installation of Windows to achieve maximum privacy and security.
-
+Portable utility that helps you restore your privacy and increase your security.<br>
+Optimizer is recommended after a fresh, clean installation of Windows to achieve maximum privacy and security.<br>
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
+
 <p align="center">
 	<a href="https://github.com/hellzerg/optimizer/releases/download/13.1/Optimizer-13.1.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
@@ -75,11 +74,10 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * SHA256: 3DEA7B625265F9C99610886D7DE25851E2EB7AD6581E0B46336D4ED43D137693
 
 ## ☕ Buy me a delicious espresso ##
-* Support my hard work by donating me through [PayPal](https://www.paypal.com/paypalme/supportoptimizer)
+Support my hard work by donating me through [PayPal](https://www.paypal.com/paypalme/supportoptimizer)
 
 ## ❤️ Tools used: ##
-* ByteSize from https://github.com/omar/ByteSize
-* Thanks for this really tiny, yet extremely useful library
+* [ByteSize](https://github.com/omar/ByteSize) | Thanks for this really tiny, yet extremely useful library
 
 ## ❤️ Credits for translating: ##
 * https://github.com/mrkaban - mrkaban for Russian translation
