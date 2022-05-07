@@ -2,12 +2,6 @@
    <img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/banner.png">
 </p> 
 
-## ℹ️ Summary: ##
-
-Portable utility that helps you restore your privacy and increase your security.<br>
-Optimizer is recommended after a fresh, clean installation of Windows to achieve maximum privacy and security.<br>
-Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
-
 <p align="center">
 	<a href="https://github.com/hellzerg/optimizer/releases/download/13.1/Optimizer-13.1.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
@@ -15,6 +9,12 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
 	</a>
 </p> 
+
+## ℹ️ Summary: ##
+
+Portable utility that helps you restore your privacy and increase your security.<br>
+Optimizer is recommended after a fresh, clean installation of Windows to achieve maximum privacy and security.<br>
+Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 
 * Full multilingual support (15 languages available)
 * Speed up your system and network performance
