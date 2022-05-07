@@ -46,7 +46,6 @@ https://github.com/hellzerg/optimizer/releases
 https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
 
 ## 🆘 How to effectively disable Defender in Windows 10 1903 and later ##
-#### (https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/security-malware-windows-defender-disableantispyware) ####
 Restart in SAFE-MODE and run Optimizer with ```/disabledefender``` switch
 <br>-OR-<br>
 Execute Optimizer with ```/restart=disabledefender``` switch and let it do the rest automatically
@@ -96,6 +95,3 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * https://github.com/VenusGirl - VenusGirl for Korean translation
 * https://github.com/factuall - Adrian Nieściur for Polish translation
 * https://github.com/MesterPerfect - MesterPerfect for Arabic translation
-
-## How to include an app in Common Apps - Pull Request
-https://github.com/hellzerg/optimizer/blob/master/FEED.md
