@@ -316,9 +316,7 @@ Sicura da applicare.
 della rete che limiterà il traffico di
 rete durante l'esecuzione di app multimediali. 
 Può anche ridurre le prestazioni di rete mentre si gioca online.",
-	"defenderTip": "⚠ Windows Defender NON PUÒ essere disabilitato in Windows 10 versione 1903 e superiori.
-
-Windows Defender è l'antivirus intrinseco di Windows.",
+	"defenderTip": "Windows Defender è l'antivirus intrinseco di Windows.",
 	"smartScreenTip": "SmartScreen scansiona automaticamente file, download e siti, bloccando
 contenuti pericolosi già conosciuti e avvisa l'utente prima che vengano avviati.",
 	"systemRestoreTip": "Il ripristino di sistema è una funzionalità che permette di ripristinare uno stato precedente

@@ -325,9 +325,7 @@ Completamente seguro de aplicar.
 	"networkTip": "Windows implementa un mecanismo de limitación de la red que restringirá
 tráfico de red al ejecutar aplicaciones multimedia. También puede reducir la red
 rendimiento al jugar juegos en línea.",
-	"defenderTip": "⚠ Windows Defender NO PUEDE deshabilitarse en Windows 10 versión 1903 y superior.
-
-Windows Defender es el antivirus integrado en los sistemas Windows.",
+	"defenderTip": "Windows Defender es el antivirus integrado en los sistemas Windows.",
 	"smartScreenTip": "SmartScreen analiza automáticamente archivos, descargas y sitios web, bloqueando
 contenido peligroso ya conocido y le advierte antes de ejecutarlos.",
 	"systemRestoreTip": "Restaurar sistema es una función que permite revertir el estado de Windows

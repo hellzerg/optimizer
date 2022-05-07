@@ -102,6 +102,45 @@ namespace Optimizer
             }
         }
 
+        internal static bool DesktopItemExists(string name)
+        {
+            try
+            {
+                return Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + name, false) != null;
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Integrator.ItemExists", ex.Message, ex.StackTrace);
+                return false;
+            }
+        }
+
+        internal static bool TakeOwnershipExists()
+        {
+            try
+            {
+                return Registry.ClassesRoot.OpenSubKey(@"*\shell\runas", false).GetValue("").ToString() == "Take Ownership";
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Integrator.TakeOwnershipExists", ex.Message, ex.StackTrace);
+                return false;
+            }
+        }
+
+        internal static bool OpenWithCMDExists()
+        {
+            try
+            {
+                return Registry.ClassesRoot.OpenSubKey(@"Directory\shell\OpenWithCMD", false) != null;
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Integrator.OpenWithCMDExists", ex.Message, ex.StackTrace);
+                return false;
+            }
+        }
+
         internal static void RemoveAllItems(List<string> items)
         {
             using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true))

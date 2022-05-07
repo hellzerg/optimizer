@@ -325,9 +325,7 @@ Lze zcela bezpečně aplikovat.
 	"networkTip": "Systém Windows implementoval mechanismus síťového omezení, který omezuje
 síťový provoz při spouštění multimediálních aplikací. Může také snížit síťový
 výkon při hraní online her.",
-	"defenderTip": "⚠ Windows Defender NELZE vypnout ve Windows 10 verzi 1903 a vyšší.
-
-Windows Defender je integrovaný antivirový program v systémech Windows.",
+	"defenderTip": "Windows Defender je integrovaný antivirový program v systémech Windows.",
 	"smartScreenTip": "SmartScreen automaticky skenuje soubory, stahování a webové stránky, blokuje
 již známý nebezpečný obsah a varuje vás před jeho spuštěním.",
 	"systemRestoreTip": "Obnovení systému je funkce, která umožňuje vrátit stav systému Windows do původního stavu

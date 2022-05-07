@@ -324,9 +324,7 @@ Completely safe to apply.
 	"networkTip": "Windows implements a network throttling mechanism that will restrict
 network traffic when running multimedia apps. It can also reduce network's
 performance when playing online games.",
-	"defenderTip": "⚠ Windows Defender CANNOT be disabled in Windows 10 version 1903 and higher.
-
-Windows Defender is the built-in antivirus in Windows systems.",
+	"defenderTip": "Windows Defender is the built-in antivirus in Windows systems.",
 	"smartScreenTip": "SmartScreen automatically scans files, downloads and websites, blocking
 already-known dangerous content and warns you before running them.",
 	"systemRestoreTip": "System Restore is a feature that allows to revert Windows' state

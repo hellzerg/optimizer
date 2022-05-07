@@ -10,7 +10,7 @@ Optimizer is recommended after a fresh, clean installation of Windows to achieve
 
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/13.0/Optimizer-13.0.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/13.1/Optimizer-13.1.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -20,9 +20,8 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Full multilingual support (15 languages available)
 * Speed up your system and network performance
 * Disable unnecessary Windows services
-* Disable Windows telemetry
+* Disable Windows telemetry, Cortana and many more
 * Disable Office telemetry (works only with Office 2016)
-* Disable Cortana
 * Disable Windows 10 automatic updates
 * Download useful apps quickly at once
 * Uninstall UWP apps
@@ -30,6 +29,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Fix common registry issues
 * Ping IPs and assess your latency
 * Search IPs on SHODAN.io
+* Rapidly change DNS server (from a pre-made list)
 * Flush DNS cache
 * Remove unwanted programs running at startup
 * Edit your HOSTS file
@@ -93,6 +93,6 @@ https://github.com/hellzerg/optimizer/blob/master/FEED.md
 
 ## Details: ##
 
-* Latest version: 13.0
-* Released: May 4, 2022
-* SHA256: BF1227C89A073C92C0901AF7FA0AB541597F869E4F2F6A0BFF2A8A1B89EC67FA
+* Latest version: 13.1
+* Released: May 7, 2022
+* SHA256: 3DEA7B625265F9C99610886D7DE25851E2EB7AD6581E0B46336D4ED43D137693

@@ -325,9 +325,7 @@ Ces changements sont totalement surs.
 	"networkTip": "Windows met en œuvre un mecanisme de limitation du reseau qui restreint
 le trafic reseau lors de l'execution d'applications multimedia. Il peut egalement reduire les
 performances du reseau lorsque vous jouez a des jeux en ligne.",
-	"defenderTip": "⚠ Windows Defender NE PEUT PAS etre desactive dans Windows 10 version 1903 et superieure.
-
-Windows Defender est l'antivirus integre dans les systemes Windows.",
+	"defenderTip": "Windows Defender est l'antivirus integre dans les systemes Windows.",
 	"smartScreenTip": "SmartScreen analyse automatiquement les fichiers, les telechargements et les sites Web,
 en bloquant les contenus dangereux deja connus et vous avertit avant de les executer.",
 	"systemRestoreTip": "La restauration du systeme est une fonctionnalite qui permet de retablir l'etat de Windows

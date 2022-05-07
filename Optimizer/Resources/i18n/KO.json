@@ -325,9 +325,7 @@
 	"networkTip": "Windows에서는 멀티미디어 앱을 실행할 때 네트워크 트래픽을 제한하는
 네트워크 조절 메커니즘을 구현합니다. 또한 온라인 게임을 할 때
 네트워크 성능을 저하시킬 수 있습니다.",
-	"defenderTip": "⚠ Windows 10 버전 1903 이상에서는 Windows Defender를 비활성화할 수 없습니다.
-
-Windows Defender는 Windows 시스템에 내장된 바이러스 백신입니다.",
+	"defenderTip": "Windows Defender는 Windows 시스템에 내장된 바이러스 백신입니다.",
 	"smartScreenTip": "SmartScreen은 파일, 다운로드 및 웹 사이트를 자동으로 검색하여
 이미 알려진 위험한 콘텐츠를 차단하고 이를 실행하기 전에 경고합니다.",
 	"systemRestoreTip": "시스템 복원은 Windows 상태를 이전 상태로 되돌려 오작동이나

@@ -323,9 +323,7 @@ Całkowicie bezpieczne do włączenia.
 - Pokazuje ukryte pliki ",
 	"networkTip": "Windows stosuje mechanizm ograniczania przepustowości sieci, który ogranicza
 ruch sieciowy podczas korzystania z aplikacji multimedialnych. Może on również mieć wpływ na wydajność sieci podczas grania w gry online. Ta funckja go wyłącza",
-	"defenderTip": "⚠ Windows Defender NIE MOŻE zostać wyłączony w systemie Windows 10 w wersji 1903 lub wyższej.
-
-Windows Defender to wbudowany program antywirusowy w systemach Windows.",
+	"defenderTip": "Windows Defender to wbudowany program antywirusowy w systemach Windows.",
 	"smartScreenTip": "SmartScreen automatycznie skanuje pliki, pobrane oraz strony internetowe, blokując niebezpieczne treści i ostrzegając przed ich uruchomieniem.",
 	"systemRestoreTip": "Przywracanie systemu to funkcja, która umożliwia przywrócenie stanu systemu Windows
  do takiego w którym działał dobrze, aby przywrócić jego działanie po awarii lub innych problemach.",

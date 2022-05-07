@@ -343,6 +343,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Flags\kurdish.png" />
     <None Include="Resources\Assets\loadingSilver.gif" />
     <None Include="Resources\Assets\loadingRuby.gif" />
     <None Include="Resources\Assets\loadingJade.gif" />

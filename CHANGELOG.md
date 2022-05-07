@@ -1,3 +1,9 @@
+## [13.1] - 2022-05-07
+- New: Change DNS servers rapidly using Pinger (Cloudflare, OpenDNS, Quad9, Google, Alternate, Adguard, Cleanbrowsing) 
+- Hotfix: Rare issue with Cleaner not emptying subfolders
+- Hotfix: Not responding when Enhance Privacy toggle is pressed
+- Hotfix: FPS drops when moving the entire window (#175)
+
 ## [13.0] - 2022-05-04
 - New: Enable Compact mode in Files for Windows 11 (removes extra space between files)
 - New: Cleaner now estimates size based on your preferences

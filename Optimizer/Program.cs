@@ -13,7 +13,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 13;
-        internal readonly static float Minor = 0;
+        internal readonly static float Minor = 1;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
@@ -125,6 +125,8 @@ namespace Optimizer
                                 ErrorLogger.LogError("Program.Main", ex.Message, ex.StackTrace);
                             }
 
+                            for (int z = 0; z < switches.Length; z++) switches[z] = switches[z].ToLowerInvariant();
+
                             // checking for silent config argument
                             if (switches.Length == 1)
                             {
@@ -142,6 +144,13 @@ namespace Optimizer
                                     Application.Run(_MainForm);
 
                                     return;
+                                }
+
+                                // [!!!] unlock all cores instruction 
+                                if (arg == "/unlockcores")
+                                {
+                                    Utilities.UnlockAllCores();
+                                    Environment.Exit(0);
                                 }
 
                                 // resets configuration

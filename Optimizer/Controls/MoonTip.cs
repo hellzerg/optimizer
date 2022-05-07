@@ -36,7 +36,7 @@ namespace Optimizer
             Graphics g = e.Graphics;
 
             LinearGradientBrush b = new LinearGradientBrush(e.Bounds,
-                Color.FromArgb(40, 40, 40), Color.FromArgb(40, 40, 40), 45f);
+                Color.FromArgb(25, 25, 25), Color.FromArgb(25, 25, 25), 45f);
 
             g.FillRectangle(b, e.Bounds);
 

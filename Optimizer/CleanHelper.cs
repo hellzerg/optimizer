@@ -154,7 +154,7 @@ namespace Optimizer
             PreviewFolder(Path.Combine(ProfileAppDataLocal, "Microsoft\\Windows\\WER\\Temp"));
             PreviewFolder(Path.Combine(ProfileAppDataLocal, "Microsoft\\Windows\\WER\\ERC"));
             PreviewFolder(Path.Combine(ProgramData, "Microsoft\\Windows\\WER\\ReportArchive"));
-            PreviewFolder(Path.Combine(ProgramData,"Microsoft\\Windows\\WER\\ReportQueue"));
+            PreviewFolder(Path.Combine(ProgramData, "Microsoft\\Windows\\WER\\ReportQueue"));
             PreviewFolder(Path.Combine(ProgramData, "Microsoft\\Windows\\WER\\Temp"));
             PreviewFolder(Path.Combine(ProgramData, "Microsoft\\Windows\\WER\\ERC"));
 

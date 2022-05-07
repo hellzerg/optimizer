@@ -677,6 +677,16 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kurdish {
+            get {
+                object obj = ResourceManager.GetObject("kurdish", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap loadingAmber {
             get {
                 object obj = ResourceManager.GetObject("loadingAmber", resourceCulture);
@@ -962,6 +972,16 @@ namespace Optimizer.Properties {
         internal static string SystemTools {
             get {
                 return ResourceManager.GetString("SystemTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap taiwan {
+            get {
+                object obj = ResourceManager.GetObject("taiwan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

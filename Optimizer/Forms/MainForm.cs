@@ -254,6 +254,14 @@ namespace Optimizer
             vsSw.ToggleClicked += new EventHandler(VsSw_ToggleClicked);
             gameModeSw.ToggleClicked += new EventHandler(GameModeSw_ToggleClicked);
             compactModeSw.ToggleClicked += CompactModeSw_ToggleClicked;
+
+            PMB.ToggleClicked += PMB_ToggleClicked;
+            SSB.ToggleClicked += SSB_ToggleClicked;
+            WAB.ToggleClicked += WAB_ToggleClicked;
+            STB.ToggleClicked += STB_ToggleClicked;
+            DSB.ToggleClicked += DSB_ToggleClicked;
+            AddCMDB.ToggleClicked += AddCMDB_ToggleClicked;
+            AddOwnerB.ToggleClicked += AddOwnerB_ToggleClicked;
         }
 
         private void CompactModeSw_ToggleClicked(object sender, EventArgs e)
@@ -697,6 +705,7 @@ namespace Optimizer
                 LoadWindowsXToggleStates();
 
                 tabCollection.TabPages.Remove(windows8Tab);
+                defenderSw.Visible = false;
                 this.Controls.Remove(panelWin11Tweaks);
 
                 if (!disableUWPApps)
@@ -719,6 +728,7 @@ namespace Optimizer
 
                 tabCollection.TabPages.Remove(windows8Tab);
                 windows10Tab.Text = "Windows 11";
+                defenderSw.Visible = false;
                 panelWin11Tweaks.Visible = true;
                 oldMixerSw.Visible = false;
 
@@ -766,6 +776,7 @@ namespace Optimizer
             // INTEGRATOR
             if (!disableIntegrator)
             {
+                LoadReadyMenusState();
                 GetDesktopItems();
                 GetCustomCommands();
             }
@@ -869,6 +880,17 @@ namespace Optimizer
 
             // make toggles function
             EnableToggleEvents();
+        }
+
+        private void LoadReadyMenusState()
+        {
+            AddCMDB.ToggleChecked = Integrator.OpenWithCMDExists();
+            AddOwnerB.ToggleChecked = Integrator.TakeOwnershipExists();
+            DSB.ToggleChecked = Integrator.DesktopItemExists("DesktopShortcuts");
+            PMB.ToggleChecked = Integrator.DesktopItemExists("Power Menu");
+            SSB.ToggleChecked = Integrator.DesktopItemExists("SystemShortcuts");
+            STB.ToggleChecked = Integrator.DesktopItemExists("SystemTools");
+            WAB.ToggleChecked = Integrator.DesktopItemExists("WindowsApps");
         }
 
         private void LoadPingerDNSConfig()
@@ -1772,8 +1794,8 @@ namespace Optimizer
         private void GetFootprint()
         {
             ByteSize footprint = CleanHelper.PreviewSizeToBeFreed;
-            //ByteSize footprint = CleanHelper.CheckFootprint();
-            lblFootprint.Text = footprint.ToString();
+            if (footprint > ByteSize.FromBytes(0)) lblFootprint.Text = footprint.ToString();
+            else lblFootprint.Text = "-";
         }
 
         private void GetFeed()
@@ -2406,36 +2428,6 @@ namespace Optimizer
             txtRunKeyword.Text = Path.GetFileNameWithoutExtension(txtRunFile.Text).ToLower();
         }
 
-        private void button59_Click(object sender, EventArgs e)
-        {
-            Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\PowerMenu.reg");
-            GetDesktopItems();
-        }
-
-        private void button53_Click(object sender, EventArgs e)
-        {
-            Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\SystemTools.reg");
-            GetDesktopItems();
-        }
-
-        private void button54_Click(object sender, EventArgs e)
-        {
-            Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\WindowsApps.reg");
-            GetDesktopItems();
-        }
-
-        private void button51_Click(object sender, EventArgs e)
-        {
-            Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\SystemShortcuts.reg");
-            GetDesktopItems();
-        }
-
-        private void button57_Click(object sender, EventArgs e)
-        {
-            Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\DesktopShortcuts.reg");
-            GetDesktopItems();
-        }
-
         private void button60_Click(object sender, EventArgs e)
         {
             GetDesktopItems();
@@ -2850,16 +2842,6 @@ namespace Optimizer
             }
         }
 
-        private void button66_Click(object sender, EventArgs e)
-        {
-            Integrator.InstallTakeOwnership(false);
-        }
-
-        private void button65_Click(object sender, EventArgs e)
-        {
-            Integrator.InstallTakeOwnership(true);
-        }
-
         private void listStartupItems_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             if (e.Column == _columnSorter.CurrentColumn)
@@ -3211,11 +3193,13 @@ namespace Optimizer
         {
             if (privacySw.ToggleChecked)
             {
-                Optimize.EnhancePrivacy();
+                Task t = new Task(() => Optimize.EnhancePrivacy());
+                t.Start();
             }
             else
             {
-                Optimize.CompromisePrivacy();
+                Task t = new Task(() => Optimize.CompromisePrivacy());
+                t.Start();
             }
             Options.CurrentOptions.DisablePrivacyOptions = privacySw.ToggleChecked;
         }
@@ -3916,16 +3900,6 @@ namespace Optimizer
             RestoreWindow();
         }
 
-        private void AddCMDB_Click(object sender, EventArgs e)
-        {
-            Integrator.InstallOpenWithCMD();
-        }
-
-        private void DeleteCMDB_Click(object sender, EventArgs e)
-        {
-            Integrator.DeleteOpenWithCMD();
-        }
-
         private void quickAccessToggle_ToggleClicked(object sender, EventArgs e)
         {
             Options.CurrentOptions.EnableTray = quickAccessToggle.ToggleChecked;
@@ -4367,6 +4341,117 @@ namespace Optimizer
         {
             LoadNetworkAdapterConfig();
             pingerTab.Focus();
+        }
+
+        // FIX FOR LAGGING WHEN MOVING THE FORM
+        private void MainForm_ResizeBegin(object sender, EventArgs e)
+        {
+            bpanel.Controls.Remove(tabCollection);
+        }
+
+        private void MainForm_ResizeEnd(object sender, EventArgs e)
+        {
+            bpanel.Controls.Add(tabCollection);
+            tabCollection.Dock = DockStyle.Fill;
+        }
+        // END FIX
+
+        private void PMB_ToggleClicked(object sender, EventArgs e)
+        {
+            if (PMB.ToggleChecked)
+            {
+                Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\PowerMenu.reg");
+            }
+            else
+            {
+                Integrator.RemoveItem("Power Menu");
+            }
+
+            GetDesktopItems();
+        }
+
+        private void AddOwnerB_ToggleClicked(object sender, EventArgs e)
+        {
+            if (AddOwnerB.ToggleChecked)
+            {
+                Integrator.InstallTakeOwnership(false);
+            }
+            else
+            {
+                Integrator.InstallTakeOwnership(true);
+            }
+
+            GetDesktopItems();
+        }
+
+        private void AddCMDB_ToggleClicked(object sender, EventArgs e)
+        {
+            if (AddCMDB.ToggleChecked)
+            {
+                Integrator.InstallOpenWithCMD();
+            }
+            else
+            {
+                Integrator.DeleteOpenWithCMD();
+            }
+
+            GetDesktopItems();
+        }
+
+        private void DSB_ToggleClicked(object sender, EventArgs e)
+        {
+            if (DSB.ToggleChecked)
+            {
+                Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\DesktopShortcuts.reg");
+            }
+            else
+            {
+                Integrator.RemoveItem("DesktopShortcuts");
+            }
+
+            GetDesktopItems();
+        }
+
+        private void STB_ToggleClicked(object sender, EventArgs e)
+        {
+            if (STB.ToggleChecked)
+            {
+                Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\SystemTools.reg");
+            }
+            else
+            {
+                Integrator.RemoveItem("SystemTools");
+            }
+
+            GetDesktopItems();
+        }
+
+        private void WAB_ToggleClicked(object sender, EventArgs e)
+        {
+            if (WAB.ToggleChecked)
+            {
+                Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\WindowsApps.reg");
+            }
+            else
+            {
+                Integrator.RemoveItem("WindowsApps");
+            }
+
+            GetDesktopItems();
+        }
+
+        private void SSB_ToggleClicked(object sender, EventArgs e)
+        {
+            if (SSB.ToggleChecked)
+            {
+                Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\SystemShortcuts.reg");
+            }
+            else
+            {
+                Integrator.RemoveItem("SystemShortcuts");
+            }
+
+            GetDesktopItems();
         }
     }
 }

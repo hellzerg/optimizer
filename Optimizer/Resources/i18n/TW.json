@@ -327,9 +327,7 @@
 	"networkTip": "Windows實現了一個網路節流機制，該機制將進行限制
 	運行多媒體應用程式時的網路流量。它還可以減少網路的占用
 	玩網路遊戲時的表現.",
-	"defenderTip": "⚠ Windows Defender 在Windows 10版本1903和更高版本暫時無法禁用。
-
-	Windows Defender是Windows系統內建的防病毒軟體.",
+	"defenderTip": "Windows Defender是Windows系統內建的防病毒軟體.",
 	"smartScreenTip": "SmartScreen 是自動掃描文件，下載和網站，阻止
 	已知的危險內容，並在運行它們之前警告您的功能.",
 	"systemRestoreTip": "系統還原是一個功能，允許還原 Windows 的狀態

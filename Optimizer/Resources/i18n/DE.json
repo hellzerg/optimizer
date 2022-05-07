@@ -322,10 +322,7 @@
 	- Zeigt immer Dateierweiterungen an
 	- Zeigt versteckte Dateien ",
 	"networkTip": "Windows implementiert einen Mechanismus zur Netzwerkdrosselung, der den Netzwerkverkehr einschränkt, wenn Multimedia-Anwendungen ausgeführt werden. Dies kann auch die Netzwerkleistung verringern, wenn Sie Online-Spiele spielen.",
-	"defenderTip": "⚠ Windows Defender kann in Windows 10 Version 1903 und höher NICHT deaktiviert werden.
-
-	Windows Defender ist der integrierte Virenschutz in Windows - Systemen.
-	",
+	"defenderTip": "Windows Defender ist der integrierte Virenschutz in Windows - Systemen.",
 	"smartScreenTip": "SmartScreen scannt automatisch Dateien, Downloads und Websites, blockiert bereits bekannte gefährliche Inhalte und warnt Sie, bevor Sie diese ausführen.",
 	"systemRestoreTip": "Die Systemwiederherstellung ist eine Funktion, mit der der jetzige Zustand von Windows auf einen früheren Zustand zurückgesetzt werden kann, um Fehlfunktionen oder anderen Problemen zu lösen.",
 	"reportingTip": "Die Fehlerberichterstattung sammelt Anwendungsabstürze und -fehler und sendet sie an Microsoft.",

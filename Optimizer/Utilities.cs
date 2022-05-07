@@ -6,9 +6,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Management.Automation;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Net.Sockets;
 using System.Reflection;
 using System.Security.AccessControl;
 using System.Security.Principal;
@@ -861,6 +858,28 @@ namespace Optimizer
             }
             catch { }
         }
+
+        // [!!!]
+        internal static void UnlockAllCores()
+        {
+            try
+            {
+                Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583", "ValueMax", 0, RegistryValueKind.DWord);
+                Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583", "ValueMin", 0, RegistryValueKind.DWord);
+            }
+            catch { }
+        }
+
+        // [!!!]
+        //internal static void ChangeNumberOfSvcHostByRAM(string ram)
+        //{
+        //    try
+        //    {
+        //        float kbs = float.Parse(ram);
+        //        Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control", "SvcHostSplitThresholdInKB", kbs * 1024 * 1024, RegistryValueKind.DWord);
+        //    }
+        //    catch { }
+        //}
 
         internal static void PreventProcessFromRunning(string pName)
         {
