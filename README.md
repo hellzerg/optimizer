@@ -10,7 +10,7 @@
 	</a>
 </p> 
 
-## ℹ️ Summary: ##
+### ℹ️ Summary: ###
 
 Portable utility that helps you restore your privacy and increase your security.<br>
 Optimizer is recommended after a fresh, clean installation of Windows to achieve maximum privacy and security.<br>
@@ -38,51 +38,50 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Define custom commands for run dialog
 * Silent run support using a configuration file
 
-## ⬇️ Downloads: ##
+### ⬇️ Downloads: ###
 https://github.com/hellzerg/optimizer/releases
 
-## 🖼️ Screenshots: ##
+### 🖼️ Screenshots: ###
 https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
 
-## 🆘 How to effectively disable Defender in Windows 10 1903 and later ##
+### 🆘 How to effectively disable Defender in Windows 10 1903 and later ###
 Restart in SAFE-MODE and run Optimizer with ```/disabledefender``` switch
 <br>-OR-<br>
 Execute Optimizer with ```/restart=disabledefender``` switch and let it do the rest automatically
 
-## 🔨 Command-line options and silent configuration files: ##
+### 🔨 Command-line options and silent configuration files: ###
 https://github.com/hellzerg/optimizer/blob/master/CONFS.md
 
-## ❓ Frequently asked questions section: ##
+### ❓ Frequently asked questions section: ###
 https://github.com/hellzerg/optimizer/blob/master/FAQ.md
 
-## 📜 Changelog: ##
+### 📜 Changelog: ###
 https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md
 
-## 🖼️ Early development images: ##
+### 🖼️ Early development images: ###
 https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
-## 💻 Compatibility: ##
+### 💻 Compatibility: ###
 
 * .NET Framework 4.5.2
 * Compatible with Windows 7, 8, 8.1, 10, 11
 * Can run under Windows Server 2008, 2012, 2016, 2019, 2022 using ```/unsafe``` switch
 
-## #️ Details: ##
+### #️ Details: ###
 
 * Latest version: 13.1
 * Released: May 7, 2022
 * SHA256: 3DEA7B625265F9C99610886D7DE25851E2EB7AD6581E0B46336D4ED43D137693
 
-## ☕ Buy me a delicious espresso ##
+### ☕ Buy me a delicious espresso ###
 Support my hard work by donating me through [PayPal](https://www.paypal.com/paypalme/supportoptimizer)
 
-## 🌐 Join our Discord community:
-[Discord server](https://discord.gg/rZh8BhmmQv)
+### 🌐 Join our [Discord](https://discord.gg/rZh8BhmmQv) community:
 
-## ❤️ Tools used: ##
+### ❤️ Tools used: ###
 * [ByteSize](https://github.com/omar/ByteSize) | Thanks for this really tiny, yet extremely useful library
 
-## ❤️ Credits for translating: ##
+### ❤️ Credits for translating: ###
 * https://github.com/mrkaban - mrkaban for Russian translation
 * https://github.com/theflamehd - theflamehd for German translation
 * https://github.com/Kheasyque - Kheasyque for Turkish translation
