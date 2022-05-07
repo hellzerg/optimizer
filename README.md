@@ -76,7 +76,7 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 ### ☕ Buy me a delicious espresso ###
 Support my hard work by donating me through [PayPal](https://www.paypal.com/paypalme/supportoptimizer)
 
-### 🌐 Join our [Discord](https://discord.gg/rZh8BhmmQv) community:
+### 🌐 Join our [Discord](https://discord.gg/rZh8BhmmQv) community
 
 ### ❤️ Tools used: ###
 * [ByteSize](https://github.com/omar/ByteSize) | Thanks for this really tiny, yet extremely useful library
