@@ -1760,6 +1760,7 @@ namespace Optimizer
                 trayPinger.Text = translationList["trayPinger"];
                 trayHosts.Text = translationList["trayHosts"];
                 trayAD.Text = translationList["trayAD"];
+                trayUnlocker.Text = translationList["trayUnlocker"];
                 trayOptions.Text = translationList["trayOptions"];
                 trayRegistry.Text = translationList["trayRegistry"];
                 trayRestartExplorer.Text = translationList["trayRestartExplorer"];
@@ -4454,6 +4455,12 @@ namespace Optimizer
             }
 
             GetDesktopItems();
+        }
+
+        private void trayUnlocker_Click(object sender, EventArgs e)
+        {
+            FileUnlockForm fuf = new FileUnlockForm();
+            fuf.ShowDialog(this);
         }
     }
 }

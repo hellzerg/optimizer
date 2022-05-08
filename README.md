@@ -3,7 +3,7 @@
 </p> 
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/13.1/Optimizer-13.1.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/13.2/Optimizer-13.2.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -32,6 +32,7 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Flush DNS cache
 * Remove unwanted programs running at startup
 * Edit your HOSTS file
+* Find file lock handles and kill associated processes
 * Network speed monitoring
 * Hardware inspection tool
 * Add items in desktop on right-click menu
@@ -69,9 +70,9 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ### #️ Details: ###
 
-* Latest version: 13.1
-* Released: May 7, 2022
-* SHA256: 3DEA7B625265F9C99610886D7DE25851E2EB7AD6581E0B46336D4ED43D137693
+* Latest version: 13.2
+* Released: May 8, 2022
+* SHA256: 3878A6A1EBDAA918BEDA7A765807A0AAD34A04B7E3F0A5F96838C72FF492C2A6
 
 ### ☕ Buy me a delicious espresso ###
 Support my hard work by donating me through [PayPal](https://www.paypal.com/paypalme/supportoptimizer)

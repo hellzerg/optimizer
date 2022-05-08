@@ -1,3 +1,9 @@
+## [13.2] - 2022-05-08
+- New: Brave browser support in Cleaner (#176)
+- New: Find file lock handles and free it by killing the processes
+- Hotfix: Uninstalled UWP apps no longer remain in the list (#129)
+- Hotfix: 'Enable Compact Mode in Files' not reflecting current state
+
 ## [13.1] - 2022-05-07
 - New: Change DNS servers rapidly using Pinger (Cloudflare, OpenDNS, Quad9, Google, Alternate, Adguard, Cleanbrowsing) 
 - Hotfix: Rare issue with Cleaner not emptying subfolders

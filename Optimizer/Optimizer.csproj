@@ -111,6 +111,7 @@
     <Compile Include="Controls\ToggleCard.Designer.cs">
       <DependentUpon>ToggleCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="FileHandleHelper.cs" />
     <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +145,12 @@
     </Compile>
     <Compile Include="EmbeddedAssembly.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="Forms\FileUnlockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FileUnlockForm.Designer.cs">
+      <DependentUpon>FileUnlockForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FirstRunForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\AppCard.resx">
       <DependentUpon>AppCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FileUnlockForm.resx">
+      <DependentUpon>FileUnlockForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FirstRunForm.resx">
       <DependentUpon>FirstRunForm.cs</DependentUpon>

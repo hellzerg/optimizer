@@ -144,6 +144,7 @@ namespace Optimizer
             this.Controls.Add(this.btnNo);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtMessage);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.MinimizeBox = false;

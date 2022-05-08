@@ -5,7 +5,7 @@ namespace Optimizer
 {
     internal static class ErrorLogger
     {
-        internal static string ErrorLogFile = Required.CoreFolder + "Optimizer.log";
+        internal static string ErrorLogFile = Path.Combine(Required.CoreFolder, "Optimizer.log");
 
         internal static void LogError(string functionName, string errorMessage, string errorStackTrace)
         {

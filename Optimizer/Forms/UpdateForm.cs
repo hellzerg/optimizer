@@ -9,6 +9,7 @@ namespace Optimizer
         public UpdateForm(string message, bool newUpdate, string changelog, string latestVersion)
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
             Options.ApplyTheme(this);
 
             txtMessage.Text = message;
