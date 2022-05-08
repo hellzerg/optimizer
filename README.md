@@ -39,28 +39,44 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Define custom commands for run dialog
 * Silent run support using a configuration file
 
+<hr>
+
 ### ⬇️ Downloads: ###
 https://github.com/hellzerg/optimizer/releases
 
+<hr>
+
 ### 🖼️ Screenshots: ###
 https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
+
+<hr>
 
 ### 🆘 How to effectively disable Defender in Windows 10 1903 and later ###
 Restart in SAFE-MODE and run Optimizer with ```/disabledefender``` switch
 <br>-OR-<br>
 Execute Optimizer with ```/restart=disabledefender``` switch and let it do the rest automatically
 
+<hr>
+
 ### 🔨 Command-line options and silent configuration files: ###
 https://github.com/hellzerg/optimizer/blob/master/CONFS.md
+
+<hr>
 
 ### ❓ Frequently asked questions section: ###
 https://github.com/hellzerg/optimizer/blob/master/FAQ.md
 
+<hr>
+
 ### 📜 Changelog: ###
 https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md
 
+<hr>
+
 ### 🖼️ Early development images: ###
 https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
+
+<hr>
 
 ### 💻 Compatibility: ###
 
@@ -68,19 +84,29 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 * Compatible with Windows 7, 8, 8.1, 10, 11
 * Can run under Windows Server 2008, 2012, 2016, 2019, 2022 using ```/unsafe``` switch
 
+<hr>
+
 ### #️ Details: ###
 
 * Latest version: 13.2
 * Released: May 8, 2022
 * SHA256: 3878A6A1EBDAA918BEDA7A765807A0AAD34A04B7E3F0A5F96838C72FF492C2A6
 
+<hr>
+
 ### ☕ Buy me a delicious espresso ###
 Support my hard work by donating me through [PayPal](https://www.paypal.com/paypalme/supportoptimizer)
 
+<hr>
+
 ### 🌐 Join our [Discord](https://discord.gg/rZh8BhmmQv) community
+
+<hr>
 
 ### ❤️ Tools used: ###
 * [ByteSize](https://github.com/omar/ByteSize) | Thanks for this really tiny, yet extremely useful library
+
+<hr>
 
 ### ❤️ Credits for translating: ###
 * https://github.com/mrkaban - mrkaban for Russian translation
