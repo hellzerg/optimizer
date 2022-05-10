@@ -291,6 +291,7 @@
     </Compile>
     <None Include="Resources\i18n\AR.json" />
     <None Include="Resources\i18n\PL.json" />
+    <None Include="Resources\i18n\KU.json" />
     <None Include="Resources\Scripts\AddOpenWithCMD.reg" />
     <None Include="Resources\i18n\CN.json" />
     <None Include="Resources\i18n\CZ.json" />

@@ -1057,6 +1057,12 @@ namespace Optimizer
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.KU)
+            {
+                boxLang.Text = "کوردی";
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
         }
 
         private void GetHardwareSpecs()
@@ -4192,6 +4198,13 @@ namespace Optimizer
             {
                 picFlag.Image = Properties.Resources.egypt;
                 Options.CurrentOptions.LanguageCode = LanguageCode.AR;
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
+            else if (boxLang.Text == "کوردی")
+            {
+                picFlag.Image = Properties.Resources.kurdish;
+                Options.CurrentOptions.LanguageCode = LanguageCode.KU;
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }

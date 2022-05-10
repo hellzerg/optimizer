@@ -61,6 +61,8 @@ namespace Optimizer
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.radioArabic = new Optimizer.MoonRadio();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.radioKurdish = new Optimizer.MoonRadio();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox88)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox86)).BeginInit();
@@ -76,6 +78,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox88
@@ -493,6 +496,32 @@ namespace Optimizer
             this.pictureBox12.TabStop = false;
             this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
+            // radioKurdish
+            // 
+            this.radioKurdish.AutoSize = true;
+            this.radioKurdish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioKurdish.ForeColor = System.Drawing.Color.White;
+            this.radioKurdish.Location = new System.Drawing.Point(200, 214);
+            this.radioKurdish.Margin = new System.Windows.Forms.Padding(2);
+            this.radioKurdish.Name = "radioKurdish";
+            this.radioKurdish.Size = new System.Drawing.Size(70, 25);
+            this.radioKurdish.TabIndex = 112;
+            this.radioKurdish.Tag = "";
+            this.radioKurdish.Text = "کوردی";
+            this.radioKurdish.UseVisualStyleBackColor = true;
+            this.radioKurdish.CheckedChanged += new System.EventHandler(this.radioKurdish_CheckedChanged);
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Image = global::Optimizer.Properties.Resources.kurdish;
+            this.pictureBox13.Location = new System.Drawing.Point(160, 217);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(32, 19);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox13.TabIndex = 111;
+            this.pictureBox13.TabStop = false;
+            this.pictureBox13.Click += new System.EventHandler(this.pictureBox13_Click);
+            // 
             // FirstRunForm
             // 
             this.AcceptButton = this.btnStart;
@@ -501,6 +530,8 @@ namespace Optimizer
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnStart;
             this.ClientSize = new System.Drawing.Size(311, 294);
+            this.Controls.Add(this.radioKurdish);
+            this.Controls.Add(this.pictureBox13);
             this.Controls.Add(this.radioArabic);
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.radioPolish);
@@ -559,6 +590,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -597,5 +629,7 @@ namespace Optimizer
         private System.Windows.Forms.PictureBox pictureBox11;
         private MoonRadio radioArabic;
         private System.Windows.Forms.PictureBox pictureBox12;
+        private MoonRadio radioKurdish;
+        private System.Windows.Forms.PictureBox pictureBox13;
     }
 }

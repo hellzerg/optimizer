@@ -13,7 +13,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 13;
-        internal readonly static float Minor = 2;
+        internal readonly static float Minor = 3;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 

@@ -3,7 +3,7 @@
 </p> 
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/13.2/Optimizer-13.2.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/13.3/Optimizer-13.3.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -16,7 +16,7 @@ Portable utility that helps you restore your privacy and increase your security.
 Optimizer is recommended after a fresh, clean installation of Windows to achieve maximum privacy and security.<br>
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 
-* Full multilingual support (15 languages available)
+* Full multilingual support (16 languages available)
 * Speed up your system and network performance
 * Disable unnecessary Windows services
 * Disable Windows telemetry, Cortana and many more
@@ -88,9 +88,9 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ### #️ Details: ###
 
-* Latest version: 13.2
+* Latest version: 13.3
 * Released: May 8, 2022
-* SHA256: 5C966CD8E6082A8AE7B311BD58E0264236331C40E8CE82593EB1EBB478551798
+* SHA256: 9AE21F07308DC31D1BF4D3D60AB08A9A185872FEF1BF767442DF4DD795AB1410
 
 <hr>
 
@@ -122,3 +122,4 @@ Support my hard work by donating me through [PayPal](https://www.paypal.com/payp
 * https://github.com/VenusGirl - VenusGirl for Korean translation
 * https://github.com/factuall - Adrian Nieściur for Polish translation
 * https://github.com/MesterPerfect - MesterPerfect for Arabic translation
+* Lord Paro for Kurdish translation

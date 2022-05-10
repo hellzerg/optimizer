@@ -200,5 +200,17 @@ namespace Optimizer
         {
             radioArabic.PerformClick();
         }
+
+        private void pictureBox13_Click(object sender, EventArgs e)
+        {
+            radioKurdish.PerformClick();
+        }
+
+        private void radioKurdish_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.KU;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
     }
 }

@@ -1,3 +1,6 @@
+## [13.3] - 2022-05-10
+- New: Fully translated into Kurdish (thanks to Lord Paro)
+
 ## [13.2] - 2022-05-08
 - New: Brave browser support in Cleaner (#176)
 - New: Find file lock handles and free it by killing the processes

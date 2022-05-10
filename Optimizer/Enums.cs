@@ -102,6 +102,7 @@
         TW, // taiwan
         KO, // korean
         PL, // polish
-        AR // arabic
+        AR, // arabic
+        KU // kurdish
     }
 }
