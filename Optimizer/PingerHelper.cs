@@ -42,19 +42,35 @@ namespace Optimizer
 
         internal static NetworkInterface[] GetActiveNetworkAdapters()
         {
-            if (ShowHiddenAdapters) NetworkAdapters = NetworkInterface.GetAllNetworkInterfaces();
+            try
+            {
+                if (ShowHiddenAdapters) NetworkAdapters = NetworkInterface.GetAllNetworkInterfaces();
 
-            if (!ShowHiddenAdapters) NetworkAdapters = NetworkInterface.GetAllNetworkInterfaces().Where(
-                a => a.OperationalStatus == OperationalStatus.Up &&
-                (a.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || a.NetworkInterfaceType == NetworkInterfaceType.Ethernet) &&
-                a.GetIPProperties().GatewayAddresses.Any(g => g.Address.AddressFamily.ToString() == "InterNetwork")).ToArray();
+                if (!ShowHiddenAdapters) NetworkAdapters = NetworkInterface.GetAllNetworkInterfaces().Where(
+                    a => a.OperationalStatus == OperationalStatus.Up &&
+                    (a.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || a.NetworkInterfaceType == NetworkInterfaceType.Ethernet) &&
+                    a.GetIPProperties().GatewayAddresses.Any(g => g.Address.AddressFamily.ToString() == "InterNetwork")).ToArray();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("PingerHelper.GetActiveNetworkAdapters", ex.Message, ex.StackTrace);
+                return null;
+            }
 
             return NetworkAdapters;
         }
 
         internal static IEnumerable<string> GetDNSFromNetworkAdapter(NetworkInterface nic)
         {
-            return nic.GetIPProperties().DnsAddresses.Select(z => z.ToString());
+            try
+            {
+                return nic.GetIPProperties().DnsAddresses.Select(z => z.ToString());
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("PingerHelper.GetDNSFromNetworkAdapter", ex.Message, ex.StackTrace);
+                return null;
+            }
         }
 
         internal static void SetDNS(string nic, string[] dnsv4, string[] dnsv6)

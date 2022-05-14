@@ -895,7 +895,11 @@ namespace Optimizer
 
         private void LoadPingerDNSConfig()
         {
-            boxAdapter.Items.AddRange(PingerHelper.GetActiveNetworkAdapters().Select(z => z.Description).ToArray());
+            NetworkInterface[] nics = PingerHelper.GetActiveNetworkAdapters();
+            if (nics == null) return;
+            if (nics.Length == 0) return;
+
+            boxAdapter.Items.AddRange(nics.Select(z => z.Description).ToArray());
             if (boxAdapter.Items.Count > 0) boxAdapter.SelectedIndex = 0;
 
             linkDNSv4.LinkClicked += linkDNSIP_LinkClicked;
@@ -911,7 +915,12 @@ namespace Optimizer
             if (boxAdapter.Items.Count <= 0) return;
 
             PingerHelper.GetActiveNetworkAdapters();
+            if (PingerHelper.NetworkAdapters == null) return;
+            if (PingerHelper.NetworkAdapters.Length == 0) return;
+
             _currentDNS = PingerHelper.GetDNSFromNetworkAdapter(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex]).ToArray();
+            if (_currentDNS == null) return;
+            if (_currentDNS.Length == 0) return;
 
             if (PingerHelper.CloudflareDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {

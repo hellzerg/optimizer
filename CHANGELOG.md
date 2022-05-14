@@ -1,5 +1,8 @@
+## [13.4] - 2022-05-14
+- Hotfix: Crashes on loading if network is offline
+
 ## [13.3] - 2022-05-10
-- New: Fully translated into Kurdish (thanks to Lord Paro)
+- New: Fully translated into Kurdish (thanks to Parwar Andam)
 
 ## [13.2] - 2022-05-08
 - New: Brave browser support in Cleaner (#176)

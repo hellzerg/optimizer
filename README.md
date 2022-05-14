@@ -3,7 +3,7 @@
 </p> 
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/13.3/Optimizer-13.3.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/13.4/Optimizer-13.4.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -88,9 +88,9 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ### #️ Details: ###
 
-* Latest version: 13.3
-* Released: May 8, 2022
-* SHA256: 9AE21F07308DC31D1BF4D3D60AB08A9A185872FEF1BF767442DF4DD795AB1410
+* Latest version: 13.4
+* Released: May 14, 2022
+* SHA256: 9B720340D2C0380ED65538BF0A9DFF6EB44C760A4022649C8E0135E8E2DCD481
 
 <hr>
 
@@ -122,4 +122,4 @@ Support my hard work by donating me through [PayPal](https://www.paypal.com/payp
 * https://github.com/VenusGirl - VenusGirl for Korean translation
 * https://github.com/factuall - Adrian Nieściur for Polish translation
 * https://github.com/MesterPerfect - MesterPerfect for Arabic translation
-* Lord Paro for Kurdish translation
+* Parwar Andam for Kurdish translation
