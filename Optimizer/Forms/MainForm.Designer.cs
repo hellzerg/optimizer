@@ -3976,7 +3976,7 @@ namespace Optimizer
             this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage8.Size = new System.Drawing.Size(987, 578);
+            this.tabPage8.Size = new System.Drawing.Size(987, 577);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Add/Modify";
             // 
@@ -4320,7 +4320,7 @@ namespace Optimizer
             this.tabPage9.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage9.Size = new System.Drawing.Size(987, 578);
+            this.tabPage9.Size = new System.Drawing.Size(987, 577);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Remove";
             // 
@@ -4430,7 +4430,7 @@ namespace Optimizer
             this.tabPage10.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage10.Size = new System.Drawing.Size(987, 578);
+            this.tabPage10.Size = new System.Drawing.Size(987, 577);
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Ready Menus";
             // 
@@ -4570,7 +4570,7 @@ namespace Optimizer
             this.tabPage11.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage11.Size = new System.Drawing.Size(987, 578);
+            this.tabPage11.Size = new System.Drawing.Size(987, 577);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Run Dialog";
             // 
@@ -4932,7 +4932,8 @@ namespace Optimizer
             "繁體中文",
             "한국어",
             "العربية",
-            "کوردی"});
+            "کوردی",
+            "Magyar"});
             this.boxLang.Location = new System.Drawing.Point(92, 3);
             this.boxLang.Name = "boxLang";
             this.boxLang.Size = new System.Drawing.Size(212, 29);
@@ -5089,7 +5090,7 @@ namespace Optimizer
             this.btnOpenConf.Location = new System.Drawing.Point(34, 425);
             this.btnOpenConf.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpenConf.Name = "btnOpenConf";
-            this.btnOpenConf.Size = new System.Drawing.Size(197, 31);
+            this.btnOpenConf.Size = new System.Drawing.Size(218, 31);
             this.btnOpenConf.TabIndex = 63;
             this.btnOpenConf.Text = "Show config folder";
             this.btnOpenConf.UseVisualStyleBackColor = false;
@@ -5132,7 +5133,7 @@ namespace Optimizer
             this.btnViewLog.Location = new System.Drawing.Point(34, 390);
             this.btnViewLog.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewLog.Name = "btnViewLog";
-            this.btnViewLog.Size = new System.Drawing.Size(197, 31);
+            this.btnViewLog.Size = new System.Drawing.Size(218, 31);
             this.btnViewLog.TabIndex = 60;
             this.btnViewLog.Text = "View errors";
             this.btnViewLog.UseVisualStyleBackColor = false;
@@ -5166,7 +5167,7 @@ namespace Optimizer
             this.btnUpdate.Location = new System.Drawing.Point(34, 290);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(197, 31);
+            this.btnUpdate.Size = new System.Drawing.Size(218, 31);
             this.btnUpdate.TabIndex = 57;
             this.btnUpdate.Text = "Check for update";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -5184,7 +5185,7 @@ namespace Optimizer
             this.btnResetConfig.Location = new System.Drawing.Point(34, 460);
             this.btnResetConfig.Margin = new System.Windows.Forms.Padding(2);
             this.btnResetConfig.Name = "btnResetConfig";
-            this.btnResetConfig.Size = new System.Drawing.Size(197, 31);
+            this.btnResetConfig.Size = new System.Drawing.Size(218, 31);
             this.btnResetConfig.TabIndex = 56;
             this.btnResetConfig.Text = "Reset configuration";
             this.btnResetConfig.UseVisualStyleBackColor = false;

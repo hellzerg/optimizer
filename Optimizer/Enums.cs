@@ -103,6 +103,7 @@
         KO, // korean
         PL, // polish
         AR, // arabic
-        KU // kurdish
+        KU, // kurdish
+        HU // hungarian
     }
 }

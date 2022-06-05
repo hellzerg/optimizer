@@ -24,6 +24,9 @@ It's up to you, but keep in mind that by disabling it your current backups will 
 - *Should I disable **Print Service** or **Fax Service**?*<br>
 In case you are actively using printer and/or fax devices, you shouldn't disable them.
 
+- *I cannot login into Xbox Live! Why?*<br>
+Try resetting both **Disable Xbox Live** and **Disable Game Bar**, then restart your computer.
+
 - *My digital pen is not working, why?*<br>
 Reset **Disable Windows Ink**, restart your computer and your pen should be functional again.
 

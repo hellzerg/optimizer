@@ -193,9 +193,9 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton8&quot;: &quot;现在重启&quot;,
         ///	&quot;restartButton10&quot;: &quot;现在重启&quot;,
         ///	&quot;restartAndApply&quot;: &quot;重新启动以应用更改?&quot;,
-        ///	&quot;btnFind&quot;: &quot;寻找&quot;,
-        ///	&quot;btnKill&quot;: &quot;杀&quot;,
-        ///	&quot;trayUnlocker&quot;: &quot;文件句柄&quot;,
+        ///	&quot;btnFind&quot;: &quot;查找进程&quot;,
+        ///	&quot;btnKill&quot;: &quot;结束进程&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;查找文件句柄&quot;,
         ///	&quot;txtVersion&quot;: &quot;版本: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;您使用的是{BITS}&quot;,
         ///	&quot;onedriveM&quot;: &quot;确定要卸载 OneDrive 吗？ 这将删除您的桌面和文档文件！ 仅在本地帐户上使用此选项！&quot;,
@@ -204,7 +204,7 @@ namespace Optimizer.Properties {
         ///	&quot;lblLab&quot;: &quot;实验构建\n(删除后测试)&quot;,
         ///	&quot;performanceSw&quot;: &quot;启用性能调整&quot;,
         ///	&quot;networkSw&quot;: &quot;禁用网络节流&quot;,
-        ///	&quot;defenderSw&quot;: &quot;禁用 Windows [rest of string was truncated]&quot;;.
+        ///	&quot;defenderSw&quot;: &quot;禁用  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CN {
             get {
@@ -603,6 +603,37 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;btnAbout&quot;: &quot;Rendben&quot;,
+        ///	&quot;restartButton&quot;: &quot;Újraindítás most&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Újraindítás most&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Újraindítás most&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Újraindítod az eszközt, hogy a változások érvénybe kerüljenek?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Verzuó: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;You are working with {BITS}&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;Frissítés elérhető&quot;,
+        ///	&quot;lblLab&quot;: &quot;Kísérleti verzió\n(töröld tesztelés után!)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Teljesítményjavítások engedélyezése&quot;,
+        ///	&quot;networkSw&quot;: &quot;Hálózati korlátozás letiltása&quot;,
+        ///	&quot;defend [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string HU {
+            get {
+                return ResourceManager.GetString("HU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hungary {
+            get {
+                object obj = ResourceManager.GetObject("hungary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
         ///
         ///[HKEY_CLASSES_ROOT\*\shell\runas]
@@ -664,17 +695,18 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton&quot;: &quot;지금 다시 시작&quot;,
         ///	&quot;restartButton8&quot;: &quot;지금 다시 시작&quot;,
         ///	&quot;restartButton10&quot;: &quot;지금 다시 시작&quot;,
-        ///	&quot;btnFind&quot;: &quot;찾다&quot;,
-        ///	&quot;btnKill&quot;: &quot;죽임&quot;,
+        ///	&quot;btnFind&quot;: &quot;찾기&quot;,
+        ///	&quot;btnKill&quot;: &quot;죽이기&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;파일 핸들&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;변경을 적용하려면 다시 시작하시겠습니까?&quot;,
-        ///	&quot;onedriveM&quot;: &quot;OneDrive를 제거하시겠습니까? 데스크탑 및 문서 파일이 삭제됩니다! 로컬 계정에서만 이 옵션을 사용하십시오!&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;시스템 복원을 비활성화하시겠습니까? 현재 백업 이미지가 삭제됩니다!&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;다시 시작하여 변경 사항을 적용하시겠습니까?&quot;,
         ///	&quot;txtVersion&quot;: &quot;버전: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;{BITS}로 작업중입니다&quot;,
+        ///	&quot;txtBitness&quot;: &quot;{BITS}로 작업중 - 한국어: 비너스걸&quot;,
         ///	&quot;linkUpdate&quot;: &quot;업데이트 가능&quot;,
         ///	&quot;lblLab&quot;: &quot;실험 빌드\n(테스트 후 삭제)&quot;,
-        ///	&quot;performanc [rest of string was truncated]&quot;;.
+        ///	&quot;performanceSw&quot;: &quot;성능 조정 사용함&quot;,
+        ///	&quot;networkSw&quot;: &quot;네트워크 조절 사용 안 함&quot;,
+        ///	&quot;defenderSw&quot;: &quot;Windows Defender 사용 안 함&quot;,
+        ///	&quot;systemRestoreSw&quot;: &quot;시스템 복원 사용 안 함&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string KO {
             get {

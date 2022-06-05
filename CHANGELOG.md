@@ -1,3 +1,8 @@
+## [13.5] - 2022-06-05
+- New: Fully translated into Hungarian (thanks to Zan)
+- Hotfix: Disable TPM Check not working
+- Hotfix: Proper reset for Cloud Clipboard
+
 ## [13.4] - 2022-05-14
 - Hotfix: Crashes on loading if network is offline
 

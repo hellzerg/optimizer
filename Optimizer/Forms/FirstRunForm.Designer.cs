@@ -63,6 +63,8 @@ namespace Optimizer
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.radioKurdish = new Optimizer.MoonRadio();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.radioHungarian = new Optimizer.MoonRadio();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox88)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox86)).BeginInit();
@@ -79,6 +81,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox88
@@ -127,7 +130,7 @@ namespace Optimizer
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.White;
-            this.btnStart.Location = new System.Drawing.Point(11, 252);
+            this.btnStart.Location = new System.Drawing.Point(11, 320);
             this.btnStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(289, 31);
@@ -522,6 +525,32 @@ namespace Optimizer
             this.pictureBox13.TabStop = false;
             this.pictureBox13.Click += new System.EventHandler(this.pictureBox13_Click);
             // 
+            // radioHungarian
+            // 
+            this.radioHungarian.AutoSize = true;
+            this.radioHungarian.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioHungarian.ForeColor = System.Drawing.Color.White;
+            this.radioHungarian.Location = new System.Drawing.Point(53, 242);
+            this.radioHungarian.Margin = new System.Windows.Forms.Padding(2);
+            this.radioHungarian.Name = "radioHungarian";
+            this.radioHungarian.Size = new System.Drawing.Size(83, 25);
+            this.radioHungarian.TabIndex = 114;
+            this.radioHungarian.Tag = "";
+            this.radioHungarian.Text = "Magyar";
+            this.radioHungarian.UseVisualStyleBackColor = true;
+            this.radioHungarian.CheckedChanged += new System.EventHandler(this.radioHungarian_CheckedChanged);
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.Image = global::Optimizer.Properties.Resources.hungary;
+            this.pictureBox14.Location = new System.Drawing.Point(13, 245);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(32, 19);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox14.TabIndex = 113;
+            this.pictureBox14.TabStop = false;
+            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
+            // 
             // FirstRunForm
             // 
             this.AcceptButton = this.btnStart;
@@ -529,7 +558,9 @@ namespace Optimizer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnStart;
-            this.ClientSize = new System.Drawing.Size(311, 294);
+            this.ClientSize = new System.Drawing.Size(311, 362);
+            this.Controls.Add(this.radioHungarian);
+            this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.radioKurdish);
             this.Controls.Add(this.pictureBox13);
             this.Controls.Add(this.radioArabic);
@@ -591,6 +622,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -631,5 +663,7 @@ namespace Optimizer
         private System.Windows.Forms.PictureBox pictureBox12;
         private MoonRadio radioKurdish;
         private System.Windows.Forms.PictureBox pictureBox13;
+        private MoonRadio radioHungarian;
+        private System.Windows.Forms.PictureBox pictureBox14;
     }
 }

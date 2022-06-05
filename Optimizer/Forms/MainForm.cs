@@ -254,6 +254,7 @@ namespace Optimizer
             vsSw.ToggleClicked += new EventHandler(VsSw_ToggleClicked);
             gameModeSw.ToggleClicked += new EventHandler(GameModeSw_ToggleClicked);
             compactModeSw.ToggleClicked += CompactModeSw_ToggleClicked;
+            tpmSw.ToggleClicked += TpmSw_ToggleClicked;
 
             PMB.ToggleClicked += PMB_ToggleClicked;
             SSB.ToggleClicked += SSB_ToggleClicked;
@@ -262,6 +263,19 @@ namespace Optimizer
             DSB.ToggleClicked += DSB_ToggleClicked;
             AddCMDB.ToggleClicked += AddCMDB_ToggleClicked;
             AddOwnerB.ToggleClicked += AddOwnerB_ToggleClicked;
+        }
+
+        private void TpmSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (tpmSw.ToggleChecked)
+            {
+                Optimize.DisableTPMCheck();
+            }
+            else
+            {
+                Optimize.EnableTPMCheck();
+            }
+            Options.CurrentOptions.DisableTPMCheck = tpmSw.ToggleChecked;
         }
 
         private void CompactModeSw_ToggleClicked(object sender, EventArgs e)
@@ -1069,6 +1083,12 @@ namespace Optimizer
             if (Options.CurrentOptions.LanguageCode == LanguageCode.KU)
             {
                 boxLang.Text = "کوردی";
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.HU)
+            {
+                boxLang.Text = "Magyar";
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
@@ -4214,6 +4234,13 @@ namespace Optimizer
             {
                 picFlag.Image = Properties.Resources.kurdish;
                 Options.CurrentOptions.LanguageCode = LanguageCode.KU;
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
+            else if (boxLang.Text == "Magyar")
+            {
+                picFlag.Image = Properties.Resources.hungary;
+                Options.CurrentOptions.LanguageCode = LanguageCode.HU;
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }

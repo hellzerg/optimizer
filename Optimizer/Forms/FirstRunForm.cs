@@ -212,5 +212,17 @@ namespace Optimizer
             Options.SaveSettings();
             Options.LoadTranslation();
         }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+            radioHungarian.PerformClick();
+        }
+
+        private void radioHungarian_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.HU;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
     }
 }
