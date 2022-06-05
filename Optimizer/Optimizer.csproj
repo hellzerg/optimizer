@@ -293,6 +293,7 @@
     <None Include="Resources\i18n\HU.json" />
     <None Include="Resources\i18n\PL.json" />
     <None Include="Resources\i18n\KU.json" />
+    <None Include="Resources\i18n\RO.json" />
     <None Include="Resources\Scripts\AddOpenWithCMD.reg" />
     <None Include="Resources\i18n\CN.json" />
     <None Include="Resources\i18n\CZ.json" />
@@ -357,6 +358,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Flags\romania.png" />
     <None Include="Resources\Flags\hungary.png" />
     <None Include="Resources\Flags\kurdish.png" />
     <None Include="Resources\Assets\loadingSilver.gif" />

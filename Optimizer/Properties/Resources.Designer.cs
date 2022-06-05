@@ -974,6 +974,37 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;btnAbout&quot;: &quot;Bine&quot;,
+        ///	&quot;restartButton&quot;: &quot;Reporniți acum&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Reporniți acum&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Reporniți acum&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Reporniți pentru a aplica modificări?&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Versiune: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Tu lucrezi cu {BITS}&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;Actualizare disponibilă&quot;,
+        ///	&quot;lblLab&quot;: &quot;Construcție experimentală\n(șterge după testare)&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Activează trucuri performanță&quot;,
+        ///	&quot;networkSw&quot;: &quot;Dezactiva Rețea Limitare&quot;,
+        ///	&quot;defenderSw&quot;: &quot;Dezactivează Window [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RO {
+            get {
+                return ResourceManager.GetString("RO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap romania {
+            get {
+                object obj = ResourceManager.GetObject("romania", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;Перезапустить сейчас&quot;,
         ///	&quot;restartButton8&quot;: &quot;Перезапустить сейчас&quot;,

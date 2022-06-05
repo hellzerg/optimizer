@@ -104,6 +104,7 @@
         PL, // polish
         AR, // arabic
         KU, // kurdish
-        HU // hungarian
+        HU, // hungarian
+        RO // romanian
     }
 }
