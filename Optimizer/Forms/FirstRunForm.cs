@@ -224,5 +224,17 @@ namespace Optimizer
             Options.SaveSettings();
             Options.LoadTranslation();
         }
+
+        private void radioRomanian_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.RO;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
+
+        private void pictureBox15_Click(object sender, EventArgs e)
+        {
+            radioRomanian.PerformClick();
+        }
     }
 }

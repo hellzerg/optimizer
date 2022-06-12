@@ -477,6 +477,15 @@ namespace Optimizer
             catch { }
         }
 
+        internal static void TryDeleteRegistryValueDefaultUsers(string path, string valueName)
+        {
+            try
+            {
+                Registry.Users.OpenSubKey(path, true).DeleteValue(valueName, false);
+            }
+            catch { }
+        }
+
         internal static void DisableProtectedService(string serviceName)
         {
             using (TokenPrivilege.TakeOwnership)

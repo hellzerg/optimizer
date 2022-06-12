@@ -65,6 +65,8 @@ namespace Optimizer
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.radioHungarian = new Optimizer.MoonRadio();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.radioRomanian = new Optimizer.MoonRadio();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox88)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox86)).BeginInit();
@@ -82,6 +84,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox88
@@ -551,6 +554,32 @@ namespace Optimizer
             this.pictureBox14.TabStop = false;
             this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
             // 
+            // radioRomanian
+            // 
+            this.radioRomanian.AutoSize = true;
+            this.radioRomanian.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioRomanian.ForeColor = System.Drawing.Color.White;
+            this.radioRomanian.Location = new System.Drawing.Point(200, 243);
+            this.radioRomanian.Margin = new System.Windows.Forms.Padding(2);
+            this.radioRomanian.Name = "radioRomanian";
+            this.radioRomanian.Size = new System.Drawing.Size(87, 25);
+            this.radioRomanian.TabIndex = 116;
+            this.radioRomanian.Tag = "";
+            this.radioRomanian.Text = "Română";
+            this.radioRomanian.UseVisualStyleBackColor = true;
+            this.radioRomanian.CheckedChanged += new System.EventHandler(this.radioRomanian_CheckedChanged);
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.Image = global::Optimizer.Properties.Resources.romania;
+            this.pictureBox15.Location = new System.Drawing.Point(160, 246);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(32, 19);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox15.TabIndex = 115;
+            this.pictureBox15.TabStop = false;
+            this.pictureBox15.Click += new System.EventHandler(this.pictureBox15_Click);
+            // 
             // FirstRunForm
             // 
             this.AcceptButton = this.btnStart;
@@ -559,6 +588,8 @@ namespace Optimizer
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnStart;
             this.ClientSize = new System.Drawing.Size(311, 362);
+            this.Controls.Add(this.radioRomanian);
+            this.Controls.Add(this.pictureBox15);
             this.Controls.Add(this.radioHungarian);
             this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.radioKurdish);
@@ -623,6 +654,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -665,5 +697,7 @@ namespace Optimizer
         private System.Windows.Forms.PictureBox pictureBox13;
         private MoonRadio radioHungarian;
         private System.Windows.Forms.PictureBox pictureBox14;
+        private MoonRadio radioRomanian;
+        private System.Windows.Forms.PictureBox pictureBox15;
     }
 }

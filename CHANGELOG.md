@@ -1,3 +1,8 @@
+## [13.6] - 2022-06-12
+- New: Fully translated into Romanian (thanks to BeamingNG - https://github.com/BeamingNG)
+- New: DPI awareness support
+- Improved: Proper reset for Enhance Privacy tweak
+
 ## [13.5] - 2022-06-05
 - New: Fully translated into Hungarian (thanks to Zan)
 - Hotfix: Disable TPM Check not working

@@ -13,7 +13,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 13;
-        internal readonly static float Minor = 5;
+        internal readonly static float Minor = 6;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
@@ -52,11 +52,16 @@ namespace Optimizer
         internal static Mutex MUTEX;
         static bool _notRunning;
 
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
+
         [STAThread]
         static void Main(string[] switches)
         {
             EmbeddedAssembly.Load(_jsonAssembly, _jsonAssembly.Replace("Optimizer.", string.Empty));
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+
+            if (Environment.OSVersion.Version.Major >= 6) SetProcessDPIAware();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

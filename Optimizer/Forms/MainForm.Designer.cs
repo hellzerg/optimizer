@@ -4933,7 +4933,8 @@ namespace Optimizer
             "한국어",
             "العربية",
             "کوردی",
-            "Magyar"});
+            "Magyar",
+            "Română"});
             this.boxLang.Location = new System.Drawing.Point(92, 3);
             this.boxLang.Name = "boxLang";
             this.boxLang.Size = new System.Drawing.Size(212, 29);
