@@ -653,6 +653,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers", "HwSchMode", "2", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\GameBar", "AllowAutoGameMode", 1, RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\GameBar", "AutoGameModeEnabled", 1, RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_CURRENT_USER\System\GameConfigStore", "GameDVR_FSEBehaviorMode", 2, RegistryValueKind.DWord);
         }
 
         internal static void DisableGamingMode()
@@ -660,6 +661,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers", "HwSchMode", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\GameBar", "AllowAutoGameMode", 0, RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\GameBar", "AutoGameModeEnabled", 0, RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_CURRENT_USER\System\GameConfigStore", "GameDVR_FSEBehaviorMode", 0, RegistryValueKind.DWord);
         }
 
         internal static void DisableXboxLive()
@@ -1316,6 +1318,7 @@ namespace Optimizer
         internal static void EnableInsiderService()
         {
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\wisvc", "Start", "3", RegistryValueKind.DWord);
+            Utilities.StartService("wisvc");
         }
 
         internal static void DisableInsiderService()
@@ -1558,6 +1561,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig", "BypassTPMCheck", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig", "BypassRAMCheck", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig", "BypassSecureBootCheck", "1", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_CURRENT_USER\Control Panel\UnsupportedHardwareNotificationCache", "SV2", 0, RegistryValueKind.DWord);
         }
 
         internal static void EnableTPMCheck()
@@ -1588,6 +1592,16 @@ namespace Optimizer
         internal static void DisableFilesCompactMode()
         {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "UseCompactMode", 0, RegistryValueKind.DWord);
+        }
+
+        internal static void DisableStickers()
+        {
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\PolicyManager\current\device\Stickers", "EnableStickers");
+        }
+
+        internal static void EnableStickers()
+        {
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Stickers", "EnableStickers", 1, RegistryValueKind.DWord);
         }
 
         // VISUAL STUDIO TELEMETRY
