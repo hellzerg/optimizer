@@ -83,7 +83,7 @@ namespace Optimizer
 
         string[] _currentDNS;
 
-        readonly ColorOverrider _colorOverrider;
+        ColorOverrider _colorOverrider;
 
         List<TreeNode> _hwDetailed;
         TreeNode[] _hwSummarized;
