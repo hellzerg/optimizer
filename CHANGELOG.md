@@ -1,3 +1,5 @@
+## [13.7] - 2022-07-07
+- Improved: Restart Explorer for explorer related options
 ## [13.6] - 2022-06-12
 - New: Fully translated into Romanian (thanks to BeamingNG - https://github.com/BeamingNG)
 - New: DPI awareness support
