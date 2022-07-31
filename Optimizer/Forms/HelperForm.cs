@@ -25,6 +25,10 @@ namespace Optimizer
                 Options.SaveSettings();
                 Utilities.Reboot();
             }
+            if (_type == MessageType.Explorer)
+            {
+                Utilities.RestartExplorer();
+            }
             if (_type == MessageType.Hosts)
             {
                 _main.RemoveAllHostsEntries();

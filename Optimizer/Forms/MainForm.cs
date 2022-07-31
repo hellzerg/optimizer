@@ -73,6 +73,7 @@ namespace Optimizer
         string _errorModernAppsMessage = "The following app(s) couldn't be uninstalled:\n";
         string _resetMessage = "Are you sure you want to reset configuration?\n\nThis will reset all your preferences, including any icons you extracted or downloaded using Integrator, but will not touch anything on your computer!";
         string _flushDNSMessage = "Are you sure you wish to flush the DNS cache of Windows?\n\nThis will cause internet disconnection for a moment and it may be needed a restart to function properly.";
+        string _restartExplorer = "Restart Explorer to apply changes?";
 
         string _byteSizeNullString = " b";
         string _primaryItemTag = "_primary";
@@ -82,7 +83,7 @@ namespace Optimizer
 
         string[] _currentDNS;
 
-        ColorOverrider _colorOverrider;
+        readonly ColorOverrider _colorOverrider;
 
         List<TreeNode> _hwDetailed;
         TreeNode[] _hwSummarized;
@@ -354,6 +355,8 @@ namespace Optimizer
                 Optimize.EnableShowMoreOptions();
             }
             Options.CurrentOptions.ClassicMenu = classicContextSw.ToggleChecked;
+            HelperForm r = new HelperForm(this, MessageType.Explorer, _restartExplorer);
+            r.ShowDialog(this);
         }
 
         private void ClassicRibbonSw_Click(object sender, EventArgs e)
@@ -367,6 +370,8 @@ namespace Optimizer
                 Optimize.DisableFileExplorerClassicRibbon();
             }
             Options.CurrentOptions.ClassicRibbon = classicContextSw.ToggleChecked;
+            HelperForm r = new HelperForm(this, MessageType.Explorer, _restartExplorer);
+            r.ShowDialog(this);
         }
 
         private void chatSw_Click(object sender, EventArgs e)
@@ -393,6 +398,8 @@ namespace Optimizer
                 Optimize.DefaultTaskbarSize();
             }
             Options.CurrentOptions.TaskbarSmaller = smallerTaskbarSw.ToggleChecked;
+            HelperForm r = new HelperForm(this, MessageType.Explorer, _restartExplorer);
+            r.ShowDialog(this);
         }
 
         private void WidgetsSw_Click(object sender, EventArgs e)
@@ -515,6 +522,8 @@ namespace Optimizer
                 Optimize.DisableLongPaths();
             }
             Options.CurrentOptions.EnableLongPaths = longPathsSw.ToggleChecked;
+            HelperForm r = new HelperForm(this, MessageType.Explorer, _restartExplorer);
+            r.ShowDialog();
         }
 
         private void ToggleSwitch38_Click(object sender, EventArgs e)
@@ -1791,6 +1800,7 @@ namespace Optimizer
                 _errorModernAppsMessage = Options.TranslationList["errorModernApps"];
                 _resetMessage = Options.TranslationList["resetMessage"];
                 _flushDNSMessage = Options.TranslationList["flushDNSMessage"];
+                _restartExplorer = Options.TranslationList["restartExplorer"];
 
                 listStartupItems.Columns[0].Text = translationList["startupItemName"];
                 listStartupItems.Columns[1].Text = translationList["startupItemLocation"];

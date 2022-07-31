@@ -32,6 +32,7 @@
 
     internal enum MessageType
     {
+        Explorer,
         Error,
         Startup,
         Restart,

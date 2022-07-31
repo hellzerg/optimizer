@@ -7,6 +7,7 @@
 	"btnKill": "Kill",
 	"trayUnlocker": "File Handles",
 	"restartAndApply": "Restart to apply changes?",
+	"restartExplorer":  "Restart Explorer to apply changes?",
 	"txtVersion": "Version: {VN}",
 	"txtBitness": "You are working with {BITS}",
 	"linkUpdate": "Update available",
