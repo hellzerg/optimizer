@@ -55,6 +55,16 @@
 - ```optimizer.exe /disablehibernate```
 - ```optimizer.exe /enablehibernate```
 
+## How to add or delete Optimizer from Windows startup ##
+
+- ```optimizer.exe /addstartup```
+- ```optimizer.exe /deletestartup```
+
+## How to disable/enable HPET (High Precision Event Timer) in order to gain a boost when gaming [use at your own risk!] ##
+
+- ```optimizer.exe /disablehpet```
+- ```optimizer.exe /enablehpet```
+
 ## You can execute Optimizer silently, applying tweaks according to a configuration file. ##
 
 Download the configuration file based on your Windows version and edit it accordingly.

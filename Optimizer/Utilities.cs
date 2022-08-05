@@ -668,6 +668,20 @@ namespace Optimizer
             catch { }
         }
 
+        internal static void DisableHPET()
+        {
+            Utilities.RunCommand("bcdedit /deletevalue useplatformclock");
+            Thread.Sleep(500);
+            Utilities.RunCommand("bcdedit /set disabledynamictick yes");
+        }
+
+        internal static void EnableHPET()
+        {
+            Utilities.RunCommand("bcdedit /set useplatformclock true");
+            Thread.Sleep(500);
+            Utilities.RunCommand("bcdedit /set disabledynamictick no");
+        }
+
         // [!!!]
         //internal static void ChangeNumberOfSvcHostByRAM(string ram)
         //{
@@ -678,6 +692,36 @@ namespace Optimizer
         //    }
         //    catch { }
         //}
+
+        internal static void AddToStartup()
+        {
+            try
+            {
+                using (RegistryKey k = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+                {
+                    k.SetValue("Optimizer", Assembly.GetEntryAssembly().Location);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Utilities.AddToStartup", ex.Message, ex.StackTrace);
+            }
+        }
+
+        internal static void DeleteFromStartup()
+        {
+            try
+            {
+                using (RegistryKey k = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+                {
+                    k.DeleteValue("Optimizer", false);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Utilities.DeleteFromStartup", ex.Message, ex.StackTrace);
+            }
+        }
 
         internal static void PreventProcessFromRunning(string pName)
         {

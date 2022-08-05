@@ -98,6 +98,9 @@ namespace Optimizer
 
         UpdateForm _updateForm;
 
+        // TESTDPI
+        int DPI_PREFERENCE;
+
         private string NewDownloadLink(string latestVersion)
         {
             return string.Format("https://github.com/hellzerg/optimizer/releases/download/{0}/Optimizer-{0}.exe", latestVersion);
@@ -635,6 +638,8 @@ namespace Optimizer
             CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-US");
 
             CheckForIllegalCrossThreadCalls = false;
+
+            DPI_PREFERENCE = Convert.ToInt32(Microsoft.Win32.Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ThemeManager", "LastLoadedDPI", "96"));
 
             _splashForm.LoadingStatus.Text = "checking for requirements";
 
@@ -1887,19 +1892,19 @@ namespace Optimizer
                             switch (x.Group)
                             {
                                 case "SystemTools":
-                                    appCard.Location = new Point(0, groupSystemTools.Controls.Count * 30);
+                                    appCard.Location = new Point(0, groupSystemTools.Controls.Count * (DPI_PREFERENCE / 3));
                                     groupSystemTools.Controls.Add(appCard);
                                     break;
                                 case "Internet":
-                                    appCard.Location = new Point(0, groupInternet.Controls.Count * 30);
+                                    appCard.Location = new Point(0, groupInternet.Controls.Count * (DPI_PREFERENCE / 3));
                                     groupInternet.Controls.Add(appCard);
                                     break;
                                 case "Coding":
-                                    appCard.Location = new Point(0, groupCoding.Controls.Count * 30);
+                                    appCard.Location = new Point(0, groupCoding.Controls.Count * (DPI_PREFERENCE / 3));
                                     groupCoding.Controls.Add(appCard);
                                     break;
                                 case "GraphicsSound":
-                                    appCard.Location = new Point(0, groupSoundVideo.Controls.Count * 30);
+                                    appCard.Location = new Point(0, groupSoundVideo.Controls.Count * (DPI_PREFERENCE / 3));
                                     groupSoundVideo.Controls.Add(appCard);
                                     break;
                                 default:

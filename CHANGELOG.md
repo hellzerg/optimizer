@@ -1,3 +1,10 @@
+## [13.7] - 2022-08-05
+- New: Disable/Enable HPET using ```/disablehpet``` & ```/enablehpet``` switches
+- New: Allow Optimizer to run on startup using ```/addstartup``` (#206)
+- Hotfix: Disable Telemetry Services no longer disables Diagnostics Policy service (DPS), which is responsible for network app usage (#212)
+- Hotfix: Proper DPI scaling for software list in Apps (#193)
+- Improved: Enhance Privacy now disables Phone Link
+
 ## [13.6] - 2022-06-12
 - New: Fully translated into Romanian (thanks to BeamingNG - https://github.com/BeamingNG)
 - New: DPI awareness support

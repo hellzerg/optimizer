@@ -165,7 +165,6 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\SQMLogger", "Start", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\System", "AllowExperimentation", 0);
 
-            Utilities.DisableProtectedService("DPS");
             Utilities.DisableProtectedService("WdiSystemHost");
             Utilities.DisableProtectedService("WdiServiceHost");
         }
@@ -182,7 +181,6 @@ namespace Optimizer
             Utilities.StartService("dmwappushservice");
             Utilities.StartService("DcpSvc");
 
-            Utilities.EnableProtectedService("DPS");
             Utilities.EnableProtectedService("WdiSystemHost");
             Utilities.EnableProtectedService("WdiServiceHost");
         }
@@ -924,7 +922,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}", "SensorPermissionState", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\lfsvc\Service\Configuration", "Status", "0", RegistryValueKind.DWord);
 
-            // Disable biometrics
+            // Disable biometrics (Windows Hello)
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Biometrics", "Enabled", "0", RegistryValueKind.DWord);
 
             // News feeding
@@ -979,6 +977,9 @@ namespace Optimizer
 
             // Projecting to this PC
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Connect", "AllowProjectionToPC", "0", RegistryValueKind.DWord);
+
+            // Phone Link
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\System", "EnableMmx", 0, RegistryValueKind.DWord);
 
             // attempt to enable Local Group Policy Editor on Windows 10 Home editions
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10 && Utilities.GetOS().ToLowerInvariant().Contains("home"))
@@ -1045,7 +1046,7 @@ namespace Optimizer
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}", "SensorPermissionState");
             Utilities.TryDeleteRegistryValue(true, @"System\CurrentControlSet\Services\lfsvc\Service\Configuration", "Status");
 
-            // Enable biometrics
+            // Enable biometrics (Windows Hello)
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Biometrics", "Enabled");
 
             // Turn off KMS Client Online AVS Validation
@@ -1102,6 +1103,9 @@ namespace Optimizer
 
             // Projecting to this PC
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\Connect", "AllowProjectionToPC");
+
+            // Phone Link
+            Utilities.TryDeleteRegistryValue(true, @"Software\Policies\Microsoft\Windows\System", "EnableMmx");
         }
 
         internal static void DisableGameBar()

@@ -13,7 +13,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 13;
-        internal readonly static float Minor = 6;
+        internal readonly static float Minor = 7;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
@@ -128,6 +128,7 @@ namespace Optimizer
                             catch (Exception ex)
                             {
                                 ErrorLogger.LogError("Program.Main", ex.Message, ex.StackTrace);
+                                Environment.Exit(0);
                             }
 
                             for (int z = 0; z < switches.Length; z++) switches[z] = switches[z].ToLowerInvariant();
@@ -149,6 +150,29 @@ namespace Optimizer
                                     Application.Run(_MainForm);
 
                                     return;
+                                }
+
+                                if (arg == "/disablehpet")
+                                {
+                                    Utilities.DisableHPET();
+                                    Environment.Exit(0);
+                                }
+                                if (arg == "/enablehpet")
+                                {
+                                    Utilities.EnableHPET();
+                                    Environment.Exit(0);
+                                }
+
+                                if (arg == "/addstartup")
+                                {
+                                    Utilities.AddToStartup();
+                                    Environment.Exit(0);
+                                }
+
+                                if (arg == "/deletestartup")
+                                {
+                                    Utilities.DeleteFromStartup();
+                                    Environment.Exit(0);
                                 }
 
                                 // [!!!] unlock all cores instruction 

@@ -50,6 +50,39 @@ namespace Optimizer
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bpanel = new System.Windows.Forms.Panel();
+            this.indiciumMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolHWCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolHWGoogle = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolHWDuck = new System.Windows.Forms.ToolStripMenuItem();
+            this.imagesHw = new System.Windows.Forms.ImageList(this.components);
+            this.defineCommandDialog = new System.Windows.Forms.OpenFileDialog();
+            this.defineProgramDialog = new System.Windows.Forms.OpenFileDialog();
+            this.defineFolderDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.defineFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.DefineProgramIconDialog = new System.Windows.Forms.OpenFileDialog();
+            this.DefineFolderIconDialog = new System.Windows.Forms.OpenFileDialog();
+            this.DefineURLIconDialog = new System.Windows.Forms.OpenFileDialog();
+            this.DefineFileIconDialog = new System.Windows.Forms.OpenFileDialog();
+            this.DefineCommandIconDialog = new System.Windows.Forms.OpenFileDialog();
+            this.ExportDialog = new System.Windows.Forms.SaveFileDialog();
+            this.launcherMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.trayDownSpeed = new System.Windows.Forms.ToolStripMenuItem();
+            this.trayUpSpeed = new System.Windows.Forms.ToolStripMenuItem();
+            this.seperatorNetMon = new System.Windows.Forms.ToolStripSeparator();
+            this.trayStartup = new System.Windows.Forms.ToolStripMenuItem();
+            this.trayCleaner = new System.Windows.Forms.ToolStripMenuItem();
+            this.trayPinger = new System.Windows.Forms.ToolStripMenuItem();
+            this.trayHosts = new System.Windows.Forms.ToolStripMenuItem();
+            this.trayAD = new System.Windows.Forms.ToolStripMenuItem();
+            this.trayHW = new System.Windows.Forms.ToolStripMenuItem();
+            this.trayRegistry = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.trayOptions = new System.Windows.Forms.ToolStripMenuItem();
+            this.trayRestartExplorer = new System.Windows.Forms.ToolStripMenuItem();
+            this.trayUnlocker = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.tabCollection = new Optimizer.MoonTabs();
             this.universalTab = new System.Windows.Forms.TabPage();
             this.chromeTelemetrySw = new Optimizer.ToggleCard();
@@ -258,10 +291,6 @@ namespace Optimizer
             this.indiciumTab = new System.Windows.Forms.TabPage();
             this.panel12 = new System.Windows.Forms.Panel();
             this.specsTree = new Optimizer.MoonTree();
-            this.indiciumMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolHWCopy = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolHWGoogle = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolHWDuck = new System.Windows.Forms.ToolStripMenuItem();
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnCopyHW = new System.Windows.Forms.Button();
             this.btnSaveHW = new System.Windows.Forms.Button();
@@ -361,41 +390,14 @@ namespace Optimizer
             this.lblTheming = new System.Windows.Forms.Label();
             this.quickAccessToggle = new Optimizer.ToggleCard();
             this.helpTipsToggle = new Optimizer.ToggleCard();
-            this.imagesHw = new System.Windows.Forms.ImageList(this.components);
-            this.defineCommandDialog = new System.Windows.Forms.OpenFileDialog();
-            this.defineProgramDialog = new System.Windows.Forms.OpenFileDialog();
-            this.defineFolderDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.defineFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.DefineProgramIconDialog = new System.Windows.Forms.OpenFileDialog();
-            this.DefineFolderIconDialog = new System.Windows.Forms.OpenFileDialog();
-            this.DefineURLIconDialog = new System.Windows.Forms.OpenFileDialog();
-            this.DefineFileIconDialog = new System.Windows.Forms.OpenFileDialog();
-            this.DefineCommandIconDialog = new System.Windows.Forms.OpenFileDialog();
-            this.ExportDialog = new System.Windows.Forms.SaveFileDialog();
-            this.launcherMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.trayDownSpeed = new System.Windows.Forms.ToolStripMenuItem();
-            this.trayUpSpeed = new System.Windows.Forms.ToolStripMenuItem();
-            this.seperatorNetMon = new System.Windows.Forms.ToolStripSeparator();
-            this.trayStartup = new System.Windows.Forms.ToolStripMenuItem();
-            this.trayCleaner = new System.Windows.Forms.ToolStripMenuItem();
-            this.trayPinger = new System.Windows.Forms.ToolStripMenuItem();
-            this.trayHosts = new System.Windows.Forms.ToolStripMenuItem();
-            this.trayAD = new System.Windows.Forms.ToolStripMenuItem();
-            this.trayHW = new System.Windows.Forms.ToolStripMenuItem();
-            this.trayRegistry = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.trayOptions = new System.Windows.Forms.ToolStripMenuItem();
-            this.trayRestartExplorer = new System.Windows.Forms.ToolStripMenuItem();
-            this.trayUnlocker = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.helpBox = new Optimizer.MoonTip();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bpanel.SuspendLayout();
+            this.indiciumMenu.SuspendLayout();
+            this.launcherMenu.SuspendLayout();
             this.tabCollection.SuspendLayout();
             this.universalTab.SuspendLayout();
             this.windows10Tab.SuspendLayout();
@@ -427,7 +429,6 @@ namespace Optimizer
             this.panel2.SuspendLayout();
             this.indiciumTab.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.indiciumMenu.SuspendLayout();
             this.panel11.SuspendLayout();
             this.integratorTab.SuspendLayout();
             this.synapse.SuspendLayout();
@@ -454,7 +455,6 @@ namespace Optimizer
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picFlag)).BeginInit();
             this.panel8.SuspendLayout();
-            this.launcherMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpanel
@@ -580,6 +580,311 @@ namespace Optimizer
             this.bpanel.Name = "bpanel";
             this.bpanel.Size = new System.Drawing.Size(1009, 641);
             this.bpanel.TabIndex = 2;
+            // 
+            // indiciumMenu
+            // 
+            this.indiciumMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.indiciumMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.indiciumMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.indiciumMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolHWCopy,
+            this.toolHWGoogle,
+            this.toolHWDuck});
+            this.indiciumMenu.Name = "launcherMenu";
+            this.indiciumMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.indiciumMenu.ShowImageMargin = false;
+            this.indiciumMenu.Size = new System.Drawing.Size(223, 76);
+            // 
+            // toolHWCopy
+            // 
+            this.toolHWCopy.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolHWCopy.ForeColor = System.Drawing.Color.White;
+            this.toolHWCopy.Name = "toolHWCopy";
+            this.toolHWCopy.Size = new System.Drawing.Size(222, 24);
+            this.toolHWCopy.Text = "Copy";
+            this.toolHWCopy.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.toolHWCopy.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolHWGoogle
+            // 
+            this.toolHWGoogle.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolHWGoogle.ForeColor = System.Drawing.Color.White;
+            this.toolHWGoogle.Name = "toolHWGoogle";
+            this.toolHWGoogle.Size = new System.Drawing.Size(222, 24);
+            this.toolHWGoogle.Text = "Search with Google...";
+            this.toolHWGoogle.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.toolHWGoogle.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolHWDuck
+            // 
+            this.toolHWDuck.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolHWDuck.ForeColor = System.Drawing.Color.White;
+            this.toolHWDuck.Name = "toolHWDuck";
+            this.toolHWDuck.Size = new System.Drawing.Size(222, 24);
+            this.toolHWDuck.Text = "Search with DuckDuckGo...";
+            this.toolHWDuck.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.toolHWDuck.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // imagesHw
+            // 
+            this.imagesHw.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imagesHw.ImageStream")));
+            this.imagesHw.TransparentColor = System.Drawing.Color.Transparent;
+            this.imagesHw.Images.SetKeyName(0, "cpu.png");
+            this.imagesHw.Images.SetKeyName(1, "ram.png");
+            this.imagesHw.Images.SetKeyName(2, "gpu.png");
+            this.imagesHw.Images.SetKeyName(3, "mobo.png");
+            this.imagesHw.Images.SetKeyName(4, "1608923_hdd_o_icon.png");
+            this.imagesHw.Images.SetKeyName(5, "inet.png");
+            this.imagesHw.Images.SetKeyName(6, "audio.png");
+            this.imagesHw.Images.SetKeyName(7, "dev.png");
+            this.imagesHw.Images.SetKeyName(8, "os.png");
+            // 
+            // defineCommandDialog
+            // 
+            this.defineCommandDialog.Filter = "Executables [*.exe]|*.exe";
+            this.defineCommandDialog.Title = "Optimizer";
+            this.defineCommandDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineCmd_FileOk);
+            // 
+            // defineProgramDialog
+            // 
+            this.defineProgramDialog.Filter = "Executables [*.exe]|*.exe";
+            this.defineProgramDialog.Title = "Optimizer";
+            this.defineProgramDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineProgramDialog_FileOk);
+            // 
+            // defineFolderDialog
+            // 
+            this.defineFolderDialog.Description = "Optimizer";
+            // 
+            // defineFileDialog
+            // 
+            this.defineFileDialog.Filter = "All files [*.*]|*.*";
+            this.defineFileDialog.Title = "Optimizer";
+            this.defineFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineFileDialog_FileOk);
+            // 
+            // DefineProgramIconDialog
+            // 
+            this.DefineProgramIconDialog.Filter = "Icon [*.ico]|*.ico|Executable [*.exe]|*.exe";
+            this.DefineProgramIconDialog.Title = "Optimizer";
+            this.DefineProgramIconDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineProgramIconDialog_FileOk);
+            // 
+            // DefineFolderIconDialog
+            // 
+            this.DefineFolderIconDialog.Filter = "Icon [*.ico]|*.ico|Executable [*.exe]|*.exe";
+            this.DefineFolderIconDialog.Title = "Optimizer";
+            this.DefineFolderIconDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineFolderIconDialog_FileOk);
+            // 
+            // DefineURLIconDialog
+            // 
+            this.DefineURLIconDialog.Filter = "Icon [*.ico]|*.ico|Executable [*.exe]|*.exe";
+            this.DefineURLIconDialog.Title = "Optimizer";
+            this.DefineURLIconDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineURLIconDialog_FileOk);
+            // 
+            // DefineFileIconDialog
+            // 
+            this.DefineFileIconDialog.Filter = "Icon [*.ico]|*.ico|Executable [*.exe]|*.exe";
+            this.DefineFileIconDialog.Title = "Optimizer";
+            this.DefineFileIconDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineFileIconDialog_FileOk);
+            // 
+            // DefineCommandIconDialog
+            // 
+            this.DefineCommandIconDialog.Filter = "Icon [*.ico]|*.ico|Executable [*.exe]|*.exe";
+            this.DefineCommandIconDialog.Title = "Optimizer";
+            this.DefineCommandIconDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineCommandIconDialog_FileOk);
+            // 
+            // ExportDialog
+            // 
+            this.ExportDialog.Filter = "Text [*.txt]|*.txt";
+            this.ExportDialog.Title = "Optimizer";
+            // 
+            // launcherMenu
+            // 
+            this.launcherMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.launcherMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.launcherMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.launcherMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.trayDownSpeed,
+            this.trayUpSpeed,
+            this.seperatorNetMon,
+            this.trayStartup,
+            this.trayCleaner,
+            this.trayPinger,
+            this.trayHosts,
+            this.trayAD,
+            this.trayHW,
+            this.trayRegistry,
+            this.toolStripSeparator1,
+            this.trayOptions,
+            this.trayRestartExplorer,
+            this.trayUnlocker,
+            this.toolStripSeparator2,
+            this.trayExit});
+            this.launcherMenu.Name = "launcherMenu";
+            this.launcherMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.launcherMenu.Size = new System.Drawing.Size(221, 360);
+            // 
+            // trayDownSpeed
+            // 
+            this.trayDownSpeed.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trayDownSpeed.ForeColor = System.Drawing.Color.White;
+            this.trayDownSpeed.Image = ((System.Drawing.Image)(resources.GetObject("trayDownSpeed.Image")));
+            this.trayDownSpeed.Name = "trayDownSpeed";
+            this.trayDownSpeed.Size = new System.Drawing.Size(220, 26);
+            this.trayDownSpeed.Text = "-";
+            this.trayDownSpeed.Visible = false;
+            // 
+            // trayUpSpeed
+            // 
+            this.trayUpSpeed.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trayUpSpeed.ForeColor = System.Drawing.Color.White;
+            this.trayUpSpeed.Image = ((System.Drawing.Image)(resources.GetObject("trayUpSpeed.Image")));
+            this.trayUpSpeed.Name = "trayUpSpeed";
+            this.trayUpSpeed.Size = new System.Drawing.Size(220, 26);
+            this.trayUpSpeed.Text = "-";
+            this.trayUpSpeed.Visible = false;
+            // 
+            // seperatorNetMon
+            // 
+            this.seperatorNetMon.Name = "seperatorNetMon";
+            this.seperatorNetMon.Size = new System.Drawing.Size(217, 6);
+            this.seperatorNetMon.Visible = false;
+            // 
+            // trayStartup
+            // 
+            this.trayStartup.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trayStartup.ForeColor = System.Drawing.Color.White;
+            this.trayStartup.Image = ((System.Drawing.Image)(resources.GetObject("trayStartup.Image")));
+            this.trayStartup.Name = "trayStartup";
+            this.trayStartup.Size = new System.Drawing.Size(220, 26);
+            this.trayStartup.Text = "Startup Manager";
+            this.trayStartup.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.trayStartup.Click += new System.EventHandler(this.startupItem_Click);
+            // 
+            // trayCleaner
+            // 
+            this.trayCleaner.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trayCleaner.ForeColor = System.Drawing.Color.White;
+            this.trayCleaner.Image = ((System.Drawing.Image)(resources.GetObject("trayCleaner.Image")));
+            this.trayCleaner.Name = "trayCleaner";
+            this.trayCleaner.Size = new System.Drawing.Size(220, 26);
+            this.trayCleaner.Text = "PC Cleaner";
+            this.trayCleaner.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.trayCleaner.Click += new System.EventHandler(this.cleanerItem_Click);
+            // 
+            // trayPinger
+            // 
+            this.trayPinger.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trayPinger.ForeColor = System.Drawing.Color.White;
+            this.trayPinger.Image = ((System.Drawing.Image)(resources.GetObject("trayPinger.Image")));
+            this.trayPinger.Name = "trayPinger";
+            this.trayPinger.Size = new System.Drawing.Size(220, 26);
+            this.trayPinger.Text = "Pinger Tool";
+            this.trayPinger.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.trayPinger.Click += new System.EventHandler(this.pingerItem_Click);
+            // 
+            // trayHosts
+            // 
+            this.trayHosts.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trayHosts.ForeColor = System.Drawing.Color.White;
+            this.trayHosts.Image = ((System.Drawing.Image)(resources.GetObject("trayHosts.Image")));
+            this.trayHosts.Name = "trayHosts";
+            this.trayHosts.Size = new System.Drawing.Size(220, 26);
+            this.trayHosts.Text = "HOSTS Editor";
+            this.trayHosts.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.trayHosts.Click += new System.EventHandler(this.hostsItem_Click);
+            // 
+            // trayAD
+            // 
+            this.trayAD.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trayAD.ForeColor = System.Drawing.Color.White;
+            this.trayAD.Image = ((System.Drawing.Image)(resources.GetObject("trayAD.Image")));
+            this.trayAD.Name = "trayAD";
+            this.trayAD.Size = new System.Drawing.Size(220, 26);
+            this.trayAD.Text = "Apps Downloader";
+            this.trayAD.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.trayAD.Click += new System.EventHandler(this.appsItem_Click);
+            // 
+            // trayHW
+            // 
+            this.trayHW.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trayHW.ForeColor = System.Drawing.Color.White;
+            this.trayHW.Image = ((System.Drawing.Image)(resources.GetObject("trayHW.Image")));
+            this.trayHW.Name = "trayHW";
+            this.trayHW.Size = new System.Drawing.Size(220, 26);
+            this.trayHW.Text = "Hardware Information";
+            this.trayHW.Click += new System.EventHandler(this.trayHW_Click);
+            // 
+            // trayRegistry
+            // 
+            this.trayRegistry.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trayRegistry.ForeColor = System.Drawing.Color.White;
+            this.trayRegistry.Image = ((System.Drawing.Image)(resources.GetObject("trayRegistry.Image")));
+            this.trayRegistry.Name = "trayRegistry";
+            this.trayRegistry.Size = new System.Drawing.Size(220, 26);
+            this.trayRegistry.Text = "Registry Repair";
+            this.trayRegistry.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.trayRegistry.Click += new System.EventHandler(this.trayRegistry_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.toolStripSeparator1.ForeColor = System.Drawing.Color.White;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(217, 6);
+            this.toolStripSeparator1.Tag = "";
+            // 
+            // trayOptions
+            // 
+            this.trayOptions.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trayOptions.ForeColor = System.Drawing.Color.White;
+            this.trayOptions.Image = ((System.Drawing.Image)(resources.GetObject("trayOptions.Image")));
+            this.trayOptions.Name = "trayOptions";
+            this.trayOptions.Size = new System.Drawing.Size(220, 26);
+            this.trayOptions.Text = "Options";
+            this.trayOptions.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.trayOptions.Click += new System.EventHandler(this.trayOptions_Click);
+            // 
+            // trayRestartExplorer
+            // 
+            this.trayRestartExplorer.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trayRestartExplorer.ForeColor = System.Drawing.Color.White;
+            this.trayRestartExplorer.Image = ((System.Drawing.Image)(resources.GetObject("trayRestartExplorer.Image")));
+            this.trayRestartExplorer.Name = "trayRestartExplorer";
+            this.trayRestartExplorer.Size = new System.Drawing.Size(220, 26);
+            this.trayRestartExplorer.Text = "Restart Explorer";
+            this.trayRestartExplorer.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.trayRestartExplorer.Click += new System.EventHandler(this.restartExpolorerItem_Click);
+            // 
+            // trayUnlocker
+            // 
+            this.trayUnlocker.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.trayUnlocker.ForeColor = System.Drawing.Color.White;
+            this.trayUnlocker.Image = ((System.Drawing.Image)(resources.GetObject("trayUnlocker.Image")));
+            this.trayUnlocker.Name = "trayUnlocker";
+            this.trayUnlocker.Size = new System.Drawing.Size(220, 26);
+            this.trayUnlocker.Text = "Find Handles";
+            this.trayUnlocker.Click += new System.EventHandler(this.trayUnlocker_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(217, 6);
+            // 
+            // trayExit
+            // 
+            this.trayExit.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trayExit.ForeColor = System.Drawing.Color.White;
+            this.trayExit.Image = ((System.Drawing.Image)(resources.GetObject("trayExit.Image")));
+            this.trayExit.Name = "trayExit";
+            this.trayExit.Size = new System.Drawing.Size(220, 26);
+            this.trayExit.Text = "Exit";
+            this.trayExit.Click += new System.EventHandler(this.exitItem_Click);
+            // 
+            // launcherIcon
+            // 
+            this.launcherIcon.ContextMenuStrip = this.launcherMenu;
+            this.launcherIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("launcherIcon.Icon")));
+            this.launcherIcon.Text = "Optimizer";
+            this.launcherIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.launcherIcon_MouseDoubleClick);
             // 
             // tabCollection
             // 
@@ -3714,50 +4019,6 @@ namespace Optimizer
             this.specsTree.TabIndex = 0;
             this.specsTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.specsTree_NodeMouseClick);
             // 
-            // indiciumMenu
-            // 
-            this.indiciumMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.indiciumMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.indiciumMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.indiciumMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolHWCopy,
-            this.toolHWGoogle,
-            this.toolHWDuck});
-            this.indiciumMenu.Name = "launcherMenu";
-            this.indiciumMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.indiciumMenu.ShowImageMargin = false;
-            this.indiciumMenu.Size = new System.Drawing.Size(223, 76);
-            // 
-            // toolHWCopy
-            // 
-            this.toolHWCopy.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolHWCopy.ForeColor = System.Drawing.Color.White;
-            this.toolHWCopy.Name = "toolHWCopy";
-            this.toolHWCopy.Size = new System.Drawing.Size(222, 24);
-            this.toolHWCopy.Text = "Copy";
-            this.toolHWCopy.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.toolHWCopy.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // toolHWGoogle
-            // 
-            this.toolHWGoogle.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolHWGoogle.ForeColor = System.Drawing.Color.White;
-            this.toolHWGoogle.Name = "toolHWGoogle";
-            this.toolHWGoogle.Size = new System.Drawing.Size(222, 24);
-            this.toolHWGoogle.Text = "Search with Google...";
-            this.toolHWGoogle.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.toolHWGoogle.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // toolHWDuck
-            // 
-            this.toolHWDuck.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolHWDuck.ForeColor = System.Drawing.Color.White;
-            this.toolHWDuck.Name = "toolHWDuck";
-            this.toolHWDuck.Size = new System.Drawing.Size(222, 24);
-            this.toolHWDuck.Text = "Search with DuckDuckGo...";
-            this.toolHWDuck.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.toolHWDuck.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
-            // 
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -5237,267 +5498,6 @@ namespace Optimizer
             this.helpTipsToggle.ToggleChecked = false;
             this.helpTipsToggle.ToggleClicked += new System.EventHandler(this.helpTipsToggle_ToggleClicked);
             // 
-            // imagesHw
-            // 
-            this.imagesHw.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imagesHw.ImageStream")));
-            this.imagesHw.TransparentColor = System.Drawing.Color.Transparent;
-            this.imagesHw.Images.SetKeyName(0, "cpu.png");
-            this.imagesHw.Images.SetKeyName(1, "ram.png");
-            this.imagesHw.Images.SetKeyName(2, "gpu.png");
-            this.imagesHw.Images.SetKeyName(3, "mobo.png");
-            this.imagesHw.Images.SetKeyName(4, "1608923_hdd_o_icon.png");
-            this.imagesHw.Images.SetKeyName(5, "inet.png");
-            this.imagesHw.Images.SetKeyName(6, "audio.png");
-            this.imagesHw.Images.SetKeyName(7, "dev.png");
-            this.imagesHw.Images.SetKeyName(8, "os.png");
-            // 
-            // defineCommandDialog
-            // 
-            this.defineCommandDialog.Filter = "Executables [*.exe]|*.exe";
-            this.defineCommandDialog.Title = "Optimizer";
-            this.defineCommandDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineCmd_FileOk);
-            // 
-            // defineProgramDialog
-            // 
-            this.defineProgramDialog.Filter = "Executables [*.exe]|*.exe";
-            this.defineProgramDialog.Title = "Optimizer";
-            this.defineProgramDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineProgramDialog_FileOk);
-            // 
-            // defineFolderDialog
-            // 
-            this.defineFolderDialog.Description = "Optimizer";
-            // 
-            // defineFileDialog
-            // 
-            this.defineFileDialog.Filter = "All files [*.*]|*.*";
-            this.defineFileDialog.Title = "Optimizer";
-            this.defineFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineFileDialog_FileOk);
-            // 
-            // DefineProgramIconDialog
-            // 
-            this.DefineProgramIconDialog.Filter = "Icon [*.ico]|*.ico|Executable [*.exe]|*.exe";
-            this.DefineProgramIconDialog.Title = "Optimizer";
-            this.DefineProgramIconDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineProgramIconDialog_FileOk);
-            // 
-            // DefineFolderIconDialog
-            // 
-            this.DefineFolderIconDialog.Filter = "Icon [*.ico]|*.ico|Executable [*.exe]|*.exe";
-            this.DefineFolderIconDialog.Title = "Optimizer";
-            this.DefineFolderIconDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineFolderIconDialog_FileOk);
-            // 
-            // DefineURLIconDialog
-            // 
-            this.DefineURLIconDialog.Filter = "Icon [*.ico]|*.ico|Executable [*.exe]|*.exe";
-            this.DefineURLIconDialog.Title = "Optimizer";
-            this.DefineURLIconDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineURLIconDialog_FileOk);
-            // 
-            // DefineFileIconDialog
-            // 
-            this.DefineFileIconDialog.Filter = "Icon [*.ico]|*.ico|Executable [*.exe]|*.exe";
-            this.DefineFileIconDialog.Title = "Optimizer";
-            this.DefineFileIconDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineFileIconDialog_FileOk);
-            // 
-            // DefineCommandIconDialog
-            // 
-            this.DefineCommandIconDialog.Filter = "Icon [*.ico]|*.ico|Executable [*.exe]|*.exe";
-            this.DefineCommandIconDialog.Title = "Optimizer";
-            this.DefineCommandIconDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.DefineCommandIconDialog_FileOk);
-            // 
-            // ExportDialog
-            // 
-            this.ExportDialog.Filter = "Text [*.txt]|*.txt";
-            this.ExportDialog.Title = "Optimizer";
-            // 
-            // launcherMenu
-            // 
-            this.launcherMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.launcherMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.launcherMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.launcherMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.trayDownSpeed,
-            this.trayUpSpeed,
-            this.seperatorNetMon,
-            this.trayStartup,
-            this.trayCleaner,
-            this.trayPinger,
-            this.trayHosts,
-            this.trayAD,
-            this.trayHW,
-            this.trayRegistry,
-            this.toolStripSeparator1,
-            this.trayOptions,
-            this.trayRestartExplorer,
-            this.trayUnlocker,
-            this.toolStripSeparator2,
-            this.trayExit});
-            this.launcherMenu.Name = "launcherMenu";
-            this.launcherMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.launcherMenu.Size = new System.Drawing.Size(221, 360);
-            // 
-            // trayDownSpeed
-            // 
-            this.trayDownSpeed.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trayDownSpeed.ForeColor = System.Drawing.Color.White;
-            this.trayDownSpeed.Image = ((System.Drawing.Image)(resources.GetObject("trayDownSpeed.Image")));
-            this.trayDownSpeed.Name = "trayDownSpeed";
-            this.trayDownSpeed.Size = new System.Drawing.Size(220, 26);
-            this.trayDownSpeed.Text = "-";
-            this.trayDownSpeed.Visible = false;
-            // 
-            // trayUpSpeed
-            // 
-            this.trayUpSpeed.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trayUpSpeed.ForeColor = System.Drawing.Color.White;
-            this.trayUpSpeed.Image = ((System.Drawing.Image)(resources.GetObject("trayUpSpeed.Image")));
-            this.trayUpSpeed.Name = "trayUpSpeed";
-            this.trayUpSpeed.Size = new System.Drawing.Size(220, 26);
-            this.trayUpSpeed.Text = "-";
-            this.trayUpSpeed.Visible = false;
-            // 
-            // seperatorNetMon
-            // 
-            this.seperatorNetMon.Name = "seperatorNetMon";
-            this.seperatorNetMon.Size = new System.Drawing.Size(217, 6);
-            this.seperatorNetMon.Visible = false;
-            // 
-            // trayStartup
-            // 
-            this.trayStartup.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trayStartup.ForeColor = System.Drawing.Color.White;
-            this.trayStartup.Image = ((System.Drawing.Image)(resources.GetObject("trayStartup.Image")));
-            this.trayStartup.Name = "trayStartup";
-            this.trayStartup.Size = new System.Drawing.Size(220, 26);
-            this.trayStartup.Text = "Startup Manager";
-            this.trayStartup.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.trayStartup.Click += new System.EventHandler(this.startupItem_Click);
-            // 
-            // trayCleaner
-            // 
-            this.trayCleaner.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trayCleaner.ForeColor = System.Drawing.Color.White;
-            this.trayCleaner.Image = ((System.Drawing.Image)(resources.GetObject("trayCleaner.Image")));
-            this.trayCleaner.Name = "trayCleaner";
-            this.trayCleaner.Size = new System.Drawing.Size(220, 26);
-            this.trayCleaner.Text = "PC Cleaner";
-            this.trayCleaner.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.trayCleaner.Click += new System.EventHandler(this.cleanerItem_Click);
-            // 
-            // trayPinger
-            // 
-            this.trayPinger.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trayPinger.ForeColor = System.Drawing.Color.White;
-            this.trayPinger.Image = ((System.Drawing.Image)(resources.GetObject("trayPinger.Image")));
-            this.trayPinger.Name = "trayPinger";
-            this.trayPinger.Size = new System.Drawing.Size(220, 26);
-            this.trayPinger.Text = "Pinger Tool";
-            this.trayPinger.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.trayPinger.Click += new System.EventHandler(this.pingerItem_Click);
-            // 
-            // trayHosts
-            // 
-            this.trayHosts.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trayHosts.ForeColor = System.Drawing.Color.White;
-            this.trayHosts.Image = ((System.Drawing.Image)(resources.GetObject("trayHosts.Image")));
-            this.trayHosts.Name = "trayHosts";
-            this.trayHosts.Size = new System.Drawing.Size(220, 26);
-            this.trayHosts.Text = "HOSTS Editor";
-            this.trayHosts.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.trayHosts.Click += new System.EventHandler(this.hostsItem_Click);
-            // 
-            // trayAD
-            // 
-            this.trayAD.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trayAD.ForeColor = System.Drawing.Color.White;
-            this.trayAD.Image = ((System.Drawing.Image)(resources.GetObject("trayAD.Image")));
-            this.trayAD.Name = "trayAD";
-            this.trayAD.Size = new System.Drawing.Size(220, 26);
-            this.trayAD.Text = "Apps Downloader";
-            this.trayAD.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.trayAD.Click += new System.EventHandler(this.appsItem_Click);
-            // 
-            // trayHW
-            // 
-            this.trayHW.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trayHW.ForeColor = System.Drawing.Color.White;
-            this.trayHW.Image = ((System.Drawing.Image)(resources.GetObject("trayHW.Image")));
-            this.trayHW.Name = "trayHW";
-            this.trayHW.Size = new System.Drawing.Size(220, 26);
-            this.trayHW.Text = "Hardware Information";
-            this.trayHW.Click += new System.EventHandler(this.trayHW_Click);
-            // 
-            // trayRegistry
-            // 
-            this.trayRegistry.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trayRegistry.ForeColor = System.Drawing.Color.White;
-            this.trayRegistry.Image = ((System.Drawing.Image)(resources.GetObject("trayRegistry.Image")));
-            this.trayRegistry.Name = "trayRegistry";
-            this.trayRegistry.Size = new System.Drawing.Size(220, 26);
-            this.trayRegistry.Text = "Registry Repair";
-            this.trayRegistry.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.trayRegistry.Click += new System.EventHandler(this.trayRegistry_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.toolStripSeparator1.ForeColor = System.Drawing.Color.White;
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(217, 6);
-            this.toolStripSeparator1.Tag = "";
-            // 
-            // trayOptions
-            // 
-            this.trayOptions.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trayOptions.ForeColor = System.Drawing.Color.White;
-            this.trayOptions.Image = ((System.Drawing.Image)(resources.GetObject("trayOptions.Image")));
-            this.trayOptions.Name = "trayOptions";
-            this.trayOptions.Size = new System.Drawing.Size(220, 26);
-            this.trayOptions.Text = "Options";
-            this.trayOptions.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.trayOptions.Click += new System.EventHandler(this.trayOptions_Click);
-            // 
-            // trayRestartExplorer
-            // 
-            this.trayRestartExplorer.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trayRestartExplorer.ForeColor = System.Drawing.Color.White;
-            this.trayRestartExplorer.Image = ((System.Drawing.Image)(resources.GetObject("trayRestartExplorer.Image")));
-            this.trayRestartExplorer.Name = "trayRestartExplorer";
-            this.trayRestartExplorer.Size = new System.Drawing.Size(220, 26);
-            this.trayRestartExplorer.Text = "Restart Explorer";
-            this.trayRestartExplorer.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.trayRestartExplorer.Click += new System.EventHandler(this.restartExpolorerItem_Click);
-            // 
-            // trayUnlocker
-            // 
-            this.trayUnlocker.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.trayUnlocker.ForeColor = System.Drawing.Color.White;
-            this.trayUnlocker.Image = ((System.Drawing.Image)(resources.GetObject("trayUnlocker.Image")));
-            this.trayUnlocker.Name = "trayUnlocker";
-            this.trayUnlocker.Size = new System.Drawing.Size(220, 26);
-            this.trayUnlocker.Text = "Find Handles";
-            this.trayUnlocker.Click += new System.EventHandler(this.trayUnlocker_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(217, 6);
-            // 
-            // trayExit
-            // 
-            this.trayExit.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trayExit.ForeColor = System.Drawing.Color.White;
-            this.trayExit.Image = ((System.Drawing.Image)(resources.GetObject("trayExit.Image")));
-            this.trayExit.Name = "trayExit";
-            this.trayExit.Size = new System.Drawing.Size(220, 26);
-            this.trayExit.Text = "Exit";
-            this.trayExit.Click += new System.EventHandler(this.exitItem_Click);
-            // 
-            // launcherIcon
-            // 
-            this.launcherIcon.ContextMenuStrip = this.launcherMenu;
-            this.launcherIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("launcherIcon.Icon")));
-            this.launcherIcon.Text = "Optimizer";
-            this.launcherIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.launcherIcon_MouseDoubleClick);
-            // 
             // helpBox
             // 
             this.helpBox.AutoPopDelay = 90000;
@@ -5536,6 +5536,8 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.bpanel.ResumeLayout(false);
+            this.indiciumMenu.ResumeLayout(false);
+            this.launcherMenu.ResumeLayout(false);
             this.tabCollection.ResumeLayout(false);
             this.universalTab.ResumeLayout(false);
             this.windows10Tab.ResumeLayout(false);
@@ -5579,7 +5581,6 @@ namespace Optimizer
             this.panel2.PerformLayout();
             this.indiciumTab.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
-            this.indiciumMenu.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.integratorTab.ResumeLayout(false);
             this.synapse.ResumeLayout(false);
@@ -5619,7 +5620,6 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.picFlag)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.launcherMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
