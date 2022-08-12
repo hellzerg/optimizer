@@ -165,7 +165,8 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\SQMLogger", "Start", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\System", "AllowExperimentation", 0);
 
-            Utilities.DisableProtectedService("WdiSystemHost");
+            // Responsible for battery usage functionality in Windows 10/11
+            //Utilities.DisableProtectedService("WdiSystemHost");
             Utilities.DisableProtectedService("WdiServiceHost");
         }
 
