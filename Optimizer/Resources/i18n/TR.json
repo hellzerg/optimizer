@@ -412,5 +412,6 @@ Ancak, riskli bir prosedür olarak kabul edilirler. Genellikle altı aylık yay�
 	"gameModeSw": "Oyun Modunu Etkinleştir",
 	"gameModeTip": "Donanım hızlandırmalı GPU zamanlaması ile birlikte Oyun modunu etkinleştirir.",
 	"compactModeSw": "Explorer'da Kompakt Modu Etkinleştir",
-	"compactModeTip": "Dosya Gezgini'ndeki dosyalar arasındaki fazladan boşluğu ve dolguyu azaltır."
+	"compactModeTip": "Dosya Gezgini'ndeki dosyalar arasındaki fazladan boşluğu ve dolguyu azaltır.",
+	"stickersTip": "Çıkartmalar, sosyal mesajlaşma programlarında kullanılan duvar kağıtlarında görünen büyük emojilerdir."
 }

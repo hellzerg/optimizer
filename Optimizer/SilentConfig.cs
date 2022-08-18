@@ -60,5 +60,6 @@ namespace Optimizer
         public bool? ClassicMenu { get; set; }
         public bool? DisableTPMCheck { get; set; }
         public bool? CompactMode { get; set; }
+        public bool? DisableStickers { get; set; }
     }
 }

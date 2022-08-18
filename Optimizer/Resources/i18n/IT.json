@@ -409,5 +409,6 @@ Tuttavia, sono considerate procedure rischiose. Sono normalmente una release ogn
 	"gameModeSw": "Abilita la modalità di gioco",
 	"gameModeTip": "Abilita la modalità di gioco in combinazione con la pianificazione GPU con accelerazione hardware.",
 	"compactModeSw": "Abilita la modalità compatta in Explorer",
-	"compactModeTip": "Riduce lo spazio aggiuntivo e il riempimento tra i file in Esplora file."
+	"compactModeTip": "Riduce lo spazio aggiuntivo e il riempimento tra i file in Esplora file.",
+	"stickersTip": "Gli adesivi sono grandi emoji che appaiono sugli sfondi, utilizzati nei social messenger."
 }

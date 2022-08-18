@@ -411,5 +411,6 @@ Są one jednak uważane za ryzykowną procedurę. Zazwyczaj są wydawane co pó�
 	"gameModeSw": "Włącz tryb gier",
 	"gameModeTip": "Włącza tryb gier w połączeniu z przyspieszaniem sprzętowym harmonogramu GPU.",
 	"compactModeSw": "Włącz tryb kompaktowy w Eksploratorze",
-	"compactModeTip": "Zmniejsza dodatkową przestrzeń i dopełnienie między plikami w Eksploratorze plików."
+	"compactModeTip": "Zmniejsza dodatkową przestrzeń i dopełnienie między plikami w Eksploratorze plików.",
+	"stickersTip": "Naklejki to duże emotikony, które pojawiają się na tapetach i są używane w komunikatorach społecznościowych."
 }

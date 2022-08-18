@@ -395,5 +395,6 @@ pentru analiză către Microsoft.",
 	"gameModeTip": "Activează modul Gaming în combinație cu programarea accelerată hardware a GPU-ului.",
 	"systemRestoreM": "Sunteți sigur că doriți să dezactivați restaura de sistem? Acest lucru va șterge imaginile de backup curente!",
 	"compactModeSw": "Activați Modul Compact în Explorer",
-	"compactModeTip": "Reduce spațiul suplimentar și umplutura între fișierele din File Explorer."
+	"compactModeTip": "Reduce spațiul suplimentar și umplutura între fișierele din File Explorer.",
+	"stickersTip": "Stickerele sunt emoji-uri mari care apar pe imagini de fundal, fiind folosite în mesageria socială."
 }

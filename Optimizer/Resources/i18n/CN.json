@@ -412,5 +412,6 @@
 	"gameModeSw": "启用游戏模式",
 	"gameModeTip": "结合硬件加速 GPU 调度启用游戏模式",
 	"compactModeSw": "在资源管理器中启用紧凑模式",
-	"compactModeTip": "减少文件资源管理器中文件之间的额外空间和填充。"
+	"compactModeTip": "减少文件资源管理器中文件之间的额外空间和填充。",
+	"stickersTip": "贴纸是出现在壁纸上的大型表情符号，用于社交信使。"
 }

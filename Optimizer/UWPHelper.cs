@@ -1,33 +1,37 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Management.Automation;
+using System.Text;
+using System.Windows.Forms;
 
 namespace Optimizer
 {
     internal static class UWPHelper
     {
-        internal static List<string> GetUWPApps(bool showAll)
+        internal static Dictionary<string, string> GetUWPApps(bool showAll)
         {
-            List<string> modernApps = new List<string>();
+            Dictionary<string, string> modernApps = new Dictionary<string, string>();
 
             using (PowerShell script = PowerShell.Create())
             {
                 if (showAll)
                 {
-                    script.AddScript("Get-AppxPackage | Select -Unique Name | Out-String -Stream");
+                    script.AddScript("Get-AppxPackage | Select Name,InstallLocation");
                 }
                 else
                 {
-                    script.AddScript(@"Get-AppxPackage | Where {$_.NonRemovable -like ""False""} | Select -Unique Name | Out-String -Stream");
+                    script.AddScript(@"Get-AppxPackage | Where {$_.NonRemovable -like ""False""} | Select  Name,InstallLocation");
                 }
 
-                string tmp = string.Empty;
+                string[] tmp;
+                
+
                 foreach (PSObject x in script.Invoke())
                 {
-                    tmp = x.ToString().Trim();
-                    if (!string.IsNullOrEmpty(tmp) && !tmp.Contains("---") && !tmp.Equals("Name"))
-                    {
-                        modernApps.Add(tmp);
-                    }
+                    tmp = x.ToString().Replace("@", string.Empty).Replace("{", string.Empty).Replace("}", string.Empty).Replace("Name=", string.Empty).Replace("InstallLocation=", string.Empty).Trim().Split(';');
+
+                    modernApps.Add(tmp[0], tmp[1]);
                 }
             }
 

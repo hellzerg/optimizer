@@ -363,6 +363,11 @@ namespace Optimizer
             if (File.Exists(fileName)) Process.Start("explorer.exe", $"/select, \"{fileName}\"");
         }
 
+        internal static void FindFolder(string folder)
+        {
+            if (Directory.Exists(folder)) RunCommand($"explorer.exe \"{folder}\"");
+        }
+
         internal static string GetShortcutTargetFile(string shortcutFilename)
         {
             string pathOnly = Path.GetDirectoryName(shortcutFilename);

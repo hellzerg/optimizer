@@ -40,7 +40,7 @@ namespace Optimizer
 
             g.FillRectangle(b, e.Bounds);
 
-            g.DrawRectangle(new Pen(Options.ForegroundColor, 1), new Rectangle(e.Bounds.X, e.Bounds.Y,
+            g.DrawRectangle(new Pen(Color.FromArgb(55, 55, 55), 1), new Rectangle(e.Bounds.X, e.Bounds.Y,
                 e.Bounds.Width - 1, e.Bounds.Height - 1));
 
 

@@ -41,6 +41,9 @@ namespace Optimizer
         public bool DisableFirefoxTemeletry { get; set; }
         public bool DisableChromeTelemetry { get; set; }
 
+        // windows 8
+        public bool DisableOneDrive { get; set; }
+
         // windows 10
         public bool EnableLegacyVolumeSlider { get; set; }
         public bool DisableQuickAccessHistory { get; set; }
@@ -63,9 +66,6 @@ namespace Optimizer
         public bool RemoveCastToDevice { get; set; }
         public bool EnableGamingMode { get; set; }
 
-        // windows 8
-        public bool DisableOneDrive { get; set; }
-
         // windows 11
         public bool TaskbarToLeft { get; set; }
         public bool DisableSnapAssist { get; set; }
@@ -76,6 +76,7 @@ namespace Optimizer
         public bool ClassicMenu { get; set; }
         public bool DisableTPMCheck { get; set; }
         public bool CompactMode { get; set; }
+        public bool DisableStickers { get; set; }
     }
 
     internal static class Options
@@ -258,6 +259,7 @@ namespace Optimizer
                 CurrentOptions.ClassicMenu = false;
                 CurrentOptions.DisableTPMCheck = false;
                 CurrentOptions.CompactMode = false;
+                CurrentOptions.DisableStickers = false;
 
                 using (FileStream fs = File.Open(SettingsFile, FileMode.CreateNew))
                 using (StreamWriter sw = new StreamWriter(fs))

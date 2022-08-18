@@ -414,5 +414,6 @@
 	"systemRestoreM": "Biztosan ki akarja kapcsolni a Rendszer-visszaállítást? Ezzel törli a jelenlegi biztonsági másolatot!",
 	"compactModeSw": "A kompakt mód engedélyezése az Explorerben",
 	"compactModeTip": "Csökkenti az extra helyet és a kitöltést a fájlok között a Fájlkezelőben.",
-	"trayUnlocker": "Fájlfogantyúk"
+	"trayUnlocker": "Fájlfogantyúk",
+	"stickersTip": "A matricák nagy hangulatjelek, amelyek a háttérképeken jelennek meg, és közösségi üzenetküldőkben használatosak."
 }

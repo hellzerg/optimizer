@@ -414,5 +414,6 @@ However, they are considered a risky procedure. They are usually semi-annual rel
 	"gameModeTip": "Enables Gaming mode in combination with hardware accelerated GPU scheduling.",
 	"systemRestoreM": "Are you sure you want to disable System Restore? This will delete your current backup images!",
 	"compactModeSw": "Enable Compact Mode in Explorer",
-	"compactModeTip": "Reduces extra space and padding between the files in Files Explorer."
+	"compactModeTip": "Reduces extra space and padding between the files in Files Explorer.",
+	"stickersTip": "Stickers are large emojis that appear on wallpapers, being used in social messengers."
 }

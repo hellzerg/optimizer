@@ -358,6 +358,12 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Assets\silver.png" />
+    <None Include="Resources\Assets\ruby.png" />
+    <None Include="Resources\Assets\jade.png" />
+    <None Include="Resources\Assets\azurite.png" />
+    <None Include="Resources\Assets\amethyst.png" />
+    <None Include="Resources\Assets\amber.png" />
     <None Include="Resources\Flags\romania.png" />
     <None Include="Resources\Flags\hungary.png" />
     <None Include="Resources\Flags\kurdish.png" />

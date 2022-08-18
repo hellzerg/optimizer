@@ -411,5 +411,6 @@ Sin embargo, se consideran un procedimiento riesgoso. Suelen ser lanzamientos se
 	"gameModeSw": "Habilitar modo de juego",
 	"gameModeTip": "Habilita el modo de juego en combinación con la programación de GPU acelerada por hardware.",
 	"compactModeSw": "Habilitar el modo compacto en Explorer",
-	"compactModeTip": "Reduce el espacio adicional y el relleno entre los archivos en el Explorador de archivos."
+	"compactModeTip": "Reduce el espacio adicional y el relleno entre los archivos en el Explorador de archivos.",
+	"stickersTip": "Las pegatinas son emojis grandes que aparecen en los fondos de pantalla y se usan en los mensajeros sociales."
 }

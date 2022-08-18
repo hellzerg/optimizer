@@ -389,5 +389,6 @@
 	"gameModeSw": "Spielemodus aktivieren",
 	"gameModeTip": "Aktiviert den Gaming-Modus in Kombination mit hardwarebeschleunigter GPU-Planung.",
 	"compactModeSw": "Aktivieren Sie den Kompaktmodus im Explorer",
-	"compactModeTip": "Reduziert zusätzlichen Platz und Auffüllung zwischen den Dateien im Datei-Explorer."
+	"compactModeTip": "Reduziert zusätzlichen Platz und Auffüllung zwischen den Dateien im Datei-Explorer.",
+	"stickersTip": "Sticker sind große Emojis, die auf Hintergrundbildern erscheinen und in sozialen Messengern verwendet werden."
 }

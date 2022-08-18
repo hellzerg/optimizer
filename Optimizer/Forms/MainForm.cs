@@ -30,7 +30,7 @@ namespace Optimizer
         List<string> _hostsEntries = new List<string>();
         List<string> _customCommands = new List<string>();
         List<string> _desktopItems = new List<string>();
-        List<string> _modernApps = new List<string>();
+        Dictionary<string, string> _modernApps = new Dictionary<string, string>();
 
         bool _trayMenu = false;
 
@@ -98,7 +98,6 @@ namespace Optimizer
 
         UpdateForm _updateForm;
 
-        // TESTDPI
         int DPI_PREFERENCE;
 
         private string NewDownloadLink(string latestVersion)
@@ -250,6 +249,7 @@ namespace Optimizer
             widgetsSw.ToggleClicked += new EventHandler(WidgetsSw_Click);
             smallerTaskbarSw.ToggleClicked += new EventHandler(SmallerTaskbarSw_Click);
             chatSw.ToggleClicked += new EventHandler(chatSw_Click);
+            stickersSw.ToggleClicked += new EventHandler(StickersSw_ToggleClicked);
             classicRibbonSw.ToggleClicked += new EventHandler(ClassicRibbonSw_Click);
             classicContextSw.ToggleClicked += new EventHandler(ClassicContextSw_Click);
             ffTelemetrySw.ToggleClicked += new EventHandler(FfTelemetrySw_ToggleClicked);
@@ -266,6 +266,19 @@ namespace Optimizer
             DSB.ToggleClicked += DSB_ToggleClicked;
             AddCMDB.ToggleClicked += AddCMDB_ToggleClicked;
             AddOwnerB.ToggleClicked += AddOwnerB_ToggleClicked;
+        }
+
+        private void StickersSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (stickersSw.ToggleChecked)
+            {
+                Optimize.DisableStickers();
+            }
+            else
+            {
+                Optimize.EnableStickers();
+            }
+            Options.CurrentOptions.DisableStickers = stickersSw.ToggleChecked;
         }
 
         private void TpmSw_ToggleClicked(object sender, EventArgs e)
@@ -480,6 +493,7 @@ namespace Optimizer
             helpBox.SetToolTip(snapAssistSw.Label, Options.TranslationList["snapAssistTip"].ToString());
             helpBox.SetToolTip(widgetsSw.Label, Options.TranslationList["widgetsTip"].ToString());
             helpBox.SetToolTip(chatSw.Label, Options.TranslationList["chatTip"].ToString());
+            helpBox.SetToolTip(stickersSw.Label, Options.TranslationList["stickersTip"].ToString());
             helpBox.SetToolTip(smallerTaskbarSw.Label, Options.TranslationList["smallerTaskbarTip"].ToString());
             helpBox.SetToolTip(classicRibbonSw.Label, Options.TranslationList["classicRibbonTip"].ToString());
             helpBox.SetToolTip(classicContextSw.Label, Options.TranslationList["classicContextTip"].ToString());
@@ -667,7 +681,7 @@ namespace Optimizer
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             // initial states
-            chkOnlyRemovable.Checked = true;
+            
             checkDefaultIcon.Checked = true;
             radioProgram.Checked = true;
             radioTop.Checked = true;
@@ -710,7 +724,7 @@ namespace Optimizer
 
                 if (!disableUWPApps)
                 {
-                    GetModernApps(false);
+                    chkOnlyRemovable.Checked = true;
                 }
                 else
                 {
@@ -729,7 +743,7 @@ namespace Optimizer
 
                 if (!disableUWPApps)
                 {
-                    GetModernApps(false);
+                    chkOnlyRemovable.Checked = true;
                 }
                 else
                 {
@@ -753,7 +767,7 @@ namespace Optimizer
 
                 if (!disableUWPApps)
                 {
-                    GetModernApps(false);
+                    chkOnlyRemovable.Checked = true;
                 }
                 else
                 {
@@ -2095,6 +2109,7 @@ namespace Optimizer
             snapAssistSw.ToggleChecked = Options.CurrentOptions.DisableSnapAssist;
             widgetsSw.ToggleChecked = Options.CurrentOptions.DisableWidgets;
             chatSw.ToggleChecked = Options.CurrentOptions.DisableChat;
+            stickersSw.ToggleChecked = Options.CurrentOptions.DisableStickers;
             smallerTaskbarSw.ToggleChecked = Options.CurrentOptions.TaskbarSmaller;
             classicRibbonSw.ToggleChecked = Options.CurrentOptions.ClassicRibbon;
             classicContextSw.ToggleChecked = Options.CurrentOptions.ClassicMenu;
@@ -2167,67 +2182,86 @@ namespace Optimizer
         {
             uninstallModernAppsButton.Enabled = false;
             refreshModernAppsButton.Enabled = false;
-            listModernApps.Enabled = false;
-
-            listModernApps.Items.Clear();
+           
+            panelUwp.Controls.Clear();
             _modernApps = UWPHelper.GetUWPApps(showAll);
 
-            foreach (string x in _modernApps)
+            AppCard appCard;
+            FileInfo pngTmp;
+
+            foreach (var x in _modernApps)
             {
-                listModernApps.Items.Add(x);
+               
+                appCard = new AppCard();
+                appCard.AutoSize = true;
+                appCard.Anchor = AnchorStyles.None;
+                appCard.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                appCard.appTitle.Text = x.Key;
+                appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
+
+                // gets largest picture
+                try
+                {
+                    pngTmp = new DirectoryInfo(x.Value)
+                    .EnumerateFiles("*.png", SearchOption.AllDirectories)
+                    .OrderByDescending(f => f.Length)
+                    .FirstOrDefault();
+                }
+                catch
+                {
+                    pngTmp = null;
+                }
+
+                if (pngTmp != null) appCard.appImage.Image = Image.FromFile(pngTmp.FullName);
+
+                appCard.Location = new Point(0, panelUwp.Controls.Count * (DPI_PREFERENCE / 3));
+                panelUwp.Controls.Add(appCard);
+                
             }
 
             uninstallModernAppsButton.Enabled = true;
             refreshModernAppsButton.Enabled = true;
-            listModernApps.Enabled = true;
-
-            if (_modernApps.Count > 0) listModernApps.SelectedIndex = 0;
         }
 
         private async void UninstallModernApps()
         {
-            string selectedApps = string.Empty;
+            List<string> selectedApps = new List<string>();
 
-            if (listModernApps.CheckedItems.Count > 0)
+            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(panelUwp))
             {
-                foreach (string x in listModernApps.CheckedItems)
+                //if ((c.Name == "chkSelectAllModernApps") || (c.Name == "chkOnlyRemovable")) continue;
+                if (c is MoonCheck && ((MoonCheck)c).Checked)
                 {
-                    if (string.IsNullOrEmpty(selectedApps))
+                    selectedApps.Add(c.Text);
+                }
+            }
+
+            if (selectedApps.Count <= 0) return;
+
+            if (MessageBox.Show(_removeModernAppsMessage + "\n\n" + string.Join(Environment.NewLine, selectedApps), "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                uninstallModernAppsButton.Enabled = false;
+                refreshModernAppsButton.Enabled = false;
+
+                bool errorOccured = false;
+                string failedApps = string.Empty;
+
+                foreach (string app in selectedApps)
+                { 
+                    await Task.Run(() => errorOccured = UWPHelper.UninstallUWPApp(app));
+
+                    if (errorOccured)
                     {
-                        selectedApps = x;
-                    }
-                    else
-                    {
-                        selectedApps += Environment.NewLine + x;
+                        failedApps += Environment.NewLine + app;
                     }
                 }
 
-                if (MessageBox.Show(_removeModernAppsMessage + "\n\n" + selectedApps, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (!string.IsNullOrEmpty(failedApps))
                 {
-                    uninstallModernAppsButton.Enabled = false;
-                    refreshModernAppsButton.Enabled = false;
-                    listModernApps.Enabled = false;
-
-                    bool errorOccured = false;
-                    string failedApps = string.Empty;
-
-                    foreach (string app in listModernApps.CheckedItems)
-                    {
-                        await Task.Run(() => errorOccured = UWPHelper.UninstallUWPApp(app));
-
-                        if (errorOccured)
-                        {
-                            failedApps += Environment.NewLine + app;
-                        }
-                    }
-
-                    if (!string.IsNullOrEmpty(failedApps))
-                    {
-                        MessageBox.Show(_errorModernAppsMessage + failedApps, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-
-                    GetModernApps(!chkOnlyRemovable.Checked);
+                    MessageBox.Show(_errorModernAppsMessage + failedApps, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
+                GetModernApps(!chkOnlyRemovable.Checked);
             }
         }
 
@@ -2953,9 +2987,9 @@ namespace Optimizer
 
         private void chkSelectAllModernApps_CheckedChanged(object sender, EventArgs e)
         {
-            for (int i = 0; i < listModernApps.Items.Count; i++)
+            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(panelUwp))
             {
-                listModernApps.SetItemChecked(i, chkSelectAllModernApps.Checked);
+                if (c is MoonCheck) ((MoonCheck)c).Checked = chkSelectAllModernApps.Checked;
             }
         }
 

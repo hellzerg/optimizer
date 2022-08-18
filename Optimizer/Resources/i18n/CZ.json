@@ -414,5 +414,6 @@ Je to však považováno za riskantní procedůru. Obvykle se jedná o půlročn
 	"gameModeSw": "Povolit herní režim",
 	"gameModeTip": "Umožňuje herní režim v kombinaci s hardwarově akcelerovaným plánováním GPU.",
 	"compactModeSw": "Povolte v Průzkumníkovi kompaktní režim",
-	"compactModeTip": "Snižuje prostor navíc a odsazení mezi soubory v Průzkumníkovi souborů."
+	"compactModeTip": "Snižuje prostor navíc a odsazení mezi soubory v Průzkumníkovi souborů.",
+	"stickersTip": "Nálepky jsou velké emotikony, které se objevují na tapetách a používají se v sociálních zprávách."
 }

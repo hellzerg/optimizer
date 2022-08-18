@@ -411,5 +411,6 @@ No entanto, eles são considerados um procedimento arriscado. Geralmente são la
 	"gameModeSw": "Ativar o modo de jogo",
 	"gameModeTip": "Ativa o modo de jogo em combinação com o agendamento de GPU acelerado por hardware.",
 	"compactModeSw": "Ativar o modo compacto no Explorer",
-	"compactModeTip": "Reduz o espaço extra e o preenchimento entre os arquivos no Explorador de Arquivos."
+	"compactModeTip": "Reduz o espaço extra e o preenchimento entre os arquivos no Explorador de Arquivos.",
+	"stickersTip": "Stickers são emojis grandes que aparecem em papéis de parede, sendo usados em mensageiros sociais."
 }

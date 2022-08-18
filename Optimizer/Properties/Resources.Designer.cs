@@ -88,6 +88,26 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap amber {
+            get {
+                object obj = ResourceManager.GetObject("amber", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap amethyst {
+            get {
+                object obj = ResourceManager.GetObject("amethyst", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;btnAbout&quot;: &quot;حسنا&quot;,
         ///	&quot;restartButton&quot;: &quot;إعادة التشغيل الآن&quot;,
@@ -103,6 +123,16 @@ namespace Optimizer.Properties {
         internal static string AR {
             get {
                 return ResourceManager.GetString("AR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap azurite {
+            get {
+                object obj = ResourceManager.GetObject("azurite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -254,7 +284,7 @@ namespace Optimizer.Properties {
         ///	&quot;btnKill&quot;: &quot;Töten&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Dateihandles&quot;,
         ///	&quot;txtBitness&quot;: &quot;Betriebssystem: {BITS}&quot;,
-        ///	&quot;onedriveM&quot;: &quot;Möchten Sie OneDrive wirklich deinstallieren? Dadurch werden Ihre Desktop und Dokumentdateien gelöscht! Verwenden Sie diese Option nur [rest of string was truncated]&quot;;.
+        ///	&quot;onedriveM&quot;: &quot;Möchten Sie OneDrive wirklich deinstallieren? Dadurch werden Ihre Desktop- und Dokumentdateien gelöscht! Verwenden Sie diese Option nu [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DE {
             get {
@@ -690,6 +720,16 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jade {
+            get {
+                object obj = ResourceManager.GetObject("jade", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {
         ///     &quot;btnAbout&quot;: &quot;확인&quot;,
         ///	&quot;restartButton&quot;: &quot;지금 다시 시작&quot;,
@@ -978,14 +1018,15 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton&quot;: &quot;Reporniți acum&quot;,
         ///	&quot;restartButton8&quot;: &quot;Reporniți acum&quot;,
         ///	&quot;restartButton10&quot;: &quot;Reporniți acum&quot;,
+        ///	&quot;btnFind&quot;: &quot;Găsește&quot;,
+        ///	&quot;btnKill&quot;: &quot;Termin&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;Mânere de fișiere&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Reporniți pentru a aplica modificări?&quot;,
         ///	&quot;txtVersion&quot;: &quot;Versiune: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;Tu lucrezi cu {BITS}&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Actualizare disponibilă&quot;,
         ///	&quot;lblLab&quot;: &quot;Construcție experimentală\n(șterge după testare)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Activează trucuri performanță&quot;,
-        ///	&quot;networkSw&quot;: &quot;Dezactiva Rețea Limitare&quot;,
-        ///	&quot;defenderSw&quot;: &quot;Dezactivează Window [rest of string was truncated]&quot;;.
+        ///	&quot;performanceSw&quot;: &quot;Activează trucuri perform [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RO {
             get {
@@ -1027,9 +1068,29 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ruby {
+            get {
+                object obj = ResourceManager.GetObject("ruby", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap russia {
             get {
                 object obj = ResourceManager.GetObject("russia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap silver {
+            get {
+                object obj = ResourceManager.GetObject("silver", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

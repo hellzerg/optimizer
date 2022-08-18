@@ -533,6 +533,18 @@ namespace Optimizer
                 }
             }
 
+            if (CurrentSilentConfig.DisableStickers.HasValue)
+            {
+                if (CurrentSilentConfig.DisableStickers.Value)
+                {
+                    Optimize.DisableStickers();
+                }
+                else
+                {
+                    Optimize.EnableStickers();
+                }
+            }
+
             if (CurrentSilentConfig.CompactMode.HasValue)
             {
                 if (CurrentSilentConfig.CompactMode.Value)
@@ -717,6 +729,10 @@ namespace Optimizer
 
         internal static void SilentUpdateOptions11()
         {
+            if (CurrentSilentConfig.DisableStickers.HasValue)
+            {
+                Options.CurrentOptions.DisableStickers = CurrentSilentConfig.DisableStickers.Value;
+            }
             if (CurrentSilentConfig.TaskbarToLeft.HasValue)
             {
                 Options.CurrentOptions.TaskbarToLeft = CurrentSilentConfig.TaskbarToLeft.Value;
