@@ -112,6 +112,7 @@
       <DependentUpon>ToggleCard.cs</DependentUpon>
     </Compile>
     <Compile Include="FileHandleHelper.cs" />
+    <Compile Include="FontHelper.cs" />
     <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +295,7 @@
     <None Include="Resources\i18n\PL.json" />
     <None Include="Resources\i18n\KU.json" />
     <None Include="Resources\i18n\RO.json" />
+    <None Include="Resources\Fonts\Poppins-Regular.ttf" />
     <None Include="Resources\Scripts\AddOpenWithCMD.reg" />
     <None Include="Resources\i18n\CN.json" />
     <None Include="Resources\i18n\CZ.json" />

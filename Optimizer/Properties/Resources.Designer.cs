@@ -957,6 +957,16 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Poppins_Regular {
+            get {
+                object obj = ResourceManager.GetObject("Poppins_Regular", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
         ///
         ///[HKEY_CLASSES_ROOT\DesktopBackground\Shell\Power Menu]

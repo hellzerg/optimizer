@@ -127,7 +127,7 @@ namespace Optimizer
             Utilities.GetSelfAndChildrenRecursive(f).ToList().ForEach(x =>
             {
                 c = x;
-
+            
                 if (x is Button)
                 {
                     c.BackColor = c1;

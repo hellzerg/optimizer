@@ -131,6 +131,8 @@ namespace Optimizer
                                 Environment.Exit(0);
                             }
 
+                            FontHelper.LoadFont();
+
                             for (int z = 0; z < switches.Length; z++) switches[z] = switches[z].ToLowerInvariant();
 
                             // checking for silent config argument
