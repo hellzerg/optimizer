@@ -30,7 +30,7 @@ namespace Optimizer
             AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.Poppins_Regular.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
-            Poppins15 = new Font(fonts.Families[0], 15f);
+            Poppins15 = new Font(fonts.Families[0], 13f);
         }
     }
 }

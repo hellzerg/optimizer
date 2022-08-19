@@ -6,7 +6,7 @@
 	"btnFind": "Encontrar",
 	"btnKill": "Matar",
 	"trayUnlocker": "Asas de archivo",
-	"restartAndApply": "Reiniciar para aplicar cambios?",
+	"restartAndApply": "Reiniciar para aplicar cambios",
 	"onedriveM": "¿Seguro que quieres desinstalar OneDrive? ¡Esto eliminará sus archivos de escritorio y documentos! ¡Use esta opción solo en una cuenta local!",
 	"txtVersion": "Versión: {VN}",
 	"systemRestoreM": "¿Está seguro de que desea deshabilitar Restaurar sistema? ¡Esto eliminará sus imágenes de respaldo actuales!",

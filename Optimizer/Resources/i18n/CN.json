@@ -3,7 +3,7 @@
 	"restartButton": "现在重启",
 	"restartButton8": "现在重启",
 	"restartButton10": "现在重启",
-	"restartAndApply": "重新启动以应用更改?",
+	"restartAndApply": "重新启动以应用更改",
 	"btnFind": "查找进程",
 	"btnKill": "结束进程",
 	"trayUnlocker": "查找文件句柄",

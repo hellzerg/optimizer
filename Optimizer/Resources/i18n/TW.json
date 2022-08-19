@@ -3,7 +3,7 @@
 	"restartButton": "現在重啟",
 	"restartButton8": "現在重啟",
 	"restartButton10": "現在重啟",
-	"restartAndApply": "重新啟動以應用更改?",
+	"restartAndApply": "重新啟動以應用更改",
 	"onedriveM": "確定要卸載 OneDrive 嗎？ 這將刪除您的桌面和文檔文件！ 僅在本地帳戶上使用此選項！",
 	"txtVersion": "版本: {VN}",
 	"systemRestoreM": "您確定要禁用系統還原嗎？ 這將刪除您當前的備份圖像！",
