@@ -96,9 +96,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ColorOverrider.cs" />
-    <Compile Include="Controls\MoonTip.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Controls\MoonToggle.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -163,6 +160,12 @@
     </Compile>
     <Compile Include="Forms\HelperForm.designer.cs">
       <DependentUpon>HelperForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SubForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SubForm.Designer.cs">
+      <DependentUpon>SubForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UpdateForm.cs">
       <SubType>Form</SubType>
@@ -259,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SubForm.resx">
+      <DependentUpon>SubForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateForm.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>

@@ -8,6 +8,7 @@ namespace Optimizer
         public FirstRunForm()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             Options.ApplyTheme(this);
         }
 

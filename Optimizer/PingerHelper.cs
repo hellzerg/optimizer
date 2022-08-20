@@ -137,32 +137,32 @@ namespace Optimizer
             Utilities.RunCommand("ipconfig /flushdns");
         }
 
-        internal static string PortScan(string IP, int port)
-        {
-            IPAddress ipAddress = IPAddress.Parse(IP);
-            IPEndPoint endPoint = new IPEndPoint(ipAddress, port);
+        //internal static string PortScan(string IP, int port)
+        //{
+        //    IPAddress ipAddress = IPAddress.Parse(IP);
+        //    IPEndPoint endPoint = new IPEndPoint(ipAddress, port);
 
-            try
-            {
-                Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                IAsyncResult result = sock.BeginConnect(endPoint, null, null);
-                bool success = result.AsyncWaitHandle.WaitOne(100, true);
-                if (sock.Connected)
-                {
-                    sock.EndConnect(result);
-                    return $"{port} - [✓]";
-                }
-                else
-                {
-                    return $"{port} - [×]";
-                }
+        //    try
+        //    {
+        //        Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        //        IAsyncResult result = sock.BeginConnect(endPoint, null, null);
+        //        bool success = result.AsyncWaitHandle.WaitOne(100, true);
+        //        if (sock.Connected)
+        //        {
+        //            sock.EndConnect(result);
+        //            return $"{port} - [✓]";
+        //        }
+        //        else
+        //        {
+        //            return $"{port} - [×]";
+        //        }
 
-                if (sock != null) sock.Close();
-            }
-            catch
-            {
-                return $"{port} - [×]";
-            }
-        }
+        //        if (sock != null) sock.Close();
+        //    }
+        //    catch
+        //    {
+        //        return $"{port} - [×]";
+        //    }
+        //}
     }
 }

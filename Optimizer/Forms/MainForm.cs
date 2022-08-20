@@ -514,67 +514,65 @@ namespace Optimizer
             Options.CurrentOptions.TaskbarToLeft = leftTaskbarSw.ToggleChecked;
         }
 
-        private void SetHelpBoxTranslation()
+        private void TranslateTips()
         {
-            helpBox.SetToolTip(performanceSw.Label, Options.TranslationList["performanceTip"].ToString());
-            helpBox.SetToolTip(networkSw.Label, Options.TranslationList["networkTip"].ToString());
-            helpBox.SetToolTip(defenderSw.Label, Options.TranslationList["defenderTip"].ToString());
-            helpBox.SetToolTip(smartScreenSw.Label, Options.TranslationList["smartScreenTip"].ToString());
-            helpBox.SetToolTip(systemRestoreSw.Label, Options.TranslationList["systemRestoreTip"].ToString());
-            helpBox.SetToolTip(reportingSw.Label, Options.TranslationList["reportingTip"].ToString());
-            helpBox.SetToolTip(telemetryTasksSw.Label, Options.TranslationList["telemetryTasksTip"].ToString());
-            helpBox.SetToolTip(officeTelemetrySw.Label, Options.TranslationList["officeTelemetryTip"].ToString());
-            helpBox.SetToolTip(printSw.Label, Options.TranslationList["printTip"].ToString());
-            helpBox.SetToolTip(faxSw.Label, Options.TranslationList["faxTip"].ToString());
-            helpBox.SetToolTip(mediaSharingSw.Label, Options.TranslationList["mediaSharingTip"].ToString());
-            helpBox.SetToolTip(stickySw.Label, Options.TranslationList["stickyTip"].ToString());
-            helpBox.SetToolTip(homegroupSw.Label, Options.TranslationList["homegroupTip"].ToString());
-            helpBox.SetToolTip(superfetchSw.Label, Options.TranslationList["superfetchTip"].ToString());
-            helpBox.SetToolTip(compatSw.Label, Options.TranslationList["compatTip"].ToString());
-            helpBox.SetToolTip(disableOneDriveSw.Label, Options.TranslationList["disableOneDriveTip"].ToString());
-            helpBox.SetToolTip(oldMixerSw.Label, Options.TranslationList["oldMixerTip"].ToString());
-            helpBox.SetToolTip(oldExplorerSw.Label, Options.TranslationList["oldExplorerTip"].ToString());
-            helpBox.SetToolTip(adsSw.Label, Options.TranslationList["adsTip"].ToString());
-            helpBox.SetToolTip(uODSw.Label, Options.TranslationList["uODTip"].ToString());
-            helpBox.SetToolTip(peopleSw.Label, Options.TranslationList["peopleTip"].ToString());
-            helpBox.SetToolTip(longPathsSw.Label, Options.TranslationList["longPathsTip"].ToString());
-            helpBox.SetToolTip(inkSw.Label, Options.TranslationList["inkTip"].ToString());
-            helpBox.SetToolTip(spellSw.Label, Options.TranslationList["spellTip"].ToString());
-            helpBox.SetToolTip(xboxSw.Label, Options.TranslationList["xboxTip"].ToString());
-            helpBox.SetToolTip(autoUpdatesSw.Label, Options.TranslationList["autoUpdatesTip"].ToString());
-            helpBox.SetToolTip(driversSw.Label, Options.TranslationList["driversTip"].ToString());
-            helpBox.SetToolTip(telemetryServicesSw.Label, Options.TranslationList["telemetryServicesTip"].ToString());
-            helpBox.SetToolTip(privacySw.Label, Options.TranslationList["privacyTip"].ToString());
-            helpBox.SetToolTip(ccSw.Label, Options.TranslationList["ccTip"].ToString());
-            helpBox.SetToolTip(cortanaSw.Label, Options.TranslationList["cortanaTip"].ToString());
-            helpBox.SetToolTip(sensorSw.Label, Options.TranslationList["sensorTip"].ToString());
-            helpBox.SetToolTip(castSw.Label, Options.TranslationList["castTip"].ToString());
-            helpBox.SetToolTip(gameBarSw.Label, Options.TranslationList["gameBarTip"].ToString());
-            helpBox.SetToolTip(insiderSw.Label, Options.TranslationList["insiderTip"].ToString());
-            helpBox.SetToolTip(featuresSw.Label, Options.TranslationList["featuresTip"].ToString());
-            helpBox.SetToolTip(tpmSw.Label, Options.TranslationList["tpmTip"].ToString());
-            helpBox.SetToolTip(leftTaskbarSw.Label, Options.TranslationList["leftTaskbarTip"].ToString());
-            helpBox.SetToolTip(snapAssistSw.Label, Options.TranslationList["snapAssistTip"].ToString());
-            helpBox.SetToolTip(widgetsSw.Label, Options.TranslationList["widgetsTip"].ToString());
-            helpBox.SetToolTip(chatSw.Label, Options.TranslationList["chatTip"].ToString());
-            helpBox.SetToolTip(stickersSw.Label, Options.TranslationList["stickersTip"].ToString());
-            helpBox.SetToolTip(smallerTaskbarSw.Label, Options.TranslationList["smallerTaskbarTip"].ToString());
-            helpBox.SetToolTip(classicRibbonSw.Label, Options.TranslationList["classicRibbonTip"].ToString());
-            helpBox.SetToolTip(classicContextSw.Label, Options.TranslationList["classicContextTip"].ToString());
-            helpBox.SetToolTip(picUpdate, Options.TranslationList["linkUpdate"].ToString() + "!");
-            helpBox.SetToolTip(picLab, Options.TranslationList["lblLab"].ToString());
-            helpBox.SetToolTip(picRestartNeeded, Options.TranslationList["restartAndApply"].ToString());
-            helpBox.SetToolTip(ffTelemetrySw.Label, Options.TranslationList["ffTelemetryTip"].ToString());
-            helpBox.SetToolTip(vsSw.Label, Options.TranslationList["vsTip"].ToString());
-            helpBox.SetToolTip(chromeTelemetrySw.Label, Options.TranslationList["chromeTelemetryTip"].ToString());
-            helpBox.SetToolTip(gameModeSw.Label, Options.TranslationList["gameModeTip"].ToString());
-            helpBox.SetToolTip(compactModeSw.Label, Options.TranslationList["compactModeTip"].ToString());
-            helpBox.SetToolTip(hibernateSw.Label, Options.TranslationList["hibernateTip"].ToString());
-            helpBox.SetToolTip(smb1Sw.Label, Options.TranslationList["smbTip"].ToString().Replace("{v}", "v1"));
-            helpBox.SetToolTip(smb2Sw.Label, Options.TranslationList["smbTip"].ToString().Replace("{v}", "v2"));
-            helpBox.SetToolTip(ntfsStampSw.Label, Options.TranslationList["ntfsStampTip"].ToString());
-
-            //helpBox.ToolTipTitle = Options.TranslationList["tipWhatsThis"].ToString();
+            performanceSw.Label.Tag = Options.TranslationList["performanceTip"].ToString();
+            networkSw.Label.Tag = Options.TranslationList["networkTip"].ToString();
+            defenderSw.Label.Tag = Options.TranslationList["defenderTip"].ToString();
+            smartScreenSw.Label.Tag = Options.TranslationList["smartScreenTip"].ToString();
+            systemRestoreSw.Label.Tag = Options.TranslationList["systemRestoreTip"].ToString();
+            reportingSw.Label.Tag = Options.TranslationList["reportingTip"].ToString();
+            telemetryTasksSw.Label.Tag = Options.TranslationList["telemetryTasksTip"].ToString();
+            officeTelemetrySw.Label.Tag = Options.TranslationList["officeTelemetryTip"].ToString();
+            printSw.Label.Tag = Options.TranslationList["printTip"].ToString();
+            faxSw.Label.Tag = Options.TranslationList["faxTip"].ToString();
+            mediaSharingSw.Label.Tag = Options.TranslationList["mediaSharingTip"].ToString();
+            stickySw.Label.Tag = Options.TranslationList["stickyTip"].ToString();
+            homegroupSw.Label.Tag = Options.TranslationList["homegroupTip"].ToString();
+            superfetchSw.Label.Tag = Options.TranslationList["superfetchTip"].ToString();
+            compatSw.Label.Tag = Options.TranslationList["compatTip"].ToString();
+            disableOneDriveSw.Label.Tag = Options.TranslationList["disableOneDriveTip"].ToString();
+            oldMixerSw.Label.Tag = Options.TranslationList["oldMixerTip"].ToString();
+            oldExplorerSw.Label.Tag = Options.TranslationList["oldExplorerTip"].ToString();
+            adsSw.Label.Tag = Options.TranslationList["adsTip"].ToString();
+            uODSw.Label.Tag = Options.TranslationList["uODTip"].ToString();
+            peopleSw.Label.Tag = Options.TranslationList["peopleTip"].ToString();
+            longPathsSw.Label.Tag = Options.TranslationList["longPathsTip"].ToString();
+            inkSw.Label.Tag = Options.TranslationList["inkTip"].ToString();
+            spellSw.Label.Tag = Options.TranslationList["spellTip"].ToString();
+            xboxSw.Label.Tag = Options.TranslationList["xboxTip"].ToString();
+            autoUpdatesSw.Label.Tag = Options.TranslationList["autoUpdatesTip"].ToString();
+            driversSw.Label.Tag = Options.TranslationList["driversTip"].ToString();
+            telemetryServicesSw.Label.Tag = Options.TranslationList["telemetryServicesTip"].ToString();
+            privacySw.Label.Tag = Options.TranslationList["privacyTip"].ToString();
+            ccSw.Label.Tag = Options.TranslationList["ccTip"].ToString();
+            cortanaSw.Label.Tag = Options.TranslationList["cortanaTip"].ToString();
+            sensorSw.Label.Tag = Options.TranslationList["sensorTip"].ToString();
+            castSw.Label.Tag = Options.TranslationList["castTip"].ToString();
+            gameBarSw.Label.Tag = Options.TranslationList["gameBarTip"].ToString();
+            insiderSw.Label.Tag = Options.TranslationList["insiderTip"].ToString();
+            featuresSw.Label.Tag = Options.TranslationList["featuresTip"].ToString();
+            tpmSw.Label.Tag = Options.TranslationList["tpmTip"].ToString();
+            leftTaskbarSw.Label.Tag = Options.TranslationList["leftTaskbarTip"].ToString();
+            snapAssistSw.Label.Tag = Options.TranslationList["snapAssistTip"].ToString();
+            widgetsSw.Label.Tag = Options.TranslationList["widgetsTip"].ToString();
+            chatSw.Label.Tag = Options.TranslationList["chatTip"].ToString();
+            stickersSw.Label.Tag = Options.TranslationList["stickersTip"].ToString();
+            smallerTaskbarSw.Label.Tag = Options.TranslationList["smallerTaskbarTip"].ToString();
+            classicRibbonSw.Label.Tag = Options.TranslationList["classicRibbonTip"].ToString();
+            classicContextSw.Label.Tag = Options.TranslationList["classicContextTip"].ToString();
+            picUpdate.Tag = Options.TranslationList["linkUpdate"].ToString() + "!";
+            picLab.Tag = Options.TranslationList["lblLab"].ToString();
+            picRestartNeeded.Tag = Options.TranslationList["restartAndApply"].ToString();
+            ffTelemetrySw.Label.Tag = Options.TranslationList["ffTelemetryTip"].ToString();
+            vsSw.Label.Tag = Options.TranslationList["vsTip"].ToString();
+            chromeTelemetrySw.Label.Tag = Options.TranslationList["chromeTelemetryTip"].ToString();
+            gameModeSw.Label.Tag = Options.TranslationList["gameModeTip"].ToString();
+            compactModeSw.Label.Tag = Options.TranslationList["compactModeTip"].ToString();
+            hibernateSw.Label.Tag = Options.TranslationList["hibernateTip"].ToString();
+            smb1Sw.Label.Tag = Options.TranslationList["smbTip"].ToString().Replace("{v}", "v1");
+            smb2Sw.Label.Tag = Options.TranslationList["smbTip"].ToString().Replace("{v}", "v2");
+            ntfsStampSw.Label.Tag = Options.TranslationList["ntfsStampTip"].ToString();
         }
 
         private void ToggleSwitch40_Click(object sender, EventArgs e)
@@ -743,7 +741,6 @@ namespace Optimizer
             trayUpSpeed.Visible = Options.CurrentOptions.EnableTray;
 
             // help tips
-            helpBox.Active = Options.CurrentOptions.ShowHelp;
             helpTipsToggle.ToggleChecked = Options.CurrentOptions.ShowHelp;
 
             // fix SSL/TLS error when contacting internet
@@ -1863,7 +1860,7 @@ namespace Optimizer
                 translationList["txtBitness"] = translationList["txtBitness"].Replace("{BITS}", translationList["c32"]);
             }
 
-            SetHelpBoxTranslation();
+            TranslateTips();
             TranslateIndicium();
 
             if (!skipFull)
@@ -2193,7 +2190,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void GetDesktopItems()
@@ -3846,7 +3843,7 @@ namespace Optimizer
             }
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void copyB_Click(object sender, EventArgs e)
         {
             try
             {
@@ -3855,7 +3852,7 @@ namespace Optimizer
             catch { }
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void copyIPB_Click(object sender, EventArgs e)
         {
             try
             {
@@ -3958,7 +3955,7 @@ namespace Optimizer
             Utilities.RestartExplorer();
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void flushCacheB_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(_flushDNSMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -4089,8 +4086,6 @@ namespace Optimizer
         {
             Options.CurrentOptions.ShowHelp = helpTipsToggle.ToggleChecked;
             Options.SaveSettings();
-
-            helpBox.Active = helpTipsToggle.ToggleChecked;
         }
 
         private void picUpdate_Click(object sender, EventArgs e)

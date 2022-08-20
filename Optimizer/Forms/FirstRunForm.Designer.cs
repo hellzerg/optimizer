@@ -138,7 +138,7 @@ namespace Optimizer
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(289, 31);
             this.btnStart.TabIndex = 86;
-            this.btnStart.Tag = "";
+            this.btnStart.Tag = "themeable";
             this.btnStart.Text = "✓";
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);

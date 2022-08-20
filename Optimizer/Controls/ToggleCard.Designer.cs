@@ -43,6 +43,10 @@ namespace Optimizer
             this.Label.Size = new System.Drawing.Size(45, 19);
             this.Label.TabIndex = 1;
             this.Label.Text = "label1";
+            this.Label.Click += new System.EventHandler(this.Label_Click);
+            this.Label.MouseEnter += new System.EventHandler(this.Label_MouseEnter);
+            this.Label.MouseLeave += new System.EventHandler(this.Label_MouseLeave);
+            this.Label.MouseHover += new System.EventHandler(this.Label_MouseHover);
             // 
             // Panel
             // 

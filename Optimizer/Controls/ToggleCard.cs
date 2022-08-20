@@ -7,9 +7,15 @@ namespace Optimizer
     {
         public event EventHandler ToggleClicked;
 
+        SubForm _subForm;
+
         public ToggleCard()
         {
             InitializeComponent();
+
+            this.DoubleBuffered = true;
+
+            _subForm = new SubForm();
 
             this.IsAccessible = true;
             Label.IsAccessible = true;
@@ -49,6 +55,31 @@ namespace Optimizer
         private void Toggle_CheckedChanged(object sender, EventArgs e)
         {
             if (ToggleClicked != null) ToggleClicked(sender, e);
+        }
+
+        private void Label_MouseLeave(object sender, EventArgs e)
+        {
+            if (!Options.CurrentOptions.ShowHelp) return;
+            Label.Font = new System.Drawing.Font(Label.Font, System.Drawing.FontStyle.Regular);
+        }
+
+        private void Label_MouseEnter(object sender, EventArgs e)
+        {
+            if (!Options.CurrentOptions.ShowHelp) return;
+            Label.Font = new System.Drawing.Font(Label.Font, System.Drawing.FontStyle.Underline);
+        }
+
+        private void Label_Click(object sender, EventArgs e)
+        {
+            if (Label.Tag == null || !Options.CurrentOptions.ShowHelp) return;
+            _subForm.SetTip(Label.Tag.ToString());
+            _subForm.ShowDialog(this);
+        }
+
+        private void Label_MouseHover(object sender, EventArgs e)
+        {
+            if (!Options.CurrentOptions.ShowHelp) return;
+            Label.Font = new System.Drawing.Font(Label.Font, System.Drawing.FontStyle.Underline);
         }
     }
 }
