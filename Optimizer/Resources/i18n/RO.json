@@ -396,5 +396,14 @@ pentru analiză către Microsoft.",
 	"systemRestoreM": "Sunteți sigur că doriți să dezactivați restaura de sistem? Acest lucru va șterge imaginile de backup curente!",
 	"compactModeSw": "Activați Modul Compact în Explorer",
 	"compactModeTip": "Reduce spațiul suplimentar și umplutura între fișierele din File Explorer.",
-	"stickersTip": "Stickerele sunt emoji-uri mari care apar pe imagini de fundal, fiind folosite în mesageria socială."
+	"stickersTip": "Stickerele sunt emoji-uri mari care apar pe imagini de fundal, fiind folosite în mesageria socială.",
+	"hibernateSw": "Dezactivați Hibernarea",
+	"hibernateTip": "Dezactivează funcția de hibernare Windows.",
+	"smbSw1": "Dezactivați protocolul SMBv1",
+	"smbSw2": "Dezactivați protocolul SMBv2",
+	"smbTip": "Protocolul SMB{v} este responsabil pentru partajarea fișierelor între computerele Windows.
+	A fost înlocuit cu SMBv3, care este mai sigur.",
+	"ntfsStampSw": "Dezactivați marcajul de timp NTFS",
+	"ntfsStampTip": "Indică ștampila la care a fost accesat ultima dată fișierul.
+	Dezactivarea acestuia poate reduce operațiunile I/O pe discuri."
 }

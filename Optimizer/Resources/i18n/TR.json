@@ -413,5 +413,14 @@ Ancak, riskli bir prosedür olarak kabul edilirler. Genellikle altı aylık yay�
 	"gameModeTip": "Donanım hızlandırmalı GPU zamanlaması ile birlikte Oyun modunu etkinleştirir.",
 	"compactModeSw": "Explorer'da Kompakt Modu Etkinleştir",
 	"compactModeTip": "Dosya Gezgini'ndeki dosyalar arasındaki fazladan boşluğu ve dolguyu azaltır.",
-	"stickersTip": "Çıkartmalar, sosyal mesajlaşma programlarında kullanılan duvar kağıtlarında görünen büyük emojilerdir."
+	"stickersTip": "Çıkartmalar, sosyal mesajlaşma programlarında kullanılan duvar kağıtlarında görünen büyük emojilerdir.",
+	"hibernateSw": "Hazırda Bekletmeyi Devre Dışı Bırak",
+	"hibernateTip": "Windows hazırda bekletme özelliğini devre dışı bırakır.",
+	"smbSw1": "SMBv1 Protokolünü Devre Dışı Bırak",
+	"smbSw2": "SMBv2 Protokolünü Devre Dışı Bırak",
+	"smbTip": "SMB{v} protokolü, Windows bilgisayarlar arasında dosya paylaşımından sorumludur.
+	Daha güvenli olan SMBv3 ile değiştirildi.",
+	"ntfsStampSw": "NTFS Zaman Damgasını Devre Dışı Bırak",
+	"ntfsStampTip": "Dosyanın en son erişilen damgasını gösterir.
+	Devre dışı bırakmak, disklerdeki G/Ç işlemlerini azaltabilir."
 }

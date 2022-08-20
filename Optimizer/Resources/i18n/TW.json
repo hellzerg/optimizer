@@ -413,5 +413,14 @@
 	"gameModeTip": "結合硬件加速 GPU 調度啟用遊戲模式。",
 	"compactModeSw": "在資源管理器中啟用緊湊模式",
 	"compactModeTip": "減少文件資源管理器中文件之間的額外空間和填充。",
-	"stickersTip": "貼紙是出現在壁紙上的大型表情符號，用於社交信使。"
+	"stickersTip": "貼紙是出現在壁紙上的大型表情符號，用於社交信使。",
+	"hibernateSw": "禁用休眠",
+	"hibernateTip": "禁用 Windows 休眠功能。",
+	"smbSw1": "禁用 SMBv1 協議",
+	"smbSw2": "禁用 SMBv2 協議",
+	"smbTip": "SMB{v} 協議負責 Windows 計算機之間的文件共享。
+	它已被更安全的 SMBv3 取代。",
+	"ntfsStampSw": "禁用 NTFS 時間戳",
+	"ntfsStampTip": "指示文件的最後一次訪問時間戳。
+	禁用它可以減少磁盤上的 I/O 操作。"
 }

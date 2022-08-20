@@ -30,7 +30,7 @@ namespace Optimizer
         List<string> _hostsEntries = new List<string>();
         List<string> _customCommands = new List<string>();
         List<string> _desktopItems = new List<string>();
-        Dictionary<string, string> _modernApps = new Dictionary<string, string>();
+        List<KeyValuePair<string, string>> _modernApps = new List<KeyValuePair<string, string>>();
 
         bool _trayMenu = false;
 
@@ -258,6 +258,10 @@ namespace Optimizer
             gameModeSw.ToggleClicked += new EventHandler(GameModeSw_ToggleClicked);
             compactModeSw.ToggleClicked += CompactModeSw_ToggleClicked;
             tpmSw.ToggleClicked += TpmSw_ToggleClicked;
+            hibernateSw.ToggleClicked += HibernateSw_ToggleClicked;
+            smb1Sw.ToggleClicked += Smb1Sw_ToggleClicked;
+            smb2Sw.ToggleClicked += Smb2Sw_ToggleClicked;
+            ntfsStampSw.ToggleClicked += NtfsStampSw_ToggleClicked;
 
             PMB.ToggleClicked += PMB_ToggleClicked;
             SSB.ToggleClicked += SSB_ToggleClicked;
@@ -266,6 +270,61 @@ namespace Optimizer
             DSB.ToggleClicked += DSB_ToggleClicked;
             AddCMDB.ToggleClicked += AddCMDB_ToggleClicked;
             AddOwnerB.ToggleClicked += AddOwnerB_ToggleClicked;
+        }
+
+        private void NtfsStampSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (ntfsStampSw.ToggleChecked)
+            {
+                Optimize.DisableNTFSTimeStamp();
+            }
+            else
+            {
+                Optimize.EnableNTFSTimeStamp();
+            }
+            Options.CurrentOptions.DisableNTFSTimeStamp = ntfsStampSw.ToggleChecked;
+        }
+
+        private void Smb2Sw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (smb2Sw.ToggleChecked)
+            {
+                Optimize.DisableSMB("2");
+            }
+            else
+            {
+                Optimize.EnableSMB("2");
+            }
+            Options.CurrentOptions.DisableSMB2 = smb2Sw.ToggleChecked;
+            ShowRestartNeeded();
+        }
+
+        private void Smb1Sw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (smb1Sw.ToggleChecked)
+            {
+                Optimize.DisableSMB("1");
+            }
+            else
+            {
+                Optimize.EnableSMB("1");
+            }
+            Options.CurrentOptions.DisableSMB1 = smb1Sw.ToggleChecked;
+            ShowRestartNeeded();
+        }
+
+        private void HibernateSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (hibernateSw.ToggleChecked)
+            {
+                Utilities.DisableHibernation();
+            }
+            else
+            {
+                Utilities.EnableHibernation();
+            }
+            Options.CurrentOptions.DisableHibernation = hibernateSw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void StickersSw_ToggleClicked(object sender, EventArgs e)
@@ -305,6 +364,7 @@ namespace Optimizer
                 Optimize.DisableFilesCompactMode();
             }
             Options.CurrentOptions.CompactMode = compactModeSw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void GameModeSw_ToggleClicked(object sender, EventArgs e)
@@ -318,6 +378,7 @@ namespace Optimizer
                 Optimize.DisableGamingMode();
             }
             Options.CurrentOptions.EnableGamingMode = gameModeSw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void VsSw_ToggleClicked(object sender, EventArgs e)
@@ -370,6 +431,7 @@ namespace Optimizer
                 Optimize.EnableShowMoreOptions();
             }
             Options.CurrentOptions.ClassicMenu = classicContextSw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void ClassicRibbonSw_Click(object sender, EventArgs e)
@@ -383,6 +445,7 @@ namespace Optimizer
                 Optimize.DisableFileExplorerClassicRibbon();
             }
             Options.CurrentOptions.ClassicRibbon = classicContextSw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void chatSw_Click(object sender, EventArgs e)
@@ -435,6 +498,7 @@ namespace Optimizer
                 Optimize.EnableSnapAssist();
             }
             Options.CurrentOptions.DisableSnapAssist = snapAssistSw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void LeftTaskbarSw_Click(object sender, EventArgs e)
@@ -505,6 +569,10 @@ namespace Optimizer
             helpBox.SetToolTip(chromeTelemetrySw.Label, Options.TranslationList["chromeTelemetryTip"].ToString());
             helpBox.SetToolTip(gameModeSw.Label, Options.TranslationList["gameModeTip"].ToString());
             helpBox.SetToolTip(compactModeSw.Label, Options.TranslationList["compactModeTip"].ToString());
+            helpBox.SetToolTip(hibernateSw.Label, Options.TranslationList["hibernateTip"].ToString());
+            helpBox.SetToolTip(smb1Sw.Label, Options.TranslationList["smbTip"].ToString().Replace("{v}", "v1"));
+            helpBox.SetToolTip(smb2Sw.Label, Options.TranslationList["smbTip"].ToString().Replace("{v}", "v2"));
+            helpBox.SetToolTip(ntfsStampSw.Label, Options.TranslationList["ntfsStampTip"].ToString());
 
             //helpBox.ToolTipTitle = Options.TranslationList["tipWhatsThis"].ToString();
         }
@@ -682,7 +750,7 @@ namespace Optimizer
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             // initial states
-            
+
             checkDefaultIcon.Checked = true;
             radioProgram.Checked = true;
             radioTop.Checked = true;
@@ -2069,6 +2137,10 @@ namespace Optimizer
             faxSw.ToggleChecked = Options.CurrentOptions.DisableFaxService;
             smartScreenSw.ToggleChecked = Options.CurrentOptions.DisableSmartScreen;
             stickySw.ToggleChecked = Options.CurrentOptions.DisableStickyKeys;
+            hibernateSw.ToggleChecked = Options.CurrentOptions.DisableHibernation;
+            smb1Sw.ToggleChecked = Options.CurrentOptions.DisableSMB1;
+            smb2Sw.ToggleChecked = Options.CurrentOptions.DisableSMB2;
+            ntfsStampSw.ToggleChecked = Options.CurrentOptions.DisableNTFSTimeStamp;
             ffTelemetrySw.ToggleChecked = Options.CurrentOptions.DisableFirefoxTemeletry;
             vsSw.ToggleChecked = Options.CurrentOptions.DisableVisualStudioTelemetry;
             chromeTelemetrySw.ToggleChecked = Options.CurrentOptions.DisableChromeTelemetry;
@@ -2102,6 +2174,7 @@ namespace Optimizer
             longPathsSw.ToggleChecked = Options.CurrentOptions.EnableLongPaths;
             castSw.ToggleChecked = Options.CurrentOptions.RemoveCastToDevice;
             gameModeSw.ToggleChecked = Options.CurrentOptions.EnableGamingMode;
+            tpmSw.ToggleChecked = Options.CurrentOptions.DisableTPMCheck;
         }
 
         private void LoadWindowsXIToggleStates()
@@ -2120,7 +2193,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GetDesktopItems()
@@ -2183,7 +2256,7 @@ namespace Optimizer
         {
             uninstallModernAppsButton.Enabled = false;
             refreshModernAppsButton.Enabled = false;
-           
+
             panelUwp.Controls.Clear();
             _modernApps = UWPHelper.GetUWPApps(showAll);
 
@@ -2192,7 +2265,7 @@ namespace Optimizer
 
             foreach (var x in _modernApps)
             {
-               
+
                 appCard = new AppCard();
                 appCard.AutoSize = true;
                 appCard.Anchor = AnchorStyles.None;
@@ -2213,11 +2286,14 @@ namespace Optimizer
                     pngTmp = null;
                 }
 
-                if (pngTmp != null) appCard.appImage.Image = Image.FromFile(pngTmp.FullName);
+                if (pngTmp != null)
+                {
+                    appCard.appImage.Image = Image.FromFile(pngTmp.FullName);
+                }
 
                 appCard.Location = new Point(0, panelUwp.Controls.Count * (DPI_PREFERENCE / 3));
                 panelUwp.Controls.Add(appCard);
-                
+
             }
 
             uninstallModernAppsButton.Enabled = true;
@@ -2248,7 +2324,7 @@ namespace Optimizer
                 string failedApps = string.Empty;
 
                 foreach (string app in selectedApps)
-                { 
+                {
                     await Task.Run(() => errorOccured = UWPHelper.UninstallUWPApp(app));
 
                     if (errorOccured)
@@ -3013,6 +3089,7 @@ namespace Optimizer
                 Optimize.DisablePerformanceTweaks();
             }
             Options.CurrentOptions.EnablePerformanceTweaks = performanceSw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void toggleSwitch2_Click(object sender, EventArgs e)
@@ -3179,6 +3256,7 @@ namespace Optimizer
                 Optimize.EnableQuickAccessHistory();
             }
             Options.CurrentOptions.DisableQuickAccessHistory = oldExplorerSw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void toggleSwitch26_Click(object sender, EventArgs e)
@@ -3271,6 +3349,7 @@ namespace Optimizer
                 Optimize.EnableTelemetryServices();
             }
             Options.CurrentOptions.DisableTelemetryServices = telemetryServicesSw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void toggleSwitch21_Click(object sender, EventArgs e)
@@ -3286,6 +3365,7 @@ namespace Optimizer
                 t.Start();
             }
             Options.CurrentOptions.DisablePrivacyOptions = privacySw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void toggleSwitch16_Click(object sender, EventArgs e)
@@ -3312,6 +3392,7 @@ namespace Optimizer
                 Optimize.EnableSensorServices();
             }
             Options.CurrentOptions.DisableSensorServices = sensorSw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void toggleSwitch29_Click(object sender, EventArgs e)
@@ -3351,6 +3432,7 @@ namespace Optimizer
                 Optimize.EnableXboxLive();
             }
             Options.CurrentOptions.DisableXboxLive = xboxSw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void toggleSwitch15_Click(object sender, EventArgs e)
@@ -3364,6 +3446,7 @@ namespace Optimizer
                 Optimize.EnableGameBar();
             }
             Options.CurrentOptions.DisableGameBar = gameBarSw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void toggleSwitch31_Click(object sender, EventArgs e)
@@ -4569,6 +4652,32 @@ namespace Optimizer
         {
             Utilities.Reboot();
             Environment.Exit(0);
+        }
+
+        private void ShowRestartNeeded()
+        {
+            restartAndApply.Visible = true;
+            picRestartNeeded.Visible = true;
+        }
+
+        private void btnWinClean_Click(object sender, EventArgs e)
+        {
+            Process.Start("cleanmgr.exe");
+        }
+
+        private void restartAndApply_MouseLeave(object sender, EventArgs e)
+        {
+            restartAndApply.Font = new Font(restartAndApply.Font, FontStyle.Regular);
+        }
+
+        private void restartAndApply_MouseHover(object sender, EventArgs e)
+        {
+            restartAndApply.Font = new Font(restartAndApply.Font, FontStyle.Underline);
+        }
+
+        private void restartAndApply_MouseEnter(object sender, EventArgs e)
+        {
+            restartAndApply.Font = new Font(restartAndApply.Font, FontStyle.Underline);
         }
     }
 }

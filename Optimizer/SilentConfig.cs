@@ -22,6 +22,10 @@ namespace Optimizer
         public bool? DisableSmartScreen { get; set; }
         public bool? DisableCloudClipboard { get; set; }
         public bool? DisableStickyKeys { get; set; }
+        public bool? DisableHibernation { get; set; }
+        public bool? DisableSMB1 { get; set; }
+        public bool? DisableSMB2 { get; set; }
+        public bool? DisableNTFSTimeStamp { get; set; }
 
         public bool? DisableOffice2016Telemetry { get; set; }
         public bool? DisableVisualStudioTelemetry { get; set; }

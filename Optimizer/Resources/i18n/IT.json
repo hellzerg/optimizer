@@ -410,5 +410,14 @@ Tuttavia, sono considerate procedure rischiose. Sono normalmente una release ogn
 	"gameModeTip": "Abilita la modalità di gioco in combinazione con la pianificazione GPU con accelerazione hardware.",
 	"compactModeSw": "Abilita la modalità compatta in Explorer",
 	"compactModeTip": "Riduce lo spazio aggiuntivo e il riempimento tra i file in Esplora file.",
-	"stickersTip": "Gli adesivi sono grandi emoji che appaiono sugli sfondi, utilizzati nei social messenger."
+	"stickersTip": "Gli adesivi sono grandi emoji che appaiono sugli sfondi, utilizzati nei social messenger.",
+	"hibernateSw": "Disabilita l'ibernazione",
+	"hibernateTip": "Disabilita la funzione di ibernazione di Windows.",
+	"smbSw1": "Disabilita il protocollo SMBv1",
+	"smbSw2": "Disabilita il protocollo SMBv2",
+	"smbTip": "Il protocollo SMB{v} è responsabile della condivisione di file tra computer Windows.
+	È stato sostituito con SMBv3, che è più sicuro.",
+	"ntfsStampSw": "Disabilita il timestamp NTFS",
+	"ntfsStampTip": "Indica l'ultima volta che si è avuto accesso al file.
+	La disabilitazione può ridurre le operazioni di I/O sui dischi."
 }

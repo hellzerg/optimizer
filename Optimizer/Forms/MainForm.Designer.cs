@@ -32,15 +32,16 @@ namespace Optimizer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Processors", 0, 0);
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Memory", 1, 1);
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Graphics", 2, 2);
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Motherboard", 3, 3);
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Storage", 4, 4);
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Network Adapters", 5, 5);
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Audio", 6, 6);
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Peripherals", 7, 7);
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Processors", 0, 0);
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Memory", 1, 1);
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Graphics", 2, 2);
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Motherboard", 3, 3);
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Storage", 4, 4);
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Network Adapters", 5, 5);
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Audio", 6, 6);
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Peripherals", 7, 7);
             this.tpanel = new System.Windows.Forms.Panel();
+            this.restartAndApply = new System.Windows.Forms.Label();
             this.picRestartNeeded = new System.Windows.Forms.PictureBox();
             this.picLab = new System.Windows.Forms.PictureBox();
             this.picUpdate = new System.Windows.Forms.PictureBox();
@@ -84,9 +85,12 @@ namespace Optimizer
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.restartAndApply = new System.Windows.Forms.Label();
             this.tabCollection = new Optimizer.MoonTabs();
             this.universalTab = new System.Windows.Forms.TabPage();
+            this.ntfsStampSw = new Optimizer.ToggleCard();
+            this.smb2Sw = new Optimizer.ToggleCard();
+            this.smb1Sw = new Optimizer.ToggleCard();
+            this.hibernateSw = new Optimizer.ToggleCard();
             this.chromeTelemetrySw = new Optimizer.ToggleCard();
             this.ffTelemetrySw = new Optimizer.ToggleCard();
             this.vsSw = new Optimizer.ToggleCard();
@@ -194,6 +198,7 @@ namespace Optimizer
             this.panel14 = new System.Windows.Forms.Panel();
             this.listCleanPreview = new Optimizer.MoonCheckList();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.btnWinClean = new System.Windows.Forms.Button();
             this.analyzeDriveB = new System.Windows.Forms.Button();
             this.checkSelectAll = new System.Windows.Forms.LinkLabel();
             this.lblPretext = new System.Windows.Forms.Label();
@@ -478,6 +483,24 @@ namespace Optimizer
             this.tpanel.Name = "tpanel";
             this.tpanel.Size = new System.Drawing.Size(1009, 64);
             this.tpanel.TabIndex = 1;
+            // 
+            // restartAndApply
+            // 
+            this.restartAndApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.restartAndApply.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restartAndApply.ForeColor = System.Drawing.Color.White;
+            this.restartAndApply.Location = new System.Drawing.Point(564, 16);
+            this.restartAndApply.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.restartAndApply.Name = "restartAndApply";
+            this.restartAndApply.Size = new System.Drawing.Size(394, 25);
+            this.restartAndApply.TabIndex = 74;
+            this.restartAndApply.Tag = "themeable";
+            this.restartAndApply.Text = "Restart needed";
+            this.restartAndApply.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.restartAndApply.Visible = false;
+            this.restartAndApply.MouseEnter += new System.EventHandler(this.restartAndApply_MouseEnter);
+            this.restartAndApply.MouseLeave += new System.EventHandler(this.restartAndApply_MouseLeave);
+            this.restartAndApply.MouseHover += new System.EventHandler(this.restartAndApply_MouseHover);
             // 
             // picRestartNeeded
             // 
@@ -903,21 +926,6 @@ namespace Optimizer
             this.launcherIcon.Text = "Optimizer";
             this.launcherIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.launcherIcon_MouseDoubleClick);
             // 
-            // restartAndApply
-            // 
-            this.restartAndApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.restartAndApply.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restartAndApply.ForeColor = System.Drawing.Color.White;
-            this.restartAndApply.Location = new System.Drawing.Point(564, 16);
-            this.restartAndApply.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.restartAndApply.Name = "restartAndApply";
-            this.restartAndApply.Size = new System.Drawing.Size(394, 25);
-            this.restartAndApply.TabIndex = 74;
-            this.restartAndApply.Tag = "themeable";
-            this.restartAndApply.Text = "Restart needed";
-            this.restartAndApply.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.restartAndApply.Visible = false;
-            // 
             // tabCollection
             // 
             this.tabCollection.Controls.Add(this.universalTab);
@@ -947,6 +955,10 @@ namespace Optimizer
             // universalTab
             // 
             this.universalTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.universalTab.Controls.Add(this.ntfsStampSw);
+            this.universalTab.Controls.Add(this.smb2Sw);
+            this.universalTab.Controls.Add(this.smb1Sw);
+            this.universalTab.Controls.Add(this.hibernateSw);
             this.universalTab.Controls.Add(this.chromeTelemetrySw);
             this.universalTab.Controls.Add(this.ffTelemetrySw);
             this.universalTab.Controls.Add(this.vsSw);
@@ -973,6 +985,66 @@ namespace Optimizer
             this.universalTab.TabIndex = 0;
             this.universalTab.Text = "Universal";
             // 
+            // ntfsStampSw
+            // 
+            this.ntfsStampSw.AccessibleName = "Disable NTFS Timestamp";
+            this.ntfsStampSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
+            this.ntfsStampSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ntfsStampSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntfsStampSw.ForeColor = System.Drawing.Color.White;
+            this.ntfsStampSw.LabelText = "Disable NTFS Timestamp";
+            this.ntfsStampSw.Location = new System.Drawing.Point(21, 308);
+            this.ntfsStampSw.Name = "ntfsStampSw";
+            this.ntfsStampSw.Size = new System.Drawing.Size(414, 24);
+            this.ntfsStampSw.TabIndex = 72;
+            this.ntfsStampSw.Tag = "themeable";
+            this.ntfsStampSw.ToggleChecked = false;
+            // 
+            // smb2Sw
+            // 
+            this.smb2Sw.AccessibleName = "Disable SMBv2 Protocol";
+            this.smb2Sw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
+            this.smb2Sw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.smb2Sw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.smb2Sw.ForeColor = System.Drawing.Color.White;
+            this.smb2Sw.LabelText = "Disable SMBv2 Protocol";
+            this.smb2Sw.Location = new System.Drawing.Point(457, 271);
+            this.smb2Sw.Name = "smb2Sw";
+            this.smb2Sw.Size = new System.Drawing.Size(414, 24);
+            this.smb2Sw.TabIndex = 71;
+            this.smb2Sw.Tag = "themeable";
+            this.smb2Sw.ToggleChecked = false;
+            // 
+            // smb1Sw
+            // 
+            this.smb1Sw.AccessibleName = "Disable SMBv1 Protocol";
+            this.smb1Sw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
+            this.smb1Sw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.smb1Sw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.smb1Sw.ForeColor = System.Drawing.Color.White;
+            this.smb1Sw.LabelText = "Disable SMBv1 Protocol";
+            this.smb1Sw.Location = new System.Drawing.Point(21, 271);
+            this.smb1Sw.Name = "smb1Sw";
+            this.smb1Sw.Size = new System.Drawing.Size(414, 24);
+            this.smb1Sw.TabIndex = 70;
+            this.smb1Sw.Tag = "themeable";
+            this.smb1Sw.ToggleChecked = false;
+            // 
+            // hibernateSw
+            // 
+            this.hibernateSw.AccessibleName = "Disable Hibernation";
+            this.hibernateSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
+            this.hibernateSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.hibernateSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hibernateSw.ForeColor = System.Drawing.Color.White;
+            this.hibernateSw.LabelText = "Disable Hibernation";
+            this.hibernateSw.Location = new System.Drawing.Point(457, 234);
+            this.hibernateSw.Name = "hibernateSw";
+            this.hibernateSw.Size = new System.Drawing.Size(414, 24);
+            this.hibernateSw.TabIndex = 69;
+            this.hibernateSw.Tag = "themeable";
+            this.hibernateSw.ToggleChecked = false;
+            // 
             // chromeTelemetrySw
             // 
             this.chromeTelemetrySw.AccessibleName = "Disable Google Chrome Telemetry";
@@ -981,7 +1053,7 @@ namespace Optimizer
             this.chromeTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chromeTelemetrySw.ForeColor = System.Drawing.Color.White;
             this.chromeTelemetrySw.LabelText = "Disable Google Chrome Telemetry";
-            this.chromeTelemetrySw.Location = new System.Drawing.Point(21, 407);
+            this.chromeTelemetrySw.Location = new System.Drawing.Point(21, 476);
             this.chromeTelemetrySw.Name = "chromeTelemetrySw";
             this.chromeTelemetrySw.Size = new System.Drawing.Size(490, 24);
             this.chromeTelemetrySw.TabIndex = 68;
@@ -996,7 +1068,7 @@ namespace Optimizer
             this.ffTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ffTelemetrySw.ForeColor = System.Drawing.Color.White;
             this.ffTelemetrySw.LabelText = "Disable Mozilla Firefox Telemetry";
-            this.ffTelemetrySw.Location = new System.Drawing.Point(21, 370);
+            this.ffTelemetrySw.Location = new System.Drawing.Point(21, 439);
             this.ffTelemetrySw.Name = "ffTelemetrySw";
             this.ffTelemetrySw.Size = new System.Drawing.Size(490, 24);
             this.ffTelemetrySw.TabIndex = 67;
@@ -1011,7 +1083,7 @@ namespace Optimizer
             this.vsSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vsSw.ForeColor = System.Drawing.Color.White;
             this.vsSw.LabelText = "Disable Visual Studio Telemetry";
-            this.vsSw.Location = new System.Drawing.Point(21, 333);
+            this.vsSw.Location = new System.Drawing.Point(21, 402);
             this.vsSw.Name = "vsSw";
             this.vsSw.Size = new System.Drawing.Size(490, 24);
             this.vsSw.TabIndex = 66;
@@ -1056,7 +1128,7 @@ namespace Optimizer
             this.officeTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.officeTelemetrySw.ForeColor = System.Drawing.Color.White;
             this.officeTelemetrySw.LabelText = "Disable Office 2016 Telemetry";
-            this.officeTelemetrySw.Location = new System.Drawing.Point(21, 295);
+            this.officeTelemetrySw.Location = new System.Drawing.Point(21, 364);
             this.officeTelemetrySw.Name = "officeTelemetrySw";
             this.officeTelemetrySw.Size = new System.Drawing.Size(490, 24);
             this.officeTelemetrySw.TabIndex = 63;
@@ -1116,7 +1188,7 @@ namespace Optimizer
             this.defenderSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.defenderSw.ForeColor = System.Drawing.Color.White;
             this.defenderSw.LabelText = "Disable Windows Defender";
-            this.defenderSw.Location = new System.Drawing.Point(457, 234);
+            this.defenderSw.Location = new System.Drawing.Point(457, 308);
             this.defenderSw.Name = "defenderSw";
             this.defenderSw.Size = new System.Drawing.Size(414, 24);
             this.defenderSw.TabIndex = 59;
@@ -2549,6 +2621,7 @@ namespace Optimizer
             // panel13
             // 
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel13.Controls.Add(this.btnWinClean);
             this.panel13.Controls.Add(this.analyzeDriveB);
             this.panel13.Controls.Add(this.checkSelectAll);
             this.panel13.Controls.Add(this.lblPretext);
@@ -2559,6 +2632,24 @@ namespace Optimizer
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(776, 61);
             this.panel13.TabIndex = 50;
+            // 
+            // btnWinClean
+            // 
+            this.btnWinClean.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnWinClean.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnWinClean.FlatAppearance.BorderSize = 0;
+            this.btnWinClean.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnWinClean.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnWinClean.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWinClean.ForeColor = System.Drawing.Color.White;
+            this.btnWinClean.Location = new System.Drawing.Point(404, 26);
+            this.btnWinClean.Margin = new System.Windows.Forms.Padding(2);
+            this.btnWinClean.Name = "btnWinClean";
+            this.btnWinClean.Size = new System.Drawing.Size(120, 31);
+            this.btnWinClean.TabIndex = 90;
+            this.btnWinClean.Text = "Cleanmgr ...";
+            this.btnWinClean.UseVisualStyleBackColor = false;
+            this.btnWinClean.Click += new System.EventHandler(this.btnWinClean_Click);
             // 
             // analyzeDriveB
             // 
@@ -4004,47 +4095,47 @@ namespace Optimizer
             this.specsTree.ForeColor = System.Drawing.Color.White;
             this.specsTree.Location = new System.Drawing.Point(0, 0);
             this.specsTree.Name = "specsTree";
-            treeNode9.ImageIndex = 0;
-            treeNode9.Name = "cpu";
-            treeNode9.SelectedImageIndex = 0;
-            treeNode9.Text = "Processors";
-            treeNode10.ImageIndex = 1;
-            treeNode10.Name = "ram";
-            treeNode10.SelectedImageIndex = 1;
-            treeNode10.Text = "Memory";
-            treeNode11.ImageIndex = 2;
-            treeNode11.Name = "gpu";
-            treeNode11.SelectedImageIndex = 2;
-            treeNode11.Text = "Graphics";
-            treeNode12.ImageIndex = 3;
-            treeNode12.Name = "mobo";
-            treeNode12.SelectedImageIndex = 3;
-            treeNode12.Text = "Motherboard";
-            treeNode13.ImageIndex = 4;
-            treeNode13.Name = "disk";
-            treeNode13.SelectedImageIndex = 4;
-            treeNode13.Text = "Storage";
-            treeNode14.ImageIndex = 5;
-            treeNode14.Name = "inet";
-            treeNode14.SelectedImageIndex = 5;
-            treeNode14.Text = "Network Adapters";
-            treeNode15.ImageIndex = 6;
-            treeNode15.Name = "audio";
-            treeNode15.SelectedImageIndex = 6;
-            treeNode15.Text = "Audio";
-            treeNode16.ImageIndex = 7;
-            treeNode16.Name = "dev";
-            treeNode16.SelectedImageIndex = 7;
-            treeNode16.Text = "Peripherals";
+            treeNode1.ImageIndex = 0;
+            treeNode1.Name = "cpu";
+            treeNode1.SelectedImageIndex = 0;
+            treeNode1.Text = "Processors";
+            treeNode2.ImageIndex = 1;
+            treeNode2.Name = "ram";
+            treeNode2.SelectedImageIndex = 1;
+            treeNode2.Text = "Memory";
+            treeNode3.ImageIndex = 2;
+            treeNode3.Name = "gpu";
+            treeNode3.SelectedImageIndex = 2;
+            treeNode3.Text = "Graphics";
+            treeNode4.ImageIndex = 3;
+            treeNode4.Name = "mobo";
+            treeNode4.SelectedImageIndex = 3;
+            treeNode4.Text = "Motherboard";
+            treeNode5.ImageIndex = 4;
+            treeNode5.Name = "disk";
+            treeNode5.SelectedImageIndex = 4;
+            treeNode5.Text = "Storage";
+            treeNode6.ImageIndex = 5;
+            treeNode6.Name = "inet";
+            treeNode6.SelectedImageIndex = 5;
+            treeNode6.Text = "Network Adapters";
+            treeNode7.ImageIndex = 6;
+            treeNode7.Name = "audio";
+            treeNode7.SelectedImageIndex = 6;
+            treeNode7.Text = "Audio";
+            treeNode8.ImageIndex = 7;
+            treeNode8.Name = "dev";
+            treeNode8.SelectedImageIndex = 7;
+            treeNode8.Text = "Peripherals";
             this.specsTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16});
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.specsTree.Size = new System.Drawing.Size(991, 567);
             this.specsTree.TabIndex = 0;
             this.specsTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.specsTree_NodeMouseClick);
@@ -5481,6 +5572,7 @@ namespace Optimizer
             this.btnResetConfig.TabIndex = 56;
             this.btnResetConfig.Text = "Reset configuration";
             this.btnResetConfig.UseVisualStyleBackColor = false;
+            this.btnResetConfig.Visible = false;
             this.btnResetConfig.Click += new System.EventHandler(this.btnResetConfig_Click);
             // 
             // lblTheming
@@ -6009,6 +6101,11 @@ namespace Optimizer
         private ToggleCard stickersSw;
         private PictureBox picRestartNeeded;
         private Label restartAndApply;
+        private ToggleCard hibernateSw;
+        private ToggleCard smb2Sw;
+        private ToggleCard smb1Sw;
+        private ToggleCard ntfsStampSw;
+        private Button btnWinClean;
     }
 }
 

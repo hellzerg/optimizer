@@ -1,3 +1,14 @@
+## [13.8] - 2022-08-20
+- New: Disable Hibernate in Universal
+- New: Disable NTFS timestamp in Universal
+- New: Disable SMBv1 & SMBv2 protocols in Universal
+- New: Display icons in UWP Apps list (#213)
+- New: Display Restart prompt when necessary
+- New: Enable Performance Tweaks renamed to: Optimize Performance
+- New: Splash art updated
+- Improved: Reduced memory dump size tweak in Optimize Performance
+- Hotfix: Disable Telemetry Services no longer stops WdiSystemHost service, which is responsible for battery statistics (#214)
+
 ## [13.7] - 2022-08-05
 - New: Disable/Enable HPET using ```/disablehpet``` & ```/enablehpet``` switches
 - New: Allow Optimizer to run on startup using ```/addstartup``` (#206)

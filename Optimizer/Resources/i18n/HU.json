@@ -415,5 +415,14 @@
 	"compactModeSw": "A kompakt mód engedélyezése az Explorerben",
 	"compactModeTip": "Csökkenti az extra helyet és a kitöltést a fájlok között a Fájlkezelőben.",
 	"trayUnlocker": "Fájlfogantyúk",
-	"stickersTip": "A matricák nagy hangulatjelek, amelyek a háttérképeken jelennek meg, és közösségi üzenetküldőkben használatosak."
+	"stickersTip": "A matricák nagy hangulatjelek, amelyek a háttérképeken jelennek meg, és közösségi üzenetküldőkben használatosak.",
+	"hibernateSw": "A hibernált állapot letiltása",
+	"hibernateTip": "Letiltja a Windows hibernált funkcióját.",
+	"smbSw1": "Az SMBv1 protokoll letiltása",
+	"smbSw2": "Az SMBv2 protokoll letiltása",
+	"smbTip": "Az SMB{v} protokoll felelős a Windows számítógépek közötti fájlmegosztásért.
+	Lecserélték SMBv3-ra, ami biztonságosabb.",
+	"ntfsStampSw": "Az NTFS időbélyegző letiltása",
+	"ntfsStampTip": "A fájl utoljára elért bélyegzőjét jelzi.
+	A letiltása csökkentheti az I/O műveleteket a lemezeken."
 }

@@ -34,6 +34,10 @@ namespace Optimizer
         public bool DisableSmartScreen { get; set; }
         public bool DisableCloudClipboard { get; set; }
         public bool DisableStickyKeys { get; set; }
+        public bool DisableHibernation { get; set; }
+        public bool DisableSMB1 { get; set; }
+        public bool DisableSMB2 { get; set; }
+        public bool DisableNTFSTimeStamp { get; set; }
 
         // apps telemetry
         public bool DisableOffice2016Telemetry { get; set; }
@@ -127,7 +131,7 @@ namespace Optimizer
             Utilities.GetSelfAndChildrenRecursive(f).ToList().ForEach(x =>
             {
                 c = x;
-            
+
                 if (x is Button)
                 {
                     c.BackColor = c1;
@@ -243,6 +247,10 @@ namespace Optimizer
                 CurrentOptions.DisableCloudClipboard = false;
                 CurrentOptions.EnableLongPaths = false;
                 CurrentOptions.RemoveCastToDevice = false;
+                CurrentOptions.DisableHibernation = false;
+                CurrentOptions.DisableSMB1 = false;
+                CurrentOptions.DisableSMB2 = false;
+                CurrentOptions.DisableNTFSTimeStamp = false;
 
                 CurrentOptions.DisableVisualStudioTelemetry = false;
                 CurrentOptions.DisableFirefoxTemeletry = false;

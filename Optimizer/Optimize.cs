@@ -21,6 +21,9 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete", "Append Completion", "yes", RegistryValueKind.String);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete", "AutoSuggest", "yes", RegistryValueKind.String);
 
+            // reduce dump file size
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl", "CrashDumpEnabled", 3, RegistryValueKind.DWord);
+
             // show all tray icons
             //Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer", "EnableAutoTray", "0", RegistryValueKind.DWord);
 
@@ -81,6 +84,8 @@ namespace Optimizer
                 // disable auto-complete in Run Dialog
                 Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete", true).DeleteValue("Append Completion", false);
                 Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete", true).DeleteValue("AutoSuggest", false);
+
+                Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl", "CrashDumpEnabled", 7, RegistryValueKind.DWord);
 
                 // hide tray icons
                 //Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer", true).DeleteValue("EnableAutoTray", false);
@@ -177,13 +182,13 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\dmwappushservice", "Start", "2", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DcpSvc", "Start", "2", RegistryValueKind.DWord);
 
+            Utilities.EnableProtectedService("WdiSystemHost");
+            Utilities.EnableProtectedService("WdiServiceHost");
+
             Utilities.StartService("DiagTrack");
             Utilities.StartService("diagnosticshub.standardcollector.service");
             Utilities.StartService("dmwappushservice");
             Utilities.StartService("DcpSvc");
-
-            Utilities.EnableProtectedService("WdiSystemHost");
-            Utilities.EnableProtectedService("WdiServiceHost");
         }
 
         internal static void DisableMediaPlayerSharing()
@@ -407,6 +412,26 @@ namespace Optimizer
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows Defender\Spynet", "DisableBlockAtFirstSeen");
 
             //Utilities.RunCommand("Gpupdate /Force");
+        }
+
+        internal static void DisableSMB(string v)
+        {
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters", $"SMB{v}", 0, RegistryValueKind.DWord);
+        }
+
+        internal static void EnableSMB(string v)
+        {
+            Utilities.TryDeleteRegistryValue(true, @"SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters", $"SMB{v}");
+        }
+
+        internal static void DisableNTFSTimeStamp()
+        {
+            Utilities.RunCommand("fsutil behavior set disablelastaccess 3");
+        }
+
+        internal static void EnableNTFSTimeStamp()
+        {
+            Utilities.RunCommand("fsutil behavior set disablelastaccess 2");
         }
 
         internal static void DisableErrorReporting()

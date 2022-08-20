@@ -412,5 +412,14 @@ Sin embargo, se consideran un procedimiento riesgoso. Suelen ser lanzamientos se
 	"gameModeTip": "Habilita el modo de juego en combinación con la programación de GPU acelerada por hardware.",
 	"compactModeSw": "Habilitar el modo compacto en Explorer",
 	"compactModeTip": "Reduce el espacio adicional y el relleno entre los archivos en el Explorador de archivos.",
-	"stickersTip": "Las pegatinas son emojis grandes que aparecen en los fondos de pantalla y se usan en los mensajeros sociales."
+	"stickersTip": "Las pegatinas son emojis grandes que aparecen en los fondos de pantalla y se usan en los mensajeros sociales.",
+	"hibernateSw": "Desactivar hibernación",
+	"hibernateTip": "Desactiva la función de hibernación de Windows.",
+	"smbSw1": "Deshabilitar el protocolo SMBv1",
+	"smbSw2": "Deshabilitar el protocolo SMBv2",
+	"smbTip": "El protocolo SMB{v} es responsable de compartir archivos entre computadoras con Windows.
+	Ha sido reemplazado por SMBv3, que es más seguro.",
+	"ntfsStampSw": "Deshabilitar marca de tiempo NTFS",
+	"ntfsStampTip": "Indica la marca de la última vez que se accedió al archivo.
+	Deshabilitarlo puede reducir las operaciones de E/S en los discos."
 }

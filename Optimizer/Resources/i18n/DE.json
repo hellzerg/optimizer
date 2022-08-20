@@ -390,5 +390,14 @@
 	"gameModeTip": "Aktiviert den Gaming-Modus in Kombination mit hardwarebeschleunigter GPU-Planung.",
 	"compactModeSw": "Aktivieren Sie den Kompaktmodus im Explorer",
 	"compactModeTip": "Reduziert zusätzlichen Platz und Auffüllung zwischen den Dateien im Datei-Explorer.",
-	"stickersTip": "Sticker sind große Emojis, die auf Hintergrundbildern erscheinen und in sozialen Messengern verwendet werden."
+	"stickersTip": "Sticker sind große Emojis, die auf Hintergrundbildern erscheinen und in sozialen Messengern verwendet werden.",
+	"hibernateSw": "Ruhezustand deaktivieren",
+	"hibernateTip": "Deaktiviert die Windows-Ruhezustandsfunktion.",
+	"smbSw1": "Deaktivieren Sie das SMBv1-Protokoll",
+	"smbSw2": "Deaktivieren Sie das SMBv2-Protokoll",
+	"smbTip": "Das SMB{v}-Protokoll ist für die Dateifreigabe zwischen Windows-Computern verantwortlich.
+	Es wurde durch SMBv3 ersetzt, das sicherer ist.",
+	"ntfsStampSw": "Deaktivieren Sie den NTFS-Zeitstempel",
+	"ntfsStampTip": "Zeigt den Stempel des letzten Zugriffs auf die Datei an.
+	Durch Deaktivieren können die E/A-Vorgänge auf den Festplatten reduziert werden."
 }

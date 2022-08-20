@@ -206,6 +206,54 @@ namespace Optimizer
                 }
             }
 
+            if (CurrentSilentConfig.DisableHibernation.HasValue)
+            {
+                if (CurrentSilentConfig.DisableHibernation.Value)
+                {
+                    Utilities.DisableHibernation();
+                }
+                else
+                {
+                    Utilities.EnableHibernation();
+                }
+            }
+
+            if (CurrentSilentConfig.DisableSMB1.HasValue)
+            {
+                if (CurrentSilentConfig.DisableSMB1.Value)
+                {
+                    Optimize.DisableSMB("1");
+                }
+                else
+                {
+                    Optimize.EnableSMB("1");
+                }
+            }
+
+            if (CurrentSilentConfig.DisableSMB2.HasValue)
+            {
+                if (CurrentSilentConfig.DisableSMB2.Value)
+                {
+                    Optimize.DisableSMB("2");
+                }
+                else
+                {
+                    Optimize.EnableSMB("2");
+                }
+            }
+
+            if (CurrentSilentConfig.DisableNTFSTimeStamp.HasValue)
+            {
+                if (CurrentSilentConfig.DisableNTFSTimeStamp.Value)
+                {
+                    Optimize.DisableNTFSTimeStamp();
+                }
+                else
+                {
+                    Optimize.EnableNTFSTimeStamp();
+                }
+            }
+
             if (CurrentSilentConfig.DisableChromeTelemetry.HasValue)
             {
                 if (CurrentSilentConfig.DisableChromeTelemetry.Value)
@@ -696,6 +744,22 @@ namespace Optimizer
             if (CurrentSilentConfig.DisableFaxService.HasValue)
             {
                 Options.CurrentOptions.DisableFaxService = CurrentSilentConfig.DisableFaxService.Value;
+            }
+            if (CurrentSilentConfig.DisableHibernation.HasValue)
+            {
+                Options.CurrentOptions.DisableHibernation = CurrentSilentConfig.DisableHibernation.Value;
+            }
+            if (CurrentSilentConfig.DisableSMB1.HasValue)
+            {
+                Options.CurrentOptions.DisableSMB1 = CurrentSilentConfig.DisableSMB1.Value;
+            }
+            if (CurrentSilentConfig.DisableSMB2.HasValue)
+            {
+                Options.CurrentOptions.DisableSMB2 = CurrentSilentConfig.DisableSMB2.Value;
+            }
+            if (CurrentSilentConfig.DisableNTFSTimeStamp.HasValue)
+            {
+                Options.CurrentOptions.DisableNTFSTimeStamp = CurrentSilentConfig.DisableNTFSTimeStamp.Value;
             }
             if (CurrentSilentConfig.DisableSmartScreen.HasValue)
             {

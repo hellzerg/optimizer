@@ -11,7 +11,7 @@
 	"txtBitness": "You are working with {BITS}",
 	"linkUpdate": "Update available",
 	"lblLab": "Experimental build\n(delete after testing)",
-	"performanceSw": "Enable Performance Tweaks",
+	"performanceSw": "Optimize Performance",
 	"networkSw": "Disable Network Throttling",
 	"defenderSw": "Disable Windows Defender",
 	"systemRestoreSw": "Disable System Restore",
@@ -415,5 +415,14 @@ However, they are considered a risky procedure. They are usually semi-annual rel
 	"systemRestoreM": "Are you sure you want to disable System Restore? This will delete your current backup images!",
 	"compactModeSw": "Enable Compact Mode in Explorer",
 	"compactModeTip": "Reduces extra space and padding between the files in Files Explorer.",
-	"stickersTip": "Stickers are large emojis that appear on wallpapers, being used in social messengers."
+	"stickersTip": "Stickers are large emojis that appear on wallpapers, being used in social messengers.",
+	"hibernateSw": "Disable Hibernation",
+	"hibernateTip": "Disables Windows hibernate feature.",
+	"smbSw1": "Disable SMBv1 Protocol",
+	"smbSw2": "Disable SMBv2 Protocol",
+	"smbTip": "SMB{v} protocol is responsible for file-sharing between Windows computers.
+It has been replaced with SMBv3, which is more secure.",
+	"ntfsStampSw": "Disable NTFS Timestamp",
+	"ntfsStampTip": "Indicates the file's last time accessed stamp.
+Disabling it can reduce I/O operations on the disks."
 }

@@ -412,5 +412,14 @@ Cependant, elles sont considerees comme une procedure risquee. Il s'agit general
 	"gameModeTip": "Active le mode Gaming en combinaison avec la planification GPU accélérée par le matériel.",
 	"compactModeSw": "Activer le mode compact dans l'explorateur",
 	"compactModeTip": "Réduit l'espace supplémentaire et le rembourrage entre les fichiers dans l'explorateur de fichiers.",
-	"stickersTip": "Les autocollants sont de grands emojis qui apparaissent sur les fonds d'écran, utilisés dans les messagers sociaux."
+	"stickersTip": "Les autocollants sont de grands emojis qui apparaissent sur les fonds d'écran, utilisés dans les messagers sociaux.",
+	"hibernateSw": "Désactiver l'hibernation",
+	"hibernateTip": "Désactive la fonction d'hibernation de Windows.",
+	"smbSw1": "Désactiver le protocole SMBv1",
+	"smbSw2": "Désactiver le protocole SMBv2",
+	"smbTip": "Le protocole SMB{v} est responsable du partage de fichiers entre les ordinateurs Windows.
+	Il a été remplacé par SMBv3, qui est plus sécurisé.",
+	"ntfsStampSw": "Désactiver l'horodatage NTFS",
+	"ntfsStampTip": "Indique l'horodatage du dernier accès au fichier.
+	Sa désactivation peut réduire les opérations d'E/S sur les disques."
 }

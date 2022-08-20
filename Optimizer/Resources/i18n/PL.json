@@ -412,5 +412,14 @@ Są one jednak uważane za ryzykowną procedurę. Zazwyczaj są wydawane co pó�
 	"gameModeTip": "Włącza tryb gier w połączeniu z przyspieszaniem sprzętowym harmonogramu GPU.",
 	"compactModeSw": "Włącz tryb kompaktowy w Eksploratorze",
 	"compactModeTip": "Zmniejsza dodatkową przestrzeń i dopełnienie między plikami w Eksploratorze plików.",
-	"stickersTip": "Naklejki to duże emotikony, które pojawiają się na tapetach i są używane w komunikatorach społecznościowych."
+	"stickersTip": "Naklejki to duże emotikony, które pojawiają się na tapetach i są używane w komunikatorach społecznościowych.",
+	"hibernateSw": "Wyłącz hibernację",
+	"hibernateTip": "Wyłącza funkcję hibernacji systemu Windows.",
+	"smbSw1": "Wyłącz protokół SMBv1",
+	"smbSw2": "Wyłącz protokół SMBv2",
+	"smbTip": "Protokół SMB{v} odpowiada za udostępnianie plików między komputerami z systemem Windows.
+	Został zastąpiony SMBv3, który jest bezpieczniejszy.",
+	"ntfsStampSw": "Wyłącz znacznik czasu NTFS",
+	"ntfsStampTip": "Wskazuje pieczęć ostatniego dostępu do pliku.
+	Wyłączenie go może zmniejszyć liczbę operacji we/wy na dyskach."
 }

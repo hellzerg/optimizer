@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Management.Automation;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Optimizer
 {
     internal static class UWPHelper
     {
-        internal static Dictionary<string, string> GetUWPApps(bool showAll)
+        internal static List<KeyValuePair<string, string>> GetUWPApps(bool showAll)
         {
-            Dictionary<string, string> modernApps = new Dictionary<string, string>();
+            List<KeyValuePair<string, string>> modernApps = new List<KeyValuePair<string, string>>();
 
             using (PowerShell script = PowerShell.Create())
             {
@@ -25,13 +21,11 @@ namespace Optimizer
                 }
 
                 string[] tmp;
-                
 
                 foreach (PSObject x in script.Invoke())
                 {
                     tmp = x.ToString().Replace("@", string.Empty).Replace("{", string.Empty).Replace("}", string.Empty).Replace("Name=", string.Empty).Replace("InstallLocation=", string.Empty).Trim().Split(';');
-
-                    modernApps.Add(tmp[0], tmp[1]);
+                    modernApps.Add(new KeyValuePair<string, string>(tmp[0], tmp[1]));
                 }
             }
 

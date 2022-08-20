@@ -415,5 +415,14 @@ Microsoft 계정 로그인이 필요합니다.",
 	"systemRestoreM": "시스템 복원을 사용하지 않도록 설정하시겠습니까? 현재 백업 이미지가 삭제됩니다!",
 	"compactModeSw": "탐색기에서 압축 모드 사용",
 	"compactModeTip": "파일 탐색기에서 파일 사이의 추가 공간과 패딩을 줄입니다.",
-	"stickersTip": "스티커는 월페이퍼에 나타나는 큰 이모티콘으로 소셜 메신저에서 사용됩니다."
+	"stickersTip": "스티커는 월페이퍼에 나타나는 큰 이모티콘으로 소셜 메신저에서 사용됩니다.",
+	"hibernateSw": "최대 절전 모드 비활성화",
+	"hibernateTip": "Windows 최대 절전 모드 기능을 비활성화합니다.",
+	"smbSw1": "SMBv1 프로토콜 비활성화",
+	"smbSw2": "SMBv2 프로토콜 비활성화",
+	"smbTip": "SMB{v} 프로토콜은 Windows 컴퓨터 간의 파일 공유를 담당합니다.
+	더 안전한 SMBv3으로 대체되었습니다.",
+	"ntfsStampSw": "NTFS 타임스탬프 비활성화",
+	"ntfsStampTip": "파일의 마지막 액세스 시간 스탬프를 나타냅니다.
+	비활성화하면 디스크의 I/O 작업을 줄일 수 있습니다."
 }
