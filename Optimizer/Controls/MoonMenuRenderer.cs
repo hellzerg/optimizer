@@ -1,34 +1,51 @@
-﻿using System.Drawing;
+﻿using Optimizer;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Optimizer
 {
     internal class MoonMenuRenderer : ToolStripProfessionalRenderer
     {
-        internal MoonMenuRenderer() : base(new ColorsMaterial())
+        internal MoonMenuRenderer() : base(new MoonColors())
         {
 
         }
 
-        //protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
+        //protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
         //{
         //    var tsMenuItem = e.Item as ToolStripMenuItem;
         //    if (tsMenuItem != null)
-        //        e.ArrowColor = Options.ForegroundColor;
-        //    base.OnRenderArrow(e);
+        //        e.TextColor = Color.GhostWhite;
+        //    base.OnRenderItemText(e);
         //}
+
+        //protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
+        //{
+        //    var tsMenuItem = e.Item as ToolStripMenuItem;
+        //    if (tsMenuItem != null)
+        //        e.Graphics.bru
+        //    base.OnRenderSeparator(e);
+        //}
+
+        protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
+        {
+            var tsMenuItem = e.Item as ToolStripMenuItem;
+            if (tsMenuItem != null)
+                e.ArrowColor = Color.DimGray;
+            base.OnRenderArrow(e);
+        }
     }
 
-    internal class ColorsMaterial : ProfessionalColorTable
+    internal class MoonColors : ProfessionalColorTable
     {
         public override Color SeparatorLight
         {
-            get { return Options.BackAccentColor; }
+            get { return Color.DimGray; }
         }
 
         public override Color SeparatorDark
         {
-            get { return Options.BackAccentColor; }
+            get { return Color.DimGray; }
         }
 
         public override Color ToolStripDropDownBackground

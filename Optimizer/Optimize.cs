@@ -1536,11 +1536,13 @@ namespace Optimizer
         internal static void DisableSnapAssist()
         {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "EnableSnapAssistFlyout", "0", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_CURRENT_USER\Control Panel\Desktop", "DockMoving", 0, RegistryValueKind.DWord);
         }
 
         internal static void EnableSnapAssist()
         {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "EnableSnapAssistFlyout", "1", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_CURRENT_USER\Control Panel\Desktop", "DockMoving", 1, RegistryValueKind.DWord);
         }
 
         internal static void DisableWidgets()

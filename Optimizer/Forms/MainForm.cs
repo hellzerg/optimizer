@@ -4674,5 +4674,15 @@ namespace Optimizer
         {
             restartAndApply.Font = new Font(restartAndApply.Font, FontStyle.Underline);
         }
+
+        private void Scan()
+        {
+            
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Task t = new Task(Scan);
+            //t.Start();
+        }
     }
 }

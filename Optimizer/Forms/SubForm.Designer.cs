@@ -36,7 +36,7 @@
             // 
             // txtInfo
             // 
-            this.txtInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.txtInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.txtInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtInfo.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtInfo.DetectUrls = false;

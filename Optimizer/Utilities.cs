@@ -221,7 +221,7 @@ namespace Optimizer
 
         internal static void Reboot()
         {
-            Utilities.RunCommand("shutdown /r /t 0");
+            Process.Start("shutdown /r /t 0");
         }
 
         internal static void DisableHibernation()
