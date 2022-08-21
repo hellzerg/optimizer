@@ -221,6 +221,7 @@ namespace Optimizer
 
         internal static void Reboot()
         {
+            Options.SaveSettings();
             Process.Start("shutdown /r /t 0");
         }
 

@@ -4646,7 +4646,6 @@ namespace Optimizer
         private void picRestartNeeded_Click(object sender, EventArgs e)
         {
             Utilities.Reboot();
-            Environment.Exit(0);
         }
 
         private void ShowRestartNeeded()
@@ -4673,16 +4672,6 @@ namespace Optimizer
         private void restartAndApply_MouseEnter(object sender, EventArgs e)
         {
             restartAndApply.Font = new Font(restartAndApply.Font, FontStyle.Underline);
-        }
-
-        private void Scan()
-        {
-            
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Task t = new Task(Scan);
-            //t.Start();
         }
     }
 }

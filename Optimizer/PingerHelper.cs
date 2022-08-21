@@ -137,37 +137,37 @@ namespace Optimizer
             Utilities.RunCommand("ipconfig /flushdns");
         }
 
-        internal static string PortScan(string IP, int port)
-        {
-            IPAddress ipAddress = IPAddress.Parse(IP);
-            IPEndPoint endPoint = new IPEndPoint(ipAddress, port);
-            Socket sock = null;
+        //internal static string PortScan(string IP, int port)
+        //{
+        //    IPAddress ipAddress = IPAddress.Parse(IP);
+        //    IPEndPoint endPoint = new IPEndPoint(ipAddress, port);
+        //    Socket sock = null;
 
-            try
-            {
-                sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                IAsyncResult result = sock.BeginConnect(endPoint, null, null);
-                bool success = result.AsyncWaitHandle.WaitOne(100, true);
-                if (sock.Connected)
-                {
-                    sock.EndConnect(result);
-                    return $"{port} - [✓]";
-                }
-                else
-                {
-                    return $"{port} - [×]";
-                }
+        //    try
+        //    {
+        //        sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        //        IAsyncResult result = sock.BeginConnect(endPoint, null, null);
+        //        bool success = result.AsyncWaitHandle.WaitOne(100, true);
+        //        if (sock.Connected)
+        //        {
+        //            sock.EndConnect(result);
+        //            return $"{port} - [✓]";
+        //        }
+        //        else
+        //        {
+        //            return $"{port} - [×]";
+        //        }
 
                 
-            }
-            catch
-            {
-                return $"{port} - [×]";
-            }
-            finally
-            {
-                if (sock != null) sock.Close();
-            }
-        }
+        //    }
+        //    catch
+        //    {
+        //        return $"{port} - [×]";
+        //    }
+        //    finally
+        //    {
+        //        if (sock != null) sock.Close();
+        //    }
+        //}
     }
 }

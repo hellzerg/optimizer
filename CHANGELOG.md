@@ -1,3 +1,7 @@
+## [13.9] - 2022-08-21
+- Hotfix: Help messages for each toggle now appears on a panel
+- Hotfix: Restarting from inside the app does not save settings
+
 ## [13.8] - 2022-08-20
 - New: Disable Hibernate in Universal
 - New: Disable NTFS timestamp in Universal
