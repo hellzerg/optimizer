@@ -416,8 +416,8 @@
 	"stickersTip": "贴纸是出现在壁纸上的大型表情符号，用于社交信使。",
 	"hibernateSw": "禁用休眠",
 	"hibernateTip": "禁用 Windows 休眠功能。",
-	"smbSw1": "禁用 SMBv1 协议",
-	"smbSw2": "禁用 SMBv2 协议",
+	"smb1Sw": "禁用 SMBv1 协议",
+	"smb2Sw": "禁用 SMBv2 协议",
 	"smbTip": "SMB{v} 协议负责 Windows 计算机之间的文件共享。
 	它已被更安全的 SMBv3 取代。",
 	"ntfsStampSw": "禁用 NTFS 时间戳",
