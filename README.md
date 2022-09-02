@@ -12,7 +12,7 @@
 
 ### ℹ️ Summary: ###
 
-Portable utility that helps you restore your privacy and increase your security.<br>
+Advanced configuration utility that helps you restore your privacy and increase your security.<br>
 Optimizer is recommended after a fresh, clean installation of Windows to achieve maximum privacy and security.<br>
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 
