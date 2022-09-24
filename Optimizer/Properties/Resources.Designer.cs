@@ -113,12 +113,12 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton&quot;: &quot;إعادة التشغيل الآن&quot;,
         ///	&quot;restartButton8&quot;: &quot;إعادة التشغيل الآن&quot;,
         ///	&quot;restartButton10&quot;: &quot;إعادة التشغيل الآن&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;إعادة التشغيل لتطبيق التغييرات؟&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;إعادة التشغيل لتطبيق التغييرات&quot;,
         ///	&quot;btnFind&quot;: &quot;يجد&quot;,
         ///	&quot;btnKill&quot;: &quot;قتل&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;مقابض الملفات&quot;,
         ///	&quot;onedriveM&quot;: &quot;هل أنت متأكد من أنك تريد إزالة تثبيت OneDrive؟ يؤدي هذا إلى حذف ملفات سطح المكتب والمستندات الخاصة بك! استخدم هذا الخيار فقط في حساب محلي!&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;هل أنت متأكد أنك تريد تعطيل استعادة النظام؟ سيؤدي هذا [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestoreM&quot;: &quot;هل أنت متأكد أنك تريد تعطيل استعادة النظام؟ سيؤدي هذا  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AR {
             get {
@@ -222,7 +222,7 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton&quot;: &quot;现在重启&quot;,
         ///	&quot;restartButton8&quot;: &quot;现在重启&quot;,
         ///	&quot;restartButton10&quot;: &quot;现在重启&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;重新启动以应用更改?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;重新启动以应用更改&quot;,
         ///	&quot;btnFind&quot;: &quot;查找进程&quot;,
         ///	&quot;btnKill&quot;: &quot;结束进程&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;查找文件句柄&quot;,
@@ -234,7 +234,7 @@ namespace Optimizer.Properties {
         ///	&quot;lblLab&quot;: &quot;实验构建\n(删除后测试)&quot;,
         ///	&quot;performanceSw&quot;: &quot;启用性能调整&quot;,
         ///	&quot;networkSw&quot;: &quot;禁用网络节流&quot;,
-        ///	&quot;defenderSw&quot;: &quot;禁用  [rest of string was truncated]&quot;;.
+        ///	&quot;defenderSw&quot;: &quot;禁用 W [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CN {
             get {
@@ -248,13 +248,13 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton&quot;: &quot;Restartovat nyní&quot;,
         ///	&quot;restartButton8&quot;: &quot;Restartovat nyní&quot;,
         ///	&quot;restartButton10&quot;: &quot;Restartovat nyní&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Restartovat a použít změny?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Restartovat a použít změny&quot;,
         ///	&quot;btnFind&quot;: &quot;Nalézt&quot;,
         ///	&quot;btnKill&quot;: &quot;Zabít&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Držadla souborů&quot;,
         ///	&quot;txtVersion&quot;: &quot;Verze: {VN}&quot;,
         ///	&quot;onedriveM&quot;: &quot;Opravdu chcete odinstalovat OneDrive? Tím smažete soubory plochy a dokumentů! Tuto možnost používejte pouze na místním účtu!&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;Opravdu chcete zakázat Obnovení systému?  [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestoreM&quot;: &quot;Opravdu chcete zakázat Obnovení systému? T [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CZ {
             get {
@@ -278,13 +278,13 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton&quot;: &quot;Jetzt neu starten&quot;,
         ///	&quot;restartButton8&quot;: &quot;Jetzt neu starten&quot;,
         ///	&quot;restartButton10&quot;: &quot;Jetzt neu starten&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Neu starten, um Änderungen anzuwenden?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Neu starten, um Änderungen anzuwenden&quot;,
         ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
         ///	&quot;btnFind&quot;: &quot;Finden&quot;,
         ///	&quot;btnKill&quot;: &quot;Töten&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Dateihandles&quot;,
         ///	&quot;txtBitness&quot;: &quot;Betriebssystem: {BITS}&quot;,
-        ///	&quot;onedriveM&quot;: &quot;Möchten Sie OneDrive wirklich deinstallieren? Dadurch werden Ihre Desktop- und Dokumentdateien gelöscht! Verwenden Sie diese Option nu [rest of string was truncated]&quot;;.
+        ///	&quot;onedriveM&quot;: &quot;Möchten Sie OneDrive wirklich deinstallieren? Dadurch werden Ihre Desktop- und Dokumentdateien gelöscht! Verwenden Sie diese Option nur [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DE {
             get {
@@ -399,6 +399,16 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dutch {
+            get {
+                object obj = ResourceManager.GetObject("dutch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap egypt {
             get {
                 object obj = ResourceManager.GetObject("egypt", resourceCulture);
@@ -415,12 +425,12 @@ namespace Optimizer.Properties {
         ///	&quot;btnFind&quot;: &quot;Εύρεση&quot;,
         ///	&quot;btnKill&quot;: &quot;Τερματισμός&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;File Handles&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Επανεκκίνηση για την εφαρμογή των αλλαγών;&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Επανεκκίνηση για την εφαρμογή των αλλαγών&quot;,
         ///	&quot;txtVersion&quot;: &quot;Έκδοση: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;Αρχιτεκτονική {BITS}&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Διαθέσιμη ενημέρωση&quot;,
         ///	&quot;lblLab&quot;: &quot;Πειραματική έκδοση&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;Είστε σίγουροι ότι θέλετε να απενεργοποιήσετε τα αντίγραφ [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestoreM&quot;: &quot;Είστε σίγουροι ότι θέλετε να απενεργοποιήσετε τα αντίγραφα [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EL {
             get {
@@ -437,14 +447,14 @@ namespace Optimizer.Properties {
         ///	&quot;btnFind&quot;: &quot;Find&quot;,
         ///	&quot;btnKill&quot;: &quot;Kill&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;File Handles&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Restart to apply changes?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Restart to apply changes&quot;,
         ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;You are working with {BITS}&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Update available&quot;,
         ///	&quot;lblLab&quot;: &quot;Experimental build\n(delete after testing)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Enable Performance Tweaks&quot;,
+        ///	&quot;performanceSw&quot;: &quot;Optimize Performance&quot;,
         ///	&quot;networkSw&quot;: &quot;Disable Network Throttling&quot;,
-        ///	&quot;defe [rest of string was truncated]&quot;;.
+        ///	&quot;defenderSw [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EN {
             get {
@@ -547,10 +557,10 @@ namespace Optimizer.Properties {
         ///	&quot;btnFind&quot;: &quot;Encontrar&quot;,
         ///	&quot;btnKill&quot;: &quot;Matar&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Asas de archivo&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Reiniciar para aplicar cambios?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Reiniciar para aplicar cambios&quot;,
         ///	&quot;onedriveM&quot;: &quot;¿Seguro que quieres desinstalar OneDrive? ¡Esto eliminará sus archivos de escritorio y documentos! ¡Use esta opción solo en una cuenta local!&quot;,
         ///	&quot;txtVersion&quot;: &quot;Versión: {VN}&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;¿Está seguro de qu [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestoreM&quot;: &quot;¿Está seguro de que [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ES {
             get {
@@ -567,10 +577,10 @@ namespace Optimizer.Properties {
         ///	&quot;btnFind&quot;: &quot;Trouver&quot;,
         ///	&quot;btnKill&quot;: &quot;Tuer&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Poignées de fichier&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Redemarrer pour appliquer les changements?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Redemarrer pour appliquer les changements&quot;,
         ///	&quot;onedriveM&quot;: &quot;Voulez-vous vraiment désinstaller OneDrive? Cela supprimera vos fichiers de bureau et de document! N&apos;utilisez cette option que sur un compte local!&quot;,
         ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
-        ///	&quot; [rest of string was truncated]&quot;;.
+        ///	&quot;s [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string FR {
             get {
@@ -638,14 +648,14 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton&quot;: &quot;Újraindítás most&quot;,
         ///	&quot;restartButton8&quot;: &quot;Újraindítás most&quot;,
         ///	&quot;restartButton10&quot;: &quot;Újraindítás most&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Újraindítod az eszközt, hogy a változások érvénybe kerüljenek?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Újraindítod az eszközt, hogy a változások érvénybe kerüljenek&quot;,
         ///	&quot;txtVersion&quot;: &quot;Verzuó: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;You are working with {BITS}&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Frissítés elérhető&quot;,
         ///	&quot;lblLab&quot;: &quot;Kísérleti verzió\n(töröld tesztelés után!)&quot;,
         ///	&quot;performanceSw&quot;: &quot;Teljesítményjavítások engedélyezése&quot;,
         ///	&quot;networkSw&quot;: &quot;Hálózati korlátozás letiltása&quot;,
-        ///	&quot;defend [rest of string was truncated]&quot;;.
+        ///	&quot;defende [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HU {
             get {
@@ -693,7 +703,7 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton&quot;: &quot;riavvia ora&quot;,
         ///	&quot;restartButton8&quot;: &quot;riavvia ora&quot;,
         ///	&quot;restartButton10&quot;: &quot;riavvia ora&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Riavviare per applicare le modifiche?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Riavviare per applicare le modifiche&quot;,
         ///	&quot;txtVersion&quot;: &quot;Versione: {VN}&quot;,
         ///	&quot;btnFind&quot;: &quot;Trova&quot;,
         ///	&quot;btnKill&quot;: &quot;Uccisione&quot;,
@@ -701,7 +711,7 @@ namespace Optimizer.Properties {
         ///	&quot;txtBitness&quot;: &quot;Architettura: {BITS}&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Aggiornamento disponibile&quot;,
         ///	&quot;lblLab&quot;: &quot;Build sperimentale\n(cancellare dopo il test)&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;Sei sicuro di voler disabilitare Ripristino configu [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestoreM&quot;: &quot;Sei sicuro di voler disabilitare Ripristino configur [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string IT {
             get {
@@ -738,7 +748,7 @@ namespace Optimizer.Properties {
         ///	&quot;btnFind&quot;: &quot;찾기&quot;,
         ///	&quot;btnKill&quot;: &quot;죽이기&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;파일 핸들&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;다시 시작하여 변경 사항을 적용하시겠습니까?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;다시 시작하여 변경 사항을 적용하시겠습니까&quot;,
         ///	&quot;txtVersion&quot;: &quot;버전: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;{BITS}로 작업중 - 한국어: 비너스걸&quot;,
         ///	&quot;linkUpdate&quot;: &quot;업데이트 가능&quot;,
@@ -746,7 +756,7 @@ namespace Optimizer.Properties {
         ///	&quot;performanceSw&quot;: &quot;성능 조정 사용함&quot;,
         ///	&quot;networkSw&quot;: &quot;네트워크 조절 사용 안 함&quot;,
         ///	&quot;defenderSw&quot;: &quot;Windows Defender 사용 안 함&quot;,
-        ///	&quot;systemRestoreSw&quot;: &quot;시스템 복원 사용 안 함&quot; [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestoreSw&quot;: &quot;시스템 복원 사용 안 함&quot;, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string KO {
             get {
@@ -773,12 +783,12 @@ namespace Optimizer.Properties {
         ///	&quot;btnFind&quot;: &quot;بیدۆزەوە&quot;,
         ///	&quot;btnKill&quot;: &quot;بیکوژە (دایبخە)&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;دەسکەکانی فایل&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;ڕیستارتی ئەکەیتەوە بۆ بینینی گۆڕانکاریەکان؟&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;ڕیستارتی ئەکەیتەوە بۆ بینینی گۆڕانکاریەکان&quot;,
         ///	&quot;txtVersion&quot;: &quot;وەشان : &quot;,
         ///	&quot;txtBitness&quot;: &quot;کاردەکەیت (BITS) تۆ لەگەڵ&quot;,
         ///	&quot;linkUpdate&quot;: &quot;وەشانی نوێ بەردەستە&quot;,
         ///	&quot;lblLab&quot;: &quot;دروست کردنی تاقیکاری\n سڕینەوە دوای تاقیکردنەو&quot;,
-        ///	&quot;performanceSw&quot;: &quot;کاراکردن بۆ با [rest of string was truncated]&quot;;.
+        ///	&quot;performanceSw&quot;: &quot;کاراکردن بۆ باش [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string KU {
             get {
@@ -917,6 +927,26 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///   &quot;btnAbout&quot;:&quot;OK&quot;,
+        ///   &quot;restartButton&quot;:&quot;Nu opnieuw opstarten&quot;,
+        ///   &quot;restartButton8&quot;:&quot;Nu opnieuw opstarten&quot;,
+        ///   &quot;restartButton10&quot;:&quot;Nu opnieuw opstarten&quot;,
+        ///   &quot;restartAndApply&quot;:&quot;Herstart om wijzigingen toe te passen&quot;,
+        ///   &quot;txtVersion&quot;:&quot;Versie: {VN}&quot;,
+        ///   &quot;btnFind&quot;:&quot;Vind&quot;,
+        ///   &quot;btnKill&quot;:&quot;Dood&quot;,
+        ///   &quot;trayUnlocker&quot;:&quot;Bestandshandvatten&quot;,
+        ///   &quot;txtBitness&quot;:&quot;OS: {BITS}&quot;,
+        ///   &quot;onedriveM&quot;:&quot;Weet u zeker dat u OneDrive wilt verwijderen? Hiermee worden uw bureaublad- en documentbestanden verwijderd! Gebruik deze opt [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string NL {
+            get {
+                return ResourceManager.GetString("NL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] OneDrive_Uninstaller {
@@ -935,10 +965,10 @@ namespace Optimizer.Properties {
         ///	&quot;btnFind&quot;: &quot;Znajdować&quot;,
         ///	&quot;btnKill&quot;: &quot;Zabić&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Uchwyty do plików&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Uruchom ponownie, aby zastosować zmiany?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Uruchom ponownie, aby zastosować zmiany&quot;,
         ///	&quot;onedriveM&quot;: &quot;Czy na pewno chcesz odinstalować OneDrive? Spowoduje to usunięcie plików pulpitu i dokumentów! Używaj tej opcji tylko na koncie lokalnym!&quot;,
         ///	&quot;txtVersion&quot;: &quot;Wersja: {VN}&quot;,
-        ///	&quot;systemRes [rest of string was truncated]&quot;;.
+        ///	&quot;systemRest [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PL {
             get {
@@ -996,10 +1026,10 @@ namespace Optimizer.Properties {
         ///	&quot;btnFind&quot;: &quot;Encontrar&quot;,
         ///	&quot;btnKill&quot;: &quot;Matar&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Alças de arquivo&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Reiniciar para aplicar as alterações?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Reiniciar para aplicar as alterações&quot;,
         ///	&quot;onedriveM&quot;: &quot;Tem certeza de que deseja desinstalar o OneDrive? Isso excluirá seus arquivos da área de trabalho e de documentos! Use esta opção apenas em uma conta local!&quot;,
         ///	&quot;CleanPreviewForm&quot;: &quot;Antevisão Limpa&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;Te [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestoreM&quot;: &quot;Tem [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PT {
             get {
@@ -1031,12 +1061,12 @@ namespace Optimizer.Properties {
         ///	&quot;btnFind&quot;: &quot;Găsește&quot;,
         ///	&quot;btnKill&quot;: &quot;Termin&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Mânere de fișiere&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Reporniți pentru a aplica modificări?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Reporniți pentru a aplica modificări&quot;,
         ///	&quot;txtVersion&quot;: &quot;Versiune: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;Tu lucrezi cu {BITS}&quot;,
         ///	&quot;linkUpdate&quot;: &quot;Actualizare disponibilă&quot;,
         ///	&quot;lblLab&quot;: &quot;Construcție experimentală\n(șterge după testare)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Activează trucuri perform [rest of string was truncated]&quot;;.
+        ///	&quot;performanceSw&quot;: &quot;Activează trucuri performa [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RO {
             get {
@@ -1060,14 +1090,14 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton&quot;: &quot;Перезапустить сейчас&quot;,
         ///	&quot;restartButton8&quot;: &quot;Перезапустить сейчас&quot;,
         ///	&quot;restartButton10&quot;: &quot;Перезапустить сейчас&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Перезапустить, чтобы применить изменения?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Перезапустить, чтобы применить изменения&quot;,
         ///	&quot;txtVersion&quot;: &quot;Версия: {VN}&quot;,
         ///	&quot;btnFind&quot;: &quot;Находить&quot;,
         ///	&quot;btnKill&quot;: &quot;Убийство&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Дескрипторы файлов&quot;,
         ///	&quot;txtBitness&quot;: &quot;Вы работаете с {BITS}&quot;,
         ///	&quot;systemRestoreM&quot;: &quot;Вы уверены, что хотите отключить восстановление системы? Это удалит ваши текущие резервные изображения!&quot;,
-        ///	&quot;onedriveM&quot;: [rest of string was truncated]&quot;;.
+        ///	&quot;onedriveM&quot;:  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RU {
             get {
@@ -1174,13 +1204,13 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton&quot;: &quot;şimdi yeniden başlat&quot;,
         ///	&quot;restartButton8&quot;: &quot;şimdi yeniden başlat&quot;,
         ///	&quot;restartButton10&quot;: &quot;şimdi yeniden başlat&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Değişiklikleri uygulamak için yeniden başlatılsın mı?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Değişiklikleri uygulamak için yeniden başlatılsın mı&quot;,
         ///	&quot;onedriveM&quot;: &quot;OneDrive&apos;ı kaldırmak istediğinizden emin misiniz? Bu, Masaüstü ve Belge dosyalarınızı siler! Bu seçeneği yalnızca yerel bir hesapta kullanın!&quot;,
         ///	&quot;txtVersion&quot;: &quot;Versiyon: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;{BITS} ile çalışıyor.&quot;,
         ///	&quot;btnFind&quot;: &quot;Bulmak&quot;,
         ///	&quot;btnKill&quot;: &quot;Öldürmek&quot;,
-        ///	&quot;trayU [rest of string was truncated]&quot;;.
+        ///	&quot;trayUn [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TR {
             get {
@@ -1204,7 +1234,7 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton&quot;: &quot;現在重啟&quot;,
         ///	&quot;restartButton8&quot;: &quot;現在重啟&quot;,
         ///	&quot;restartButton10&quot;: &quot;現在重啟&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;重新啟動以應用更改?&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;重新啟動以應用更改&quot;,
         ///	&quot;onedriveM&quot;: &quot;確定要卸載 OneDrive 嗎？ 這將刪除您的桌面和文檔文件！ 僅在本地帳戶上使用此選項！&quot;,
         ///	&quot;txtVersion&quot;: &quot;版本: {VN}&quot;,
         ///	&quot;systemRestoreM&quot;: &quot;您確定要禁用系統還原嗎？ 這將刪除您當前的備份圖像！&quot;,
@@ -1216,7 +1246,7 @@ namespace Optimizer.Properties {
         ///	&quot;lblLab&quot;: &quot;實驗構建\n(刪除後測試)&quot;,
         ///	&quot;performanceSw&quot;: &quot;啟用性能調整&quot;,
         ///	&quot;networkSw&quot;: &quot;禁用網路節流&quot;,
-        ///	&quot;defenderSw&quot;: &quot;禁用 Windows [rest of string was truncated]&quot;;.
+        ///	&quot;defenderSw&quot;: &quot;禁用 Windows  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TW {
             get {

@@ -237,5 +237,17 @@ namespace Optimizer
         {
             radioRomanian.PerformClick();
         }
+
+        private void radioDutch_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.NL;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
+
+        private void pictureBox16_Click(object sender, EventArgs e)
+        {
+            radioDutch.PerformClick();
+        }
     }
 }

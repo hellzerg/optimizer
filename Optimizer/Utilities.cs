@@ -222,7 +222,7 @@ namespace Optimizer
         internal static void Reboot()
         {
             Options.SaveSettings();
-            Process.Start("shutdown /r /t 0");
+            Process.Start("shutdown.exe", "/r /t 0");
         }
 
         internal static void DisableHibernation()
@@ -424,7 +424,7 @@ namespace Optimizer
             }
         }
 
-        internal static void ResetConfiguration(bool withoutRestart = false)
+        internal static void Repair(bool withoutRestart = false)
         {
             try
             {

@@ -105,6 +105,7 @@
         AR, // arabic
         KU, // kurdish
         HU, // hungarian
-        RO // romanian
+        RO, // romanian
+        NL // dutch
     }
 }

@@ -1,3 +1,11 @@
+## [14.0] - 2022-09-24
+- New: Fully translated into Dutch (thanks to svanlaere - https://github.com/svanlaere)
+- Hotfix: Snap Assist not working
+- Hotfix: Restart button crash
+- Hotfix: UWP app image crash
+- Hotfix: Chinese translation
+- Improved: Reset Configuration renamed to Repair, because it is an auto-repair mechanism, NOT a Reset
+
 ## [13.9] - 2022-08-21
 - Hotfix: Help messages for each toggle now appears on a panel
 - Hotfix: Restarting from inside the app does not save settings

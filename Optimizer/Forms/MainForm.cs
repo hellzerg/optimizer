@@ -71,7 +71,7 @@ namespace Optimizer
         string _removeDesktopItemsMessage = "Are you sure you want to delete all desktop items?";
         string _removeModernAppsMessage = "Are you sure you want to uninstall the following app(s)?";
         string _errorModernAppsMessage = "The following app(s) couldn't be uninstalled:\n";
-        string _resetMessage = "Are you sure you want to reset configuration?\n\nThis will reset all your preferences, including any icons you extracted or downloaded using Integrator, but will not touch anything on your computer!";
+        string _repairMessage = "Are you sure you want to reset configuration?\n\nThis will reset all your preferences, including any icons you extracted or downloaded using Integrator, but will not touch anything on your computer!";
         string _flushDNSMessage = "Are you sure you wish to flush the DNS cache of Windows?\n\nThis will cause internet disconnection for a moment and it may be needed a restart to function properly.";
 
         string _byteSizeNullString = " b";
@@ -1874,7 +1874,7 @@ namespace Optimizer
                 _removeDesktopItemsMessage = Options.TranslationList["removeAllItems"];
                 _removeModernAppsMessage = Options.TranslationList["removeModernApps"];
                 _errorModernAppsMessage = Options.TranslationList["errorModernApps"];
-                _resetMessage = Options.TranslationList["resetMessage"];
+                _repairMessage = Options.TranslationList["resetMessage"];
                 _flushDNSMessage = Options.TranslationList["flushDNSMessage"];
 
                 listStartupItems.Columns[0].Text = translationList["startupItemName"];
@@ -2285,7 +2285,11 @@ namespace Optimizer
 
                 if (pngTmp != null)
                 {
-                    appCard.appImage.Image = Image.FromFile(pngTmp.FullName);
+                    try
+                    {
+                        appCard.appImage.Image = Image.FromFile(pngTmp.FullName);
+                    }
+                    catch { }
                 }
 
                 appCard.Location = new Point(0, panelUwp.Controls.Count * (DPI_PREFERENCE / 3));
@@ -3069,9 +3073,9 @@ namespace Optimizer
 
         private void btnResetConfig_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(_resetMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(_repairMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Utilities.ResetConfiguration();
+                Utilities.Repair();
             }
         }
 
@@ -4375,6 +4379,13 @@ namespace Optimizer
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
+            else if (boxLang.Text == "Nederlands")
+            {
+                picFlag.Image = Properties.Resources.dutch;
+                Options.CurrentOptions.LanguageCode = LanguageCode.NL;
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
 
             this.CenterToScreen();
             Options.SaveSettings();
@@ -4645,6 +4656,7 @@ namespace Optimizer
 
         private void picRestartNeeded_Click(object sender, EventArgs e)
         {
+            Options.SaveSettings();
             Utilities.Reboot();
         }
 
@@ -4672,6 +4684,12 @@ namespace Optimizer
         private void restartAndApply_MouseEnter(object sender, EventArgs e)
         {
             restartAndApply.Font = new Font(restartAndApply.Font, FontStyle.Underline);
+        }
+
+        private void restartAndApply_Click(object sender, EventArgs e)
+        {
+            Options.SaveSettings();
+            Utilities.Reboot();
         }
     }
 }
