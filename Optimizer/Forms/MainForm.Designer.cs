@@ -353,12 +353,7 @@ namespace Optimizer
             this.boxLang = new Optimizer.MoonSelect();
             this.picFlag = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.rAmber = new System.Windows.Forms.RadioButton();
-            this.rAmethyst = new System.Windows.Forms.RadioButton();
-            this.rAzurite = new System.Windows.Forms.RadioButton();
-            this.rRuby = new System.Windows.Forms.RadioButton();
-            this.rJade = new System.Windows.Forms.RadioButton();
-            this.rSilver = new System.Windows.Forms.RadioButton();
+            this.colorPicker1 = new Optimizer.Controls.ColorPicker();
             this.languagesL = new System.Windows.Forms.Label();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.btnOpenConf = new System.Windows.Forms.Button();
@@ -593,8 +588,10 @@ namespace Optimizer
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.pictureBox1.BackgroundImage = global::Optimizer.Properties.Resources.logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::Optimizer.Properties.Resources.logoAmethyst;
             this.pictureBox1.Location = new System.Drawing.Point(10, 10);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
@@ -3130,7 +3127,7 @@ namespace Optimizer
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(985, 576);
+            this.tabPage2.Size = new System.Drawing.Size(985, 575);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "DNS";
             // 
@@ -4139,7 +4136,7 @@ namespace Optimizer
             this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage8.Size = new System.Drawing.Size(987, 578);
+            this.tabPage8.Size = new System.Drawing.Size(987, 577);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Add/Modify";
             // 
@@ -4483,7 +4480,7 @@ namespace Optimizer
             this.tabPage9.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage9.Size = new System.Drawing.Size(987, 578);
+            this.tabPage9.Size = new System.Drawing.Size(987, 577);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Remove";
             // 
@@ -4593,7 +4590,7 @@ namespace Optimizer
             this.tabPage10.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage10.Size = new System.Drawing.Size(987, 578);
+            this.tabPage10.Size = new System.Drawing.Size(987, 577);
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Ready Menus";
             // 
@@ -4733,7 +4730,7 @@ namespace Optimizer
             this.tabPage11.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage11.Size = new System.Drawing.Size(987, 578);
+            this.tabPage11.Size = new System.Drawing.Size(987, 577);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Run Dialog";
             // 
@@ -5118,100 +5115,21 @@ namespace Optimizer
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.rAmber);
-            this.panel8.Controls.Add(this.rAmethyst);
-            this.panel8.Controls.Add(this.rAzurite);
-            this.panel8.Controls.Add(this.rRuby);
-            this.panel8.Controls.Add(this.rJade);
-            this.panel8.Controls.Add(this.rSilver);
+            this.panel8.Controls.Add(this.colorPicker1);
             this.panel8.Location = new System.Drawing.Point(21, 127);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(326, 118);
+            this.panel8.Size = new System.Drawing.Size(231, 118);
             this.panel8.TabIndex = 72;
             // 
-            // rAmber
+            // colorPicker1
             // 
-            this.rAmber.AutoSize = true;
-            this.rAmber.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rAmber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(146)))), ((int)(((byte)(0)))));
-            this.rAmber.Location = new System.Drawing.Point(163, 11);
-            this.rAmber.Margin = new System.Windows.Forms.Padding(2);
-            this.rAmber.Name = "rAmber";
-            this.rAmber.Size = new System.Drawing.Size(78, 25);
-            this.rAmber.TabIndex = 52;
-            this.rAmber.Text = "Amber";
-            this.rAmber.UseVisualStyleBackColor = true;
-            this.rAmber.CheckedChanged += new System.EventHandler(this.radioCaramel_CheckedChanged);
-            // 
-            // rAmethyst
-            // 
-            this.rAmethyst.AutoSize = true;
-            this.rAmethyst.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rAmethyst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.rAmethyst.Location = new System.Drawing.Point(15, 11);
-            this.rAmethyst.Margin = new System.Windows.Forms.Padding(2);
-            this.rAmethyst.Name = "rAmethyst";
-            this.rAmethyst.Size = new System.Drawing.Size(98, 25);
-            this.rAmethyst.TabIndex = 48;
-            this.rAmethyst.Text = "Amethyst";
-            this.rAmethyst.UseVisualStyleBackColor = true;
-            this.rAmethyst.CheckedChanged += new System.EventHandler(this.radioZerg_CheckedChanged);
-            // 
-            // rAzurite
-            // 
-            this.rAzurite.AutoSize = true;
-            this.rAzurite.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
-            this.rAzurite.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
-            this.rAzurite.Location = new System.Drawing.Point(15, 69);
-            this.rAzurite.Margin = new System.Windows.Forms.Padding(2);
-            this.rAzurite.Name = "rAzurite";
-            this.rAzurite.Size = new System.Drawing.Size(80, 25);
-            this.rAzurite.TabIndex = 49;
-            this.rAzurite.Text = "Azurite";
-            this.rAzurite.UseVisualStyleBackColor = true;
-            this.rAzurite.CheckedChanged += new System.EventHandler(this.radioOcean_CheckedChanged);
-            // 
-            // rRuby
-            // 
-            this.rRuby.AutoSize = true;
-            this.rRuby.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rRuby.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
-            this.rRuby.Location = new System.Drawing.Point(15, 40);
-            this.rRuby.Margin = new System.Windows.Forms.Padding(2);
-            this.rRuby.Name = "rRuby";
-            this.rRuby.Size = new System.Drawing.Size(65, 25);
-            this.rRuby.TabIndex = 50;
-            this.rRuby.Text = "Ruby";
-            this.rRuby.UseVisualStyleBackColor = true;
-            this.rRuby.CheckedChanged += new System.EventHandler(this.radioMagma_CheckedChanged);
-            // 
-            // rJade
-            // 
-            this.rJade.AutoSize = true;
-            this.rJade.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rJade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(175)))), ((int)(((byte)(105)))));
-            this.rJade.Location = new System.Drawing.Point(163, 40);
-            this.rJade.Margin = new System.Windows.Forms.Padding(2);
-            this.rJade.Name = "rJade";
-            this.rJade.Size = new System.Drawing.Size(61, 25);
-            this.rJade.TabIndex = 51;
-            this.rJade.Text = "Jade";
-            this.rJade.UseVisualStyleBackColor = true;
-            this.rJade.CheckedChanged += new System.EventHandler(this.radioLime_CheckedChanged);
-            // 
-            // rSilver
-            // 
-            this.rSilver.AutoSize = true;
-            this.rSilver.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rSilver.ForeColor = System.Drawing.Color.Gray;
-            this.rSilver.Location = new System.Drawing.Point(163, 69);
-            this.rSilver.Margin = new System.Windows.Forms.Padding(2);
-            this.rSilver.Name = "rSilver";
-            this.rSilver.Size = new System.Drawing.Size(68, 25);
-            this.rSilver.TabIndex = 53;
-            this.rSilver.Text = "Silver";
-            this.rSilver.UseVisualStyleBackColor = true;
-            this.rSilver.CheckedChanged += new System.EventHandler(this.radioMinimal_CheckedChanged);
+            this.colorPicker1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.colorPicker1.Location = new System.Drawing.Point(3, 3);
+            this.colorPicker1.Name = "colorPicker1";
+            this.colorPicker1.Size = new System.Drawing.Size(225, 112);
+            this.colorPicker1.TabIndex = 97;
+            this.colorPicker1.Text = "colorPicker1";
+            this.colorPicker1.ColorChanged += new System.EventHandler(this.colorPicker1_ColorChanged);
             // 
             // languagesL
             // 
@@ -5365,10 +5283,10 @@ namespace Optimizer
             this.lblTheming.Location = new System.Drawing.Point(17, 103);
             this.lblTheming.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTheming.Name = "lblTheming";
-            this.lblTheming.Size = new System.Drawing.Size(153, 21);
+            this.lblTheming.Size = new System.Drawing.Size(195, 21);
             this.lblTheming.TabIndex = 55;
             this.lblTheming.Tag = "themeable";
-            this.lblTheming.Text = "Choose your theme";
+            this.lblTheming.Text = "Choose your theme color";
             // 
             // quickAccessToggle
             // 
@@ -5776,7 +5694,6 @@ namespace Optimizer
             this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picFlag)).EndInit();
             this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.launcherMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -5897,12 +5814,6 @@ namespace Optimizer
         internal System.Windows.Forms.OpenFileDialog DefineCommandIconDialog;
         private System.Windows.Forms.Button findInRegB;
         private System.Windows.Forms.TabPage optionsTab;
-        private System.Windows.Forms.RadioButton rSilver;
-        private System.Windows.Forms.RadioButton rAmber;
-        private System.Windows.Forms.RadioButton rJade;
-        private System.Windows.Forms.RadioButton rRuby;
-        private System.Windows.Forms.RadioButton rAzurite;
-        private System.Windows.Forms.RadioButton rAmethyst;
         private System.Windows.Forms.Label lblTheming;
         private MoonList listCustomCommands;
         private System.Windows.Forms.Label removeCCL;
@@ -6144,6 +6055,7 @@ namespace Optimizer
         private MoonSelect boxAdapter;
         private MoonSelect boxDNS;
         private MoonTabs netTools;
+        private Controls.ColorPicker colorPicker1;
     }
 }
 

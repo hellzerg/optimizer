@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Optimizer
@@ -9,29 +10,8 @@ namespace Optimizer
         public AboutForm()
         {
             InitializeComponent();
-            Options.ApplyTheme(this);
 
-            switch (Options.CurrentOptions.Color)
-            {
-                case Theme.Amber:
-                    pictureBox1.Image = Properties.Resources.logoAmber;
-                    break;
-                case Theme.Jade:
-                    pictureBox1.Image = Properties.Resources.logoJade;
-                    break;
-                case Theme.Ruby:
-                    pictureBox1.Image = Properties.Resources.logoRuby;
-                    break;
-                case Theme.Silver:
-                    pictureBox1.Image = Properties.Resources.logoSilver;
-                    break;
-                case Theme.Azurite:
-                    pictureBox1.Image = Properties.Resources.logoAzurite;
-                    break;
-                case Theme.Amethyst:
-                    pictureBox1.Image = Properties.Resources.logoAmethyst;
-                    break;
-            }
+            pictureBox1.BackColor = Options.CurrentOptions.ThemeColor;
         }
 
         private void About_Load(object sender, EventArgs e)

@@ -86,6 +86,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorHelper.cs" />
+    <Compile Include="Controls\ColorPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\MoonList.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -367,6 +371,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\logo.png" />
     <None Include="Resources\Flags\dutch.png" />
     <None Include="Resources\Assets\silver.png" />
     <None Include="Resources\Assets\ruby.png" />
@@ -389,11 +394,6 @@
     <None Include="Resources\Assets\bannerAzurite.png" />
     <None Include="Resources\Assets\bannerAmethyst.png" />
     <None Include="Resources\Assets\bannerAmber.png" />
-    <None Include="Resources\Assets\logoSilver.png" />
-    <None Include="Resources\Assets\logoRuby.png" />
-    <None Include="Resources\Assets\logoJade.png" />
-    <None Include="Resources\Assets\logoAzurite.png" />
-    <None Include="Resources\Assets\logoAmber.png" />
     <None Include="Resources\Flags\egypt.png" />
     <None Include="Resources\Flags\poland.png" />
     <None Include="Resources\Flags\korea.png" />
@@ -409,7 +409,7 @@
     <None Include="Resources\Flags\czech.png" />
     <None Include="Resources\Flags\china.png" />
     <None Include="Resources\Flags\brazil.png" />
-    <None Include="Resources\Assets\logoAmethyst.png" />
+    <None Include="Resources\Assets\logo.png" />
     <EmbeddedResource Include="Newtonsoft.Json.dll" />
     <Content Include="optimizer.ico" />
   </ItemGroup>

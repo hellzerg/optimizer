@@ -16,7 +16,7 @@ namespace Optimizer
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
-            Options.ApplyTheme(this);
+            Options.ApplyThemeColor(this, Options.CurrentOptions.ThemeColor);
 
             radioFile.Text = Options.TranslationList["radioFile"].ToString();
             btnFind.Text = Options.TranslationList["btnFind"].ToString();
