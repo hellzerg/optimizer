@@ -38,7 +38,7 @@ namespace Optimizer
         internal HelperForm(MainForm main, MessageType m, string text)
         {
             InitializeComponent();
-            Options.ApplyTheme(this);
+            Options.ApplyThemeColor(this, Options.CurrentOptions.ThemeColor);
 
             _main = main;
             _type = m;

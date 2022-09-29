@@ -12,7 +12,7 @@ namespace Optimizer
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
 
-            Options.ApplyTheme(this);
+            Options.ApplyThemeColor(this, Options.CurrentOptions.ThemeColor);
 
             txtInfo.Text = info;
 

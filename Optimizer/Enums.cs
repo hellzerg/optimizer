@@ -55,16 +55,6 @@
         Bottom
     }
 
-    public enum Theme
-    {
-        Amethyst,
-        Azurite,
-        Amber,
-        Ruby,
-        Jade,
-        Silver
-    }
-
     internal enum RecycleFlag : int
     {
         SHERB_NOCONFIRMATION = 0x00000001,

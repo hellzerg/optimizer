@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Optimizer.Controls;
 using System;
 using System.Drawing;
 using System.IO;
@@ -11,7 +12,7 @@ namespace Optimizer
     [Serializable]
     public class SettingsJson
     {
-        public Theme Color { get; set; }
+        public Color ThemeColor { get; set; }
         public string AppsFolder { get; set; }
         public bool EnableTray { get; set; }
         public bool ShowHelp { get; set; }
@@ -97,29 +98,9 @@ namespace Optimizer
 
         internal static dynamic TranslationList;
 
-        internal static void ApplyTheme(Form f)
+        internal static void ApplyThemeColor(Form f, Color clr)
         {
-            switch (CurrentOptions.Color)
-            {
-                case Theme.Amber:
-                    SetTheme(f, Color.FromArgb(195, 146, 0), Color.FromArgb(171, 128, 0));
-                    break;
-                case Theme.Jade:
-                    SetTheme(f, Color.FromArgb(70, 175, 105), Color.FromArgb(61, 153, 92));
-                    break;
-                case Theme.Ruby:
-                    SetTheme(f, Color.FromArgb(205, 22, 39), Color.FromArgb(155, 17, 30));
-                    break;
-                case Theme.Silver:
-                    SetTheme(f, Color.Gray, Color.DimGray);
-                    break;
-                case Theme.Azurite:
-                    SetTheme(f, Color.FromArgb(0, 127, 255), Color.FromArgb(0, 111, 223));
-                    break;
-                case Theme.Amethyst:
-                    SetTheme(f, Color.FromArgb(153, 102, 204), Color.FromArgb(134, 89, 179));
-                    break;
-            }
+            SetTheme(f, clr, ColorHelper.ChangeColorBrightness(clr, 0.7));
         }
 
         private static void SetTheme(Form f, Color c1, Color c2)
@@ -203,7 +184,7 @@ namespace Optimizer
             if (!File.Exists(SettingsFile))
             {
                 // DEFAULT OPTIONS
-                CurrentOptions.Color = Theme.Amethyst;
+                CurrentOptions.ThemeColor = Color.FromArgb(153, 102, 204);
                 CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
                 Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
                 CurrentOptions.EnableTray = false;
