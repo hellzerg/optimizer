@@ -180,8 +180,13 @@ namespace Optimizer
 
         internal static void LoadSettings()
         {
-            if (!File.Exists(SettingsFile))
+            if (!File.Exists(SettingsFile) || File.ReadAllText(SettingsFile).Contains("\"Color\":"))
             {
+                if (File.ReadAllText(SettingsFile).Contains("\"Color\":"))
+                {
+                    File.Delete(SettingsFile);
+                }
+                
                 // DEFAULT OPTIONS
                 CurrentOptions.ThemeColor = Color.FromArgb(153, 102, 204); // Amethyst color
                 CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
