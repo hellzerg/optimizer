@@ -182,7 +182,7 @@ namespace Optimizer
         {
             if (!File.Exists(SettingsFile) || File.ReadAllText(SettingsFile).Contains("\"Color\":"))
             {
-                if (File.ReadAllText(SettingsFile).Contains("\"Color\":"))
+                if (File.Exists(SettingsFile) && File.ReadAllText(SettingsFile).Contains("\"Color\":"))
                 {
                     File.Delete(SettingsFile);
                 }
