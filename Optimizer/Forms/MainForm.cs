@@ -2935,13 +2935,6 @@ namespace Optimizer
             }
         }
 
-        /*private void radioOcean_CheckedChanged(object sender, EventArgs e)
-        {
-            Options.CurrentOptions.Color = Theme.Azurite;
-            pictureBox1.Image = Properties.Resources.logoAzurite;
-            Options.ApplyTheme(this);
-        }*/
-
         private void button64_Click(object sender, EventArgs e)
         {
             if (listStartupItems.SelectedItems.Count == 1)
