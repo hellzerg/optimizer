@@ -86,6 +86,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorHelper.cs" />
+    <Compile Include="Controls\ColorPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\MoonList.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -367,6 +371,8 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Assets\logo.png" />
+    <None Include="Resources\Assets\banner.png" />
     <None Include="Resources\Flags\dutch.png" />
     <None Include="Resources\Assets\silver.png" />
     <None Include="Resources\Assets\ruby.png" />
