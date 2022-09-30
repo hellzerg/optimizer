@@ -681,33 +681,15 @@ namespace Optimizer
 
         private void LoadSettings()
         {
-            switch (Options.CurrentOptions.Color)
-            {
-                case Theme.Amber:
-                    rAmber.Checked = true;
-                    pictureBox1.Image = Properties.Resources.logoAmber;
-                    break;
-                case Theme.Jade:
-                    rJade.Checked = true;
-                    pictureBox1.Image = Properties.Resources.logoJade;
-                    break;
-                case Theme.Ruby:
-                    rRuby.Checked = true;
-                    pictureBox1.Image = Properties.Resources.logoRuby;
-                    break;
-                case Theme.Silver:
-                    rSilver.Checked = true;
-                    pictureBox1.Image = Properties.Resources.logoSilver;
-                    break;
-                case Theme.Azurite:
-                    rAzurite.Checked = true;
-                    pictureBox1.Image = Properties.Resources.logoAzurite;
-                    break;
-                case Theme.Amethyst:
-                    rAmethyst.Checked = true;
-                    pictureBox1.Image = Properties.Resources.logoAmethyst;
-                    break;
-            }
+            pictureBox1.BackColor = Options.CurrentOptions.ThemeColor;
+            colorPicker1.Color = Options.CurrentOptions.ThemeColor;
+        }
+
+        private void colorPicker1_ColorChanged(object sender, EventArgs e)
+        {
+            pictureBox1.BackColor = colorPicker1.Color;
+            Options.ApplyThemeColor(this, colorPicker1.Color);
+            Options.CurrentOptions.ThemeColor = colorPicker1.Color;
         }
 
         //INIT
@@ -725,7 +707,7 @@ namespace Optimizer
             _splashForm.LoadingStatus.Text = "checking for requirements";
 
             // theming
-            Options.ApplyTheme(this);
+            Options.ApplyThemeColor(this, Options.CurrentOptions.ThemeColor);
             launcherMenu.Renderer = new MoonMenuRenderer();
             indiciumMenu.Renderer = new MoonMenuRenderer();
 
@@ -2953,47 +2935,12 @@ namespace Optimizer
             }
         }
 
-        private void radioOcean_CheckedChanged(object sender, EventArgs e)
+        /*private void radioOcean_CheckedChanged(object sender, EventArgs e)
         {
             Options.CurrentOptions.Color = Theme.Azurite;
             pictureBox1.Image = Properties.Resources.logoAzurite;
             Options.ApplyTheme(this);
-        }
-
-        private void radioMagma_CheckedChanged(object sender, EventArgs e)
-        {
-            Options.CurrentOptions.Color = Theme.Ruby;
-            pictureBox1.Image = Properties.Resources.logoRuby;
-            Options.ApplyTheme(this);
-        }
-
-        private void radioZerg_CheckedChanged(object sender, EventArgs e)
-        {
-            Options.CurrentOptions.Color = Theme.Amethyst;
-            pictureBox1.Image = Properties.Resources.logoAmethyst;
-            Options.ApplyTheme(this);
-        }
-
-        private void radioMinimal_CheckedChanged(object sender, EventArgs e)
-        {
-            Options.CurrentOptions.Color = Theme.Silver;
-            pictureBox1.Image = Properties.Resources.logoSilver;
-            Options.ApplyTheme(this);
-        }
-
-        private void radioCaramel_CheckedChanged(object sender, EventArgs e)
-        {
-            Options.CurrentOptions.Color = Theme.Amber;
-            pictureBox1.Image = Properties.Resources.logoAmber;
-            Options.ApplyTheme(this);
-        }
-
-        private void radioLime_CheckedChanged(object sender, EventArgs e)
-        {
-            Options.CurrentOptions.Color = Theme.Jade;
-            pictureBox1.Image = Properties.Resources.logoJade;
-            Options.ApplyTheme(this);
-        }
+        }*/
 
         private void button64_Click(object sender, EventArgs e)
         {

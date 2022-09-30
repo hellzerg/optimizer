@@ -9,7 +9,7 @@ namespace Optimizer
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            Options.ApplyTheme(this);
+            Options.ApplyThemeColor(this, Options.CurrentOptions.ThemeColor);
         }
 
         private void btnStart_Click(object sender, EventArgs e)

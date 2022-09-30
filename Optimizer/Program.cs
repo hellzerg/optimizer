@@ -38,7 +38,7 @@ namespace Optimizer
         internal static SplashForm _SplashForm;
 
         static string _adminMissingMessage = "Optimizer needs to be run as administrator!\nApp will now close...";
-        static string _unsupportedMessage = "Optimizer works in Windows 7 or higher!\nApp will now close...";
+        static string _unsupportedMessage = "Optimizer works with Windows 7 and higher!\nApp will now close...";
 
         //static string _renameAppMessage = "It's recommended to rename the app from '{0}' to 'Optimizer' for a better experience.\n\nApp will now close...";
 

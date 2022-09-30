@@ -12,7 +12,7 @@ namespace Optimizer
         public HostsEditorForm()
         {
             InitializeComponent();
-            Options.ApplyTheme(this);
+            Options.ApplyThemeColor(this, Options.CurrentOptions.ThemeColor);
 
             if (HostsHelper.GetReadOnly())
             {

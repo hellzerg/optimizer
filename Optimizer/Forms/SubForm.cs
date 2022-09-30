@@ -18,7 +18,7 @@ namespace Optimizer
 
             CheckForIllegalCrossThreadCalls = false;
             this.DoubleBuffered = true;
-            Options.ApplyTheme(this);
+            Options.ApplyThemeColor(this, Options.CurrentOptions.ThemeColor);
 
             btnStart.Focus();
             btnStart.Select();
@@ -38,7 +38,7 @@ namespace Optimizer
 
         private void SubForm_Load(object sender, EventArgs e)
         {
-            Options.ApplyTheme(this);
+            Options.ApplyThemeColor(this, Options.CurrentOptions.ThemeColor);
         }
     }
 }

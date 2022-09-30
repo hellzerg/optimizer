@@ -17,7 +17,7 @@ namespace Optimizer
             InitializeComponent();
 
             CheckForIllegalCrossThreadCalls = false;
-            Options.ApplyTheme(this);
+            Options.ApplyThemeColor(this, Options.CurrentOptions.ThemeColor);
 
             // translate UI elements
             if (Options.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
