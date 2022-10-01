@@ -86,6 +86,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorHelper.cs" />
+    <Compile Include="Controls\ColorPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\MoonList.cs">
       <SubType>Component</SubType>
     </Compile>
