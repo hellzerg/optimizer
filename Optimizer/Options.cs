@@ -42,6 +42,7 @@ namespace Optimizer
         // apps telemetry
         public bool DisableOffice2016Telemetry { get; set; }
         public bool DisableVisualStudioTelemetry { get; set; }
+        public bool DisableNVIDIATelemetry { get; set; }
         public bool DisableFirefoxTemeletry { get; set; }
         public bool DisableChromeTelemetry { get; set; }
 
@@ -238,6 +239,7 @@ namespace Optimizer
                 CurrentOptions.DisableNTFSTimeStamp = false;
 
                 CurrentOptions.DisableVisualStudioTelemetry = false;
+                CurrentOptions.DisableNVIDIATelemetry = false;
                 CurrentOptions.DisableFirefoxTemeletry = false;
                 CurrentOptions.DisableChromeTelemetry = false;
 

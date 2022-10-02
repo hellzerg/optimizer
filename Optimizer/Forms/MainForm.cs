@@ -254,6 +254,7 @@ namespace Optimizer
             classicContextSw.ToggleClicked += new EventHandler(ClassicContextSw_Click);
             ffTelemetrySw.ToggleClicked += new EventHandler(FfTelemetrySw_ToggleClicked);
             chromeTelemetrySw.ToggleClicked += new EventHandler(ChromeTelemetrySw_ToggleClicked);
+            nvidiaTelemetrySw.ToggleClicked += new EventHandler(nvidiaTelemetrySw_ToggleClicked);
             vsSw.ToggleClicked += new EventHandler(VsSw_ToggleClicked);
             gameModeSw.ToggleClicked += new EventHandler(GameModeSw_ToggleClicked);
             compactModeSw.ToggleClicked += CompactModeSw_ToggleClicked;
@@ -392,6 +393,19 @@ namespace Optimizer
                 Optimize.EnableVisualStudioTelemetry();
             }
             Options.CurrentOptions.DisableVisualStudioTelemetry = vsSw.ToggleChecked;
+        }
+
+        private void nvidiaTelemetrySw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (nvidiaTelemetrySw.ToggleChecked)
+            {
+                Optimize.DisableNvidiaTelemetry();
+            }
+            else
+            {
+                Optimize.EnableNvidiaTelemetry();
+            }
+            Options.CurrentOptions.DisableNVIDIATelemetry = nvidiaTelemetrySw.ToggleChecked;
         }
 
         private void ChromeTelemetrySw_ToggleClicked(object sender, EventArgs e)
