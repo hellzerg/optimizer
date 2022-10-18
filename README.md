@@ -105,7 +105,7 @@ Support my hard work by donating me through [PayPal](https://www.paypal.com/payp
 
 ### ❤️ Tools used: ###
 * [ByteSize](https://github.com/omar/ByteSize) | Thanks for this really tiny, yet extremely useful library
-* ColorPicker control | Thanks to cat - https://github.com/vadiscode for the new theme engine
+* ColorPicker | Thanks to cat - https://github.com/vadiscode for the new theme engine
 
 <hr>
 
