@@ -405,5 +405,7 @@ pentru analiză către Microsoft.",
 	A fost înlocuit cu SMBv3, care este mai sigur.",
 	"ntfsStampSw": "Dezactivați marcajul de timp NTFS",
 	"ntfsStampTip": "Indică ștampila la care a fost accesat ultima dată fișierul.
-	Dezactivarea acestuia poate reduce operațiunile I/O pe discuri."
+	Dezactivarea acestuia poate reduce operațiunile I/O pe discuri.",
+	"autoStartToggle": "Începeți cu Windows",
+	"nvidiaTelemetrySw": "Dezactivați telemetria NVIDIA"
 }

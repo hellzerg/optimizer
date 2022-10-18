@@ -1,3 +1,11 @@
+## [14.1] - 2022-10-18
+- New: Theme engine supporting whole color spectrum (thanks to  cat - https://github.com/vadiscode)
+- New: Disable NVIDIA Telemetry in Universal
+- New: Start Optimizer with Windows in Options (works with proper permissions)
+- Hotfix: App crashes when no internet connection available
+- Hotfix: Translation issues
+- Improved: Enhance Privacy and Superfetch options
+
 ## [14.0] - 2022-09-24
 - New: Fully translated into Dutch (thanks to svanlaere - https://github.com/svanlaere)
 - Hotfix: Snap Assist not working

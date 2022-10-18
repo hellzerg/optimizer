@@ -234,7 +234,7 @@
 	"savebtn": "Save",
 	"closebtn": "Close",
 	"adminMissingMsg": "Optimizer needs to be run as administrator!\nApp will now close...",
-	"unsupportedMsg": "Optimizer works in Windows 7 or higher!\nApp will now close...",
+	"unsupportedMsg": "Optimizer works with Windows 7 and higher!\nApp will now close...",
 	"confInvalidVersionMsg": "Windows version does not match!",
 	"confInvalidFormatMsg": "Config file is in invalid format!",
 	"confNotFoundMsg": "Config file does not exist!",
@@ -424,5 +424,7 @@ However, they are considered a risky procedure. They are usually semi-annual rel
 It has been replaced with SMBv3, which is more secure.",
 	"ntfsStampSw": "Disable NTFS Timestamp",
 	"ntfsStampTip": "Indicates the file's last time accessed stamp.
-Disabling it can reduce I/O operations on the disks."
+Disabling it can reduce I/O operations on the disks.",
+	"autoStartToggle": "Start with Windows",
+	"nvidiaTelemetrySw": "Disable NVIDIA Telemetry"
 }

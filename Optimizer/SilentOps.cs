@@ -289,6 +289,18 @@ namespace Optimizer
                     Optimize.EnableVisualStudioTelemetry();
                 }
             }
+
+            if (CurrentSilentConfig.DisableNVIDIATelemetry.HasValue)
+            {
+                if (CurrentSilentConfig.DisableNVIDIATelemetry.Value)
+                {
+                    Optimize.DisableNvidiaTelemetry();
+                }
+                else
+                {
+                    Optimize.EnableNvidiaTelemetry();
+                }
+            }
         }
 
         // silent config processing for Windows 8 tweaks
@@ -780,6 +792,10 @@ namespace Optimizer
             if (CurrentSilentConfig.DisableChromeTelemetry.HasValue)
             {
                 Options.CurrentOptions.DisableChromeTelemetry = CurrentSilentConfig.DisableChromeTelemetry.Value;
+            }
+            if (CurrentSilentConfig.DisableNVIDIATelemetry.HasValue)
+            {
+                Options.CurrentOptions.DisableNVIDIATelemetry = CurrentSilentConfig.DisableNVIDIATelemetry.Value;
             }
         }
 

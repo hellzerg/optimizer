@@ -424,5 +424,7 @@ Je to však považováno za riskantní procedůru. Obvykle se jedná o půlročn
 	Byl nahrazen SMBv3, který je bezpečnější.",
 	"ntfsStampSw": "Zakázat časové razítko NTFS",
 	"ntfsStampTip": "Označuje razítko posledního přístupu k souboru.
-	Jeho zakázáním můžete snížit I/O operace na discích."
+	Jeho zakázáním můžete snížit I/O operace na discích.",
+	"autoStartToggle": "Začněte s Windows",
+	"nvidiaTelemetrySw": "Zakázat telemetrii NVIDIA"
 }

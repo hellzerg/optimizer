@@ -374,5 +374,7 @@
    "smbSw2":"SMBv2-protocol uitschakelen",
    "smbTip":"Het SMB{v}-protocol is verantwoordelijk voor het delen van bestanden tussen Windows-computers. Het is vervangen door SMBv3, wat veiliger is.",
    "ntfsStampSw":"NTFS-tijdstempel uitschakelen",
-   "ntfsStampTip":"Geeft aan wanneer het bestand voor het laatst is geopend. Uitschakelen kan I/O-bewerkingen op de harde schijven verminderen."
+   "ntfsStampTip":"Geeft aan wanneer het bestand voor het laatst is geopend. Uitschakelen kan I/O-bewerkingen op de harde schijven verminderen.",
+   "autoStartToggle": "Begin met Windows",
+   "nvidiaTelemetrySw": "NVIDIA-telemetrie uitschakelen"
 }

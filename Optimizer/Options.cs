@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Optimizer
@@ -11,10 +12,11 @@ namespace Optimizer
     [Serializable]
     public class SettingsJson
     {
-        public Theme Color { get; set; }
+        public Color Theme { get; set; }
         public string AppsFolder { get; set; }
         public bool EnableTray { get; set; }
         public bool ShowHelp { get; set; }
+        public bool AutoStart { get; set; }
 
         public LanguageCode LanguageCode { get; set; }
 
@@ -44,6 +46,7 @@ namespace Optimizer
         public bool DisableVisualStudioTelemetry { get; set; }
         public bool DisableFirefoxTemeletry { get; set; }
         public bool DisableChromeTelemetry { get; set; }
+        public bool DisableNVIDIATelemetry { get; set; }
 
         // windows 8
         public bool DisableOneDrive { get; set; }
@@ -85,10 +88,13 @@ namespace Optimizer
 
     internal static class Options
     {
+        const int CONTRAST_THRESHOLD = 149;
+
         internal static Color ForegroundColor = Color.FromArgb(153, 102, 204);
         internal static Color ForegroundAccentColor = Color.FromArgb(134, 89, 179);
         internal static Color BackgroundColor = Color.FromArgb(10, 10, 10);
         internal static Color BackAccentColor = Color.FromArgb(40, 40, 40);
+        internal static Color TextColor;
 
         readonly static string _themeFlag = "themeable";
         internal readonly static string SettingsFile = Required.CoreFolder + "\\Optimizer.json";
@@ -97,29 +103,15 @@ namespace Optimizer
 
         internal static dynamic TranslationList;
 
+        internal static Color GetContrastColor(Color c)
+        {
+            double brightness = c.R * 0.299 + c.G * 0.587 + c.B * 0.114;
+            return brightness > CONTRAST_THRESHOLD ? Color.Black : Color.White;
+        }
+
         internal static void ApplyTheme(Form f)
         {
-            switch (CurrentOptions.Color)
-            {
-                case Theme.Amber:
-                    SetTheme(f, Color.FromArgb(195, 146, 0), Color.FromArgb(171, 128, 0));
-                    break;
-                case Theme.Jade:
-                    SetTheme(f, Color.FromArgb(70, 175, 105), Color.FromArgb(61, 153, 92));
-                    break;
-                case Theme.Ruby:
-                    SetTheme(f, Color.FromArgb(205, 22, 39), Color.FromArgb(155, 17, 30));
-                    break;
-                case Theme.Silver:
-                    SetTheme(f, Color.Gray, Color.DimGray);
-                    break;
-                case Theme.Azurite:
-                    SetTheme(f, Color.FromArgb(0, 127, 255), Color.FromArgb(0, 111, 223));
-                    break;
-                case Theme.Amethyst:
-                    SetTheme(f, Color.FromArgb(153, 102, 204), Color.FromArgb(134, 89, 179));
-                    break;
-            }
+            SetTheme(f, CurrentOptions.Theme, ColorHelper.ChangeColorBrightness(CurrentOptions.Theme, 0.7));
         }
 
         private static void SetTheme(Form f, Color c1, Color c2)
@@ -127,6 +119,7 @@ namespace Optimizer
             dynamic c;
             ForegroundColor = c1;
             ForegroundAccentColor = c2;
+            TextColor = GetContrastColor(CurrentOptions.Theme);
 
             Utilities.GetSelfAndChildrenRecursive(f).ToList().ForEach(x =>
             {
@@ -134,6 +127,7 @@ namespace Optimizer
 
                 if (x is Button)
                 {
+                    c.ForeColor = TextColor;
                     c.BackColor = c1;
                     c.FlatAppearance.BorderColor = c1;
                     c.FlatAppearance.MouseDownBackColor = c2;
@@ -200,83 +194,95 @@ namespace Optimizer
 
         internal static void LoadSettings()
         {
-            if (!File.Exists(SettingsFile))
+            if (!File.Exists(SettingsFile) || File.ReadAllText(SettingsFile).Contains("\"Color\":"))
             {
-                // DEFAULT OPTIONS
-                CurrentOptions.Color = Theme.Amethyst;
-                CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
-                Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
-                CurrentOptions.EnableTray = false;
-                CurrentOptions.ShowHelp = true;
-
-                CurrentOptions.LanguageCode = LanguageCode.EN;
-
-                CurrentOptions.EnablePerformanceTweaks = false;
-                CurrentOptions.DisableNetworkThrottling = false;
-                CurrentOptions.DisableWindowsDefender = false;
-                CurrentOptions.DisableSystemRestore = false;
-                CurrentOptions.DisablePrintService = false;
-                CurrentOptions.DisableMediaPlayerSharing = false;
-                CurrentOptions.DisableErrorReporting = false;
-                CurrentOptions.DisableHomeGroup = false;
-                CurrentOptions.DisableSuperfetch = false;
-                CurrentOptions.DisableTelemetryTasks = false;
-                CurrentOptions.DisableOffice2016Telemetry = false;
-                CurrentOptions.DisableCompatibilityAssistant = false;
-                CurrentOptions.DisableFaxService = false;
-                CurrentOptions.DisableSmartScreen = false;
-                CurrentOptions.DisableStickyKeys = false;
-                CurrentOptions.EnableGamingMode = false;
-                CurrentOptions.EnableLegacyVolumeSlider = false;
-                CurrentOptions.DisableQuickAccessHistory = false;
-                CurrentOptions.DisableStartMenuAds = false;
-                CurrentOptions.UninstallOneDrive = false;
-                CurrentOptions.DisableMyPeople = false;
-                CurrentOptions.DisableAutomaticUpdates = false;
-                CurrentOptions.ExcludeDrivers = false;
-                CurrentOptions.DisableTelemetryServices = false;
-                CurrentOptions.DisablePrivacyOptions = false;
-                CurrentOptions.DisableCortana = false;
-                CurrentOptions.DisableSensorServices = false;
-                CurrentOptions.DisableWindowsInk = false;
-                CurrentOptions.DisableSpellingTyping = false;
-                CurrentOptions.DisableXboxLive = false;
-                CurrentOptions.DisableGameBar = false;
-                CurrentOptions.DisableInsiderService = false;
-                CurrentOptions.DisableFeatureUpdates = false;
-                CurrentOptions.DisableCloudClipboard = false;
-                CurrentOptions.EnableLongPaths = false;
-                CurrentOptions.RemoveCastToDevice = false;
-                CurrentOptions.DisableHibernation = false;
-                CurrentOptions.DisableSMB1 = false;
-                CurrentOptions.DisableSMB2 = false;
-                CurrentOptions.DisableNTFSTimeStamp = false;
-
-                CurrentOptions.DisableVisualStudioTelemetry = false;
-                CurrentOptions.DisableFirefoxTemeletry = false;
-                CurrentOptions.DisableChromeTelemetry = false;
-
-                CurrentOptions.DisableOneDrive = false;
-
-                CurrentOptions.TaskbarToLeft = false;
-                CurrentOptions.DisableSnapAssist = false;
-                CurrentOptions.DisableWidgets = false;
-                CurrentOptions.DisableChat = false;
-                CurrentOptions.TaskbarSmaller = false;
-                CurrentOptions.ClassicRibbon = false;
-                CurrentOptions.ClassicMenu = false;
-                CurrentOptions.DisableTPMCheck = false;
-                CurrentOptions.CompactMode = false;
-                CurrentOptions.DisableStickers = false;
-
-                using (FileStream fs = File.Open(SettingsFile, FileMode.CreateNew))
-                using (StreamWriter sw = new StreamWriter(fs))
-                using (JsonWriter jw = new JsonTextWriter(sw))
+                // settings migration for new color picker
+                if (File.Exists(SettingsFile) && File.ReadAllText(SettingsFile).Contains("\"Color\":"))
                 {
-                    jw.Formatting = Formatting.Indented;
+                    SettingsJson tmpJson = JsonConvert.DeserializeObject<SettingsJson>(File.ReadAllText(SettingsFile));
+                    tmpJson.Theme = Color.FromArgb(153, 102, 204);
+                    CurrentOptions = tmpJson;
+                }
+                else
+                {
+                    // DEFAULT OPTIONS
+                    CurrentOptions.Theme = Color.FromArgb(153, 102, 204);
+                    CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
+                    Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
+                    CurrentOptions.EnableTray = false;
+                    CurrentOptions.ShowHelp = true;
+                    CurrentOptions.AutoStart = false;
 
-                    JsonSerializer serializer = new JsonSerializer();
-                    serializer.Serialize(jw, CurrentOptions);
+                    CurrentOptions.LanguageCode = LanguageCode.EN;
+
+                    CurrentOptions.EnablePerformanceTweaks = false;
+                    CurrentOptions.DisableNetworkThrottling = false;
+                    CurrentOptions.DisableWindowsDefender = false;
+                    CurrentOptions.DisableSystemRestore = false;
+                    CurrentOptions.DisablePrintService = false;
+                    CurrentOptions.DisableMediaPlayerSharing = false;
+                    CurrentOptions.DisableErrorReporting = false;
+                    CurrentOptions.DisableHomeGroup = false;
+                    CurrentOptions.DisableSuperfetch = false;
+                    CurrentOptions.DisableTelemetryTasks = false;
+                    CurrentOptions.DisableOffice2016Telemetry = false;
+                    CurrentOptions.DisableCompatibilityAssistant = false;
+                    CurrentOptions.DisableFaxService = false;
+                    CurrentOptions.DisableSmartScreen = false;
+                    CurrentOptions.DisableStickyKeys = false;
+                    CurrentOptions.EnableGamingMode = false;
+                    CurrentOptions.EnableLegacyVolumeSlider = false;
+                    CurrentOptions.DisableQuickAccessHistory = false;
+                    CurrentOptions.DisableStartMenuAds = false;
+                    CurrentOptions.UninstallOneDrive = false;
+                    CurrentOptions.DisableMyPeople = false;
+                    CurrentOptions.DisableAutomaticUpdates = false;
+                    CurrentOptions.ExcludeDrivers = false;
+                    CurrentOptions.DisableTelemetryServices = false;
+                    CurrentOptions.DisablePrivacyOptions = false;
+                    CurrentOptions.DisableCortana = false;
+                    CurrentOptions.DisableSensorServices = false;
+                    CurrentOptions.DisableWindowsInk = false;
+                    CurrentOptions.DisableSpellingTyping = false;
+                    CurrentOptions.DisableXboxLive = false;
+                    CurrentOptions.DisableGameBar = false;
+                    CurrentOptions.DisableInsiderService = false;
+                    CurrentOptions.DisableFeatureUpdates = false;
+                    CurrentOptions.DisableCloudClipboard = false;
+                    CurrentOptions.EnableLongPaths = false;
+                    CurrentOptions.RemoveCastToDevice = false;
+                    CurrentOptions.DisableHibernation = false;
+                    CurrentOptions.DisableSMB1 = false;
+                    CurrentOptions.DisableSMB2 = false;
+                    CurrentOptions.DisableNTFSTimeStamp = false;
+
+                    CurrentOptions.DisableVisualStudioTelemetry = false;
+                    CurrentOptions.DisableFirefoxTemeletry = false;
+                    CurrentOptions.DisableChromeTelemetry = false;
+                    CurrentOptions.DisableNVIDIATelemetry = false;
+
+                    CurrentOptions.DisableOneDrive = false;
+
+                    CurrentOptions.TaskbarToLeft = false;
+                    CurrentOptions.DisableSnapAssist = false;
+                    CurrentOptions.DisableWidgets = false;
+                    CurrentOptions.DisableChat = false;
+                    CurrentOptions.TaskbarSmaller = false;
+                    CurrentOptions.ClassicRibbon = false;
+                    CurrentOptions.ClassicMenu = false;
+                    CurrentOptions.DisableTPMCheck = false;
+                    CurrentOptions.CompactMode = false;
+                    CurrentOptions.DisableStickers = false;
+
+                    using (FileStream fs = File.Open(SettingsFile, FileMode.CreateNew))
+                    using (StreamWriter sw = new StreamWriter(fs))
+                    using (JsonWriter jw = new JsonTextWriter(sw))
+                    {
+                        jw.Formatting = Formatting.Indented;
+
+                        JsonSerializer serializer = new JsonSerializer();
+                        serializer.Serialize(jw, CurrentOptions);
+                    }
                 }
             }
             else

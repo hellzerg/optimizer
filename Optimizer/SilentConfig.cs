@@ -31,6 +31,7 @@ namespace Optimizer
         public bool? DisableVisualStudioTelemetry { get; set; }
         public bool? DisableFirefoxTemeletry { get; set; }
         public bool? DisableChromeTelemetry { get; set; }
+        public bool? DisableNVIDIATelemetry { get; set; }
 
         public bool? EnableLegacyVolumeSlider { get; set; }
         public bool? DisableQuickAccessHistory { get; set; }

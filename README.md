@@ -3,7 +3,7 @@
 </p> 
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/14.0/Optimizer-14.0.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/14.1/Optimizer-14.1.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -88,9 +88,9 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ### #️ Details: ###
 
-* Latest version: 14.0
-* Released: September 24, 2022
-* SHA256: 0BCC84F4993028A6D4F2E7139AC390DD78743831869CB0FB2D6E5E87E629DAF0
+* Latest version: 14.1
+* Released: October 18, 2022
+* SHA256: 888E350DF53B8AB0CB81775F3FAB3F87A1C73395BF88C80898688B784BB04E6C
 
 <hr>
 
@@ -105,6 +105,7 @@ Support my hard work by donating me through [PayPal](https://www.paypal.com/payp
 
 ### ❤️ Tools used: ###
 * [ByteSize](https://github.com/omar/ByteSize) | Thanks for this really tiny, yet extremely useful library
+* ColorPicker control | Thanks to cat - https://github.com/vadiscode for the new theme engine
 
 <hr>
 

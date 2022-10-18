@@ -421,5 +421,7 @@ No entanto, eles são considerados um procedimento arriscado. Geralmente são la
 	Ele foi substituído pelo SMBv3, que é mais seguro.",
 	"ntfsStampSw": "Desativar carimbo de data/hora NTFS",
 	"ntfsStampTip": "Indica o último carimbo de acesso do arquivo.
-	Desabilitar pode reduzir as operações de E/S nos discos."
+	Desabilitar pode reduzir as operações de E/S nos discos.",
+	"autoStartToggle": "Comece com o Windows",
+	"nvidiaTelemetrySw": "Desativar a telemetria NVIDIA"
 }

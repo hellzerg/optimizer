@@ -399,5 +399,7 @@
 Es wurde durch SMBv3 ersetzt, das sicherer ist.",
 	"ntfsStampSw": "Deaktiviere den NTFS-Zeitstempel",
 	"ntfsStampTip": "Gibt den Zeitpunkt des letzten Zugriffs auf die Datei an.
-Durch Deaktivieren können die E/A-Vorgänge auf den Festplatten reduziert werden."
+Durch Deaktivieren können die E/A-Vorgänge auf den Festplatten reduziert werden.",
+	"autoStartToggle": "Starte mit Windows",
+	"nvidiaTelemetrySw": "Deaktivieren Sie die NVIDIA-Telemetrie"
 }

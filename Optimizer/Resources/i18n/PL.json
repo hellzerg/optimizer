@@ -421,5 +421,7 @@ Są one jednak uważane za ryzykowną procedurę. Zazwyczaj są wydawane co pó�
 	Został zastąpiony SMBv3, który jest bezpieczniejszy.",
 	"ntfsStampSw": "Wyłącz znacznik czasu NTFS",
 	"ntfsStampTip": "Wskazuje pieczęć ostatniego dostępu do pliku.
-	Wyłączenie go może zmniejszyć liczbę operacji we/wy na dyskach."
+	Wyłączenie go może zmniejszyć liczbę operacji we/wy na dyskach.",
+	"autoStartToggle": "Uruchom z Windows",
+	"nvidiaTelemetrySw": "Wyłącz telemetrię NVIDIA"
 }

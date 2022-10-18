@@ -699,7 +699,7 @@ namespace Optimizer
         //    catch { }
         //}
 
-        internal static void AddToStartup()
+        internal static void RegisterAutoStart()
         {
             try
             {
@@ -714,7 +714,7 @@ namespace Optimizer
             }
         }
 
-        internal static void DeleteFromStartup()
+        internal static void UnregisterAutoStart()
         {
             try
             {

@@ -421,5 +421,7 @@ Sin embargo, se consideran un procedimiento riesgoso. Suelen ser lanzamientos se
 	Ha sido reemplazado por SMBv3, que es más seguro.",
 	"ntfsStampSw": "Deshabilitar marca de tiempo NTFS",
 	"ntfsStampTip": "Indica la marca de la última vez que se accedió al archivo.
-	Deshabilitarlo puede reducir las operaciones de E/S en los discos."
+	Deshabilitarlo puede reducir las operaciones de E/S en los discos.",
+	"autoStartToggle": "Comience con el Windows",
+	"nvidiaTelemetrySw": "Deshabilitar la telemetría de NVIDIA"
 }

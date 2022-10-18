@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -13,7 +14,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 14;
-        internal readonly static float Minor = 0;
+        internal readonly static float Minor = 1;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
@@ -38,7 +39,7 @@ namespace Optimizer
         internal static SplashForm _SplashForm;
 
         static string _adminMissingMessage = "Optimizer needs to be run as administrator!\nApp will now close...";
-        static string _unsupportedMessage = "Optimizer works in Windows 7 or higher!\nApp will now close...";
+        static string _unsupportedMessage = "Optimizer works with Windows 7 and higher!\nApp will now close...";
 
         //static string _renameAppMessage = "It's recommended to rename the app from '{0}' to 'Optimizer' for a better experience.\n\nApp will now close...";
 
@@ -87,8 +88,11 @@ namespace Optimizer
                 {
                     if (!Utilities.IsAdmin())
                     {
-                        HelperForm f = new HelperForm(null, MessageType.Error, _adminMissingMessage);
-                        f.ShowDialog();
+                        string file = Process.GetCurrentProcess().MainModule.FileName;
+                        ProcessStartInfo p = new ProcessStartInfo(file);
+                        p.Verb = "runas";
+                        p.Arguments = string.Join(" ", switches);
+                        Process.Start(p);
 
                         Environment.Exit(0);
                     }
@@ -167,13 +171,13 @@ namespace Optimizer
 
                                 if (arg == "/addstartup")
                                 {
-                                    Utilities.AddToStartup();
+                                    Utilities.RegisterAutoStart();
                                     Environment.Exit(0);
                                 }
 
                                 if (arg == "/deletestartup")
                                 {
-                                    Utilities.DeleteFromStartup();
+                                    Utilities.UnregisterAutoStart();
                                     Environment.Exit(0);
                                 }
 

@@ -61,7 +61,7 @@ namespace Optimizer
                     pevent.Graphics.FillPath(new SolidBrush(Options.ForegroundColor), GetFigurePath());
                 else pevent.Graphics.DrawPath(new Pen(Options.ForegroundColor, 2), GetFigurePath());
                 //Draw the toggle
-                pevent.Graphics.FillEllipse(new SolidBrush(Color.White),
+                pevent.Graphics.FillEllipse(new SolidBrush(Options.TextColor),
                   new Rectangle(this.Width - this.Height + 1, 2, toggleSize, toggleSize));
             }
             else //OFF

@@ -421,5 +421,7 @@ Cependant, elles sont considerees comme une procedure risquee. Il s'agit general
 	Il a été remplacé par SMBv3, qui est plus sécurisé.",
 	"ntfsStampSw": "Désactiver l'horodatage NTFS",
 	"ntfsStampTip": "Indique l'horodatage du dernier accès au fichier.
-	Sa désactivation peut réduire les opérations d'E/S sur les disques."
+	Sa désactivation peut réduire les opérations d'E/S sur les disques.",
+	"autoStartToggle": "Commence avec Windows",
+	"nvidiaTelemetrySw": "Désactiver la télémétrie NVIDIA"
 }

@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Optimizer
+namespace Optimizer.Controls
 {
     [DefaultProperty("Color")]
     [DefaultEvent("ColorChanged")]

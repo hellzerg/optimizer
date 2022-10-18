@@ -422,5 +422,7 @@
 	它已被更安全的 SMBv3 取代。",
 	"ntfsStampSw": "禁用 NTFS 時間戳",
 	"ntfsStampTip": "指示文件的最後一次訪問時間戳。
-	禁用它可以減少磁盤上的 I/O 操作。"
+	禁用它可以減少磁盤上的 I/O 操作。",
+	"autoStartToggle": "從 Windows 開始",
+	"nvidiaTelemetrySw": "禁用 NVIDIA 遙測"
 }

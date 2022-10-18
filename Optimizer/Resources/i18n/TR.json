@@ -422,5 +422,7 @@ Ancak, riskli bir prosedür olarak kabul edilirler. Genellikle altı aylık yay�
 	Daha güvenli olan SMBv3 ile değiştirildi.",
 	"ntfsStampSw": "NTFS Zaman Damgasını Devre Dışı Bırak",
 	"ntfsStampTip": "Dosyanın en son erişilen damgasını gösterir.
-	Devre dışı bırakmak, disklerdeki G/Ç işlemlerini azaltabilir."
+	Devre dışı bırakmak, disklerdeki G/Ç işlemlerini azaltabilir.",
+	"autoStartToggle": "Windows başla",
+	"nvidiaTelemetrySw": "NVIDIA Telemetrisini Devre Dışı Bırak"
 }

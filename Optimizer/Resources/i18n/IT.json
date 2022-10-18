@@ -419,5 +419,7 @@ Tuttavia, sono considerate procedure rischiose. Sono normalmente una release ogn
 	È stato sostituito con SMBv3, che è più sicuro.",
 	"ntfsStampSw": "Disabilita il timestamp NTFS",
 	"ntfsStampTip": "Indica l'ultima volta che si è avuto accesso al file.
-	La disabilitazione può ridurre le operazioni di I/O sui dischi."
+	La disabilitazione può ridurre le operazioni di I/O sui dischi.",
+	"autoStartToggle": "Inizia con Windows",
+	"nvidiaTelemetrySw": "Disabilita la telemetria NVIDIA"
 }

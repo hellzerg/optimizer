@@ -262,6 +262,7 @@ namespace Optimizer
             smb1Sw.ToggleClicked += Smb1Sw_ToggleClicked;
             smb2Sw.ToggleClicked += Smb2Sw_ToggleClicked;
             ntfsStampSw.ToggleClicked += NtfsStampSw_ToggleClicked;
+            nvidiaTelemetrySw.ToggleClicked += NvidiaTelemetrySw_ToggleClicked;
 
             PMB.ToggleClicked += PMB_ToggleClicked;
             SSB.ToggleClicked += SSB_ToggleClicked;
@@ -270,6 +271,20 @@ namespace Optimizer
             DSB.ToggleClicked += DSB_ToggleClicked;
             AddCMDB.ToggleClicked += AddCMDB_ToggleClicked;
             AddOwnerB.ToggleClicked += AddOwnerB_ToggleClicked;
+        }
+
+        private void NvidiaTelemetrySw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (nvidiaTelemetrySw.ToggleChecked)
+            {
+                Optimize.DisableNvidiaTelemetry();
+            }
+            else
+            {
+                Optimize.EnableNvidiaTelemetry();
+            }
+            Options.CurrentOptions.DisableNVIDIATelemetry = nvidiaTelemetrySw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void NtfsStampSw_ToggleClicked(object sender, EventArgs e)
@@ -283,6 +298,7 @@ namespace Optimizer
                 Optimize.EnableNTFSTimeStamp();
             }
             Options.CurrentOptions.DisableNTFSTimeStamp = ntfsStampSw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void Smb2Sw_ToggleClicked(object sender, EventArgs e)
@@ -573,6 +589,7 @@ namespace Optimizer
             smb1Sw.Label.Tag = Options.TranslationList["smbTip"].ToString().Replace("{v}", "v1");
             smb2Sw.Label.Tag = Options.TranslationList["smbTip"].ToString().Replace("{v}", "v2");
             ntfsStampSw.Label.Tag = Options.TranslationList["ntfsStampTip"].ToString();
+            nvidiaTelemetrySw.Label.Tag = Options.TranslationList["nvidiaTelemetrySw"].ToString();
         }
 
         private void ToggleSwitch40_Click(object sender, EventArgs e)
@@ -681,33 +698,8 @@ namespace Optimizer
 
         private void LoadSettings()
         {
-            switch (Options.CurrentOptions.Color)
-            {
-                case Theme.Amber:
-                    rAmber.Checked = true;
-                    pictureBox1.Image = Properties.Resources.logoAmber;
-                    break;
-                case Theme.Jade:
-                    rJade.Checked = true;
-                    pictureBox1.Image = Properties.Resources.logoJade;
-                    break;
-                case Theme.Ruby:
-                    rRuby.Checked = true;
-                    pictureBox1.Image = Properties.Resources.logoRuby;
-                    break;
-                case Theme.Silver:
-                    rSilver.Checked = true;
-                    pictureBox1.Image = Properties.Resources.logoSilver;
-                    break;
-                case Theme.Azurite:
-                    rAzurite.Checked = true;
-                    pictureBox1.Image = Properties.Resources.logoAzurite;
-                    break;
-                case Theme.Amethyst:
-                    rAmethyst.Checked = true;
-                    pictureBox1.Image = Properties.Resources.logoAmethyst;
-                    break;
-            }
+            pictureBox1.BackColor = Options.CurrentOptions.Theme;
+            colorPicker1.Color = Options.CurrentOptions.Theme;
         }
 
         //INIT
@@ -726,6 +718,7 @@ namespace Optimizer
 
             // theming
             Options.ApplyTheme(this);
+            LoadSettings();
             launcherMenu.Renderer = new MoonMenuRenderer();
             indiciumMenu.Renderer = new MoonMenuRenderer();
 
@@ -739,6 +732,7 @@ namespace Optimizer
             seperatorNetMon.Visible = Options.CurrentOptions.EnableTray;
             trayDownSpeed.Visible = Options.CurrentOptions.EnableTray;
             trayUpSpeed.Visible = Options.CurrentOptions.EnableTray;
+            autoStartToggle.ToggleChecked = Options.CurrentOptions.AutoStart;
 
             // help tips
             helpTipsToggle.ToggleChecked = Options.CurrentOptions.ShowHelp;
@@ -889,7 +883,7 @@ namespace Optimizer
             // APPS DOWNLOADER
             if (!disableCommonApps)
             {
-                GetFeed();
+                if (PingerHelper.IsInternetAvailable()) GetFeed();
             }
             else
             {
@@ -923,7 +917,9 @@ namespace Optimizer
 
             // PINGER
             if (!disablePinger)
-            {
+            { 
+                if (!PingerHelper.IsInternetAvailable()) return; 
+
                 LoadPingerDNSConfig();
                 DisplayCurrentDNS();
 
@@ -935,8 +931,6 @@ namespace Optimizer
                 tabCollection.TabPages.Remove(pingerTab);
                 launcherMenu.Items.RemoveByKey("trayPinger");
             }
-
-            LoadSettings();
 
             LoadTranslationAndSetSize();
 
@@ -2141,6 +2135,7 @@ namespace Optimizer
             ffTelemetrySw.ToggleChecked = Options.CurrentOptions.DisableFirefoxTemeletry;
             vsSw.ToggleChecked = Options.CurrentOptions.DisableVisualStudioTelemetry;
             chromeTelemetrySw.ToggleChecked = Options.CurrentOptions.DisableChromeTelemetry;
+            nvidiaTelemetrySw.ToggleChecked = Options.CurrentOptions.DisableNVIDIATelemetry;
         }
 
         private void LoadWindowsVIIIToggleStates()
@@ -2951,48 +2946,6 @@ namespace Optimizer
             {
                 txtItem.Text = "http://";
             }
-        }
-
-        private void radioOcean_CheckedChanged(object sender, EventArgs e)
-        {
-            Options.CurrentOptions.Color = Theme.Azurite;
-            pictureBox1.Image = Properties.Resources.logoAzurite;
-            Options.ApplyTheme(this);
-        }
-
-        private void radioMagma_CheckedChanged(object sender, EventArgs e)
-        {
-            Options.CurrentOptions.Color = Theme.Ruby;
-            pictureBox1.Image = Properties.Resources.logoRuby;
-            Options.ApplyTheme(this);
-        }
-
-        private void radioZerg_CheckedChanged(object sender, EventArgs e)
-        {
-            Options.CurrentOptions.Color = Theme.Amethyst;
-            pictureBox1.Image = Properties.Resources.logoAmethyst;
-            Options.ApplyTheme(this);
-        }
-
-        private void radioMinimal_CheckedChanged(object sender, EventArgs e)
-        {
-            Options.CurrentOptions.Color = Theme.Silver;
-            pictureBox1.Image = Properties.Resources.logoSilver;
-            Options.ApplyTheme(this);
-        }
-
-        private void radioCaramel_CheckedChanged(object sender, EventArgs e)
-        {
-            Options.CurrentOptions.Color = Theme.Amber;
-            pictureBox1.Image = Properties.Resources.logoAmber;
-            Options.ApplyTheme(this);
-        }
-
-        private void radioLime_CheckedChanged(object sender, EventArgs e)
-        {
-            Options.CurrentOptions.Color = Theme.Jade;
-            pictureBox1.Image = Properties.Resources.logoJade;
-            Options.ApplyTheme(this);
         }
 
         private void button64_Click(object sender, EventArgs e)
@@ -4502,6 +4455,9 @@ namespace Optimizer
         {
             _currentDNS = PingerHelper.GetDNSFromNetworkAdapter(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex]).ToArray();
 
+            if (_currentDNS == null) return;
+            if (_currentDNS.Length == 0) return;
+
             try
             {
                 if (_currentDNS.Length == 1)
@@ -4690,6 +4646,30 @@ namespace Optimizer
         {
             Options.SaveSettings();
             Utilities.Reboot();
+        }
+
+        private void colorPicker1_ColorChanged(object sender, EventArgs e)
+        {
+            pictureBox1.BackColor = colorPicker1.Color;
+            Options.CurrentOptions.Theme = colorPicker1.Color;
+            Options.ApplyTheme(this);
+
+            Options.SaveSettings();
+        }
+
+        private void autoStartToggle_ToggleClicked(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.AutoStart = autoStartToggle.ToggleChecked;
+            Options.SaveSettings();
+
+            if (Options.CurrentOptions.AutoStart)
+            {
+                Utilities.RegisterAutoStart();
+            }
+            else
+            {
+                Utilities.UnregisterAutoStart();
+            }
         }
     }
 }

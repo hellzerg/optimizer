@@ -194,7 +194,7 @@ namespace Optimizer
             using (SolidBrush brushAlternative = new SolidBrush(Options.ForegroundColor))
             using (SolidBrush brushActiveIndicator = new SolidBrush(ControlPaint.Light(Options.ForegroundColor)))
             using (SolidBrush brushInActiveIndicator = new SolidBrush(Options.ForegroundColor))
-            using (brushActiveText = new SolidBrush(Color.White))
+            using (brushActiveText = new SolidBrush(Options.TextColor))
             using (SolidBrush brushInActiveText = new SolidBrush(Color.White))
             using (SolidBrush brushDrag = new SolidBrush(ControlPaint.Dark(Options.ForegroundColor)))
             {
