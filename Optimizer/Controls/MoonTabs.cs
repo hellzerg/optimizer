@@ -266,7 +266,7 @@ namespace Optimizer
 
                             if (Alignment == TabAlignment.Top || Alignment == TabAlignment.Bottom)
                             {
-                                rectDivider = new Rectangle(containerHead.X + 300, containerHead.Y + ((Alignment == TabAlignment.Top) ? containerHead.Height : -DividerSize), containerHead.Width, DividerSize);
+                                rectDivider = new Rectangle(containerHead.X, containerHead.Y + ((Alignment == TabAlignment.Top) ? containerHead.Height : -DividerSize), containerHead.Width, DividerSize);
                             }
                             if (Alignment == TabAlignment.Right || Alignment == TabAlignment.Left)
                             {
