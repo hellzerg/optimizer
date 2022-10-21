@@ -105,39 +105,6 @@ namespace Optimizer
                         {
                             Required.Deploy();
 
-                            // for backward compatibility (legacy)
-                            Options.LegacyCheck();
-
-                            // load settings, if there is no settings, load defaults
-                            try
-                            {
-                                // show FirstRunForm/Language Selector if app is running first time
-                                if (!File.Exists(Options.SettingsFile))
-                                {
-                                    Options.LoadSettings();
-                                    FirstRunForm frf = new FirstRunForm();
-                                    frf.ShowDialog();
-                                }
-                                else
-                                {
-                                    Options.LoadSettings();
-                                }
-
-                                // ideal place to replace internal messages from translation list
-                                _adminMissingMessage = Options.TranslationList["adminMissingMsg"];
-                                _unsupportedMessage = Options.TranslationList["unsupportedMsg"];
-                                _confInvalidFormatMsg = Options.TranslationList["confInvalidFormatMsg"];
-                                _confInvalidVersionMsg = Options.TranslationList["confInvalidVersionMsg"];
-                                _confNotFoundMsg = Options.TranslationList["confNotFoundMsg"];
-                                _argInvalidMsg = Options.TranslationList["argInvalidMsg"];
-                                _alreadyRunningMsg = Options.TranslationList["alreadyRunningMsg"];
-                            }
-                            catch (Exception ex)
-                            {
-                                ErrorLogger.LogError("Program.Main", ex.Message, ex.StackTrace);
-                                Environment.Exit(0);
-                            }
-
                             FontHelper.LoadFont();
 
                             for (int z = 0; z < switches.Length; z++) switches[z] = switches[z].ToLowerInvariant();
@@ -152,6 +119,7 @@ namespace Optimizer
                                 {
                                     UNSAFE_MODE = true;
 
+                                    LoadSettings();
                                     StartSplashForm();
 
                                     _MainForm = new MainForm(_SplashForm);
@@ -277,6 +245,7 @@ namespace Optimizer
                                     bool disableIntegrator = opts.Contains("integrator");
                                     bool disablePinger = opts.Contains("pinger");
 
+                                    LoadSettings();
                                     StartSplashForm();
 
                                     _MainForm = new MainForm(_SplashForm, disableIndicium, disableHostsEditor, disableAppsTool, disableUWPTool, disableStartupTool, disableCleaner, disableIntegrator, disablePinger);
@@ -362,6 +331,7 @@ namespace Optimizer
                             }
                             else
                             {
+                                LoadSettings();
                                 StartSplashForm();
 
                                 _MainForm = new MainForm(_SplashForm);
@@ -386,6 +356,42 @@ namespace Optimizer
         //{
         //    Environment.Exit(0);
         //}
+
+        private static void LoadSettings()
+        {
+            // for backward compatibility (legacy)
+            Options.LegacyCheck();
+
+            // load settings, if there is no settings, load defaults
+            try
+            {
+                // show FirstRunForm/Language Selector if app is running first time
+                if (!File.Exists(Options.SettingsFile))
+                {
+                    Options.LoadSettings();
+                    FirstRunForm frf = new FirstRunForm();
+                    frf.ShowDialog();
+                }
+                else
+                {
+                    Options.LoadSettings();
+                }
+
+                // ideal place to replace internal messages from translation list
+                _adminMissingMessage = Options.TranslationList["adminMissingMsg"];
+                _unsupportedMessage = Options.TranslationList["unsupportedMsg"];
+                _confInvalidFormatMsg = Options.TranslationList["confInvalidFormatMsg"];
+                _confInvalidVersionMsg = Options.TranslationList["confInvalidVersionMsg"];
+                _confNotFoundMsg = Options.TranslationList["confNotFoundMsg"];
+                _argInvalidMsg = Options.TranslationList["argInvalidMsg"];
+                _alreadyRunningMsg = Options.TranslationList["alreadyRunningMsg"];
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Program.Main", ex.Message, ex.StackTrace);
+                Environment.Exit(0);
+            }
+        }
 
         private static void RestartInSafeMode()
         {
