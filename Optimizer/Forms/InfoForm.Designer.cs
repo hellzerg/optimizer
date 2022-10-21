@@ -42,6 +42,7 @@
             this.btnOK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOK.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.ForeColor = System.Drawing.Color.White;
             this.btnOK.Location = new System.Drawing.Point(522, 492);
             this.btnOK.Margin = new System.Windows.Forms.Padding(2);
@@ -81,6 +82,7 @@
             this.copyIPB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.copyIPB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.copyIPB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.copyIPB.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.copyIPB.ForeColor = System.Drawing.Color.White;
             this.copyIPB.Location = new System.Drawing.Point(359, 492);
             this.copyIPB.Margin = new System.Windows.Forms.Padding(2);

@@ -19,7 +19,6 @@ namespace Optimizer
             Options.ApplyTheme(this);
 
             radioFile.Text = Options.TranslationList["radioFile"].ToString();
-            btnFind.Text = Options.TranslationList["btnFind"].ToString();
             btnKill.Text = Options.TranslationList["btnKill"].ToString();
         }
 

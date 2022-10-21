@@ -43,7 +43,7 @@
             this.txtInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtInfo.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtInfo.DetectUrls = false;
-            this.txtInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.txtInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
             this.txtInfo.ForeColor = System.Drawing.Color.White;
             this.txtInfo.Location = new System.Drawing.Point(11, 11);
             this.txtInfo.Name = "txtInfo";

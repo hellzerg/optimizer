@@ -46,7 +46,7 @@
             this.txtFile.Location = new System.Drawing.Point(16, 32);
             this.txtFile.Margin = new System.Windows.Forms.Padding(2);
             this.txtFile.Name = "txtFile";
-            this.txtFile.Size = new System.Drawing.Size(280, 25);
+            this.txtFile.Size = new System.Drawing.Size(333, 25);
             this.txtFile.TabIndex = 54;
             // 
             // radioFile
@@ -69,13 +69,14 @@
             this.btnFind.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnFind.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFind.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.btnFind.ForeColor = System.Drawing.Color.White;
-            this.btnFind.Location = new System.Drawing.Point(300, 32);
+            this.btnFind.Location = new System.Drawing.Point(353, 32);
             this.btnFind.Margin = new System.Windows.Forms.Padding(2);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(103, 25);
+            this.btnFind.Size = new System.Drawing.Size(50, 25);
             this.btnFind.TabIndex = 58;
-            this.btnFind.Text = "Find";
+            this.btnFind.Text = "✓";
             this.btnFind.UseVisualStyleBackColor = false;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
@@ -115,11 +116,12 @@
             this.btnKill.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.btnKill.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnKill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKill.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.btnKill.ForeColor = System.Drawing.Color.White;
-            this.btnKill.Location = new System.Drawing.Point(287, 371);
+            this.btnKill.Location = new System.Drawing.Point(255, 371);
             this.btnKill.Margin = new System.Windows.Forms.Padding(2);
             this.btnKill.Name = "btnKill";
-            this.btnKill.Size = new System.Drawing.Size(116, 31);
+            this.btnKill.Size = new System.Drawing.Size(148, 31);
             this.btnKill.TabIndex = 61;
             this.btnKill.Text = "Kill";
             this.btnKill.UseVisualStyleBackColor = false;

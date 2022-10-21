@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.backupL = new System.Windows.Forms.Label();
-            this.listRestoreItems = new MoonList();
+            this.listRestoreItems = new Optimizer.MoonList();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtNoBackups = new System.Windows.Forms.Label();
             this.previewBackupB = new System.Windows.Forms.Button();
@@ -56,6 +56,7 @@
             this.listRestoreItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.listRestoreItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listRestoreItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listRestoreItems.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.listRestoreItems.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listRestoreItems.ForeColor = System.Drawing.Color.White;
             this.listRestoreItems.FormattingEnabled = true;
@@ -99,6 +100,7 @@
             this.previewBackupB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.previewBackupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.previewBackupB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.previewBackupB.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.previewBackupB.ForeColor = System.Drawing.Color.White;
             this.previewBackupB.Location = new System.Drawing.Point(383, 50);
             this.previewBackupB.Margin = new System.Windows.Forms.Padding(2);
@@ -116,6 +118,7 @@
             this.restoreBackupB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.restoreBackupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.restoreBackupB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.restoreBackupB.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.restoreBackupB.ForeColor = System.Drawing.Color.White;
             this.restoreBackupB.Location = new System.Drawing.Point(383, 85);
             this.restoreBackupB.Margin = new System.Windows.Forms.Padding(2);
@@ -134,6 +137,7 @@
             this.deleteBackupB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
             this.deleteBackupB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.deleteBackupB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteBackupB.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteBackupB.ForeColor = System.Drawing.Color.White;
             this.deleteBackupB.Location = new System.Drawing.Point(383, 404);
             this.deleteBackupB.Margin = new System.Windows.Forms.Padding(2);

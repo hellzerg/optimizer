@@ -53,10 +53,10 @@ namespace Optimizer
             this.btnYes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnYes.ForeColor = System.Drawing.Color.White;
-            this.btnYes.Location = new System.Drawing.Point(358, 128);
+            this.btnYes.Location = new System.Drawing.Point(309, 136);
             this.btnYes.Margin = new System.Windows.Forms.Padding(2);
             this.btnYes.Name = "btnYes";
-            this.btnYes.Size = new System.Drawing.Size(96, 31);
+            this.btnYes.Size = new System.Drawing.Size(145, 31);
             this.btnYes.TabIndex = 31;
             this.btnYes.Tag = "themeable";
             this.btnYes.Text = "Yes";
@@ -73,10 +73,10 @@ namespace Optimizer
             this.btnNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo.ForeColor = System.Drawing.Color.White;
-            this.btnNo.Location = new System.Drawing.Point(257, 128);
+            this.btnNo.Location = new System.Drawing.Point(160, 136);
             this.btnNo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNo.Name = "btnNo";
-            this.btnNo.Size = new System.Drawing.Size(96, 31);
+            this.btnNo.Size = new System.Drawing.Size(145, 31);
             this.btnNo.TabIndex = 32;
             this.btnNo.Tag = "themeable";
             this.btnNo.Text = "No";
@@ -90,7 +90,7 @@ namespace Optimizer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnNo;
-            this.ClientSize = new System.Drawing.Size(463, 169);
+            this.ClientSize = new System.Drawing.Size(463, 177);
             this.Controls.Add(this.btnNo);
             this.Controls.Add(this.btnYes);
             this.Controls.Add(this.lblMessage);

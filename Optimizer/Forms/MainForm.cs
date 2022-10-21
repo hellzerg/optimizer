@@ -87,11 +87,11 @@ namespace Optimizer
         List<TreeNode> _hwDetailed;
         TreeNode[] _hwSummarized;
 
-        Size _sizeDefault = new Size(1025, 744);
-        Size _sizeRussian = new Size(1365, 744);
-        Size _sizeHellenic = new Size(1076, 744);
-        Size _sizeTurkish = new Size(1081, 744);
-        Size _sizeFrench = new Size(1037, 744);
+        Size _sizeDefault = new Size(1025, 784);
+        Size _sizeRussian = new Size(1365, 784);
+        Size _sizeHellenic = new Size(1076, 784);
+        Size _sizeTurkish = new Size(1081, 784);
+        Size _sizeFrench = new Size(1037, 784);
 
         bool _cleanSelectAll = true;
         List<string> _cleanPreviewList;
@@ -894,7 +894,7 @@ namespace Optimizer
                 launcherMenu.Items.RemoveByKey("trayCleaner");
             }
 
-            _splashForm.LoadingStatus.Text = "loading hardware specifications";
+            _splashForm.LoadingStatus.Text = "inspecting hardware";
 
             // INDICIUM
             if (!disableIndicium)
