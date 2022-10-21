@@ -875,7 +875,7 @@ namespace Optimizer
             // APPS DOWNLOADER
             if (!disableCommonApps)
             {
-                if (PingerHelper.IsInternetAvailable()) GetFeed();
+                GetFeed();
             }
             else
             {
