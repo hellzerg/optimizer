@@ -272,15 +272,17 @@ namespace Optimizer
                                         SilentOps.GetSilentConfig(arg.Remove(0, 1));
 
                                         if (SilentOps.CurrentSilentConfig != null)
-                                        {
+                                        { 
                                             if (SilentOps.CurrentSilentConfig.WindowsVersion == 7 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
                                             {
+                                                LoadSettings();
                                                 SilentOps.ProcessSilentConfigGeneral();
                                                 SilentOps.SilentUpdateOptionsGeneral();
                                                 Options.SaveSettings();
                                             }
                                             else if (SilentOps.CurrentSilentConfig.WindowsVersion == 8 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
                                             {
+                                                LoadSettings();
                                                 SilentOps.ProcessSilentConfigGeneral();
                                                 SilentOps.ProcessSilentConfigWindows8();
                                                 SilentOps.SilentUpdateOptionsGeneral();
@@ -289,6 +291,7 @@ namespace Optimizer
                                             }
                                             else if (SilentOps.CurrentSilentConfig.WindowsVersion == 10 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
                                             {
+                                                LoadSettings();
                                                 SilentOps.ProcessSilentConfigGeneral();
                                                 SilentOps.ProcessSilentConfigWindows10();
                                                 SilentOps.SilentUpdateOptionsGeneral();
@@ -297,6 +300,7 @@ namespace Optimizer
                                             }
                                             else if (SilentOps.CurrentSilentConfig.WindowsVersion == 11 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows11)
                                             {
+                                                LoadSettings();
                                                 SilentOps.ProcessSilentConfigGeneral();
                                                 SilentOps.ProcessSilentConfigWindows10();
                                                 SilentOps.ProcessSilentConfigWindows11();
