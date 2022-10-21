@@ -1,3 +1,9 @@
+## [14.2] - 2022-10-21
+- Hotfix: Proper DPI scaling for main tabs (#236)
+- Hotfix: Not saving and loading Dutch language
+- Improved: Chrome Telemetry, Enhance Privacy and Optimize Performance
+- Removed: Network monitoring in tray menu
+
 ## [14.1] - 2022-10-18
 - New: Theme engine supporting whole color spectrum (thanks to  cat - https://github.com/vadiscode)
 - New: Disable NVIDIA Telemetry in Universal

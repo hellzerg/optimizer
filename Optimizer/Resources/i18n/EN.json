@@ -426,5 +426,6 @@ It has been replaced with SMBv3, which is more secure.",
 	"ntfsStampTip": "Indicates the file's last time accessed stamp.
 Disabling it can reduce I/O operations on the disks.",
 	"autoStartToggle": "Start with Windows",
-	"nvidiaTelemetrySw": "Disable NVIDIA Telemetry"
+	"nvidiaTelemetrySw": "Disable NVIDIA Telemetry",
+	"dnsTitle": "Rapidly change DNS server"
 }

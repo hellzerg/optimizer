@@ -376,5 +376,6 @@
    "ntfsStampSw":"NTFS-tijdstempel uitschakelen",
    "ntfsStampTip":"Geeft aan wanneer het bestand voor het laatst is geopend. Uitschakelen kan I/O-bewerkingen op de harde schijven verminderen.",
    "autoStartToggle": "Begin met Windows",
-   "nvidiaTelemetrySw": "NVIDIA-telemetrie uitschakelen"
+   "nvidiaTelemetrySw": "NVIDIA-telemetrie uitschakelen",
+   "dnsTitle": "Snel van DNS-server veranderen"
 }

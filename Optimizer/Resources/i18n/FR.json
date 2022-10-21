@@ -423,5 +423,6 @@ Cependant, elles sont considerees comme une procedure risquee. Il s'agit general
 	"ntfsStampTip": "Indique l'horodatage du dernier accès au fichier.
 	Sa désactivation peut réduire les opérations d'E/S sur les disques.",
 	"autoStartToggle": "Commence avec Windows",
-	"nvidiaTelemetrySw": "Désactiver la télémétrie NVIDIA"
+	"nvidiaTelemetrySw": "Désactiver la télémétrie NVIDIA",
+	"dnsTitle": "Changer rapidement de serveur DNS"
 }

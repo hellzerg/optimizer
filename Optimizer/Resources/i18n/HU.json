@@ -426,5 +426,6 @@
 	"ntfsStampTip": "A fájl utoljára elért bélyegzőjét jelzi.
 	A letiltása csökkentheti az I/O műveleteket a lemezeken.",
 	"autoStartToggle": "Kezdje a Windows rendszerrel",
-	"nvidiaTelemetrySw": "Az NVIDIA telemetria letiltása"
+	"nvidiaTelemetrySw": "Az NVIDIA telemetria letiltása",
+	"dnsTitle": "DNS-kiszolgáló gyors cseréje"
 }

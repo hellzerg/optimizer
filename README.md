@@ -3,7 +3,7 @@
 </p> 
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/14.1/Optimizer-14.1.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/14.2/Optimizer-14.2.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -33,7 +33,6 @@ Depending on your version of Windows, Optimizer will also allow you to perform s
 * Remove unwanted programs running at startup
 * Edit your HOSTS file
 * Find file lock handles and kill associated processes
-* Network speed monitoring
 * Hardware inspection tool
 * Add items in desktop on right-click menu
 * Define custom commands for run dialog
@@ -88,9 +87,9 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ### #️ Details: ###
 
-* Latest version: 14.1
+* Latest version: 14.2
 * Released: October 18, 2022
-* SHA256: 888E350DF53B8AB0CB81775F3FAB3F87A1C73395BF88C80898688B784BB04E6C
+* SHA256: 43406D06D7BFBCC512E465FC048EA16CB160E61C1CA33897EBA3E85CA3DC734A
 
 <hr>
 

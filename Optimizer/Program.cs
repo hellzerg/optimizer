@@ -14,9 +14,10 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 14;
-        internal readonly static float Minor = 1;
+        internal readonly static float Minor = 2;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
+        internal static int DPI_PREFERENCE;
 
         internal static string GetCurrentVersionTostring()
         {
@@ -62,6 +63,7 @@ namespace Optimizer
             EmbeddedAssembly.Load(_jsonAssembly, _jsonAssembly.Replace("Optimizer.", string.Empty));
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
 
+            DPI_PREFERENCE = Convert.ToInt32(Microsoft.Win32.Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ThemeManager", "LastLoadedDPI", "96"));
             if (Environment.OSVersion.Version.Major >= 6) SetProcessDPIAware();
 
             Application.EnableVisualStyles();
@@ -86,6 +88,7 @@ namespace Optimizer
                 }
                 else
                 {
+                    // Restart process with admin rights, preserving arguments
                     if (!Utilities.IsAdmin())
                     {
                         string file = Process.GetCurrentProcess().MainModule.FileName;

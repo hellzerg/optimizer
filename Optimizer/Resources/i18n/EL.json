@@ -421,5 +421,6 @@
 	"ntfsStampSw": "Απενεργοποίηση NTFS Timestamp",
 	"ntfsStampTip": "Το NTFS Timestamp δείχνει τον χρόνο της τελευταίας πρόσβασης του αρχειού. Η απενεργοποίηση του βελτιώνει την ταχύτητα των δίσκων.",
 	"autoStartToggle": "Εκκίνηση με τα Windows",
-	"nvidiaTelemetrySw": "Απενεργοποίηση τηλεμετρίας NVIDIA"
+	"nvidiaTelemetrySw": "Απενεργοποίηση Τηλεμετρίας NVIDIA",
+	"dnsTitle": "Γρήγορη αλλαγή διακομιστή DNS"
 }

@@ -426,5 +426,6 @@
 	"ntfsStampTip": "يشير إلى آخر طابع تم الوصول إليه للملف.
 	يمكن أن يؤدي تعطيله إلى تقليل عمليات الإدخال / الإخراج على الأقراص.",
 	"autoStartToggle": "ابدأ بنظام Windows",
-	"nvidiaTelemetrySw": "قم بتعطيل NVIDIA Telemetry"
+	"nvidiaTelemetrySw": "قم بتعطيل NVIDIA Telemetry",
+	"dnsTitle": "تغيير خادم DNS بسرعة"
 }

@@ -58,6 +58,18 @@ namespace Optimizer
             }
         }
 
+        // OVERRIDE TAB HEADER WIDTH
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+
+            // Send TCM_SETMINTABWIDTH
+            SendMessage(this.Handle, 0x1300 + 49, IntPtr.Zero, (IntPtr)(Program.DPI_PREFERENCE / 3));
+        }
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+
         public MoonTabs()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer |
@@ -254,7 +266,7 @@ namespace Optimizer
 
                             if (Alignment == TabAlignment.Top || Alignment == TabAlignment.Bottom)
                             {
-                                rectDivider = new Rectangle(containerHead.X, containerHead.Y + ((Alignment == TabAlignment.Top) ? containerHead.Height : -DividerSize), containerHead.Width, DividerSize);
+                                rectDivider = new Rectangle(containerHead.X + 300, containerHead.Y + ((Alignment == TabAlignment.Top) ? containerHead.Height : -DividerSize), containerHead.Width, DividerSize);
                             }
                             if (Alignment == TabAlignment.Right || Alignment == TabAlignment.Left)
                             {

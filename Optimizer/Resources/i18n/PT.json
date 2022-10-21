@@ -423,5 +423,6 @@ No entanto, eles são considerados um procedimento arriscado. Geralmente são la
 	"ntfsStampTip": "Indica o último carimbo de acesso do arquivo.
 	Desabilitar pode reduzir as operações de E/S nos discos.",
 	"autoStartToggle": "Comece com o Windows",
-	"nvidiaTelemetrySw": "Desativar a telemetria NVIDIA"
+	"nvidiaTelemetrySw": "Desativar a telemetria NVIDIA",
+	"dnsTitle": "Altere rapidamente o servidor DNS"
 }

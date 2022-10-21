@@ -32,14 +32,14 @@ namespace Optimizer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Processors", 0, 0);
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Memory", 1, 1);
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Graphics", 2, 2);
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Motherboard", 3, 3);
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Storage", 4, 4);
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Network Adapters", 5, 5);
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Audio", 6, 6);
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Peripherals", 7, 7);
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Processors", 0, 0);
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Memory", 1, 1);
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Graphics", 2, 2);
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Motherboard", 3, 3);
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Storage", 4, 4);
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Network Adapters", 5, 5);
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Audio", 6, 6);
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Peripherals", 7, 7);
             this.tpanel = new System.Windows.Forms.Panel();
             this.restartAndApply = new System.Windows.Forms.Label();
             this.picRestartNeeded = new System.Windows.Forms.PictureBox();
@@ -54,6 +54,7 @@ namespace Optimizer
             this.bpanel = new System.Windows.Forms.Panel();
             this.tabCollection = new Optimizer.MoonTabs();
             this.universalTab = new System.Windows.Forms.TabPage();
+            this.nvidiaTelemetrySw = new Optimizer.ToggleCard();
             this.ntfsStampSw = new Optimizer.ToggleCard();
             this.smb2Sw = new Optimizer.ToggleCard();
             this.smb1Sw = new Optimizer.ToggleCard();
@@ -378,9 +379,6 @@ namespace Optimizer
             this.DefineCommandIconDialog = new System.Windows.Forms.OpenFileDialog();
             this.ExportDialog = new System.Windows.Forms.SaveFileDialog();
             this.launcherMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.trayDownSpeed = new System.Windows.Forms.ToolStripMenuItem();
-            this.trayUpSpeed = new System.Windows.Forms.ToolStripMenuItem();
-            this.seperatorNetMon = new System.Windows.Forms.ToolStripSeparator();
             this.trayStartup = new System.Windows.Forms.ToolStripMenuItem();
             this.trayCleaner = new System.Windows.Forms.ToolStripMenuItem();
             this.trayPinger = new System.Windows.Forms.ToolStripMenuItem();
@@ -395,7 +393,7 @@ namespace Optimizer
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.nvidiaTelemetrySw = new Optimizer.ToggleCard();
+            this.dnsTitle = new System.Windows.Forms.Label();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picRestartNeeded)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLab)).BeginInit();
@@ -681,6 +679,21 @@ namespace Optimizer
             this.universalTab.Size = new System.Drawing.Size(999, 611);
             this.universalTab.TabIndex = 0;
             this.universalTab.Text = "Universal";
+            // 
+            // nvidiaTelemetrySw
+            // 
+            this.nvidiaTelemetrySw.AccessibleName = "Disable NVIDIA Telemetry";
+            this.nvidiaTelemetrySw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
+            this.nvidiaTelemetrySw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.nvidiaTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nvidiaTelemetrySw.ForeColor = System.Drawing.Color.White;
+            this.nvidiaTelemetrySw.LabelText = "Disable NVIDIA Telemetry";
+            this.nvidiaTelemetrySw.Location = new System.Drawing.Point(21, 513);
+            this.nvidiaTelemetrySw.Name = "nvidiaTelemetrySw";
+            this.nvidiaTelemetrySw.Size = new System.Drawing.Size(490, 24);
+            this.nvidiaTelemetrySw.TabIndex = 73;
+            this.nvidiaTelemetrySw.Tag = "themeable";
+            this.nvidiaTelemetrySw.ToggleChecked = false;
             // 
             // ntfsStampSw
             // 
@@ -3113,6 +3126,7 @@ namespace Optimizer
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.tabPage2.Controls.Add(this.dnsTitle);
             this.tabPage2.Controls.Add(this.linkDNSv6A);
             this.tabPage2.Controls.Add(this.linkDNSv4A);
             this.tabPage2.Controls.Add(this.linkDNSv6);
@@ -3136,7 +3150,7 @@ namespace Optimizer
             this.linkDNSv6A.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkDNSv6A.ForeColor = System.Drawing.Color.DodgerBlue;
             this.linkDNSv6A.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.linkDNSv6A.Location = new System.Drawing.Point(105, 190);
+            this.linkDNSv6A.Location = new System.Drawing.Point(109, 218);
             this.linkDNSv6A.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkDNSv6A.Name = "linkDNSv6A";
             this.linkDNSv6A.Size = new System.Drawing.Size(15, 20);
@@ -3151,7 +3165,7 @@ namespace Optimizer
             this.linkDNSv4A.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkDNSv4A.ForeColor = System.Drawing.Color.DodgerBlue;
             this.linkDNSv4A.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.linkDNSv4A.Location = new System.Drawing.Point(104, 133);
+            this.linkDNSv4A.Location = new System.Drawing.Point(108, 161);
             this.linkDNSv4A.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkDNSv4A.Name = "linkDNSv4A";
             this.linkDNSv4A.Size = new System.Drawing.Size(15, 20);
@@ -3166,7 +3180,7 @@ namespace Optimizer
             this.linkDNSv6.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkDNSv6.ForeColor = System.Drawing.Color.DodgerBlue;
             this.linkDNSv6.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.linkDNSv6.Location = new System.Drawing.Point(105, 167);
+            this.linkDNSv6.Location = new System.Drawing.Point(109, 195);
             this.linkDNSv6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkDNSv6.Name = "linkDNSv6";
             this.linkDNSv6.Size = new System.Drawing.Size(15, 20);
@@ -3181,7 +3195,7 @@ namespace Optimizer
             this.linkDNSv4.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkDNSv4.ForeColor = System.Drawing.Color.DodgerBlue;
             this.linkDNSv4.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.linkDNSv4.Location = new System.Drawing.Point(105, 110);
+            this.linkDNSv4.Location = new System.Drawing.Point(109, 138);
             this.linkDNSv4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkDNSv4.Name = "linkDNSv4";
             this.linkDNSv4.Size = new System.Drawing.Size(15, 20);
@@ -3195,7 +3209,7 @@ namespace Optimizer
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(23, 168);
+            this.label3.Location = new System.Drawing.Point(27, 196);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 20);
@@ -3208,7 +3222,7 @@ namespace Optimizer
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(23, 111);
+            this.label1.Location = new System.Drawing.Point(27, 139);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 20);
@@ -3224,7 +3238,7 @@ namespace Optimizer
             this.btnOpenNetwork.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOpenNetwork.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenNetwork.ForeColor = System.Drawing.Color.White;
-            this.btnOpenNetwork.Location = new System.Drawing.Point(27, 271);
+            this.btnOpenNetwork.Location = new System.Drawing.Point(31, 299);
             this.btnOpenNetwork.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpenNetwork.Name = "btnOpenNetwork";
             this.btnOpenNetwork.Size = new System.Drawing.Size(212, 29);
@@ -3241,7 +3255,7 @@ namespace Optimizer
             this.flushCacheB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.flushCacheB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flushCacheB.ForeColor = System.Drawing.Color.White;
-            this.flushCacheB.Location = new System.Drawing.Point(27, 238);
+            this.flushCacheB.Location = new System.Drawing.Point(31, 266);
             this.flushCacheB.Margin = new System.Windows.Forms.Padding(2);
             this.flushCacheB.Name = "flushCacheB";
             this.flushCacheB.Size = new System.Drawing.Size(212, 29);
@@ -3259,7 +3273,7 @@ namespace Optimizer
             this.boxAdapter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxAdapter.ForeColor = System.Drawing.Color.White;
             this.boxAdapter.FormattingEnabled = true;
-            this.boxAdapter.Location = new System.Drawing.Point(24, 22);
+            this.boxAdapter.Location = new System.Drawing.Point(28, 50);
             this.boxAdapter.Name = "boxAdapter";
             this.boxAdapter.Size = new System.Drawing.Size(414, 29);
             this.boxAdapter.TabIndex = 107;
@@ -3283,7 +3297,7 @@ namespace Optimizer
             "Adguard DNS",
             "CleanBrowsing",
             "CleanBrowsing (adult filter)"});
-            this.boxDNS.Location = new System.Drawing.Point(24, 57);
+            this.boxDNS.Location = new System.Drawing.Point(28, 85);
             this.boxDNS.Name = "boxDNS";
             this.boxDNS.Size = new System.Drawing.Size(414, 29);
             this.boxDNS.TabIndex = 106;
@@ -3828,47 +3842,47 @@ namespace Optimizer
             this.specsTree.ForeColor = System.Drawing.Color.White;
             this.specsTree.Location = new System.Drawing.Point(0, 0);
             this.specsTree.Name = "specsTree";
-            treeNode1.ImageIndex = 0;
-            treeNode1.Name = "cpu";
-            treeNode1.SelectedImageIndex = 0;
-            treeNode1.Text = "Processors";
-            treeNode2.ImageIndex = 1;
-            treeNode2.Name = "ram";
-            treeNode2.SelectedImageIndex = 1;
-            treeNode2.Text = "Memory";
-            treeNode3.ImageIndex = 2;
-            treeNode3.Name = "gpu";
-            treeNode3.SelectedImageIndex = 2;
-            treeNode3.Text = "Graphics";
-            treeNode4.ImageIndex = 3;
-            treeNode4.Name = "mobo";
-            treeNode4.SelectedImageIndex = 3;
-            treeNode4.Text = "Motherboard";
-            treeNode5.ImageIndex = 4;
-            treeNode5.Name = "disk";
-            treeNode5.SelectedImageIndex = 4;
-            treeNode5.Text = "Storage";
-            treeNode6.ImageIndex = 5;
-            treeNode6.Name = "inet";
-            treeNode6.SelectedImageIndex = 5;
-            treeNode6.Text = "Network Adapters";
-            treeNode7.ImageIndex = 6;
-            treeNode7.Name = "audio";
-            treeNode7.SelectedImageIndex = 6;
-            treeNode7.Text = "Audio";
-            treeNode8.ImageIndex = 7;
-            treeNode8.Name = "dev";
-            treeNode8.SelectedImageIndex = 7;
-            treeNode8.Text = "Peripherals";
+            treeNode9.ImageIndex = 0;
+            treeNode9.Name = "cpu";
+            treeNode9.SelectedImageIndex = 0;
+            treeNode9.Text = "Processors";
+            treeNode10.ImageIndex = 1;
+            treeNode10.Name = "ram";
+            treeNode10.SelectedImageIndex = 1;
+            treeNode10.Text = "Memory";
+            treeNode11.ImageIndex = 2;
+            treeNode11.Name = "gpu";
+            treeNode11.SelectedImageIndex = 2;
+            treeNode11.Text = "Graphics";
+            treeNode12.ImageIndex = 3;
+            treeNode12.Name = "mobo";
+            treeNode12.SelectedImageIndex = 3;
+            treeNode12.Text = "Motherboard";
+            treeNode13.ImageIndex = 4;
+            treeNode13.Name = "disk";
+            treeNode13.SelectedImageIndex = 4;
+            treeNode13.Text = "Storage";
+            treeNode14.ImageIndex = 5;
+            treeNode14.Name = "inet";
+            treeNode14.SelectedImageIndex = 5;
+            treeNode14.Text = "Network Adapters";
+            treeNode15.ImageIndex = 6;
+            treeNode15.Name = "audio";
+            treeNode15.SelectedImageIndex = 6;
+            treeNode15.Text = "Audio";
+            treeNode16.ImageIndex = 7;
+            treeNode16.Name = "dev";
+            treeNode16.SelectedImageIndex = 7;
+            treeNode16.Text = "Peripherals";
             this.specsTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8});
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14,
+            treeNode15,
+            treeNode16});
             this.specsTree.Size = new System.Drawing.Size(991, 568);
             this.specsTree.TabIndex = 0;
             this.specsTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.specsTree_NodeMouseClick);
@@ -4135,7 +4149,7 @@ namespace Optimizer
             this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage8.Size = new System.Drawing.Size(987, 579);
+            this.tabPage8.Size = new System.Drawing.Size(987, 578);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Add/Modify";
             // 
@@ -4479,7 +4493,7 @@ namespace Optimizer
             this.tabPage9.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage9.Size = new System.Drawing.Size(987, 579);
+            this.tabPage9.Size = new System.Drawing.Size(987, 578);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Remove";
             // 
@@ -4589,7 +4603,7 @@ namespace Optimizer
             this.tabPage10.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage10.Size = new System.Drawing.Size(987, 579);
+            this.tabPage10.Size = new System.Drawing.Size(987, 578);
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Ready Menus";
             // 
@@ -4729,7 +4743,7 @@ namespace Optimizer
             this.tabPage11.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage11.Size = new System.Drawing.Size(987, 579);
+            this.tabPage11.Size = new System.Drawing.Size(987, 578);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Run Dialog";
             // 
@@ -5405,9 +5419,6 @@ namespace Optimizer
             this.launcherMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.launcherMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.launcherMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.trayDownSpeed,
-            this.trayUpSpeed,
-            this.seperatorNetMon,
             this.trayStartup,
             this.trayCleaner,
             this.trayPinger,
@@ -5423,33 +5434,7 @@ namespace Optimizer
             this.trayExit});
             this.launcherMenu.Name = "launcherMenu";
             this.launcherMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.launcherMenu.Size = new System.Drawing.Size(221, 360);
-            // 
-            // trayDownSpeed
-            // 
-            this.trayDownSpeed.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trayDownSpeed.ForeColor = System.Drawing.Color.White;
-            this.trayDownSpeed.Image = ((System.Drawing.Image)(resources.GetObject("trayDownSpeed.Image")));
-            this.trayDownSpeed.Name = "trayDownSpeed";
-            this.trayDownSpeed.Size = new System.Drawing.Size(220, 26);
-            this.trayDownSpeed.Text = "-";
-            this.trayDownSpeed.Visible = false;
-            // 
-            // trayUpSpeed
-            // 
-            this.trayUpSpeed.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trayUpSpeed.ForeColor = System.Drawing.Color.White;
-            this.trayUpSpeed.Image = ((System.Drawing.Image)(resources.GetObject("trayUpSpeed.Image")));
-            this.trayUpSpeed.Name = "trayUpSpeed";
-            this.trayUpSpeed.Size = new System.Drawing.Size(220, 26);
-            this.trayUpSpeed.Text = "-";
-            this.trayUpSpeed.Visible = false;
-            // 
-            // seperatorNetMon
-            // 
-            this.seperatorNetMon.Name = "seperatorNetMon";
-            this.seperatorNetMon.Size = new System.Drawing.Size(217, 6);
-            this.seperatorNetMon.Visible = false;
+            this.launcherMenu.Size = new System.Drawing.Size(221, 302);
             // 
             // trayStartup
             // 
@@ -5589,20 +5574,18 @@ namespace Optimizer
             this.launcherIcon.Text = "Optimizer";
             this.launcherIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.launcherIcon_MouseDoubleClick);
             // 
-            // nvidiaTelemetrySw
+            // dnsTitle
             // 
-            this.nvidiaTelemetrySw.AccessibleName = "Disable NVIDIA Telemetry";
-            this.nvidiaTelemetrySw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
-            this.nvidiaTelemetrySw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.nvidiaTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nvidiaTelemetrySw.ForeColor = System.Drawing.Color.White;
-            this.nvidiaTelemetrySw.LabelText = "Disable NVIDIA Telemetry";
-            this.nvidiaTelemetrySw.Location = new System.Drawing.Point(21, 513);
-            this.nvidiaTelemetrySw.Name = "nvidiaTelemetrySw";
-            this.nvidiaTelemetrySw.Size = new System.Drawing.Size(490, 24);
-            this.nvidiaTelemetrySw.TabIndex = 73;
-            this.nvidiaTelemetrySw.Tag = "themeable";
-            this.nvidiaTelemetrySw.ToggleChecked = false;
+            this.dnsTitle.AutoSize = true;
+            this.dnsTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dnsTitle.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.dnsTitle.Location = new System.Drawing.Point(5, 3);
+            this.dnsTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.dnsTitle.Name = "dnsTitle";
+            this.dnsTitle.Size = new System.Drawing.Size(258, 28);
+            this.dnsTitle.TabIndex = 114;
+            this.dnsTitle.Tag = "themeable";
+            this.dnsTitle.Text = "Rapidly change DNS server";
             // 
             // MainForm
             // 
@@ -5972,9 +5955,6 @@ namespace Optimizer
         private ToolStripMenuItem toolHWGoogle;
         private ToolStripMenuItem toolHWDuck;
         private ToolStripSeparator toolStripSeparator2;
-        private ToolStripMenuItem trayDownSpeed;
-        private ToolStripSeparator seperatorNetMon;
-        private ToolStripMenuItem trayUpSpeed;
         private ToggleCard vsSw;
         private ToggleCard chromeTelemetrySw;
         private ToggleCard ffTelemetrySw;
@@ -6075,10 +6055,11 @@ namespace Optimizer
         private Button flushCacheB;
         private MoonSelect boxAdapter;
         private MoonSelect boxDNS;
-        private TabControl netTools;
         private Controls.ColorPicker colorPicker1;
         private ToggleCard autoStartToggle;
         private ToggleCard nvidiaTelemetrySw;
+        private Optimizer.MoonTabs netTools;
+        private Label dnsTitle;
     }
 }
 

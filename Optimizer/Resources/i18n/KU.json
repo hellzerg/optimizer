@@ -425,5 +425,6 @@
 	"ntfsStampTip": "ئاماژە بە دوایین جار مۆری پەڕگەکە دەکات کە دەستی پێگەیشتووە.
 	لەکارخستنی دەتوانێت کارەکانی I/O لەسەر دیسکەکان کەم بکاتەوە.",
 	"autoStartToggle": "لە ویندۆزەوە دەست پێ بکە",
-	"nvidiaTelemetrySw": "NVIDIA Telemetry لەکاربخە"
+	"nvidiaTelemetrySw": "NVIDIA Telemetry لەکاربخە",
+	"dnsTitle": "بە خێرایی ڕاژەکاری DNS بگۆڕە"
 }

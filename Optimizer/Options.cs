@@ -4,7 +4,6 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Optimizer
@@ -317,7 +316,8 @@ namespace Optimizer
                 if (CurrentOptions.LanguageCode == LanguageCode.HU) TranslationList = JObject.Parse(Properties.Resources.HU);
                 if (CurrentOptions.LanguageCode == LanguageCode.RO) TranslationList = JObject.Parse(Properties.Resources.RO);
                 if (CurrentOptions.LanguageCode == LanguageCode.NL) TranslationList = JObject.Parse(Properties.Resources.NL);
-;            }
+                ;
+            }
             catch (Exception ex)
             {
                 ErrorLogger.LogError("Options.LoadTranslation", ex.Message, ex.StackTrace);

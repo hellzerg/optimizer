@@ -423,5 +423,6 @@ Są one jednak uważane za ryzykowną procedurę. Zazwyczaj są wydawane co pó�
 	"ntfsStampTip": "Wskazuje pieczęć ostatniego dostępu do pliku.
 	Wyłączenie go może zmniejszyć liczbę operacji we/wy na dyskach.",
 	"autoStartToggle": "Uruchom z Windows",
-	"nvidiaTelemetrySw": "Wyłącz telemetrię NVIDIA"
+	"nvidiaTelemetrySw": "Wyłącz telemetrię NVIDIA",
+	"dnsTitle": "Szybko zmień serwer DNS"
 }

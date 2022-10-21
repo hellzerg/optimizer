@@ -236,7 +236,7 @@ namespace Optimizer
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = global::Optimizer.Properties.Resources.china;
+            this.pictureBox9.Image = global::Optimizer.Properties.Resources.taiwan;
             this.pictureBox9.Location = new System.Drawing.Point(160, 160);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(32, 19);

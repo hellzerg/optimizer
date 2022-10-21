@@ -407,5 +407,6 @@ pentru analiză către Microsoft.",
 	"ntfsStampTip": "Indică ștampila la care a fost accesat ultima dată fișierul.
 	Dezactivarea acestuia poate reduce operațiunile I/O pe discuri.",
 	"autoStartToggle": "Începeți cu Windows",
-	"nvidiaTelemetrySw": "Dezactivați telemetria NVIDIA"
+	"nvidiaTelemetrySw": "Dezactivați telemetria NVIDIA",
+	"dnsTitle": "Schimbați rapid serverul DNS"
 }

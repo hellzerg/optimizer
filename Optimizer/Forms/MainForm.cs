@@ -38,10 +38,10 @@ namespace Optimizer
         string _shodanIP = string.Empty;
         PingReply tmpReply;
 
-        NetworkMonitor _networkMonitor;
-        double uploadSpeed = 0;
-        double downloadSpeed = 0;
-        bool _networkMonitoringSupported = true;
+        //NetworkMonitor _networkMonitor;
+        //double uploadSpeed = 0;
+        //double downloadSpeed = 0;
+        //bool _networkMonitoringSupported = true;
 
         DesktopItemType _desktopItemType = DesktopItemType.Program;
         DesktopTypePosition _desktopItemPosition = DesktopTypePosition.Top;
@@ -97,8 +97,6 @@ namespace Optimizer
         List<string> _cleanPreviewList;
 
         UpdateForm _updateForm;
-
-        int DPI_PREFERENCE;
 
         private string NewDownloadLink(string latestVersion)
         {
@@ -696,12 +694,6 @@ namespace Optimizer
             Options.CurrentOptions.DisableFaxService = faxSw.ToggleChecked;
         }
 
-        private void LoadSettings()
-        {
-            pictureBox1.BackColor = Options.CurrentOptions.Theme;
-            colorPicker1.Color = Options.CurrentOptions.Theme;
-        }
-
         //INIT
         public MainForm(SplashForm _splashForm, bool disableIndicium = false, bool disableHostsEditor = false, bool disableCommonApps = false, bool disableUWPApps = false, bool disableStartups = false, bool disableCleaner = false, bool disableIntegrator = false, bool disablePinger = false)
         {
@@ -712,13 +704,13 @@ namespace Optimizer
 
             CheckForIllegalCrossThreadCalls = false;
 
-            DPI_PREFERENCE = Convert.ToInt32(Microsoft.Win32.Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ThemeManager", "LastLoadedDPI", "96"));
-
             _splashForm.LoadingStatus.Text = "checking for requirements";
 
             // theming
             Options.ApplyTheme(this);
-            LoadSettings();
+            pictureBox1.BackColor = Options.CurrentOptions.Theme;
+            colorPicker1.Color = Options.CurrentOptions.Theme;
+
             launcherMenu.Renderer = new MoonMenuRenderer();
             indiciumMenu.Renderer = new MoonMenuRenderer();
 
@@ -729,9 +721,9 @@ namespace Optimizer
             _trayMenu = Options.CurrentOptions.EnableTray;
             quickAccessToggle.ToggleChecked = Options.CurrentOptions.EnableTray;
             launcherIcon.Visible = Options.CurrentOptions.EnableTray;
-            seperatorNetMon.Visible = Options.CurrentOptions.EnableTray;
-            trayDownSpeed.Visible = Options.CurrentOptions.EnableTray;
-            trayUpSpeed.Visible = Options.CurrentOptions.EnableTray;
+            //seperatorNetMon.Visible = Options.CurrentOptions.EnableTray;
+            //trayDownSpeed.Visible = Options.CurrentOptions.EnableTray;
+            //trayUpSpeed.Visible = Options.CurrentOptions.EnableTray;
             autoStartToggle.ToggleChecked = Options.CurrentOptions.AutoStart;
 
             // help tips
@@ -878,7 +870,7 @@ namespace Optimizer
                 tabCollection.TabPages.Remove(integratorTab);
             }
 
-            _splashForm.LoadingStatus.Text = "getting feed";
+            _splashForm.LoadingStatus.Text = "fetching feed";
 
             // APPS DOWNLOADER
             if (!disableCommonApps)
@@ -917,9 +909,7 @@ namespace Optimizer
 
             // PINGER
             if (!disablePinger)
-            { 
-                if (!PingerHelper.IsInternetAvailable()) return; 
-
+            {
                 LoadPingerDNSConfig();
                 DisplayCurrentDNS();
 
@@ -931,8 +921,6 @@ namespace Optimizer
                 tabCollection.TabPages.Remove(pingerTab);
                 launcherMenu.Items.RemoveByKey("trayPinger");
             }
-
-            LoadTranslationAndSetSize();
 
             Program._MainForm = this;
 
@@ -960,7 +948,10 @@ namespace Optimizer
                 txtDownloadFolder.Text = Options.CurrentOptions.AppsFolder;
             }
 
-            if (!Program.EXPERIMENTAL_BUILD && PingerHelper.IsInternetAvailable()) CheckForUpdate(true);
+            if (!Program.EXPERIMENTAL_BUILD && PingerHelper.IsInternetAvailable())
+            {
+                CheckForUpdate(true);
+            }
 
             if (Program.EXPERIMENTAL_BUILD)
             {
@@ -968,10 +959,8 @@ namespace Optimizer
                 picLab.Visible = true;
             }
 
-            // network monitoring
-            InitNetworkMonitoring();
-
-            // make toggles function
+            LoadTranslationAndSetSize();
+            //InitNetworkMonitoring();
             EnableToggleEvents();
         }
 
@@ -1174,6 +1163,12 @@ namespace Optimizer
             if (Options.CurrentOptions.LanguageCode == LanguageCode.RO)
             {
                 boxLang.Text = "Română";
+                this.MinimumSize = _sizeDefault;
+                this.Size = _sizeDefault;
+            }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.NL)
+            {
+                boxLang.Text = "Nederlands";
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
             }
@@ -1705,67 +1700,67 @@ namespace Optimizer
             }
         }
 
-        private void InitNetworkMonitoring()
-        {
-            try
-            {
-                _networkMonitor = new NetworkMonitor();
+        //private void InitNetworkMonitoring()
+        //{
+        //    try
+        //    {
+        //        _networkMonitor = new NetworkMonitor();
 
-                if (Options.CurrentOptions.EnableTray)
-                {
-                    _networkMonitor.StartMonitoring();
-                    _networkMonitoringSupported = true;
-                    NetworkLiveMonitoring();
-                }
-            }
-            catch (Exception ex)
-            {
-                _networkMonitoringSupported = false;
-                DisposeNetworkMonitoring();
-                ErrorLogger.LogError("MainForm.NETWORK-MONITORING", ex.Message, ex.StackTrace);
-            }
-            finally
-            {
-                seperatorNetMon.Visible = _networkMonitoringSupported;
-                trayDownSpeed.Visible = _networkMonitoringSupported;
-                trayUpSpeed.Visible = _networkMonitoringSupported;
-            }
-        }
+        //        if (Options.CurrentOptions.EnableTray)
+        //        {
+        //            _networkMonitor.StartMonitoring();
+        //            _networkMonitoringSupported = true;
+        //            NetworkLiveMonitoring();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _networkMonitoringSupported = false;
+        //        DisposeNetworkMonitoring();
+        //        ErrorLogger.LogError("MainForm.NETWORK-MONITORING", ex.Message, ex.StackTrace);
+        //    }
+        //    finally
+        //    {
+        //        seperatorNetMon.Visible = _networkMonitoringSupported;
+        //        trayDownSpeed.Visible = _networkMonitoringSupported;
+        //        trayUpSpeed.Visible = _networkMonitoringSupported;
+        //    }
+        //}
 
-        private void DisposeNetworkMonitoring()
-        {
-            if (_networkMonitor != null) _networkMonitor.StopMonitoring();
-        }
+        //private void DisposeNetworkMonitoring()
+        //{
+        //    if (_networkMonitor != null) _networkMonitor.StopMonitoring();
+        //}
 
-        private void NetworkLiveMonitoring()
-        {
-            if (!_networkMonitoringSupported) return;
+        //private void NetworkLiveMonitoring()
+        //{
+        //    if (!_networkMonitoringSupported) return;
 
-            Task.Factory.StartNew(() =>
-            {
-                while (Options.CurrentOptions.EnableTray)
-                {
-                    // in BYTES
-                    downloadSpeed = 0;
-                    uploadSpeed = 0;
+        //    Task.Factory.StartNew(() =>
+        //    {
+        //        while (Options.CurrentOptions.EnableTray)
+        //        {
+        //            // in BYTES
+        //            downloadSpeed = 0;
+        //            uploadSpeed = 0;
 
-                    foreach (NetworkAdapter adapter in _networkMonitor.Adapters)
-                    {
-                        //adapter.Refresh();
-                        downloadSpeed += Math.Round(adapter.DownloadSpeedKbps, 2);
-                        uploadSpeed += Math.Round(adapter.UploadSpeedKbps, 2);
-                    }
+        //            foreach (NetworkAdapter adapter in _networkMonitor.Adapters)
+        //            {
+        //                //adapter.Refresh();
+        //                downloadSpeed += Math.Round(adapter.DownloadSpeedKbps, 2);
+        //                uploadSpeed += Math.Round(adapter.UploadSpeedKbps, 2);
+        //            }
 
-                    this.Invoke(new Action(() =>
-                    {
-                        trayDownSpeed.Text = $"{downloadSpeed} KB/s";
-                        trayUpSpeed.Text = $"{uploadSpeed} KB/s";
-                    }));
+        //            this.Invoke(new Action(() =>
+        //            {
+        //                trayDownSpeed.Text = $"{downloadSpeed} KB/s";
+        //                trayUpSpeed.Text = $"{uploadSpeed} KB/s";
+        //            }));
 
-                    Thread.Sleep(1000);
-                }
-            });
-        }
+        //            Thread.Sleep(1000);
+        //        }
+        //    });
+        //}
 
         private void TranslateIndicium()
         {
@@ -1966,19 +1961,19 @@ namespace Optimizer
                             switch (x.Group)
                             {
                                 case "SystemTools":
-                                    appCard.Location = new Point(0, groupSystemTools.Controls.Count * (DPI_PREFERENCE / 3));
+                                    appCard.Location = new Point(0, groupSystemTools.Controls.Count * (Program.DPI_PREFERENCE / 3));
                                     groupSystemTools.Controls.Add(appCard);
                                     break;
                                 case "Internet":
-                                    appCard.Location = new Point(0, groupInternet.Controls.Count * (DPI_PREFERENCE / 3));
+                                    appCard.Location = new Point(0, groupInternet.Controls.Count * (Program.DPI_PREFERENCE / 3));
                                     groupInternet.Controls.Add(appCard);
                                     break;
                                 case "Coding":
-                                    appCard.Location = new Point(0, groupCoding.Controls.Count * (DPI_PREFERENCE / 3));
+                                    appCard.Location = new Point(0, groupCoding.Controls.Count * (Program.DPI_PREFERENCE / 3));
                                     groupCoding.Controls.Add(appCard);
                                     break;
                                 case "GraphicsSound":
-                                    appCard.Location = new Point(0, groupSoundVideo.Controls.Count * (DPI_PREFERENCE / 3));
+                                    appCard.Location = new Point(0, groupSoundVideo.Controls.Count * (Program.DPI_PREFERENCE / 3));
                                     groupSoundVideo.Controls.Add(appCard);
                                     break;
                                 default:
@@ -2185,7 +2180,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GetDesktopItems()
@@ -2287,7 +2282,7 @@ namespace Optimizer
                     catch { }
                 }
 
-                appCard.Location = new Point(0, panelUwp.Controls.Count * (DPI_PREFERENCE / 3));
+                appCard.Location = new Point(0, panelUwp.Controls.Count * (Program.DPI_PREFERENCE / 3));
                 panelUwp.Controls.Add(appCard);
 
             }
@@ -4029,14 +4024,14 @@ namespace Optimizer
             _trayMenu = quickAccessToggle.ToggleChecked;
             launcherIcon.Visible = quickAccessToggle.ToggleChecked;
 
-            if (Options.CurrentOptions.EnableTray)
-            {
-                InitNetworkMonitoring();
-            }
-            else
-            {
-                DisposeNetworkMonitoring();
-            }
+            //if (Options.CurrentOptions.EnableTray)
+            //{
+            //    InitNetworkMonitoring();
+            //}
+            //else
+            //{
+            //    DisposeNetworkMonitoring();
+            //}
         }
 
         private void helpTipsToggle_ToggleClicked(object sender, EventArgs e)
@@ -4285,7 +4280,7 @@ namespace Optimizer
             }
             else if (boxLang.Text == "繁體中文")
             {
-                picFlag.Image = Properties.Resources.china;
+                picFlag.Image = Properties.Resources.taiwan;
                 Options.CurrentOptions.LanguageCode = LanguageCode.TW;
                 this.MinimumSize = _sizeDefault;
                 this.Size = _sizeDefault;
@@ -4386,6 +4381,9 @@ namespace Optimizer
 
         private void boxDNS_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (boxAdapter.Items.Count <= 0) return;
+            if (boxAdapter.SelectedIndex <= -1) return;
+
             if (boxDNS.Text == "Automatic")
             {
                 PingerHelper.ResetDefaultDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name);
@@ -4453,6 +4451,9 @@ namespace Optimizer
 
         private void DisplayCurrentDNS()
         {
+            if (boxAdapter.Items.Count <= 0) return;
+            if (boxAdapter.SelectedIndex <= -1) return;
+
             _currentDNS = PingerHelper.GetDNSFromNetworkAdapter(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex]).ToArray();
 
             if (_currentDNS == null) return;

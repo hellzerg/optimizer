@@ -421,5 +421,6 @@ Tuttavia, sono considerate procedure rischiose. Sono normalmente una release ogn
 	"ntfsStampTip": "Indica l'ultima volta che si è avuto accesso al file.
 	La disabilitazione può ridurre le operazioni di I/O sui dischi.",
 	"autoStartToggle": "Inizia con Windows",
-	"nvidiaTelemetrySw": "Disabilita la telemetria NVIDIA"
+	"nvidiaTelemetrySw": "Disabilita la telemetria NVIDIA",
+	"dnsTitle": "Cambia rapidamente il server DNS"
 }
