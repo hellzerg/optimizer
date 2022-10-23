@@ -427,5 +427,8 @@ It has been replaced with SMBv3, which is more secure.",
 Disabling it can reduce I/O operations on the disks.",
 	"autoStartToggle": "Start with Windows",
 	"nvidiaTelemetrySw": "Disable NVIDIA Telemetry",
-	"dnsTitle": "Rapidly change DNS server"
+	"dnsTitle": "Rapidly change DNS server",
+	"vbsSw": "Disable Virtualization Based Security",
+	"vbsTip": "Kernel feature that prevents malicious drivers injection into processes.
+It has negative effect on performance."
 }

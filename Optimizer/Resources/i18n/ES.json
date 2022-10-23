@@ -424,5 +424,8 @@ Sin embargo, se consideran un procedimiento riesgoso. Suelen ser lanzamientos se
 	Deshabilitarlo puede reducir las operaciones de E/S en los discos.",
 	"autoStartToggle": "Comience con el Windows",
 	"nvidiaTelemetrySw": "Deshabilitar la telemetría de NVIDIA",
-	"dnsTitle": "Cambiar rápidamente el servidor DNS"
+	"dnsTitle": "Cambiar rápidamente el servidor DNS",
+	"vbsSw": "Deshabilitar la seguridad basada en virtualización",
+	"vbsTip": "Característica del kernel que evita la inyección de controladores maliciosos en los procesos.
+Tiene un efecto negativo en el rendimiento."
 }

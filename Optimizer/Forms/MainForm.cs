@@ -261,6 +261,7 @@ namespace Optimizer
             smb2Sw.ToggleClicked += Smb2Sw_ToggleClicked;
             ntfsStampSw.ToggleClicked += NtfsStampSw_ToggleClicked;
             nvidiaTelemetrySw.ToggleClicked += NvidiaTelemetrySw_ToggleClicked;
+            vbsSw.ToggleClicked += VbsSw_ToggleClicked;
 
             PMB.ToggleClicked += PMB_ToggleClicked;
             SSB.ToggleClicked += SSB_ToggleClicked;
@@ -269,6 +270,20 @@ namespace Optimizer
             DSB.ToggleClicked += DSB_ToggleClicked;
             AddCMDB.ToggleClicked += AddCMDB_ToggleClicked;
             AddOwnerB.ToggleClicked += AddOwnerB_ToggleClicked;
+        }
+
+        private void VbsSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (vbsSw.ToggleChecked)
+            {
+                Optimize.DisableVirtualizationBasedSecurity();
+            }
+            else
+            {
+                Optimize.EnableVirtualizationBasedSecurity();
+            }
+            Options.CurrentOptions.DisableVBS = vbsSw.ToggleChecked;
+            ShowRestartNeeded();
         }
 
         private void NvidiaTelemetrySw_ToggleClicked(object sender, EventArgs e)
@@ -588,6 +603,7 @@ namespace Optimizer
             smb2Sw.Label.Tag = Options.TranslationList["smbTip"].ToString().Replace("{v}", "v2");
             ntfsStampSw.Label.Tag = Options.TranslationList["ntfsStampTip"].ToString();
             nvidiaTelemetrySw.Label.Tag = Options.TranslationList["nvidiaTelemetrySw"].ToString();
+            vbsSw.Label.Tag = Options.TranslationList["vbsTip"].ToString();
         }
 
         private void ToggleSwitch40_Click(object sender, EventArgs e)
@@ -2176,6 +2192,7 @@ namespace Optimizer
             classicContextSw.ToggleChecked = Options.CurrentOptions.ClassicMenu;
             tpmSw.ToggleChecked = Options.CurrentOptions.DisableTPMCheck;
             compactModeSw.ToggleChecked = Options.CurrentOptions.CompactMode;
+            vbsSw.ToggleChecked = Options.CurrentOptions.DisableVBS;
         }
 
         private void Main_Load(object sender, EventArgs e)

@@ -424,5 +424,8 @@ Są one jednak uważane za ryzykowną procedurę. Zazwyczaj są wydawane co pó�
 	Wyłączenie go może zmniejszyć liczbę operacji we/wy na dyskach.",
 	"autoStartToggle": "Uruchom z Windows",
 	"nvidiaTelemetrySw": "Wyłącz telemetrię NVIDIA",
-	"dnsTitle": "Szybko zmień serwer DNS"
+	"dnsTitle": "Szybko zmień serwer DNS",
+	"vbsSw": "Wyłącz zabezpieczenia oparte na wirtualizacji",
+	"vbsTip": "Funkcja jądra, która zapobiega wstrzykiwaniu złośliwych sterowników do procesów.
+Ma negatywny wpływ na wydajność."
 }

@@ -425,5 +425,8 @@
 	禁用它可以減少磁盤上的 I/O 操作。",
 	"autoStartToggle": "從 Windows 開始",
 	"nvidiaTelemetrySw": "禁用 NVIDIA 遙測",
-	"dnsTitle": "快速更換DNS服務器"
+	"dnsTitle": "快速更換DNS服務器",
+	"vbsSw": "禁用基於虛擬化的安全性",
+	"vbsTip": "防止惡意驅動程序注入進程的內核功能。
+它對性能有負面影響。"
 }

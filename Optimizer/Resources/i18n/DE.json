@@ -402,5 +402,8 @@ Es wurde durch SMBv3 ersetzt, das sicherer ist.",
 Durch Deaktivieren können die E/A-Vorgänge auf den Festplatten reduziert werden.",
 	"autoStartToggle": "Starte mit Windows",
 	"nvidiaTelemetrySw": "Deaktivieren Sie die NVIDIA-Telemetrie",
-	"dnsTitle": "Ändern Sie schnell den DNS-Server"
+	"dnsTitle": "Ändern Sie schnell den DNS-Server",
+	"vbsSw": "Deaktivieren Sie die virtualisierungsbasierte Sicherheit",
+	"vbsTip": "Kernel-Funktion, die das Einschleusen bösartiger Treiber in Prozesse verhindert.
+Es wirkt sich negativ auf die Leistung aus."
 }

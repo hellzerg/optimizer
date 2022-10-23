@@ -427,5 +427,8 @@ Je to však považováno za riskantní procedůru. Obvykle se jedná o půlročn
 	Jeho zakázáním můžete snížit I/O operace na discích.",
 	"autoStartToggle": "Začněte s Windows",
 	"nvidiaTelemetrySw": "Zakázat telemetrii NVIDIA",
-	"dnsTitle": "Rychlá změna serveru DNS"
+	"dnsTitle": "Rychlá změna serveru DNS",
+	"vbsSw": "Zakázat zabezpečení založené na virtualizaci",
+	"vbsTip": "Funkce jádra, která zabraňuje vkládání škodlivých ovladačů do procesů.
+Má to negativní vliv na výkon."
 }

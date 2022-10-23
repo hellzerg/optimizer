@@ -422,5 +422,8 @@ Tuttavia, sono considerate procedure rischiose. Sono normalmente una release ogn
 	La disabilitazione può ridurre le operazioni di I/O sui dischi.",
 	"autoStartToggle": "Inizia con Windows",
 	"nvidiaTelemetrySw": "Disabilita la telemetria NVIDIA",
-	"dnsTitle": "Cambia rapidamente il server DNS"
+	"dnsTitle": "Cambia rapidamente il server DNS",
+	"vbsSw": "Disabilita la sicurezza basata sulla virtualizzazione",
+	"vbsTip": "Funzionalità del kernel che impedisce l'iniezione di driver dannosi nei processi.
+Ha un effetto negativo sulle prestazioni."
 }

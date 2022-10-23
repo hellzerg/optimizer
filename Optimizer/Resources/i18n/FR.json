@@ -424,5 +424,8 @@ Cependant, elles sont considerees comme une procedure risquee. Il s'agit general
 	Sa désactivation peut réduire les opérations d'E/S sur les disques.",
 	"autoStartToggle": "Commence avec Windows",
 	"nvidiaTelemetrySw": "Désactiver la télémétrie NVIDIA",
-	"dnsTitle": "Changer rapidement de serveur DNS"
+	"dnsTitle": "Changer rapidement de serveur DNS",
+	"vbsSw": "Désactiver la sécurité basée sur la virtualisation",
+	"vbsTip": "Fonctionnalité du noyau qui empêche l'injection de pilotes malveillants dans les processus.
+Cela a un effet négatif sur les performances."
 }

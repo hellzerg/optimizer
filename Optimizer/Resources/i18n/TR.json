@@ -425,5 +425,8 @@ Ancak, riskli bir prosedür olarak kabul edilirler. Genellikle altı aylık yay�
 	Devre dışı bırakmak, disklerdeki G/Ç işlemlerini azaltabilir.",
 	"autoStartToggle": "Windows başla",
 	"nvidiaTelemetrySw": "NVIDIA Telemetrisini Devre Dışı Bırak",
-	"dnsTitle": "DNS sunucusunu hızla değiştirin"
+	"dnsTitle": "DNS sunucusunu hızla değiştirin",
+	"vbsSw": "Sanallaştırma Tabanlı Güvenliği Devre Dışı Bırak",
+	"vbsTip": "Kötü amaçlı sürücülerin işlemlere eklenmesini önleyen çekirdek özelliği.
+Performansa olumsuz etkisi vardır."
 }

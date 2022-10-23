@@ -665,6 +665,18 @@ namespace Optimizer
                 }
             }
 
+            if (CurrentSilentConfig.DisableVBS.HasValue)
+            {
+                if (CurrentSilentConfig.DisableVBS.Value)
+                {
+                    Optimize.DisableVirtualizationBasedSecurity();
+                }
+                else
+                {
+                    Optimize.EnableVirtualizationBasedSecurity();
+                }
+            }
+
             if (CurrentSilentConfig.ClassicRibbon.HasValue)
             {
                 if (CurrentSilentConfig.ClassicRibbon.Value)
@@ -848,6 +860,10 @@ namespace Optimizer
             if (CurrentSilentConfig.DisableTPMCheck.HasValue)
             {
                 Options.CurrentOptions.DisableTPMCheck = CurrentSilentConfig.DisableTPMCheck.Value;
+            }
+            if (CurrentSilentConfig.DisableVBS.HasValue)
+            {
+                Options.CurrentOptions.DisableVBS = CurrentSilentConfig.DisableVBS.Value;
             }
         }
 

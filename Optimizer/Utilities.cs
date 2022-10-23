@@ -63,7 +63,7 @@ namespace Optimizer
 
         internal static string GetWindows10Build()
         {
-            return (string)Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "ReleaseId", "");
+            return (string)Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "DisplayVersion", "");
         }
 
         internal static string GetOS()

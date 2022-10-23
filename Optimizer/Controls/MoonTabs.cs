@@ -14,6 +14,9 @@ namespace Optimizer
     ]
     public class MoonTabs : TabControl
     {
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+
         [Category("Custom"), Description("Indicates whether or not you the components Tabpages Headers have border edges."), DefaultValue(false)]
         public bool BorderEdges { get; set; } = false;
 
@@ -64,11 +67,15 @@ namespace Optimizer
             base.OnHandleCreated(e);
 
             // Send TCM_SETMINTABWIDTH
-            SendMessage(this.Handle, 0x1300 + 49, IntPtr.Zero, (IntPtr)(Program.DPI_PREFERENCE / 3));
-        }
+            string maxTitle = string.Empty;
+            foreach(TabPage x in this.TabPages)
+            {
+                if (x.Text.Length > maxTitle.Length) maxTitle = x.Text;
+            }
+            Size textSize = TextRenderer.MeasureText(maxTitle, this.Font);
 
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+            SendMessage(this.Handle, 0x1300 + 49, IntPtr.Zero, (IntPtr)textSize.Width);
+        }
 
         public MoonTabs()
         {

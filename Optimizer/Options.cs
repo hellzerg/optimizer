@@ -83,6 +83,7 @@ namespace Optimizer
         public bool DisableTPMCheck { get; set; }
         public bool CompactMode { get; set; }
         public bool DisableStickers { get; set; }
+        public bool DisableVBS { get; set; }
     }
 
     internal static class Options
@@ -272,6 +273,7 @@ namespace Optimizer
                     CurrentOptions.DisableTPMCheck = false;
                     CurrentOptions.CompactMode = false;
                     CurrentOptions.DisableStickers = false;
+                    CurrentOptions.DisableVBS = false;
 
                     using (FileStream fs = File.Open(SettingsFile, FileMode.CreateNew))
                     using (StreamWriter sw = new StreamWriter(fs))

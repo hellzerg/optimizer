@@ -408,5 +408,8 @@ pentru analiză către Microsoft.",
 	Dezactivarea acestuia poate reduce operațiunile I/O pe discuri.",
 	"autoStartToggle": "Începeți cu Windows",
 	"nvidiaTelemetrySw": "Dezactivați telemetria NVIDIA",
-	"dnsTitle": "Schimbați rapid serverul DNS"
+	"dnsTitle": "Schimbați rapid serverul DNS",
+	"vbsSw": "Dezactivați securitatea bazată pe virtualizare",
+	"vbsTip": "Caracteristica kernel care previne injectarea driverelor rău intenționate în procese.
+Are un efect negativ asupra performanței."
 }

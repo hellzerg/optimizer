@@ -427,5 +427,8 @@
 	A letiltása csökkentheti az I/O műveleteket a lemezeken.",
 	"autoStartToggle": "Kezdje a Windows rendszerrel",
 	"nvidiaTelemetrySw": "Az NVIDIA telemetria letiltása",
-	"dnsTitle": "DNS-kiszolgáló gyors cseréje"
+	"dnsTitle": "DNS-kiszolgáló gyors cseréje",
+	"vbsSw": "A virtualizáció alapú biztonság letiltása",
+	"vbsTip": "Kernel funkció, amely megakadályozza a rosszindulatú illesztőprogramok bejutását a folyamatokba.
+Negatív hatással van a teljesítményre."
 }

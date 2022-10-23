@@ -427,5 +427,8 @@ Microsoft 계정 로그인이 필요합니다.",
 	비활성화하면 디스크의 I/O 작업을 줄일 수 있습니다.",
 	"autoStartToggle": "Windows로 시작",
 	"nvidiaTelemetrySw": "NVIDIA 원격 측정 비활성화",
-	"dnsTitle": "DNS 서버를 빠르게 변경"
+	"dnsTitle": "DNS 서버를 빠르게 변경",
+	"vbsSw": "가상화 기반 보안 비활성화",
+	"vbsTip": "악성 드라이버가 프로세스에 주입되는 것을 방지하는 커널 기능입니다.
+성능에 부정적인 영향을 미칩니다."
 }

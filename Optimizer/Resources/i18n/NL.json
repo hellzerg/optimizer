@@ -377,5 +377,8 @@
    "ntfsStampTip":"Geeft aan wanneer het bestand voor het laatst is geopend. Uitschakelen kan I/O-bewerkingen op de harde schijven verminderen.",
    "autoStartToggle": "Begin met Windows",
    "nvidiaTelemetrySw": "NVIDIA-telemetrie uitschakelen",
-   "dnsTitle": "Snel van DNS-server veranderen"
+   "dnsTitle": "Snel van DNS-server veranderen",
+   "vbsSw": "Op virtualisatie gebaseerde beveiliging uitschakelen",
+	"vbsTip": "Kernelfunctie die voorkomt dat kwaadaardige stuurprogramma's in processen worden geïnjecteerd.
+Het heeft een negatief effect op de prestaties."
 }

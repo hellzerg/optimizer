@@ -66,5 +66,6 @@ namespace Optimizer
         public bool? DisableTPMCheck { get; set; }
         public bool? CompactMode { get; set; }
         public bool? DisableStickers { get; set; }
+        public bool? DisableVBS { get; set; }
     }
 }
