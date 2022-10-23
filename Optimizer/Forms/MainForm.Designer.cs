@@ -52,7 +52,7 @@ namespace Optimizer
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bpanel = new System.Windows.Forms.Panel();
-            this.tabCollection = new System.Windows.Forms.TabControl();
+            this.tabCollection = new Optimizer.MoonTabs();
             this.universalTab = new System.Windows.Forms.TabPage();
             this.nvidiaTelemetrySw = new Optimizer.ToggleCard();
             this.ntfsStampSw = new Optimizer.ToggleCard();
@@ -209,7 +209,7 @@ namespace Optimizer
             this.checkBin = new Optimizer.MoonCheck();
             this.checkMiniDumps = new Optimizer.MoonCheck();
             this.pingerTab = new System.Windows.Forms.TabPage();
-            this.netTools = new System.Windows.Forms.TabControl();
+            this.netTools = new Optimizer.MoonTabs();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnExport = new System.Windows.Forms.Button();
             this.copyB = new System.Windows.Forms.Button();
@@ -280,7 +280,7 @@ namespace Optimizer
             this.btnSaveHW = new System.Windows.Forms.Button();
             this.hwDetailed = new Optimizer.ToggleCard();
             this.integratorTab = new System.Windows.Forms.TabPage();
-            this.synapse = new System.Windows.Forms.TabControl();
+            this.synapse = new Optimizer.MoonTabs();
             this.integratorInfoTab = new System.Windows.Forms.TabPage();
             this.integrator7 = new System.Windows.Forms.Label();
             this.integrator6 = new System.Windows.Forms.Label();
@@ -5732,7 +5732,7 @@ namespace Optimizer
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel bpanel;
-        private System.Windows.Forms.TabControl tabCollection;
+        private Optimizer.MoonTabs tabCollection;
         private System.Windows.Forms.TabPage universalTab;
         private System.Windows.Forms.TabPage windows10Tab;
         private System.Windows.Forms.TabPage windows8Tab;
@@ -5778,7 +5778,7 @@ namespace Optimizer
         private System.Windows.Forms.Button addHostB;
         private System.Windows.Forms.TextBox txtIP;
         private System.Windows.Forms.TabPage integratorTab;
-        private System.Windows.Forms.TabControl synapse;
+        private Optimizer.MoonTabs synapse;
         private System.Windows.Forms.TabPage integratorInfoTab;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage9;
@@ -6077,7 +6077,7 @@ namespace Optimizer
         private Controls.ColorPicker colorPicker1;
         private ToggleCard autoStartToggle;
         private ToggleCard nvidiaTelemetrySw;
-        private System.Windows.Forms.TabControl netTools;
+        private Optimizer.MoonTabs netTools;
         private Label dnsTitle;
         private ToggleCard vbsSw;
     }
