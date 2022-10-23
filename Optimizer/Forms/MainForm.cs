@@ -4147,7 +4147,7 @@ namespace Optimizer
             SaveFileDialog d = new SaveFileDialog();
             d.InitialDirectory = Application.StartupPath;
             d.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-            d.FileName = $"Optimizer_Hardware_{Environment.MachineName}_{DateTime.Now.ToShortDateString()}.txt";
+            d.FileName = $"Optimizer_Hardware_{Environment.MachineName}_{DateTime.Now.ToString("dd-MM-yyyy")}.txt";
 
             if (d.ShowDialog() == DialogResult.OK) File.WriteAllText(d.FileName, GetSpecsToString(specsTree), Encoding.UTF8);
         }
