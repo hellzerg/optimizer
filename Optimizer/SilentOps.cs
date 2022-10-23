@@ -649,7 +649,7 @@ namespace Optimizer
                 }
                 else
                 {
-                    Optimize.DisableChat();
+                    Optimize.EnableChat();
                 }
             }
 
