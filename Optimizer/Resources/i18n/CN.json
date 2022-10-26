@@ -1,4 +1,10 @@
 ﻿{
+	"subSystem": "系统",
+	"subPrivacy": "隐私",
+	"subGaming": "赌博",
+	"subTouch": "触碰",
+	"subTaskbar": "任务栏",
+	"subExtras": "附加功能",
 	"btnAbout": "确定",
 	"restartButton": "现在重启",
 	"restartButton8": "现在重启",

@@ -1,4 +1,10 @@
 ﻿{
+	"subSystem": "Sistema",
+	"subPrivacy": "Privacy",
+	"subGaming": "Gioco",
+	"subTouch": "Tocco",
+	"subTaskbar": "Barra delle applicazioni",
+	"subExtras": "Extra",
 	"btnAbout": "OK",
 	"restartButton": "riavvia ora",
 	"restartButton8": "riavvia ora",

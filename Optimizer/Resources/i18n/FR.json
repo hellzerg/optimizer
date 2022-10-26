@@ -1,4 +1,10 @@
 {
+	"subSystem": "Système",
+	"subPrivacy": "Intimité",
+	"subGaming": "Jeux",
+	"subTouch": "Toucher",
+	"subTaskbar": "Barre des tâches",
+	"subExtras": "Suppléments",
 	"btnAbout": "OK",
 	"restartButton": "redemarrer maintenant",
 	"restartButton8": "redemarrer maintenant",

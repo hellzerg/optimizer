@@ -1,4 +1,10 @@
 ﻿{
+	"subSystem": "سیستەم",
+	"subPrivacy": "تایبەتمەندیەتی",
+	"subGaming": "یاریکردن",
+	"subTouch": "دەست لێدان",
+	"subTaskbar": "تاسکبار",
+	"subExtras": "زیادە",
 	"btnAbout": "باشە",
 	"restartButton": "ئێستا ڕیستارتی بکەوە",
 	"restartButton8": "ئێستا ڕیستارتی بکەوە",

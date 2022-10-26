@@ -1,4 +1,10 @@
 ﻿{
+	"subSystem": "Rendszer",
+	"subPrivacy": "Magánélet",
+	"subGaming": "Szerencsejáték",
+	"subTouch": "Érintés",
+	"subTaskbar": "Tálca",
+	"subExtras": "Extrák",
 	"btnAbout": "Rendben",
 	"restartButton": "Újraindítás most",
 	"restartButton8": "Újraindítás most",

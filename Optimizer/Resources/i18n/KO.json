@@ -1,5 +1,11 @@
 {
-     "btnAbout": "확인",
+	"subSystem": "체계",
+	"subPrivacy": "은둔",
+	"subGaming": "노름",
+	"subTouch": "접촉",
+	"subTaskbar": "작업 표시줄",
+	"subExtras": "엑스트라",
+    "btnAbout": "확인",
 	"restartButton": "지금 다시 시작",
 	"restartButton8": "지금 다시 시작",
 	"restartButton10": "지금 다시 시작",

@@ -1,4 +1,10 @@
 ﻿{
+	"subSystem": "نظام",
+	"subPrivacy": "خصوصية",
+	"subGaming": "الألعاب",
+	"subTouch": "يلمس",
+	"subTaskbar": "ريط المهام",
+	"subExtras": "إضافات",
 	"btnAbout": "حسنا",
 	"restartButton": "إعادة التشغيل الآن",
 	"restartButton8": "إعادة التشغيل الآن",

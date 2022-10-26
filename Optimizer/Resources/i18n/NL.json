@@ -1,4 +1,10 @@
 {
+   "subSystem": "Systeem",
+   "subPrivacy": "Privacy",
+   "subGaming": "Gamen",
+   "subTouch": "Aanraken",
+   "subTaskbar": "Taakbalk",
+   "subExtras": "Extra's",
    "btnAbout":"OK",
    "restartButton":"Nu opnieuw opstarten",
    "restartButton8":"Nu opnieuw opstarten",

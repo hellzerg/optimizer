@@ -1,4 +1,10 @@
 {
+	"subSystem": "Σύστημα",
+	"subPrivacy": "Ιδιωτικότητα",
+	"subGaming": "Gaming",
+	"subTouch": "Αφή",
+	"subTaskbar": "Γραμμή Εργασιών",
+	"subExtras": "Πρόσθετα",
 	"btnAbout": "Εντάξει",
 	"restartButton": "Επανεκκίνηση τώρα",
 	"restartButton8": "Επανεκκίνηση τώρα",

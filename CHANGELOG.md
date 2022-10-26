@@ -1,3 +1,9 @@
+## [14.3] - 2022-10-26
+- New: Disable Virtualization-based security (for Windows 11)
+- New: Concise categorization for every toggle
+- New: Grayscale app icon for neutrality
+- Hotfix: Tab headers scaling problem
+
 ## [14.2] - 2022-10-21
 - Hotfix: Proper DPI scaling for main tabs (#236)
 - Hotfix: Not saving and loading Dutch language

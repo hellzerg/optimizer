@@ -1,4 +1,10 @@
 {
+	"subSystem": "Sistem",
+	"subPrivacy": "Confidențialitate",
+	"subGaming": "Jocuri",
+	"subTouch": "Atingere",
+	"subTaskbar": "Bara de activități",
+	"subExtras": "In plus",
 	"btnAbout": "Bine",
 	"restartButton": "Reporniți acum",
 	"restartButton8": "Reporniți acum",

@@ -14,9 +14,9 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 14;
-        internal readonly static float Minor = 2;
+        internal readonly static float Minor = 3;
 
-        internal readonly static bool EXPERIMENTAL_BUILD = true;
+        internal readonly static bool EXPERIMENTAL_BUILD = false;
         internal static int DPI_PREFERENCE;
 
         internal static string GetCurrentVersionTostring()

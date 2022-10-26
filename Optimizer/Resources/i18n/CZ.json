@@ -1,4 +1,10 @@
 {
+	"subSystem": "Systém",
+	"subPrivacy": "Soukromí",
+	"subGaming": "Hraní",
+	"subTouch": "Dotek",
+	"subTaskbar": "Hlavní panel",
+	"subExtras": "Extra",
 	"btnAbout": "OK",
 	"restartButton": "Restartovat nyní",
 	"restartButton8": "Restartovat nyní",

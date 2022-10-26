@@ -1,4 +1,10 @@
 {
+	"subSystem": "System",
+	"subPrivacy": "Prywatność",
+	"subGaming": "Hazard",
+	"subTouch": "Dotykać",
+	"subTaskbar": "Pasek zadań",
+	"subExtras": "Dodatki",
 	"btnAbout": "OK",
 	"restartButton": "Uruchom ponownie teraz",
 	"restartButton8": "Uruchom ponownie teraz",

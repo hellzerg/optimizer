@@ -1,4 +1,10 @@
 ﻿{
+	"subSystem": "Система",
+	"subPrivacy": "Конфиденциальность",
+	"subGaming": "Игры",
+	"subTouch": "Трогать",
+	"subTaskbar": "Панель задач",
+	"subExtras": "Дополнительно",
 	"btnAbout": "OK",
 	"restartButton": "Перезапустить сейчас",
 	"restartButton8": "Перезапустить сейчас",

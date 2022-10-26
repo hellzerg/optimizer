@@ -1,4 +1,10 @@
 ﻿{
+	"subSystem": "Sistem",
+	"subPrivacy": "Mahremiyet",
+	"subGaming": "Oyun",
+	"subTouch": "Dokunmak",
+	"subTaskbar": "Görev çubuğu",
+	"subExtras": "Ekstralar",
 	"btnAbout": "OK",
 	"restartButton": "şimdi yeniden başlat",
 	"restartButton8": "şimdi yeniden başlat",

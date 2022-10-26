@@ -87,11 +87,11 @@ namespace Optimizer
         List<TreeNode> _hwDetailed;
         TreeNode[] _hwSummarized;
 
-        Size _sizeDefault = new Size(1025, 784);
-        Size _sizeRussian = new Size(1365, 784);
-        Size _sizeHellenic = new Size(1076, 784);
-        Size _sizeTurkish = new Size(1081, 784);
-        Size _sizeFrench = new Size(1037, 784);
+        //Size _sizeDefault = new Size(1100, 784);
+        //Size _sizeRussian = new Size(1410, 784);
+        //Size _sizeHellenic = new Size(1125, 784);
+        //Size _sizeTurkish = new Size(1130, 784);
+        //Size _sizeFrench = new Size(1085, 784);
 
         bool _cleanSelectAll = true;
         List<string> _cleanPreviewList;
@@ -807,6 +807,8 @@ namespace Optimizer
 
                 tabCollection.TabPages.Remove(windows8Tab);
                 defenderSw.Visible = false;
+                vbsSw.Visible = false;
+                oldMixerSw.Visible = true;
                 this.Controls.Remove(panelWin11Tweaks);
 
                 if (!disableUWPApps)
@@ -830,6 +832,7 @@ namespace Optimizer
                 tabCollection.TabPages.Remove(windows8Tab);
                 windows10Tab.Text = "Windows 11";
                 defenderSw.Visible = false;
+                vbsSw.Visible = true;
                 panelWin11Tweaks.Visible = true;
                 oldMixerSw.Visible = false;
 
@@ -978,6 +981,8 @@ namespace Optimizer
             LoadTranslationAndSetSize();
             //InitNetworkMonitoring();
             EnableToggleEvents();
+
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void LoadReadyMenusState()
@@ -1083,110 +1088,110 @@ namespace Optimizer
             if (Options.CurrentOptions.LanguageCode == LanguageCode.RU)
             {
                 boxLang.Text = "русский";
-                this.MinimumSize = _sizeRussian;
-                this.Size = _sizeRussian;
+                //this.MinimumSize = _sizeRussian;
+                //this.Size = _sizeRussian;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.TR)
             {
                 boxLang.Text = "Türkçe";
-                this.MinimumSize = _sizeTurkish;
-                this.Size = _sizeTurkish;
+                //this.MinimumSize = _sizeTurkish;
+                //this.Size = _sizeTurkish;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.EL)
             {
                 boxLang.Text = "Ελληνικά";
-                this.MinimumSize = _sizeHellenic;
-                this.Size = _sizeHellenic;
+                //this.MinimumSize = _sizeHellenic;
+                //this.Size = _sizeHellenic;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.DE)
             {
                 boxLang.Text = "Deutsch";
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.PT)
             {
                 boxLang.Text = "Português";
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.FR)
             {
                 boxLang.Text = "Français";
-                this.MinimumSize = _sizeFrench;
-                this.Size = _sizeFrench;
+                //this.MinimumSize = _sizeFrench;
+                //this.Size = _sizeFrench;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.ES)
             {
                 boxLang.Text = "Español";
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.IT)
             {
                 boxLang.Text = "Italiano";
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.CN)
             {
                 boxLang.Text = "简体中文";
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.TW)
             {
                 boxLang.Text = "繁體中文";
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.CZ)
             {
                 boxLang.Text = "Čeština";
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.KO)
             {
                 boxLang.Text = "한국어";
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.PL)
             {
                 boxLang.Text = "Polski";
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.AR)
             {
                 boxLang.Text = "العربية";
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.KU)
             {
                 boxLang.Text = "کوردی";
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.HU)
             {
                 boxLang.Text = "Magyar";
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.RO)
             {
                 boxLang.Text = "Română";
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.NL)
             {
                 boxLang.Text = "Nederlands";
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
         }
 
@@ -1778,79 +1783,79 @@ namespace Optimizer
         //    });
         //}
 
-        private void TranslateIndicium()
-        {
-            if (hwDetailed.ToggleChecked)
-            {
-                // DETAILS TRANSLATION
-                TreeNode cpu = specsTree.Nodes["cpu"];
-                TreeNode ram = specsTree.Nodes["ram"];
-                TreeNode gpu = specsTree.Nodes["gpu"];
-                TreeNode mobo = specsTree.Nodes["mobo"];
-                TreeNode disk = specsTree.Nodes["disk"];
-                TreeNode inet = specsTree.Nodes["inet"];
-                TreeNode audio = specsTree.Nodes["audio"];
-                TreeNode dev = specsTree.Nodes["dev"];
+        //private void TranslateIndicium()
+        //{
+        //    if (hwDetailed.ToggleChecked)
+        //    {
+        //        // DETAILS TRANSLATION
+        //        TreeNode cpu = specsTree.Nodes["cpu"];
+        //        TreeNode ram = specsTree.Nodes["ram"];
+        //        TreeNode gpu = specsTree.Nodes["gpu"];
+        //        TreeNode mobo = specsTree.Nodes["mobo"];
+        //        TreeNode disk = specsTree.Nodes["disk"];
+        //        TreeNode inet = specsTree.Nodes["inet"];
+        //        TreeNode audio = specsTree.Nodes["audio"];
+        //        TreeNode dev = specsTree.Nodes["dev"];
 
-                if (cpu != null) cpu.Text = translationList["cpu"];
-                if (ram != null)
-                {
-                    ram.Text = translationList["ram"];
-                    TreeNode vm = ram.Nodes["vm"];
-                    if (vm != null) vm.Text = translationList["vm"];
-                }
-                if (gpu != null) gpu.Text = translationList["gpu"];
-                if (mobo != null) mobo.Text = translationList["mobo"];
-                if (disk != null)
-                {
-                    disk.Text = translationList["disk"];
-                    TreeNode disks = disk.Nodes["drives"];
-                    TreeNode vols = disk.Nodes["volumes"];
-                    TreeNode opticals = disk.Nodes["opticals"];
-                    TreeNode removables = disk.Nodes["removables"];
-                    if (disks != null) disks.Text = translationList["drives"];
-                    if (vols != null) vols.Text = translationList["volumes"];
-                    if (opticals != null) opticals.Text = translationList["opticals"];
-                    if (removables != null) removables.Text = translationList["removables"];
-                }
-                if (inet != null)
-                {
-                    inet.Text = translationList["inet"];
-                    TreeNode pas = inet.Nodes["physicalAdapters"];
-                    TreeNode vas = inet.Nodes["virtualAdapters"];
-                    if (pas != null) pas.Text = translationList["physicalAdapters"];
-                    if (vas != null) vas.Text = translationList["virtualAdapters"];
-                }
-                if (audio != null) audio.Text = translationList["audio"];
-                if (dev != null)
-                {
-                    dev.Text = translationList["dev"];
-                    TreeNode kbs = dev.Nodes["keyboards"];
-                    TreeNode pds = dev.Nodes["pointings"];
-                    if (kbs != null) kbs.Text = translationList["keyboards"];
-                    if (pds != null) pds.Text = translationList["pointings"];
-                }
-            }
-            else
-            {
-                // SUMMARY TRANSLATION
-                TreeNode os = specsTree.Nodes["os"];
-                TreeNode scpu = specsTree.Nodes["scpu"];
-                TreeNode sram = specsTree.Nodes["sram"];
-                TreeNode sgpu = specsTree.Nodes["sgpu"];
-                TreeNode smobo = specsTree.Nodes["smobo"];
-                TreeNode sdisk = specsTree.Nodes["sdisk"];
-                TreeNode sinet = specsTree.Nodes["sinet"];
+        //        if (cpu != null) cpu.Text = translationList["cpu"];
+        //        if (ram != null)
+        //        {
+        //            ram.Text = translationList["ram"];
+        //            TreeNode vm = ram.Nodes["vm"];
+        //            if (vm != null) vm.Text = translationList["vm"];
+        //        }
+        //        if (gpu != null) gpu.Text = translationList["gpu"];
+        //        if (mobo != null) mobo.Text = translationList["mobo"];
+        //        if (disk != null)
+        //        {
+        //            disk.Text = translationList["disk"];
+        //            TreeNode disks = disk.Nodes["drives"];
+        //            TreeNode vols = disk.Nodes["volumes"];
+        //            TreeNode opticals = disk.Nodes["opticals"];
+        //            TreeNode removables = disk.Nodes["removables"];
+        //            if (disks != null) disks.Text = translationList["drives"];
+        //            if (vols != null) vols.Text = translationList["volumes"];
+        //            if (opticals != null) opticals.Text = translationList["opticals"];
+        //            if (removables != null) removables.Text = translationList["removables"];
+        //        }
+        //        if (inet != null)
+        //        {
+        //            inet.Text = translationList["inet"];
+        //            TreeNode pas = inet.Nodes["physicalAdapters"];
+        //            TreeNode vas = inet.Nodes["virtualAdapters"];
+        //            if (pas != null) pas.Text = translationList["physicalAdapters"];
+        //            if (vas != null) vas.Text = translationList["virtualAdapters"];
+        //        }
+        //        if (audio != null) audio.Text = translationList["audio"];
+        //        if (dev != null)
+        //        {
+        //            dev.Text = translationList["dev"];
+        //            TreeNode kbs = dev.Nodes["keyboards"];
+        //            TreeNode pds = dev.Nodes["pointings"];
+        //            if (kbs != null) kbs.Text = translationList["keyboards"];
+        //            if (pds != null) pds.Text = translationList["pointings"];
+        //        }
+        //    }
+        //    else
+        //    {
+        //        // SUMMARY TRANSLATION
+        //        TreeNode os = specsTree.Nodes["os"];
+        //        TreeNode scpu = specsTree.Nodes["scpu"];
+        //        TreeNode sram = specsTree.Nodes["sram"];
+        //        TreeNode sgpu = specsTree.Nodes["sgpu"];
+        //        TreeNode smobo = specsTree.Nodes["smobo"];
+        //        TreeNode sdisk = specsTree.Nodes["sdisk"];
+        //        TreeNode sinet = specsTree.Nodes["sinet"];
 
-                if (os != null) os.Text = translationList["os"];
-                if (scpu != null) scpu.Text = translationList["cpu"];
-                if (sram != null) sram.Text = translationList["ram"];
-                if (sgpu != null) sgpu.Text = translationList["gpu"];
-                if (smobo != null) smobo.Text = translationList["mobo"];
-                if (sdisk != null) sdisk.Text = translationList["disk"];
-                if (sinet != null) sinet.Text = translationList["inet"];
-            }
-        }
+        //        if (os != null) os.Text = translationList["os"];
+        //        if (scpu != null) scpu.Text = translationList["cpu"];
+        //        if (sram != null) sram.Text = translationList["ram"];
+        //        if (sgpu != null) sgpu.Text = translationList["gpu"];
+        //        if (smobo != null) smobo.Text = translationList["mobo"];
+        //        if (sdisk != null) sdisk.Text = translationList["disk"];
+        //        if (sinet != null) sinet.Text = translationList["inet"];
+        //    }
+        //}
 
         private void Translate(bool skipFull = false)
         {
@@ -1866,7 +1871,7 @@ namespace Optimizer
             }
 
             TranslateTips();
-            TranslateIndicium();
+            //TranslateIndicium();
 
             if (!skipFull)
             {
@@ -1901,6 +1906,17 @@ namespace Optimizer
                 toolHWCopy.Text = translationList["toolHWCopy"];
                 toolHWDuck.Text = translationList["toolHWDuck"];
                 toolHWGoogle.Text = translationList["toolHWGoogle"];
+
+                label14s.Text = translationList["subSystem"];
+                label14.Text = translationList["subSystem"];
+                label4a.Text = translationList["appsTab"];
+                label13.Text = translationList["subPrivacy"];
+                label16.Text = translationList["subPrivacy"];
+                label17.Text = translationList["subGaming"];
+                label18.Text = translationList["subTouch"];
+                label19.Text = translationList["subTaskbar"];
+                label20.Text = translationList["subExtras"];
+                label21.Text = translationList["subSystem"];
 
                 Control element;
                 foreach (var x in translationList)
@@ -4075,7 +4091,7 @@ namespace Optimizer
                 specsTree.Nodes.AddRange(_hwSummarized);
             }
 
-            TranslateIndicium();
+            //TranslateIndicium();
             specsTree.ExpandAll();
             specsTree.Nodes[0].EnsureVisible();
         }
@@ -4222,134 +4238,134 @@ namespace Optimizer
             {
                 picFlag.Image = Properties.Resources.united_kingdom;
                 Options.CurrentOptions.LanguageCode = LanguageCode.EN;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "русский")
             {
                 picFlag.Image = Properties.Resources.russia;
                 Options.CurrentOptions.LanguageCode = LanguageCode.RU;
-                this.MinimumSize = _sizeRussian;
-                this.Size = _sizeRussian;
+                //this.MinimumSize = _sizeRussian;
+                //this.Size = _sizeRussian;
             }
             else if (boxLang.Text == "Ελληνικά")
             {
                 picFlag.Image = Properties.Resources.greece;
                 Options.CurrentOptions.LanguageCode = LanguageCode.EL;
-                this.MinimumSize = _sizeHellenic;
-                this.Size = _sizeHellenic;
+                //this.MinimumSize = _sizeHellenic;
+                //this.Size = _sizeHellenic;
             }
             else if (boxLang.Text == "Deutsch")
             {
                 picFlag.Image = Properties.Resources.germany;
                 Options.CurrentOptions.LanguageCode = LanguageCode.DE;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Italiano")
             {
                 picFlag.Image = Properties.Resources.italy;
                 Options.CurrentOptions.LanguageCode = LanguageCode.IT;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Čeština")
             {
                 picFlag.Image = Properties.Resources.czech;
                 Options.CurrentOptions.LanguageCode = LanguageCode.CZ;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Türkçe")
             {
                 picFlag.Image = Properties.Resources.turkey;
                 Options.CurrentOptions.LanguageCode = LanguageCode.TR;
-                this.MinimumSize = _sizeTurkish;
-                this.Size = _sizeTurkish;
+                //this.MinimumSize = _sizeTurkish;
+                //this.Size = _sizeTurkish;
             }
             else if (boxLang.Text == "Español")
             {
                 picFlag.Image = Properties.Resources.spain;
                 Options.CurrentOptions.LanguageCode = LanguageCode.ES;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Português")
             {
                 picFlag.Image = Properties.Resources.brazil;
                 Options.CurrentOptions.LanguageCode = LanguageCode.PT;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Français")
             {
                 picFlag.Image = Properties.Resources.france;
                 Options.CurrentOptions.LanguageCode = LanguageCode.FR;
-                this.MinimumSize = _sizeFrench;
-                this.Size = _sizeFrench;
+                //this.MinimumSize = _sizeFrench;
+                //this.Size = _sizeFrench;
             }
             else if (boxLang.Text == "简体中文")
             {
                 picFlag.Image = Properties.Resources.china;
                 Options.CurrentOptions.LanguageCode = LanguageCode.CN;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "繁體中文")
             {
                 picFlag.Image = Properties.Resources.taiwan;
                 Options.CurrentOptions.LanguageCode = LanguageCode.TW;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "한국어")
             {
                 picFlag.Image = Properties.Resources.korea;
                 Options.CurrentOptions.LanguageCode = LanguageCode.KO;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Polski")
             {
                 picFlag.Image = Properties.Resources.poland;
                 Options.CurrentOptions.LanguageCode = LanguageCode.PL;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "العربية")
             {
                 picFlag.Image = Properties.Resources.egypt;
                 Options.CurrentOptions.LanguageCode = LanguageCode.AR;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "کوردی")
             {
                 picFlag.Image = Properties.Resources.kurdish;
                 Options.CurrentOptions.LanguageCode = LanguageCode.KU;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Magyar")
             {
                 picFlag.Image = Properties.Resources.hungary;
                 Options.CurrentOptions.LanguageCode = LanguageCode.HU;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Română")
             {
                 picFlag.Image = Properties.Resources.romania;
                 Options.CurrentOptions.LanguageCode = LanguageCode.RO;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Nederlands")
             {
                 picFlag.Image = Properties.Resources.dutch;
                 Options.CurrentOptions.LanguageCode = LanguageCode.NL;
-                this.MinimumSize = _sizeDefault;
-                this.Size = _sizeDefault;
+                //this.MinimumSize = _sizeDefault;
+                //this.Size = _sizeDefault;
             }
 
             this.CenterToScreen();
@@ -4688,6 +4704,13 @@ namespace Optimizer
             {
                 Utilities.UnregisterAutoStart();
             }
+        }
+
+        private void picLab_Click(object sender, EventArgs e)
+        {
+            SubForm sf = new SubForm();
+            sf.SetTip(translationList["lblLab"].ToString());
+            sf.ShowDialog(this);
         }
     }
 }
