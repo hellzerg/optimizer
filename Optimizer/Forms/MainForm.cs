@@ -742,9 +742,6 @@ namespace Optimizer
             //trayUpSpeed.Visible = Options.CurrentOptions.EnableTray;
             autoStartToggle.ToggleChecked = Options.CurrentOptions.AutoStart;
 
-            // help tips
-            helpTipsToggle.ToggleChecked = Options.CurrentOptions.ShowHelp;
-
             // fix SSL/TLS error when contacting internet
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
@@ -4065,12 +4062,6 @@ namespace Optimizer
             //{
             //    DisposeNetworkMonitoring();
             //}
-        }
-
-        private void helpTipsToggle_ToggleClicked(object sender, EventArgs e)
-        {
-            Options.CurrentOptions.ShowHelp = helpTipsToggle.ToggleChecked;
-            Options.SaveSettings();
         }
 
         private void picUpdate_Click(object sender, EventArgs e)

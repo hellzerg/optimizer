@@ -380,7 +380,6 @@ namespace Optimizer
             this.btnResetConfig = new System.Windows.Forms.Button();
             this.lblTheming = new System.Windows.Forms.Label();
             this.quickAccessToggle = new Optimizer.ToggleCard();
-            this.helpTipsToggle = new Optimizer.ToggleCard();
             this.imagesHw = new System.Windows.Forms.ImageList(this.components);
             this.defineCommandDialog = new System.Windows.Forms.OpenFileDialog();
             this.defineProgramDialog = new System.Windows.Forms.OpenFileDialog();
@@ -3341,7 +3340,7 @@ namespace Optimizer
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1055, 615);
+            this.tabPage2.Size = new System.Drawing.Size(1060, 615);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "DNS";
             // 
@@ -4363,7 +4362,7 @@ namespace Optimizer
             this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage8.Size = new System.Drawing.Size(1057, 617);
+            this.tabPage8.Size = new System.Drawing.Size(1062, 617);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Add/Modify";
             // 
@@ -4707,7 +4706,7 @@ namespace Optimizer
             this.tabPage9.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage9.Size = new System.Drawing.Size(1057, 617);
+            this.tabPage9.Size = new System.Drawing.Size(1062, 617);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Remove";
             // 
@@ -4817,7 +4816,7 @@ namespace Optimizer
             this.tabPage10.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage10.Size = new System.Drawing.Size(1057, 617);
+            this.tabPage10.Size = new System.Drawing.Size(1062, 617);
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Ready Menus";
             // 
@@ -4957,7 +4956,7 @@ namespace Optimizer
             this.tabPage11.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage11.Size = new System.Drawing.Size(1057, 617);
+            this.tabPage11.Size = new System.Drawing.Size(1062, 617);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Run Dialog";
             // 
@@ -5157,7 +5156,6 @@ namespace Optimizer
             this.optionsTab.Controls.Add(this.btnResetConfig);
             this.optionsTab.Controls.Add(this.lblTheming);
             this.optionsTab.Controls.Add(this.quickAccessToggle);
-            this.optionsTab.Controls.Add(this.helpTipsToggle);
             this.optionsTab.Location = new System.Drawing.Point(4, 25);
             this.optionsTab.Margin = new System.Windows.Forms.Padding(2);
             this.optionsTab.Name = "optionsTab";
@@ -5539,22 +5537,6 @@ namespace Optimizer
             this.quickAccessToggle.Tag = "themeable";
             this.quickAccessToggle.ToggleChecked = false;
             this.quickAccessToggle.ToggleClicked += new System.EventHandler(this.quickAccessToggle_ToggleClicked);
-            // 
-            // helpTipsToggle
-            // 
-            this.helpTipsToggle.AccessibleName = "Show Help Messages";
-            this.helpTipsToggle.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
-            this.helpTipsToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.helpTipsToggle.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.helpTipsToggle.ForeColor = System.Drawing.Color.White;
-            this.helpTipsToggle.LabelText = "Show Help Messages";
-            this.helpTipsToggle.Location = new System.Drawing.Point(21, 81);
-            this.helpTipsToggle.Name = "helpTipsToggle";
-            this.helpTipsToggle.Size = new System.Drawing.Size(374, 24);
-            this.helpTipsToggle.TabIndex = 87;
-            this.helpTipsToggle.Tag = "themeable";
-            this.helpTipsToggle.ToggleChecked = false;
-            this.helpTipsToggle.ToggleClicked += new System.EventHandler(this.helpTipsToggle_ToggleClicked);
             // 
             // imagesHw
             // 
@@ -6147,7 +6129,6 @@ namespace Optimizer
         private ToggleCard leftTaskbarSw;
         private ToggleCard disableOneDriveSw;
         private ToggleCard quickAccessToggle;
-        private ToggleCard helpTipsToggle;
         private PictureBox picUpdate;
         private TabPage indiciumTab;
         private MoonTree specsTree;

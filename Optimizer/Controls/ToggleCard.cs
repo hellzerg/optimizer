@@ -59,26 +59,23 @@ namespace Optimizer
 
         private void Label_MouseLeave(object sender, EventArgs e)
         {
-            if (!Options.CurrentOptions.ShowHelp) return;
             Label.Font = new System.Drawing.Font(Label.Font, System.Drawing.FontStyle.Regular);
         }
 
         private void Label_MouseEnter(object sender, EventArgs e)
         {
-            if (!Options.CurrentOptions.ShowHelp) return;
             Label.Font = new System.Drawing.Font(Label.Font, System.Drawing.FontStyle.Underline);
         }
 
         private void Label_Click(object sender, EventArgs e)
         {
-            if (Label.Tag == null || !Options.CurrentOptions.ShowHelp) return;
+            if (Label.Tag == null) return;
             _subForm.SetTip(Label.Tag.ToString());
             _subForm.ShowDialog(this);
         }
 
         private void Label_MouseHover(object sender, EventArgs e)
         {
-            if (!Options.CurrentOptions.ShowHelp) return;
             Label.Font = new System.Drawing.Font(Label.Font, System.Drawing.FontStyle.Underline);
         }
     }

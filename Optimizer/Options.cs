@@ -14,7 +14,6 @@ namespace Optimizer
         public Color Theme { get; set; }
         public string AppsFolder { get; set; }
         public bool EnableTray { get; set; }
-        public bool ShowHelp { get; set; }
         public bool AutoStart { get; set; }
 
         public LanguageCode LanguageCode { get; set; }
@@ -210,7 +209,6 @@ namespace Optimizer
                     CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
                     Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
                     CurrentOptions.EnableTray = false;
-                    CurrentOptions.ShowHelp = true;
                     CurrentOptions.AutoStart = false;
 
                     CurrentOptions.LanguageCode = LanguageCode.EN;
