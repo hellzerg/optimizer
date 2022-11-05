@@ -1,3 +1,7 @@
+## [14.4] - 2022-11-05
+- Hotfix: Disabling Game Bar does not turn off Game Mode too
+- Hotfix: Resetting Classic Ribbon for Explorer is working properly (Windows 11)
+
 ## [14.3] - 2022-10-26
 - New: Disable Virtualization-based security (for Windows 11)
 - New: Concise categorization for every toggle

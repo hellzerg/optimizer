@@ -1659,6 +1659,7 @@ namespace Optimizer
         internal static void DisableFileExplorerClassicRibbon()
         {
             Registry.CurrentUser.DeleteSubKeyTree(@"Software\Classes\CLSID\{d93ed569-3b3e-4bff-8355-3c44f6a52bb5}", false);
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell\Update\Packages", "UndockingDisable");
         }
 
         internal static void EnableFilesCompactMode()
