@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public partial class FileUnlockForm : Form
+    public sealed partial class FileUnlockForm : Form
     {
         List<Process> _lockingProcesses;
 

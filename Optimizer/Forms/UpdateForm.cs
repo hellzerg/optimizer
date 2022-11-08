@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public partial class UpdateForm : Form
+    public sealed partial class UpdateForm : Form
     {
         public UpdateForm(string message, bool newUpdate, string changelog, string latestVersion)
         {

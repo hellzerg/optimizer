@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace Optimizer
 {
-    public class ColorOverrider
+    public sealed class ColorOverrider
     {
         public static event Action SystemColorsChanging;
         public static event Action SystemColorsChanged;

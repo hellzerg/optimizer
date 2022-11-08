@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public partial class AboutForm : Form
+    public sealed partial class AboutForm : Form
     {
         public AboutForm()
         {

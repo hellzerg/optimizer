@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public class MoonCheckList : CheckedListBox
+    public sealed class MoonCheckList : CheckedListBox
     {
         public MoonCheckList()
         {

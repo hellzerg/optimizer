@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 namespace Optimizer
 {
-    internal class EmbeddedAssembly
+    internal sealed class EmbeddedAssembly
     {
         static Dictionary<string, Assembly> _dictionary;
 

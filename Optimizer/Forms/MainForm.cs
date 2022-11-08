@@ -18,7 +18,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public partial class MainForm : Form
+    public sealed partial class MainForm : Form
     {
         Dictionary<string, string> translationList;
 

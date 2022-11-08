@@ -2,7 +2,7 @@
 
 namespace Optimizer
 {
-    public partial class AppCard : UserControl
+    public sealed partial class AppCard : UserControl
     {
         public AppCard()
         {

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public partial class StartupPreviewForm : Form
+    public sealed partial class StartupPreviewForm : Form
     {
         string _token = string.Empty;
 

@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Optimizer")]
 [assembly: AssemblyDescription("Make Windows faster and more secure")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("deadmoon © 2021")]
+[assembly: AssemblyCompany("deadmoon © 2022")]
 [assembly: AssemblyProduct("Optimizer")]
-[assembly: AssemblyCopyright("deadmoon © 2021")]
+[assembly: AssemblyCopyright("deadmoon © 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
