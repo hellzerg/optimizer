@@ -2515,23 +2515,8 @@ namespace Optimizer
             {
                 string ip = txtIP.Text.Trim();
                 string domain = txtDomain.Text.Trim();
-                string recommendedDomain = string.Empty;
-
-                if (!domain.StartsWith("www."))
-                {
-                    recommendedDomain = "www." + domain;
-                }
-                else
-                {
-                    recommendedDomain = domain.Replace("www.", string.Empty);
-                }
 
                 HostsHelper.AddEntry(HostsHelper.SanitizeEntry(ip) + " " + HostsHelper.SanitizeEntry(domain));
-
-                if (!string.IsNullOrEmpty(recommendedDomain))
-                {
-                    HostsHelper.AddEntry(HostsHelper.SanitizeEntry(ip) + " " + HostsHelper.SanitizeEntry(recommendedDomain));
-                }
 
                 GetHostsEntries();
 

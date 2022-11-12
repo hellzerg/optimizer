@@ -159,7 +159,7 @@ namespace Optimizer
                                     Environment.Exit(0);
                                 }
 
-                                // resets configuration
+                                // repairs corrupted configuration
                                 if (arg == "/reset")
                                 {
                                     Utilities.Repair(true);
