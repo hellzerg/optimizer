@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public partial class SubForm : Form
+    public sealed partial class SubForm : Form
     {
         public SubForm()
         {

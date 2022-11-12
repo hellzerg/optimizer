@@ -22,7 +22,7 @@ namespace Optimizer
         }
     }
 
-    internal class FolderStartupItem : StartupItem
+    internal sealed class FolderStartupItem : StartupItem
     {
         internal string Shortcut { get; set; }
 
@@ -54,7 +54,7 @@ namespace Optimizer
         }
     }
 
-    internal class RegistryStartupItem : StartupItem
+    internal sealed class RegistryStartupItem : StartupItem
     {
         internal RegistryKey Key { get; set; }
 

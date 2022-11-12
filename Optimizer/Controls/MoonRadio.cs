@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public class MoonRadio : RadioButton
+    public sealed class MoonRadio : RadioButton
     {
         public MoonRadio()
         {

@@ -3,7 +3,7 @@
 namespace Optimizer
 {
     [Serializable]
-    public class StartupBackupItem
+    public sealed class StartupBackupItem
     {
         public string Name { get; set; }
         public string FileLocation { get; set; }

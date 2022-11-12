@@ -3,7 +3,7 @@
 namespace Optimizer
 {
     [Serializable]
-    public class SilentConfig
+    public sealed class SilentConfig
     {
         public int WindowsVersion { get; set; }
 

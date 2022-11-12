@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public partial class StartupRestoreForm : Form
+    public sealed partial class StartupRestoreForm : Form
     {
         string[] _backups;
 

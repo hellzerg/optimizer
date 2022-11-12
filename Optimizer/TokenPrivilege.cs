@@ -7,7 +7,7 @@ namespace Optimizer
     /*
      *  Allows clients to obtain a Windows token privilege for a well-defined scope simply by "using" an instance of this class.
      */
-    class TokenPrivilege : IDisposable
+    sealed class TokenPrivilege : IDisposable
     {
         private enum PrivilegeAction : uint
         {

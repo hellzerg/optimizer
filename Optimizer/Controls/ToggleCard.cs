@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public partial class ToggleCard : UserControl
+    public sealed partial class ToggleCard : UserControl
     {
         public event EventHandler ToggleClicked;
 

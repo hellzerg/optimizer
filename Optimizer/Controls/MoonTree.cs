@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public class MoonTree : TreeView
+    public sealed class MoonTree : TreeView
     {
         string[] rootNodes =
         {

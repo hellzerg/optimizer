@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public class MoonCheck : CheckBox
+    public sealed class MoonCheck : CheckBox
     {
         public MoonCheck()
         {

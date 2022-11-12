@@ -2,7 +2,7 @@
 
 namespace Optimizer
 {
-    public partial class SplashForm : Form
+    public sealed partial class SplashForm : Form
     {
         public SplashForm()
         {

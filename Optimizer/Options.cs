@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace Optimizer
 {
     [Serializable]
-    public class SettingsJson
+    public sealed class SettingsJson
     {
         public Color Theme { get; set; }
         public string AppsFolder { get; set; }

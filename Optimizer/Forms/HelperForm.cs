@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public partial class HelperForm : System.Windows.Forms.Form
+    public sealed partial class HelperForm : System.Windows.Forms.Form
     {
         MainForm _main;
         MessageType _type;

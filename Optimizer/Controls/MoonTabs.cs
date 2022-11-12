@@ -12,7 +12,7 @@ namespace Optimizer
         ComVisible(true), ClassInterface(ClassInterfaceType.AutoDispatch),
         DefaultProperty("TabPages"), DefaultEvent("SelectedIndexChanged")
     ]
-    public class MoonTabs : TabControl
+    public sealed class MoonTabs : TabControl
     {
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);

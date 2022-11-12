@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public class MoonToggle : CheckBox
+    public sealed class MoonToggle : CheckBox
     {
         bool solidStyle = true;
 

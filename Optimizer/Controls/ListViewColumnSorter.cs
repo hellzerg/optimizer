@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    internal class ListViewColumnSorter : IComparer
+    internal sealed class ListViewColumnSorter : IComparer
     {
         int _columnToSort;
         SortOrder _sortOrder;

@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public class MoonList : ListBox
+    public sealed class MoonList : ListBox
     {
         public MoonList()
         {

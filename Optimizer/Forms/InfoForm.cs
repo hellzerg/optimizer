@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public partial class InfoForm : Form
+    public sealed partial class InfoForm : Form
     {
         public InfoForm(string info)
         {

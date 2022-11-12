@@ -1,6 +1,6 @@
 ﻿namespace Optimizer
 {
-    public class FeedApp
+    public sealed class FeedApp
     {
         public string Title { get; set; }
         public string Link64 { get; set; }

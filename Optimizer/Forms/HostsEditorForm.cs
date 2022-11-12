@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public partial class HostsEditorForm : Form
+    public sealed partial class HostsEditorForm : Form
     {
         string[] _toSave = null;
 

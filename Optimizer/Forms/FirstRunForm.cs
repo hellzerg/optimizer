@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public partial class FirstRunForm : Form
+    public sealed partial class FirstRunForm : Form
     {
         public FirstRunForm()
         {

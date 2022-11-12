@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    internal class MoonProgress : ProgressBar
+    internal sealed class MoonProgress : ProgressBar
     {
         public MoonProgress()
         {
