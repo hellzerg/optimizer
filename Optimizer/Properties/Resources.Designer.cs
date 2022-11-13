@@ -88,26 +88,6 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap amber {
-            get {
-                object obj = ResourceManager.GetObject("amber", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap amethyst {
-            get {
-                object obj = ResourceManager.GetObject("amethyst", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;btnAbout&quot;: &quot;حسنا&quot;,
         ///	&quot;restartButton&quot;: &quot;إعادة التشغيل الآن&quot;,
@@ -123,16 +103,6 @@ namespace Optimizer.Properties {
         internal static string AR {
             get {
                 return ResourceManager.GetString("AR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap azurite {
-            get {
-                object obj = ResourceManager.GetObject("azurite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -680,16 +650,6 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap jade {
-            get {
-                object obj = ResourceManager.GetObject("jade", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to {
         ///     &quot;btnAbout&quot;: &quot;확인&quot;,
         ///	&quot;restartButton&quot;: &quot;지금 다시 시작&quot;,
@@ -752,66 +712,6 @@ namespace Optimizer.Properties {
         internal static System.Drawing.Bitmap kurdish {
             get {
                 object obj = ResourceManager.GetObject("kurdish", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loadingAmber {
-            get {
-                object obj = ResourceManager.GetObject("loadingAmber", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loadingAmethyst {
-            get {
-                object obj = ResourceManager.GetObject("loadingAmethyst", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loadingAzurite {
-            get {
-                object obj = ResourceManager.GetObject("loadingAzurite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loadingJade {
-            get {
-                object obj = ResourceManager.GetObject("loadingJade", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loadingRuby {
-            get {
-                object obj = ResourceManager.GetObject("loadingRuby", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loadingSilver {
-            get {
-                object obj = ResourceManager.GetObject("loadingSilver", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1008,29 +908,9 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ruby {
-            get {
-                object obj = ResourceManager.GetObject("ruby", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap russia {
             get {
                 object obj = ResourceManager.GetObject("russia", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap silver {
-            get {
-                object obj = ResourceManager.GetObject("silver", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

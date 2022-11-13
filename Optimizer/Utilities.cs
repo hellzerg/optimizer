@@ -114,7 +114,7 @@ namespace Optimizer
 
         internal static string GetBitness()
         {
-            string bitness = string.Empty;
+            string bitness;
 
             if (Environment.Is64BitOperatingSystem)
             {
@@ -562,7 +562,7 @@ namespace Optimizer
 
         public static RegistryKey OpenSubKeyWritable(this RegistryKey registryKey, string subkeyName, RegistryRights? rights = null)
         {
-            RegistryKey subKey = null;
+            RegistryKey subKey;
 
             if (rights == null)
                 subKey = registryKey.OpenSubKey(subkeyName, RegistryKeyPermissionCheck.ReadWriteSubTree, RegistryRights.FullControl);
