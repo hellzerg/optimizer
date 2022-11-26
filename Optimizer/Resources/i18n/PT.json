@@ -433,5 +433,7 @@ No entanto, eles são considerados um procedimento arriscado. Geralmente são la
 	"dnsTitle": "Altere rapidamente o servidor DNS",
 	"vbsSw": "Desativar segurança baseada em virtualização",
 	"vbsTip": "Recurso de kernel que impede a injeção de drivers mal-intencionados nos processos.
-Tem efeito negativo no desempenho."
+Tem efeito negativo no desempenho.",
+	"winSearchSw": "Desativar pesquisa",
+	"winSearchTip": "Desativa o serviço de pesquisa do Windows."
 }

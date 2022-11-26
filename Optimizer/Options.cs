@@ -38,6 +38,7 @@ namespace Optimizer
         public bool DisableSMB1 { get; set; }
         public bool DisableSMB2 { get; set; }
         public bool DisableNTFSTimeStamp { get; set; }
+        public bool DisableSearch { get; set; }
 
         // apps telemetry
         public bool DisableOffice2016Telemetry { get; set; }
@@ -253,6 +254,7 @@ namespace Optimizer
                     CurrentOptions.DisableSMB1 = false;
                     CurrentOptions.DisableSMB2 = false;
                     CurrentOptions.DisableNTFSTimeStamp = false;
+                    CurrentOptions.DisableSearch = false;
 
                     CurrentOptions.DisableVisualStudioTelemetry = false;
                     CurrentOptions.DisableFirefoxTemeletry = false;
@@ -316,7 +318,7 @@ namespace Optimizer
                 if (CurrentOptions.LanguageCode == LanguageCode.HU) TranslationList = JObject.Parse(Properties.Resources.HU);
                 if (CurrentOptions.LanguageCode == LanguageCode.RO) TranslationList = JObject.Parse(Properties.Resources.RO);
                 if (CurrentOptions.LanguageCode == LanguageCode.NL) TranslationList = JObject.Parse(Properties.Resources.NL);
-                ;
+                if (CurrentOptions.LanguageCode == LanguageCode.UA) TranslationList = JObject.Parse(Properties.Resources.UA);
             }
             catch (Exception ex)
             {

@@ -96,6 +96,7 @@
         KU, // kurdish
         HU, // hungarian
         RO, // romanian
-        NL // dutch
+        NL, // dutch
+        UA // ukrainian
     }
 }

@@ -254,6 +254,18 @@ namespace Optimizer
                 }
             }
 
+            if (CurrentSilentConfig.DisableSearch.HasValue)
+            {
+                if (CurrentSilentConfig.DisableSearch.Value)
+                {
+                    Optimize.DisableSearch();
+                }
+                else
+                {
+                    Optimize.EnableSearch();
+                }
+            }
+
             if (CurrentSilentConfig.DisableChromeTelemetry.HasValue)
             {
                 if (CurrentSilentConfig.DisableChromeTelemetry.Value)
@@ -752,6 +764,10 @@ namespace Optimizer
             if (CurrentSilentConfig.DisableSuperfetch.HasValue)
             {
                 Options.CurrentOptions.DisableSuperfetch = CurrentSilentConfig.DisableSuperfetch.Value;
+            }
+            if (CurrentSilentConfig.DisableSearch.HasValue)
+            {
+                Options.CurrentOptions.DisableSearch = CurrentSilentConfig.DisableSearch.Value;
             }
             if (CurrentSilentConfig.DisableTelemetryTasks.HasValue)
             {

@@ -1,3 +1,10 @@
+## [14.5] - 2022-11-26
+- New: Fully translated into Ukrainian (thanks to Kirill Ermakov - https://github.com/kirill0ermakov) (261)
+- New: Disable Search service in General (#257)
+- Hotfix: Weather not being enabled after resetting Classic File Explorer (#263)
+- Hotfix: Domain will not be prefixed with www in Hosts Editor anymore (#259)
+- Improved: Assets cleanup, reduced file size (#260)
+
 ## [14.4] - 2022-11-05
 - Hotfix: Disabling Game Bar does not turn off Game Mode too
 - Hotfix: Resetting Classic Ribbon for Explorer is working properly (Windows 11)

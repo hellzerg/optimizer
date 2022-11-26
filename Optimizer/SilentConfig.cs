@@ -26,6 +26,7 @@ namespace Optimizer
         public bool? DisableSMB1 { get; set; }
         public bool? DisableSMB2 { get; set; }
         public bool? DisableNTFSTimeStamp { get; set; }
+        public bool? DisableSearch { get; set; }
 
         public bool? DisableOffice2016Telemetry { get; set; }
         public bool? DisableVisualStudioTelemetry { get; set; }

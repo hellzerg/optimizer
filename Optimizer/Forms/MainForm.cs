@@ -260,6 +260,7 @@ namespace Optimizer
             smb1Sw.ToggleClicked += Smb1Sw_ToggleClicked;
             smb2Sw.ToggleClicked += Smb2Sw_ToggleClicked;
             ntfsStampSw.ToggleClicked += NtfsStampSw_ToggleClicked;
+            winSearchSw.ToggleClicked += WinSearchSw_ToggleClicked;
             nvidiaTelemetrySw.ToggleClicked += NvidiaTelemetrySw_ToggleClicked;
             vbsSw.ToggleClicked += VbsSw_ToggleClicked;
 
@@ -270,6 +271,19 @@ namespace Optimizer
             DSB.ToggleClicked += DSB_ToggleClicked;
             AddCMDB.ToggleClicked += AddCMDB_ToggleClicked;
             AddOwnerB.ToggleClicked += AddOwnerB_ToggleClicked;
+        }
+
+        private void WinSearchSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (winSearchSw.ToggleChecked)
+            {
+                Optimize.DisableSearch();
+            }
+            else
+            {
+                Optimize.EnableSearch();
+            }
+            Options.CurrentOptions.DisableSearch = winSearchSw.ToggleChecked;
         }
 
         private void VbsSw_ToggleClicked(object sender, EventArgs e)
@@ -599,6 +613,7 @@ namespace Optimizer
             gameModeSw.Label.Tag = Options.TranslationList["gameModeTip"].ToString();
             compactModeSw.Label.Tag = Options.TranslationList["compactModeTip"].ToString();
             hibernateSw.Label.Tag = Options.TranslationList["hibernateTip"].ToString();
+            winSearchSw.Label.Tag = Options.TranslationList["winSearchTip"].ToString();
             smb1Sw.Label.Tag = Options.TranslationList["smbTip"].ToString().Replace("{v}", "v1");
             smb2Sw.Label.Tag = Options.TranslationList["smbTip"].ToString().Replace("{v}", "v2");
             ntfsStampSw.Label.Tag = Options.TranslationList["ntfsStampTip"].ToString();
@@ -1085,110 +1100,78 @@ namespace Optimizer
             if (Options.CurrentOptions.LanguageCode == LanguageCode.RU)
             {
                 boxLang.Text = "русский";
-                //this.MinimumSize = _sizeRussian;
-                //this.Size = _sizeRussian;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.TR)
             {
                 boxLang.Text = "Türkçe";
-                //this.MinimumSize = _sizeTurkish;
-                //this.Size = _sizeTurkish;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.EL)
             {
                 boxLang.Text = "Ελληνικά";
-                //this.MinimumSize = _sizeHellenic;
-                //this.Size = _sizeHellenic;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.DE)
             {
                 boxLang.Text = "Deutsch";
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.PT)
             {
                 boxLang.Text = "Português";
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.FR)
             {
                 boxLang.Text = "Français";
-                //this.MinimumSize = _sizeFrench;
-                //this.Size = _sizeFrench;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.ES)
             {
                 boxLang.Text = "Español";
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.IT)
             {
                 boxLang.Text = "Italiano";
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.CN)
             {
                 boxLang.Text = "简体中文";
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.TW)
             {
                 boxLang.Text = "繁體中文";
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.CZ)
             {
                 boxLang.Text = "Čeština";
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.KO)
             {
                 boxLang.Text = "한국어";
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.PL)
             {
                 boxLang.Text = "Polski";
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.AR)
             {
                 boxLang.Text = "العربية";
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.KU)
             {
                 boxLang.Text = "کوردی";
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.HU)
             {
                 boxLang.Text = "Magyar";
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.RO)
             {
                 boxLang.Text = "Română";
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.NL)
             {
                 boxLang.Text = "Nederlands";
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
+            }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.UA)
+            {
+                boxLang.Text = "українська";
             }
         }
 
@@ -2156,6 +2139,7 @@ namespace Optimizer
             smb1Sw.ToggleChecked = Options.CurrentOptions.DisableSMB1;
             smb2Sw.ToggleChecked = Options.CurrentOptions.DisableSMB2;
             ntfsStampSw.ToggleChecked = Options.CurrentOptions.DisableNTFSTimeStamp;
+            winSearchSw.ToggleChecked = Options.CurrentOptions.DisableSearch;
             ffTelemetrySw.ToggleChecked = Options.CurrentOptions.DisableFirefoxTemeletry;
             vsSw.ToggleChecked = Options.CurrentOptions.DisableVisualStudioTelemetry;
             chromeTelemetrySw.ToggleChecked = Options.CurrentOptions.DisableChromeTelemetry;
@@ -4214,134 +4198,101 @@ namespace Optimizer
             {
                 picFlag.Image = Properties.Resources.united_kingdom;
                 Options.CurrentOptions.LanguageCode = LanguageCode.EN;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "русский")
             {
                 picFlag.Image = Properties.Resources.russia;
                 Options.CurrentOptions.LanguageCode = LanguageCode.RU;
-                //this.MinimumSize = _sizeRussian;
-                //this.Size = _sizeRussian;
             }
             else if (boxLang.Text == "Ελληνικά")
             {
                 picFlag.Image = Properties.Resources.greece;
                 Options.CurrentOptions.LanguageCode = LanguageCode.EL;
-                //this.MinimumSize = _sizeHellenic;
-                //this.Size = _sizeHellenic;
             }
             else if (boxLang.Text == "Deutsch")
             {
                 picFlag.Image = Properties.Resources.germany;
                 Options.CurrentOptions.LanguageCode = LanguageCode.DE;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Italiano")
             {
                 picFlag.Image = Properties.Resources.italy;
                 Options.CurrentOptions.LanguageCode = LanguageCode.IT;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Čeština")
             {
                 picFlag.Image = Properties.Resources.czech;
                 Options.CurrentOptions.LanguageCode = LanguageCode.CZ;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Türkçe")
             {
                 picFlag.Image = Properties.Resources.turkey;
                 Options.CurrentOptions.LanguageCode = LanguageCode.TR;
-                //this.MinimumSize = _sizeTurkish;
-                //this.Size = _sizeTurkish;
             }
             else if (boxLang.Text == "Español")
             {
                 picFlag.Image = Properties.Resources.spain;
                 Options.CurrentOptions.LanguageCode = LanguageCode.ES;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Português")
             {
                 picFlag.Image = Properties.Resources.brazil;
                 Options.CurrentOptions.LanguageCode = LanguageCode.PT;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Français")
             {
                 picFlag.Image = Properties.Resources.france;
                 Options.CurrentOptions.LanguageCode = LanguageCode.FR;
-                //this.MinimumSize = _sizeFrench;
-                //this.Size = _sizeFrench;
             }
             else if (boxLang.Text == "简体中文")
             {
                 picFlag.Image = Properties.Resources.china;
                 Options.CurrentOptions.LanguageCode = LanguageCode.CN;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "繁體中文")
             {
                 picFlag.Image = Properties.Resources.taiwan;
                 Options.CurrentOptions.LanguageCode = LanguageCode.TW;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "한국어")
             {
                 picFlag.Image = Properties.Resources.korea;
                 Options.CurrentOptions.LanguageCode = LanguageCode.KO;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Polski")
             {
                 picFlag.Image = Properties.Resources.poland;
                 Options.CurrentOptions.LanguageCode = LanguageCode.PL;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "العربية")
             {
                 picFlag.Image = Properties.Resources.egypt;
                 Options.CurrentOptions.LanguageCode = LanguageCode.AR;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "کوردی")
             {
                 picFlag.Image = Properties.Resources.kurdish;
                 Options.CurrentOptions.LanguageCode = LanguageCode.KU;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Magyar")
             {
                 picFlag.Image = Properties.Resources.hungary;
                 Options.CurrentOptions.LanguageCode = LanguageCode.HU;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Română")
             {
                 picFlag.Image = Properties.Resources.romania;
                 Options.CurrentOptions.LanguageCode = LanguageCode.RO;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
             }
             else if (boxLang.Text == "Nederlands")
             {
                 picFlag.Image = Properties.Resources.dutch;
                 Options.CurrentOptions.LanguageCode = LanguageCode.NL;
-                //this.MinimumSize = _sizeDefault;
-                //this.Size = _sizeDefault;
+            }
+            else if (boxLang.Text == "українська")
+            {
+                picFlag.Image = Properties.Resources.ukraine;
+                Options.CurrentOptions.LanguageCode = LanguageCode.UA;
             }
 
             this.CenterToScreen();

@@ -22,7 +22,7 @@ namespace Optimizer.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal sealed class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -88,27 +88,13 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap amber {
-            get {
-                object obj = ResourceManager.GetObject("amber", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap amethyst {
-            get {
-                object obj = ResourceManager.GetObject("amethyst", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;نظام&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;خصوصية&quot;,
+        ///	&quot;subGaming&quot;: &quot;الألعاب&quot;,
+        ///	&quot;subTouch&quot;: &quot;يلمس&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;ريط المهام&quot;,
+        ///	&quot;subExtras&quot;: &quot;إضافات&quot;,
         ///	&quot;btnAbout&quot;: &quot;حسنا&quot;,
         ///	&quot;restartButton&quot;: &quot;إعادة التشغيل الآن&quot;,
         ///	&quot;restartButton8&quot;: &quot;إعادة التشغيل الآن&quot;,
@@ -117,22 +103,11 @@ namespace Optimizer.Properties {
         ///	&quot;btnFind&quot;: &quot;يجد&quot;,
         ///	&quot;btnKill&quot;: &quot;قتل&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;مقابض الملفات&quot;,
-        ///	&quot;onedriveM&quot;: &quot;هل أنت متأكد من أنك تريد إزالة تثبيت OneDrive؟ يؤدي هذا إلى حذف ملفات سطح المكتب والمستندات الخاصة بك! استخدم هذا الخيار فقط في حساب محلي!&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;هل أنت متأكد أنك تريد تعطيل استعادة النظام؟ سيؤدي هذا  [rest of string was truncated]&quot;;.
+        ///	&quot;onedriveM&quot;: &quot;هل أنت متأكد من أنك تريد إزالة تثبيت OneDrive؟ يؤدي هذا إلى حذف  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AR {
             get {
                 return ResourceManager.GetString("AR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap azurite {
-            get {
-                object obj = ResourceManager.GetObject("azurite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -168,6 +143,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;系统&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;隐私&quot;,
+        ///	&quot;subGaming&quot;: &quot;赌博&quot;,
+        ///	&quot;subTouch&quot;: &quot;触碰&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;任务栏&quot;,
+        ///	&quot;subExtras&quot;: &quot;附加功能&quot;,
         ///	&quot;btnAbout&quot;: &quot;确定&quot;,
         ///	&quot;restartButton&quot;: &quot;现在重启&quot;,
         ///	&quot;restartButton8&quot;: &quot;现在重启&quot;,
@@ -179,12 +160,7 @@ namespace Optimizer.Properties {
         ///	&quot;txtVersion&quot;: &quot;版本: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;您使用的是{BITS}&quot;,
         ///	&quot;onedriveM&quot;: &quot;确定要卸载 OneDrive 吗？ 这将删除您的桌面和文档文件！ 仅在本地帐户上使用此选项！&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;您确定要禁用系统还原吗？ 这将删除您当前的备份图像！&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;更新可用&quot;,
-        ///	&quot;lblLab&quot;: &quot;实验构建\n(删除后测试)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;启用性能调整&quot;,
-        ///	&quot;networkSw&quot;: &quot;禁用网络节流&quot;,
-        ///	&quot;defenderSw&quot;: &quot;禁用 W [rest of string was truncated]&quot;;.
+        ///	&quot;systemRestoreM&quot;: &quot;您确定要禁用系统还原吗？ 这将删除您当前的备份图像！&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CN {
             get {
@@ -194,6 +170,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;Systém&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Soukromí&quot;,
+        ///	&quot;subGaming&quot;: &quot;Hraní&quot;,
+        ///	&quot;subTouch&quot;: &quot;Dotek&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Hlavní panel&quot;,
+        ///	&quot;subExtras&quot;: &quot;Extra&quot;,
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;Restartovat nyní&quot;,
         ///	&quot;restartButton8&quot;: &quot;Restartovat nyní&quot;,
@@ -203,8 +185,7 @@ namespace Optimizer.Properties {
         ///	&quot;btnKill&quot;: &quot;Zabít&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Držadla souborů (File Handles)&quot;,
         ///	&quot;txtVersion&quot;: &quot;Verze: {VN}&quot;,
-        ///	&quot;onedriveM&quot;: &quot;Opravdu chcete odinstalovat OneDrive? Tím smažete soubory plochy a dokumentů! Tuto možnost používejte pouze na místním účtu!&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;Opravdu chcete zakázat Obno [rest of string was truncated]&quot;;.
+        ///	&quot;onedriveM&quot;: &quot;Opravdu chcete odin [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CZ {
             get {
@@ -224,6 +205,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;System&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Privatsphäre&quot;,
+        ///	&quot;subGaming&quot;: &quot;Spielen&quot;,
+        ///	&quot;subTouch&quot;: &quot;Berühren&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Taskleiste&quot;,
+        ///	&quot;subExtras&quot;: &quot;Extras&quot;,
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;Jetzt neu starten&quot;,
         ///	&quot;restartButton8&quot;: &quot;Jetzt neu starten&quot;,
@@ -233,8 +220,7 @@ namespace Optimizer.Properties {
         ///	&quot;btnFind&quot;: &quot;Finden&quot;,
         ///	&quot;btnKill&quot;: &quot;Töten&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Dateihandles&quot;,
-        ///	&quot;txtBitness&quot;: &quot;Betriebssystem: {BITS}&quot;,
-        ///	&quot;onedriveM&quot;: &quot;Möchten Sie OneDrive wirklich deinstallieren? Dadurch werden Ihre Desktop- und Dokumentdateien gelöscht! Verwenden Sie diese Option nur [rest of string was truncated]&quot;;.
+        ///	&quot;txtBitness&quot;: &quot;Betriebssyst [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DE {
             get {
@@ -368,6 +354,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;Σύστημα&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Ιδιωτικότητα&quot;,
+        ///	&quot;subGaming&quot;: &quot;Gaming&quot;,
+        ///	&quot;subTouch&quot;: &quot;Αφή&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Γραμμή Εργασιών&quot;,
+        ///	&quot;subExtras&quot;: &quot;Πρόσθετα&quot;,
         ///	&quot;btnAbout&quot;: &quot;Εντάξει&quot;,
         ///	&quot;restartButton&quot;: &quot;Επανεκκίνηση τώρα&quot;,
         ///	&quot;restartButton8&quot;: &quot;Επανεκκίνηση τώρα&quot;,
@@ -377,10 +369,7 @@ namespace Optimizer.Properties {
         ///	&quot;trayUnlocker&quot;: &quot;File Handles&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Επανεκκίνηση για την εφαρμογή των αλλαγών&quot;,
         ///	&quot;txtVersion&quot;: &quot;Έκδοση: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;Αρχιτεκτονική {BITS}&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;Διαθέσιμη ενημέρωση&quot;,
-        ///	&quot;lblLab&quot;: &quot;Πειραματική έκδοση&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;Είστε σίγουροι ότι θέλετε να απενεργοποιήσετε τα αντίγραφα [rest of string was truncated]&quot;;.
+        ///	&quot;txtBitness [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EL {
             get {
@@ -390,6 +379,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;System&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Privacy&quot;,
+        ///	&quot;subGaming&quot;: &quot;Gaming&quot;,
+        ///	&quot;subTouch&quot;: &quot;Touch&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Taskbar&quot;,
+        ///	&quot;subExtras&quot;: &quot;Extras&quot;,
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;Restart now&quot;,
         ///	&quot;restartButton8&quot;: &quot;Restart now&quot;,
@@ -400,11 +395,7 @@ namespace Optimizer.Properties {
         ///	&quot;restartAndApply&quot;: &quot;Restart to apply changes&quot;,
         ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;You are working with {BITS}&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;Update available&quot;,
-        ///	&quot;lblLab&quot;: &quot;Experimental build\n(delete after testing)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Optimize Performance&quot;,
-        ///	&quot;networkSw&quot;: &quot;Disable Network Throttling&quot;,
-        ///	&quot;defenderSw [rest of string was truncated]&quot;;.
+        ///	&quot;linkUpdate&quot;: &quot;Update avai [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EN {
             get {
@@ -500,6 +491,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;Sistema&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Privacidad&quot;,
+        ///	&quot;subGaming&quot;: &quot;Juego de azar&quot;,
+        ///	&quot;subTouch&quot;: &quot;Tocar&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Barra de tareas&quot;,
+        ///	&quot;subExtras&quot;: &quot;Extras&quot;,
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;Reiniciar ahora&quot;,
         ///	&quot;restartButton8&quot;: &quot;Reiniciar ahora&quot;,
@@ -508,9 +505,7 @@ namespace Optimizer.Properties {
         ///	&quot;btnKill&quot;: &quot;Matar&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Asas de archivo&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Reiniciar para aplicar cambios&quot;,
-        ///	&quot;onedriveM&quot;: &quot;¿Seguro que quieres desinstalar OneDrive? ¡Esto eliminará sus archivos de escritorio y documentos! ¡Use esta opción solo en una cuenta local!&quot;,
-        ///	&quot;txtVersion&quot;: &quot;Versión: {VN}&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;¿Está seguro de que [rest of string was truncated]&quot;;.
+        ///	&quot;onedriveM&quot;: &quot;¿Seguro que quieres desinstalar OneDrive? ¡Est [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ES {
             get {
@@ -520,6 +515,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;Système&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Intimité&quot;,
+        ///	&quot;subGaming&quot;: &quot;Jeux&quot;,
+        ///	&quot;subTouch&quot;: &quot;Toucher&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Barre des tâches&quot;,
+        ///	&quot;subExtras&quot;: &quot;Suppléments&quot;,
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;redemarrer maintenant&quot;,
         ///	&quot;restartButton8&quot;: &quot;redemarrer maintenant&quot;,
@@ -528,9 +529,7 @@ namespace Optimizer.Properties {
         ///	&quot;btnKill&quot;: &quot;Tuer&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Poignées de fichier&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Redemarrer pour appliquer les changements&quot;,
-        ///	&quot;onedriveM&quot;: &quot;Voulez-vous vraiment désinstaller OneDrive? Cela supprimera vos fichiers de bureau et de document! N&apos;utilisez cette option que sur un compte local!&quot;,
-        ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
-        ///	&quot;s [rest of string was truncated]&quot;;.
+        ///	&quot;onedriveM&quot;: &quot;Voulez-vous vraimen [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string FR {
             get {
@@ -594,6 +593,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;Rendszer&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Magánélet&quot;,
+        ///	&quot;subGaming&quot;: &quot;Szerencsejáték&quot;,
+        ///	&quot;subTouch&quot;: &quot;Érintés&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Tálca&quot;,
+        ///	&quot;subExtras&quot;: &quot;Extrák&quot;,
         ///	&quot;btnAbout&quot;: &quot;Rendben&quot;,
         ///	&quot;restartButton&quot;: &quot;Újraindítás most&quot;,
         ///	&quot;restartButton8&quot;: &quot;Újraindítás most&quot;,
@@ -601,11 +606,7 @@ namespace Optimizer.Properties {
         ///	&quot;restartAndApply&quot;: &quot;Újraindítod az eszközt, hogy a változások érvénybe kerüljenek&quot;,
         ///	&quot;txtVersion&quot;: &quot;Verzuó: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;You are working with {BITS}&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;Frissítés elérhető&quot;,
-        ///	&quot;lblLab&quot;: &quot;Kísérleti verzió\n(töröld tesztelés után!)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Teljesítményjavítások engedélyezése&quot;,
-        ///	&quot;networkSw&quot;: &quot;Hálózati korlátozás letiltása&quot;,
-        ///	&quot;defende [rest of string was truncated]&quot;;.
+        ///	&quot;linkUpdate&quot;: &quot;Frissítés elérhető&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HU {
             get {
@@ -649,6 +650,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;Sistema&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Privacy&quot;,
+        ///	&quot;subGaming&quot;: &quot;Gioco&quot;,
+        ///	&quot;subTouch&quot;: &quot;Tocco&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Barra delle applicazioni&quot;,
+        ///	&quot;subExtras&quot;: &quot;Extra&quot;,
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;riavvia ora&quot;,
         ///	&quot;restartButton8&quot;: &quot;riavvia ora&quot;,
@@ -658,10 +665,7 @@ namespace Optimizer.Properties {
         ///	&quot;btnFind&quot;: &quot;Trova&quot;,
         ///	&quot;btnKill&quot;: &quot;Uccisione&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Manici di file&quot;,
-        ///	&quot;txtBitness&quot;: &quot;Architettura: {BITS}&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;Aggiornamento disponibile&quot;,
-        ///	&quot;lblLab&quot;: &quot;Build sperimentale\n(cancellare dopo il test)&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;Sei sicuro di voler disabilitare Ripristino configur [rest of string was truncated]&quot;;.
+        ///	&quot;txtBitness&quot;: &quot;Architettura: {BITS}&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string IT {
             get {
@@ -680,18 +684,14 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap jade {
-            get {
-                object obj = ResourceManager.GetObject("jade", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to {
-        ///     &quot;btnAbout&quot;: &quot;확인&quot;,
+        ///	&quot;subSystem&quot;: &quot;체계&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;은둔&quot;,
+        ///	&quot;subGaming&quot;: &quot;노름&quot;,
+        ///	&quot;subTouch&quot;: &quot;접촉&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;작업 표시줄&quot;,
+        ///	&quot;subExtras&quot;: &quot;엑스트라&quot;,
+        ///    &quot;btnAbout&quot;: &quot;확인&quot;,
         ///	&quot;restartButton&quot;: &quot;지금 다시 시작&quot;,
         ///	&quot;restartButton8&quot;: &quot;지금 다시 시작&quot;,
         ///	&quot;restartButton10&quot;: &quot;지금 다시 시작&quot;,
@@ -703,10 +703,7 @@ namespace Optimizer.Properties {
         ///	&quot;txtBitness&quot;: &quot;{BITS}로 작업중 - 한국어: 비너스걸&quot;,
         ///	&quot;linkUpdate&quot;: &quot;업데이트 가능&quot;,
         ///	&quot;lblLab&quot;: &quot;실험 빌드\n(테스트 후 삭제)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;성능 조정 사용함&quot;,
-        ///	&quot;networkSw&quot;: &quot;네트워크 조절 사용 안 함&quot;,
-        ///	&quot;defenderSw&quot;: &quot;Windows Defender 사용 안 함&quot;,
-        ///	&quot;systemRestoreSw&quot;: &quot;시스템 복원 사용 안 함&quot;, [rest of string was truncated]&quot;;.
+        ///	&quot;performanc [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string KO {
             get {
@@ -726,6 +723,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;سیستەم&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;تایبەتمەندیەتی&quot;,
+        ///	&quot;subGaming&quot;: &quot;یاریکردن&quot;,
+        ///	&quot;subTouch&quot;: &quot;دەست لێدان&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;تاسکبار&quot;,
+        ///	&quot;subExtras&quot;: &quot;زیادە&quot;,
         ///	&quot;btnAbout&quot;: &quot;باشە&quot;,
         ///	&quot;restartButton&quot;: &quot;ئێستا ڕیستارتی بکەوە&quot;,
         ///	&quot;restartButton8&quot;: &quot;ئێستا ڕیستارتی بکەوە&quot;,
@@ -735,10 +738,7 @@ namespace Optimizer.Properties {
         ///	&quot;trayUnlocker&quot;: &quot;دەسکەکانی فایل&quot;,
         ///	&quot;restartAndApply&quot;: &quot;ڕیستارتی ئەکەیتەوە بۆ بینینی گۆڕانکاریەکان&quot;,
         ///	&quot;txtVersion&quot;: &quot;وەشان : &quot;,
-        ///	&quot;txtBitness&quot;: &quot;کاردەکەیت (BITS) تۆ لەگەڵ&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;وەشانی نوێ بەردەستە&quot;,
-        ///	&quot;lblLab&quot;: &quot;دروست کردنی تاقیکاری\n سڕینەوە دوای تاقیکردنەو&quot;,
-        ///	&quot;performanceSw&quot;: &quot;کاراکردن بۆ باش [rest of string was truncated]&quot;;.
+        ///	&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string KU {
             get {
@@ -759,66 +759,6 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap loadingAmber {
-            get {
-                object obj = ResourceManager.GetObject("loadingAmber", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loadingAmethyst {
-            get {
-                object obj = ResourceManager.GetObject("loadingAmethyst", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loadingAzurite {
-            get {
-                object obj = ResourceManager.GetObject("loadingAzurite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loadingJade {
-            get {
-                object obj = ResourceManager.GetObject("loadingJade", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loadingRuby {
-            get {
-                object obj = ResourceManager.GetObject("loadingRuby", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loadingSilver {
-            get {
-                object obj = ResourceManager.GetObject("loadingSilver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
@@ -828,6 +768,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///   &quot;subSystem&quot;: &quot;Systeem&quot;,
+        ///   &quot;subPrivacy&quot;: &quot;Privacy&quot;,
+        ///   &quot;subGaming&quot;: &quot;Gamen&quot;,
+        ///   &quot;subTouch&quot;: &quot;Aanraken&quot;,
+        ///   &quot;subTaskbar&quot;: &quot;Taakbalk&quot;,
+        ///   &quot;subExtras&quot;: &quot;Extra&apos;s&quot;,
         ///   &quot;btnAbout&quot;:&quot;OK&quot;,
         ///   &quot;restartButton&quot;:&quot;Nu opnieuw opstarten&quot;,
         ///   &quot;restartButton8&quot;:&quot;Nu opnieuw opstarten&quot;,
@@ -837,8 +783,7 @@ namespace Optimizer.Properties {
         ///   &quot;btnFind&quot;:&quot;Vind&quot;,
         ///   &quot;btnKill&quot;:&quot;Dood&quot;,
         ///   &quot;trayUnlocker&quot;:&quot;Bestandshandvatten&quot;,
-        ///   &quot;txtBitness&quot;:&quot;OS: {BITS}&quot;,
-        ///   &quot;onedriveM&quot;:&quot;Weet u zeker dat u OneDrive wilt verwijderen? Hiermee worden uw bureaublad- en documentbestanden verwijderd! Gebruik deze opt [rest of string was truncated]&quot;;.
+        ///    [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string NL {
             get {
@@ -858,6 +803,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;System&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Prywatność&quot;,
+        ///	&quot;subGaming&quot;: &quot;Hazard&quot;,
+        ///	&quot;subTouch&quot;: &quot;Dotykać&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Pasek zadań&quot;,
+        ///	&quot;subExtras&quot;: &quot;Dodatki&quot;,
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;Uruchom ponownie teraz&quot;,
         ///	&quot;restartButton8&quot;: &quot;Uruchom ponownie teraz&quot;,
@@ -866,9 +817,7 @@ namespace Optimizer.Properties {
         ///	&quot;btnKill&quot;: &quot;Zabić&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Uchwyty do plików&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Uruchom ponownie, aby zastosować zmiany&quot;,
-        ///	&quot;onedriveM&quot;: &quot;Czy na pewno chcesz odinstalować OneDrive? Spowoduje to usunięcie plików pulpitu i dokumentów! Używaj tej opcji tylko na koncie lokalnym!&quot;,
-        ///	&quot;txtVersion&quot;: &quot;Wersja: {VN}&quot;,
-        ///	&quot;systemRest [rest of string was truncated]&quot;;.
+        ///	&quot;onedriveM&quot;: &quot;Czy na pewno chcesz odi [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PL {
             get {
@@ -919,6 +868,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;Sistema&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Privacidade&quot;,
+        ///	&quot;subGaming&quot;: &quot;Jogos&quot;,
+        ///	&quot;subTouch&quot;: &quot;Toque&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Barra de tarefas&quot;,
+        ///	&quot;subExtras&quot;: &quot;Extras&quot;,
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;reinicie agora&quot;,
         ///	&quot;restartButton8&quot;: &quot;reinicie agora&quot;,
@@ -927,9 +882,7 @@ namespace Optimizer.Properties {
         ///	&quot;btnKill&quot;: &quot;Matar&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Alças de arquivo&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Reiniciar para aplicar as alterações&quot;,
-        ///	&quot;onedriveM&quot;: &quot;Tem certeza de que deseja desinstalar o OneDrive? Isso excluirá seus arquivos da área de trabalho e de documentos! Use esta opção apenas em uma conta local!&quot;,
-        ///	&quot;CleanPreviewForm&quot;: &quot;Antevisão Limpa&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;Tem [rest of string was truncated]&quot;;.
+        ///	&quot;onedriveM&quot;: &quot;Tem certeza de que deseja desinstalar o OneDrive [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PT {
             get {
@@ -954,6 +907,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;Sistem&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Confidențialitate&quot;,
+        ///	&quot;subGaming&quot;: &quot;Jocuri&quot;,
+        ///	&quot;subTouch&quot;: &quot;Atingere&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Bara de activități&quot;,
+        ///	&quot;subExtras&quot;: &quot;In plus&quot;,
         ///	&quot;btnAbout&quot;: &quot;Bine&quot;,
         ///	&quot;restartButton&quot;: &quot;Reporniți acum&quot;,
         ///	&quot;restartButton8&quot;: &quot;Reporniți acum&quot;,
@@ -963,10 +922,7 @@ namespace Optimizer.Properties {
         ///	&quot;trayUnlocker&quot;: &quot;Mânere de fișiere&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Reporniți pentru a aplica modificări&quot;,
         ///	&quot;txtVersion&quot;: &quot;Versiune: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;Tu lucrezi cu {BITS}&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;Actualizare disponibilă&quot;,
-        ///	&quot;lblLab&quot;: &quot;Construcție experimentală\n(șterge după testare)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;Activează trucuri performa [rest of string was truncated]&quot;;.
+        ///	&quot;txtBitness&quot;:  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RO {
             get {
@@ -986,6 +942,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;Система&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Конфиденциальность&quot;,
+        ///	&quot;subGaming&quot;: &quot;Игры&quot;,
+        ///	&quot;subTouch&quot;: &quot;Трогать&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Панель задач&quot;,
+        ///	&quot;subExtras&quot;: &quot;Дополнительно&quot;,
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;Перезапустить сейчас&quot;,
         ///	&quot;restartButton8&quot;: &quot;Перезапустить сейчас&quot;,
@@ -994,10 +956,7 @@ namespace Optimizer.Properties {
         ///	&quot;txtVersion&quot;: &quot;Версия: {VN}&quot;,
         ///	&quot;btnFind&quot;: &quot;Находить&quot;,
         ///	&quot;btnKill&quot;: &quot;Убийство&quot;,
-        ///	&quot;trayUnlocker&quot;: &quot;Дескрипторы файлов&quot;,
-        ///	&quot;txtBitness&quot;: &quot;Вы работаете с {BITS}&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;Вы уверены, что хотите отключить восстановление системы? Это удалит ваши текущие резервные изображения!&quot;,
-        ///	&quot;onedriveM&quot;:  [rest of string was truncated]&quot;;.
+        ///	&quot;trayUnlocker&quot;: &quot;Дескрипторы файл [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RU {
             get {
@@ -1008,29 +967,9 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ruby {
-            get {
-                object obj = ResourceManager.GetObject("ruby", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap russia {
             get {
                 object obj = ResourceManager.GetObject("russia", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap silver {
-            get {
-                object obj = ResourceManager.GetObject("silver", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1100,17 +1039,18 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;Sistem&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Mahremiyet&quot;,
+        ///	&quot;subGaming&quot;: &quot;Oyun&quot;,
+        ///	&quot;subTouch&quot;: &quot;Dokunmak&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Görev çubuğu&quot;,
+        ///	&quot;subExtras&quot;: &quot;Ekstralar&quot;,
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;şimdi yeniden başlat&quot;,
         ///	&quot;restartButton8&quot;: &quot;şimdi yeniden başlat&quot;,
         ///	&quot;restartButton10&quot;: &quot;şimdi yeniden başlat&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Değişiklikleri uygulamak için yeniden başlatılsın mı&quot;,
-        ///	&quot;onedriveM&quot;: &quot;OneDrive&apos;ı kaldırmak istediğinizden emin misiniz? Bu, Masaüstü ve Belge dosyalarınızı siler! Bu seçeneği yalnızca yerel bir hesapta kullanın!&quot;,
-        ///	&quot;txtVersion&quot;: &quot;Versiyon: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;{BITS} ile çalışıyor.&quot;,
-        ///	&quot;btnFind&quot;: &quot;Bulmak&quot;,
-        ///	&quot;btnKill&quot;: &quot;Öldürmek&quot;,
-        ///	&quot;trayUn [rest of string was truncated]&quot;;.
+        ///	&quot;onedriveM&quot;: &quot;OneDrive&apos;ı kaldırmak istediğinizden emin misiniz? Bu, Masaüstü ve Belge dosyalarınızı siler! Bu seçen [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TR {
             get {
@@ -1130,6 +1070,12 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;系統&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;隱私&quot;,
+        ///	&quot;subGaming&quot;: &quot;賭博&quot;,
+        ///	&quot;subTouch&quot;: &quot;觸碰&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;任務欄&quot;,
+        ///	&quot;subExtras&quot;: &quot;附加功能&quot;,
         ///	&quot;btnAbout&quot;: &quot;確定&quot;,
         ///	&quot;restartButton&quot;: &quot;現在重啟&quot;,
         ///	&quot;restartButton8&quot;: &quot;現在重啟&quot;,
@@ -1142,15 +1088,46 @@ namespace Optimizer.Properties {
         ///	&quot;btnFind&quot;: &quot;尋找&quot;,
         ///	&quot;btnKill&quot;: &quot;殺&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;文件句柄&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;更新可用&quot;,
-        ///	&quot;lblLab&quot;: &quot;實驗構建\n(刪除後測試)&quot;,
-        ///	&quot;performanceSw&quot;: &quot;啟用性能調整&quot;,
-        ///	&quot;networkSw&quot;: &quot;禁用網路節流&quot;,
-        ///	&quot;defenderSw&quot;: &quot;禁用 Windows  [rest of string was truncated]&quot;;.
+        ///	&quot;li [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TW {
             get {
                 return ResourceManager.GetString("TW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;Система&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Конфіденційність&quot;,
+        ///	&quot;subGaming&quot;: &quot;Ігри&quot;,
+        ///	&quot;subTouch&quot;: &quot;Дотик&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Панель задач&quot;,
+        ///	&quot;subExtras&quot;: &quot; Доповнення&quot;,
+        ///	&quot;btnAbout&quot;: &quot;OK&quot;,
+        ///	&quot;restartButton&quot;: &quot;Перезапустити зараз&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Перезапустити зараз&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Перезапустити зараз&quot;,
+        ///	&quot;btnFind&quot;: &quot;Знайти&quot;,
+        ///	&quot;btnKill&quot;: &quot;Вимкнути примусово&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;Дескриптор файлів&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Перезапустити для застосування змін&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Версія: {VN}&quot;,
+        ///	 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string UA {
+            get {
+                return ResourceManager.GetString("UA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ukraine {
+            get {
+                object obj = ResourceManager.GetObject("ukraine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

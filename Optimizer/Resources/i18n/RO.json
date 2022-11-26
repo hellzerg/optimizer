@@ -417,5 +417,7 @@ pentru analiză către Microsoft.",
 	"dnsTitle": "Schimbați rapid serverul DNS",
 	"vbsSw": "Dezactivați securitatea bazată pe virtualizare",
 	"vbsTip": "Caracteristica kernel care previne injectarea driverelor rău intenționate în procese.
-Are un efect negativ asupra performanței."
+Are un efect negativ asupra performanței.",
+	"winSearchw": "Dezactivați căutarea",
+	"winSearchTip": "Dezactivează serviciul de căutare Windows."
 }

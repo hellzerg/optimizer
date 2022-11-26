@@ -302,6 +302,7 @@
     <None Include="Resources\i18n\KU.json" />
     <None Include="Resources\i18n\RO.json" />
     <None Include="Resources\Fonts\Poppins-Regular.ttf" />
+    <None Include="Resources\i18n\UA.json" />
     <None Include="Resources\Scripts\AddOpenWithCMD.reg" />
     <None Include="Resources\i18n\CN.json" />
     <None Include="Resources\i18n\CZ.json" />
@@ -366,24 +367,13 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Flags\ukraine.png" />
     <None Include="Resources\Assets\logo.png" />
     <None Include="Resources\Assets\banner.png" />
     <None Include="Resources\Flags\dutch.png" />
-    <None Include="Resources\Assets\silver.png" />
-    <None Include="Resources\Assets\ruby.png" />
-    <None Include="Resources\Assets\jade.png" />
-    <None Include="Resources\Assets\azurite.png" />
-    <None Include="Resources\Assets\amethyst.png" />
-    <None Include="Resources\Assets\amber.png" />
     <None Include="Resources\Flags\romania.png" />
     <None Include="Resources\Flags\hungary.png" />
     <None Include="Resources\Flags\kurdish.png" />
-    <None Include="Resources\Assets\loadingSilver.gif" />
-    <None Include="Resources\Assets\loadingRuby.gif" />
-    <None Include="Resources\Assets\loadingJade.gif" />
-    <None Include="Resources\Assets\loadingAzurite.gif" />
-    <None Include="Resources\Assets\loadingAmethyst.gif" />
-    <None Include="Resources\Assets\loadingAmber.gif" />
     <None Include="Resources\Flags\egypt.png" />
     <None Include="Resources\Flags\poland.png" />
     <None Include="Resources\Flags\korea.png" />

@@ -433,5 +433,7 @@ Sin embargo, se consideran un procedimiento riesgoso. Suelen ser lanzamientos se
 	"dnsTitle": "Cambiar rápidamente el servidor DNS",
 	"vbsSw": "Deshabilitar la seguridad basada en virtualización",
 	"vbsTip": "Característica del kernel que evita la inyección de controladores maliciosos en los procesos.
-Tiene un efecto negativo en el rendimiento."
+Tiene un efecto negativo en el rendimiento.",
+	"winSearchSw": "Deshabilitar búsqueda",
+	"winSearchTip": "Desactiva el servicio de búsqueda de Windows."
 }

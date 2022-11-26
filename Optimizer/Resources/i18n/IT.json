@@ -431,5 +431,7 @@ Tuttavia, sono considerate procedure rischiose. Sono normalmente una release ogn
 	"dnsTitle": "Cambia rapidamente il server DNS",
 	"vbsSw": "Disabilita la sicurezza basata sulla virtualizzazione",
 	"vbsTip": "Funzionalità del kernel che impedisce l'iniezione di driver dannosi nei processi.
-Ha un effetto negativo sulle prestazioni."
+Ha un effetto negativo sulle prestazioni.",
+	"winSearchSw": "Disabilita la ricerca",
+	"winSearchTip": "Disabilita il servizio di ricerca di Windows."
 }

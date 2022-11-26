@@ -434,5 +434,7 @@ Ancak, riskli bir prosedür olarak kabul edilirler. Genellikle altı aylık yay�
 	"dnsTitle": "DNS sunucusunu hızla değiştirin",
 	"vbsSw": "Sanallaştırma Tabanlı Güvenliği Devre Dışı Bırak",
 	"vbsTip": "Kötü amaçlı sürücülerin işlemlere eklenmesini önleyen çekirdek özelliği.
-Performansa olumsuz etkisi vardır."
+Performansa olumsuz etkisi vardır.",
+	"winSearchSw": "Aramayı Devre Dışı Bırak",
+	"winSearchTip": "Windows arama hizmetini devre dışı bırakır."
 }

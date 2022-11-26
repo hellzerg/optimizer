@@ -386,5 +386,7 @@
    "dnsTitle": "Snel van DNS-server veranderen",
    "vbsSw": "Op virtualisatie gebaseerde beveiliging uitschakelen",
 	"vbsTip": "Kernelfunctie die voorkomt dat kwaadaardige stuurprogramma's in processen worden geïnjecteerd.
-Het heeft een negatief effect op de prestaties."
+Het heeft een negatief effect op de prestaties.",
+   "winSearchSw": "Schakel Zoeken uit",
+   "winSearchTip": "Schakelt de Windows-zoekservice uit."
 }

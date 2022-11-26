@@ -436,5 +436,7 @@
 	"dnsTitle": "DNS-kiszolgáló gyors cseréje",
 	"vbsSw": "A virtualizáció alapú biztonság letiltása",
 	"vbsTip": "Kernel funkció, amely megakadályozza a rosszindulatú illesztőprogramok bejutását a folyamatokba.
-Negatív hatással van a teljesítményre."
+Negatív hatással van a teljesítményre.",
+	"winSearchSw": "Keresés letiltása",
+	"winSearchTip": "Letiltja a Windows keresőszolgáltatást."
 }

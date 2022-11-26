@@ -436,5 +436,7 @@ Je to však považováno za riskantní procedůru. Obvykle se jedná o půlročn
 	"dnsTitle": "Rychlá změna serveru DNS",
 	"vbsSw": "Zakázat zabezpečení založené na virtualizaci",
 	"vbsTip": "Funkce jádra, která zabraňuje vkládání škodlivých ovladačů do procesů.
-Má to negativní vliv na výkon."
+Má to negativní vliv na výkon.",
+	"winSearchSw": "Zakázat vyhledávání",
+	"winSearchTip": "Zakáže vyhledávací službu systému Windows."
 }

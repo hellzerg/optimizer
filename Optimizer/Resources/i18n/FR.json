@@ -433,5 +433,7 @@ Cependant, elles sont considerees comme une procedure risquee. Il s'agit general
 	"dnsTitle": "Changer rapidement de serveur DNS",
 	"vbsSw": "Désactiver la sécurité basée sur la virtualisation",
 	"vbsTip": "Fonctionnalité du noyau qui empêche l'injection de pilotes malveillants dans les processus.
-Cela a un effet négatif sur les performances."
+Cela a un effet négatif sur les performances.",
+	"winSearchSw": "Désactiver la recherche",
+	"winSearchTip": "Désactive le service de recherche Windows."
 }
