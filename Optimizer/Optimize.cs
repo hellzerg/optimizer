@@ -463,7 +463,7 @@ namespace Optimizer
 
         internal static void DisableNTFSTimeStamp()
         {
-            Utilities.RunCommand("fsutil behavior set disablelastaccess 3");
+            Utilities.RunCommand("fsutil behavior set disablelastaccess 1");
         }
 
         internal static void EnableNTFSTimeStamp()
