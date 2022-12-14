@@ -1,5 +1,6 @@
 ﻿{
 	"subSystem": "System",
+	"subWindowsUpdate": "Windows Update",
 	"subPrivacy": "Privacy",
 	"subGaming": "Gaming",
 	"subTouch": "Touch",
@@ -72,6 +73,7 @@
 	"snapAssistSw": "Disable Snap Assist",
 	"widgetsSw": "Disable Widgets",
 	"chatSw": "Disable Chat",
+	"stickersSw": "Disable Stickers",
 	"smallerTaskbarSw": "Make Taskbar Smaller",
 	"classicRibbonSw": "Enable Classic Ribbon in Explorer",
 	"classicContextSw": "Enable Classic Right-Click Menu",

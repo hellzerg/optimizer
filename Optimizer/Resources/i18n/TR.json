@@ -1,5 +1,6 @@
 ﻿{
 	"subSystem": "Sistem",
+	"subWindowsUpdate": "Windows Güncelleme",
 	"subPrivacy": "Mahremiyet",
 	"subGaming": "Oyun",
 	"subTouch": "Dokunmak",
@@ -75,6 +76,7 @@
 	"snapAssistSw": "Snap Assist'i devre dışı bırak",
 	"widgetsSw": "Widgets Devre Dışı Bırak",
 	"chatSw": "Sohbeti Devre Dışı Bırak",
+	"stickersSw": "Yapıştırıcıları kapat",
 	"smallerTaskbarSw": "Görev Çubuğunu Küçült",
 	"classicRibbonSw": "Explorer'da Klasik Şeridi Etkinleştir",
 	"classicContextSw": "Klasik Sağ Tıklama Menüsünü Etkinleştir",

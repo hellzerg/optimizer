@@ -1,5 +1,6 @@
 ﻿{
 	"subSystem": "Rendszer",
+	"subWindowsUpdate": "Windows Update",
 	"subPrivacy": "Magánélet",
 	"subGaming": "Szerencsejáték",
 	"subTouch": "Érintés",
@@ -69,6 +70,7 @@
 	"snapAssistSw": "Snap Assist kikapcsolása",
 	"widgetsSw": "Widgetek letiltása",
 	"chatSw": "Csevegés letiltása",
+	"stickersSw": "A matricák letiltása",
 	"smallerTaskbarSw": "Tálca kisebbé tétele",
 	"classicRibbonSw": "Engedélyezze a klasszikus szalagot az Explorerben",
 	"classicContextSw": "Klasszikus jobb klikk menü engedélyezése",

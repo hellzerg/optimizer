@@ -1,5 +1,6 @@
 ﻿{
 	"subSystem": "نظام",
+	"subWindowsUpdate": "Windowsتجديد .",
 	"subPrivacy": "خصوصية",
 	"subGaming": "الألعاب",
 	"subTouch": "يلمس",
@@ -74,6 +75,7 @@
 	"snapAssistSw": "تعطيل Snap Assist",
 	"widgetsSw": "تعطيل Widgets",
 	"chatSw": "تعطيل الدردشة",
+	"stickersSw": "تعطيل ملصقات",
 	"smallerTaskbarSw": "جعل شريط المهام أصغر",
 	"classicRibbonSw": "تفعيل الشريط الكلاسيكي في Explorer",
 	"classicContextSw": "تفعيل قائمة النقر بزر الماوس الأيمن الكلاسيكية",

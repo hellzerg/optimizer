@@ -1,5 +1,6 @@
 ﻿{
 	"subSystem": "Sistema",
+	"subWindowsUpdate": "Windows Update",
 	"subPrivacy": "Privacidade",
 	"subGaming": "Jogos",
 	"subTouch": "Toque",
@@ -75,6 +76,7 @@
 	"snapAssistSw": "Desativar Snap Assist",
 	"widgetsSw": "Desativar Widgets",
 	"chatSw": "Desativar Bate-Papo",
+	"stickersSw": "Desactivar os Autocolantes",
 	"smallerTaskbarSw": "Tornar a Barra de Tarefas Menor",
 	"classicRibbonSw": "Habilitar Faixa Clássica",
 	"classicContextSw": "Habilitar Menu Clássico do Botão Direito",

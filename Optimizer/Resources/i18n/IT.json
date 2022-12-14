@@ -1,5 +1,6 @@
 ﻿{
 	"subSystem": "Sistema",
+	"subWindowsUpdate": "Windows Update",
 	"subPrivacy": "Privacy",
 	"subGaming": "Gioco",
 	"subTouch": "Tocco",
@@ -400,6 +401,7 @@ Tuttavia, sono considerate procedure rischiose. Sono normalmente una release ogn
 	"snapAssistSw": "Disabilita Snap Assist",
 	"widgetsSw": "Disabilita Widget",
 	"chatSw": "Disabilita Chat",
+	"stickersSw": "Disabilita Stickers",
 	"smallerTaskbarSw": "Riduci barra delle applicazioni",
 	"classicRibbonSw": "Abilita menu classico in Explorer",
 	"classicContextSw": "Abilita menu classico sul tasto destro",

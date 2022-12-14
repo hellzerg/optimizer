@@ -1,5 +1,6 @@
 {
 	"subSystem": "系統",
+	"subWindowsUpdate": "Windows 更新",
 	"subPrivacy": "隱私",
 	"subGaming": "賭博",
 	"subTouch": "觸碰",
@@ -75,6 +76,7 @@
 	"snapAssistSw": "禁用快速協助",
 	"widgetsSw": "禁用小組件服務",
 	"chatSw": "禁用 Chat",
+	"stickersSw": "禁用贴纸功能",
 	"smallerTaskbarSw": "讓任務欄圖示變小",
 	"classicRibbonSw": "在資源管理器中啟用經典色帶",
 	"classicContextSw": "啟用經典右鍵選單",

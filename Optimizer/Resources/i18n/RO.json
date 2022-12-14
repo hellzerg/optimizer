@@ -1,5 +1,6 @@
 {
 	"subSystem": "Sistem",
+	"subWindowsUpdate": "Actualizare Windows",
 	"subPrivacy": "Confidențialitate",
 	"subGaming": "Jocuri",
 	"subTouch": "Atingere",
@@ -72,6 +73,7 @@
 	"snapAssistSw": "Dezactiva Asistența Snap",
 	"widgetsSw": "Dezactiva Widgeturi",
 	"chatSw": "Dezactiva Chat",
+	"stickersSw": "Dezactivează autocolantele",
 	"smallerTaskbarSw": "Fa-l Taskbarul Mai Mici",
 	"classicRibbonSw": "Activa Panglică Clasică în Explorer",
 	"classicContextSw": "Activa Meniul Clic-Dreapta Clasic",

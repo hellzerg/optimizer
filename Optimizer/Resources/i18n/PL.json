@@ -1,5 +1,6 @@
 {
 	"subSystem": "System",
+	"subWindowsUpdate": "Aktualizacja systemu Windows",
 	"subPrivacy": "Prywatność",
 	"subGaming": "Hazard",
 	"subTouch": "Dotykać",
@@ -74,6 +75,7 @@
 	"snapAssistSw": "Wyłącz Asystenta Przyciągania",
 	"widgetsSw": "Wyłącz Widżety",
 	"chatSw": "Wyłącz Czat na Pasku Zadań",
+	"stickersSw": "Wyłącz naklejki",
 	"smallerTaskbarSw": "Mniejszy Pasek Zadań",
 	"classicRibbonSw": "Włącz Klasyczną Wstążke w Eksploratorze Plików",
 	"classicContextSw": "Włącz Klasyczne Menu Kontekstowe",

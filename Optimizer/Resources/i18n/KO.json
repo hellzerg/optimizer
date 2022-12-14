@@ -1,5 +1,6 @@
 {
 	"subSystem": "체계",
+	"subWindowsUpdate": "Windows 업데이트",
 	"subPrivacy": "은둔",
 	"subGaming": "노름",
 	"subTouch": "접촉",
@@ -71,7 +72,8 @@
 	"leftTaskbarSw": "작업 표시줄 왼쪽으로 정렬",
 	"snapAssistSw": "스냅 레이아웃 사용 안 함",
 	"widgetsSw": "위젯 사용 안 함",
-	"chatSw": "채팅 사용 안 함",
+	"chatSw": "스티커 사용 안 함",
+	"stickersSw": "Disable Stickers",
 	"smallerTaskbarSw": "작업 표시줄 작게 만들기",
 	"classicRibbonSw": "탐색기에서 클래식 리본 사용",
 	"classicContextSw": "클래식 오른쪽 클릭 메뉴 사용",

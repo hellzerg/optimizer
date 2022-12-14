@@ -1,5 +1,6 @@
 {
 	"subSystem": "Σύστημα",
+	"subWindowsUpdate": "Ενημέρωση παραθύρων",
 	"subPrivacy": "Ιδιωτικότητα",
 	"subGaming": "Gaming",
 	"subTouch": "Αφή",
@@ -74,6 +75,7 @@
 	"snapAssistSw": "Απενεργοποίηση του Snap Assist",
 	"widgetsSw": "Απενεργοποίηση των Widgets",
 	"chatSw": "Απενεργοποίηση του Chat",
+	"stickersSw": "Απενεργοποίηση αυτοκόλλητων",
 	"smallerTaskbarSw": "Σμίκρυνση της Γραμμής Εργασιών",
 	"classicRibbonSw": "Επαναφορά Κλασσικης Κορδέλας στα Αρχεία",
 	"classicContextSw": "Επαναφορά Κλασσικού Μενού στο Δεξί Κλικ",

@@ -1,5 +1,6 @@
 {
    "subSystem": "Systeem",
+	"subWindowsUpdate": "Finsterbywurking",
    "subPrivacy": "Privacy",
    "subGaming": "Gamen",
    "subTouch": "Aanraken",
@@ -74,6 +75,7 @@
    "snapAssistSw":"Snap Assist uitschakelen",
    "widgetsSw":"Widgets uitschakelen",
    "chatSw":"Chat uitschakelen",
+	"stickersSw": "Stickers uitschakelen",
    "smallerTaskbarSw":"Kleinere taakbalk",
    "classicRibbonSw":"Klassiek lint inschakelen",
    "classicContextSw":"Klassiek rechtsklikmenu inschakelen",

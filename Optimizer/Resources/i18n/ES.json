@@ -1,5 +1,6 @@
 ﻿{
 	"subSystem": "Sistema",
+	"subWindowsUpdate": "Anovamientu de Windows",
 	"subPrivacy": "Privacidad",
 	"subGaming": "Juego de azar",
 	"subTouch": "Tocar",
@@ -75,6 +76,7 @@
 	"snapAssistSw": "Desactivar la función Snap Assist",
 	"widgetsSw": "Desactivar widgets",
 	"chatSw": "Desactivar chat",
+	"stickersSw": "Desactivar pegadores",
 	"smallerTaskbarSw": "Reducir el tamaño de la barra de tareas",
 	"classicRibbonSw": "Habilitar la cinta clásica en el Explorador",
 	"classicContextSw": "Habilitar el menú de clic derecho clásico",

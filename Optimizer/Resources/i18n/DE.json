@@ -1,5 +1,6 @@
 {
 	"subSystem": "System",
+	"subWindowsUpdate": "Windows Update",
 	"subPrivacy": "Privatsphäre",
 	"subGaming": "Spielen",
 	"subTouch": "Berühren",
@@ -74,6 +75,7 @@
 	"snapAssistSw": "Snap Assist deaktivieren",
 	"widgetsSw": "Widgets deaktivieren",
 	"chatSw": "Chat deaktivieren",
+	"stickersSw": "Aufkleber deaktivieren",
 	"smallerTaskbarSw": "Taskleiste verkleinern",
 	"classicRibbonSw": "Klassisches Menüband aktivieren ",
 	"classicContextSw": "Klassisches Rechtsklick-Menü aktivieren",

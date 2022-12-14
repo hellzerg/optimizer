@@ -1,5 +1,6 @@
 ﻿{
 	"subSystem": "Система",
+	"subWindowsUpdate": "Обновление Windows",
 	"subPrivacy": "Конфиденциальность",
 	"subGaming": "Игры",
 	"subTouch": "Трогать",
@@ -75,6 +76,7 @@
 	"snapAssistSw": "Отключить Snap Assist",
 	"widgetsSw": "Отключить виджеты",
 	"chatSw": "Выключить чат",
+	"stickersSw": "Отключить наклейку",
 	"smallerTaskbarSw": "Сделать панель задач меньше",
 	"classicRibbonSw": "Включить классическую ленту в Проводнике",
 	"classicContextSw": "Включить классическое контекстное меню",

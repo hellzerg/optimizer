@@ -11,6 +11,7 @@ using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -1897,7 +1898,7 @@ namespace Optimizer
                 label19.Text = translationList["subTaskbar"];
                 label20.Text = translationList["subExtras"];
                 label21.Text = translationList["subSystem"];
-
+                label15.Text = translationList["subWindowsUpdate"];
                 Control element;
                 foreach (var x in translationList)
                 {

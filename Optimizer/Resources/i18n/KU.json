@@ -1,5 +1,6 @@
 ﻿{
 	"subSystem": "سیستەم",
+	"subWindowsUpdate": "هشدار پنجره‌ها",
 	"subPrivacy": "تایبەتمەندیەتی",
 	"subGaming": "یاریکردن",
 	"subTouch": "دەست لێدان",
@@ -72,6 +73,7 @@
 	"snapAssistSw": "Snap Assist ناچالاک کردنی",
 	"widgetsSw": "Widgets ناچالاک کردنی",
 	"chatSw": "ناچالاک کردنی چات",
+	"stickersSw": "فعال کردن چسبندگان",
 	"smallerTaskbarSw": "بچووکتر بکەرەوە task bar",
 	"classicRibbonSw": "Explorer چالاک کردنی شێوازی کلاسیکی وردەکاریەکانی",
 	"classicContextSw": "چالاک کردنی شێوازی کلاسیکی لیستی کلیکی-ڕاست,",

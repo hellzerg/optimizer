@@ -1,5 +1,6 @@
 {
 	"subSystem": "Systém",
+	"subWindowsUpdate": "Aktualizace systému Windows",
 	"subPrivacy": "Soukromí",
 	"subGaming": "Hraní",
 	"subTouch": "Dotek",
@@ -75,6 +76,7 @@
 	"snapAssistSw": "Zakázat Snap Pomocníka",
 	"widgetsSw": "Zakázat Widgety",
 	"chatSw": "Zakázat Chat",
+	"stickersSw": "Zakázat samolepky",
 	"smallerTaskbarSw": "Zmenšit Hlavní panel",
 	"classicRibbonSw": "Povolit Klasický pás karet v Průzkumníkovi souborů",
 	"classicContextSw": "Povolit Klasickou nabídku pravého tlačítka myši",
