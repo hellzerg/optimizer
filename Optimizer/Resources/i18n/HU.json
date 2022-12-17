@@ -61,7 +61,6 @@
 	"xboxSw": "Xbox Live letiltása",
 	"gameBarSw": "Játék sáv kikapcsolása",
 	"insiderSw": "Insider szolgáltatás letiltása",
-	"featuresSw": "Funkciófrissítések letiltása",
 	"actionSw": "Értesítési központ letiltása",
 	"disableOneDriveSw": "OneDrive letiltása",
 	"tpmSw": "TPM 2.0 ellenőrzés letiltása",
@@ -405,8 +404,6 @@
 	"insiderTip": "A Windows Insider program lehetővé teszi a legújabb szolgáltatások kipróbálását
 	mielőtt nyilvánosságra hozzák őket.
 	Felesleges szolgáltatásnak tekintik azon felhasználók számára, akik nem kívánnak részt venni benne.",
-	"featuresTip": "A szolgáltatásfrissítések a Windows technikailag új verziói, amelyek frissítést igényelnek.,
-	Ezeket azonban kockázatos eljárásnak tekintik. Ezek általában féléves kiadások.",
 	"tpmTip": "Kikerüli a Secure Boot és a TPM 2.0 követelményeit, lehetővé téve a Windows 11-re való frissítést.",
 	"leftTaskbarTip": "A tálcaikonokat balra igazítja.",
 	"snapAssistTip": "Letiltja a Snap Assist Flyout funkciót, amikor a nagyítás gombokat lebegteti.",
@@ -438,5 +435,7 @@
 	"vbsTip": "Kernel funkció, amely megakadályozza a rosszindulatú illesztőprogramok bejutását a folyamatokba.
 Negatív hatással van a teljesítményre.",
 	"winSearchSw": "Keresés letiltása",
-	"winSearchTip": "Letiltja a Windows keresőszolgáltatást."
+	"winSearchTip": "Letiltja a Windows keresőszolgáltatást.",
+	"storeUpdatesSw": "A Microsoft Store frissítéseinek letiltása",
+	"storeUpdatesTip": "Letiltja a Microsoft Store automatikus frissítési funkcióját."
 }

@@ -66,7 +66,6 @@
    "xboxSw":"Xbox Live uitschakelen",
    "gameBarSw":"Spelbalk uitschakelen",
    "insiderSw":"Insider-service uitschakelen",
-   "featuresSw":"Functie-updates uitschakelen",
    "actionSw":"Meldingscentrum uitschakelen",
    "disableOneDriveSw":"OneDrive uitschakelen",
    "tpmSw":"TPM 2.0-controle uitschakelen",
@@ -360,7 +359,6 @@
    "castTip":"Verwijdert rechtsklik om media-inhoud naar Miracast-apparaten te casten.",
    "gameBarTip":"Game Bar is een toegangsmenu voor Xbox-gameservices.",
    "insiderTip":"Met het Windows Insider-programma kunt u de nieuwste functies testen voordat ze voor het publiek worden vrijgegeven. Het wordt beschouwd als een onnodige service voor gebruikers die niet willen deelnemen.",
-   "featuresTip":"Functie-updates zijn technisch nieuwe versies van Windows die een upgrade vereisen. Ze worden echter als een riskante praktijk beschouwd. Ze worden meestal halfjaarlijks uitgebrachtniet verlicht.",
    "tpmTip":"Omzeilt Secure Boot- en TPM 2.0-vereisten en maakt een upgrade naar Windows 11 mogelijk",
    "leftTaskbarTip":"Lijnt de taakbalkpictogrammen naar links uit.",
    "snapAssistTip":"Schakelhulp-flyout uitschakelen wanneer de muisaanwijzer over de maximaliseerknop wordt gehouden.",
@@ -388,5 +386,7 @@
 	"vbsTip": "Kernelfunctie die voorkomt dat kwaadaardige stuurprogramma's in processen worden geïnjecteerd.
 Het heeft een negatief effect op de prestaties.",
    "winSearchSw": "Schakel Zoeken uit",
-   "winSearchTip": "Schakelt de Windows-zoekservice uit."
+   "winSearchTip": "Schakelt de Windows-zoekservice uit.",
+   "storeUpdatesSw": "Schakel Microsoft Store-updates uit",
+	"storeUpdatesTip": "Schakelt de functionaliteit voor automatische updates van de Microsoft Store uit."
 }

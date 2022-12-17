@@ -553,15 +553,15 @@ namespace Optimizer
                 }
             }
 
-            if (CurrentSilentConfig.DisableFeatureUpdates.HasValue)
+            if (CurrentSilentConfig.DisableStoreUpdates.HasValue)
             {
-                if (CurrentSilentConfig.DisableFeatureUpdates.Value)
+                if (CurrentSilentConfig.DisableStoreUpdates.Value)
                 {
-                    Optimize.DisableForcedFeatureUpdates();
+                    Optimize.DisableStoreUpdates();
                 }
                 else
                 {
-                    Optimize.EnableForcedFeatureUpdates();
+                    Optimize.EnableStoreUpdates();
                 }
             }
 
@@ -957,9 +957,9 @@ namespace Optimizer
             {
                 Options.CurrentOptions.DisableInsiderService = CurrentSilentConfig.DisableInsiderService.Value;
             }
-            if (CurrentSilentConfig.DisableFeatureUpdates.HasValue)
+            if (CurrentSilentConfig.DisableStoreUpdates.HasValue)
             {
-                Options.CurrentOptions.DisableFeatureUpdates = CurrentSilentConfig.DisableFeatureUpdates.Value;
+                Options.CurrentOptions.DisableStoreUpdates = CurrentSilentConfig.DisableStoreUpdates.Value;
             }
             if (CurrentSilentConfig.DisableCloudClipboard.HasValue)
             {

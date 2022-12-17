@@ -64,7 +64,6 @@
 	"xboxSw": "Disable Xbox Live",
 	"gameBarSw": "Disable Game Bar",
 	"insiderSw": "Disable Insider Service",
-	"featuresSw": "Disable Feature Updates",
 	"actionSw": "Disable Notification Center",
 	"disableOneDriveSw": "Disable OneDrive",
 	"tpmSw": "Disable TPM 2.0 Check",
@@ -406,8 +405,8 @@ Useful only for tablets or devices with touch-screen.",
 	"insiderTip": "Windows Insider program allows you to test out latest features
 before they are released to public.
 It's considered an unnecessary service for users who don't wish to participate.",
-	"featuresTip": "Feature Updates are technically new versions of Windows, that require an upgrade.
-However, they are considered a risky procedure. They are usually semi-annual releases.",
+	"storeUpdatesSw": "Disable Microsoft Store Updates",
+	"storeUpdatesTip": "Disables Microsoft Store automatic updates functionality.",
 	"tpmTip": "Bypasses Secure Boot and TPM 2.0 requirements, allowing the upgrading to Windows 11.",
 	"leftTaskbarTip": "Aligns taskbar icons to the left.",
 	"snapAssistTip": "Disables Snap Assist Flyout when hovering maximize buttons.",

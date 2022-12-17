@@ -67,7 +67,6 @@
 	"xboxSw": "Desactiver Xbox Live",
 	"gameBarSw": "Desactiver Game Bar",
 	"insiderSw": "Desactiver le service Insider",
-	"featuresSw": "Desactiver les mises a jour des fonctionnalites",
 	"actionSw": "Desactiver le centre de notification",
 	"disableOneDriveSw": "Desactiver OneDrive",
 	"tpmSw": "Désactiver le contrôle TPM 2.0",
@@ -404,8 +403,6 @@ Utile uniquement pour les tablettes ou les appareils avec un ecran tactile.",
 	"insiderTip": "Le programme Windows Insider vous permet de tester les dernieres fonctionnalites
 avant qu'elles ne soient diffusees au public.
 Il est considere comme un service inutile pour les utilisateurs qui ne souhaitent pas y participer.",
-	"featuresTip": "Les mises a jour des fonctionnalites sont techniquement de nouvelles versions de Windows, qui necessitent une mise a niveau.
-Cependant, elles sont considerees comme une procedure risquee. Il s'agit generalement de versions semestrielles.",
 	"tpmTip": "Contourne les exigences Secure Boot et TPM 2.0, permettant la mise à niveau vers Windows 11.",
 	"leftTaskbarTip": "Aligne les icônes de la barre des tâches sur la gauche.",
 	"snapAssistTip": "Désactivez Snap Assist Flyout lorsque vous survolez les boutons d'agrandissement.",
@@ -435,5 +432,7 @@ Cependant, elles sont considerees comme une procedure risquee. Il s'agit general
 	"vbsTip": "Fonctionnalité du noyau qui empêche l'injection de pilotes malveillants dans les processus.
 Cela a un effet négatif sur les performances.",
 	"winSearchSw": "Désactiver la recherche",
-	"winSearchTip": "Désactive le service de recherche Windows."
+	"winSearchTip": "Désactive le service de recherche Windows.",
+	"storeUpdatesSw": "Désactiver les mises à jour du Microsoft Store",
+	"storeUpdatesTip": "Désactive la fonctionnalité de mises à jour automatiques de Microsoft Store."
 }

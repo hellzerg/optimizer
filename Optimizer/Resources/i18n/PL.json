@@ -66,7 +66,6 @@
 	"xboxSw": "Wyłącz Xbox Live",
 	"gameBarSw": "Wyłącz Game Bar",
 	"insiderSw": "Wyłącz Usługę Windows Insider",
-	"featuresSw": "Wyłącz Aktualizacje Funkcji",
 	"actionSw": "Wyłącz Centrum Powiadomień",
 	"disableOneDriveSw": "Wyłącz OneDrive",
 	"tpmSw": "Wyłącz Sprawdzanie TPM 2.0",
@@ -403,9 +402,6 @@ Przydatna tylko w przypadku tabletów lub urządzeń z ekranami dotykowymi.",
 	"insiderTip": "Program Windows Insider umożliwia testowanie najnowszych funkcji
 zanim zostaną one udostępnione publicznie.
 Jest on uważany za niepotrzebną usługę dla użytkowników, którzy nie chcą w nim uczestniczyć.",
-	"featuresTip": "Aktualizacje funkcji to technicznie rzecz biorąc nowe wersje systemu Windows, 
-które wymagają naprawienia. Dodają głównie jedynie nowe funkcje.
-Są one jednak uważane za ryzykowną procedurę. Zazwyczaj są wydawane co pół roku.",
 	"tpmTip": "Omija wymagania Secure Boot i TPM 2.0, umożliwiając aktualizację do systemu Windows 11.",
 	"leftTaskbarTip": "Wyrównuje ikony paska zadań do lewej strony.",
 	"snapAssistTip": "Wyłącza okienko asystenta przyciągania po najechaniu kursorem na przycisk maksymalizacji okna.",
@@ -435,5 +431,7 @@ Są one jednak uważane za ryzykowną procedurę. Zazwyczaj są wydawane co pó�
 	"vbsTip": "Funkcja jądra, która zapobiega wstrzykiwaniu złośliwych sterowników do procesów.
 Ma negatywny wpływ na wydajność.",
 	"winSearchSw": "Wyłącz wyszukiwanie",
-	"winSearchTip": "Wyłącza usługę wyszukiwania systemu Windows."
+	"winSearchTip": "Wyłącza usługę wyszukiwania systemu Windows.",
+	"storeUpdatesSw": "Wyłącz aktualizacje Microsoft Store",
+	"storeUpdatesTip": "Wyłącza funkcję automatycznych aktualizacji Microsoft Store."
 }

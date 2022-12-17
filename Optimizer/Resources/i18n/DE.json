@@ -66,7 +66,6 @@
 	"xboxSw": "Xbox Live deaktivieren",
 	"gameBarSw": "Spieleleiste deaktivieren",
 	"insiderSw": "Insider-Dienst deaktivieren",
-	"featuresSw": "Feature-Updates deaktivieren",
 	"actionSw": "Benachrichtigungszentrale deaktivieren",
 	"disableOneDriveSw": "OneDrive deaktivieren",
 	"tpmSw": "TPM 2.0-Prüfung deaktivieren",
@@ -383,7 +382,6 @@
 	"castTip": "Entfernt den Rechtsklick, um Medieninhalte an Miracast-Geräte zu übertragen.",
 	"gameBarTip": "Game Bar ist ein Zugriffsmenü für Xbox Spieldienste.",
 	"insiderTip": "Das Windows Insider-Programm ermöglicht es Ihnen, die neuesten Funktionen zu testen, bevor sie für die Öffentlichkeit freigegeben werden. Es wird als unnötiger Service für Benutzer angesehen, die nicht daran teilnehmen möchten.",
-	"featuresTip": "Feature-Updates sind technisch gesehen neue Versionen von Windows, die ein Upgrade erfordern. Sie gelten jedoch als riskantes Verfahren. Sie werden normalerweise halbjährlich veröffentlicht.",
 	"tpmTip": "Umgeht die Anforderungen für Secure Boot und TPM 2.0 und ermöglicht ein Upgrade auf Windows 11.",
 	"leftTaskbarTip": "Richtet die Taskleistensymbole nach links aus.",
 	"snapAssistTip": "Deaktiviert Snap-Assist-Flyout, wenn der Mauszeiger über der Maximierungsschaltflächen bewegt wird.",
@@ -413,5 +411,7 @@ Durch Deaktivieren können die E/A-Vorgänge auf den Festplatten reduziert werde
 	"vbsTip": "Kernel-Funktion, die das Einschleusen bösartiger Treiber in Prozesse verhindert.
 Es wirkt sich negativ auf die Leistung aus.",
 	"winSearchSw": "Suche deaktivieren",
-	"winSearchTip": "Deaktiviert den Windows-Suchdienst."
+	"winSearchTip": "Deaktiviert den Windows-Suchdienst.",
+	"storeUpdatesSw": "Deaktivieren Sie Microsoft Store-Updates",
+	"storeUpdatesTip": "Deaktiviert die Funktion für automatische Updates im Microsoft Store."
 }

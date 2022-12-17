@@ -67,7 +67,6 @@
 	"xboxSw": "Desactivar Xbox Live",
 	"gameBarSw": "Desactivar Game Bar",
 	"insiderSw": "Deshabilitar el servicio de información privilegiada",
-	"featuresSw": "Deshabilitar las actualizaciones de funciones",
 	"actionSw": "Deshabilitar Notification Center",
 	"disableOneDriveSw": "Deshabilitar OneDrive",
 	"tpmSw": "Deshabilitar la verificación de TPM 2.0",
@@ -404,8 +403,6 @@ como rotación automática, brillo automático, etc.
 	"insiderTip": "El programa Windows Insider le permite probar las últimas funciones
 antes de que se publiquen.
 Se considera un servicio innecesario para los usuarios que no desean participar.",
-	"featuresTip": "Las actualizaciones de funciones son versiones técnicamente nuevas de Windows que requieren una actualización.
-Sin embargo, se consideran un procedimiento riesgoso. Suelen ser lanzamientos semestrales.",
 	"tpmTip": "Omite los requisitos de arranque seguro y TPM 2.0, lo que permite la actualización a Windows 11.",
 	"leftTaskbarTip": "Alinea los iconos de la barra de tareas a la izquierda.",
 	"snapAssistTip": "Desactive el menú desplegable Asistente de ajuste al colocar el cursor sobre los botones de maximizar.",
@@ -435,5 +432,7 @@ Sin embargo, se consideran un procedimiento riesgoso. Suelen ser lanzamientos se
 	"vbsTip": "Característica del kernel que evita la inyección de controladores maliciosos en los procesos.
 Tiene un efecto negativo en el rendimiento.",
 	"winSearchSw": "Deshabilitar búsqueda",
-	"winSearchTip": "Desactiva el servicio de búsqueda de Windows."
+	"winSearchTip": "Desactiva el servicio de búsqueda de Windows.",
+	"storeUpdatesSw": "Deshabilitar las actualizaciones de la tienda de Microsoft",
+	"storeUpdatesTip": "Deshabilita la funcionalidad de actualizaciones automáticas de Microsoft Store."
 }

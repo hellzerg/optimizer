@@ -50,7 +50,7 @@ namespace Optimizer
         public bool? DisableXboxLive { get; set; }
         public bool? DisableGameBar { get; set; }
         public bool? DisableInsiderService { get; set; }
-        public bool? DisableFeatureUpdates { get; set; }
+        public bool? DisableStoreUpdates { get; set; }
         public bool? EnableLongPaths { get; set; }
         public bool? RemoveCastToDevice { get; set; }
         public bool? EnableGamingMode { get; set; }

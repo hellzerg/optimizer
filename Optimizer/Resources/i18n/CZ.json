@@ -67,7 +67,6 @@
 	"xboxSw": "Zakázat Xbox Live",
 	"gameBarSw": "Zakázat Herní panel",
 	"insiderSw": "Zakázat Insider Službu",
-	"featuresSw": "Zakázat Aktualizace funkcí",
 	"actionSw": "Zakázat Centrum oznámení",
 	"disableOneDriveSw": "Zakázat OneDrive",
 	"tpmSw": "Zakázat Kontrolu TPM 2.0",
@@ -407,8 +406,6 @@ Užitečné pouze pro tablety nebo zařízení s dotykovou obrazovkou.",
 	"insiderTip": "Program Windows Insider umožňuje vyzkoušet nejnovější funkce
 ještě před jejich zveřejněním.
 Je považována za zbytečnou službu pro uživatele, kteří se jí nechtějí účastnit.",
-	"featuresTip": "Aktualizace funkcí jsou technicky nové verze systému Windows, které vyžadují upgrade.
-Je to však považováno za riskantní procedůru. Obvykle se jedná o půlroční vydání.",
 	"tpmTip": "Obchází požadavky na Secure Boot a TPM 2.0 a umožňuje upgrade na Windows 11.",
 	"leftTaskbarTip": "Zarovná ikony hlavního panelu doleva.",
 	"snapAssistTip": "Zakáže funkci Snap Assist Flyout při najetí na tlačítka maximalizace.",
@@ -438,5 +435,7 @@ Je to však považováno za riskantní procedůru. Obvykle se jedná o půlročn
 	"vbsTip": "Funkce jádra, která zabraňuje vkládání škodlivých ovladačů do procesů.
 Má to negativní vliv na výkon.",
 	"winSearchSw": "Zakázat vyhledávání",
-	"winSearchTip": "Zakáže vyhledávací službu systému Windows."
+	"winSearchTip": "Zakáže vyhledávací službu systému Windows.",
+	"storeUpdatesSw": "Zakázat aktualizace Microsoft Store",
+	"storeUpdatesTip": "Zakáže funkci automatických aktualizací Microsoft Store."
 }

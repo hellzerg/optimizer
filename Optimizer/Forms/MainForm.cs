@@ -236,7 +236,7 @@ namespace Optimizer
             compatSw.ToggleClicked += new EventHandler(toggleSwitch32_Click);
             faxSw.ToggleClicked += new EventHandler(ToggleSwitch33_Click);
             insiderSw.ToggleClicked += new EventHandler(ToggleSwitch34_Click);
-            featuresSw.ToggleClicked += new EventHandler(ToggleSwitch35_Click);
+            storeUpdatesSw.ToggleClicked += new EventHandler(ToggleSwitch35_Click);
             smartScreenSw.ToggleClicked += new EventHandler(ToggleSwitch36_Click);
             ccSw.ToggleClicked += new EventHandler(ToggleSwitch37_Click);
             stickySw.ToggleClicked += new EventHandler(ToggleSwitch38_Click);
@@ -594,7 +594,7 @@ namespace Optimizer
             castSw.Label.Tag = Options.TranslationList["castTip"].ToString();
             gameBarSw.Label.Tag = Options.TranslationList["gameBarTip"].ToString();
             insiderSw.Label.Tag = Options.TranslationList["insiderTip"].ToString();
-            featuresSw.Label.Tag = Options.TranslationList["featuresTip"].ToString();
+            storeUpdatesSw.Label.Tag = Options.TranslationList["storeUpdatesTip"].ToString();
             tpmSw.Label.Tag = Options.TranslationList["tpmTip"].ToString();
             leftTaskbarSw.Label.Tag = Options.TranslationList["leftTaskbarTip"].ToString();
             snapAssistSw.Label.Tag = Options.TranslationList["snapAssistTip"].ToString();
@@ -688,15 +688,15 @@ namespace Optimizer
 
         private void ToggleSwitch35_Click(object sender, EventArgs e)
         {
-            if (featuresSw.ToggleChecked)
+            if (storeUpdatesSw.ToggleChecked)
             {
-                Optimize.DisableForcedFeatureUpdates();
+                Optimize.DisableStoreUpdates();
             }
             else
             {
-                Optimize.EnableForcedFeatureUpdates();
+                Optimize.EnableStoreUpdates();
             }
-            Options.CurrentOptions.DisableFeatureUpdates = featuresSw.ToggleChecked;
+            Options.CurrentOptions.DisableStoreUpdates = storeUpdatesSw.ToggleChecked;
         }
 
         private void ToggleSwitch34_Click(object sender, EventArgs e)
@@ -2169,7 +2169,7 @@ namespace Optimizer
             inkSw.ToggleChecked = Options.CurrentOptions.DisableWindowsInk;
             driversSw.ToggleChecked = Options.CurrentOptions.ExcludeDrivers;
             insiderSw.ToggleChecked = Options.CurrentOptions.DisableInsiderService;
-            featuresSw.ToggleChecked = Options.CurrentOptions.DisableFeatureUpdates;
+            storeUpdatesSw.ToggleChecked = Options.CurrentOptions.DisableStoreUpdates;
             ccSw.ToggleChecked = Options.CurrentOptions.DisableCloudClipboard;
             longPathsSw.ToggleChecked = Options.CurrentOptions.EnableLongPaths;
             castSw.ToggleChecked = Options.CurrentOptions.RemoveCastToDevice;

@@ -64,7 +64,6 @@
 	"xboxSw": "Xbox Live 사용 안 함",
 	"gameBarSw": "Game Bar 사용 안 함",
 	"insiderSw": "Insider 서비스 사용 안 함",
-	"featuresSw": "기능 업데이트 사용 안 함",
 	"actionSw": "알림 센터 사용 안 함",
 	"disableOneDriveSw": "OneDrive 사용 안 함",
 	"tpmSw": "TPM 2.0 확인 사용 안 함",
@@ -406,8 +405,6 @@ Microsoft 계정 로그인이 필요합니다.",
 	"insiderTip": "Windows Insider 프로그램을 사용하면 최신 기능이 일반에 공개되기 전에
 테스트할 수 있습니다.
 참여를 원하지 않는 사용자에게는 불필요한 서비스로 간주됩니다.",
-	"featuresTip": "기능 업데이트는 업그레이드가 필요한 기술적으로 새로운 버전의 Windows입니다.
-그러나 이러한 시술은 위험한 절차로 간주됩니다. 일반적으로 반년마다 출시됩니다.",
 	"tpmTip": "Secure Boot 및 TPM 2.0 요구 사항을 무시하고 Windows 11로 업그레이드할 수 있습니다.",
 	"leftTaskbarTip": "작업 표시줄 아이콘을 왼쪽으로 정렬합니다.",
 	"snapAssistTip": "최대화 버튼을 맴돌 때 스냅 레이아웃 플라이아웃을 사용하지 않습니다.",
@@ -438,5 +435,7 @@ Microsoft 계정 로그인이 필요합니다.",
 	"vbsTip": "악성 드라이버가 프로세스에 주입되는 것을 방지하는 커널 기능입니다.
 성능에 부정적인 영향을 미칩니다.",
 	"winSearchSw": "검색 비활성화",
-	"winSearchTip": "Windows 검색 서비스를 비활성화합니다."
+	"winSearchTip": "Windows 검색 서비스를 비활성화합니다.",
+	"storeUpdatesSw": "Microsoft Store 업데이트 비활성화",
+	"storeUpdatesTip": "Microsoft Store 자동 업데이트 기능을 비활성화합니다."
 }

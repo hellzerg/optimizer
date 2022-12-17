@@ -1,3 +1,9 @@
+## [14.6] - 2022-12-17
+- New: Disable Microsoft Store Updates
+- Hotfix: Automatic/manual updates working again
+- Hotfix: Disable NTFS Timestamp now retained after restart
+- Removed: Disable Feature Updates
+
 ## [14.5] - 2022-11-26
 - New: Fully translated into Ukrainian (thanks to Kirill Ermakov - https://github.com/kirill0ermakov) (#261)
 - New: Disable Search service in General (#257)

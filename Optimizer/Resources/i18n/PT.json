@@ -67,7 +67,6 @@
 	"xboxSw": "Desabilitar Xbox Live",
 	"gameBarSw": "Desabilitar Xbox Game Bar",
 	"insiderSw": "Desabilitar Windows Insider Service",
-	"featuresSw": "Desabilitar Atualizações de Recursos",
 	"actionSw": "Desabilitar Centro de Notificações",
 	"disableOneDriveSw": "Desabilitar Microsoft OneDrive",
 	"tpmSw": "Desativar verificação TPM 2.0 ",
@@ -404,8 +403,6 @@ como rotação automática, brilho automático, etc.
 	"insiderTip": "O programa Windows Insider permite que você teste os recursos mais recentes
 antes de serem divulgados ao público.
 É considerado um serviço desnecessário para usuários que não desejam participar.",
-	"featuresTip": "As atualizações de recursos são tecnicamente novas versões do Windows, que requerem uma atualização.
-No entanto, eles são considerados um procedimento arriscado. Geralmente são lançamentos semestrais.",
 	"tpmTip": "Ignora os requisitos de inicialização segura e TPM 2.0, permitindo a atualização para o Windows 11.",
 	"leftTaskbarTip": "Alinha os ícones da barra de tarefas à esquerda.",
 	"snapAssistTip": "Desative Snap Assist Flyout ao passar o mouse sobre os botões de maximização.",
@@ -435,5 +432,7 @@ No entanto, eles são considerados um procedimento arriscado. Geralmente são la
 	"vbsTip": "Recurso de kernel que impede a injeção de drivers mal-intencionados nos processos.
 Tem efeito negativo no desempenho.",
 	"winSearchSw": "Desativar pesquisa",
-	"winSearchTip": "Desativa o serviço de pesquisa do Windows."
+	"winSearchTip": "Desativa o serviço de pesquisa do Windows.",
+	"storeUpdatesSw": "Desativar atualizações da Microsoft Store",
+	"storeUpdatesTip": "Desativa a funcionalidade de atualizações automáticas da Microsoft Store."
 }

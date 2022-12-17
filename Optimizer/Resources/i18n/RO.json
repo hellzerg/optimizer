@@ -64,7 +64,6 @@
 	"xboxSw": "Dezactiva Xbox Live",
 	"gameBarSw": "Dezactiva Game Bar",
 	"insiderSw": "Dezactiva Serviciu Insider",
-	"featuresSw": "Dezactivați Actualizările Caracteristicilor.",
 	"actionSw": "Dezactiva Centru de Notificări",
 	"disableOneDriveSw": "Dezactiva OneDrive",
 	"tpmSw": "Dezactiva Cecul de TPM 2.0",
@@ -388,7 +387,6 @@ pentru analiză către Microsoft.",
 	"castTip": "Elimină clic dreapta pentru a partaja conținutul media pe dispozitivele Miracast.",
 	"gameBarTip": "Bara de jocuri este un meniu cu acces rapid pentru serviciile de jocuri Xbox.",
 	"insiderTip": "Programul Windows Insider vă permite să testați cele mai recente caracteristici Înainte de a fi lansat în public.. Este considerat un serviciu inutil pentru utilizatorii care nu doresc să participe.",
-	"featuresTip": "Actualizările de caracteristici sunt versiuni noi din punct de vedere tehnic ale Windows care necesită un upgrade. Cu toate acestea ele sunt considerate o procedură riscantă. Acestea sunt, de obicei, eliberări semestriale.",
 	"tpmTip": "Ocolește cerințele Secure Boot și TPM 2.0, permițând upgrade-ul la Windows 11.",
 	"leftTaskbarTip": "Aliniază pictogramele barei de activități la stânga.",
 	"snapAssistTip": "Dezactivați asistență la snap Flyout când treceți cu mouse-ul pe butoanele de maximizare.",
@@ -419,5 +417,7 @@ pentru analiză către Microsoft.",
 	"vbsTip": "Caracteristica kernel care previne injectarea driverelor rău intenționate în procese.
 Are un efect negativ asupra performanței.",
 	"winSearchw": "Dezactivați căutarea",
-	"winSearchTip": "Dezactivează serviciul de căutare Windows."
+	"winSearchTip": "Dezactivează serviciul de căutare Windows.",
+	"storeUpdatesSw": "Dezactivați actualizările Microsoft Store",
+	"storeUpdatesTip": "Dezactivează funcționalitatea de actualizări automate din Microsoft Store."
 }

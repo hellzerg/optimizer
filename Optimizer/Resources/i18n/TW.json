@@ -67,7 +67,6 @@
 	"xboxSw": "禁用 Xbox Live 服務",
 	"gameBarSw": "禁用遊戲欄功能",
 	"insiderSw": "禁用參與內部計劃",
-	"featuresSw": "禁用功能更新",
 	"actionSw": "禁用通知中心",
 	"disableOneDriveSw": "禁用 OneDrive",
 	"tpmSw": "禁用 TPM 2.0 檢查",
@@ -405,8 +404,6 @@
 	"gameBarTip": "遊戲欄是Xbox遊戲服務的快速訪問選單.",
 	"insiderTip": "Windows Insider程序允許你測試測試版 Windows 的最新的功能。
 	對於不想參與的用戶來說，它被認為是不必要的服務.",
-	"featuresTip": "特性更新是指需要升級的 Windows 新版本。
-	然而，它們被認為是一個有風險的過程。它們通常半年發布一次.",
 	"tpmTip": "繞過安全啟動和TPM 2.0要求，允許升級到 Windows 11.",
 	"leftTaskbarTip": "將任務欄圖示向左對齊.",
 	"snapAssistTip": "當滑鼠懸停最大化按鈕時禁用Snap Assist Flyout.",
@@ -436,5 +433,7 @@
 	"vbsTip": "防止惡意驅動程序注入進程的內核功能。
 它對性能有負面影響。",
 	"winSearchSw": "禁用搜索",
-	"winSearchTip": "禁用 Windows 搜索服務。"
+	"winSearchTip": "禁用 Windows 搜索服務。",
+	"storeUpdatesSw": "禁用 Microsoft Store 更新",
+	"storeUpdatesTip": "禁用 Microsoft Store 自動更新功能。"
 }

@@ -67,7 +67,6 @@
 	"xboxSw": "Xbox Live'ı Devre Dışı Bırak",
 	"gameBarSw": "Oyun Çubuğunu Devre Dışı Bırak",
 	"insiderSw": "İçeriden Bilgilendirme Hizmetini Devre Dışı Bırak",
-	"featuresSw": "Özellik Güncellemelerini Devre Dışı Bırak",
 	"actionSw": "Bildirim Merkezini Devre Dışı Bırak",
 	"disableOneDriveSw": "OneDrive'ı Devre Dışı Bırak",
 	"tpmSw": "TPM 2.0 Kontrolünü Devre Dışı Bırak",
@@ -405,8 +404,6 @@ Yalnızca dokunmatik ekranlı tabletler veya cihazlar için kullanışlıdır.",
 	"insiderTip": "Windows Insider programı, en son özellikleri halka açıklanmadan önce
 test etmenize olanak tanır.
 Katılmak istemeyen kullanıcılar için gereksiz bir hizmet olarak kabul edilir.",
-	"featuresTip": "Özellik Güncelleştirmeleri, teknik olarak Windows'un yükseltme gerektiren yeni sürümleridir.
-Ancak, riskli bir prosedür olarak kabul edilirler. Genellikle altı aylık yayınlardır.",
 	"tpmTip": "Güvenli Önyükleme ve TPM 2.0 gereksinimlerini atlayarak Windows 11'e yükseltmeye izin verir.",
 	"leftTaskbarTip": "Görev çubuğu simgelerini sola hizalar.",
 	"snapAssistTip": "Büyütme düğmeleri üzerinde gezinirken Snap Assist Flyout'u devre dışı bırakın.",
@@ -436,5 +433,7 @@ Ancak, riskli bir prosedür olarak kabul edilirler. Genellikle altı aylık yay�
 	"vbsTip": "Kötü amaçlı sürücülerin işlemlere eklenmesini önleyen çekirdek özelliği.
 Performansa olumsuz etkisi vardır.",
 	"winSearchSw": "Aramayı Devre Dışı Bırak",
-	"winSearchTip": "Windows arama hizmetini devre dışı bırakır."
+	"winSearchTip": "Windows arama hizmetini devre dışı bırakır.",
+	"storeUpdatesSw": "Microsoft Store Güncellemelerini Devre Dışı Bırak",
+	"storeUpdatesTip": "Microsoft Mağazası otomatik güncellemeler işlevini devre dışı bırakır."
 }

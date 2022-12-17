@@ -67,7 +67,7 @@ namespace Optimizer
         public bool DisableXboxLive { get; set; }
         public bool DisableGameBar { get; set; }
         public bool DisableInsiderService { get; set; }
-        public bool DisableFeatureUpdates { get; set; }
+        public bool DisableStoreUpdates { get; set; }
         public bool EnableLongPaths { get; set; }
         public bool RemoveCastToDevice { get; set; }
         public bool EnableGamingMode { get; set; }
@@ -246,7 +246,7 @@ namespace Optimizer
                     CurrentOptions.DisableXboxLive = false;
                     CurrentOptions.DisableGameBar = false;
                     CurrentOptions.DisableInsiderService = false;
-                    CurrentOptions.DisableFeatureUpdates = false;
+                    CurrentOptions.DisableStoreUpdates = false;
                     CurrentOptions.DisableCloudClipboard = false;
                     CurrentOptions.EnableLongPaths = false;
                     CurrentOptions.RemoveCastToDevice = false;
@@ -289,6 +289,11 @@ namespace Optimizer
             else
             {
                 CurrentOptions = JsonConvert.DeserializeObject<SettingsJson>(File.ReadAllText(SettingsFile));
+            }
+
+            if (CurrentOptions.Theme == Color.Empty || CurrentOptions.Theme == Color.FromArgb(0, 0, 0))
+            {
+                CurrentOptions.Theme = Color.FromArgb(153, 102, 204);
             }
 
             LoadTranslation();
