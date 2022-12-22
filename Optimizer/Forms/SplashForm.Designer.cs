@@ -81,7 +81,7 @@ namespace Optimizer
         }
 
         #endregion
-        protected internal System.Windows.Forms.Label LoadingStatus;
+        internal System.Windows.Forms.Label LoadingStatus;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
