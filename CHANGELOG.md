@@ -1,3 +1,6 @@
+## [14.7] - 2022-12-24
+- Hotfix: Theme color bug causing crash on launch
+
 ## [14.6] - 2022-12-17
 - New: Disable Microsoft Store Updates
 - Hotfix: Automatic/manual updates working again

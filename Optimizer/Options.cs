@@ -291,7 +291,7 @@ namespace Optimizer
                 CurrentOptions = JsonConvert.DeserializeObject<SettingsJson>(File.ReadAllText(SettingsFile));
             }
 
-            if (CurrentOptions.Theme == Color.Empty || CurrentOptions.Theme == Color.FromArgb(0, 0, 0))
+            if (CurrentOptions.Theme == Color.Empty || CurrentOptions.Theme == Color.FromArgb(0, 0, 0, 0))
             {
                 CurrentOptions.Theme = Color.FromArgb(153, 102, 204);
             }

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Optimizer")]
-[assembly: AssemblyDescription("Make Windows faster and more secure")]
+[assembly: AssemblyDescription("The Finest Windows Optimizer")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("deadmoon © 2022")]
+[assembly: AssemblyCompany("deadmoon © ∞")]
 [assembly: AssemblyProduct("Optimizer")]
-[assembly: AssemblyCopyright("deadmoon © 2022")]
+[assembly: AssemblyCopyright("deadmoon © ∞")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

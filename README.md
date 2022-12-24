@@ -3,7 +3,7 @@
 </p> 
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/14.6/Optimizer-14.6.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/14.7/Optimizer-14.7.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -87,9 +87,9 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ### #️ Details: ###
 
-* Latest version: 14.6
-* Released: December 17, 2022
-* SHA256: 38717DE36E9705D8B95EFE7D752982134BF8CCC398BF7369F205FA9329E0276B
+* Latest version: 14.7
+* Released: December 24, 2022
+* SHA256: B26EF2B482A98FA91D0EE63AC29D24252630AD79287E874272D9D9CF5DDDCD71
 
 <hr>
 

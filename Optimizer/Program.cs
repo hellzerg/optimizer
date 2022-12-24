@@ -14,7 +14,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 14;
-        internal readonly static float Minor = 6;
+        internal readonly static float Minor = 7;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
         internal static int DPI_PREFERENCE;
