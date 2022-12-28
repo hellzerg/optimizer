@@ -2,7 +2,6 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Optimizer
 {

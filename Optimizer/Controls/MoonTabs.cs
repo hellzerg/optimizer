@@ -68,7 +68,7 @@ namespace Optimizer
 
             // Send TCM_SETMINTABWIDTH
             string maxTitle = string.Empty;
-            foreach(TabPage x in this.TabPages)
+            foreach (TabPage x in this.TabPages)
             {
                 if (x.Text.Length > maxTitle.Length) maxTitle = x.Text;
             }

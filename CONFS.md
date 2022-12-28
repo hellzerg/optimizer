@@ -48,17 +48,7 @@
 - ```optimizer.exe /disable=indicium,uwp,hosts```
 
 ## Reset Optimizer configuration might fix it when can't open ##
-```optimizer.exe /reset```
-
-## How to disable/enable Windows Hibernate function from command-line ##
-
-- ```optimizer.exe /disablehibernate```
-- ```optimizer.exe /enablehibernate```
-
-## How to add or delete Optimizer from Windows startup ##
-
-- ```optimizer.exe /addstartup```
-- ```optimizer.exe /deletestartup```
+```optimizer.exe /repair```
 
 ## How to disable/enable HPET (High Precision Event Timer) in order to gain a boost when gaming [use at your own risk!] ##
 

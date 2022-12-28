@@ -291,6 +291,7 @@ namespace Optimizer
                 CurrentOptions = JsonConvert.DeserializeObject<SettingsJson>(File.ReadAllText(SettingsFile));
             }
 
+            // prevent options from corruption
             if (CurrentOptions.Theme == Color.Empty || CurrentOptions.Theme == Color.FromArgb(0, 0, 0, 0))
             {
                 CurrentOptions.Theme = Color.FromArgb(153, 102, 204);

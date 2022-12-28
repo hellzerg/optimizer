@@ -66,7 +66,7 @@
 	"insiderSw": "Disable Insider Service",
 	"actionSw": "Disable Notification Center",
 	"disableOneDriveSw": "Disable OneDrive",
-	"tpmSw": "Disable TPM 2.0 Check",
+	"tpmSw": "Disable TPM Check",
 	"leftTaskbarSw": "Align Taskbar to Left",
 	"snapAssistSw": "Disable Snap Assist",
 	"widgetsSw": "Disable Widgets",
