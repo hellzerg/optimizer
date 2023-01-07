@@ -437,5 +437,7 @@
 	"winSearchSw": "تعطيل خدمة بحث",
 	"winSearchTip": "عطيل خدمة بحث Windows.",
 	"storeUpdatesSw": "تعطيل تحديثات متجر Microsoft",
-	"storeUpdatesTip": "تعطيل وظيفة التحديثات التلقائية لـ Microsoft Store."
+	"storeUpdatesTip": "تعطيل وظيفة التحديثات التلقائية لـ Microsoft Store.",
+	"btnRestoreUwp": "ستعادة كل UWP",
+	"restoreUwpMessage": "هل انت متأكد من أنك تريد أن تفعل هذا؟"
 }

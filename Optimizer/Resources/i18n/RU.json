@@ -437,5 +437,7 @@
 	"winSearchSw": "Отключить поиск",
 	"winSearchTip": "Отключает службу поиска Windows.",
 	"storeUpdatesSw": "Отключить обновления магазина Microsoft",
-	"storeUpdatesTip": "Отключает функцию автоматического обновления Microsoft Store."
+	"storeUpdatesTip": "Отключает функцию автоматического обновления Microsoft Store.",
+	"btnRestoreUwp": "Восстановить все UWP",
+	"restoreUwpMessage": "Вы уверены, что хотите это сделать?"
 }

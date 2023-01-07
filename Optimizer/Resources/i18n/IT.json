@@ -432,5 +432,7 @@ Ha un effetto negativo sulle prestazioni.",
 	"winSearchSw": "Disabilita la ricerca",
 	"winSearchTip": "Disabilita il servizio di ricerca di Windows.",
 	"storeUpdatesSw": "Disabilita gli aggiornamenti di Microsoft Store",
-	"storeUpdatesTip": "Disabilita la funzionalità degli aggiornamenti automatici di Microsoft Store."
+	"storeUpdatesTip": "Disabilita la funzionalità degli aggiornamenti automatici di Microsoft Store.",
+	"btnRestoreUwp": "Ripristina tutta la piattaforma UWP",
+	"restoreUwpMessage": "Sei sicuro di volerlo fare?"
 }

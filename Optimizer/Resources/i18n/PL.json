@@ -433,5 +433,7 @@ Ma negatywny wpływ na wydajność.",
 	"winSearchSw": "Wyłącz wyszukiwanie",
 	"winSearchTip": "Wyłącza usługę wyszukiwania systemu Windows.",
 	"storeUpdatesSw": "Wyłącz aktualizacje Microsoft Store",
-	"storeUpdatesTip": "Wyłącza funkcję automatycznych aktualizacji Microsoft Store."
+	"storeUpdatesTip": "Wyłącza funkcję automatycznych aktualizacji Microsoft Store.",
+	"btnRestoreUwp": "Przywróć wszystkie platformy UWP",
+	"restoreUwpMessage": "Czy na pewno chcesz to zrobić?"
 }

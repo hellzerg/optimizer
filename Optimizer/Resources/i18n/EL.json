@@ -432,5 +432,7 @@
 	"winSearchSw": "Απενεργοποίηση Αναζήτησης",
 	"winSearchTip": "Απενεργοποιεί την υπηρεσία αναζήτησης που είναι υπεύθυνη για την αναζήτηση αρχείων.",
 	"storeUpdatesSw": "Απενεργοποίηση Ενημερώσεων Microsoft Store",
-	"storeUpdatesTip": "Απενεργοποιεί τις ενημερώσεις του Microsoft Store."
+	"storeUpdatesTip": "Απενεργοποιεί τις ενημερώσεις του Microsoft Store.",
+	"btnRestoreUwp": "Επαναφορά όλων των UWP",
+	"restoreUwpMessage": "Είστε σίγουροι ότι θέλετε να επαναφέρετε όλες τις εφαρμογές UWP;"
 }

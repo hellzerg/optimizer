@@ -1,3 +1,9 @@
+## [14.8] - 2023-01-07
+- New: Updated to .NET Framework 4.8 for better performance and support
+- New: Added Restore all UWP apps
+- Improved: Refactored command-line processor
+- Hotfix: UWP uninstall confirmation message fixed (#281)
+
 ## [14.7] - 2022-12-24
 - Hotfix: Theme color bug causing crash on launch
 

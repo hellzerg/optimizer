@@ -37,9 +37,7 @@ namespace Optimizer
             using (PowerShell script = PowerShell.Create())
             {
                 script.AddScript(string.Format("Get-AppxPackage -AllUsers '{0}' | Remove-AppxPackage", appName));
-
                 script.Invoke();
-
                 return script.Streams.Error.Count > 0;
 
                 // not working on Windows 7 anymore
@@ -47,6 +45,16 @@ namespace Optimizer
             }
         }
 
-        // TODO: Reinstall default pre-installed apps
+        internal static bool RestoreAllUWPApps()
+        {
+            string cmd = "Get-AppxPackage -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register \"$($_.InstallLocation)\\AppXManifest.xml\"}";
+
+            using (PowerShell script = PowerShell.Create())
+            {
+                script.AddScript(cmd);
+                script.Invoke();
+                return script.Streams.Error.Count > 0;
+            }
+        }
     }
 }

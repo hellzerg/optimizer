@@ -437,5 +437,7 @@ Negatív hatással van a teljesítményre.",
 	"winSearchSw": "Keresés letiltása",
 	"winSearchTip": "Letiltja a Windows keresőszolgáltatást.",
 	"storeUpdatesSw": "A Microsoft Store frissítéseinek letiltása",
-	"storeUpdatesTip": "Letiltja a Microsoft Store automatikus frissítési funkcióját."
+	"storeUpdatesTip": "Letiltja a Microsoft Store automatikus frissítési funkcióját.",
+	"btnRestoreUwp": "Állítsa vissza az összes UWP",
+	"restoreUwpMessage": "Biztosan ezt akarod csinálni?"
 }

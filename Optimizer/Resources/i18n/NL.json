@@ -388,5 +388,7 @@ Het heeft een negatief effect op de prestaties.",
    "winSearchSw": "Schakel Zoeken uit",
    "winSearchTip": "Schakelt de Windows-zoekservice uit.",
    "storeUpdatesSw": "Schakel Microsoft Store-updates uit",
-	"storeUpdatesTip": "Schakelt de functionaliteit voor automatische updates van de Microsoft Store uit."
+	"storeUpdatesTip": "Schakelt de functionaliteit voor automatische updates van de Microsoft Store uit.",
+   "btnRestoreUwp": "Herstel alle UWP",
+	"restoreUwpMessage": "Weet je zeker dat je dit wilt doen?"
 }

@@ -89,7 +89,7 @@ namespace Optimizer
 
         #endregion
         private System.Windows.Forms.Panel Panel;
-        protected internal System.Windows.Forms.Label Label;
-        protected internal MoonToggle Toggle;
+        internal System.Windows.Forms.Label Label;
+        internal MoonToggle Toggle;
     }
 }

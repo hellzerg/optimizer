@@ -73,6 +73,7 @@ namespace Optimizer
         string _errorModernAppsMessage = "The following app(s) couldn't be uninstalled:\n";
         string _repairMessage = "Are you sure you want to reset configuration?\n\nThis will reset all your preferences, including any icons you extracted or downloaded using Integrator, but will not touch anything on your computer!";
         string _flushDNSMessage = "Are you sure you wish to flush the DNS cache of Windows?\n\nThis will cause internet disconnection for a moment and it may be needed a restart to function properly.";
+        string _uwpRestoreMessage = "Are you sure you want to do this?";
 
         string _byteSizeNullString = " b";
         string _primaryItemTag = "_primary";
@@ -1865,6 +1866,7 @@ namespace Optimizer
                 _removeModernAppsMessage = Options.TranslationList["removeModernApps"];
                 _errorModernAppsMessage = Options.TranslationList["errorModernApps"];
                 _repairMessage = Options.TranslationList["resetMessage"];
+                _uwpRestoreMessage = Options.TranslationList["restoreUwpMessage"];
                 _flushDNSMessage = Options.TranslationList["flushDNSMessage"];
 
                 listStartupItems.Columns[0].Text = translationList["startupItemName"];
@@ -2320,7 +2322,7 @@ namespace Optimizer
 
             if (selectedApps.Count <= 0) return;
 
-            if (MessageBox.Show(_removeModernAppsMessage + "\n\n" + string.Join(Environment.NewLine, selectedApps), "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(_removeModernAppsMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 uninstallModernAppsButton.Enabled = false;
                 refreshModernAppsButton.Enabled = false;
@@ -4638,6 +4640,14 @@ namespace Optimizer
             SubForm sf = new SubForm();
             sf.SetTip(translationList["lblLab"].ToString());
             sf.ShowDialog(this);
+        }
+
+        private void btnRestoreUwp_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                UWPHelper.RestoreAllUWPApps();
+            }
         }
     }
 }

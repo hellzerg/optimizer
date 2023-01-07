@@ -437,5 +437,7 @@ Má to negativní vliv na výkon.",
 	"winSearchSw": "Zakázat vyhledávání",
 	"winSearchTip": "Zakáže vyhledávací službu systému Windows.",
 	"storeUpdatesSw": "Zakázat aktualizace Microsoft Store",
-	"storeUpdatesTip": "Zakáže funkci automatických aktualizací Microsoft Store."
+	"storeUpdatesTip": "Zakáže funkci automatických aktualizací Microsoft Store.",
+	"btnRestoreUwp": "Obnovte všechny UWP",
+	"restoreUwpMessage": "Opravdu to chcete udělat?"
 }

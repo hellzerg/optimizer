@@ -435,5 +435,7 @@ Performansa olumsuz etkisi vardır.",
 	"winSearchSw": "Aramayı Devre Dışı Bırak",
 	"winSearchTip": "Windows arama hizmetini devre dışı bırakır.",
 	"storeUpdatesSw": "Microsoft Store Güncellemelerini Devre Dışı Bırak",
-	"storeUpdatesTip": "Microsoft Mağazası otomatik güncellemeler işlevini devre dışı bırakır."
+	"storeUpdatesTip": "Microsoft Mağazası otomatik güncellemeler işlevini devre dışı bırakır.",
+	"btnRestoreUwp": "Tüm UWP'yi geri yükle",
+	"restoreUwpMessage": "Bunu yapmak istediğinizden emin misiniz?"
 }

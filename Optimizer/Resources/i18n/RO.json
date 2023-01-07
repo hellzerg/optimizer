@@ -419,5 +419,7 @@ Are un efect negativ asupra performanței.",
 	"winSearchw": "Dezactivați căutarea",
 	"winSearchTip": "Dezactivează serviciul de căutare Windows.",
 	"storeUpdatesSw": "Dezactivați actualizările Microsoft Store",
-	"storeUpdatesTip": "Dezactivează funcționalitatea de actualizări automate din Microsoft Store."
+	"storeUpdatesTip": "Dezactivează funcționalitatea de actualizări automate din Microsoft Store.",
+	"btnRestoreUwp": "Restaurați toate UWP",
+	"restoreUwpMessage": "Ești sigur că vrei să faci asta?"
 }

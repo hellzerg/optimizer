@@ -437,5 +437,7 @@ Disabling it can reduce I/O operations on the disks.",
 	"vbsTip": "Kernel feature that prevents malicious drivers injection into processes.
 It has negative effect on performance.",
 	"winSearchSw": "Disable Search",
-	"winSearchTip": "Disables Windows search service."
+	"winSearchTip": "Disables Windows search service.",
+	"btnRestoreUwp": "Restore all UWP",
+	"restoreUwpMessage": "Are you sure you want to do this?"
 }

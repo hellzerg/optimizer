@@ -413,5 +413,7 @@ Es wirkt sich negativ auf die Leistung aus.",
 	"winSearchSw": "Suche deaktivieren",
 	"winSearchTip": "Deaktiviert den Windows-Suchdienst.",
 	"storeUpdatesSw": "Deaktivieren Sie Microsoft Store-Updates",
-	"storeUpdatesTip": "Deaktiviert die Funktion für automatische Updates im Microsoft Store."
+	"storeUpdatesTip": "Deaktiviert die Funktion für automatische Updates im Microsoft Store.",
+	"btnRestoreUwp": "Stellen Sie alle UWP wieder her",
+	"restoreUwpMessage": "Sind Sie sicher, dass Sie dies tun möchten?"
 }

@@ -3,7 +3,7 @@
 </p> 
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/14.7/Optimizer-14.7.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/14.8/Optimizer-14.8.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -79,7 +79,7 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ### 💻 Compatibility: ###
 
-* .NET Framework 4.5.2
+* .NET Framework 4.8
 * Compatible with Windows 7, 8, 8.1, 10, 11
 * Can run under Windows Server 2008, 2012, 2016, 2019, 2022 using ```/unsafe``` switch
 
@@ -87,9 +87,9 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ### #️ Details: ###
 
-* Latest version: 14.7
-* Released: December 24, 2022
-* SHA256: B26EF2B482A98FA91D0EE63AC29D24252630AD79287E874272D9D9CF5DDDCD71
+* Latest version: 14.8
+* Released: January 7, 2023
+* SHA256: 3D535198EBF1E519E4F58C9AACA1B1E00C9B375C6F79CD3CCA5F0B70F0A3DCD5
 
 <hr>
 

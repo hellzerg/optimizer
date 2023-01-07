@@ -434,5 +434,7 @@ Tem efeito negativo no desempenho.",
 	"winSearchSw": "Desativar pesquisa",
 	"winSearchTip": "Desativa o serviço de pesquisa do Windows.",
 	"storeUpdatesSw": "Desativar atualizações da Microsoft Store",
-	"storeUpdatesTip": "Desativa a funcionalidade de atualizações automáticas da Microsoft Store."
+	"storeUpdatesTip": "Desativa a funcionalidade de atualizações automáticas da Microsoft Store.",
+	"btnRestoreUwp": "Restaurar todos os UWP",
+	"restoreUwpMessage": "Você tem certeza de que quer fazer isso?"
 }
