@@ -125,5 +125,6 @@ Support my hard work by donating me through [PayPal](https://www.paypal.com/payp
 * https://github.com/BeamingNG - BeamingNG for Romanian translation
 * https://github.com/svanlaere - svanlaere for Dutch translation
 * https://github.com/kirill0ermakov - Kirill Ermakov for Ukrainian translation
+* https://github.com/Hayao0819 - Yamada Hayao for Japanese translation
 * Parwar Andam for Kurdish translation
 * Zan for Hungarian translation
