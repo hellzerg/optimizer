@@ -249,5 +249,17 @@ namespace Optimizer
         {
             radioDutch.PerformClick();
         }
+
+        private void radioJapanese_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.JA;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
+
+        private void pictureBox17_Click(object sender, EventArgs e)
+        {
+            radioJapanese.PerformClick();
+        }
     }
 }

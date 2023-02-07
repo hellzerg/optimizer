@@ -30,7 +30,7 @@
 	"homegroupSw": "禁用家庭組",
 	"superfetchSw": "禁用 Superfetch",
 	"telemetryTasksSw": "禁用遙測任務",
-	"officeTelemetrySw": "禁用 Office 2016 遙測",
+	"officeTelemetrySw": "禁用 Office 遙測",
 	"vsSW": "禁用 Visual Studio 遙測",
 	"ffTelemetrySw": "禁用 Mozilla Firefox 遙測",
 	"chromeTelemetrySw": "禁用 Google Chrome 遙測",
@@ -342,7 +342,7 @@
 	"reportingTip": "錯誤報告收集應用程式崩潰和錯誤並將它們發送給微軟.",
 	"telemetryTasksTip": "遙測服務定期向微軟髮送使用和性能數據，
 	以備將來改進.",
-	"officeTelemetryTip": "Office 2016 遙測系統定期發送使用情況和
+	"officeTelemetryTip": "Office 遙測系統定期發送使用情況和
 	性能數據到微軟，以備將來改進.",
 	"ffTelemetryTip": "禁用 Mozilla Firefox 遙測和數據報告服務.",
 	"vsTip": "禁用 Visual Studio 遙測和回饋功能，包括 SQM 用戶端.",

@@ -28,7 +28,7 @@
 	"homegroupSw": "홈그룹 사용 안 함",
 	"superfetchSw": "Superfetch 사용 안 함",
 	"telemetryTasksSw": "원격 측정 작업 사용 안 함",
-	"officeTelemetrySw": "Office 2016 원격 측정 사용 안 함",
+	"officeTelemetrySw": "Office 원격 측정 사용 안 함",
 	"vsSW": "Visual Studio 원격 측정 사용 안 함",
 	"ffTelemetrySw": "Mozilla Firefox 원격 측정 사용 안 함",
 	"chromeTelemetrySw": "Google Chrome 원격 측정 사용 안 함",

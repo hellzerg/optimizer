@@ -684,6 +684,44 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;システム&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;プライバシー&quot;,
+        ///	&quot;subGaming&quot;: &quot;ゲーム&quot;,
+        ///	&quot;subTouch&quot;: &quot;タッチ&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;タスクバー&quot;,
+        ///	&quot;subExtras&quot;: &quot;その他&quot;,
+        ///	&quot;btnAbout&quot;: &quot;OK&quot;,
+        ///	&quot;restartButton&quot;: &quot;今すぐ再起動&quot;,
+        ///	&quot;restartButton8&quot;: &quot;今すぐ再起動&quot;,
+        ///	&quot;restartButton10&quot;: &quot;今すぐ再起動&quot;,
+        ///	&quot;btnFind&quot;: &quot;検索&quot;,
+        ///	&quot;btnKill&quot;: &quot;強制終了&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;File Handles&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;再起動して変更を適用&quot;,
+        ///	&quot;txtVersion&quot;: &quot;バージョン: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;{BITS}で動作しています。&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;アップデートが利用可能です&quot;,
+        ///	&quot;lblLab&quot;: &quot;実験的ビルド\n(テスト後に削除されます)&quot;,
+        ///	&quot;performanceSw [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JA {
+            get {
+                return ResourceManager.GetString("JA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap japan {
+            get {
+                object obj = ResourceManager.GetObject("japan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
         ///	&quot;subSystem&quot;: &quot;체계&quot;,
         ///	&quot;subPrivacy&quot;: &quot;은둔&quot;,
         ///	&quot;subGaming&quot;: &quot;노름&quot;,

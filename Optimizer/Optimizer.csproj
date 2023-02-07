@@ -103,6 +103,9 @@
     <Compile Include="Controls\MoonToggle.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\MoonToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\MoonTree.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -176,6 +179,12 @@
     </Compile>
     <Compile Include="Forms\UpdateForm.Designer.cs">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WizardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WizardForm.Designer.cs">
+      <DependentUpon>WizardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Hardware.cs" />
     <Compile Include="Forms\HostsEditorForm.cs">
@@ -273,6 +282,9 @@
     <EmbeddedResource Include="Forms\UpdateForm.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WizardForm.resx">
+      <DependentUpon>WizardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -299,6 +311,7 @@
     </Compile>
     <None Include="Resources\i18n\AR.json" />
     <None Include="Resources\i18n\HU.json" />
+    <None Include="Resources\i18n\JA.json" />
     <None Include="Resources\i18n\NL.json" />
     <None Include="Resources\i18n\PL.json" />
     <None Include="Resources\i18n\KU.json" />
@@ -369,6 +382,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Flags\japan.png" />
     <None Include="Resources\Flags\ukraine.png" />
     <None Include="Resources\Assets\logo.png" />
     <None Include="Resources\Assets\banner.png" />

@@ -97,6 +97,7 @@
         HU, // hungarian
         RO, // romanian
         NL, // dutch
-        UA // ukrainian
+        UA, // ukrainian
+        JA // japanese
     }
 }

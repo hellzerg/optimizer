@@ -958,8 +958,8 @@ namespace Optimizer
 
             if (string.IsNullOrEmpty(Options.CurrentOptions.AppsFolder))
             {
-                txtDownloadFolder.Text = Path.Combine(Application.StartupPath, "Optimizer Downloads");
-                Options.CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "Optimizer Downloads");
+                txtDownloadFolder.Text = Path.Combine(Application.StartupPath, "OptimizerDownloads");
+                Options.CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "OptimizerDownloads");
                 Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
                 Options.SaveSettings();
             }
@@ -995,7 +995,7 @@ namespace Optimizer
             //InitNetworkMonitoring();
             EnableToggleEvents();
 
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
         }
 
         private void LoadReadyMenusState()
@@ -1173,6 +1173,10 @@ namespace Optimizer
             if (Options.CurrentOptions.LanguageCode == LanguageCode.UA)
             {
                 boxLang.Text = "українська";
+            }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.JA)
+            {
+                boxLang.Text = "日本語";
             }
         }
 
@@ -2196,7 +2200,8 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            WizardForm f = new WizardForm();
+            f.Show();
         }
 
         private void GetDesktopItems()
@@ -4295,6 +4300,11 @@ namespace Optimizer
             {
                 picFlag.Image = Properties.Resources.ukraine;
                 Options.CurrentOptions.LanguageCode = LanguageCode.UA;
+            }
+            else if (boxLang.Text == "日本語")
+            {
+                picFlag.Image = Properties.Resources.japan;
+                Options.CurrentOptions.LanguageCode = LanguageCode.JA;
             }
 
             this.CenterToScreen();
