@@ -26,7 +26,7 @@
 	"faxSw": "Відключити службу факсу",
 	"reportingSw": "Вимкнути повідомлення про помилки",
 	"homegroupSw": "Вимкнути домашню групу",
-	"superfetchSw": "Відключити супер-виборку",
+	"superfetchSw": "Відключити fetch",
 	"telemetryTasksSw": "Відключити функції телеметрії",
 	"officeTelemetrySw": "Відключити телеметрію Office 2016",
 	"vsSW": "Відключити телеметрію Visual Studio",
@@ -286,7 +286,7 @@
 	"languagesL": "Виберіть мову",
 	"trayStartup": "Менеджер запуску",
 	"trayCleaner": "Очищувач дисків",
-	"trayPinger": " Пінгер ":" 
+	"trayPinger": " Pinger ":" 
 	"trayHosts": "Редактор хостів",
 	"trayAD": "Завантажувач додатків",
 	"trayOptions": "Параметри",
