@@ -995,7 +995,7 @@ namespace Optimizer
             //InitNetworkMonitoring();
             EnableToggleEvents();
 
-            //this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void LoadReadyMenusState()

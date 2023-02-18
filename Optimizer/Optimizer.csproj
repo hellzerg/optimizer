@@ -103,9 +103,6 @@
     <Compile Include="Controls\MoonToggle.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\MoonToggleButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Controls\MoonTree.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -179,12 +176,6 @@
     </Compile>
     <Compile Include="Forms\UpdateForm.Designer.cs">
       <DependentUpon>UpdateForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\WizardForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\WizardForm.Designer.cs">
-      <DependentUpon>WizardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Hardware.cs" />
     <Compile Include="Forms\HostsEditorForm.cs">
@@ -281,9 +272,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateForm.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\WizardForm.resx">
-      <DependentUpon>WizardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
