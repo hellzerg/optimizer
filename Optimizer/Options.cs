@@ -16,6 +16,9 @@ namespace Optimizer
         public bool EnableTray { get; set; }
         public bool AutoStart { get; set; }
 
+        public string TelemetryClientID { get; set; }
+        public bool DisableOptimizerTelemetry { get; set; }
+
         public LanguageCode LanguageCode { get; set; }
 
         // universal
@@ -212,6 +215,9 @@ namespace Optimizer
                     CurrentOptions.EnableTray = false;
                     CurrentOptions.AutoStart = false;
 
+                    CurrentOptions.TelemetryClientID = Guid.NewGuid().ToString().ToUpperInvariant();
+                    CurrentOptions.DisableOptimizerTelemetry = false;
+
                     CurrentOptions.LanguageCode = LanguageCode.EN;
 
                     CurrentOptions.EnablePerformanceTweaks = false;
@@ -295,6 +301,12 @@ namespace Optimizer
             if (CurrentOptions.Theme == Color.Empty || CurrentOptions.Theme == Color.FromArgb(0, 0, 0, 0))
             {
                 CurrentOptions.Theme = Color.FromArgb(153, 102, 204);
+            }
+            // generate random telemetry ID if not present
+            if (string.IsNullOrEmpty(CurrentOptions.TelemetryClientID))
+            {
+                CurrentOptions.TelemetryClientID = Guid.NewGuid().ToString().ToUpperInvariant();
+                SaveSettings();
             }
 
             LoadTranslation();

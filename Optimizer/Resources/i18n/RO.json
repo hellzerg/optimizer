@@ -421,5 +421,6 @@ Are un efect negativ asupra performanței.",
 	"storeUpdatesSw": "Dezactivați actualizările Microsoft Store",
 	"storeUpdatesTip": "Dezactivează funcționalitatea de actualizări automate din Microsoft Store.",
 	"btnRestoreUwp": "Restaurați toate UWP",
-	"restoreUwpMessage": "Ești sigur că vrei să faci asta?"
+	"restoreUwpMessage": "Ești sigur că vrei să faci asta?",
+	"telemetrySvcToggle": "Dezactivați telemetria Optimizer"
 }

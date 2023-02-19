@@ -14,7 +14,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 14;
-        internal readonly static float Minor = 8;
+        internal readonly static float Minor = 9;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
         internal static int DPI_PREFERENCE;
@@ -310,6 +310,11 @@ namespace Optimizer
                     Options.LoadSettings();
                 }
 
+                if (!Options.CurrentOptions.DisableOptimizerTelemetry)
+                {
+                    TelemetryHelper.EnableTelemetryService();
+                }
+
                 // ideal place to replace internal messages from translation list
                 _adminMissingMessage = Options.TranslationList["adminMissingMsg"];
                 _unsupportedMessage = Options.TranslationList["unsupportedMsg"];
@@ -321,7 +326,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Program.Main", ex.Message, ex.StackTrace);
+                ErrorLogger.LogError("Program.Main-LoadSettings", ex.Message, ex.StackTrace);
                 Environment.Exit(0);
             }
         }

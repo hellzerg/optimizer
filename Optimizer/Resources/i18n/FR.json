@@ -436,5 +436,6 @@ Cela a un effet négatif sur les performances.",
 	"storeUpdatesSw": "Désactiver les mises à jour du Microsoft Store",
 	"storeUpdatesTip": "Désactive la fonctionnalité de mises à jour automatiques de Microsoft Store.",
 	"btnRestoreUwp": "Restaurer tous les UWP",
-	"restoreUwpMessage": "Es-tu sûr de vouloir faire ça?"
+	"restoreUwpMessage": "Es-tu sûr de vouloir faire ça?",
+	"telemetrySvcToggle": "Désactiver la télémétrie de l'optimiseur"
 }

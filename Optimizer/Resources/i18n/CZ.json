@@ -439,5 +439,6 @@ Má to negativní vliv na výkon.",
 	"storeUpdatesSw": "Zakázat aktualizace Microsoft Store",
 	"storeUpdatesTip": "Zakáže funkci automatických aktualizací Microsoft Store.",
 	"btnRestoreUwp": "Obnovte všechny UWP",
-	"restoreUwpMessage": "Opravdu to chcete udělat?"
+	"restoreUwpMessage": "Opravdu to chcete udělat?",
+	"telemetrySvcToggle": "Zakázat telemetrii optimalizátoru"
 }

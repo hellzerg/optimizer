@@ -753,16 +753,17 @@ namespace Optimizer
             _trayMenu = Options.CurrentOptions.EnableTray;
             quickAccessToggle.ToggleChecked = Options.CurrentOptions.EnableTray;
             launcherIcon.Visible = Options.CurrentOptions.EnableTray;
+            autoStartToggle.ToggleChecked = Options.CurrentOptions.AutoStart;
+            telemetrySvcToggle.ToggleChecked = Options.CurrentOptions.DisableOptimizerTelemetry;
+
             //seperatorNetMon.Visible = Options.CurrentOptions.EnableTray;
             //trayDownSpeed.Visible = Options.CurrentOptions.EnableTray;
             //trayUpSpeed.Visible = Options.CurrentOptions.EnableTray;
-            autoStartToggle.ToggleChecked = Options.CurrentOptions.AutoStart;
 
             // fix SSL/TLS error when contacting internet
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             // initial states
-
             checkDefaultIcon.Checked = true;
             radioProgram.Checked = true;
             radioTop.Checked = true;
@@ -860,6 +861,10 @@ namespace Optimizer
 
                 txtOS.Text += string.Format(" ({0})", Utilities.GetWindows10Build());
             }
+
+            // Show Uninstall OneDrive ONLY in UNSAFE MODE!
+            // Reasons should be apparent by now...
+            uODSw.Visible = Program.UNSAFE_MODE;
 
             _splashForm.LoadingStatus.Text = "loading startup && hosts items";
 
@@ -2200,8 +2205,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            WizardForm f = new WizardForm();
-            f.Show();
+
         }
 
         private void GetDesktopItems()
@@ -4657,6 +4661,17 @@ namespace Optimizer
             if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 UWPHelper.RestoreAllUWPApps();
+            }
+        }
+
+        private void telemetrySvcToggle_ToggleClicked(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.DisableOptimizerTelemetry = telemetrySvcToggle.ToggleChecked;
+            Options.SaveSettings();
+
+            if (!Options.CurrentOptions.DisableOptimizerTelemetry)
+            {
+                TelemetryHelper.EnableTelemetryService();
             }
         }
     }

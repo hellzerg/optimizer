@@ -429,5 +429,6 @@ Disabling it can reduce I/O operations on the disks.",
 	"winSearchSw": "検索を無効化",
 	"winSearchTip": "Windows Searchサービスを無効化します。",
 	"btnRestoreUwp": "全てのUWPを復元",
-	"restoreUwpMessage": "これを実行してもよろしいですか？"
+	"restoreUwpMessage": "これを実行してもよろしいですか？",
+	"telemetrySvcToggle": "オプティマイザーのテレメトリを無効にする"
 }

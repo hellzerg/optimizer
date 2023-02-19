@@ -439,5 +439,6 @@ Microsoft 계정 로그인이 필요합니다.",
 	"storeUpdatesSw": "Microsoft Store 업데이트 비활성화",
 	"storeUpdatesTip": "Microsoft Store 자동 업데이트 기능을 비활성화합니다.",
 	"btnRestoreUwp": "모든 UWP 복원",
-	"restoreUwpMessage": "이 작업을 수행하시겠습니까?"
+	"restoreUwpMessage": "이 작업을 수행하시겠습니까?",
+	"telemetrySvcToggle": "옵티마이저 텔레메트리 비활성화"
 }

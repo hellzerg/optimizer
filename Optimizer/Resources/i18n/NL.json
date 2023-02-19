@@ -390,5 +390,6 @@ Het heeft een negatief effect op de prestaties.",
    "storeUpdatesSw": "Schakel Microsoft Store-updates uit",
 	"storeUpdatesTip": "Schakelt de functionaliteit voor automatische updates van de Microsoft Store uit.",
    "btnRestoreUwp": "Herstel alle UWP",
-	"restoreUwpMessage": "Weet je zeker dat je dit wilt doen?"
+	"restoreUwpMessage": "Weet je zeker dat je dit wilt doen?",
+   "telemetrySvcToggle": "Schakel Optimizer-telemetrie uit"
 }

@@ -437,5 +437,6 @@ Performansa olumsuz etkisi vardır.",
 	"storeUpdatesSw": "Microsoft Store Güncellemelerini Devre Dışı Bırak",
 	"storeUpdatesTip": "Microsoft Mağazası otomatik güncellemeler işlevini devre dışı bırakır.",
 	"btnRestoreUwp": "Tüm UWP'yi geri yükle",
-	"restoreUwpMessage": "Bunu yapmak istediğinizden emin misiniz?"
+	"restoreUwpMessage": "Bunu yapmak istediğinizden emin misiniz?",
+	"telemetrySvcToggle": "Optimize Edici Telemetriyi Devre Dışı Bırak"
 }

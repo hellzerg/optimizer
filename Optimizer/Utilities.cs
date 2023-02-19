@@ -61,6 +61,19 @@ namespace Optimizer
             return Color.FromArgb(grayScale, grayScale, grayScale);
         }
 
+        internal static string GetWindowsDetails()
+        {
+            string bitness = Environment.Is64BitOperatingSystem ? "64-bit" : "32-bit";
+            if (CurrentWindowsVersion == WindowsVersion.Windows10 || CurrentWindowsVersion == WindowsVersion.Windows11)
+            {
+                return string.Format("{0} - {1} ({2})", GetOS(), GetWindows10Build(), bitness);
+            }
+            else
+            {
+                return string.Format("{0} - ({1})", GetOS(), bitness);
+            }
+        }
+
         internal static string GetWindows10Build()
         {
             return (string)Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "DisplayVersion", "");
@@ -114,7 +127,7 @@ namespace Optimizer
 
         internal static string GetBitness()
         {
-            string bitness = string.Empty;
+            string bitness;
 
             if (Environment.Is64BitOperatingSystem)
             {
@@ -562,7 +575,7 @@ namespace Optimizer
 
         public static RegistryKey OpenSubKeyWritable(this RegistryKey registryKey, string subkeyName, RegistryRights? rights = null)
         {
-            RegistryKey subKey = null;
+            RegistryKey subKey;
 
             if (rights == null)
                 subKey = registryKey.OpenSubKey(subkeyName, RegistryKeyPermissionCheck.ReadWriteSubTree, RegistryRights.FullControl);

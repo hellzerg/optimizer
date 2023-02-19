@@ -177,7 +177,7 @@
     <Compile Include="Forms\UpdateForm.Designer.cs">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Hardware.cs" />
+    <Compile Include="HardwareModel.cs" />
     <Compile Include="Forms\HostsEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +236,8 @@
     <Compile Include="StartupBackupItem.cs" />
     <Compile Include="StartupHelper.cs" />
     <Compile Include="StartupItem.cs" />
+    <Compile Include="TelemetryData.cs" />
+    <Compile Include="TelemetryHelper.cs" />
     <Compile Include="TokenPrivilege.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="UWPHelper.cs" />

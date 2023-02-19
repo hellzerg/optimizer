@@ -435,5 +435,6 @@ Ma negatywny wpływ na wydajność.",
 	"storeUpdatesSw": "Wyłącz aktualizacje Microsoft Store",
 	"storeUpdatesTip": "Wyłącza funkcję automatycznych aktualizacji Microsoft Store.",
 	"btnRestoreUwp": "Przywróć wszystkie platformy UWP",
-	"restoreUwpMessage": "Czy na pewno chcesz to zrobić?"
+	"restoreUwpMessage": "Czy na pewno chcesz to zrobić?",
+	"telemetrySvcToggle": "Wyłącz telemetrię Optymalizatora"
 }

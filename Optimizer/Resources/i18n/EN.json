@@ -439,5 +439,6 @@ It has negative effect on performance.",
 	"winSearchSw": "Disable Search",
 	"winSearchTip": "Disables Windows search service.",
 	"btnRestoreUwp": "Restore all UWP",
-	"restoreUwpMessage": "Are you sure you want to do this?"
+	"restoreUwpMessage": "Are you sure you want to do this?",
+	"telemetrySvcToggle": "Disable Optimizer Insights"
 }

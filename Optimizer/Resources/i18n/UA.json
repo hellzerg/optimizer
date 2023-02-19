@@ -441,5 +441,6 @@
 	"storeUpdatesSw": "Вимкніть оновлення Microsoft Store",
 	"storeUpdatesTip": "Вимикає функцію автоматичного оновлення Microsoft Store.",
 	"btnRestoreUwp": "Відновити всі UWP",
-	"restoreUwpMessage": "Ви впевнені, що хочете це зробити?"
+	"restoreUwpMessage": "Ви впевнені, що хочете це зробити?",
+	"telemetrySvcToggle": "Вимкніть оптимізатор телеметрії"
 }

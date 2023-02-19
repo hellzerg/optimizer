@@ -434,5 +434,5 @@ Ha un effetto negativo sulle prestazioni.",
 	"storeUpdatesSw": "Disabilita gli aggiornamenti di Microsoft Store",
 	"storeUpdatesTip": "Disabilita la funzionalità degli aggiornamenti automatici di Microsoft Store.",
 	"btnRestoreUwp": "Ripristina tutta la piattaforma UWP",
-	"restoreUwpMessage": "Sei sicuro di volerlo fare?"
+	"restoreUwpMessage": "Disabilita la telemetria dell'ottimizzatore"
 }

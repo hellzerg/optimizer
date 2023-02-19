@@ -439,5 +439,6 @@
 	"storeUpdatesSw": "تعطيل تحديثات متجر Microsoft",
 	"storeUpdatesTip": "تعطيل وظيفة التحديثات التلقائية لـ Microsoft Store.",
 	"btnRestoreUwp": "ستعادة كل UWP",
-	"restoreUwpMessage": "هل انت متأكد من أنك تريد أن تفعل هذا؟"
+	"restoreUwpMessage": "هل انت متأكد من أنك تريد أن تفعل هذا؟",
+	"telemetrySvcToggle": "تعطيل Optimizer عن بعد"
 }

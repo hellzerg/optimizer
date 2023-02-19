@@ -1,3 +1,10 @@
+## [14.9] - 2023-02-18
+- New: Uninstall OneDrive is ONLY visible in UNSAFE MODE, for apparent reasons...
+- New: Optimizer Insights collects - with great respect to privacy - every error the app produces for further investigation
+- New: Of course, you can disable Optimizer Insights in Options
+- New: Fully translated into Japanese (thanks to Yamada Hayao - https://github.com/Hayao0819 for Japanese translation) (#286)
+- Improved: Minor code refactoring
+
 ## [14.8] - 2023-01-07
 - New: Updated to .NET Framework 4.8 for better performance and support
 - New: Added Restore all UWP apps

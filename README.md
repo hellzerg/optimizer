@@ -3,7 +3,7 @@
 </p> 
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/14.8/Optimizer-14.8.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/14.9/Optimizer-14.9.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -16,7 +16,7 @@ Advanced configuration utility that helps you restore your privacy and increase 
 Optimizer is recommended after a fresh, clean installation of Windows to achieve maximum privacy and security.<br>
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 
-* Full multilingual support (20 languages available)
+* Full multilingual support (21 languages available)
 * Speed up your system and network performance
 * Disable unnecessary Windows services
 * Disable Windows telemetry, Cortana and many more
@@ -87,9 +87,9 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ### #️ Details: ###
 
-* Latest version: 14.8
-* Released: January 7, 2023
-* SHA256: 3D535198EBF1E519E4F58C9AACA1B1E00C9B375C6F79CD3CCA5F0B70F0A3DCD5
+* Latest version: 14.9
+* Released: February 18, 2023
+* SHA256: CC81BE39ADCB8EA105C75106084F7B6809014AEDE70B52FD7EB2F41D5C7C288C
 
 <hr>
 
@@ -125,5 +125,6 @@ Support my hard work by donating me through [PayPal](https://www.paypal.com/payp
 * https://github.com/BeamingNG - BeamingNG for Romanian translation
 * https://github.com/svanlaere - svanlaere for Dutch translation
 * https://github.com/kirill0ermakov - Kirill Ermakov for Ukrainian translation
+* https://github.com/Hayao0819 - Yamada Hayao for Japanese translation
 * Parwar Andam for Kurdish translation
 * Zan for Hungarian translation

@@ -437,5 +437,6 @@
 	"storeUpdatesSw": "禁用 Microsoft Store 更新",
 	"storeUpdatesTip": "禁用 Microsoft Store 自動更新功能。",
 	"btnRestoreUwp": "恢復所有 UWP",
-	"restoreUwpMessage": "你確定要這麼做嗎？"
+	"restoreUwpMessage": "你確定要這麼做嗎？",
+	"telemetrySvcToggle": "禁用優化器遙測"
 }
