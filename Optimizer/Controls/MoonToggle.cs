@@ -10,6 +10,9 @@ namespace Optimizer
     {
         private readonly Timer AnimationTimer = new Timer();
         private int CirclePos = 3;
+        private int CircleColorR = 255;
+        private int CircleColorG = 255;
+        private int CircleColorB = 255;
         private int Alpha = 0;
 
         public MoonToggle()
@@ -37,8 +40,8 @@ namespace Optimizer
         {
             pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             pevent.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            pevent.Graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             pevent.Graphics.InterpolationMode = InterpolationMode.High;
+
             pevent.Graphics.Clear(Parent.BackColor);
 
             GraphicsPath backRect = new GraphicsPath();
@@ -48,13 +51,23 @@ namespace Optimizer
 
             pevent.Graphics.FillPath(new SolidBrush(Options.BackAccentColor), backRect);
             pevent.Graphics.FillPath(new SolidBrush(Color.FromArgb(Alpha, Options.ForegroundColor.R, Options.ForegroundColor.G, Options.ForegroundColor.B)), backRect);
-            pevent.Graphics.FillEllipse(new SolidBrush(Color.White), new RectangleF(CirclePos, 3, 16, 16));
+            pevent.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(CircleColorR, CircleColorG, CircleColorB)), new RectangleF(CirclePos, 3, 16, 16));
         }
 
         private void AnimationTick(object sender, EventArgs e)
         {
             if (Checked)
             {
+                if (Options.TextColor == Color.Black)
+                {
+                    if (CircleColorR != 0 && CircleColorG != 0 && CircleColorB != 0)
+                    {
+                        CircleColorR -= 15;
+                        CircleColorG -= 15;
+                        CircleColorB -= 15;
+                        Invalidate();
+                    }
+                }
                 if (CirclePos < 26)
                 {
                     CirclePos += 2;
@@ -64,12 +77,19 @@ namespace Optimizer
                 if (Alpha < 255)
                 {
                     Alpha += 15;
-                    if (CirclePos > 26)
-                        Invalidate();
+                    Invalidate();
                 }
             }
             else
             {
+                if (CircleColorR != 255 && CircleColorG != 255 && CircleColorB != 255)
+                {
+                    CircleColorR += 15;
+                    CircleColorG += 15;
+                    CircleColorB += 15;
+                    Invalidate();
+                }
+
                 if (CirclePos > 3)
                 {
                     CirclePos -= 2;
