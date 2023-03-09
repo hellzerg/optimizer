@@ -1,77 +1,86 @@
-﻿using System.ComponentModel;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace Optimizer
 {
     public sealed class MoonToggle : CheckBox
     {
-        bool solidStyle = true;
-
-        [Browsable(true)]
-        public override string Text
-        {
-            get { return base.Text; }
-            set { }
-        }
-
-        [DefaultValue(true)]
-        public bool SolidStyle
-        {
-            get { return solidStyle; }
-            set
-            {
-                solidStyle = value;
-                this.Invalidate();
-            }
-        }
+        private readonly Timer AnimationTimer = new Timer();
+        private int CirclePos = 3;
+        private int Alpha = 0;
 
         public MoonToggle()
         {
-            this.DoubleBuffered = true;
-            this.MinimumSize = new Size(46, 22);
-            this.ForeColor = Color.White;
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
+            DoubleBuffered = true;
+            Height = 22; Width = 46;
+            AnimationTimer.Interval = 1;
+            AnimationTimer.Tick += new EventHandler(AnimationTick);
         }
 
-        private GraphicsPath GetFigurePath()
+        protected override void OnHandleCreated(EventArgs e)
         {
-            int arcSize = this.Height - 1;
-            Rectangle leftArc = new Rectangle(0, 0, arcSize, arcSize);
-            Rectangle rightArc = new Rectangle(this.Width - arcSize - 2, 0, arcSize, arcSize);
+            base.OnHandleCreated(e);
+            AnimationTimer.Start();
+        }
 
-            GraphicsPath path = new GraphicsPath();
-            path.StartFigure();
-            path.AddArc(leftArc, 90, 180);
-            path.AddArc(rightArc, 270, 180);
-            path.CloseFigure();
-
-            return path;
+        protected override void OnResize(EventArgs e)
+        {
+            Height = 22; Width = 44;
+            Invalidate();
         }
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
-            int toggleSize = this.Height - 5;
             pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            pevent.Graphics.Clear(this.Parent.BackColor);
+            pevent.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            pevent.Graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            pevent.Graphics.InterpolationMode = InterpolationMode.High;
+            pevent.Graphics.Clear(Parent.BackColor);
 
-            if (this.Checked) //ON
+            GraphicsPath backRect = new GraphicsPath();
+            backRect.AddArc(new RectangleF(0.5f, 0.5f, Height - 1, Height - 1), 90, 180);
+            backRect.AddArc(new RectangleF(Width - Height + 0.5f, 0.5f, Height - 1, Height - 1), 270, 180);
+            backRect.CloseAllFigures();
+
+            pevent.Graphics.FillPath(new SolidBrush(Options.BackAccentColor), backRect);
+            pevent.Graphics.FillPath(new SolidBrush(Color.FromArgb(Alpha, Options.ForegroundColor.R, Options.ForegroundColor.G, Options.ForegroundColor.B)), backRect);
+            pevent.Graphics.FillEllipse(new SolidBrush(Color.White), new RectangleF(CirclePos, 3, 16, 16));
+        }
+
+        private void AnimationTick(object sender, EventArgs e)
+        {
+            if (Checked)
             {
-                if (solidStyle)
-                    pevent.Graphics.FillPath(new SolidBrush(Options.ForegroundColor), GetFigurePath());
-                else pevent.Graphics.DrawPath(new Pen(Options.ForegroundColor, 2), GetFigurePath());
-                //Draw the toggle
-                pevent.Graphics.FillEllipse(new SolidBrush(Options.TextColor),
-                  new Rectangle(this.Width - this.Height + 1, 2, toggleSize, toggleSize));
+                if (CirclePos < 26)
+                {
+                    CirclePos += 2;
+                    Invalidate();
+                }
+
+                if (Alpha < 255)
+                {
+                    Alpha += 15;
+                    if (CirclePos > 26)
+                        Invalidate();
+                }
             }
-            else //OFF
+            else
             {
-                if (solidStyle)
-                    pevent.Graphics.FillPath(new SolidBrush(Options.BackAccentColor), GetFigurePath());
-                else pevent.Graphics.DrawPath(new Pen(Options.BackAccentColor, 2), GetFigurePath());
-                //Draw the toggle
-                pevent.Graphics.FillEllipse(new SolidBrush(Color.White),
-                  new Rectangle(2, 2, toggleSize, toggleSize));
+                if (CirclePos > 3)
+                {
+                    CirclePos -= 2;
+                    Invalidate();
+                }
+
+                if (Alpha > 0)
+                {
+                    Alpha -= 15;
+                    Invalidate();
+                }
             }
         }
     }
