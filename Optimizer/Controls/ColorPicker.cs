@@ -449,6 +449,12 @@ namespace Optimizer.Controls
 
             return result;
         }
+        
+        protected virtual Color GetContrastColor(Color c)
+        {
+            double brightness = c.R * 0.299 + c.G * 0.587 + c.B * 0.114;
+            return brightness > 149 ? Color.Black : Color.White;
+        }
 
         protected virtual Image CreateSelectionGlyph()
         {
@@ -460,30 +466,12 @@ namespace Optimizer.Controls
 
             using (Graphics g = Graphics.FromImage(image))
             {
-                Point[] diamondOuter;
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                g.InterpolationMode = InterpolationMode.High;
 
-                diamondOuter = new[]
-                       {
-                         new Point(halfSize, 0), new Point(this.SelectionSize, halfSize), new Point(halfSize, this.SelectionSize), new Point(0, halfSize)
-                       };
-
-                g.FillPolygon(SystemBrushes.Control, diamondOuter);
-                g.DrawPolygon(SystemPens.ControlDark, diamondOuter);
-
-                using (Pen pen = new Pen(Color.FromArgb(128, SystemColors.ControlDark)))
-                {
-                    g.DrawLine(pen, halfSize, 1, this.SelectionSize - 1, halfSize);
-                    g.DrawLine(pen, halfSize, 2, this.SelectionSize - 2, halfSize);
-                    g.DrawLine(pen, halfSize, this.SelectionSize - 1, this.SelectionSize - 2, halfSize + 1);
-                    g.DrawLine(pen, halfSize, this.SelectionSize - 2, this.SelectionSize - 3, halfSize + 1);
-                }
-
-                using (Pen pen = new Pen(Color.FromArgb(196, SystemColors.ControlLightLight)))
-                {
-                    g.DrawLine(pen, halfSize, this.SelectionSize - 1, 1, halfSize);
-                }
-
-                g.DrawLine(SystemPens.ControlLightLight, 1, halfSize, halfSize, 1);
+                g.DrawEllipse(new Pen(GetContrastColor(Color)), halfSize - 4.5f, halfSize - 4.5f, 4.5f + 4.5f, 4.5f + 4.5f);
+                g.FillEllipse(new SolidBrush(this.Color), halfSize - 4, halfSize - 4, 4 + 4, 4 + 4);
             }
 
             return image;
@@ -538,6 +526,8 @@ namespace Optimizer.Controls
             {
                 this.HslColor = new HslColor(this.Color);
             }
+            
+            this.SelectionGlyph = this.CreateSelectionGlyph();
             this.Refresh();
 
             handler = this.ColorChanged;
@@ -650,11 +640,6 @@ namespace Optimizer.Controls
                 else
                 {
                     e.Graphics.DrawImage(this.SelectionGlyph, x, y);
-                }
-
-                if (this.Focused && includeFocus)
-                {
-                    ControlPaint.DrawFocusRectangle(e.Graphics, new Rectangle(x - 1, y - 1, this.SelectionSize + 2, this.SelectionSize + 2));
                 }
             }
         }
