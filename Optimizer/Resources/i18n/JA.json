@@ -99,8 +99,8 @@
 	"btnGetFeed": "リンクを更新",
 	"bitPref": "ビット数の設定",
 	"linkWarnings": "警告を表示",
-	"txtDownloadStatus": "アイドル",
-	"goToDownloadsB": "ダウンロードに移動",
+	"txtDownloadStatus": "待機中",
+	"goToDownloadsB": "ダウンロードを開く",
 	"btnDownloadApps": "ダウンロード",
 	"cAutoInstall": "ダウンロード後にインストール",
 	"setDownDirLbl": "ダウンロードフォルダを設定",
@@ -110,7 +110,7 @@
 	"checkTemp": "一時ファイル",
 	"checkLogs": "Windows logs",
 	"checkMiniDumps": "BSOD ミニダンプ",
-	"checkBin": "ゴミ箱は空です",
+	"checkBin": "ごみ箱を空にする",
 	"checkMediaCache": "メディアプレーヤーのキャッシュ",
 	"checkErrorReports": "エラーレポート",
 	"cleanDriveB": "クリーン",
@@ -429,6 +429,6 @@ SMBv3に置き換えられており、そちらのほうがより安全です。
 	"winSearchSw": "検索を無効化",
 	"winSearchTip": "Windows Searchサービスを無効化します。",
 	"btnRestoreUwp": "全てのUWPを復元",
-	"restoreUwpMessage": "これを実行してもよろしいですか？",
+	"restoreUwpMessage": "本当に復元しますか？",
 	"telemetrySvcToggle": "Optimizerのテレメトリを無効にする"
 }
