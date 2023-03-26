@@ -50,6 +50,10 @@ namespace Optimizer
         public bool DisableChromeTelemetry { get; set; }
         public bool DisableNVIDIATelemetry { get; set; }
 
+        // edge
+        public bool DisableEdgeDiscoverBar { get; set; }
+        public bool DisableEdgeTelemetry { get; set; }
+
         // windows 8
         public bool DisableOneDrive { get; set; }
 
@@ -80,8 +84,6 @@ namespace Optimizer
         public bool DisableSnapAssist { get; set; }
         public bool DisableWidgets { get; set; }
         public bool DisableChat { get; set; }
-        public bool TaskbarSmaller { get; set; }
-        public bool ClassicRibbon { get; set; }
         public bool ClassicMenu { get; set; }
         public bool DisableTPMCheck { get; set; }
         public bool CompactMode { get; set; }
@@ -267,14 +269,15 @@ namespace Optimizer
                     CurrentOptions.DisableChromeTelemetry = false;
                     CurrentOptions.DisableNVIDIATelemetry = false;
 
+                    CurrentOptions.DisableEdgeDiscoverBar = false;
+                    CurrentOptions.DisableEdgeTelemetry = false;
+
                     CurrentOptions.DisableOneDrive = false;
 
                     CurrentOptions.TaskbarToLeft = false;
                     CurrentOptions.DisableSnapAssist = false;
                     CurrentOptions.DisableWidgets = false;
                     CurrentOptions.DisableChat = false;
-                    CurrentOptions.TaskbarSmaller = false;
-                    CurrentOptions.ClassicRibbon = false;
                     CurrentOptions.ClassicMenu = false;
                     CurrentOptions.DisableTPMCheck = false;
                     CurrentOptions.CompactMode = false;

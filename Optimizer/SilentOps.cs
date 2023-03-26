@@ -30,11 +30,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.EnablePerformanceTweaks.Value)
                 {
-                    Optimize.EnablePerformanceTweaks();
+                    OptimizeHelper.EnablePerformanceTweaks();
                 }
                 else
                 {
-                    Optimize.DisablePerformanceTweaks();
+                    OptimizeHelper.DisablePerformanceTweaks();
                 }
             }
 
@@ -42,11 +42,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableNetworkThrottling.Value)
                 {
-                    Optimize.DisableNetworkThrottling();
+                    OptimizeHelper.DisableNetworkThrottling();
                 }
                 else
                 {
-                    Optimize.EnableNetworkThrottling();
+                    OptimizeHelper.EnableNetworkThrottling();
                 }
             }
 
@@ -54,11 +54,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableWindowsDefender.Value)
                 {
-                    Optimize.DisableDefender();
+                    OptimizeHelper.DisableDefender();
                 }
                 else
                 {
-                    Optimize.EnableDefender();
+                    OptimizeHelper.EnableDefender();
                 }
             }
 
@@ -66,11 +66,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableSystemRestore.Value)
                 {
-                    Optimize.DisableSystemRestore();
+                    OptimizeHelper.DisableSystemRestore();
                 }
                 else
                 {
-                    Optimize.EnableSystemRestore();
+                    OptimizeHelper.EnableSystemRestore();
                 }
             }
 
@@ -78,11 +78,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisablePrintService.Value)
                 {
-                    Optimize.DisablePrintService();
+                    OptimizeHelper.DisablePrintService();
                 }
                 else
                 {
-                    Optimize.EnablePrintService();
+                    OptimizeHelper.EnablePrintService();
                 }
             }
 
@@ -90,11 +90,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableMediaPlayerSharing.Value)
                 {
-                    Optimize.DisableMediaPlayerSharing();
+                    OptimizeHelper.DisableMediaPlayerSharing();
                 }
                 else
                 {
-                    Optimize.EnableMediaPlayerSharing();
+                    OptimizeHelper.EnableMediaPlayerSharing();
                 }
             }
 
@@ -102,11 +102,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableErrorReporting.Value)
                 {
-                    Optimize.DisableErrorReporting();
+                    OptimizeHelper.DisableErrorReporting();
                 }
                 else
                 {
-                    Optimize.EnableErrorReporting();
+                    OptimizeHelper.EnableErrorReporting();
                 }
             }
 
@@ -114,11 +114,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableHomeGroup.Value)
                 {
-                    Optimize.DisableHomeGroup();
+                    OptimizeHelper.DisableHomeGroup();
                 }
                 else
                 {
-                    Optimize.EnableHomeGroup();
+                    OptimizeHelper.EnableHomeGroup();
                 }
             }
 
@@ -126,11 +126,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableSuperfetch.Value)
                 {
-                    Optimize.DisableSuperfetch();
+                    OptimizeHelper.DisableSuperfetch();
                 }
                 else
                 {
-                    Optimize.EnableSuperfetch();
+                    OptimizeHelper.EnableSuperfetch();
                 }
             }
 
@@ -138,11 +138,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableTelemetryTasks.Value)
                 {
-                    Optimize.DisableTelemetryTasks();
+                    OptimizeHelper.DisableTelemetryTasks();
                 }
                 else
                 {
-                    Optimize.EnableTelemetryTasks();
+                    OptimizeHelper.EnableTelemetryTasks();
                 }
             }
 
@@ -150,11 +150,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableOffice2016Telemetry.Value)
                 {
-                    Optimize.DisableOffice2016Telemetry();
+                    OptimizeHelper.DisableOffice2016Telemetry();
                 }
                 else
                 {
-                    Optimize.EnableOffice2016Telemetry();
+                    OptimizeHelper.EnableOffice2016Telemetry();
                 }
             }
 
@@ -162,11 +162,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableCompatibilityAssistant.Value)
                 {
-                    Optimize.DisableCompatibilityAssistant();
+                    OptimizeHelper.DisableCompatibilityAssistant();
                 }
                 else
                 {
-                    Optimize.EnableCompatibilityAssistant();
+                    OptimizeHelper.EnableCompatibilityAssistant();
                 }
             }
 
@@ -174,11 +174,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableFaxService.Value)
                 {
-                    Optimize.DisableFaxService();
+                    OptimizeHelper.DisableFaxService();
                 }
                 else
                 {
-                    Optimize.EnableFaxService();
+                    OptimizeHelper.EnableFaxService();
                 }
             }
 
@@ -186,11 +186,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableSmartScreen.Value)
                 {
-                    Optimize.DisableSmartScreen();
+                    OptimizeHelper.DisableSmartScreen();
                 }
                 else
                 {
-                    Optimize.EnableSmartScreen();
+                    OptimizeHelper.EnableSmartScreen();
                 }
             }
 
@@ -198,11 +198,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableStickyKeys.Value)
                 {
-                    Optimize.DisableStickyKeys();
+                    OptimizeHelper.DisableStickyKeys();
                 }
                 else
                 {
-                    Optimize.EnableStickyKeys();
+                    OptimizeHelper.EnableStickyKeys();
                 }
             }
 
@@ -222,11 +222,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableSMB1.Value)
                 {
-                    Optimize.DisableSMB("1");
+                    OptimizeHelper.DisableSMB("1");
                 }
                 else
                 {
-                    Optimize.EnableSMB("1");
+                    OptimizeHelper.EnableSMB("1");
                 }
             }
 
@@ -234,11 +234,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableSMB2.Value)
                 {
-                    Optimize.DisableSMB("2");
+                    OptimizeHelper.DisableSMB("2");
                 }
                 else
                 {
-                    Optimize.EnableSMB("2");
+                    OptimizeHelper.EnableSMB("2");
                 }
             }
 
@@ -246,11 +246,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableNTFSTimeStamp.Value)
                 {
-                    Optimize.DisableNTFSTimeStamp();
+                    OptimizeHelper.DisableNTFSTimeStamp();
                 }
                 else
                 {
-                    Optimize.EnableNTFSTimeStamp();
+                    OptimizeHelper.EnableNTFSTimeStamp();
                 }
             }
 
@@ -258,11 +258,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableSearch.Value)
                 {
-                    Optimize.DisableSearch();
+                    OptimizeHelper.DisableSearch();
                 }
                 else
                 {
-                    Optimize.EnableSearch();
+                    OptimizeHelper.EnableSearch();
                 }
             }
 
@@ -270,11 +270,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableChromeTelemetry.Value)
                 {
-                    Optimize.DisableChromeTelemetry();
+                    OptimizeHelper.DisableChromeTelemetry();
                 }
                 else
                 {
-                    Optimize.EnableChromeTelemetry();
+                    OptimizeHelper.EnableChromeTelemetry();
                 }
             }
 
@@ -282,11 +282,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableFirefoxTemeletry.Value)
                 {
-                    Optimize.DisableFirefoxTelemetry();
+                    OptimizeHelper.DisableFirefoxTelemetry();
                 }
                 else
                 {
-                    Optimize.EnableFirefoxTelemetry();
+                    OptimizeHelper.EnableFirefoxTelemetry();
                 }
             }
 
@@ -294,11 +294,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableVisualStudioTelemetry.Value)
                 {
-                    Optimize.DisableVisualStudioTelemetry();
+                    OptimizeHelper.DisableVisualStudioTelemetry();
                 }
                 else
                 {
-                    Optimize.EnableVisualStudioTelemetry();
+                    OptimizeHelper.EnableVisualStudioTelemetry();
                 }
             }
 
@@ -306,11 +306,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableNVIDIATelemetry.Value)
                 {
-                    Optimize.DisableNvidiaTelemetry();
+                    OptimizeHelper.DisableNvidiaTelemetry();
                 }
                 else
                 {
-                    Optimize.EnableNvidiaTelemetry();
+                    OptimizeHelper.EnableNvidiaTelemetry();
                 }
             }
         }
@@ -322,11 +322,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableOneDrive.Value)
                 {
-                    Optimize.DisableOneDrive();
+                    OptimizeHelper.DisableOneDrive();
                 }
                 else
                 {
-                    Optimize.EnableOneDrive();
+                    OptimizeHelper.EnableOneDrive();
                 }
             }
 
@@ -339,11 +339,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.EnableGamingMode.Value)
                 {
-                    Optimize.EnableGamingMode();
+                    OptimizeHelper.EnableGamingMode();
                 }
                 else
                 {
-                    Optimize.DisableGamingMode();
+                    OptimizeHelper.DisableGamingMode();
                 }
             }
 
@@ -351,11 +351,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.EnableLegacyVolumeSlider.Value)
                 {
-                    Optimize.EnableLegacyVolumeSlider();
+                    OptimizeHelper.EnableLegacyVolumeSlider();
                 }
                 else
                 {
-                    Optimize.DisableLegacyVolumeSlider();
+                    OptimizeHelper.DisableLegacyVolumeSlider();
                 }
             }
 
@@ -363,11 +363,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableQuickAccessHistory.Value)
                 {
-                    Optimize.DisableQuickAccessHistory();
+                    OptimizeHelper.DisableQuickAccessHistory();
                 }
                 else
                 {
-                    Optimize.EnableQuickAccessHistory();
+                    OptimizeHelper.EnableQuickAccessHistory();
                 }
             }
 
@@ -375,11 +375,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableStartMenuAds.Value)
                 {
-                    Optimize.DisableStartMenuAds();
+                    OptimizeHelper.DisableStartMenuAds();
                 }
                 else
                 {
-                    Optimize.EnableStartMenuAds();
+                    OptimizeHelper.EnableStartMenuAds();
                 }
             }
 
@@ -387,12 +387,12 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.UninstallOneDrive.Value)
                 {
-                    Task t = new Task(() => Optimize.UninstallOneDrive());
+                    Task t = new Task(() => OptimizeHelper.UninstallOneDrive());
                     t.Start();
                 }
                 else
                 {
-                    Task t = new Task(() => Optimize.InstallOneDrive());
+                    Task t = new Task(() => OptimizeHelper.InstallOneDrive());
                     t.Start();
                 }
             }
@@ -401,11 +401,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableMyPeople.Value)
                 {
-                    Optimize.DisableMyPeople();
+                    OptimizeHelper.DisableMyPeople();
                 }
                 else
                 {
-                    Optimize.EnableMyPeople();
+                    OptimizeHelper.EnableMyPeople();
                 }
             }
 
@@ -413,11 +413,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.EnableLongPaths.Value)
                 {
-                    Optimize.EnableLongPaths();
+                    OptimizeHelper.EnableLongPaths();
                 }
                 else
                 {
-                    Optimize.DisableLongPaths();
+                    OptimizeHelper.DisableLongPaths();
                 }
             }
 
@@ -425,11 +425,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableAutomaticUpdates.Value)
                 {
-                    Optimize.DisableAutomaticUpdates();
+                    OptimizeHelper.DisableAutomaticUpdates();
                 }
                 else
                 {
-                    Optimize.EnableAutomaticUpdates();
+                    OptimizeHelper.EnableAutomaticUpdates();
                 }
             }
 
@@ -437,11 +437,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.ExcludeDrivers.Value)
                 {
-                    Optimize.ExcludeDrivers();
+                    OptimizeHelper.ExcludeDrivers();
                 }
                 else
                 {
-                    Optimize.IncludeDrivers();
+                    OptimizeHelper.IncludeDrivers();
                 }
             }
 
@@ -449,11 +449,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableTelemetryServices.Value)
                 {
-                    Optimize.DisableTelemetryServices();
+                    OptimizeHelper.DisableTelemetryServices();
                 }
                 else
                 {
-                    Optimize.EnableTelemetryServices();
+                    OptimizeHelper.EnableTelemetryServices();
                 }
             }
 
@@ -461,11 +461,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisablePrivacyOptions.Value)
                 {
-                    Optimize.EnhancePrivacy();
+                    OptimizeHelper.EnhancePrivacy();
                 }
                 else
                 {
-                    Optimize.CompromisePrivacy();
+                    OptimizeHelper.CompromisePrivacy();
                 }
             }
 
@@ -473,11 +473,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableCortana.Value)
                 {
-                    Optimize.DisableCortana();
+                    OptimizeHelper.DisableCortana();
                 }
                 else
                 {
-                    Optimize.EnableCortana();
+                    OptimizeHelper.EnableCortana();
                 }
             }
 
@@ -485,11 +485,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableSensorServices.Value)
                 {
-                    Optimize.DisableSensorServices();
+                    OptimizeHelper.DisableSensorServices();
                 }
                 else
                 {
-                    Optimize.EnableSensorServices();
+                    OptimizeHelper.EnableSensorServices();
                 }
             }
 
@@ -497,11 +497,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableWindowsInk.Value)
                 {
-                    Optimize.DisableWindowsInk();
+                    OptimizeHelper.DisableWindowsInk();
                 }
                 else
                 {
-                    Optimize.EnableWindowsInk();
+                    OptimizeHelper.EnableWindowsInk();
                 }
             }
 
@@ -509,11 +509,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableSpellingTyping.Value)
                 {
-                    Optimize.DisableSpellingAndTypingFeatures();
+                    OptimizeHelper.DisableSpellingAndTypingFeatures();
                 }
                 else
                 {
-                    Optimize.EnableSpellingAndTypingFeatures();
+                    OptimizeHelper.EnableSpellingAndTypingFeatures();
                 }
             }
 
@@ -521,11 +521,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableXboxLive.Value)
                 {
-                    Optimize.DisableXboxLive();
+                    OptimizeHelper.DisableXboxLive();
                 }
                 else
                 {
-                    Optimize.EnableXboxLive();
+                    OptimizeHelper.EnableXboxLive();
                 }
             }
 
@@ -533,11 +533,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableGameBar.Value)
                 {
-                    Optimize.DisableGameBar();
+                    OptimizeHelper.DisableGameBar();
                 }
                 else
                 {
-                    Optimize.EnableGameBar();
+                    OptimizeHelper.EnableGameBar();
                 }
             }
 
@@ -545,11 +545,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableInsiderService.Value)
                 {
-                    Optimize.DisableInsiderService();
+                    OptimizeHelper.DisableInsiderService();
                 }
                 else
                 {
-                    Optimize.EnableInsiderService();
+                    OptimizeHelper.EnableInsiderService();
                 }
             }
 
@@ -557,11 +557,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableStoreUpdates.Value)
                 {
-                    Optimize.DisableStoreUpdates();
+                    OptimizeHelper.DisableStoreUpdates();
                 }
                 else
                 {
-                    Optimize.EnableStoreUpdates();
+                    OptimizeHelper.EnableStoreUpdates();
                 }
             }
 
@@ -569,11 +569,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableCloudClipboard.Value)
                 {
-                    Optimize.DisableCloudClipboard();
+                    OptimizeHelper.DisableCloudClipboard();
                 }
                 else
                 {
-                    Optimize.EnableCloudClipboard();
+                    OptimizeHelper.EnableCloudClipboard();
                 }
             }
 
@@ -581,11 +581,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.RemoveCastToDevice.Value)
                 {
-                    Optimize.RemoveCastToDevice();
+                    OptimizeHelper.RemoveCastToDevice();
                 }
                 else
                 {
-                    Optimize.AddCastToDevice();
+                    OptimizeHelper.AddCastToDevice();
                 }
             }
         }
@@ -597,11 +597,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.TaskbarToLeft.Value)
                 {
-                    Optimize.AlignTaskbarToLeft();
+                    OptimizeHelper.AlignTaskbarToLeft();
                 }
                 else
                 {
-                    Optimize.AlignTaskbarToCenter();
+                    OptimizeHelper.AlignTaskbarToCenter();
                 }
             }
 
@@ -609,11 +609,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableStickers.Value)
                 {
-                    Optimize.DisableStickers();
+                    OptimizeHelper.DisableStickers();
                 }
                 else
                 {
-                    Optimize.EnableStickers();
+                    OptimizeHelper.EnableStickers();
                 }
             }
 
@@ -621,11 +621,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.CompactMode.Value)
                 {
-                    Optimize.EnableFilesCompactMode();
+                    OptimizeHelper.EnableFilesCompactMode();
                 }
                 else
                 {
-                    Optimize.DisableFilesCompactMode();
+                    OptimizeHelper.DisableFilesCompactMode();
                 }
             }
 
@@ -633,11 +633,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableSnapAssist.Value)
                 {
-                    Optimize.DisableSnapAssist();
+                    OptimizeHelper.DisableSnapAssist();
                 }
                 else
                 {
-                    Optimize.EnableSnapAssist();
+                    OptimizeHelper.EnableSnapAssist();
                 }
             }
 
@@ -645,11 +645,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableWidgets.Value)
                 {
-                    Optimize.DisableWidgets();
+                    OptimizeHelper.DisableWidgets();
                 }
                 else
                 {
-                    Optimize.EnableWidgets();
+                    OptimizeHelper.EnableWidgets();
                 }
             }
 
@@ -657,23 +657,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableChat.Value)
                 {
-                    Optimize.DisableChat();
+                    OptimizeHelper.DisableChat();
                 }
                 else
                 {
-                    Optimize.EnableChat();
-                }
-            }
-
-            if (CurrentSilentConfig.TaskbarSmaller.HasValue)
-            {
-                if (CurrentSilentConfig.TaskbarSmaller.Value)
-                {
-                    Optimize.SmallerTaskbar();
-                }
-                else
-                {
-                    Optimize.DefaultTaskbarSize();
+                    OptimizeHelper.EnableChat();
                 }
             }
 
@@ -681,23 +669,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableVBS.Value)
                 {
-                    Optimize.DisableVirtualizationBasedSecurity();
+                    OptimizeHelper.DisableVirtualizationBasedSecurity();
                 }
                 else
                 {
-                    Optimize.EnableVirtualizationBasedSecurity();
-                }
-            }
-
-            if (CurrentSilentConfig.ClassicRibbon.HasValue)
-            {
-                if (CurrentSilentConfig.ClassicRibbon.Value)
-                {
-                    Optimize.EnableFileExplorerClassicRibbon();
-                }
-                else
-                {
-                    Optimize.DisableFileExplorerClassicRibbon();
+                    OptimizeHelper.EnableVirtualizationBasedSecurity();
                 }
             }
 
@@ -705,11 +681,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.ClassicMenu.Value)
                 {
-                    Optimize.DisableShowMoreOptions();
+                    OptimizeHelper.DisableShowMoreOptions();
                 }
                 else
                 {
-                    Optimize.EnableShowMoreOptions();
+                    OptimizeHelper.EnableShowMoreOptions();
                 }
             }
 
@@ -717,11 +693,11 @@ namespace Optimizer
             {
                 if (CurrentSilentConfig.DisableTPMCheck.Value)
                 {
-                    Optimize.DisableTPMCheck();
+                    OptimizeHelper.DisableTPMCheck();
                 }
                 else
                 {
-                    Optimize.EnableTPMCheck();
+                    OptimizeHelper.EnableTPMCheck();
                 }
             }
         }
@@ -860,14 +836,6 @@ namespace Optimizer
             if (CurrentSilentConfig.DisableChat.HasValue)
             {
                 Options.CurrentOptions.DisableChat = CurrentSilentConfig.DisableChat.Value;
-            }
-            if (CurrentSilentConfig.TaskbarSmaller.HasValue)
-            {
-                Options.CurrentOptions.TaskbarSmaller = CurrentSilentConfig.TaskbarSmaller.Value;
-            }
-            if (CurrentSilentConfig.ClassicRibbon.HasValue)
-            {
-                Options.CurrentOptions.ClassicRibbon = CurrentSilentConfig.ClassicRibbon.Value;
             }
             if (CurrentSilentConfig.ClassicMenu.HasValue)
             {

@@ -246,10 +246,8 @@ namespace Optimizer
             leftTaskbarSw.ToggleClicked += new EventHandler(LeftTaskbarSw_Click);
             snapAssistSw.ToggleClicked += new EventHandler(SnapAssistSw_Click);
             widgetsSw.ToggleClicked += new EventHandler(WidgetsSw_Click);
-            smallerTaskbarSw.ToggleClicked += new EventHandler(SmallerTaskbarSw_Click);
             chatSw.ToggleClicked += new EventHandler(chatSw_Click);
             stickersSw.ToggleClicked += new EventHandler(StickersSw_ToggleClicked);
-            classicRibbonSw.ToggleClicked += new EventHandler(ClassicRibbonSw_Click);
             classicContextSw.ToggleClicked += new EventHandler(ClassicContextSw_Click);
             ffTelemetrySw.ToggleClicked += new EventHandler(FfTelemetrySw_ToggleClicked);
             chromeTelemetrySw.ToggleClicked += new EventHandler(ChromeTelemetrySw_ToggleClicked);
@@ -278,11 +276,11 @@ namespace Optimizer
         {
             if (winSearchSw.ToggleChecked)
             {
-                Optimize.DisableSearch();
+                OptimizeHelper.DisableSearch();
             }
             else
             {
-                Optimize.EnableSearch();
+                OptimizeHelper.EnableSearch();
             }
             Options.CurrentOptions.DisableSearch = winSearchSw.ToggleChecked;
         }
@@ -291,11 +289,11 @@ namespace Optimizer
         {
             if (vbsSw.ToggleChecked)
             {
-                Optimize.DisableVirtualizationBasedSecurity();
+                OptimizeHelper.DisableVirtualizationBasedSecurity();
             }
             else
             {
-                Optimize.EnableVirtualizationBasedSecurity();
+                OptimizeHelper.EnableVirtualizationBasedSecurity();
             }
             Options.CurrentOptions.DisableVBS = vbsSw.ToggleChecked;
             ShowRestartNeeded();
@@ -305,11 +303,11 @@ namespace Optimizer
         {
             if (nvidiaTelemetrySw.ToggleChecked)
             {
-                Optimize.DisableNvidiaTelemetry();
+                OptimizeHelper.DisableNvidiaTelemetry();
             }
             else
             {
-                Optimize.EnableNvidiaTelemetry();
+                OptimizeHelper.EnableNvidiaTelemetry();
             }
             Options.CurrentOptions.DisableNVIDIATelemetry = nvidiaTelemetrySw.ToggleChecked;
             ShowRestartNeeded();
@@ -319,11 +317,11 @@ namespace Optimizer
         {
             if (ntfsStampSw.ToggleChecked)
             {
-                Optimize.DisableNTFSTimeStamp();
+                OptimizeHelper.DisableNTFSTimeStamp();
             }
             else
             {
-                Optimize.EnableNTFSTimeStamp();
+                OptimizeHelper.EnableNTFSTimeStamp();
             }
             Options.CurrentOptions.DisableNTFSTimeStamp = ntfsStampSw.ToggleChecked;
             ShowRestartNeeded();
@@ -333,11 +331,11 @@ namespace Optimizer
         {
             if (smb2Sw.ToggleChecked)
             {
-                Optimize.DisableSMB("2");
+                OptimizeHelper.DisableSMB("2");
             }
             else
             {
-                Optimize.EnableSMB("2");
+                OptimizeHelper.EnableSMB("2");
             }
             Options.CurrentOptions.DisableSMB2 = smb2Sw.ToggleChecked;
             ShowRestartNeeded();
@@ -347,11 +345,11 @@ namespace Optimizer
         {
             if (smb1Sw.ToggleChecked)
             {
-                Optimize.DisableSMB("1");
+                OptimizeHelper.DisableSMB("1");
             }
             else
             {
-                Optimize.EnableSMB("1");
+                OptimizeHelper.EnableSMB("1");
             }
             Options.CurrentOptions.DisableSMB1 = smb1Sw.ToggleChecked;
             ShowRestartNeeded();
@@ -375,11 +373,11 @@ namespace Optimizer
         {
             if (stickersSw.ToggleChecked)
             {
-                Optimize.DisableStickers();
+                OptimizeHelper.DisableStickers();
             }
             else
             {
-                Optimize.EnableStickers();
+                OptimizeHelper.EnableStickers();
             }
             Options.CurrentOptions.DisableStickers = stickersSw.ToggleChecked;
         }
@@ -388,11 +386,11 @@ namespace Optimizer
         {
             if (tpmSw.ToggleChecked)
             {
-                Optimize.DisableTPMCheck();
+                OptimizeHelper.DisableTPMCheck();
             }
             else
             {
-                Optimize.EnableTPMCheck();
+                OptimizeHelper.EnableTPMCheck();
             }
             Options.CurrentOptions.DisableTPMCheck = tpmSw.ToggleChecked;
         }
@@ -401,11 +399,11 @@ namespace Optimizer
         {
             if (compactModeSw.ToggleChecked)
             {
-                Optimize.EnableFilesCompactMode();
+                OptimizeHelper.EnableFilesCompactMode();
             }
             else
             {
-                Optimize.DisableFilesCompactMode();
+                OptimizeHelper.DisableFilesCompactMode();
             }
             Options.CurrentOptions.CompactMode = compactModeSw.ToggleChecked;
             ShowRestartNeeded();
@@ -415,11 +413,11 @@ namespace Optimizer
         {
             if (gameModeSw.ToggleChecked)
             {
-                Optimize.EnableGamingMode();
+                OptimizeHelper.EnableGamingMode();
             }
             else
             {
-                Optimize.DisableGamingMode();
+                OptimizeHelper.DisableGamingMode();
             }
             Options.CurrentOptions.EnableGamingMode = gameModeSw.ToggleChecked;
             ShowRestartNeeded();
@@ -429,11 +427,11 @@ namespace Optimizer
         {
             if (vsSw.ToggleChecked)
             {
-                Optimize.DisableVisualStudioTelemetry();
+                OptimizeHelper.DisableVisualStudioTelemetry();
             }
             else
             {
-                Optimize.EnableVisualStudioTelemetry();
+                OptimizeHelper.EnableVisualStudioTelemetry();
             }
             Options.CurrentOptions.DisableVisualStudioTelemetry = vsSw.ToggleChecked;
         }
@@ -442,11 +440,11 @@ namespace Optimizer
         {
             if (chromeTelemetrySw.ToggleChecked)
             {
-                Optimize.DisableChromeTelemetry();
+                OptimizeHelper.DisableChromeTelemetry();
             }
             else
             {
-                Optimize.EnableChromeTelemetry();
+                OptimizeHelper.EnableChromeTelemetry();
             }
             Options.CurrentOptions.DisableChromeTelemetry = chromeTelemetrySw.ToggleChecked;
         }
@@ -455,11 +453,11 @@ namespace Optimizer
         {
             if (ffTelemetrySw.ToggleChecked)
             {
-                Optimize.DisableFirefoxTelemetry();
+                OptimizeHelper.DisableFirefoxTelemetry();
             }
             else
             {
-                Optimize.EnableFirefoxTelemetry();
+                OptimizeHelper.EnableFirefoxTelemetry();
             }
             Options.CurrentOptions.DisableFirefoxTemeletry = ffTelemetrySw.ToggleChecked;
         }
@@ -468,27 +466,13 @@ namespace Optimizer
         {
             if (classicContextSw.ToggleChecked)
             {
-                Optimize.DisableShowMoreOptions();
+                OptimizeHelper.DisableShowMoreOptions();
             }
             else
             {
-                Optimize.EnableShowMoreOptions();
+                OptimizeHelper.EnableShowMoreOptions();
             }
             Options.CurrentOptions.ClassicMenu = classicContextSw.ToggleChecked;
-            ShowRestartNeeded();
-        }
-
-        private void ClassicRibbonSw_Click(object sender, EventArgs e)
-        {
-            if (classicRibbonSw.ToggleChecked)
-            {
-                Optimize.EnableFileExplorerClassicRibbon();
-            }
-            else
-            {
-                Optimize.DisableFileExplorerClassicRibbon();
-            }
-            Options.CurrentOptions.ClassicRibbon = classicContextSw.ToggleChecked;
             ShowRestartNeeded();
         }
 
@@ -496,37 +480,24 @@ namespace Optimizer
         {
             if (chatSw.ToggleChecked)
             {
-                Optimize.DisableChat();
+                OptimizeHelper.DisableChat();
             }
             else
             {
-                Optimize.EnableChat();
+                OptimizeHelper.EnableChat();
             }
             Options.CurrentOptions.DisableChat = chatSw.ToggleChecked;
-        }
-
-        private void SmallerTaskbarSw_Click(object sender, EventArgs e)
-        {
-            if (smallerTaskbarSw.ToggleChecked)
-            {
-                Optimize.SmallerTaskbar();
-            }
-            else
-            {
-                Optimize.DefaultTaskbarSize();
-            }
-            Options.CurrentOptions.TaskbarSmaller = smallerTaskbarSw.ToggleChecked;
         }
 
         private void WidgetsSw_Click(object sender, EventArgs e)
         {
             if (widgetsSw.ToggleChecked)
             {
-                Optimize.DisableWidgets();
+                OptimizeHelper.DisableWidgets();
             }
             else
             {
-                Optimize.EnableWidgets();
+                OptimizeHelper.EnableWidgets();
             }
             Options.CurrentOptions.DisableWidgets = widgetsSw.ToggleChecked;
         }
@@ -535,11 +506,11 @@ namespace Optimizer
         {
             if (snapAssistSw.ToggleChecked)
             {
-                Optimize.DisableSnapAssist();
+                OptimizeHelper.DisableSnapAssist();
             }
             else
             {
-                Optimize.EnableSnapAssist();
+                OptimizeHelper.EnableSnapAssist();
             }
             Options.CurrentOptions.DisableSnapAssist = snapAssistSw.ToggleChecked;
             ShowRestartNeeded();
@@ -549,11 +520,11 @@ namespace Optimizer
         {
             if (leftTaskbarSw.ToggleChecked)
             {
-                Optimize.AlignTaskbarToLeft();
+                OptimizeHelper.AlignTaskbarToLeft();
             }
             else
             {
-                Optimize.AlignTaskbarToCenter();
+                OptimizeHelper.AlignTaskbarToCenter();
             }
             Options.CurrentOptions.TaskbarToLeft = leftTaskbarSw.ToggleChecked;
         }
@@ -602,8 +573,6 @@ namespace Optimizer
             widgetsSw.Label.Tag = Options.TranslationList["widgetsTip"].ToString();
             chatSw.Label.Tag = Options.TranslationList["chatTip"].ToString();
             stickersSw.Label.Tag = Options.TranslationList["stickersTip"].ToString();
-            smallerTaskbarSw.Label.Tag = Options.TranslationList["smallerTaskbarTip"].ToString();
-            classicRibbonSw.Label.Tag = Options.TranslationList["classicRibbonTip"].ToString();
             classicContextSw.Label.Tag = Options.TranslationList["classicContextTip"].ToString();
             picUpdate.Tag = Options.TranslationList["linkUpdate"].ToString() + "!";
             picLab.Tag = Options.TranslationList["lblLab"].ToString();
@@ -626,11 +595,11 @@ namespace Optimizer
         {
             if (castSw.ToggleChecked)
             {
-                Optimize.RemoveCastToDevice();
+                OptimizeHelper.RemoveCastToDevice();
             }
             else
             {
-                Optimize.AddCastToDevice();
+                OptimizeHelper.AddCastToDevice();
             }
             Options.CurrentOptions.RemoveCastToDevice = castSw.ToggleChecked;
         }
@@ -639,11 +608,11 @@ namespace Optimizer
         {
             if (longPathsSw.ToggleChecked)
             {
-                Optimize.EnableLongPaths();
+                OptimizeHelper.EnableLongPaths();
             }
             else
             {
-                Optimize.DisableLongPaths();
+                OptimizeHelper.DisableLongPaths();
             }
             Options.CurrentOptions.EnableLongPaths = longPathsSw.ToggleChecked;
         }
@@ -652,11 +621,11 @@ namespace Optimizer
         {
             if (stickySw.ToggleChecked)
             {
-                Optimize.DisableStickyKeys();
+                OptimizeHelper.DisableStickyKeys();
             }
             else
             {
-                Optimize.EnableStickyKeys();
+                OptimizeHelper.EnableStickyKeys();
             }
             Options.CurrentOptions.DisableStickyKeys = stickySw.ToggleChecked;
         }
@@ -665,11 +634,11 @@ namespace Optimizer
         {
             if (ccSw.ToggleChecked)
             {
-                Optimize.DisableCloudClipboard();
+                OptimizeHelper.DisableCloudClipboard();
             }
             else
             {
-                Optimize.EnableCloudClipboard();
+                OptimizeHelper.EnableCloudClipboard();
             }
             Options.CurrentOptions.DisableCloudClipboard = ccSw.ToggleChecked;
         }
@@ -678,11 +647,11 @@ namespace Optimizer
         {
             if (smartScreenSw.ToggleChecked)
             {
-                Optimize.DisableSmartScreen();
+                OptimizeHelper.DisableSmartScreen();
             }
             else
             {
-                Optimize.EnableSmartScreen();
+                OptimizeHelper.EnableSmartScreen();
             }
             Options.CurrentOptions.DisableSmartScreen = smartScreenSw.ToggleChecked;
         }
@@ -691,11 +660,11 @@ namespace Optimizer
         {
             if (storeUpdatesSw.ToggleChecked)
             {
-                Optimize.DisableStoreUpdates();
+                OptimizeHelper.DisableStoreUpdates();
             }
             else
             {
-                Optimize.EnableStoreUpdates();
+                OptimizeHelper.EnableStoreUpdates();
             }
             Options.CurrentOptions.DisableStoreUpdates = storeUpdatesSw.ToggleChecked;
         }
@@ -704,11 +673,11 @@ namespace Optimizer
         {
             if (insiderSw.ToggleChecked)
             {
-                Optimize.DisableInsiderService();
+                OptimizeHelper.DisableInsiderService();
             }
             else
             {
-                Optimize.EnableInsiderService();
+                OptimizeHelper.EnableInsiderService();
             }
             Options.CurrentOptions.DisableInsiderService = insiderSw.ToggleChecked;
         }
@@ -717,11 +686,11 @@ namespace Optimizer
         {
             if (faxSw.ToggleChecked)
             {
-                Optimize.DisableFaxService();
+                OptimizeHelper.DisableFaxService();
             }
             else
             {
-                Optimize.EnableFaxService();
+                OptimizeHelper.EnableFaxService();
             }
             Options.CurrentOptions.DisableFaxService = faxSw.ToggleChecked;
         }
@@ -957,6 +926,16 @@ namespace Optimizer
             {
                 tabCollection.TabPages.Remove(pingerTab);
                 launcherMenu.Items.RemoveByKey("trayPinger");
+            }
+
+            // ADVANCED
+            if (Program.UNSAFE_MODE)
+            {
+                // load config
+            }
+            else
+            {
+                tabCollection.TabPages.Remove(advancedTab);
             }
 
             Program._MainForm = this;
@@ -2195,8 +2174,6 @@ namespace Optimizer
             widgetsSw.ToggleChecked = Options.CurrentOptions.DisableWidgets;
             chatSw.ToggleChecked = Options.CurrentOptions.DisableChat;
             stickersSw.ToggleChecked = Options.CurrentOptions.DisableStickers;
-            smallerTaskbarSw.ToggleChecked = Options.CurrentOptions.TaskbarSmaller;
-            classicRibbonSw.ToggleChecked = Options.CurrentOptions.ClassicRibbon;
             classicContextSw.ToggleChecked = Options.CurrentOptions.ClassicMenu;
             tpmSw.ToggleChecked = Options.CurrentOptions.DisableTPMCheck;
             compactModeSw.ToggleChecked = Options.CurrentOptions.CompactMode;
@@ -3041,11 +3018,11 @@ namespace Optimizer
         {
             if (performanceSw.ToggleChecked)
             {
-                Optimize.EnablePerformanceTweaks();
+                OptimizeHelper.EnablePerformanceTweaks();
             }
             else
             {
-                Optimize.DisablePerformanceTweaks();
+                OptimizeHelper.DisablePerformanceTweaks();
             }
             Options.CurrentOptions.EnablePerformanceTweaks = performanceSw.ToggleChecked;
             ShowRestartNeeded();
@@ -3055,11 +3032,11 @@ namespace Optimizer
         {
             if (networkSw.ToggleChecked)
             {
-                Optimize.DisableNetworkThrottling();
+                OptimizeHelper.DisableNetworkThrottling();
             }
             else
             {
-                Optimize.EnableNetworkThrottling();
+                OptimizeHelper.EnableNetworkThrottling();
             }
             Options.CurrentOptions.DisableNetworkThrottling = networkSw.ToggleChecked;
         }
@@ -3068,11 +3045,11 @@ namespace Optimizer
         {
             if (defenderSw.ToggleChecked)
             {
-                Optimize.DisableDefender();
+                OptimizeHelper.DisableDefender();
             }
             else
             {
-                Optimize.EnableDefender();
+                OptimizeHelper.EnableDefender();
             }
             Options.CurrentOptions.DisableWindowsDefender = defenderSw.ToggleChecked;
         }
@@ -3089,13 +3066,13 @@ namespace Optimizer
                 }
 
                 _skipSystemRestore = false;
-                Optimize.DisableSystemRestore();
+                OptimizeHelper.DisableSystemRestore();
             }
             else
             {
                 if (_skipSystemRestore) return;
 
-                Optimize.EnableSystemRestore();
+                OptimizeHelper.EnableSystemRestore();
             }
             if (!_skipSystemRestore) Options.CurrentOptions.DisableSystemRestore = systemRestoreSw.ToggleChecked;
         }
@@ -3104,11 +3081,11 @@ namespace Optimizer
         {
             if (printSw.ToggleChecked)
             {
-                Optimize.DisablePrintService();
+                OptimizeHelper.DisablePrintService();
             }
             else
             {
-                Optimize.EnablePrintService();
+                OptimizeHelper.EnablePrintService();
             }
             Options.CurrentOptions.DisablePrintService = printSw.ToggleChecked;
         }
@@ -3117,11 +3094,11 @@ namespace Optimizer
         {
             if (mediaSharingSw.ToggleChecked)
             {
-                Optimize.DisableMediaPlayerSharing();
+                OptimizeHelper.DisableMediaPlayerSharing();
             }
             else
             {
-                Optimize.EnableMediaPlayerSharing();
+                OptimizeHelper.EnableMediaPlayerSharing();
             }
             Options.CurrentOptions.DisableMediaPlayerSharing = mediaSharingSw.ToggleChecked;
         }
@@ -3130,11 +3107,11 @@ namespace Optimizer
         {
             if (reportingSw.ToggleChecked)
             {
-                Optimize.DisableErrorReporting();
+                OptimizeHelper.DisableErrorReporting();
             }
             else
             {
-                Optimize.EnableErrorReporting();
+                OptimizeHelper.EnableErrorReporting();
             }
             Options.CurrentOptions.DisableErrorReporting = reportingSw.ToggleChecked;
         }
@@ -3143,11 +3120,11 @@ namespace Optimizer
         {
             if (homegroupSw.ToggleChecked)
             {
-                Optimize.DisableHomeGroup();
+                OptimizeHelper.DisableHomeGroup();
             }
             else
             {
-                Optimize.EnableHomeGroup();
+                OptimizeHelper.EnableHomeGroup();
             }
             Options.CurrentOptions.DisableHomeGroup = homegroupSw.ToggleChecked;
         }
@@ -3156,11 +3133,11 @@ namespace Optimizer
         {
             if (superfetchSw.ToggleChecked)
             {
-                Optimize.DisableSuperfetch();
+                OptimizeHelper.DisableSuperfetch();
             }
             else
             {
-                Optimize.EnableSuperfetch();
+                OptimizeHelper.EnableSuperfetch();
             }
             Options.CurrentOptions.DisableSuperfetch = superfetchSw.ToggleChecked;
         }
@@ -3169,11 +3146,11 @@ namespace Optimizer
         {
             if (telemetryTasksSw.ToggleChecked)
             {
-                Optimize.DisableTelemetryTasks();
+                OptimizeHelper.DisableTelemetryTasks();
             }
             else
             {
-                Optimize.EnableTelemetryTasks();
+                OptimizeHelper.EnableTelemetryTasks();
             }
             Options.CurrentOptions.DisableTelemetryTasks = telemetryTasksSw.ToggleChecked;
         }
@@ -3182,11 +3159,11 @@ namespace Optimizer
         {
             if (officeTelemetrySw.ToggleChecked)
             {
-                Optimize.DisableOffice2016Telemetry();
+                OptimizeHelper.DisableOffice2016Telemetry();
             }
             else
             {
-                Optimize.EnableOffice2016Telemetry();
+                OptimizeHelper.EnableOffice2016Telemetry();
             }
             Options.CurrentOptions.DisableOffice2016Telemetry = officeTelemetrySw.ToggleChecked;
         }
@@ -3195,11 +3172,11 @@ namespace Optimizer
         {
             if (oldMixerSw.ToggleChecked)
             {
-                Optimize.EnableLegacyVolumeSlider();
+                OptimizeHelper.EnableLegacyVolumeSlider();
             }
             else
             {
-                Optimize.DisableLegacyVolumeSlider();
+                OptimizeHelper.DisableLegacyVolumeSlider();
             }
             Options.CurrentOptions.EnableLegacyVolumeSlider = oldMixerSw.ToggleChecked;
         }
@@ -3208,11 +3185,11 @@ namespace Optimizer
         {
             if (oldExplorerSw.ToggleChecked)
             {
-                Optimize.DisableQuickAccessHistory();
+                OptimizeHelper.DisableQuickAccessHistory();
             }
             else
             {
-                Optimize.EnableQuickAccessHistory();
+                OptimizeHelper.EnableQuickAccessHistory();
             }
             Options.CurrentOptions.DisableQuickAccessHistory = oldExplorerSw.ToggleChecked;
             ShowRestartNeeded();
@@ -3222,11 +3199,11 @@ namespace Optimizer
         {
             if (adsSw.ToggleChecked)
             {
-                Optimize.DisableStartMenuAds();
+                OptimizeHelper.DisableStartMenuAds();
             }
             else
             {
-                Optimize.EnableStartMenuAds();
+                OptimizeHelper.EnableStartMenuAds();
             }
             Options.CurrentOptions.DisableStartMenuAds = adsSw.ToggleChecked;
         }
@@ -3244,14 +3221,14 @@ namespace Optimizer
 
                 _skipOneDrive = false;
 
-                Task t = new Task(() => Optimize.UninstallOneDrive());
+                Task t = new Task(() => OptimizeHelper.UninstallOneDrive());
                 t.Start();
             }
             else
             {
                 if (_skipOneDrive) return;
 
-                Task t = new Task(() => Optimize.InstallOneDrive());
+                Task t = new Task(() => OptimizeHelper.InstallOneDrive());
                 t.Start();
             }
 
@@ -3262,11 +3239,11 @@ namespace Optimizer
         {
             if (peopleSw.ToggleChecked)
             {
-                Optimize.DisableMyPeople();
+                OptimizeHelper.DisableMyPeople();
             }
             else
             {
-                Optimize.EnableMyPeople();
+                OptimizeHelper.EnableMyPeople();
             }
             Options.CurrentOptions.DisableMyPeople = peopleSw.ToggleChecked;
         }
@@ -3275,11 +3252,11 @@ namespace Optimizer
         {
             if (autoUpdatesSw.ToggleChecked)
             {
-                Optimize.DisableAutomaticUpdates();
+                OptimizeHelper.DisableAutomaticUpdates();
             }
             else
             {
-                Optimize.EnableAutomaticUpdates();
+                OptimizeHelper.EnableAutomaticUpdates();
             }
             Options.CurrentOptions.DisableAutomaticUpdates = autoUpdatesSw.ToggleChecked;
         }
@@ -3288,11 +3265,11 @@ namespace Optimizer
         {
             if (driversSw.ToggleChecked)
             {
-                Optimize.ExcludeDrivers();
+                OptimizeHelper.ExcludeDrivers();
             }
             else
             {
-                Optimize.IncludeDrivers();
+                OptimizeHelper.IncludeDrivers();
             }
             Options.CurrentOptions.ExcludeDrivers = driversSw.ToggleChecked;
         }
@@ -3301,11 +3278,11 @@ namespace Optimizer
         {
             if (telemetryServicesSw.ToggleChecked)
             {
-                Optimize.DisableTelemetryServices();
+                OptimizeHelper.DisableTelemetryServices();
             }
             else
             {
-                Optimize.EnableTelemetryServices();
+                OptimizeHelper.EnableTelemetryServices();
             }
             Options.CurrentOptions.DisableTelemetryServices = telemetryServicesSw.ToggleChecked;
             ShowRestartNeeded();
@@ -3315,12 +3292,12 @@ namespace Optimizer
         {
             if (privacySw.ToggleChecked)
             {
-                Task t = new Task(() => Optimize.EnhancePrivacy());
+                Task t = new Task(() => OptimizeHelper.EnhancePrivacy());
                 t.Start();
             }
             else
             {
-                Task t = new Task(() => Optimize.CompromisePrivacy());
+                Task t = new Task(() => OptimizeHelper.CompromisePrivacy());
                 t.Start();
             }
             Options.CurrentOptions.DisablePrivacyOptions = privacySw.ToggleChecked;
@@ -3331,11 +3308,11 @@ namespace Optimizer
         {
             if (cortanaSw.ToggleChecked)
             {
-                Optimize.DisableCortana();
+                OptimizeHelper.DisableCortana();
             }
             else
             {
-                Optimize.EnableCortana();
+                OptimizeHelper.EnableCortana();
             }
             Options.CurrentOptions.DisableCortana = cortanaSw.ToggleChecked;
         }
@@ -3344,11 +3321,11 @@ namespace Optimizer
         {
             if (sensorSw.ToggleChecked)
             {
-                Optimize.DisableSensorServices();
+                OptimizeHelper.DisableSensorServices();
             }
             else
             {
-                Optimize.EnableSensorServices();
+                OptimizeHelper.EnableSensorServices();
             }
             Options.CurrentOptions.DisableSensorServices = sensorSw.ToggleChecked;
             ShowRestartNeeded();
@@ -3358,11 +3335,11 @@ namespace Optimizer
         {
             if (inkSw.ToggleChecked)
             {
-                Optimize.DisableWindowsInk();
+                OptimizeHelper.DisableWindowsInk();
             }
             else
             {
-                Optimize.EnableWindowsInk();
+                OptimizeHelper.EnableWindowsInk();
             }
             Options.CurrentOptions.DisableWindowsInk = inkSw.ToggleChecked;
         }
@@ -3371,11 +3348,11 @@ namespace Optimizer
         {
             if (spellSw.ToggleChecked)
             {
-                Optimize.DisableSpellingAndTypingFeatures();
+                OptimizeHelper.DisableSpellingAndTypingFeatures();
             }
             else
             {
-                Optimize.EnableSpellingAndTypingFeatures();
+                OptimizeHelper.EnableSpellingAndTypingFeatures();
             }
             Options.CurrentOptions.DisableSpellingTyping = spellSw.ToggleChecked;
         }
@@ -3384,11 +3361,11 @@ namespace Optimizer
         {
             if (xboxSw.ToggleChecked)
             {
-                Optimize.DisableXboxLive();
+                OptimizeHelper.DisableXboxLive();
             }
             else
             {
-                Optimize.EnableXboxLive();
+                OptimizeHelper.EnableXboxLive();
             }
             Options.CurrentOptions.DisableXboxLive = xboxSw.ToggleChecked;
             ShowRestartNeeded();
@@ -3398,11 +3375,11 @@ namespace Optimizer
         {
             if (gameBarSw.ToggleChecked)
             {
-                Optimize.DisableGameBar();
+                OptimizeHelper.DisableGameBar();
             }
             else
             {
-                Optimize.EnableGameBar();
+                OptimizeHelper.EnableGameBar();
             }
             Options.CurrentOptions.DisableGameBar = gameBarSw.ToggleChecked;
             ShowRestartNeeded();
@@ -3412,11 +3389,11 @@ namespace Optimizer
         {
             if (disableOneDriveSw.ToggleChecked)
             {
-                Optimize.DisableOneDrive();
+                OptimizeHelper.DisableOneDrive();
             }
             else
             {
-                Optimize.EnableOneDrive();
+                OptimizeHelper.EnableOneDrive();
             }
             Options.CurrentOptions.DisableOneDrive = disableOneDriveSw.ToggleChecked;
         }
@@ -3425,11 +3402,11 @@ namespace Optimizer
         {
             if (compatSw.ToggleChecked)
             {
-                Optimize.DisableCompatibilityAssistant();
+                OptimizeHelper.DisableCompatibilityAssistant();
             }
             else
             {
-                Optimize.EnableCompatibilityAssistant();
+                OptimizeHelper.EnableCompatibilityAssistant();
             }
             Options.CurrentOptions.DisableCompatibilityAssistant = compatSw.ToggleChecked;
         }

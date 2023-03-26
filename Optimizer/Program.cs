@@ -13,8 +13,8 @@ namespace Optimizer
         /* VERSION PROPERTIES */
         /* DO NOT LEAVE THEM EMPTY */
 
-        internal readonly static float Major = 14;
-        internal readonly static float Minor = 9;
+        internal readonly static float Major = 15;
+        internal readonly static float Minor = 0;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
         internal static int DPI_PREFERENCE;
@@ -388,7 +388,7 @@ namespace Optimizer
             LoadSettings();
             StartSplashForm();
 
-            _MainForm = new MainForm(_SplashForm, codes[0], codes[1], codes[2], codes[3], codes[4], codes[5], codes[6], codes[7]);
+            _MainForm = new MainForm(_SplashForm, codes[0], codes[3], codes[2], codes[1], codes[4], codes[5], codes[6], codes[7]);
             _MainForm.Load += MainForm_Load;
             Application.Run(_MainForm);
         }

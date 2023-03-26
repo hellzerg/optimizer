@@ -1,11 +1,12 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 
 namespace Optimizer
 {
-    public static class Optimize
+    public static class OptimizeHelper
     {
         readonly static string DiagnosisAutoLoggerFolder = Path.Combine(CleanHelper.ProgramData, @"Microsoft\Diagnosis\ETLLogs\AutoLogger");
 
@@ -1629,15 +1630,16 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarMn", "1", RegistryValueKind.DWord);
         }
 
-        internal static void SmallerTaskbar()
-        {
-            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarSi", "0", RegistryValueKind.DWord);
-        }
+        // DEPRECATED
+        //internal static void SmallerTaskbar()
+        //{
+        //    Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarSi", "0", RegistryValueKind.DWord);
+        //}
 
-        internal static void DefaultTaskbarSize()
-        {
-            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarSi", "1", RegistryValueKind.DWord);
-        }
+        //internal static void DefaultTaskbarSize()
+        //{
+        //    Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarSi", "1", RegistryValueKind.DWord);
+        //}
 
         internal static void DisableShowMoreOptions()
         {
@@ -1670,16 +1672,17 @@ namespace Optimizer
             Registry.LocalMachine.OpenSubKey(@"SYSTEM\Setup\LabConfig", true).DeleteValue("BypassCPUCheck", false);
         }
 
-        internal static void EnableFileExplorerClassicRibbon()
-        {
-            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\CLSID\{d93ed569-3b3e-4bff-8355-3c44f6a52bb5}\InprocServer32", "", "");
-        }
+        // DEPRECATED
+        //internal static void EnableFileExplorerClassicRibbon()
+        //{
+        //    Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\CLSID\{d93ed569-3b3e-4bff-8355-3c44f6a52bb5}\InprocServer32", "", "");
+        //}
 
-        internal static void DisableFileExplorerClassicRibbon()
-        {
-            Registry.CurrentUser.DeleteSubKeyTree(@"Software\Classes\CLSID\{d93ed569-3b3e-4bff-8355-3c44f6a52bb5}", false);
-            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell\Update\Packages", "UndockingDisable");
-        }
+        //internal static void DisableFileExplorerClassicRibbon()
+        //{
+        //    Registry.CurrentUser.DeleteSubKeyTree(@"Software\Classes\CLSID\{d93ed569-3b3e-4bff-8355-3c44f6a52bb5}", false);
+        //    Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell\Update\Packages", "UndockingDisable");
+        //}
 
         internal static void EnableFilesCompactMode()
         {
@@ -1701,6 +1704,31 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Stickers", "EnableStickers", 1, RegistryValueKind.DWord);
         }
 
+        /* Microsoft Edge-related tweaks */
+        internal static void DisableEdgeDiscoverBar()
+        {
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft", "HubsSidebarEnabled", 0, RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft", "HubsSidebarEnabled", 0, RegistryValueKind.DWord);
+        }
+
+        internal static void EnableEdgeDiscoverBar()
+        {
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft", "HubsSidebarEnabled");
+            Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Policies\Microsoft", "HubsSidebarEnabled");
+        }
+
+        internal static void DisableEdgeTelemetry()
+        {
+
+        }
+
+        internal static void EnableEdgeTelemetry()
+        {
+
+        }
+
+        /* Apps-specific tweaks */
+
         // VISUAL STUDIO TELEMETRY
         internal static void DisableVisualStudioTelemetry()
         {
@@ -1709,7 +1737,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableEmailInput", 1);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableScreenshotCapture", 1);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\VisualStudio\SQM", "OptIn", 0);
-
+            
             if (Environment.Is64BitOperatingSystem)
             {
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\14.0\SQM", "OptIn", 0);

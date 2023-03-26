@@ -202,7 +202,7 @@
     </Compile>
     <Compile Include="NetworkAdapter.cs" />
     <Compile Include="NetworkMonitor.cs" />
-    <Compile Include="Optimize.cs" />
+    <Compile Include="OptimizeHelper.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="PingerHelper.cs" />
     <Compile Include="Program.cs" />
