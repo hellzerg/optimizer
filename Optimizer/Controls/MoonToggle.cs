@@ -1,38 +1,26 @@
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Windows.Forms;
-
 namespace Optimizer
 {
     public sealed class MoonToggle : CheckBox
     {
-        private readonly Timer AnimationTimer = new Timer();
-        private int CirclePos = 3;
-        private int CircleColorR = 255;
-        private int CircleColorG = 255;
-        private int CircleColorB = 255;
-        private int Alpha = 0;
+        private readonly Timer _animationTimer = new Timer();
+
+        private int _circlePosX = 3, _circlePosY = 3;
+        private int _circleColorR = 255, _circleColorG = 255, _circleColorB = 255;
+        private int _alpha = 0;
 
         public MoonToggle()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
             Height = 22; Width = 46;
-            AnimationTimer.Interval = 1;
-            AnimationTimer.Tick += new EventHandler(AnimationTick);
+            _animationTimer.Interval = 1;
+            _animationTimer.Tick += new EventHandler(AnimationTick);
         }
 
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
-            AnimationTimer.Start();
-        }
-
-        protected override void OnResize(EventArgs e)
-        {
-            Height = 22; Width = 44;
-            Invalidate();
+            _animationTimer.Start();
         }
 
         protected override void OnPaint(PaintEventArgs pevent)
@@ -49,8 +37,8 @@ namespace Optimizer
             backRect.CloseAllFigures();
 
             pevent.Graphics.FillPath(new SolidBrush(Options.BackAccentColor), backRect);
-            pevent.Graphics.FillPath(new SolidBrush(Color.FromArgb(Alpha, Options.ForegroundColor.R, Options.ForegroundColor.G, Options.ForegroundColor.B)), backRect);
-            pevent.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(CircleColorR, CircleColorG, CircleColorB)), new RectangleF(CirclePos, 3, 16, 16));
+            pevent.Graphics.FillPath(new SolidBrush(Color.FromArgb(_alpha, Options.ForegroundColor)), backRect);
+            pevent.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(_circleColorR, _circleColorG, _circleColorB)), new RectangleF(Width - Width + _circlePosX, Height - Height + _circlePosY, (Width / 2) - 7, Height - 6));
         }
 
         private void AnimationTick(object sender, EventArgs e)
@@ -59,57 +47,40 @@ namespace Optimizer
             {
                 if (Options.TextColor == Color.Black)
                 {
-                    if (CircleColorR != 0 && CircleColorG != 0 && CircleColorB != 0)
+                    if (_circleColorR != 0 && _circleColorG != 0 && _circleColorB != 0)
                     {
-                        CircleColorR -= 15;
-                        CircleColorG -= 15;
-                        CircleColorB -= 15;
+                        _circleColorR -= 15; _circleColorG -= 15; _circleColorB -= 15;
                         Invalidate();
                     }
                 }
                 else
                 {
-                    if (CircleColorR != 255 && CircleColorG != 255 && CircleColorB != 255)
+                    if (_circleColorR != 255 && _circleColorG != 255 && _circleColorB != 255)
                     {
-                        CircleColorR += 15;
-                        CircleColorG += 15;
-                        CircleColorB += 15;
+                        _circleColorR += 15; _circleColorG += 15; _circleColorB += 15;
                         Invalidate();
                     }
                 }
-                if (CirclePos < 26)
-                {
-                    CirclePos += 2;
-                    Invalidate();
-                }
 
-                if (Alpha < 255)
-                {
-                    Alpha += 15;
-                    Invalidate();
-                }
+                if (_circlePosX < (Width / 2) + 4)
+                    _circlePosX += 2; Invalidate();
+
+                if (_alpha < 255)
+                    _alpha += 15; Invalidate();
             }
             else
             {
-                if (CircleColorR != 255 && CircleColorG != 255 && CircleColorB != 255)
+                if (_circleColorR != 255 && _circleColorG != 255 && _circleColorB != 255)
                 {
-                    CircleColorR += 15;
-                    CircleColorG += 15;
-                    CircleColorB += 15;
+                    _circleColorR += 15; _circleColorG += 15; _circleColorB += 15;
                     Invalidate();
                 }
 
-                if (CirclePos > 3)
-                {
-                    CirclePos -= 2;
-                    Invalidate();
-                }
+                if (_circlePosX > 3)
+                    _circlePosX -= 2; Invalidate();
 
-                if (Alpha > 0)
-                {
-                    Alpha -= 15;
-                    Invalidate();
-                }
+                if (_alpha > 0)
+                    _alpha -= 15; Invalidate();
             }
         }
     }
