@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOK = new System.Windows.Forms.Button();
+            this.btnOK = new Optimizer.Controls.MoonButton();
             this.txtInfo = new System.Windows.Forms.TextBox();
-            this.copyIPB = new System.Windows.Forms.Button();
+            this.copyIPB = new Optimizer.Controls.MoonButton();
             this.SuspendLayout();
             // 
             // btnOK

@@ -32,9 +32,9 @@
             this.listRestoreItems = new Optimizer.MoonList();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtNoBackups = new System.Windows.Forms.Label();
-            this.previewBackupB = new System.Windows.Forms.Button();
-            this.restoreBackupB = new System.Windows.Forms.Button();
-            this.deleteBackupB = new System.Windows.Forms.Button();
+            this.previewBackupB = new Optimizer.Controls.MoonButton();
+            this.restoreBackupB = new Optimizer.Controls.MoonButton();
+            this.deleteBackupB = new Optimizer.Controls.MoonButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 

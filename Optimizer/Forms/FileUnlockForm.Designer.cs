@@ -30,10 +30,10 @@
         {
             this.txtFile = new System.Windows.Forms.TextBox();
             this.radioFile = new System.Windows.Forms.Label();
-            this.btnFind = new System.Windows.Forms.Button();
+            this.btnFind = new Optimizer.Controls.MoonButton();
             this.panelModernAppsList = new System.Windows.Forms.Panel();
             this.listProcesses = new Optimizer.MoonCheckList();
-            this.btnKill = new System.Windows.Forms.Button();
+            this.btnKill = new Optimizer.Controls.MoonButton();
             this.panelModernAppsList.SuspendLayout();
             this.SuspendLayout();
             // 
