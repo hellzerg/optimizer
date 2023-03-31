@@ -40,7 +40,7 @@ namespace Optimizer.Controls
                 if (!(e.Index == -1))
                 {
                     e.Graphics.FillRectangle(LGB, e.Bounds);
-                    e.Graphics.DrawString(GetItemText(Items[e.Index]), e.Font, Brushes.WhiteSmoke, e.Bounds);
+                    e.Graphics.DrawString(GetItemText(Items[e.Index]), e.Font, new SolidBrush(GetContrastColor(SelectColor)), e.Bounds);
                 }
             }
             else
@@ -138,6 +138,12 @@ namespace Optimizer.Controls
             path.CloseFigure();
 
             return path;
+        }
+
+        private Color GetContrastColor(Color c)
+        {
+            double brightness = c.R * 0.299 + c.G * 0.587 + c.B * 0.114;
+            return brightness > 149 ? Color.Black : Color.White;
         }
 
         public enum Direction
