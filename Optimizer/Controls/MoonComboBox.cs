@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Optimizer.Controls
 {
-    public class MoonComboBox : ComboBox
+    public sealed class MoonComboBox : ComboBox
     {
         [DllImport("user32.dll")]
         static extern IntPtr GetDC(IntPtr ptr);
