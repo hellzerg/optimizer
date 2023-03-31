@@ -245,8 +245,8 @@ namespace Optimizer
             this.label1 = new System.Windows.Forms.Label();
             this.btnOpenNetwork = new Optimizer.Controls.MoonButton();
             this.flushCacheB = new Optimizer.Controls.MoonButton();
-            this.boxAdapter = new Optimizer.MoonSelect();
-            this.boxDNS = new Optimizer.MoonSelect();
+            this.boxAdapter = new Optimizer.Controls.MoonComboBox();
+            this.boxDNS = new Optimizer.Controls.MoonComboBox();
             this.hostsEditorTab = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.linkAdvancedEdit = new System.Windows.Forms.LinkLabel();
@@ -369,7 +369,7 @@ namespace Optimizer
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox85 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.boxLang = new Optimizer.MoonSelect();
+            this.boxLang = new Optimizer.Controls.MoonComboBox();
             this.picFlag = new System.Windows.Forms.PictureBox();
             this.languagesL = new System.Windows.Forms.Label();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
@@ -3583,7 +3583,6 @@ namespace Optimizer
             // boxAdapter
             // 
             this.boxAdapter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.boxAdapter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.boxAdapter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxAdapter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.boxAdapter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3593,12 +3592,12 @@ namespace Optimizer
             this.boxAdapter.Margin = new System.Windows.Forms.Padding(6);
             this.boxAdapter.Name = "boxAdapter";
             this.boxAdapter.Size = new System.Drawing.Size(824, 53);
+			this.boxAdapter.Tag = "themeable";
             this.boxAdapter.TabIndex = 107;
             // 
             // boxDNS
             // 
             this.boxDNS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.boxDNS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.boxDNS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxDNS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.boxDNS.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3618,6 +3617,7 @@ namespace Optimizer
             this.boxDNS.Margin = new System.Windows.Forms.Padding(6);
             this.boxDNS.Name = "boxDNS";
             this.boxDNS.Size = new System.Drawing.Size(824, 53);
+			this.boxDNS.Tag = "themeable";
             this.boxDNS.TabIndex = 106;
             // 
             // hostsEditorTab
@@ -5467,7 +5467,6 @@ namespace Optimizer
             // 
             this.boxLang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.boxLang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.boxLang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.boxLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxLang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.boxLang.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -5500,6 +5499,7 @@ namespace Optimizer
             this.boxLang.Name = "boxLang";
             this.boxLang.Size = new System.Drawing.Size(420, 53);
             this.boxLang.TabIndex = 95;
+			this.boxLang.Tag = "themeable";
             this.boxLang.SelectedIndexChanged += new System.EventHandler(this.boxLang_SelectedIndexChanged);
             // 
             // picFlag
@@ -6302,7 +6302,7 @@ namespace Optimizer
         private LinkLabel linkLabel2;
         private Button btnCopyHW;
         private Button btnSaveHW;
-        private MoonSelect boxLang;
+        private Controls.MoonComboBox boxLang;
         private Panel panel1;
         private MoonCheck edgeSession;
         private MoonCheck edgeHistory;
@@ -6388,8 +6388,8 @@ namespace Optimizer
         private Label label1;
         private Button btnOpenNetwork;
         private Button flushCacheB;
-        private MoonSelect boxAdapter;
-        private MoonSelect boxDNS;
+        private Controls.MoonComboBox boxAdapter;
+        private Controls.MoonComboBox boxDNS;
         private Controls.ColorPicker colorPicker1;
         private ToggleCard autoStartToggle;
         private ToggleCard nvidiaTelemetrySw;
