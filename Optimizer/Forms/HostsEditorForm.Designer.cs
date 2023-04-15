@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.bpanel = new System.Windows.Forms.Panel();
-            this.closebtn = new System.Windows.Forms.Button();
-            this.savebtn = new System.Windows.Forms.Button();
+            this.closebtn = new Optimizer.Controls.MoonButton();
+            this.savebtn = new Optimizer.Controls.MoonButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.RichTextBox();
             this.bpanel.SuspendLayout();

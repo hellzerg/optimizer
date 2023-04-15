@@ -157,6 +157,14 @@ namespace Optimizer
                         c.ForeColor = c1;
                     }
                 }
+				
+				if (x is Controls.MoonComboBox) 
+				{
+					if ((string)c.Tag == _themeFlag)
+                    {
+                        c.SelectColor = c1;
+                    }
+				}
 
                 c.Invalidate();
             });

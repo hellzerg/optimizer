@@ -29,8 +29,8 @@ namespace Optimizer
         private void InitializeComponent()
         {
             this.lblMessage = new System.Windows.Forms.Label();
-            this.btnYes = new System.Windows.Forms.Button();
-            this.btnNo = new System.Windows.Forms.Button();
+            this.btnYes = new Optimizer.Controls.MoonButton();
+            this.btnNo = new Optimizer.Controls.MoonButton();
             this.SuspendLayout();
             // 
             // lblMessage

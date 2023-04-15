@@ -30,8 +30,8 @@ namespace Optimizer
         private void InitializeComponent()
         {
             this.txtMessage = new System.Windows.Forms.Label();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.btnNo = new System.Windows.Forms.Button();
+            this.btnOK = new Optimizer.Controls.MoonButton();
+            this.btnNo = new Optimizer.Controls.MoonButton();
             this.txtVersions = new System.Windows.Forms.Label();
             this.txtChanges = new System.Windows.Forms.Label();
             this.txtInfo = new System.Windows.Forms.TextBox();

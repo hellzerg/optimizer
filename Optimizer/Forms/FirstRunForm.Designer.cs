@@ -33,7 +33,7 @@ namespace Optimizer
             this.pictureBox88 = new System.Windows.Forms.PictureBox();
             this.pictureBox87 = new System.Windows.Forms.PictureBox();
             this.pictureBox86 = new System.Windows.Forms.PictureBox();
-            this.btnStart = new System.Windows.Forms.Button();
+            this.btnStart = new Optimizer.Controls.MoonButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();

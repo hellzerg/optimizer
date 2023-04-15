@@ -126,29 +126,29 @@ namespace Optimizer
             this.disableOneDriveSw = new Optimizer.ToggleCard();
             this.advancedTab = new System.Windows.Forms.TabPage();
             this.modernAppsTab = new System.Windows.Forms.TabPage();
-            this.btnRestoreUwp = new System.Windows.Forms.Button();
+            this.btnRestoreUwp = new Optimizer.Controls.MoonButton();
             this.panelUwp = new System.Windows.Forms.Panel();
-            this.uninstallModernAppsButton = new System.Windows.Forms.Button();
-            this.refreshModernAppsButton = new System.Windows.Forms.Button();
+            this.uninstallModernAppsButton = new Optimizer.Controls.MoonButton();
+            this.refreshModernAppsButton = new Optimizer.Controls.MoonButton();
             this.txtModernAppsTitle = new System.Windows.Forms.Label();
             this.chkOnlyRemovable = new Optimizer.MoonCheck();
             this.chkSelectAllModernApps = new Optimizer.MoonCheck();
             this.startupTab = new System.Windows.Forms.TabPage();
-            this.cancelBackup = new System.Windows.Forms.Button();
-            this.doBackup = new System.Windows.Forms.Button();
+            this.cancelBackup = new Optimizer.Controls.MoonButton();
+            this.doBackup = new Optimizer.Controls.MoonButton();
             this.txtBackupTitle = new System.Windows.Forms.TextBox();
             this.lblBackupTitle = new System.Windows.Forms.Label();
-            this.restoreStartupB = new System.Windows.Forms.Button();
-            this.backupStartupB = new System.Windows.Forms.Button();
-            this.findInRegB = new System.Windows.Forms.Button();
-            this.locateFileB = new System.Windows.Forms.Button();
-            this.refreshStartupB = new System.Windows.Forms.Button();
+            this.restoreStartupB = new Optimizer.Controls.MoonButton();
+            this.backupStartupB = new Optimizer.Controls.MoonButton();
+            this.findInRegB = new Optimizer.Controls.MoonButton();
+            this.locateFileB = new Optimizer.Controls.MoonButton();
+            this.refreshStartupB = new Optimizer.Controls.MoonButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.listStartupItems = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.removeStartupItemB = new System.Windows.Forms.Button();
+            this.removeStartupItemB = new Optimizer.Controls.MoonButton();
             this.startupTitle = new System.Windows.Forms.Label();
             this.appsTab = new System.Windows.Forms.TabPage();
             this.txtFeedError = new System.Windows.Forms.Label();
@@ -161,30 +161,30 @@ namespace Optimizer
             this.groupInternet = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.appsTitle = new System.Windows.Forms.Label();
-            this.btnGetFeed = new System.Windows.Forms.Button();
+            this.btnGetFeed = new Optimizer.Controls.MoonButton();
             this.panelCommonApps = new System.Windows.Forms.Panel();
             this.cAutoInstall = new Optimizer.MoonCheck();
             this.progressDownloader = new Optimizer.MoonProgress();
             this.c64 = new Optimizer.MoonRadio();
             this.c32 = new Optimizer.MoonRadio();
-            this.btnDownloadApps = new System.Windows.Forms.Button();
+            this.btnDownloadApps = new Optimizer.Controls.MoonButton();
             this.setDownDirLbl = new System.Windows.Forms.Label();
             this.txtDownloadFolder = new System.Windows.Forms.TextBox();
-            this.changeDownDirB = new System.Windows.Forms.Button();
+            this.changeDownDirB = new Optimizer.Controls.MoonButton();
             this.txtDownloadStatus = new System.Windows.Forms.Label();
             this.linkWarnings = new System.Windows.Forms.LinkLabel();
             this.bitPref = new System.Windows.Forms.Label();
-            this.goToDownloadsB = new System.Windows.Forms.Button();
+            this.goToDownloadsB = new Optimizer.Controls.MoonButton();
             this.groupSystemTools = new System.Windows.Forms.Panel();
             this.cleanerTab = new System.Windows.Forms.TabPage();
             this.panel14 = new System.Windows.Forms.Panel();
             this.listCleanPreview = new Optimizer.MoonCheckList();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.btnWinClean = new System.Windows.Forms.Button();
-            this.analyzeDriveB = new System.Windows.Forms.Button();
+            this.btnWinClean = new Optimizer.Controls.MoonButton();
+            this.analyzeDriveB = new Optimizer.Controls.MoonButton();
             this.checkSelectAll = new System.Windows.Forms.LinkLabel();
             this.lblPretext = new System.Windows.Forms.Label();
-            this.cleanDriveB = new System.Windows.Forms.Button();
+            this.cleanDriveB = new Optimizer.Controls.MoonButton();
             this.lblFootprint = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bravePasswords = new Optimizer.MoonCheck();
@@ -224,14 +224,14 @@ namespace Optimizer
             this.pingerTab = new System.Windows.Forms.TabPage();
             this.netTools = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.copyB = new System.Windows.Forms.Button();
-            this.copyIPB = new System.Windows.Forms.Button();
+            this.btnExport = new Optimizer.Controls.MoonButton();
+            this.copyB = new Optimizer.Controls.MoonButton();
+            this.copyIPB = new Optimizer.Controls.MoonButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.listPingResults = new Optimizer.MoonList();
             this.lblResults = new System.Windows.Forms.Label();
-            this.btnShodan = new System.Windows.Forms.Button();
-            this.btnPing = new System.Windows.Forms.Button();
+            this.btnShodan = new Optimizer.Controls.MoonButton();
+            this.btnPing = new Optimizer.Controls.MoonButton();
             this.txtPingInput = new System.Windows.Forms.TextBox();
             this.lblPinger = new System.Windows.Forms.Label();
             this.pingerTitle = new System.Windows.Forms.Label();
@@ -243,10 +243,10 @@ namespace Optimizer
             this.linkDNSv4 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnOpenNetwork = new System.Windows.Forms.Button();
-            this.flushCacheB = new System.Windows.Forms.Button();
-            this.boxAdapter = new Optimizer.MoonSelect();
-            this.boxDNS = new Optimizer.MoonSelect();
+            this.btnOpenNetwork = new Optimizer.Controls.MoonButton();
+            this.flushCacheB = new Optimizer.Controls.MoonButton();
+            this.boxAdapter = new Optimizer.Controls.MoonComboBox();
+            this.boxDNS = new Optimizer.Controls.MoonComboBox();
             this.hostsEditorTab = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.linkAdvancedEdit = new System.Windows.Forms.LinkLabel();
@@ -256,10 +256,10 @@ namespace Optimizer
             this.panelList = new System.Windows.Forms.Panel();
             this.listHostEntries = new Optimizer.MoonList();
             this.chkBlock = new Optimizer.MoonCheck();
-            this.refreshHostsB = new System.Windows.Forms.Button();
-            this.removeHostB = new System.Windows.Forms.Button();
-            this.removeAllHostsB = new System.Windows.Forms.Button();
-            this.addHostB = new System.Windows.Forms.Button();
+            this.refreshHostsB = new Optimizer.Controls.MoonButton();
+            this.removeHostB = new Optimizer.Controls.MoonButton();
+            this.removeAllHostsB = new Optimizer.Controls.MoonButton();
+            this.addHostB = new Optimizer.Controls.MoonButton();
             this.txtIP = new System.Windows.Forms.TextBox();
             this.txtDomain = new System.Windows.Forms.TextBox();
             this.lblDomain = new System.Windows.Forms.Label();
@@ -268,7 +268,7 @@ namespace Optimizer
             this.linkLocate = new System.Windows.Forms.LinkLabel();
             this.registryFixerTab = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.regFixB = new System.Windows.Forms.Button();
+            this.regFixB = new Optimizer.Controls.MoonButton();
             this.regLbl = new System.Windows.Forms.Label();
             this.checkRestartExplorer = new Optimizer.MoonCheck();
             this.checkRegistryEditor = new Optimizer.MoonCheck();
@@ -289,8 +289,8 @@ namespace Optimizer
             this.toolHWGoogle = new System.Windows.Forms.ToolStripMenuItem();
             this.toolHWDuck = new System.Windows.Forms.ToolStripMenuItem();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.btnCopyHW = new System.Windows.Forms.Button();
-            this.btnSaveHW = new System.Windows.Forms.Button();
+            this.btnCopyHW = new Optimizer.Controls.MoonButton();
+            this.btnSaveHW = new Optimizer.Controls.MoonButton();
             this.hwDetailed = new Optimizer.ToggleCard();
             this.integratorTab = new System.Windows.Forms.TabPage();
             this.synapse = new System.Windows.Forms.TabControl();
@@ -303,7 +303,7 @@ namespace Optimizer
             this.integrator2 = new System.Windows.Forms.Label();
             this.integrator1 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.btnAddItem = new System.Windows.Forms.Button();
+            this.btnAddItem = new Optimizer.Controls.MoonButton();
             this.itemnamegroup = new System.Windows.Forms.GroupBox();
             this.txtItemName = new System.Windows.Forms.TextBox();
             this.security = new System.Windows.Forms.GroupBox();
@@ -314,10 +314,10 @@ namespace Optimizer
             this.radioBottom = new Optimizer.MoonRadio();
             this.icontoaddgroup = new System.Windows.Forms.GroupBox();
             this.checkDefaultIcon = new Optimizer.MoonCheck();
-            this.btnBrowseIcon = new System.Windows.Forms.Button();
+            this.btnBrowseIcon = new Optimizer.Controls.MoonButton();
             this.txtIcon = new System.Windows.Forms.TextBox();
             this.itemtoaddgroup = new System.Windows.Forms.GroupBox();
-            this.btnBrowseItem = new System.Windows.Forms.Button();
+            this.btnBrowseItem = new Optimizer.Controls.MoonButton();
             this.txtItem = new System.Windows.Forms.TextBox();
             this.itemtype = new System.Windows.Forms.GroupBox();
             this.radioCommand = new Optimizer.MoonRadio();
@@ -329,9 +329,9 @@ namespace Optimizer
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.listDesktopItems = new Optimizer.MoonList();
-            this.refreshIIB = new System.Windows.Forms.Button();
-            this.removeDIB = new System.Windows.Forms.Button();
-            this.removeAllIIB = new System.Windows.Forms.Button();
+            this.refreshIIB = new Optimizer.Controls.MoonButton();
+            this.removeDIB = new Optimizer.Controls.MoonButton();
+            this.removeAllIIB = new Optimizer.Controls.MoonButton();
             this.removeIntegratorItemsL = new System.Windows.Forms.Label();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.WAB = new Optimizer.ToggleCard();
@@ -345,11 +345,11 @@ namespace Optimizer
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.listCustomCommands = new Optimizer.MoonList();
-            this.removeCCB = new System.Windows.Forms.Button();
-            this.refreshCCB = new System.Windows.Forms.Button();
+            this.removeCCB = new Optimizer.Controls.MoonButton();
+            this.refreshCCB = new Optimizer.Controls.MoonButton();
             this.removeCCL = new System.Windows.Forms.Label();
-            this.btnCreateCustomCommand = new System.Windows.Forms.Button();
-            this.button48 = new System.Windows.Forms.Button();
+            this.btnCreateCustomCommand = new Optimizer.Controls.MoonButton();
+            this.button48 = new Optimizer.Controls.MoonButton();
             this.txtRunKeyword = new System.Windows.Forms.TextBox();
             this.ccKeywordL = new System.Windows.Forms.Label();
             this.txtRunFile = new System.Windows.Forms.TextBox();
@@ -369,17 +369,17 @@ namespace Optimizer
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox85 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.boxLang = new Optimizer.MoonSelect();
+            this.boxLang = new Optimizer.Controls.MoonComboBox();
             this.picFlag = new System.Windows.Forms.PictureBox();
             this.languagesL = new System.Windows.Forms.Label();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
-            this.btnOpenConf = new System.Windows.Forms.Button();
+            this.btnOpenConf = new Optimizer.Controls.MoonButton();
             this.lblTroubleshoot = new System.Windows.Forms.Label();
             this.lblUpdating = new System.Windows.Forms.Label();
-            this.btnViewLog = new System.Windows.Forms.Button();
+            this.btnViewLog = new Optimizer.Controls.MoonButton();
             this.l2 = new System.Windows.Forms.LinkLabel();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnResetConfig = new System.Windows.Forms.Button();
+            this.btnUpdate = new Optimizer.Controls.MoonButton();
+            this.btnResetConfig = new Optimizer.Controls.MoonButton();
             this.lblTheming = new System.Windows.Forms.Label();
             this.quickAccessToggle = new Optimizer.ToggleCard();
             this.imagesHw = new System.Windows.Forms.ImageList(this.components);
@@ -3583,7 +3583,6 @@ namespace Optimizer
             // boxAdapter
             // 
             this.boxAdapter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.boxAdapter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.boxAdapter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxAdapter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.boxAdapter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3593,12 +3592,12 @@ namespace Optimizer
             this.boxAdapter.Margin = new System.Windows.Forms.Padding(6);
             this.boxAdapter.Name = "boxAdapter";
             this.boxAdapter.Size = new System.Drawing.Size(824, 53);
+			this.boxAdapter.Tag = "themeable";
             this.boxAdapter.TabIndex = 107;
             // 
             // boxDNS
             // 
             this.boxDNS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.boxDNS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.boxDNS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxDNS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.boxDNS.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3618,6 +3617,7 @@ namespace Optimizer
             this.boxDNS.Margin = new System.Windows.Forms.Padding(6);
             this.boxDNS.Name = "boxDNS";
             this.boxDNS.Size = new System.Drawing.Size(824, 53);
+			this.boxDNS.Tag = "themeable";
             this.boxDNS.TabIndex = 106;
             // 
             // hostsEditorTab
@@ -5467,7 +5467,6 @@ namespace Optimizer
             // 
             this.boxLang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.boxLang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.boxLang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.boxLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxLang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.boxLang.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -5500,6 +5499,7 @@ namespace Optimizer
             this.boxLang.Name = "boxLang";
             this.boxLang.Size = new System.Drawing.Size(420, 53);
             this.boxLang.TabIndex = 95;
+			this.boxLang.Tag = "themeable";
             this.boxLang.SelectedIndexChanged += new System.EventHandler(this.boxLang_SelectedIndexChanged);
             // 
             // picFlag
@@ -6302,7 +6302,7 @@ namespace Optimizer
         private LinkLabel linkLabel2;
         private Button btnCopyHW;
         private Button btnSaveHW;
-        private MoonSelect boxLang;
+        private Controls.MoonComboBox boxLang;
         private Panel panel1;
         private MoonCheck edgeSession;
         private MoonCheck edgeHistory;
@@ -6388,8 +6388,8 @@ namespace Optimizer
         private Label label1;
         private Button btnOpenNetwork;
         private Button flushCacheB;
-        private MoonSelect boxAdapter;
-        private MoonSelect boxDNS;
+        private Controls.MoonComboBox boxAdapter;
+        private Controls.MoonComboBox boxDNS;
         private Controls.ColorPicker colorPicker1;
         private ToggleCard autoStartToggle;
         private ToggleCard nvidiaTelemetrySw;
