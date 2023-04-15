@@ -996,7 +996,7 @@ namespace Optimizer
             }
 
             // ADVANCED
-            if (Program.UNSAFE_MODE)
+            if (!Program.UNSAFE_MODE)
             {
                 LoadAdvancedToggleStates();
             }
@@ -1151,7 +1151,7 @@ namespace Optimizer
             // set default window size to fit content
             if (Options.CurrentOptions.LanguageCode == LanguageCode.RU)
             {
-                boxLang.Text = "русский";
+                boxLang.Text = "Русский";
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.TR)
             {
@@ -4262,7 +4262,7 @@ namespace Optimizer
                 picFlag.Image = Properties.Resources.united_kingdom;
                 Options.CurrentOptions.LanguageCode = LanguageCode.EN;
             }
-            else if (boxLang.Text == "русский")
+            else if (boxLang.Text == "Русский")
             {
                 picFlag.Image = Properties.Resources.russia;
                 Options.CurrentOptions.LanguageCode = LanguageCode.RU;

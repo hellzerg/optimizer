@@ -3721,7 +3721,8 @@ namespace Optimizer
             this.boxAdapter.Location = new System.Drawing.Point(35, 62);
             this.boxAdapter.Margin = new System.Windows.Forms.Padding(4);
             this.boxAdapter.Name = "boxAdapter";
-            this.boxAdapter.Size = new System.Drawing.Size(516, 36);
+            this.boxAdapter.Size = new System.Drawing.Size(824, 53);
+            this.boxAdapter.Tag = "themeable";
             this.boxAdapter.TabIndex = 107;
             // 
             // boxDNS
@@ -3746,7 +3747,8 @@ namespace Optimizer
             this.boxDNS.Location = new System.Drawing.Point(35, 106);
             this.boxDNS.Margin = new System.Windows.Forms.Padding(4);
             this.boxDNS.Name = "boxDNS";
-            this.boxDNS.Size = new System.Drawing.Size(516, 36);
+            this.boxDNS.Size = new System.Drawing.Size(824, 53);
+            this.boxDNS.Tag = "themeable";
             this.boxDNS.TabIndex = 106;
             // 
             // hostsEditorTab
@@ -5586,7 +5588,7 @@ namespace Optimizer
             this.boxLang.FormattingEnabled = true;
             this.boxLang.Items.AddRange(new object[] {
             "English",
-            "русский",
+            "Русский",
             "Ελληνικά",
             "Deutsch",
             "Italiano",
