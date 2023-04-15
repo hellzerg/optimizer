@@ -310,10 +310,10 @@ namespace Optimizer
                     Options.LoadSettings();
                 }
 
-                if (!Options.CurrentOptions.DisableOptimizerTelemetry)
-                {
-                    TelemetryHelper.EnableTelemetryService();
-                }
+                //if (!Options.CurrentOptions.DisableOptimizerTelemetry)
+                //{
+                //    TelemetryHelper.EnableTelemetryService();
+                //}
 
                 // ideal place to replace internal messages from translation list
                 _adminMissingMessage = Options.TranslationList["adminMissingMsg"];
@@ -331,7 +331,7 @@ namespace Optimizer
             }
         }
 
-        private static void RestartInSafeMode()
+        internal static void RestartInSafeMode()
         {
             Utilities.RunCommand("bcdedit /set {current} safeboot Minimal");
             Thread.Sleep(500);
@@ -340,7 +340,7 @@ namespace Optimizer
             Environment.Exit(0);
         }
 
-        private static void RestartInNormalMode()
+        internal static void RestartInNormalMode()
         {
             Utilities.RunCommand("bcdedit /deletevalue {current} safeboot");
             Thread.Sleep(500);

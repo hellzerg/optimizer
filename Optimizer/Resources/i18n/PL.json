@@ -409,5 +409,15 @@
 	"storeUpdatesTip": "Wyłącza funkcję automatycznych aktualizacji Microsoft Store.",
 	"btnRestoreUwp": "Przywróć wszystkie platformy UWP",
 	"restoreUwpMessage": "Czy na pewno chcesz to zrobić?",
-	"telemetrySvcToggle": "Wyłącz telemetrię aplikacji"
+	"telemetrySvcToggle": "Wyłącz telemetrię aplikacji",
+	"edgeAiSw": "Disable Edge Discover",
+	"edgeTelemetrySw": "Disable Edge Telemetry",
+	"edgeAiTip": "Removes Discover Bar in Edge.",
+	"edgeTelemetryTip": "Disables SmartScreen, Spotlight and Telemetry services in Edge.",
+	"hpetSw": "Disable HPET",
+	"loginVerboseSw": "Enable Detailed Login Screen",
+	"advancedTab": "Advanced",
+	"btnRestartSafe": "Restart in Safe Mode",
+	"btnRestart": "Restart in Normal Mode",
+	"btnRestartDisableDefender": "Restart && Disable Defender"
 }

@@ -437,5 +437,15 @@ Tem efeito negativo no desempenho.",
 	"storeUpdatesTip": "Desativa a funcionalidade de atualizações automáticas da Microsoft Store.",
 	"btnRestoreUwp": "Restaurar todos os UWP",
 	"restoreUwpMessage": "Você tem certeza de que quer fazer isso?",
-	"telemetrySvcToggle": "Desativar a telemetria do otimizador"
+	"telemetrySvcToggle": "Desativar a telemetria do otimizador",
+	"edgeAiSw": "Disable Edge Discover",
+	"edgeTelemetrySw": "Disable Edge Telemetry",
+	"edgeAiTip": "Removes Discover Bar in Edge.",
+	"edgeTelemetryTip": "Disables SmartScreen, Spotlight and Telemetry services in Edge.",
+	"hpetSw": "Disable HPET",
+	"loginVerboseSw": "Enable Detailed Login Screen",
+	"advancedTab": "Advanced",
+	"btnRestartSafe": "Restart in Safe Mode",
+	"btnRestart": "Restart in Normal Mode",
+	"btnRestartDisableDefender": "Restart && Disable Defender"
 }

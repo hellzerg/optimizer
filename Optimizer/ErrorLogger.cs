@@ -34,13 +34,13 @@ namespace Optimizer
                 File.AppendAllText(ErrorLogFile, Environment.NewLine);
             }
             catch { }
-            finally
-            {
-                if (!Options.CurrentOptions.DisableOptimizerTelemetry)
-                {
-                    TelemetryHelper.GenerateTelemetryData(functionName, errorMessage, errorStackTrace);
-                }
-            }
+            //finally
+            //{
+            //    if (!Options.CurrentOptions.DisableOptimizerTelemetry)
+            //    {
+            //        TelemetryHelper.GenerateTelemetryData(functionName, errorMessage, errorStackTrace);
+            //    }
+            //}
         }
     }
 }

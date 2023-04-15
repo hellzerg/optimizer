@@ -16,8 +16,8 @@ namespace Optimizer
         public bool EnableTray { get; set; }
         public bool AutoStart { get; set; }
 
-        public string TelemetryClientID { get; set; }
-        public bool DisableOptimizerTelemetry { get; set; }
+        //public string TelemetryClientID { get; set; }
+        //public bool DisableOptimizerTelemetry { get; set; }
 
         public LanguageCode LanguageCode { get; set; }
 
@@ -89,6 +89,10 @@ namespace Optimizer
         public bool CompactMode { get; set; }
         public bool DisableStickers { get; set; }
         public bool DisableVBS { get; set; }
+
+        // advanced
+        public bool DisableHPET { get; set; }
+        public bool EnableLoginVerbose { get; set; }
     }
 
     internal static class Options
@@ -217,8 +221,8 @@ namespace Optimizer
                     CurrentOptions.EnableTray = false;
                     CurrentOptions.AutoStart = false;
 
-                    CurrentOptions.TelemetryClientID = Guid.NewGuid().ToString().ToUpperInvariant();
-                    CurrentOptions.DisableOptimizerTelemetry = false;
+                    //CurrentOptions.TelemetryClientID = Guid.NewGuid().ToString().ToUpperInvariant();
+                    //CurrentOptions.DisableOptimizerTelemetry = false;
 
                     CurrentOptions.LanguageCode = LanguageCode.EN;
 
@@ -284,6 +288,9 @@ namespace Optimizer
                     CurrentOptions.DisableStickers = false;
                     CurrentOptions.DisableVBS = false;
 
+                    CurrentOptions.DisableHPET = false;
+                    CurrentOptions.EnableLoginVerbose = false;
+
                     using (FileStream fs = File.Open(SettingsFile, FileMode.CreateNew))
                     using (StreamWriter sw = new StreamWriter(fs))
                     using (JsonWriter jw = new JsonTextWriter(sw))
@@ -306,11 +313,11 @@ namespace Optimizer
                 CurrentOptions.Theme = Color.FromArgb(153, 102, 204);
             }
             // generate random telemetry ID if not present
-            if (string.IsNullOrEmpty(CurrentOptions.TelemetryClientID))
-            {
-                CurrentOptions.TelemetryClientID = Guid.NewGuid().ToString().ToUpperInvariant();
-                SaveSettings();
-            }
+            //if (string.IsNullOrEmpty(CurrentOptions.TelemetryClientID))
+            //{
+            //    CurrentOptions.TelemetryClientID = Guid.NewGuid().ToString().ToUpperInvariant();
+            //    SaveSettings();
+            //}
 
             LoadTranslation();
         }

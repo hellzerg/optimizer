@@ -229,6 +229,8 @@ namespace Optimizer
             adsSw.ToggleClicked += new EventHandler(toggleSwitch26_Click);
             xboxSw.ToggleClicked += new EventHandler(toggleSwitch17_Click);
             cortanaSw.ToggleClicked += new EventHandler(toggleSwitch16_Click);
+            edgeAiSw.ToggleClicked += new EventHandler(EdgeAiSw_ToggleClicked);
+            edgeTelemetrySw.ToggleClicked += new EventHandler(EdgeTelemetrySw_ToggleClicked);
             gameBarSw.ToggleClicked += new EventHandler(toggleSwitch15_Click);
             uODSw.ToggleClicked += new EventHandler(toggleSwitch14_Click);
             oldMixerSw.ToggleClicked += new EventHandler(toggleSwitch13_Click);
@@ -262,6 +264,8 @@ namespace Optimizer
             winSearchSw.ToggleClicked += WinSearchSw_ToggleClicked;
             nvidiaTelemetrySw.ToggleClicked += NvidiaTelemetrySw_ToggleClicked;
             vbsSw.ToggleClicked += VbsSw_ToggleClicked;
+            hpetSw.ToggleClicked += HpetSw_ToggleClicked;
+            loginVerboseSw.ToggleClicked += LoginVerboseSw_ToggleClicked;
 
             PMB.ToggleClicked += PMB_ToggleClicked;
             SSB.ToggleClicked += SSB_ToggleClicked;
@@ -270,6 +274,58 @@ namespace Optimizer
             DSB.ToggleClicked += DSB_ToggleClicked;
             AddCMDB.ToggleClicked += AddCMDB_ToggleClicked;
             AddOwnerB.ToggleClicked += AddOwnerB_ToggleClicked;
+        }
+
+        private void LoginVerboseSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (loginVerboseSw.ToggleChecked)
+            {
+                Utilities.EnableLoginVerbose();
+            }
+            else
+            {
+                Utilities.DisableLoginVerbose();
+            }
+            Options.CurrentOptions.EnableLoginVerbose = loginVerboseSw.ToggleChecked;
+        }
+
+        private void HpetSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (hpetSw.ToggleChecked)
+            {
+                Utilities.DisableHPET();
+            }
+            else
+            {
+                Utilities.EnableHPET();
+            }
+            Options.CurrentOptions.DisableHPET = hpetSw.ToggleChecked;
+        }
+
+        private void EdgeTelemetrySw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (edgeTelemetrySw.ToggleChecked)
+            {
+                OptimizeHelper.DisableEdgeTelemetry();
+            }
+            else
+            {
+                OptimizeHelper.EnableEdgeTelemetry();
+            }
+            Options.CurrentOptions.DisableEdgeTelemetry = edgeTelemetrySw.ToggleChecked;
+        }
+
+        private void EdgeAiSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (edgeAiSw.ToggleChecked)
+            {
+                OptimizeHelper.DisableEdgeDiscoverBar();
+            }
+            else
+            {
+                OptimizeHelper.EnableEdgeDiscoverBar();
+            }
+            Options.CurrentOptions.DisableEdgeDiscoverBar = edgeAiSw.ToggleChecked;
         }
 
         private void WinSearchSw_ToggleClicked(object sender, EventArgs e)
@@ -531,64 +587,75 @@ namespace Optimizer
 
         private void TranslateTips()
         {
-            performanceSw.Label.Tag = Options.TranslationList["performanceTip"].ToString();
-            networkSw.Label.Tag = Options.TranslationList["networkTip"].ToString();
-            defenderSw.Label.Tag = Options.TranslationList["defenderTip"].ToString();
-            smartScreenSw.Label.Tag = Options.TranslationList["smartScreenTip"].ToString();
-            systemRestoreSw.Label.Tag = Options.TranslationList["systemRestoreTip"].ToString();
-            reportingSw.Label.Tag = Options.TranslationList["reportingTip"].ToString();
-            telemetryTasksSw.Label.Tag = Options.TranslationList["telemetryTasksTip"].ToString();
-            officeTelemetrySw.Label.Tag = Options.TranslationList["officeTelemetryTip"].ToString();
-            printSw.Label.Tag = Options.TranslationList["printTip"].ToString();
-            faxSw.Label.Tag = Options.TranslationList["faxTip"].ToString();
-            mediaSharingSw.Label.Tag = Options.TranslationList["mediaSharingTip"].ToString();
-            stickySw.Label.Tag = Options.TranslationList["stickyTip"].ToString();
-            homegroupSw.Label.Tag = Options.TranslationList["homegroupTip"].ToString();
-            superfetchSw.Label.Tag = Options.TranslationList["superfetchTip"].ToString();
-            compatSw.Label.Tag = Options.TranslationList["compatTip"].ToString();
-            disableOneDriveSw.Label.Tag = Options.TranslationList["disableOneDriveTip"].ToString();
-            oldMixerSw.Label.Tag = Options.TranslationList["oldMixerTip"].ToString();
-            oldExplorerSw.Label.Tag = Options.TranslationList["oldExplorerTip"].ToString();
-            adsSw.Label.Tag = Options.TranslationList["adsTip"].ToString();
-            uODSw.Label.Tag = Options.TranslationList["uODTip"].ToString();
-            peopleSw.Label.Tag = Options.TranslationList["peopleTip"].ToString();
-            longPathsSw.Label.Tag = Options.TranslationList["longPathsTip"].ToString();
-            inkSw.Label.Tag = Options.TranslationList["inkTip"].ToString();
-            spellSw.Label.Tag = Options.TranslationList["spellTip"].ToString();
-            xboxSw.Label.Tag = Options.TranslationList["xboxTip"].ToString();
-            autoUpdatesSw.Label.Tag = Options.TranslationList["autoUpdatesTip"].ToString();
-            driversSw.Label.Tag = Options.TranslationList["driversTip"].ToString();
-            telemetryServicesSw.Label.Tag = Options.TranslationList["telemetryServicesTip"].ToString();
-            privacySw.Label.Tag = Options.TranslationList["privacyTip"].ToString();
-            ccSw.Label.Tag = Options.TranslationList["ccTip"].ToString();
-            cortanaSw.Label.Tag = Options.TranslationList["cortanaTip"].ToString();
-            sensorSw.Label.Tag = Options.TranslationList["sensorTip"].ToString();
-            castSw.Label.Tag = Options.TranslationList["castTip"].ToString();
-            gameBarSw.Label.Tag = Options.TranslationList["gameBarTip"].ToString();
-            insiderSw.Label.Tag = Options.TranslationList["insiderTip"].ToString();
-            storeUpdatesSw.Label.Tag = Options.TranslationList["storeUpdatesTip"].ToString();
-            tpmSw.Label.Tag = Options.TranslationList["tpmTip"].ToString();
-            leftTaskbarSw.Label.Tag = Options.TranslationList["leftTaskbarTip"].ToString();
-            snapAssistSw.Label.Tag = Options.TranslationList["snapAssistTip"].ToString();
-            widgetsSw.Label.Tag = Options.TranslationList["widgetsTip"].ToString();
-            chatSw.Label.Tag = Options.TranslationList["chatTip"].ToString();
-            stickersSw.Label.Tag = Options.TranslationList["stickersTip"].ToString();
-            classicContextSw.Label.Tag = Options.TranslationList["classicContextTip"].ToString();
-            picUpdate.Tag = Options.TranslationList["linkUpdate"].ToString() + "!";
-            picLab.Tag = Options.TranslationList["lblLab"].ToString();
-            picRestartNeeded.Tag = Options.TranslationList["restartAndApply"].ToString();
-            ffTelemetrySw.Label.Tag = Options.TranslationList["ffTelemetryTip"].ToString();
-            vsSw.Label.Tag = Options.TranslationList["vsTip"].ToString();
-            chromeTelemetrySw.Label.Tag = Options.TranslationList["chromeTelemetryTip"].ToString();
-            gameModeSw.Label.Tag = Options.TranslationList["gameModeTip"].ToString();
-            compactModeSw.Label.Tag = Options.TranslationList["compactModeTip"].ToString();
-            hibernateSw.Label.Tag = Options.TranslationList["hibernateTip"].ToString();
-            winSearchSw.Label.Tag = Options.TranslationList["winSearchTip"].ToString();
-            smb1Sw.Label.Tag = Options.TranslationList["smbTip"].ToString().Replace("{v}", "v1");
-            smb2Sw.Label.Tag = Options.TranslationList["smbTip"].ToString().Replace("{v}", "v2");
-            ntfsStampSw.Label.Tag = Options.TranslationList["ntfsStampTip"].ToString();
-            nvidiaTelemetrySw.Label.Tag = Options.TranslationList["nvidiaTelemetrySw"].ToString();
-            vbsSw.Label.Tag = Options.TranslationList["vbsTip"].ToString();
+            try
+            {
+                performanceSw.Label.Tag = Options.TranslationList["performanceTip"].ToString();
+                networkSw.Label.Tag = Options.TranslationList["networkTip"].ToString();
+                defenderSw.Label.Tag = Options.TranslationList["defenderTip"].ToString();
+                smartScreenSw.Label.Tag = Options.TranslationList["smartScreenTip"].ToString();
+                systemRestoreSw.Label.Tag = Options.TranslationList["systemRestoreTip"].ToString();
+                reportingSw.Label.Tag = Options.TranslationList["reportingTip"].ToString();
+                telemetryTasksSw.Label.Tag = Options.TranslationList["telemetryTasksTip"].ToString();
+                officeTelemetrySw.Label.Tag = Options.TranslationList["officeTelemetryTip"].ToString();
+                printSw.Label.Tag = Options.TranslationList["printTip"].ToString();
+                faxSw.Label.Tag = Options.TranslationList["faxTip"].ToString();
+                mediaSharingSw.Label.Tag = Options.TranslationList["mediaSharingTip"].ToString();
+                stickySw.Label.Tag = Options.TranslationList["stickyTip"].ToString();
+                homegroupSw.Label.Tag = Options.TranslationList["homegroupTip"].ToString();
+                superfetchSw.Label.Tag = Options.TranslationList["superfetchTip"].ToString();
+                compatSw.Label.Tag = Options.TranslationList["compatTip"].ToString();
+                disableOneDriveSw.Label.Tag = Options.TranslationList["disableOneDriveTip"].ToString();
+                oldMixerSw.Label.Tag = Options.TranslationList["oldMixerTip"].ToString();
+                oldExplorerSw.Label.Tag = Options.TranslationList["oldExplorerTip"].ToString();
+                adsSw.Label.Tag = Options.TranslationList["adsTip"].ToString();
+                uODSw.Label.Tag = Options.TranslationList["uODTip"].ToString();
+                peopleSw.Label.Tag = Options.TranslationList["peopleTip"].ToString();
+                longPathsSw.Label.Tag = Options.TranslationList["longPathsTip"].ToString();
+                inkSw.Label.Tag = Options.TranslationList["inkTip"].ToString();
+                spellSw.Label.Tag = Options.TranslationList["spellTip"].ToString();
+                xboxSw.Label.Tag = Options.TranslationList["xboxTip"].ToString();
+                autoUpdatesSw.Label.Tag = Options.TranslationList["autoUpdatesTip"].ToString();
+                driversSw.Label.Tag = Options.TranslationList["driversTip"].ToString();
+                telemetryServicesSw.Label.Tag = Options.TranslationList["telemetryServicesTip"].ToString();
+                privacySw.Label.Tag = Options.TranslationList["privacyTip"].ToString();
+                ccSw.Label.Tag = Options.TranslationList["ccTip"].ToString();
+                cortanaSw.Label.Tag = Options.TranslationList["cortanaTip"].ToString();
+                edgeAiSw.Label.Tag = Options.TranslationList["edgeAiTip"].ToString();
+                edgeTelemetrySw.Label.Tag = Options.TranslationList["edgeTelemetryTip"].ToString();
+                sensorSw.Label.Tag = Options.TranslationList["sensorTip"].ToString();
+                castSw.Label.Tag = Options.TranslationList["castTip"].ToString();
+                gameBarSw.Label.Tag = Options.TranslationList["gameBarTip"].ToString();
+                insiderSw.Label.Tag = Options.TranslationList["insiderTip"].ToString();
+                storeUpdatesSw.Label.Tag = Options.TranslationList["storeUpdatesTip"].ToString();
+                tpmSw.Label.Tag = Options.TranslationList["tpmTip"].ToString();
+                leftTaskbarSw.Label.Tag = Options.TranslationList["leftTaskbarTip"].ToString();
+                snapAssistSw.Label.Tag = Options.TranslationList["snapAssistTip"].ToString();
+                widgetsSw.Label.Tag = Options.TranslationList["widgetsTip"].ToString();
+                chatSw.Label.Tag = Options.TranslationList["chatTip"].ToString();
+                stickersSw.Label.Tag = Options.TranslationList["stickersTip"].ToString();
+                classicContextSw.Label.Tag = Options.TranslationList["classicContextTip"].ToString();
+                picUpdate.Tag = Options.TranslationList["linkUpdate"].ToString() + "!";
+                picLab.Tag = Options.TranslationList["lblLab"].ToString();
+                picRestartNeeded.Tag = Options.TranslationList["restartAndApply"].ToString();
+                ffTelemetrySw.Label.Tag = Options.TranslationList["ffTelemetryTip"].ToString();
+                vsSw.Label.Tag = Options.TranslationList["vsTip"].ToString();
+                chromeTelemetrySw.Label.Tag = Options.TranslationList["chromeTelemetryTip"].ToString();
+                gameModeSw.Label.Tag = Options.TranslationList["gameModeTip"].ToString();
+                compactModeSw.Label.Tag = Options.TranslationList["compactModeTip"].ToString();
+                hibernateSw.Label.Tag = Options.TranslationList["hibernateTip"].ToString();
+                winSearchSw.Label.Tag = Options.TranslationList["winSearchTip"].ToString();
+                smb1Sw.Label.Tag = Options.TranslationList["smbTip"].ToString().Replace("{v}", "v1");
+                smb2Sw.Label.Tag = Options.TranslationList["smbTip"].ToString().Replace("{v}", "v2");
+                ntfsStampSw.Label.Tag = Options.TranslationList["ntfsStampTip"].ToString();
+                nvidiaTelemetrySw.Label.Tag = Options.TranslationList["nvidiaTelemetrySw"].ToString();
+                vbsSw.Label.Tag = Options.TranslationList["vbsTip"].ToString();
+                hpetSw.Label.Tag = Options.TranslationList["hpetSw"].ToString();
+                loginVerboseSw.Label.Tag = Options.TranslationList["loginVerboseSw"].ToString();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
         }
 
         private void ToggleSwitch40_Click(object sender, EventArgs e)
@@ -723,7 +790,7 @@ namespace Optimizer
             quickAccessToggle.ToggleChecked = Options.CurrentOptions.EnableTray;
             launcherIcon.Visible = Options.CurrentOptions.EnableTray;
             autoStartToggle.ToggleChecked = Options.CurrentOptions.AutoStart;
-            telemetrySvcToggle.ToggleChecked = Options.CurrentOptions.DisableOptimizerTelemetry;
+            //telemetrySvcToggle.ToggleChecked = Options.CurrentOptions.DisableOptimizerTelemetry;
 
             //seperatorNetMon.Visible = Options.CurrentOptions.EnableTray;
             //trayDownSpeed.Visible = Options.CurrentOptions.EnableTray;
@@ -931,7 +998,7 @@ namespace Optimizer
             // ADVANCED
             if (Program.UNSAFE_MODE)
             {
-                // load config
+                LoadAdvancedToggleStates();
             }
             else
             {
@@ -2108,6 +2175,12 @@ namespace Optimizer
             return changeDetected;
         }
 
+        private void LoadAdvancedToggleStates()
+        {
+            hpetSw.ToggleChecked = Options.CurrentOptions.DisableHPET;
+            loginVerboseSw.ToggleChecked = Options.CurrentOptions.EnableLoginVerbose;
+        }
+
         private void LoadUniversalToggleStates()
         {
             performanceSw.ToggleChecked = Options.CurrentOptions.EnablePerformanceTweaks;
@@ -2147,6 +2220,8 @@ namespace Optimizer
             uODSw.ToggleChecked = Options.CurrentOptions.UninstallOneDrive;
             gameBarSw.ToggleChecked = Options.CurrentOptions.DisableGameBar;
             cortanaSw.ToggleChecked = Options.CurrentOptions.DisableCortana;
+            edgeTelemetrySw.ToggleChecked = Options.CurrentOptions.DisableEdgeTelemetry;
+            edgeAiSw.ToggleChecked = Options.CurrentOptions.DisableEdgeDiscoverBar;
             xboxSw.ToggleChecked = Options.CurrentOptions.DisableXboxLive;
             oldExplorerSw.ToggleChecked = Options.CurrentOptions.DisableQuickAccessHistory;
             sensorSw.ToggleChecked = Options.CurrentOptions.DisableSensorServices;
@@ -4641,15 +4716,20 @@ namespace Optimizer
             }
         }
 
-        private void telemetrySvcToggle_ToggleClicked(object sender, EventArgs e)
+        private void btnRestartSafe_Click(object sender, EventArgs e)
         {
-            Options.CurrentOptions.DisableOptimizerTelemetry = telemetrySvcToggle.ToggleChecked;
-            Options.SaveSettings();
+            Program.RestartInSafeMode();
+        }
 
-            if (!Options.CurrentOptions.DisableOptimizerTelemetry)
-            {
-                TelemetryHelper.EnableTelemetryService();
-            }
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+            Program.RestartInNormalMode();
+        }
+
+        private void btnRestartDisableDefender_Click(object sender, EventArgs e)
+        {
+            Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce", "*OptimizerDisableDefender", Assembly.GetExecutingAssembly().Location + " /silentdisabledefender", Microsoft.Win32.RegistryValueKind.String);
+            Program.RestartInSafeMode();
         }
     }
 }

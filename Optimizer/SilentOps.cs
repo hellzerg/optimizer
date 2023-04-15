@@ -313,6 +313,30 @@ namespace Optimizer
                     OptimizeHelper.EnableNvidiaTelemetry();
                 }
             }
+
+            if (CurrentSilentConfig.DisableHPET.HasValue)
+            {
+                if (CurrentSilentConfig.DisableHPET.Value)
+                {
+                    Utilities.DisableHPET();
+                }
+                else
+                {
+                    Utilities.EnableHPET();
+                }
+            }
+
+            if (CurrentSilentConfig.EnableLoginVerbose.HasValue)
+            {
+                if (CurrentSilentConfig.EnableLoginVerbose.Value)
+                {
+                    Utilities.EnableLoginVerbose();
+                }
+                else
+                {
+                    Utilities.DisableLoginVerbose();
+                }
+            }
         }
 
         // silent config processing for Windows 8 tweaks
@@ -329,7 +353,6 @@ namespace Optimizer
                     OptimizeHelper.EnableOneDrive();
                 }
             }
-
         }
 
         // silent config processing for Windows 10 tweaks
@@ -588,6 +611,30 @@ namespace Optimizer
                     OptimizeHelper.AddCastToDevice();
                 }
             }
+
+            if (CurrentSilentConfig.DisableEdgeTelemetry.HasValue)
+            {
+                if (CurrentSilentConfig.DisableEdgeTelemetry.Value)
+                {
+                    OptimizeHelper.DisableEdgeTelemetry();
+                }
+                else
+                {
+                    OptimizeHelper.EnableEdgeTelemetry();
+                }
+            }
+
+            if (CurrentSilentConfig.DisableEdgeDiscoverBar.HasValue)
+            {
+                if (CurrentSilentConfig.DisableEdgeDiscoverBar.Value)
+                {
+                    OptimizeHelper.DisableEdgeDiscoverBar();
+                }
+                else
+                {
+                    OptimizeHelper.EnableEdgeDiscoverBar();
+                }
+            }
         }
 
         // silent config processing for Windows 11 tweaks
@@ -801,6 +848,14 @@ namespace Optimizer
             {
                 Options.CurrentOptions.DisableNVIDIATelemetry = CurrentSilentConfig.DisableNVIDIATelemetry.Value;
             }
+            if (CurrentSilentConfig.DisableHPET.HasValue)
+            {
+                Options.CurrentOptions.DisableHPET = CurrentSilentConfig.DisableHPET.Value;
+            }
+            if (CurrentSilentConfig.EnableLoginVerbose.HasValue)
+            {
+                Options.CurrentOptions.EnableLoginVerbose = CurrentSilentConfig.EnableLoginVerbose.Value;
+            }
         }
 
         internal static void SilentUpdateOptions8()
@@ -936,6 +991,14 @@ namespace Optimizer
             if (CurrentSilentConfig.RemoveCastToDevice.HasValue)
             {
                 Options.CurrentOptions.RemoveCastToDevice = CurrentSilentConfig.RemoveCastToDevice.Value;
+            }
+            if (CurrentSilentConfig.DisableEdgeDiscoverBar.HasValue)
+            {
+                Options.CurrentOptions.DisableEdgeDiscoverBar = CurrentSilentConfig.DisableEdgeDiscoverBar.Value;
+            }
+            if (CurrentSilentConfig.DisableEdgeTelemetry.HasValue)
+            {
+                Options.CurrentOptions.DisableEdgeTelemetry = CurrentSilentConfig.DisableEdgeTelemetry.Value;
             }
         }
     }

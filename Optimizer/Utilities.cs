@@ -676,6 +676,16 @@ namespace Optimizer
             catch { }
         }
 
+        internal static void EnableLoginVerbose()
+        {
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "verbosestatus", 1, RegistryValueKind.DWord);
+        }
+
+        internal static void DisableLoginVerbose()
+        {
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "verbosestatus");
+        }
+
         // [!!!]
         internal static void UnlockAllCores()
         {

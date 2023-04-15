@@ -34,6 +34,9 @@ namespace Optimizer
         public bool? DisableChromeTelemetry { get; set; }
         public bool? DisableNVIDIATelemetry { get; set; }
 
+        public bool? DisableEdgeDiscoverBar { get; set; }
+        public bool? DisableEdgeTelemetry { get; set; }
+
         public bool? EnableLegacyVolumeSlider { get; set; }
         public bool? DisableQuickAccessHistory { get; set; }
         public bool? DisableStartMenuAds { get; set; }
@@ -66,5 +69,8 @@ namespace Optimizer
         public bool? CompactMode { get; set; }
         public bool? DisableStickers { get; set; }
         public bool? DisableVBS { get; set; }
+
+        public bool? DisableHPET { get; set; }
+        public bool? EnableLoginVerbose { get; set; }
     }
 }

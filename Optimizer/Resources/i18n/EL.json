@@ -435,5 +435,15 @@
 	"storeUpdatesTip": "Απενεργοποιεί τις ενημερώσεις του Microsoft Store.",
 	"btnRestoreUwp": "Επαναφορά όλων των UWP",
 	"restoreUwpMessage": "Είστε σίγουροι ότι θέλετε να επαναφέρετε όλες τις εφαρμογές UWP;",
-	"telemetrySvcToggle": "Απενεργοποίηση τηλεμετρίας Optimizer"
+	"telemetrySvcToggle": "Απενεργοποίηση τηλεμετρίας Optimizer",
+	"edgeAiSw": "Disable Edge Discover",
+	"edgeTelemetrySw": "Disable Edge Telemetry",
+	"edgeAiTip": "Removes Discover Bar in Edge.",
+	"edgeTelemetryTip": "Disables SmartScreen, Spotlight and Telemetry services in Edge.",
+	"hpetSw": "Disable HPET",
+	"loginVerboseSw": "Enable Detailed Login Screen",
+	"advancedTab": "Advanced",
+	"btnRestartSafe": "Restart in Safe Mode",
+	"btnRestart": "Restart in Normal Mode",
+	"btnRestartDisableDefender": "Restart && Disable Defender"
 }

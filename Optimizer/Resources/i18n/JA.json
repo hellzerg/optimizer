@@ -42,7 +42,6 @@
 	"cleanerTab": "クリーナー",
 	"pingerTab": "Ping",
 	"registryFixerTab": "レジストリ",
-	"advancedTab": "高度な設定",
 	"integratorTab": "Integrator",
 	"CleanPreviewForm": "Clean Preview",
 	"optionsTab": "オプション",
@@ -432,5 +431,15 @@ SMBv3に置き換えられており、そちらのほうがより安全です。
 	"winSearchTip": "Windows Searchサービスを無効化します。",
 	"btnRestoreUwp": "全てのUWPを復元",
 	"restoreUwpMessage": "本当に復元しますか？",
-	"telemetrySvcToggle": "Optimizerのテレメトリを無効にする"
+	"telemetrySvcToggle": "Optimizerのテレメトリを無効にする",
+	"edgeAiSw": "Disable Edge Discover",
+	"edgeTelemetrySw": "Disable Edge Telemetry",
+	"edgeAiTip": "Removes Discover Bar in Edge.",
+	"edgeTelemetryTip": "Disables SmartScreen, Spotlight and Telemetry services in Edge.",
+	"hpetSw": "Disable HPET",
+	"loginVerboseSw": "Enable Detailed Login Screen",
+	"advancedTab": "Advanced",
+	"btnRestartSafe": "Restart in Safe Mode",
+	"btnRestart": "Restart in Normal Mode",
+	"btnRestartDisableDefender": "Restart && Disable Defender"
 }
