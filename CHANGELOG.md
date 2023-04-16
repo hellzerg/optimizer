@@ -9,6 +9,7 @@
 - Hotfix: Various localization updates
 - Removed: Classic Ribbon for Windows 11 because Microsoft dropped it
 - Removed: Taskbar Size for Windows 11 because Microsoft dropped it
+- Removed: Optimizer Insights telemetry service
 
 ## [14.9] - 2023-02-18
 - New: Uninstall OneDrive is ONLY visible in UNSAFE MODE, for apparent reasons...
