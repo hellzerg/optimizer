@@ -1,3 +1,15 @@
+## [15.0] - 2023-04-16
+- New: Advanced Tab with extra tweaks. Use /unsafe to use this tab
+- New: Disable HPET in Advanced
+- New: Enable Verbose Login in Advanced
+- New: Disable Edge Telemetry
+- New: Disable Edge Discover bar
+- New: Minor visual changes
+- Hotfix: Hosts tab not loading in some occasions
+- Hotfix: Various localization updates
+- Removed: Classic Ribbon for Windows 11 because Microsoft dropped it
+- Removed: Taskbar Size for Windows 11 because Microsoft dropped it
+
 ## [14.9] - 2023-02-18
 - New: Uninstall OneDrive is ONLY visible in UNSAFE MODE, for apparent reasons...
 - New: Optimizer Insights collects - with great respect to privacy - every error the app produces for further investigation

@@ -414,7 +414,6 @@ namespace Optimizer
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.toggleCard1 = new Optimizer.ToggleCard();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picRestartNeeded)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLab)).BeginInit();
@@ -1881,7 +1880,7 @@ namespace Optimizer
             this.btnRestartDisableDefender.Location = new System.Drawing.Point(17, 165);
             this.btnRestartDisableDefender.Margin = new System.Windows.Forms.Padding(2);
             this.btnRestartDisableDefender.Name = "btnRestartDisableDefender";
-            this.btnRestartDisableDefender.Size = new System.Drawing.Size(267, 31);
+            this.btnRestartDisableDefender.Size = new System.Drawing.Size(414, 31);
             this.btnRestartDisableDefender.TabIndex = 88;
             this.btnRestartDisableDefender.Text = "Restart && Disable Defender";
             this.btnRestartDisableDefender.UseVisualStyleBackColor = false;
@@ -1898,7 +1897,7 @@ namespace Optimizer
             this.btnRestart.Location = new System.Drawing.Point(17, 130);
             this.btnRestart.Margin = new System.Windows.Forms.Padding(2);
             this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(267, 31);
+            this.btnRestart.Size = new System.Drawing.Size(414, 31);
             this.btnRestart.TabIndex = 87;
             this.btnRestart.Text = "Restart in Normal Mode";
             this.btnRestart.UseVisualStyleBackColor = false;
@@ -1915,7 +1914,7 @@ namespace Optimizer
             this.btnRestartSafe.Location = new System.Drawing.Point(17, 94);
             this.btnRestartSafe.Margin = new System.Windows.Forms.Padding(2);
             this.btnRestartSafe.Name = "btnRestartSafe";
-            this.btnRestartSafe.Size = new System.Drawing.Size(267, 31);
+            this.btnRestartSafe.Size = new System.Drawing.Size(414, 31);
             this.btnRestartSafe.TabIndex = 86;
             this.btnRestartSafe.Text = "Restart in Safe Mode";
             this.btnRestartSafe.UseVisualStyleBackColor = false;
@@ -5348,7 +5347,6 @@ namespace Optimizer
             // optionsTab
             // 
             this.optionsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.optionsTab.Controls.Add(this.toggleCard1);
             this.optionsTab.Controls.Add(this.autoStartToggle);
             this.optionsTab.Controls.Add(this.colorPicker1);
             this.optionsTab.Controls.Add(this.pictureBox3);
@@ -5992,22 +5990,6 @@ namespace Optimizer
             this.launcherIcon.Text = "Optimizer";
             this.launcherIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.launcherIcon_MouseDoubleClick);
             // 
-            // toggleCard1
-            // 
-            this.toggleCard1.AccessibleName = "Disable SMBv2 Protocol";
-            this.toggleCard1.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
-            this.toggleCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.toggleCard1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toggleCard1.ForeColor = System.Drawing.Color.White;
-            this.toggleCard1.LabelText = "Disable SMBv2 Protocol";
-            this.toggleCard1.Location = new System.Drawing.Point(394, 295);
-            this.toggleCard1.Margin = new System.Windows.Forms.Padding(6);
-            this.toggleCard1.Name = "toggleCard1";
-            this.toggleCard1.Size = new System.Drawing.Size(414, 24);
-            this.toggleCard1.TabIndex = 175;
-            this.toggleCard1.Tag = "themeable";
-            this.toggleCard1.ToggleChecked = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -6507,7 +6489,6 @@ namespace Optimizer
         private MoonButton btnRestartDisableDefender;
         private MoonButton btnRestart;
         private MoonButton btnRestartSafe;
-        private ToggleCard toggleCard1;
     }
 }
 
