@@ -162,6 +162,14 @@ namespace Optimizer
                     }
                 }
 
+                if (x is MoonComboBox)
+                {
+                    if ((string)c.Tag == _themeFlag)
+                    {
+                        c.SelectColor = c1;
+                    }
+                }
+
                 c.Invalidate();
             });
         }

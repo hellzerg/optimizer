@@ -439,5 +439,15 @@
 	"storeUpdatesTip": "کارایی نوێکردنەوەی ئۆتۆماتیکی فرۆشگای مایکرۆسۆفت لەکاردەخات.",
 	"btnRestoreUwp": "هەموو UWP بگەڕێنەرەوە",
 	"restoreUwpMessage": "دڵنیای کە دەتەوێت ئەم کارە بکەیت؟",
-	"telemetrySvcToggle": "تەلەمێتری ئۆپتیمایزەر لەکاربخە"
+	"telemetrySvcToggle": "تەلەمێتری ئۆپتیمایزەر لەکاربخە",
+	"edgeAiSw": "Edge Discover لەکاربخە",
+	"edgeTelemetrySw": "تەلەمێتری لێوار لەکاربخە",
+	"edgeAiTip": "Discover Bar لە Edge لا دەبات.",
+	"edgeTelemetryTip": "خزمەتگوزارییەکانی SmartScreen و Spotlight و Telemetry لە Edge لەکاردەخات.",
+	"hpetSw": "HPET لەکاربخە",
+	"loginVerboseSw": "شاشەی چوونەژوورەوەی ورد چالاک بکە",
+	"advancedTab": "پێشکەوتوو",
+	"btnRestartSafe": "لە دۆخی سەلامەتدا دووبارە دەستپێبکەرەوە",
+	"btnRestart": "لە دۆخی ئاساییدا دووبارە دەستپێبکەرەوە",
+	"btnRestartDisableDefender": "دووبارە دەستپێکردنەوە && لەکارخستنی بەرگریکار"
 }

@@ -442,5 +442,15 @@
 	"storeUpdatesTip": "Вимикає функцію автоматичного оновлення Microsoft Store.",
 	"btnRestoreUwp": "Відновити всі UWP",
 	"restoreUwpMessage": "Ви впевнені, що хочете це зробити?",
-	"telemetrySvcToggle": "Вимкніть оптимізатор телеметрії"
+	"telemetrySvcToggle": "Вимкніть оптимізатор телеметрії",
+	"edgeAiSw": "Вимкнути Edge Discover",
+	"edgeTelemetrySw": "Вимкніть Edge Telemetry",
+	"edgeAiTip": "Видаляє панель Discover в Edge.",
+	"edgeTelemetryTip": "Вимикає служби SmartScreen, Spotlight і Telemetry в Edge.",
+	"hpetSw": "Вимкніть HPET",
+	"loginVerboseSw": "Увімкнути детальний екран входу",
+	"advancedTab": "Просунутий",
+	"btnRestartSafe": "Перезапустіть у безпечному режимі",
+	"btnRestart": "Перезапустіть у звичайному режимі",
+	"btnRestartDisableDefender": "Перезапустіть && Вимкніть Defender"
 }

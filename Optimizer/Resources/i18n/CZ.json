@@ -440,5 +440,15 @@ Má to negativní vliv na výkon.",
 	"storeUpdatesTip": "Zakáže funkci automatických aktualizací Microsoft Store.",
 	"btnRestoreUwp": "Obnovte všechny UWP",
 	"restoreUwpMessage": "Opravdu to chcete udělat?",
-	"telemetrySvcToggle": "Zakázat telemetrii optimalizátoru"
+	"telemetrySvcToggle": "Zakázat telemetrii optimalizátoru",
+	"edgeAiSw": "Zakázat Edge Discover",
+	"edgeTelemetrySw": "Zakázat telemetrii Edge",
+	"edgeAiTip": "Odstraní lištu Discover v Edge.",
+	"edgeTelemetryTip": "Deaktivuje služby SmartScreen, Spotlight a Telemetry v Edge.",
+	"hpetSw": "Zakázat HPET",
+	"loginVerboseSw": "Povolit obrazovku podrobného přihlášení",
+	"advancedTab": "Pokročilý",
+	"btnRestartSafe": "Restartujte v nouzovém režimu",
+	"btnRestart": "Restartujte v normálním režimue",
+	"btnRestartDisableDefender": "Restartujte && Deaktivujte Defender"
 }

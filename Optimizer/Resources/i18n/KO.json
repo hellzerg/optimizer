@@ -440,5 +440,15 @@ Microsoft 계정 로그인이 필요합니다.",
 	"storeUpdatesTip": "Microsoft Store 자동 업데이트 기능을 비활성화합니다.",
 	"btnRestoreUwp": "모든 UWP 복원",
 	"restoreUwpMessage": "이 작업을 수행하시겠습니까?",
-	"telemetrySvcToggle": "옵티마이저 텔레메트리 비활성화"
+	"telemetrySvcToggle": "옵티마이저 텔레메트리 비활성화",
+	"edgeAiSw": "Edge 검색 비활성화",
+	"edgeTelemetrySw": "에지 텔레메트리 비활성화",
+	"edgeAiTip": "Edge에서 Discover Bar를 제거합니다.",
+	"edgeTelemetryTip": "Edge에서 SmartScreen, Spotlight 및 Telemetry 서비스를 비활성화합니다.",
+	"hpetSw": "HPET 비활성화",
+	"loginVerboseSw": "상세 로그인 화면 활성화",
+	"advancedTab": "고급의",
+	"btnRestartSafe": "안전 모드에서 다시 시작",
+	"btnRestart": "일반 모드에서 다시 시작",
+	"btnRestartDisableDefender": "수비수 다시 시작 && 비활성화"
 }

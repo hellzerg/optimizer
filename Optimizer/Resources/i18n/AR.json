@@ -440,5 +440,15 @@
 	"storeUpdatesTip": "تعطيل وظيفة التحديثات التلقائية لـ Microsoft Store.",
 	"btnRestoreUwp": "ستعادة كل UWP",
 	"restoreUwpMessage": "هل انت متأكد من أنك تريد أن تفعل هذا؟",
-	"telemetrySvcToggle": "تعطيل Optimizer عن بعد"
+	"telemetrySvcToggle": "تعطيل Optimizer عن بعد",
+	"edgeAiSw": "تعطيل قياس الحافة",
+	"edgeTelemetrySw": "تعطيل اكتشاف الحافة",
+	"edgeAiTip": "يزيل Discover Bar في Edge.",
+	"edgeTelemetryTip": "تعطيل خدمات SmartScreen و Spotlight والقياس عن بُعد في Edge.",
+	"hpetSw": "تعطيل HPET",
+	"loginVerboseSw": "تفعيل شاشة تسجيل الدخول التفصيلية",
+	"advancedTab": "متقدم",
+	"btnRestartSafe": "أعد التشغيل في الوضع الآمن",
+	"btnRestart": "أعد التشغيل في الوضع العاديe",
+	"btnRestartDisableDefender": "عادة تشغيل && تعطيل Defender"
 }

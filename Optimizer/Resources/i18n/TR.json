@@ -438,5 +438,15 @@ Performansa olumsuz etkisi vardır.",
 	"storeUpdatesTip": "Microsoft Mağazası otomatik güncellemeler işlevini devre dışı bırakır.",
 	"btnRestoreUwp": "Tüm UWP'yi geri yükle",
 	"restoreUwpMessage": "Bunu yapmak istediğinizden emin misiniz?",
-	"telemetrySvcToggle": "Optimize Edici Telemetriyi Devre Dışı Bırak"
+	"telemetrySvcToggle": "Optimize Edici Telemetriyi Devre Dışı Bırak",
+	"edgeAiSw": "Edge Discover'ı Devre Dışı Bırak",
+	"edgeTelemetrySw": "Edge Telemetrisini Devre Dışı Bırak",
+	"edgeAiTip": "Edge'deki Discover Bar'ı kaldırır.",
+	"edgeTelemetryTip": "Edge'de SmartScreen, Spotlight ve Telemetri hizmetlerini devre dışı bırakır.",
+	"hpetSw": "HPET'i devre dışı bırak",
+	"loginVerboseSw": "Ayrıntılı Oturum Açma Ekranını Etkinleştir",
+	"advancedTab": "Gelişmiş",
+	"btnRestartSafe": "Güvenli Modda Yeniden Başlatın",
+	"btnRestart": "Normal Modda Yeniden Başlat",
+	"btnRestartDisableDefender": "Yeniden Başlat && Defender'ı Devre Dışı Bırak"
 }

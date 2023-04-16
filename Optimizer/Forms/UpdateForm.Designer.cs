@@ -30,8 +30,8 @@ namespace Optimizer
         private void InitializeComponent()
         {
             this.txtMessage = new System.Windows.Forms.Label();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.btnNo = new System.Windows.Forms.Button();
+            this.btnOK = new MoonButton();
+            this.btnNo = new MoonButton();
             this.txtVersions = new System.Windows.Forms.Label();
             this.txtChanges = new System.Windows.Forms.Label();
             this.txtInfo = new System.Windows.Forms.TextBox();
@@ -164,8 +164,8 @@ namespace Optimizer
         #endregion
 
         private System.Windows.Forms.Label txtMessage;
-        private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.Button btnNo;
+        private MoonButton btnOK;
+        private MoonButton btnNo;
         private System.Windows.Forms.Label txtVersions;
         private System.Windows.Forms.Label txtChanges;
         private System.Windows.Forms.TextBox txtInfo;

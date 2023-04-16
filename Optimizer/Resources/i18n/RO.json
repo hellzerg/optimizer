@@ -427,10 +427,10 @@
 	"edgeTelemetrySw": "Dezactiveaza Telemetria pentru Edge",
 	"edgeAiTip": "Scoate Bara de Descoperire din Edge",
 	"edgeTelemetryTip": "Dezactiveaza SmartScreen, reflectoarele si Serviciile de Telemetrie din Edge",
-	"hpetSw": "Disable HPET",
+	"hpetSw": "Dezactivați HPET",
 	"loginVerboseSw": "Activeaza Ecranul Detaliat de conectare.",
 	"advancedTab": "Avansat",
-	"btnRestartSafe": "Restart in Safe Mode",
-	"btnRestart": "Restart in Normal Mode",
-	"btnRestartDisableDefender": "Restart && Disable Defender"
+	"btnRestartSafe": "Reporniți în modul sigur",
+	"btnRestart": "Reporniți în modul normal",
+	"btnRestartDisableDefender": "Reporniți && Dezactivați Defender"
 }

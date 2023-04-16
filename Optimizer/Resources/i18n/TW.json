@@ -438,5 +438,15 @@
 	"storeUpdatesTip": "禁用 Microsoft Store 自動更新功能。",
 	"btnRestoreUwp": "恢復所有 UWP",
 	"restoreUwpMessage": "你確定要這麼做嗎？",
-	"telemetrySvcToggle": "禁用優化器遙測"
+	"telemetrySvcToggle": "禁用優化器遙測",
+	"edgeAiSw": "禁用邊緣發現",
+	"edgeTelemetrySw": "禁用邊緣遙測",
+	"edgeAiTip": "刪除 Edge 中的發現欄。",
+	"edgeTelemetryTip": "在 Edge 中禁用 SmartScreen、Spotlight 和遙測服務。",
+	"hpetSw": "禁用 HPET",
+	"loginVerboseSw": "啟用詳細登錄屏幕",
+	"advancedTab": "先進的",
+	"btnRestartSafe": "以安全模式重啟",
+	"btnRestart": "以正常模式重啟",
+	"btnRestartDisableDefender": "重新啟動 && 禁用 Defender"
 }

@@ -996,7 +996,7 @@ namespace Optimizer
             }
 
             // ADVANCED
-            if (!Program.UNSAFE_MODE)
+            if (Program.UNSAFE_MODE)
             {
                 LoadAdvancedToggleStates();
             }
@@ -2329,7 +2329,6 @@ namespace Optimizer
 
             foreach (var x in _modernApps)
             {
-
                 appCard = new AppCard();
                 appCard.AutoSize = true;
                 appCard.Anchor = AnchorStyles.None;
@@ -4255,8 +4254,6 @@ namespace Optimizer
 
         private void boxLang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // LANGUAGE SELECTION PROCESSING
-
             if (boxLang.Text == "English")
             {
                 picFlag.Image = Properties.Resources.united_kingdom;

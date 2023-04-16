@@ -391,5 +391,15 @@ Het heeft een negatief effect op de prestaties.",
 	"storeUpdatesTip": "Schakelt de functionaliteit voor automatische updates van de Microsoft Store uit.",
    "btnRestoreUwp": "Herstel alle UWP",
 	"restoreUwpMessage": "Weet je zeker dat je dit wilt doen?",
-   "telemetrySvcToggle": "Schakel Optimizer-telemetrie uit"
+   "telemetrySvcToggle": "Schakel Optimizer-telemetrie uit",
+   "edgeAiSw": "Schakel Edge Discover uit",
+	"edgeTelemetrySw": "Schakel Edge-telemetrie uit",
+	"edgeAiTip": "Verwijdert Discover Bar in Edge.",
+	"edgeTelemetryTip": "Schakelt SmartScreen-, Spotlight- en telemetrieservices in Edge uit.",
+	"hpetSw": "Schakel HPET uit",
+	"loginVerboseSw": "Gedetailleerd inlogscherm inschakelen",
+	"advancedTab": "Geavanceerd",
+	"btnRestartSafe": "Start opnieuw op in Veilige modus",
+	"btnRestart": "Start opnieuw op in de normale modus",
+	"btnRestartDisableDefender": "Herstart && Schakel Defender uit"
 }

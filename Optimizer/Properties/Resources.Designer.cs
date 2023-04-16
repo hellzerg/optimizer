@@ -145,7 +145,7 @@ namespace Optimizer.Properties {
         ///   Looks up a localized string similar to {
         ///	&quot;subSystem&quot;: &quot;系统&quot;,
         ///	&quot;subPrivacy&quot;: &quot;隐私&quot;,
-        ///	&quot;subGaming&quot;: &quot;赌博&quot;,
+        ///	&quot;subGaming&quot;: &quot;游戏&quot;,
         ///	&quot;subTouch&quot;: &quot;触碰&quot;,
         ///	&quot;subTaskbar&quot;: &quot;任务栏&quot;,
         ///	&quot;subExtras&quot;: &quot;附加功能&quot;,
@@ -696,13 +696,13 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton10&quot;: &quot;今すぐ再起動&quot;,
         ///	&quot;btnFind&quot;: &quot;検索&quot;,
         ///	&quot;btnKill&quot;: &quot;強制終了&quot;,
-        ///	&quot;trayUnlocker&quot;: &quot;File Handles&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;ファイル ハンドル&quot;,
         ///	&quot;restartAndApply&quot;: &quot;再起動して変更を適用&quot;,
         ///	&quot;txtVersion&quot;: &quot;バージョン: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;{BITS}で動作しています。&quot;,
         ///	&quot;linkUpdate&quot;: &quot;アップデートが利用可能です&quot;,
         ///	&quot;lblLab&quot;: &quot;実験的ビルド\n(テスト後に削除されます)&quot;,
-        ///	&quot;performanceSw [rest of string was truncated]&quot;;.
+        ///	&quot;performanceSw&quot;:  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string JA {
             get {
@@ -842,19 +842,19 @@ namespace Optimizer.Properties {
         ///   Looks up a localized string similar to {
         ///	&quot;subSystem&quot;: &quot;System&quot;,
         ///	&quot;subPrivacy&quot;: &quot;Prywatność&quot;,
-        ///	&quot;subGaming&quot;: &quot;Hazard&quot;,
-        ///	&quot;subTouch&quot;: &quot;Dotykać&quot;,
+        ///	&quot;subGaming&quot;: &quot;Gra&quot;,
+        ///	&quot;subTouch&quot;: &quot;Dotyk&quot;,
         ///	&quot;subTaskbar&quot;: &quot;Pasek zadań&quot;,
         ///	&quot;subExtras&quot;: &quot;Dodatki&quot;,
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;Uruchom ponownie teraz&quot;,
         ///	&quot;restartButton8&quot;: &quot;Uruchom ponownie teraz&quot;,
         ///	&quot;restartButton10&quot;: &quot;Uruchom ponownie teraz&quot;,
-        ///	&quot;btnFind&quot;: &quot;Znajdować&quot;,
-        ///	&quot;btnKill&quot;: &quot;Zabić&quot;,
-        ///	&quot;trayUnlocker&quot;: &quot;Uchwyty do plików&quot;,
+        ///	&quot;btnFind&quot;: &quot;Znajdź&quot;,
+        ///	&quot;btnKill&quot;: &quot;Zakończ&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;Deskryptory plików&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Uruchom ponownie, aby zastosować zmiany&quot;,
-        ///	&quot;onedriveM&quot;: &quot;Czy na pewno chcesz odi [rest of string was truncated]&quot;;.
+        ///	&quot;onedriveM&quot;: &quot;Czy na pewno chcesz usunąć u [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PL {
             get {
@@ -911,15 +911,15 @@ namespace Optimizer.Properties {
         ///	&quot;subTouch&quot;: &quot;Toque&quot;,
         ///	&quot;subTaskbar&quot;: &quot;Barra de tarefas&quot;,
         ///	&quot;subExtras&quot;: &quot;Extras&quot;,
-        ///	&quot;btnAbout&quot;: &quot;OK&quot;,
-        ///	&quot;restartButton&quot;: &quot;reinicie agora&quot;,
-        ///	&quot;restartButton8&quot;: &quot;reinicie agora&quot;,
-        ///	&quot;restartButton10&quot;: &quot;reinicie agora&quot;,
+        ///	&quot;btnAbout&quot;: &quot;Feito&quot;,
+        ///	&quot;restartButton&quot;: &quot;Reinicie agora&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Reinicie agora&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Reinicie agora&quot;,
         ///	&quot;btnFind&quot;: &quot;Encontrar&quot;,
-        ///	&quot;btnKill&quot;: &quot;Matar&quot;,
+        ///	&quot;btnKill&quot;: &quot;Finalizar&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Alças de arquivo&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Reiniciar para aplicar as alterações&quot;,
-        ///	&quot;onedriveM&quot;: &quot;Tem certeza de que deseja desinstalar o OneDrive [rest of string was truncated]&quot;;.
+        ///	&quot;restartAndApply&quot;: &quot;Reinicie para aplicar as alterações&quot;,
+        ///	&quot;onedriveM&quot;: &quot;Tem certeza de que deseja desinstalar o On [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PT {
             get {
@@ -955,11 +955,11 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton8&quot;: &quot;Reporniți acum&quot;,
         ///	&quot;restartButton10&quot;: &quot;Reporniți acum&quot;,
         ///	&quot;btnFind&quot;: &quot;Găsește&quot;,
-        ///	&quot;btnKill&quot;: &quot;Termin&quot;,
+        ///	&quot;btnKill&quot;: &quot;Terminati&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;Mânere de fișiere&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Reporniți pentru a aplica modificări&quot;,
-        ///	&quot;txtVersion&quot;: &quot;Versiune: {VN}&quot;,
-        ///	&quot;txtBitness&quot;:  [rest of string was truncated]&quot;;.
+        ///	&quot;restartAndApply&quot;: &quot;Reporniți pentru a aplica modificările&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Versiunea: {VN}&quot;,
+        ///	&quot;txtBitn [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RO {
             get {
@@ -982,7 +982,7 @@ namespace Optimizer.Properties {
         ///	&quot;subSystem&quot;: &quot;Система&quot;,
         ///	&quot;subPrivacy&quot;: &quot;Конфиденциальность&quot;,
         ///	&quot;subGaming&quot;: &quot;Игры&quot;,
-        ///	&quot;subTouch&quot;: &quot;Трогать&quot;,
+        ///	&quot;subTouch&quot;: &quot;Сенсорный экран&quot;,
         ///	&quot;subTaskbar&quot;: &quot;Панель задач&quot;,
         ///	&quot;subExtras&quot;: &quot;Дополнительно&quot;,
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
@@ -993,7 +993,7 @@ namespace Optimizer.Properties {
         ///	&quot;txtVersion&quot;: &quot;Версия: {VN}&quot;,
         ///	&quot;btnFind&quot;: &quot;Находить&quot;,
         ///	&quot;btnKill&quot;: &quot;Убийство&quot;,
-        ///	&quot;trayUnlocker&quot;: &quot;Дескрипторы файл [rest of string was truncated]&quot;;.
+        ///	&quot;trayUnlocker&quot;: &quot;Дескрипт [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RU {
             get {

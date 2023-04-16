@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.bpanel = new System.Windows.Forms.Panel();
-            this.closebtn = new System.Windows.Forms.Button();
-            this.savebtn = new System.Windows.Forms.Button();
+            this.closebtn = new MoonButton();
+            this.savebtn = new MoonButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.RichTextBox();
             this.bpanel.SuspendLayout();
@@ -140,8 +140,8 @@
         #endregion
 
         private System.Windows.Forms.Panel bpanel;
-        private System.Windows.Forms.Button closebtn;
-        private System.Windows.Forms.Button savebtn;
+        private MoonButton closebtn;
+        private MoonButton savebtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox textBox1;
     }
