@@ -1693,14 +1693,14 @@ namespace Optimizer
         /* Microsoft Edge-related tweaks */
         internal static void DisableEdgeDiscoverBar()
         {
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft", "HubsSidebarEnabled", 0, RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft", "HubsSidebarEnabled", 0, RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "HubsSidebarEnabled", 0, RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge", "HubsSidebarEnabled", 0, RegistryValueKind.DWord);
         }
 
         internal static void EnableEdgeDiscoverBar()
         {
-            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft", "HubsSidebarEnabled");
-            Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Policies\Microsoft", "HubsSidebarEnabled");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Edge", "HubsSidebarEnabled");
+            Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Policies\Microsoft\Edge", "HubsSidebarEnabled");
         }
 
         internal static void DisableEdgeTelemetry()
@@ -1752,6 +1752,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableEmailInput", 1);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableScreenshotCapture", 1);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\VisualStudio\SQM", "OptIn", 0);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\VisualStudio\Setup", "ConcurrentDownloads", 2, RegistryValueKind.DWord);
             
             if (Environment.Is64BitOperatingSystem)
             {
@@ -1783,6 +1784,7 @@ namespace Optimizer
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableEmailInput");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableScreenshotCapture");
             Utilities.TryDeleteRegistryValue(true, @"Software\Policies\Microsoft\VisualStudio\SQM", "OptIn");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\VisualStudio\Setup", "ConcurrentDownloads");
 
             if (Environment.Is64BitOperatingSystem)
             {
