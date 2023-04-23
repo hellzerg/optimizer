@@ -132,7 +132,7 @@ Support my hard work by donating me through [PayPal](https://www.paypal.com/payp
 - https://github.com/VenusGirl - VenusGirl for Korean translation
 - https://github.com/Wilamaxin - Wilamaxin for Polish translation
 - https://github.com/MesterPerfect - MesterPerfect for Arabic translation
-- https://github.com/BeamingNG - BeamingNG for Romanian translation
+- https://github.com/BeamingNG - BeamingNG, DefaultUser9148 for Romanian translation
 - https://github.com/svanlaere - svanlaere for Dutch translation
 - https://github.com/kirill0ermakov - Kirill Ermakov for Ukrainian translation
 - https://github.com/Hayao0819 - Yamada Hayao for Japanese translation
