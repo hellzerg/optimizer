@@ -1,3 +1,7 @@
+## [15.1] - 2023-04-23
+- Hotfix: Disable Edge Discover now works properly
+- Improve: Disable SmartScreen and Visual Studio Telemetry
+
 ## [15.0] - 2023-04-16
 - New: Advanced Tab with extra tweaks. Use /unsafe to use this tab
 - New: Disable HPET in Advanced
