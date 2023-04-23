@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOK = new MoonButton();
+            this.btnOK = new System.Windows.Forms.Button();
             this.txtInfo = new System.Windows.Forms.TextBox();
-            this.copyIPB = new MoonButton();
+            this.copyIPB = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOK
@@ -122,8 +122,8 @@
 
         #endregion
 
-        private MoonButton btnOK;
+        private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.TextBox txtInfo;
-        private MoonButton copyIPB;
+        private System.Windows.Forms.Button copyIPB;
     }
 }

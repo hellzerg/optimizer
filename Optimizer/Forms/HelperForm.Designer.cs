@@ -29,8 +29,8 @@ namespace Optimizer
         private void InitializeComponent()
         {
             this.lblMessage = new System.Windows.Forms.Label();
-            this.btnYes = new MoonButton();
-            this.btnNo = new MoonButton();
+            this.btnYes = new System.Windows.Forms.Button();
+            this.btnNo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMessage
@@ -112,7 +112,7 @@ namespace Optimizer
         #endregion
 
         private System.Windows.Forms.Label lblMessage;
-        private MoonButton btnYes;
-        private MoonButton btnNo;
+        private System.Windows.Forms.Button btnYes;
+        private System.Windows.Forms.Button btnNo;
     }
 }

@@ -30,7 +30,7 @@
         {
             this.txtInfo = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnStart = new MoonButton();
+            this.btnStart = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,6 +117,6 @@
 
         private System.Windows.Forms.RichTextBox txtInfo;
         private System.Windows.Forms.Panel panel1;
-        private MoonButton btnStart;
+        private System.Windows.Forms.Button btnStart;
     }
 }

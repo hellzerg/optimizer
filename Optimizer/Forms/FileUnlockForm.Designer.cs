@@ -30,10 +30,10 @@
         {
             this.txtFile = new System.Windows.Forms.TextBox();
             this.radioFile = new System.Windows.Forms.Label();
-            this.btnFind = new MoonButton();
+            this.btnFind = new System.Windows.Forms.Button();
             this.panelModernAppsList = new System.Windows.Forms.Panel();
             this.listProcesses = new Optimizer.MoonCheckList();
-            this.btnKill = new MoonButton();
+            this.btnKill = new System.Windows.Forms.Button();
             this.panelModernAppsList.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -158,9 +158,9 @@
 
         private System.Windows.Forms.TextBox txtFile;
         private System.Windows.Forms.Label radioFile;
-        private MoonButton btnFind;
+        private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Panel panelModernAppsList;
         private MoonCheckList listProcesses;
-        private MoonButton btnKill;
+        private System.Windows.Forms.Button btnKill;
     }
 }

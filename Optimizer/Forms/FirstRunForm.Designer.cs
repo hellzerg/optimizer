@@ -33,7 +33,7 @@ namespace Optimizer
             this.pictureBox88 = new System.Windows.Forms.PictureBox();
             this.pictureBox87 = new System.Windows.Forms.PictureBox();
             this.pictureBox86 = new System.Windows.Forms.PictureBox();
-            this.btnStart = new MoonButton();
+            this.btnStart = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -732,7 +732,7 @@ namespace Optimizer
         private MoonRadio radioEnglish;
         private MoonRadio radioRussian;
         private System.Windows.Forms.PictureBox pictureBox86;
-        private MoonButton btnStart;
+        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.PictureBox pictureBox1;
         private MoonRadio radioTurkish;
         private MoonRadio radioGerman;

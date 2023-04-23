@@ -32,9 +32,9 @@
             this.listRestoreItems = new Optimizer.MoonList();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtNoBackups = new System.Windows.Forms.Label();
-            this.previewBackupB = new MoonButton();
-            this.restoreBackupB = new MoonButton();
-            this.deleteBackupB = new MoonButton();
+            this.previewBackupB = new System.Windows.Forms.Button();
+            this.restoreBackupB = new System.Windows.Forms.Button();
+            this.deleteBackupB = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -183,9 +183,9 @@
         private System.Windows.Forms.Label backupL;
         private MoonList listRestoreItems;
         private System.Windows.Forms.Panel panel1;
-        private MoonButton previewBackupB;
-        private MoonButton restoreBackupB;
-        private MoonButton deleteBackupB;
+        private System.Windows.Forms.Button previewBackupB;
+        private System.Windows.Forms.Button restoreBackupB;
+        private System.Windows.Forms.Button deleteBackupB;
         private System.Windows.Forms.Label txtNoBackups;
     }
 }
