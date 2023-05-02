@@ -145,7 +145,7 @@
 	"removeHostB": "Supprimer",
 	"refreshHostsB": "Rafraichir",
 	"removeAllHostsB": "Supprimer tout",
-	"regFixB": "Fix",
+	"regFixB": "Fixer",
 	"regLbl": "(certaines modifications peuvent necessiter ca)",
 	"checkRestartExplorer": "Redemarrez egalement l'Explorateur pour appliquer les modifications",
 	"checkRegistryEditor": "editeur de registre",
@@ -329,33 +329,22 @@ Ces changements sont totalement surs.
 - Desactive la fonction secouer pour reduire
 - Affiche toujours les extensions de fichiers
 - Affiche les fichiers caches",
-	"networkTip": "Windows met en œuvre un mecanisme de limitation du reseau qui restreint
-le trafic reseau lors de l'execution d'applications multimedia. Il peut egalement reduire les
-performances du reseau lorsque vous jouez a des jeux en ligne.",
+	"networkTip": "Windows met en œuvre un mecanisme de limitation du reseau qui restreint le trafic reseau lors de l'execution d'applications multimedia. Il peut egalement reduire les performances du reseau lorsque vous jouez a des jeux en ligne.",
 	"defenderTip": "Windows Defender est l'antivirus integre dans les systemes Windows.",
-	"smartScreenTip": "SmartScreen analyse automatiquement les fichiers, les telechargements et les sites Web,
-en bloquant les contenus dangereux deja connus et vous avertit avant de les executer.",
-	"systemRestoreTip": "La restauration du systeme est une fonctionnalite qui permet de retablir l'etat de Windows
-a un etat anterieur de Windows afin de resoudre des dysfonctionnements ou d'autres problemes.",
+	"smartScreenTip": "SmartScreen analyse automatiquement les fichiers, les telechargements et les sites Web, en bloquant les contenus dangereux deja connus et vous avertit avant de les executer.",
+	"systemRestoreTip": "La restauration du systeme est une fonctionnalite qui permet de retablir l'etat de Windows a un etat anterieur de Windows afin de resoudre des dysfonctionnements ou d'autres problemes.",
 	"reportingTip": "Error Reporting collecte les crashs et les erreurs des applications et les envoie a Microsoft.",
-	"telemetryTasksTip": "Les services de telemetrie envoient periodiquement des donnees d'utilisation et de performance a Microsoft,
-pour des ameliorations futures.",
-	"officeTelemetryTip": "La telemetrie d'Office envoie periodiquement des donnees
-d'utilisation et de performance a Microsoft, en vue d'ameliorations futures.",
+	"telemetryTasksTip": "Les services de telemetrie envoient periodiquement des donnees d'utilisation et de performance a Microsoft, pour des ameliorations futures.",
+	"officeTelemetryTip": "La telemetrie d'Office envoie periodiquement des donnees d'utilisation et de performance a Microsoft, en vue d'ameliorations futures.",
 	"ffTelemetryTip": "Desactive les services de telemetrie et de rapport de donnees de Firefox.",
 	"vsTip": "Desactive les fonctionnalites de telemetrie et de retroaction de Visual Studio.",
-	"chromeTelemetryTip": "Desactive la telemetrie Chrome et l'outil de creation de rapports logiciels
-(connu pour provoquer une utilisation elevee du processeur).",
+	"chromeTelemetryTip": "Desactive la telemetrie Chrome et l'outil de creation de rapports logiciels (connu pour provoquer une utilisation elevee du processeur).",
 	"printTip": "Le service d'impression est responsable de la detection, de l'installation et de l'utilisation des imprimantes.",
 	"faxTip": "Le service de fax est responsable de l'envoi et de la reception des fax.",
 	"mediaSharingTip": "Media Player Sharing permet le partage de medias a domicile pour Windows Media Player.",
-	"stickyTip": "Touche remanente est une fonctionnalite d'accessibilite pour aider les utilisateurs de Windows
-souffrant d'handicapes physiques a reduire le type de mouvement associe aux 
-microtraumatismes repetes.",
-	"homegroupTip": "HomeGroup est une fonctionnalite qui permet de partager des fichiers
-sur un reseau domestique en utilisant l'Explorateur Windows.",
-	"superfetchTip": "Superfetch precharge les applications les plus utilisees dans la RAM,
-ce qui entraine une utilisation elevee du disque, surtout sur les disques durs.",
+	"stickyTip": "Touche remanente est une fonctionnalite d'accessibilite pour aider les utilisateurs de Windows souffrant d'handicapes physiques a reduire le type de mouvement associe aux  microtraumatismes repetes.",
+	"homegroupTip": "HomeGroup est une fonctionnalite qui permet de partager des fichiers sur un reseau domestique en utilisant l'Explorateur Windows.",
+	"superfetchTip": "Superfetch precharge les applications les plus utilisees dans la RAM, ce qui entraine une utilisation elevee du disque, surtout sur les disques durs.",
 	"compatTip": "Le service Compatibility Assistant detecte les problemes de compatibilite connus dans les anciens programmes.",
 	"disableOneDriveTip": "Desactive l'integration de OneDrive sur le stockage dans le Cloud.",
 	"oldMixerTip": "Restaure le panneau de controle classique du melangeur de volume.",
@@ -371,15 +360,10 @@ ce qui entraine une utilisation elevee du disque, surtout sur les disques durs."
 - Suggestions de texte
 - Verification de l'orthographe",
 	"xboxTip": "Les services Xbox Live offrent des fonctionnalites de streaming, d'enregistrement et de contacts pour les jeux Xbox.",
-	"actionTip": "Le centre de notification est un endroit central pour les notifications et les fenetres d'action rapide,
-omme Wi-Fi, Bluetooth, etc.",
-	"autoUpdatesTip": "Desactive le telechargement et l'installation automatiques des mises a jour de Windows.
-a la place, une notification est emise lorsque de nouvelles mises a jour sont disponibles.
-Il desactive egalement le service d'optimisation de livraison.",
-	"driversTip": "Utile lorsque Windows Update remplace constamment un pilote fonctionnant
-correctement par un pilote defectueux.",
-	"telemetryServicesTip": "Les services de telemetrie suivent et enregistrent les donnees d'utilisation en envoyant
-un retour d'information pour analyse a Microsoft.",
+	"actionTip": "Le centre de notification est un endroit central pour les notifications et les fenetres d'action rapide, comme Wi-Fi, Bluetooth, etc.",
+	"autoUpdatesTip": "Desactive le telechargement et l'installation automatiques des mises a jour de Windows. A la place, une notification est emise lorsque de nouvelles mises a jour sont disponibles. Il desactive egalement le service d'optimisation de livraison.",
+	"driversTip": "Utile lorsque Windows Update remplace constamment un pilote fonctionnant correctement par un pilote defectueux.",
+	"telemetryServicesTip": "Les services de telemetrie suivent et enregistrent les donnees d'utilisation en envoyant un retour d'information pour analyse a Microsoft.",
 	"privacyTip": "Des reglages supplementaires de confidentialite desactivant les elements suivants:
 
 - Biometrie
@@ -395,14 +379,10 @@ Necessite l'ouverture d'un compte Microsoft.",
 - Desactive Cortana.
 - Desactive la recherche Web dans le menu Demarrer
 - Empeche de conserver l'historique des recherches",
-	"sensorTip": "Services qui gerent les fonctionnalites des capteurs,
-comme l'auto-rotation, l'auto-luminosite, etc.
-Utile uniquement pour les tablettes ou les appareils avec un ecran tactile.",
+	"sensorTip": "Services qui gerent les fonctionnalites des capteurs, comme l'auto-rotation, l'auto-luminosite, etc. Utile uniquement pour les tablettes ou les appareils avec un ecran tactile.",
 	"castTip": "Supprime le clic droit pour partager du contenu multimedia vers des appareils Miracast.",
 	"gameBarTip": "Game Bar est un menu d'acces rapide aux services de jeux Xbox.",
-	"insiderTip": "Le programme Windows Insider vous permet de tester les dernieres fonctionnalites
-avant qu'elles ne soient diffusees au public.
-Il est considere comme un service inutile pour les utilisateurs qui ne souhaitent pas y participer.",
+	"insiderTip": "Le programme Windows Insider vous permet de tester les dernieres fonctionnalites avant qu'elles ne soient diffusees au public. Il est considere comme un service inutile pour les utilisateurs qui ne souhaitent pas y participer.",
 	"tpmTip": "Contourne les exigences Secure Boot et TPM 2.0, permettant la mise à niveau vers Windows 11.",
 	"leftTaskbarTip": "Aligne les icônes de la barre des tâches sur la gauche.",
 	"snapAssistTip": "Désactivez Snap Assist Flyout lorsque vous survolez les boutons d'agrandissement.",
@@ -420,17 +400,14 @@ Il est considere comme un service inutile pour les utilisateurs qui ne souhaiten
 	"hibernateTip": "Désactive la fonction d'hibernation de Windows.",
 	"smbSw1": "Désactiver le protocole SMBv1",
 	"smbSw2": "Désactiver le protocole SMBv2",
-	"smbTip": "Le protocole SMB{v} est responsable du partage de fichiers entre les ordinateurs Windows.
-	Il a été remplacé par SMBv3, qui est plus sécurisé.",
+	"smbTip": "Le protocole SMB{v} est responsable du partage de fichiers entre les ordinateurs Windows. Il a été remplacé par SMBv3, qui est plus sécurisé.",
 	"ntfsStampSw": "Désactiver l'horodatage NTFS",
-	"ntfsStampTip": "Indique l'horodatage du dernier accès au fichier.
-	Sa désactivation peut réduire les opérations d'E/S sur les disques.",
+	"ntfsStampTip": "Indique l'horodatage du dernier accès au fichier. Sa désactivation peut réduire les opérations d'E/S sur les disques.",
 	"autoStartToggle": "Commence avec Windows",
 	"nvidiaTelemetrySw": "Désactiver la télémétrie NVIDIA",
 	"dnsTitle": "Changer rapidement de serveur DNS",
 	"vbsSw": "Désactiver la sécurité basée sur la virtualisation",
-	"vbsTip": "Fonctionnalité du noyau qui empêche l'injection de pilotes malveillants dans les processus.
-Cela a un effet négatif sur les performances.",
+	"vbsTip": "Fonctionnalité du noyau qui empêche l'injection de pilotes malveillants dans les processus. Cela a un effet négatif sur les performances.",
 	"winSearchSw": "Désactiver la recherche",
 	"winSearchTip": "Désactive le service de recherche Windows.",
 	"storeUpdatesSw": "Désactiver les mises à jour du Microsoft Store",
