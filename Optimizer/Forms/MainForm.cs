@@ -842,6 +842,7 @@ namespace Optimizer
 
                 if (!disableUWPApps)
                 {
+                    chkOnlyRemovable.Visible = false;
                     chkOnlyRemovable.Checked = true;
                 }
                 else

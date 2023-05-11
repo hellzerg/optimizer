@@ -697,6 +697,19 @@ namespace Optimizer
             catch { }
         }
 
+        // value = RAM in GB * 1024 * 1024
+        internal static void DisableSvcHostProcessSplitting(int ramInGb)
+        {
+            ramInGb = ramInGb * 1024 * 1024;
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control", "SvcHostSplitThresholdInKB", ramInGb, RegistryValueKind.DWord);
+        }
+
+        // reset the value to default
+        internal static void EnableSvcHostProcessSplitting()
+        {
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control", "SvcHostSplitThresholdInKB", 380000, RegistryValueKind.DWord);
+        }
+
         internal static void DisableHPET()
         {
             Utilities.RunCommand("bcdedit /deletevalue useplatformclock");
@@ -710,17 +723,6 @@ namespace Optimizer
             Thread.Sleep(500);
             Utilities.RunCommand("bcdedit /set disabledynamictick no");
         }
-
-        // [!!!]
-        //internal static void ChangeNumberOfSvcHostByRAM(string ram)
-        //{
-        //    try
-        //    {
-        //        float kbs = float.Parse(ram);
-        //        Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control", "SvcHostSplitThresholdInKB", kbs * 1024 * 1024, RegistryValueKind.DWord);
-        //    }
-        //    catch { }
-        //}
 
         internal static void RegisterAutoStart()
         {

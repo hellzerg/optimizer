@@ -1,3 +1,9 @@
+## [15.2] - 2023-05-11
+- New: Disable or Reset svchost process splitting mechanism
+- Hotfix: Rare crash when loading UWP apps
+- Hotfix: Properly loading UWP apps in Windows 8/8.1 now
+- Hotfix: Various localization updates
+
 ## [15.1] - 2023-04-23
 - Hotfix: Disable Edge Discover now works properly
 - Improve: Disable SmartScreen and Visual Studio Telemetry

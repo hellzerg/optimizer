@@ -47,6 +47,14 @@
 - ```optimizer.exe /disable=indicium,uwp```
 - ```optimizer.exe /disable=indicium,uwp,hosts```
 
+## Disable or Reset svchost process splitting mechanism ##
+### Disabling it reduces the ammount of svchost processes running, improving RAM usage ###
+#### To disable it, you need to provide your amount of RAM using this command (example for 8GB RAM): ####
+```optimizer.exe /svchostsplit=8```
+
+#### Reset the mechanism to its default configuration using: ####
+```optimizer.exe /resetsvchostsplit```
+
 ## Reset Optimizer configuration might fix it when can't open ##
 ```optimizer.exe /repair```
 
@@ -63,7 +71,7 @@ Download the configuration file based on your Windows version and edit it accord
 * ```false```: resets the specific option
 * ```null```: ignores the specific option
 
-Then, execute it like this: ```optimizer.exe /win10.conf```
+Then, execute it like this: ```optimizer.exe /config=win10.conf```
 
 ### For Windows 7: ###
 https://github.com/hellzerg/optimizer/blob/master/confs/win7.conf

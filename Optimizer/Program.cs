@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -14,7 +16,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 15;
-        internal readonly static float Minor = 1;
+        internal readonly static float Minor = 2;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
         internal static int DPI_PREFERENCE;
@@ -47,7 +49,7 @@ namespace Optimizer
         static string _confInvalidVersionMsg = "Windows version does not match!";
         static string _confInvalidFormatMsg = "Config file is in invalid format!";
         static string _confNotFoundMsg = "Config file does not exist!";
-        static string _argInvalidMsg = "Invalid argument! Example: Optimizer.exe /silent.conf";
+        static string _argInvalidMsg = "Invalid argument! Example: Optimizer.exe /config=win10.conf";
         static string _alreadyRunningMsg = "Optimizer is already running in the background!";
 
         const string MUTEX_GUID = @"{DEADMOON-0EFC7B8A-D1FC-467F-B4B1-0117C643FE19-OPTIMIZER}";
@@ -97,7 +99,7 @@ namespace Optimizer
                 Environment.Exit(0);
                 return;
             }
-
+          
             Required.Deploy();
             FontHelper.LoadFont();
 
@@ -130,6 +132,22 @@ namespace Optimizer
                 if (arg == "/unlockcores")
                 {
                     Utilities.UnlockAllCores();
+                    Environment.Exit(0);
+                    return;
+                }
+
+                if (arg.StartsWith("/svchostsplit="))
+                {
+                    string x = arg.Replace("/svchostsplit=", string.Empty);
+                    bool isValid = !x.Any(c => !char.IsDigit(c));
+                    if (isValid && int.TryParse(x, out int result)) Utilities.DisableSvcHostProcessSplitting(result);
+                    Environment.Exit(0);
+                    return;
+                }
+
+                if (arg == "/resetsvchostsplit")
+                {
+                    Utilities.EnableSvcHostProcessSplitting();
                     Environment.Exit(0);
                     return;
                 }
