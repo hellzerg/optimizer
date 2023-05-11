@@ -78,6 +78,12 @@ https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md
 
 <hr>
 
+### 🛡️ Security policy:
+
+https://github.com/hellzerg/optimizer/blob/master/SECURITY.md
+
+<hr>
+
 ### 🖼️ Early development images:
 
 https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
