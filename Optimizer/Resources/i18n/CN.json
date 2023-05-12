@@ -1,4 +1,4 @@
-﻿{
+{
 	"subSystem": "系统",
 	"subPrivacy": "隐私",
 	"subGaming": "游戏",
@@ -21,8 +21,8 @@
 	"lblLab": "实验构建\n(删除后测试)",
 	"performanceSw": "启用性能调整",
 	"networkSw": "禁用网络节流",
-	"defenderSw": "禁用 Windows Defender",
-	"systemRestoreSw": "禁用 System Restore",
+	"defenderSw": "禁用 Windows 安全中心",
+	"systemRestoreSw": "禁用系统还原",
 	"printSw": "禁用打印服务",
 	"mediaSharingSw": "禁用媒体播放器共享",
 	"faxSw": "禁用传真服务",
@@ -72,7 +72,8 @@
 	"leftTaskbarSw": "任务栏靠左对齐",
 	"snapAssistSw": "禁用快速协助",
 	"widgetsSw": "禁用小组件服务",
-	"chatSw": "禁用 Chat",
+	"chatSw": "禁用聊天",
+	"stickersSw": "禁用贴纸",
 	"smallerTaskbarSw": "让任务栏图标变小",
 	"classicRibbonSw": "在资源管理器中启用经典色带",
 	"classicContextSw": "启用经典右键菜单",
@@ -334,7 +335,7 @@
 	"networkTip": "Windows实现了一个网络节流机制，该机制将进行限制
 	运行多媒体应用程序时的网络流量。它还可以减少网络的占用
 	玩网络游戏时的表现.",
-	"defenderTip": "Windows Defender是Windows系统内置的防病毒软件.",
+	"defenderTip": "Windows 安全中心是Windows系统内置的防病毒软件.",
 	"smartScreenTip": "SmartScreen 是自动扫描文件，下载和网站，阻止
 	已知的危险内容，并在运行它们之前警告您的功能.",
 	"systemRestoreTip": "系统还原是一个功能，允许还原 Windows 的状态
