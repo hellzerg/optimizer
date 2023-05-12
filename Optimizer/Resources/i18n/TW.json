@@ -21,8 +21,8 @@
 	"lblLab": "實驗構建\n(刪除後測試)",
 	"performanceSw": "啟用性能調整",
 	"networkSw": "禁用網路節流",
-	"defenderSw": "禁用 Windows Defender",
-	"systemRestoreSw": "禁用 System Restore",
+	"defenderSw": "禁用 Windows 安全中心",
+	"systemRestoreSw": "禁用系統還原",
 	"printSw": "禁用列印服務",
 	"mediaSharingSw": "禁用媒體播放器分享",
 	"faxSw": "禁用傳真服務",
@@ -73,7 +73,8 @@
 	"leftTaskbarSw": "任務欄靠左對齊",
 	"snapAssistSw": "禁用快速協助",
 	"widgetsSw": "禁用小組件服務",
-	"chatSw": "禁用 Chat",
+	"chatSw": "禁用聊天",
+	"stickersSw": "禁用貼紙",
 	"smallerTaskbarSw": "讓任務欄圖示變小",
 	"classicRibbonSw": "在資源管理器中啟用經典色帶",
 	"classicContextSw": "啟用經典右鍵選單",
@@ -334,7 +335,7 @@
 	"networkTip": "Windows實現了一個網路節流機制，該機制將進行限制
 	運行多媒體應用程式時的網路流量。它還可以減少網路的占用
 	玩網路遊戲時的表現.",
-	"defenderTip": "Windows Defender是Windows系統內建的防病毒軟體.",
+	"defenderTip": "Windows 安全中心是Windows系統內建的防病毒軟體.",
 	"smartScreenTip": "SmartScreen 是自動掃描文件，下載和網站，阻止
 	已知的危險內容，並在運行它們之前警告您的功能.",
 	"systemRestoreTip": "系統還原是一個功能，允許還原 Windows 的狀態
