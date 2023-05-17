@@ -8,11 +8,11 @@
 
     internal enum WindowsVersion
     {
-        Unsupported,
-        Windows7,
-        Windows8,
-        Windows10,
-        Windows11
+        Unsupported = 0,
+        Windows7 = 7,
+        Windows8 = 8,
+        Windows10 = 10,
+        Windows11 = 11
     }
 
     public enum StartupItemLocation
@@ -74,6 +74,14 @@
         Left,
         Center,
         Right
+    }
+
+    public enum RestartType
+    {
+        Normal,
+        SafeMode,
+        DisableDefender,
+        EnableDefender
     }
 
     public enum LanguageCode

@@ -195,7 +195,7 @@
     <Compile Include="Forms\InfoForm.Designer.cs">
       <DependentUpon>InfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Integrator.cs" />
+    <Compile Include="IntegratorHelper.cs" />
     <Compile Include="Controls\ListViewColumnSorter.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -215,7 +215,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Required.cs" />
+    <Compile Include="CoreHelper.cs" />
     <Compile Include="SilentConfig.cs" />
     <Compile Include="SilentOps.cs" />
     <Compile Include="Forms\SplashForm.cs">

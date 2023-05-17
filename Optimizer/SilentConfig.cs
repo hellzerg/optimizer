@@ -1,12 +1,199 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Optimizer
 {
     [Serializable]
     public sealed class SilentConfig
     {
+        [JsonProperty("WindowsVersion", Required = Required.Always, NullValueHandling = NullValueHandling.Ignore)]
         public int WindowsVersion { get; set; }
 
+        [JsonProperty("PostAction", NullValueHandling = NullValueHandling.Ignore)]
+        public PostAction PostAction { get; set; }
+
+        [JsonProperty("Cleaner", NullValueHandling = NullValueHandling.Ignore)]
+        public Cleaner Cleaner { get; set; }
+
+        [JsonProperty("Pinger", NullValueHandling = NullValueHandling.Ignore)]
+        public Pinger Pinger { get; set; }
+
+        [JsonProperty("ProcessControl", NullValueHandling = NullValueHandling.Ignore)]
+        public ProcessControl ProcessControl { get; set; }
+
+        [JsonProperty("HostsEditor", NullValueHandling = NullValueHandling.Ignore)]
+        public HostsEditor HostsEditor { get; set; }
+
+        [JsonProperty("RegistryFix", NullValueHandling = NullValueHandling.Ignore)]
+        public RegistryFix RegistryFix { get; set; }
+
+        [JsonProperty("Integrator", NullValueHandling = NullValueHandling.Ignore)]
+        public Integrator Integrator { get; set; }
+
+        [JsonProperty("UnlockAllCores", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? UnlockAllCores { get; set; }
+
+        [JsonProperty("SvchostProcessSplitting", NullValueHandling = NullValueHandling.Ignore)]
+        public SvchostProcessSplitting SvchostProcessSplitting { get; set; }
+
+        [JsonProperty("Tweaks", NullValueHandling = NullValueHandling.Ignore)]
+        public Tweaks Tweaks { get; set; }
+    }
+
+    [Serializable]
+    public sealed class Cleaner
+    {
+        [JsonProperty("TempFiles", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? TempFiles { get; set; }
+
+        [JsonProperty("BsodDumps", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? BsodDumps { get; set; }
+
+        [JsonProperty("ErrorReports", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? ErrorReports { get; set; }
+
+        [JsonProperty("RecycleBin", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? RecycleBin { get; set; }
+
+        [JsonProperty("GoogleChrome", NullValueHandling = NullValueHandling.Ignore)]
+        public BaseBrowser GoogleChrome { get; set; }
+
+        [JsonProperty("MozillaFirefox", NullValueHandling = NullValueHandling.Ignore)]
+        public BaseBrowser MozillaFirefox { get; set; }
+
+        [JsonProperty("MicrosoftEdge", NullValueHandling = NullValueHandling.Ignore)]
+        public BaseBrowser MicrosoftEdge { get; set; }
+
+        [JsonProperty("BraveBrowser", NullValueHandling = NullValueHandling.Ignore)]
+        public BaseBrowser BraveBrowser { get; set; }
+
+        [JsonProperty("InternetExplorer", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? InternetExplorer { get; set; }
+    }
+
+    [Serializable]
+    public sealed class BaseBrowser
+    {
+        [JsonProperty("Cache", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? Cache { get; set; }
+
+        [JsonProperty("Cookies", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? Cookies { get; set; }
+
+        [JsonProperty("History", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? History { get; set; }
+
+        [JsonProperty("Session", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? Session { get; set; }
+
+        [JsonProperty("Passwords", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? Passwords { get; set; }
+    }
+
+    [Serializable]
+    public sealed class HostsEditor
+    {
+        [JsonProperty("Block", NullValueHandling = NullValueHandling.Ignore)]
+        public string[] Block { get; set; }
+
+        [JsonProperty("Add", NullValueHandling = NullValueHandling.Ignore)]
+        public AddHostsEntry[] Add { get; set; }
+    }
+
+    [Serializable]
+    public sealed class AddHostsEntry
+    {
+        [JsonProperty("Domain", NullValueHandling = NullValueHandling.Ignore)]
+        public string Domain { get; set; }
+
+        [JsonProperty("IPAddress", NullValueHandling = NullValueHandling.Ignore)]
+        public string IpAddress { get; set; }
+
+        [JsonProperty("Comment", NullValueHandling = NullValueHandling.Ignore)]
+        public string Comment { get; set; }
+    }
+
+    [Serializable]
+    public sealed class Integrator
+    {
+        [JsonProperty("TakeOwnership", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? TakeOwnership { get; set; }
+
+        [JsonProperty("OpenWithCMD", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? OpenWithCmd { get; set; }
+    }
+
+    [Serializable]
+    public sealed class Pinger
+    {
+        [JsonProperty("SetDNS", NullValueHandling = NullValueHandling.Ignore)]
+        public string SetDns { get; set; }
+
+        [JsonProperty("FlushDNSCache", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? FlushDnsCache { get; set; }
+    }
+
+    [Serializable]
+    public sealed class PostAction
+    {
+        [JsonProperty("Restart", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? Restart { get; set; }
+
+        [JsonProperty("RestartType", NullValueHandling = NullValueHandling.Ignore)]
+        public string RestartType { get; set; }
+    }
+
+    [Serializable]
+    public sealed class ProcessControl
+    {
+        [JsonProperty("Prevent", NullValueHandling = NullValueHandling.Ignore)]
+        public string[] Prevent { get; set; }
+
+        [JsonProperty("Allow", NullValueHandling = NullValueHandling.Ignore)]
+        public string[] Allow { get; set; }
+    }
+
+    [Serializable]
+    public sealed class RegistryFix
+    {
+        [JsonProperty("TaskManager", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? TaskManager { get; set; }
+
+        [JsonProperty("CommandPrompt", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? CommandPrompt { get; set; }
+
+        [JsonProperty("ControlPanel", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? ControlPanel { get; set; }
+
+        [JsonProperty("FolderOptions", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? FolderOptions { get; set; }
+
+        [JsonProperty("RunDialog", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? RunDialog { get; set; }
+
+        [JsonProperty("RightClickMenu", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? RightClickMenu { get; set; }
+
+        [JsonProperty("WindowsFirewall", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? WindowsFirewall { get; set; }
+
+        [JsonProperty("RegistryEditor", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? RegistryEditor { get; set; }
+    }
+
+    [Serializable]
+    public sealed class SvchostProcessSplitting
+    {
+        [JsonProperty("Disable", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? Disable { get; set; }
+
+        [JsonProperty("RAM", NullValueHandling = NullValueHandling.Ignore)]
+        public int? Ram { get; set; }
+    }
+
+    [Serializable]
+    public sealed class Tweaks
+    {
         public bool? EnablePerformanceTweaks { get; set; }
         public bool? DisableNetworkThrottling { get; set; }
         public bool? DisableWindowsDefender { get; set; }

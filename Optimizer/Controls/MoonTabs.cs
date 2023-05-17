@@ -86,7 +86,7 @@ namespace Optimizer
 
             Margin = new Padding(0);
             Padding = new Point(0, 0);
-            
+
             this.SizeMode = TabSizeMode.Fixed;
         }
 

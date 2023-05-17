@@ -1,6 +1,5 @@
 ﻿using Microsoft.Win32;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,10 +10,10 @@ using System.Reflection;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.ServiceProcess;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text;
 
 namespace Optimizer
 {
@@ -444,7 +443,7 @@ namespace Optimizer
         {
             try
             {
-                Directory.Delete(Required.CoreFolder, true);
+                Directory.Delete(CoreHelper.CoreFolder, true);
             }
             catch (Exception ex)
             {
@@ -486,7 +485,7 @@ namespace Optimizer
         // attempt to enable Local Group Policy Editor on Windows 10 Home editions
         internal static void EnableGPEDitor()
         {
-            Utilities.RunBatchFile(Required.ScriptsFolder + "GPEditEnablerInHome.bat");
+            Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "GPEditEnablerInHome.bat");
         }
 
         internal static void TryDeleteRegistryValue(bool localMachine, string path, string valueName)

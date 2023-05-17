@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Optimizer
 {
-    public static class Integrator
+    public static class IntegratorHelper
     {
         internal static string FolderDefaultIcon = @"%systemroot%\system32\imageres.dll,-112";
 
@@ -168,10 +168,10 @@ namespace Optimizer
                 Icon ico = Icon.ExtractAssociatedIcon(fileName);
 
                 Clipboard.SetImage(ico.ToBitmap());
-                Clipboard.GetImage().Save(Required.ExtractedIconsFolder + itemName + ".ico", ImageFormat.Bmp);
+                Clipboard.GetImage().Save(CoreHelper.ExtractedIconsFolder + itemName + ".ico", ImageFormat.Bmp);
                 Clipboard.Clear();
 
-                iconPath = Required.ExtractedIconsFolder + itemName + ".ico";
+                iconPath = CoreHelper.ExtractedIconsFolder + itemName + ".ico";
             }
 
             return iconPath;
@@ -186,9 +186,9 @@ namespace Optimizer
                 Uri url = new Uri(link);
                 if (url.HostNameType == UriHostNameType.Dns)
                 {
-                    Image.FromStream(((HttpWebResponse)WebRequest.Create("http://" + url.Host + "/favicon.ico").GetResponse()).GetResponseStream()).Save(Required.FavIconsFolder + name + ".ico", ImageFormat.Bmp);
+                    Image.FromStream(((HttpWebResponse)WebRequest.Create("http://" + url.Host + "/favicon.ico").GetResponse()).GetResponseStream()).Save(CoreHelper.FavIconsFolder + name + ".ico", ImageFormat.Bmp);
 
-                    favicon = Required.FavIconsFolder + name + ".ico";
+                    favicon = CoreHelper.FavIconsFolder + name + ".ico";
                 }
             }
             catch (Exception ex)
@@ -248,7 +248,7 @@ namespace Optimizer
 
         internal static void InstallOpenWithCMD()
         {
-            Utilities.ImportRegistryScript(Required.ScriptsFolder + "AddOpenWithCMD.reg");
+            Utilities.ImportRegistryScript(CoreHelper.ScriptsFolder + "AddOpenWithCMD.reg");
         }
 
         internal static void DeleteOpenWithCMD()
@@ -260,22 +260,22 @@ namespace Optimizer
 
         internal static void InstallTakeOwnership(bool remove)
         {
-            if (!File.Exists(Required.ReadyMadeMenusFolder + "InstallTakeOwnership.reg"))
+            if (!File.Exists(CoreHelper.ReadyMadeMenusFolder + "InstallTakeOwnership.reg"))
             {
                 try
                 {
-                    File.WriteAllText(Required.ReadyMadeMenusFolder + "InstallTakeOwnership.reg", Properties.Resources.InstallTakeOwnership);
+                    File.WriteAllText(CoreHelper.ReadyMadeMenusFolder + "InstallTakeOwnership.reg", Properties.Resources.InstallTakeOwnership);
                 }
                 catch (Exception ex)
                 {
                     ErrorLogger.LogError("Integrator.TakeOwnership", ex.Message, ex.StackTrace);
                 }
             }
-            if (!File.Exists(Required.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg"))
+            if (!File.Exists(CoreHelper.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg"))
             {
                 try
                 {
-                    File.WriteAllText(Required.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg", Properties.Resources.RemoveTakeOwnership);
+                    File.WriteAllText(CoreHelper.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg", Properties.Resources.RemoveTakeOwnership);
                 }
                 catch (Exception ex)
                 {
@@ -285,11 +285,11 @@ namespace Optimizer
 
             if (!remove)
             {
-                Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "InstallTakeOwnership.reg");
+                Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "InstallTakeOwnership.reg");
             }
             else
             {
-                Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg");
+                Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg");
             }
         }
     }

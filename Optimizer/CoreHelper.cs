@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Optimizer
 {
-    internal static class Required
+    internal static class CoreHelper
     {
         internal readonly static string CoreFolder = CleanHelper.ProgramData + "\\Optimizer\\";
         internal readonly static string ReadyMadeMenusFolder = CleanHelper.ProgramData + "\\Optimizer\\ReadyMadeMenus\\";

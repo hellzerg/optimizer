@@ -106,7 +106,7 @@ namespace Optimizer
         internal static Color TextColor;
 
         readonly static string _themeFlag = "themeable";
-        internal readonly static string SettingsFile = Required.CoreFolder + "\\Optimizer.json";
+        internal readonly static string SettingsFile = CoreHelper.CoreFolder + "\\Optimizer.json";
 
         internal static SettingsJson CurrentOptions = new SettingsJson();
 

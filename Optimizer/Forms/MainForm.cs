@@ -984,6 +984,7 @@ namespace Optimizer
             // PINGER
             if (!disablePinger)
             {
+                boxDNS.Items.AddRange(PingerHelper.DNSOptions);
                 LoadPingerDNSConfig();
                 DisplayCurrentDNS();
 
@@ -1052,13 +1053,13 @@ namespace Optimizer
 
         private void LoadReadyMenusState()
         {
-            AddCMDB.ToggleChecked = Integrator.OpenWithCMDExists();
-            AddOwnerB.ToggleChecked = Integrator.TakeOwnershipExists();
-            DSB.ToggleChecked = Integrator.DesktopItemExists("DesktopShortcuts");
-            PMB.ToggleChecked = Integrator.DesktopItemExists("Power Menu");
-            SSB.ToggleChecked = Integrator.DesktopItemExists("SystemShortcuts");
-            STB.ToggleChecked = Integrator.DesktopItemExists("SystemTools");
-            WAB.ToggleChecked = Integrator.DesktopItemExists("WindowsApps");
+            AddCMDB.ToggleChecked = IntegratorHelper.OpenWithCMDExists();
+            AddOwnerB.ToggleChecked = IntegratorHelper.TakeOwnershipExists();
+            DSB.ToggleChecked = IntegratorHelper.DesktopItemExists("DesktopShortcuts");
+            PMB.ToggleChecked = IntegratorHelper.DesktopItemExists("Power Menu");
+            SSB.ToggleChecked = IntegratorHelper.DesktopItemExists("SystemShortcuts");
+            STB.ToggleChecked = IntegratorHelper.DesktopItemExists("SystemTools");
+            WAB.ToggleChecked = IntegratorHelper.DesktopItemExists("WindowsApps");
         }
 
         private void LoadPingerDNSConfig()
@@ -1092,32 +1093,32 @@ namespace Optimizer
 
             if (PingerHelper.CloudflareDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {
-                boxDNS.Text = "Cloudflare DNS";
+                boxDNS.Text = "Cloudflare";
                 return;
             }
             else if (PingerHelper.OpenDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {
-                boxDNS.Text = "Open DNS";
+                boxDNS.Text = "OpenDNS";
                 return;
             }
             else if (PingerHelper.Quad9DNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {
-                boxDNS.Text = "Quad9 DNS";
+                boxDNS.Text = "Quad9";
                 return;
             }
             else if (PingerHelper.GoogleDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {
-                boxDNS.Text = "Google DNS";
+                boxDNS.Text = "Google";
                 return;
             }
             else if (PingerHelper.AlternateDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {
-                boxDNS.Text = "Alternate DNS";
+                boxDNS.Text = "AlternateDNS";
                 return;
             }
             else if (PingerHelper.AdguardDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {
-                boxDNS.Text = "Adguard DNS";
+                boxDNS.Text = "Adguard";
                 return;
             }
             else if (PingerHelper.CleanBrowsingDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
@@ -2263,7 +2264,7 @@ namespace Optimizer
 
         private void GetDesktopItems()
         {
-            _desktopItems = Integrator.GetDesktopItems();
+            _desktopItems = IntegratorHelper.GetDesktopItems();
             listDesktopItems.Items.Clear();
 
             for (int i = 0; i < _desktopItems.Count; i++)
@@ -2412,7 +2413,7 @@ namespace Optimizer
 
         private void GetCustomCommands()
         {
-            _customCommands = Integrator.GetCustomCommands();
+            _customCommands = IntegratorHelper.GetCustomCommands();
             listCustomCommands.Items.Clear();
 
             foreach (string s in _customCommands)
@@ -2626,7 +2627,7 @@ namespace Optimizer
         {
             if (!string.IsNullOrEmpty(txtRunFile.Text) && !string.IsNullOrEmpty(txtRunKeyword.Text))
             {
-                Integrator.CreateCustomCommand(txtRunFile.Text, txtRunKeyword.Text);
+                IntegratorHelper.CreateCustomCommand(txtRunFile.Text, txtRunKeyword.Text);
 
                 txtRunFile.Clear();
                 txtRunKeyword.Clear();
@@ -2650,7 +2651,7 @@ namespace Optimizer
         {
             if (listDesktopItems.SelectedItems.Count == 1)
             {
-                Integrator.RemoveItem(listDesktopItems.SelectedItem.ToString());
+                IntegratorHelper.RemoveItem(listDesktopItems.SelectedItem.ToString());
                 GetDesktopItems();
             }
         }
@@ -2663,7 +2664,7 @@ namespace Optimizer
                 collection.Add(item);
             }
 
-            Integrator.RemoveAllItems(collection);
+            IntegratorHelper.RemoveAllItems(collection);
 
             GetDesktopItems();
         }
@@ -2840,7 +2841,7 @@ namespace Optimizer
 
             if (txtIcon.Text.Contains(".exe"))
             {
-                string iconpath = Integrator.ExtractIconFromExecutable(txtItemName.Text, DefineProgramIconDialog.FileName);
+                string iconpath = IntegratorHelper.ExtractIconFromExecutable(txtItemName.Text, DefineProgramIconDialog.FileName);
                 txtIcon.Text = iconpath;
             }
         }
@@ -2851,7 +2852,7 @@ namespace Optimizer
 
             if (txtIcon.Text.Contains(".exe"))
             {
-                string iconpath = Integrator.ExtractIconFromExecutable(txtItemName.Text, DefineFolderIconDialog.FileName);
+                string iconpath = IntegratorHelper.ExtractIconFromExecutable(txtItemName.Text, DefineFolderIconDialog.FileName);
                 txtIcon.Text = iconpath;
             }
         }
@@ -2862,7 +2863,7 @@ namespace Optimizer
 
             if (txtIcon.Text.Contains(".exe"))
             {
-                string iconpath = Integrator.ExtractIconFromExecutable(txtItemName.Text, DefineURLIconDialog.FileName);
+                string iconpath = IntegratorHelper.ExtractIconFromExecutable(txtItemName.Text, DefineURLIconDialog.FileName);
                 txtIcon.Text = iconpath;
             }
         }
@@ -2873,7 +2874,7 @@ namespace Optimizer
 
             if (txtIcon.Text.Contains(".exe"))
             {
-                string iconpath = Integrator.ExtractIconFromExecutable(txtItemName.Text, DefineFileIconDialog.FileName);
+                string iconpath = IntegratorHelper.ExtractIconFromExecutable(txtItemName.Text, DefineFileIconDialog.FileName);
                 txtIcon.Text = iconpath;
             }
         }
@@ -2884,7 +2885,7 @@ namespace Optimizer
 
             if (txtIcon.Text.Contains(".exe"))
             {
-                string iconpath = Integrator.ExtractIconFromExecutable(txtItemName.Text, DefineCommandIconDialog.FileName);
+                string iconpath = IntegratorHelper.ExtractIconFromExecutable(txtItemName.Text, DefineCommandIconDialog.FileName);
                 txtIcon.Text = iconpath;
             }
         }
@@ -2915,33 +2916,33 @@ namespace Optimizer
                         icon = txtIcon.Text;
                     }
 
-                    Integrator.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.Program);
+                    IntegratorHelper.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.Program);
 
                     break;
                 case DesktopItemType.Folder:
                     if (checkDefaultIcon.Checked)
                     {
-                        icon = Integrator.FolderDefaultIcon;
+                        icon = IntegratorHelper.FolderDefaultIcon;
                     }
                     else
                     {
                         icon = txtIcon.Text;
                     }
 
-                    Integrator.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.Folder);
+                    IntegratorHelper.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.Folder);
 
                     break;
                 case DesktopItemType.Link:
                     if (checkDefaultIcon.Checked)
                     {
-                        icon = Integrator.DownloadFavicon(txtItem.Text, txtItemName.Text);
+                        icon = IntegratorHelper.DownloadFavicon(txtItem.Text, txtItemName.Text);
                     }
                     else
                     {
                         icon = txtIcon.Text;
                     }
 
-                    Integrator.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.Link);
+                    IntegratorHelper.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.Link);
 
                     break;
                 case DesktopItemType.File:
@@ -2950,7 +2951,7 @@ namespace Optimizer
                         icon = txtIcon.Text;
                     }
 
-                    Integrator.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.File);
+                    IntegratorHelper.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.File);
 
                     break;
                 case DesktopItemType.Command:
@@ -2959,7 +2960,7 @@ namespace Optimizer
                         icon = txtIcon.Text;
                     }
 
-                    Integrator.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.Command);
+                    IntegratorHelper.AddItem(txtItemName.Text, txtItem.Text, icon, _desktopItemPosition, checkShift.Checked, DesktopItemType.Command);
 
                     break;
             }
@@ -3058,7 +3059,7 @@ namespace Optimizer
         {
             if (listCustomCommands.SelectedItems.Count == 1)
             {
-                Integrator.DeleteCustomCommand(listCustomCommands.SelectedItem.ToString());
+                IntegratorHelper.DeleteCustomCommand(listCustomCommands.SelectedItem.ToString());
                 GetCustomCommands();
             }
         }
@@ -3774,7 +3775,7 @@ namespace Optimizer
 
         private void btnOpenConf_Click(object sender, EventArgs e)
         {
-            Process.Start(Required.CoreFolder);
+            Process.Start(CoreHelper.CoreFolder);
         }
 
         private void btnPing_Click(object sender, EventArgs e)
@@ -4040,7 +4041,7 @@ namespace Optimizer
 
                 try
                 {
-                    File.WriteAllText(Required.StartupItemsBackupFolder + Utilities.SanitizeFileFolderName(txtBackupTitle.Text + " - [" + DateTime.Now.ToShortDateString() + "-" + DateTime.Now.ToShortTimeString()) + "].json", JsonConvert.SerializeObject(_backupItems, Formatting.Indented));
+                    File.WriteAllText(CoreHelper.StartupItemsBackupFolder + Utilities.SanitizeFileFolderName(txtBackupTitle.Text + " - [" + DateTime.Now.ToShortDateString() + "-" + DateTime.Now.ToShortTimeString()) + "].json", JsonConvert.SerializeObject(_backupItems, Formatting.Indented));
                 }
                 catch (Exception ex)
                 {
@@ -4417,42 +4418,42 @@ namespace Optimizer
                 DisplayCurrentDNS();
                 return;
             }
-            else if (boxDNS.Text == "Cloudflare DNS")
+            else if (boxDNS.Text == "Cloudflare")
             {
                 PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, PingerHelper.CloudflareDNSv4, PingerHelper.CloudflareDNSv6);
                 PingerHelper.GetActiveNetworkAdapters();
                 DisplayCurrentDNS();
                 return;
             }
-            else if (boxDNS.Text == "Open DNS")
+            else if (boxDNS.Text == "OpenDNS")
             {
                 PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, PingerHelper.OpenDNSv4, PingerHelper.OpenDNSv6);
                 PingerHelper.GetActiveNetworkAdapters();
                 DisplayCurrentDNS();
                 return;
             }
-            else if (boxDNS.Text == "Quad9 DNS")
+            else if (boxDNS.Text == "Quad9")
             {
                 PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, PingerHelper.Quad9DNSv4, PingerHelper.Quad9DNSv6);
                 PingerHelper.GetActiveNetworkAdapters();
                 DisplayCurrentDNS();
                 return;
             }
-            else if (boxDNS.Text == "Google DNS")
+            else if (boxDNS.Text == "Google")
             {
                 PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, PingerHelper.GoogleDNSv4, PingerHelper.GoogleDNSv6);
                 PingerHelper.GetActiveNetworkAdapters();
                 DisplayCurrentDNS();
                 return;
             }
-            else if (boxDNS.Text == "Alternate DNS")
+            else if (boxDNS.Text == "AlternateDNS")
             {
                 PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, PingerHelper.AlternateDNSv4, PingerHelper.AlternateDNSv6);
                 PingerHelper.GetActiveNetworkAdapters();
                 DisplayCurrentDNS();
                 return;
             }
-            else if (boxDNS.Text == "Adguard DNS")
+            else if (boxDNS.Text == "Adguard")
             {
                 PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, PingerHelper.AdguardDNSv4, PingerHelper.AdguardDNSv6);
                 PingerHelper.GetActiveNetworkAdapters();
@@ -4537,11 +4538,11 @@ namespace Optimizer
         {
             if (PMB.ToggleChecked)
             {
-                Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\PowerMenu.reg");
+                Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "\\PowerMenu.reg");
             }
             else
             {
-                Integrator.RemoveItem("Power Menu");
+                IntegratorHelper.RemoveItem("Power Menu");
             }
 
             GetDesktopItems();
@@ -4551,11 +4552,11 @@ namespace Optimizer
         {
             if (AddOwnerB.ToggleChecked)
             {
-                Integrator.InstallTakeOwnership(false);
+                IntegratorHelper.InstallTakeOwnership(false);
             }
             else
             {
-                Integrator.InstallTakeOwnership(true);
+                IntegratorHelper.InstallTakeOwnership(true);
             }
 
             GetDesktopItems();
@@ -4565,11 +4566,11 @@ namespace Optimizer
         {
             if (AddCMDB.ToggleChecked)
             {
-                Integrator.InstallOpenWithCMD();
+                IntegratorHelper.InstallOpenWithCMD();
             }
             else
             {
-                Integrator.DeleteOpenWithCMD();
+                IntegratorHelper.DeleteOpenWithCMD();
             }
 
             GetDesktopItems();
@@ -4579,11 +4580,11 @@ namespace Optimizer
         {
             if (DSB.ToggleChecked)
             {
-                Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\DesktopShortcuts.reg");
+                Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "\\DesktopShortcuts.reg");
             }
             else
             {
-                Integrator.RemoveItem("DesktopShortcuts");
+                IntegratorHelper.RemoveItem("DesktopShortcuts");
             }
 
             GetDesktopItems();
@@ -4593,11 +4594,11 @@ namespace Optimizer
         {
             if (STB.ToggleChecked)
             {
-                Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\SystemTools.reg");
+                Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "\\SystemTools.reg");
             }
             else
             {
-                Integrator.RemoveItem("SystemTools");
+                IntegratorHelper.RemoveItem("SystemTools");
             }
 
             GetDesktopItems();
@@ -4607,11 +4608,11 @@ namespace Optimizer
         {
             if (WAB.ToggleChecked)
             {
-                Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\WindowsApps.reg");
+                Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "\\WindowsApps.reg");
             }
             else
             {
-                Integrator.RemoveItem("WindowsApps");
+                IntegratorHelper.RemoveItem("WindowsApps");
             }
 
             GetDesktopItems();
@@ -4621,11 +4622,11 @@ namespace Optimizer
         {
             if (SSB.ToggleChecked)
             {
-                Utilities.ImportRegistryScript(Required.ReadyMadeMenusFolder + "\\SystemShortcuts.reg");
+                Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "\\SystemShortcuts.reg");
             }
             else
             {
-                Integrator.RemoveItem("SystemShortcuts");
+                IntegratorHelper.RemoveItem("SystemShortcuts");
             }
 
             GetDesktopItems();

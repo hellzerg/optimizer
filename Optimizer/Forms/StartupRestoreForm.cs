@@ -27,7 +27,7 @@ namespace Optimizer
 
         private void RefreshBackups()
         {
-            _backups = Directory.GetFiles(Required.StartupItemsBackupFolder, "*.json");
+            _backups = Directory.GetFiles(CoreHelper.StartupItemsBackupFolder, "*.json");
             Array.Reverse(_backups);
             listRestoreItems.Items.Clear();
 

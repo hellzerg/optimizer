@@ -1,10 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -16,7 +14,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 15;
-        internal readonly static float Minor = 2;
+        internal readonly static float Minor = 3;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
         internal static int DPI_PREFERENCE;
@@ -98,8 +96,8 @@ namespace Optimizer
                 Environment.Exit(0);
                 return;
             }
-          
-            Required.Deploy();
+
+            CoreHelper.Deploy();
             FontHelper.LoadFont();
 
             if (switches.Length == 1)
@@ -181,17 +179,13 @@ namespace Optimizer
                 // disable defender automatically
                 if (arg == "/restart=disabledefender")
                 {
-                    // set RunOnce instruction
-                    Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce", "*OptimizerDisableDefender", Assembly.GetExecutingAssembly().Location + " /silentdisabledefender", Microsoft.Win32.RegistryValueKind.String);
-                    RestartInSafeMode();
+                    SetRunOnceDisableDefender();
                 }
 
                 // enable defender automatically
                 if (arg == "/restart=enabledefender")
                 {
-                    // set RunOnce instruction
-                    Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce", "*OptimizerEnableDefender", Assembly.GetExecutingAssembly().Location + " /silentenabledefender", Microsoft.Win32.RegistryValueKind.String);
-                    RestartInSafeMode();
+                    SetRunOnceEnableDefender();
                 }
 
                 // return from safe-mode automatically
@@ -251,54 +245,22 @@ namespace Optimizer
                     }
 
                     SilentOps.GetSilentConfig(fileName);
+
                     if (SilentOps.CurrentSilentConfig == null)
                     {
                         MessageBox.Show(_confInvalidFormatMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Environment.Exit(0);
                         return;
                     }
-
-                    if (SilentOps.CurrentSilentConfig.WindowsVersion == 7 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
-                    {
-                        LoadSettings();
-                        SilentOps.ProcessSilentConfigGeneral();
-                        SilentOps.SilentUpdateOptionsGeneral();
-                        Options.SaveSettings();
-                    }
-                    else if (SilentOps.CurrentSilentConfig.WindowsVersion == 8 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
-                    {
-                        LoadSettings();
-                        SilentOps.ProcessSilentConfigGeneral();
-                        SilentOps.ProcessSilentConfigWindows8();
-                        SilentOps.SilentUpdateOptionsGeneral();
-                        SilentOps.SilentUpdateOptions8();
-                        Options.SaveSettings();
-                    }
-                    else if (SilentOps.CurrentSilentConfig.WindowsVersion == 10 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
-                    {
-                        LoadSettings();
-                        SilentOps.ProcessSilentConfigGeneral();
-                        SilentOps.ProcessSilentConfigWindows10();
-                        SilentOps.SilentUpdateOptionsGeneral();
-                        SilentOps.SilentUpdateOptions10();
-                        Options.SaveSettings();
-                    }
-                    else if (SilentOps.CurrentSilentConfig.WindowsVersion == 11 && Utilities.CurrentWindowsVersion == WindowsVersion.Windows11)
-                    {
-                        LoadSettings();
-                        SilentOps.ProcessSilentConfigGeneral();
-                        SilentOps.ProcessSilentConfigWindows10();
-                        SilentOps.ProcessSilentConfigWindows11();
-                        SilentOps.SilentUpdateOptionsGeneral();
-                        SilentOps.SilentUpdateOptions10();
-                        SilentOps.SilentUpdateOptions11();
-                        Options.SaveSettings();
-                    }
-                    else
+                    if (!SilentOps.ProcessWindowsVersionCompatibility())
                     {
                         MessageBox.Show(_confInvalidVersionMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Environment.Exit(0);
+                        return;
                     }
+                    LoadSettings();
+                    //SilentOps.ProcessAllActions();
+                    Options.SaveSettings();
                 }
             }
             else
@@ -388,6 +350,20 @@ namespace Optimizer
             Thread.Sleep(1000);
 
             File.Delete("EnableDefenderSafeMode.bat");
+        }
+
+        internal static void SetRunOnceDisableDefender()
+        {
+            // set RunOnce instruction
+            Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce", "*OptimizerDisableDefender", Assembly.GetExecutingAssembly().Location + " /silentdisabledefender", Microsoft.Win32.RegistryValueKind.String);
+            RestartInSafeMode();
+        }
+
+        internal static void SetRunOnceEnableDefender()
+        {
+            // set RunOnce instruction
+            Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce", "*OptimizerEnableDefender", Assembly.GetExecutingAssembly().Location + " /silentenabledefender", Microsoft.Win32.RegistryValueKind.String);
+            RestartInSafeMode();
         }
 
         private static void StartMainForm()

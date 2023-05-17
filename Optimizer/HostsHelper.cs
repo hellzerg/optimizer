@@ -198,11 +198,12 @@ namespace Optimizer
             return entries;
         }
 
-        internal static void AddEntry(string entry)
+        internal static void AddEntry(string entry, string comment = null)
         {
             try
             {
-                File.AppendAllText(HostsFile, NewLine + entry);
+                comment = (!string.IsNullOrEmpty(comment)) ? $"#{comment}" : string.Empty;
+                File.AppendAllText(HostsFile, NewLine + $"{entry} {comment}");
             }
             catch (Exception ex)
             {

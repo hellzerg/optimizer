@@ -1,7 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 
 namespace Optimizer
@@ -553,7 +552,7 @@ namespace Optimizer
 
         internal static void UninstallOneDrive()
         {
-            Utilities.RunBatchFile(Required.ScriptsFolder + "OneDrive_Uninstaller.cmd");
+            Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "OneDrive_Uninstaller.cmd");
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OneDrive", "DisableFileSyncNGSC", "1", RegistryValueKind.DWord);
 
             using (RegistryKey localMachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
@@ -739,7 +738,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XboxGipSvc", "Start", "4", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\xbgm", "Start", "4", RegistryValueKind.DWord);
 
-            Utilities.RunBatchFile(Required.ScriptsFolder + "DisableXboxTasks.bat");
+            Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "DisableXboxTasks.bat");
         }
 
         internal static void EnableXboxLive()
@@ -752,9 +751,9 @@ namespace Optimizer
 
             try
             {
-                if (!File.Exists(Required.ScriptsFolder + "EnableXboxTasks.bat"))
+                if (!File.Exists(CoreHelper.ScriptsFolder + "EnableXboxTasks.bat"))
                 {
-                    File.WriteAllText(Required.ScriptsFolder + "EnableXboxTasks.bat", Properties.Resources.EnableXboxTasks);
+                    File.WriteAllText(CoreHelper.ScriptsFolder + "EnableXboxTasks.bat", Properties.Resources.EnableXboxTasks);
                 }
             }
             catch (Exception ex)
@@ -762,7 +761,7 @@ namespace Optimizer
                 ErrorLogger.LogError("Optimize.EnableXboxLive", ex.Message, ex.StackTrace);
             }
 
-            Utilities.RunBatchFile(Required.ScriptsFolder + "EnableXboxTasks.bat");
+            Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "EnableXboxTasks.bat");
         }
 
         internal static void DisableAutomaticUpdates()
@@ -862,16 +861,16 @@ namespace Optimizer
             Utilities.RunCommand(string.Format("icacls {0} /deny SYSTEM:`(OI`)`(CI`)F", DiagnosisAutoLoggerFolder));
 
             DisableTelemetryRunner();
-            Utilities.RunBatchFile(Required.ScriptsFolder + "DisableTelemetryTasks.bat");
+            Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "DisableTelemetryTasks.bat");
         }
 
         internal static void EnableTelemetryTasks()
         {
             try
             {
-                if (!File.Exists(Required.ScriptsFolder + "EnableTelemetryTasks.bat"))
+                if (!File.Exists(CoreHelper.ScriptsFolder + "EnableTelemetryTasks.bat"))
                 {
-                    File.WriteAllText(Required.ScriptsFolder + "EnableTelemetryTasks.bat", Properties.Resources.EnableTelemetryTasks);
+                    File.WriteAllText(CoreHelper.ScriptsFolder + "EnableTelemetryTasks.bat", Properties.Resources.EnableTelemetryTasks);
                 }
             }
             catch (Exception ex)
@@ -879,21 +878,21 @@ namespace Optimizer
                 ErrorLogger.LogError("Optimize.EnableTelemetryTasks", ex.Message, ex.StackTrace);
             }
 
-            Utilities.RunBatchFile(Required.ScriptsFolder + "EnableTelemetryTasks.bat");
+            Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "EnableTelemetryTasks.bat");
         }
 
         internal static void DisableOffice2016Telemetry()
         {
             try
             {
-                if (!File.Exists(Required.ScriptsFolder + "DisableOfficeTelemetryTasks.reg"))
+                if (!File.Exists(CoreHelper.ScriptsFolder + "DisableOfficeTelemetryTasks.reg"))
                 {
-                    File.WriteAllText(Required.ScriptsFolder + "EnableOfficeTelemetryTasks.reg", Properties.Resources.EnableOfficeTelemetry);
+                    File.WriteAllText(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.reg", Properties.Resources.EnableOfficeTelemetry);
                 }
 
-                if (!File.Exists(Required.ScriptsFolder + "DisableOfficeTelemetryTasks.bat"))
+                if (!File.Exists(CoreHelper.ScriptsFolder + "DisableOfficeTelemetryTasks.bat"))
                 {
-                    File.WriteAllText(Required.ScriptsFolder + "EnableOfficeTelemetryTasks.bat", Properties.Resources.EnableOfficeTelemetryTasks);
+                    File.WriteAllText(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.bat", Properties.Resources.EnableOfficeTelemetryTasks);
                 }
             }
             catch (Exception ex)
@@ -901,22 +900,22 @@ namespace Optimizer
                 ErrorLogger.LogError("Optimize.DisableOffice2016Telemetry", ex.Message, ex.StackTrace);
             }
 
-            Utilities.RunBatchFile(Required.ScriptsFolder + "DisableOfficeTelemetryTasks.bat");
-            Utilities.ImportRegistryScript(Required.ScriptsFolder + "DisableOfficeTelemetryTasks.reg");
+            Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "DisableOfficeTelemetryTasks.bat");
+            Utilities.ImportRegistryScript(CoreHelper.ScriptsFolder + "DisableOfficeTelemetryTasks.reg");
         }
 
         internal static void EnableOffice2016Telemetry()
         {
             try
             {
-                if (!File.Exists(Required.ScriptsFolder + "EnableOfficeTelemetryTasks.reg"))
+                if (!File.Exists(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.reg"))
                 {
-                    File.WriteAllText(Required.ScriptsFolder + "EnableOfficeTelemetryTasks.reg", Properties.Resources.EnableOfficeTelemetry);
+                    File.WriteAllText(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.reg", Properties.Resources.EnableOfficeTelemetry);
                 }
 
-                if (!File.Exists(Required.ScriptsFolder + "EnableOfficeTelemetryTasks.bat"))
+                if (!File.Exists(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.bat"))
                 {
-                    File.WriteAllText(Required.ScriptsFolder + "EnableOfficeTelemetryTasks.bat", Properties.Resources.EnableOfficeTelemetryTasks);
+                    File.WriteAllText(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.bat", Properties.Resources.EnableOfficeTelemetryTasks);
                 }
             }
             catch (Exception ex)
@@ -924,8 +923,8 @@ namespace Optimizer
                 ErrorLogger.LogError("Optimize.EnableOffice2016Telemetry", ex.Message, ex.StackTrace);
             }
 
-            Utilities.RunBatchFile(Required.ScriptsFolder + "EnableOfficeTelemetryTasks.bat");
-            Utilities.ImportRegistryScript(Required.ScriptsFolder + "EnableOfficeTelemetryTasks.reg");
+            Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.bat");
+            Utilities.ImportRegistryScript(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.reg");
         }
 
         internal static void EnhancePrivacy()
@@ -934,7 +933,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "RotatingLockScreenEnabled", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "DisableWindowsSpotlightFeatures", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "DisableTailoredExperiencesWithDiagnosticData", "1", RegistryValueKind.DWord);
-            
+
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent", "DisableCloudOptimizedContent", 1);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection", "DoNotShowFeedbackNotifications", 1);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds", "EnableFeeds", 0);
@@ -1063,7 +1062,7 @@ namespace Optimizer
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "RotatingLockScreenEnabled");
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "DisableWindowsSpotlightFeatures");
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "DisableTailoredExperiencesWithDiagnosticData");
-            
+
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\CloudContent", "DisableCloudOptimizedContent");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\DataCollection", "DoNotShowFeedbackNotifications");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\Windows Feeds", "EnableFeeds");
@@ -1079,7 +1078,7 @@ namespace Optimizer
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\TextInput", "AllowLinguisticDataCollection");
 
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\InputPersonalization", "AllowInputPersonalization");
-            
+
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\System", "UploadUserActivities");
 
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\System", "AllowCrossDeviceClipboard");
@@ -1449,7 +1448,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer", "SmartScreenEnabled", "Off", RegistryValueKind.String);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\PhishingFilter", "EnabledV9", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AppHost", "PreventOverride", 0, RegistryValueKind.DWord);
-            
+
             using (RegistryKey localMachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
             {
                 localMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance").SetValue("Enabled", 0);
@@ -1757,7 +1756,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableScreenshotCapture", 1);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\VisualStudio\SQM", "OptIn", 0);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\VisualStudio\Setup", "ConcurrentDownloads", 2, RegistryValueKind.DWord);
-            
+
             if (Environment.Is64BitOperatingSystem)
             {
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\14.0\SQM", "OptIn", 0);

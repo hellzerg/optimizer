@@ -449,7 +449,7 @@ namespace Optimizer.Controls
 
             return result;
         }
-        
+
         protected virtual Color GetContrastColor(Color c)
         {
             double brightness = c.R * 0.299 + c.G * 0.587 + c.B * 0.114;
@@ -526,7 +526,7 @@ namespace Optimizer.Controls
             {
                 this.HslColor = new HslColor(this.Color);
             }
-            
+
             this.SelectionGlyph = this.CreateSelectionGlyph();
             this.Refresh();
 

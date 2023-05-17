@@ -4,11 +4,25 @@ using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using System.Windows.Forms;
 
 namespace Optimizer
 {
     internal static class PingerHelper
     {
+        internal static string[] DNSOptions =
+        {
+            "Automatic",
+            "Cloudflare",
+            "OpenDNS",
+            "Quad9",
+            "Google",
+            "AlternateDNS",
+            "Adguard",
+            "CleanBrowsing",
+            "CleanBrowsing (adult filter)"
+        };
+
         internal static string[] GoogleDNSv4 = { "8.8.8.8", "8.8.4.4" };
         internal static string[] GoogleDNSv6 = { "2001:4860:4860::8888", "2001:4860:4860::8844" };
 
@@ -94,6 +108,22 @@ namespace Optimizer
 
             Utilities.RunCommand(cmdv4);
             Utilities.RunCommand(cmdv6);
+        }
+
+        internal static void ResetDefaultDNSForAllNICs()
+        {
+            foreach (string nic in NetworkAdapters.Select(x => x.Name))
+            {
+                ResetDefaultDNS(nic);
+            }
+        }
+
+        internal static void SetDNSForAllNICs(string[] dnsv4, string[] dnsv6)
+        {
+            foreach (string nic in NetworkAdapters.Select(x => x.Name))
+            {
+                SetDNS(nic, dnsv4, dnsv6);
+            }
         }
 
         internal static PingReply PingHost(string nameOrAddress)
