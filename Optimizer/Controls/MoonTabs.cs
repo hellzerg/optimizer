@@ -86,8 +86,8 @@ namespace Optimizer
 
             Margin = new Padding(0);
             Padding = new Point(0, 0);
-
-            this.SizeMode = TabSizeMode.Normal;
+            
+            this.SizeMode = TabSizeMode.Fixed;
         }
 
         private void SetDragState() => bDrag = (CanDrag && bMouseDown && bShiftKey);

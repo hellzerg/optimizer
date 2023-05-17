@@ -1,4 +1,6 @@
 ﻿using Microsoft.Win32;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,6 +14,7 @@ using System.ServiceProcess;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text;
 
 namespace Optimizer
 {
@@ -754,6 +757,31 @@ namespace Optimizer
             }
         }
 
+        internal static void AllowProcessToRun(string pName)
+        {
+            try
+            {
+                using (RegistryKey ifeo = Registry.LocalMachine.OpenSubKeyWritable(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", RegistryRights.FullControl))
+                {
+                    if (ifeo == null) return;
+
+                    ifeo.GrantFullControlOnSubKey("Image File Execution Options");
+
+                    using (RegistryKey k = ifeo.OpenSubKeyWritable("Image File Execution Options", RegistryRights.FullControl))
+                    {
+                        if (k == null) return;
+
+                        k.GrantFullControlOnSubKey(pName);
+                        k.DeleteSubKey(pName);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Utilities.AllowProcessToRun", ex.Message, ex.StackTrace);
+            }
+        }
+
         internal static void PreventProcessFromRunning(string pName)
         {
             try
@@ -784,6 +812,25 @@ namespace Optimizer
             {
                 ErrorLogger.LogError("Utilities.PreventProcessFromRunning", ex.Message, ex.StackTrace);
             }
+        }
+
+        // for debugging purposes
+        internal static void FindDiffInTwoJsons()
+        {
+            JObject file1 = JObject.Parse(Properties.Resources.EN);
+            JObject file2 = JObject.Parse(Properties.Resources.KO);
+
+            var p1 = file1.Properties().ToList();
+            var p2 = file2.Properties().ToList();
+
+            var missingProps = p1.Where(expected => p2.Where(actual => actual.Name == expected.Name).Count() == 0);
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var x in missingProps)
+            {
+                sb.Append(x.Name + Environment.NewLine);
+            }
+            MessageBox.Show(sb.ToString());
         }
     }
 }
