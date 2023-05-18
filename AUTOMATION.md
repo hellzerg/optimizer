@@ -1,4 +1,4 @@
-## You can execute Optimizer silently, automating a range of operations based on a template. ##
+## Automating a range of operations based on a template. ##
 
 Download the template file and edit it accordingly.
 Then, execute it like this: ```optimizer.exe /config=template.json```
