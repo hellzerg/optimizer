@@ -6,18 +6,18 @@ Then, execute it like this: ```optimizer.exe /config=template.json```
 ### Download the template: ###
 https://github.com/hellzerg/optimizer/blob/master/templates/optimizer-template.json
 
-#### WindowsVersion (required) ####
+### WindowsVersion (required) ###
 * Should match your actual Windows version. Available values: ```7 | 8 | 10 | 11```
 
-#### Cleaner ####
+### Cleaner ###
 * Choose which target folder you wish to clean by marking ```true```
 
-#### Pinger ####
+### Pinger ###
 * Choose your desired DNS provider.
 * Available values: ```Automatic | Cloudflare | OpenDNS | Quad9 | Google | AlternateDNS | Adguard | CleanBrowsing | CleanBrowsing (adult filter)```
 * If you wish to perform DNS cache flushing, set it to ```true```
 
-#### ProcessControl ####
+### ProcessControl ###
 * Choose which processes you wish to prevent from running, using their filename.
 * You can remove previously prevented processes, in order to allow them to run again.
 * Example: 
@@ -28,7 +28,7 @@ https://github.com/hellzerg/optimizer/blob/master/templates/optimizer-template.j
 }
 ```
 
-#### Hosts ####
+### Hosts ###
 * Control your hosts entries. ```Add``` list adds the entries, ```Block``` list routes the entries to ```0.0.0.0``` effectively blocking access to them.
 * Example:
 ```
@@ -49,31 +49,31 @@ https://github.com/hellzerg/optimizer/blob/master/templates/optimizer-template.j
 }	
 ```
 
-#### RegistryFix ####
+### RegistryFix ###
 * You can try enabling core Windows components by marking them ```true```
 * You typically do not need this, unless you are trying to repair a computer from malicious actions
 
-#### Integrator ####
+### Integrator ###
 * ```TakeOwnership```: Mark ```true``` to add a "Take Ownership" option in right-click menu. Remove it by marking ```false```
 * ```OpenWithCMD```: Mark ```true``` to add a "Open CMD here" option in right-click menu. Remove it by marking ```false```
 
-#### AdvancedTweaks ####
+### AdvancedTweaks ###
 * Deeply technical tweaks that you should NOT touch, unless you know what you are really doing
 
 * ```UnlockAllCores```: DO NOT use this option. Leave it ```null``` or ```false```.
 * ```DisableHPET```: Enables or disables High Precision Event Timer.
 * ```EnableLoginVerbose```: Enables or disables Detailed Login Screen
 
-##### SvchostProcessSplitting #####
+#### SvchostProcessSplitting ####
 * Mark it ```true``` and set the amount of ```RAM``` to reduce the svchost.exe processes for optimal memory
 * Mark it ```false``` to enable process splitting for optimal performance
 
-#### Tweaks ####
+### Tweaks ###
 * Mark the options you want to APPLY to ```true```
 * Mark the options you want to RESET to ```false```
 * Mark the options you want to IGNORE to ```null```
 
-#### PostAction ####
+### PostAction ###
 * Final action after executing the template.
 * You may mark ```Restart``` to ```true``` to restart in order to effectively apply the changes.
 * You may choose between different types of restarting by configuring ```RestartType```
