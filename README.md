@@ -62,7 +62,7 @@ Execute Optimizer with `/restart=disabledefender` switch and let it do the rest 
 
 ### 🔨 Automation using templating:
 
-https://github.com/hellzerg/optimizer/blob/master/TEMPLATING.md
+https://github.com/hellzerg/optimizer/blob/master/AUTOMATION.md
 
 <hr>
 
