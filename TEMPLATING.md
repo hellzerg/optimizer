@@ -16,6 +16,13 @@ https://github.com/hellzerg/optimizer/blob/master/templates/optimizer-template.j
 * Choose your desired DNS provider.
 * Available values: ```Automatic | Cloudflare | OpenDNS | Quad9 | Google | AlternateDNS | Adguard | CleanBrowsing | CleanBrowsing (adult filter)```
 * If you wish to perform DNS cache flushing, set it to ```true```
+* Example:
+```
+"Pinger": {
+    "SetDNS": "Cloudflare",
+    "FlushDNSCache": true
+}
+```
 
 ### ProcessControl ###
 * Choose which processes you wish to prevent from running, using their filename.
