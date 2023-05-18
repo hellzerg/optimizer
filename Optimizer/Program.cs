@@ -17,6 +17,7 @@ namespace Optimizer
         internal readonly static float Minor = 3;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
+        internal static bool SILENT_MODE = false;
         internal static int DPI_PREFERENCE;
 
         internal static string GetCurrentVersionTostring()
@@ -112,6 +113,12 @@ namespace Optimizer
                     return;
                 }
 
+                if (arg == "/repair")
+                {
+                    Utilities.Repair(true);
+                    return;
+                }
+
                 if (arg == "/disablehpet")
                 {
                     Utilities.DisableHPET();
@@ -149,12 +156,6 @@ namespace Optimizer
                     return;
                 }
 
-                if (arg == "/repair")
-                {
-                    Utilities.Repair(true);
-                    return;
-                }
-
                 if (arg == "/version")
                 {
                     if (!EXPERIMENTAL_BUILD) MessageBox.Show($"Optimizer: {GetCurrentVersionTostring()}\n\nCoded by: deadmoon © ∞\n\nhttps://github.com/hellzerg/optimizer", "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -163,7 +164,6 @@ namespace Optimizer
                     Environment.Exit(0);
                     return;
                 }
-
                 // instruct to restart in safe-mode
                 if (arg == "/restart=safemode")
                 {
@@ -210,6 +210,7 @@ namespace Optimizer
                     Environment.Exit(0);
                     return;
                 }
+
 
                 // other options for disabling specific tools
                 if (arg.StartsWith("/disable="))
@@ -258,8 +259,9 @@ namespace Optimizer
                         Environment.Exit(0);
                         return;
                     }
+                    SILENT_MODE = true;
                     LoadSettings();
-                    //SilentOps.ProcessAllActions();
+                    SilentOps.ProcessAllActions();
                     Options.SaveSettings();
                 }
             }
@@ -281,8 +283,11 @@ namespace Optimizer
                 if (!File.Exists(Options.SettingsFile))
                 {
                     Options.LoadSettings();
-                    FirstRunForm frf = new FirstRunForm();
-                    frf.ShowDialog();
+                    if (!SILENT_MODE)
+                    {
+                        FirstRunForm frf = new FirstRunForm();
+                        frf.ShowDialog();
+                    }
                 }
                 else
                 {

@@ -1,3 +1,9 @@
+## [15.3] - 2023-05-18
+- New: Automation engine by using reusable templates (https://github.com/hellzerg/optimizer/blob/master/TEMPLATING.md)
+- Hotfix: Various localization updates
+- Hotfix: Rare bug in Cleaner, when choosing Mozilla Firefox
+- Hotfix: Improvements on UI scaling
+
 ## [15.2] - 2023-05-11
 - New: Disable or Reset svchost process splitting mechanism
 - Hotfix: Rare crash when loading UWP apps

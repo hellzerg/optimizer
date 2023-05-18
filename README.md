@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/15.2/Optimizer-15.2.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/15.3/Optimizer-15.3.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -60,7 +60,13 @@ Execute Optimizer with `/restart=disabledefender` switch and let it do the rest 
 
 <hr>
 
-### 🔨 Command-line options and silent configuration files:
+### 🔨 Automation using templating:
+
+https://github.com/hellzerg/optimizer/blob/master/TEMPLATING.md
+
+<hr>
+
+### 🔨 Command-line options:
 
 https://github.com/hellzerg/optimizer/blob/master/CONFS.md
 
@@ -100,9 +106,9 @@ https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
 
 ### 📊 Details:
 
-- Latest version: 15.2
-- Released: May 11, 2023
-- SHA256: 1CF55C700098699732ECB2D658E6B236F1207D6D4D446AE196EEA30A8BD49751
+- Latest version: 15.3
+- Released: May 18, 2023
+- SHA256: 0F225C69528A10E2E4616BF00CB5164B8A010F630D774AC2989916D477CF75FD
 
 <hr>
 

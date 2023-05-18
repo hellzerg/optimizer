@@ -680,7 +680,14 @@ namespace Optimizer
 
         internal static void EnableLoginVerbose()
         {
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "verbosestatus", 1, RegistryValueKind.DWord);
+            try
+            {
+                Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "verbosestatus", 1, RegistryValueKind.DWord);
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Utilities.EnableLoginVerbose", ex.Message, ex.StackTrace);
+            }
         }
 
         internal static void DisableLoginVerbose()
@@ -696,20 +703,37 @@ namespace Optimizer
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583", "ValueMax", 0, RegistryValueKind.DWord);
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583", "ValueMin", 0, RegistryValueKind.DWord);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Utilities.UnlockAllCores", ex.Message, ex.StackTrace);
+            }
         }
 
         // value = RAM in GB * 1024 * 1024
         internal static void DisableSvcHostProcessSplitting(int ramInGb)
         {
-            ramInGb = ramInGb * 1024 * 1024;
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control", "SvcHostSplitThresholdInKB", ramInGb, RegistryValueKind.DWord);
+            try
+            {
+                ramInGb = ramInGb * 1024 * 1024;
+                Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control", "SvcHostSplitThresholdInKB", ramInGb, RegistryValueKind.DWord);
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Utilities.DisableSvcHostProcessSplitting", ex.Message, ex.StackTrace);
+            }
         }
 
         // reset the value to default
         internal static void EnableSvcHostProcessSplitting()
         {
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control", "SvcHostSplitThresholdInKB", 380000, RegistryValueKind.DWord);
+            try
+            {
+                Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control", "SvcHostSplitThresholdInKB", 380000, RegistryValueKind.DWord);
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Utilities.EnableSvcHostProcessSplitting", ex.Message, ex.StackTrace);
+            }
         }
 
         internal static void DisableHPET()

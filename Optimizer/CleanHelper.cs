@@ -262,38 +262,44 @@ namespace Optimizer
 
         internal static void PreviewFireFoxClean(bool cache, bool cookies, bool searchHistory)
         {
-            foreach (string x in Directory.EnumerateDirectories(firefoxRoaming))
+            if (Directory.Exists(firefoxRoaming))
             {
-                if (x.ToLowerInvariant().Contains("release"))
+                foreach (string x in Directory.EnumerateDirectories(firefoxRoaming))
                 {
-                    if (cookies)
+                    if (x.ToLowerInvariant().Contains("release"))
                     {
-                        PreviewFolder(Path.Combine(x, "cookies.sqlite"));
-                        PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "cookies.sqlite"));
-                    }
+                        if (cookies)
+                        {
+                            PreviewFolder(Path.Combine(x, "cookies.sqlite"));
+                            PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "cookies.sqlite"));
+                        }
 
-                    if (searchHistory)
-                    {
-                        PreviewFolder(Path.Combine(x, "places.sqlite"));
-                        PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "places.sqlite"));
-                    }
+                        if (searchHistory)
+                        {
+                            PreviewFolder(Path.Combine(x, "places.sqlite"));
+                            PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "places.sqlite"));
+                        }
 
-                    if (cache)
-                    {
-                        PreviewFolder(Path.Combine(x, "shader-cache"));
-                        PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "shader-cache"));
+                        if (cache)
+                        {
+                            PreviewFolder(Path.Combine(x, "shader-cache"));
+                            PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "shader-cache"));
+                        }
                     }
                 }
             }
 
             if (cache)
             {
-                foreach (string x in Directory.EnumerateDirectories(firefoxLocal))
+                if (Directory.Exists(firefoxLocal))
                 {
-                    if (x.ToLowerInvariant().Contains("release"))
+                    foreach (string x in Directory.EnumerateDirectories(firefoxLocal))
                     {
-                        PreviewFolder(Path.Combine(x, "cache2"));
-                        PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "cache2"));
+                        if (x.ToLowerInvariant().Contains("release"))
+                        {
+                            PreviewFolder(Path.Combine(x, "cache2"));
+                            PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "cache2"));
+                        }
                     }
                 }
             }

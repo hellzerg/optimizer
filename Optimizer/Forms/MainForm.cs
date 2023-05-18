@@ -88,12 +88,6 @@ namespace Optimizer
         List<TreeNode> _hwDetailed;
         TreeNode[] _hwSummarized;
 
-        //Size _sizeDefault = new Size(1100, 784);
-        //Size _sizeRussian = new Size(1410, 784);
-        //Size _sizeHellenic = new Size(1125, 784);
-        //Size _sizeTurkish = new Size(1130, 784);
-        //Size _sizeFrench = new Size(1085, 784);
-
         bool _cleanSelectAll = true;
         List<string> _cleanPreviewList;
 
@@ -1044,11 +1038,24 @@ namespace Optimizer
                 picLab.Visible = true;
             }
 
-            LoadTranslationAndSetSize();
             //InitNetworkMonitoring();
+            LoadTranslation();
             EnableToggleEvents();
+        }
 
-            this.WindowState = FormWindowState.Maximized;
+        private void FixFormSize()
+        {
+            int desiredWidth = (tabCollection.ItemSize.Width * tabCollection.TabPages.Count) + (Program.DPI_PREFERENCE / 3);
+            int desiredHeight = Convert.ToInt32(desiredWidth / 1.5);
+
+            if (desiredWidth > this.Width)
+            {
+                this.Width = desiredWidth;
+                this.Height = desiredHeight;
+            }
+
+            this.MinimumSize = new Size(desiredWidth, desiredHeight);
+            this.CenterToScreen();
         }
 
         private void LoadReadyMenusState()
@@ -1138,7 +1145,7 @@ namespace Optimizer
             }
         }
 
-        private void LoadTranslationAndSetSize()
+        private void LoadTranslation()
         {
             if (Options.CurrentOptions.LanguageCode == LanguageCode.EN)
             {
@@ -2259,7 +2266,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            FixFormSize();
         }
 
         private void GetDesktopItems()
@@ -4362,12 +4369,11 @@ namespace Optimizer
                 Options.CurrentOptions.LanguageCode = LanguageCode.JA;
             }
 
-            this.CenterToScreen();
             Options.SaveSettings();
             Options.LoadTranslation();
             Translate();
 
-            optionsTab.Focus();
+            FixFormSize();
         }
 
         private void cleanDriveB_Click(object sender, EventArgs e)

@@ -30,14 +30,27 @@ namespace Optimizer
         [JsonProperty("Integrator", NullValueHandling = NullValueHandling.Ignore)]
         public Integrator Integrator { get; set; }
 
+        [JsonProperty("Tweaks", NullValueHandling = NullValueHandling.Ignore)]
+        public Tweaks Tweaks { get; set; }
+
+        [JsonProperty("AdvancedTweaks", NullValueHandling = NullValueHandling.Ignore)]
+        public AdvancedTweaks AdvancedTweaks { get; set; }
+    }
+
+    [Serializable]
+    public sealed class AdvancedTweaks
+    {
+        [JsonProperty("DisableHPET", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? DisableHPET { get; set; }
+
+        [JsonProperty("EnableLoginVerbose", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? EnableLoginVerbose { get; set; }
+
         [JsonProperty("UnlockAllCores", NullValueHandling = NullValueHandling.Ignore)]
         public bool? UnlockAllCores { get; set; }
 
         [JsonProperty("SvchostProcessSplitting", NullValueHandling = NullValueHandling.Ignore)]
         public SvchostProcessSplitting SvchostProcessSplitting { get; set; }
-
-        [JsonProperty("Tweaks", NullValueHandling = NullValueHandling.Ignore)]
-        public Tweaks Tweaks { get; set; }
     }
 
     [Serializable]
@@ -255,9 +268,6 @@ namespace Optimizer
         public bool? DisableTPMCheck { get; set; }
         public bool? CompactMode { get; set; }
         public bool? DisableStickers { get; set; }
-        public bool? DisableVBS { get; set; }
-
-        public bool? DisableHPET { get; set; }
-        public bool? EnableLoginVerbose { get; set; }
+        public bool? DisableVirtualizationBasedTechnology { get; set; }
     }
 }
