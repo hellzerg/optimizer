@@ -432,5 +432,6 @@
 	"advancedTab": "Avansat",
 	"btnRestartSafe": "Reporniți în modul sigur",
 	"btnRestart": "Reporniți în modul normal",
-	"btnRestartDisableDefender": "Reporniți && Dezactivați Defender"
+	"btnRestartDisableDefender": "Reporniți && Dezactivați Defender",
+	"classicPhotoViewerSw": "Restaurați vizualizatorul foto clasic"
 }

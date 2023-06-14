@@ -450,5 +450,6 @@ Má to negativní vliv na výkon.",
 	"advancedTab": "Pokročilý",
 	"btnRestartSafe": "Restartujte v nouzovém režimu",
 	"btnRestart": "Restartujte v normálním režimue",
-	"btnRestartDisableDefender": "Restartujte && Deaktivujte Defender"
+	"btnRestartDisableDefender": "Restartujte && Deaktivujte Defender",
+	"classicPhotoViewerSw": "Obnovte klasický prohlížeč fotografií"
 }

@@ -419,5 +419,6 @@
 	"advancedTab": "Zaawansowany",
 	"btnRestartSafe": "Uruchom ponownie w trybie awaryjnym",
 	"btnRestart": "Uruchom ponownie w trybie normalnym",
-	"btnRestartDisableDefender": "Uruchom ponownie i wyłącz program Defender"
+	"btnRestartDisableDefender": "Uruchom ponownie i wyłącz program Defender",
+	"classicPhotoViewerSw": "Przywróć klasyczną przeglądarkę zdjęć"
 }

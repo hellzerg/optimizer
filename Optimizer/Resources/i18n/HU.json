@@ -450,5 +450,6 @@ Negatív hatással van a teljesítményre.",
 	"advancedTab": "Fejlett",
 	"btnRestartSafe": "Indítsa újra csökkentett módban",
 	"btnRestart": "Indítsa újra normál módban",
-	"btnRestartDisableDefender": "Indítsa újra és tiltsa le a Defendert"
+	"btnRestartDisableDefender": "Indítsa újra és tiltsa le a Defendert",
+	"classicPhotoViewerSw": "A klasszikus fényképnézegető visszaállítása"
 }

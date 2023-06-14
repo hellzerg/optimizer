@@ -441,5 +441,6 @@ SMBv3に置き換えられており、そちらのほうがより安全です。
 	"advancedTab": "高度",
 	"btnRestartSafe": "セーフモードで再起動",
 	"btnRestart": "通常モードで再起動",
-	"btnRestartDisableDefender": "Defender を再起動 && 無効化"
+	"btnRestartDisableDefender": "Defender を再起動 && 無効化",
+	"classicPhotoViewerSw": "クラシックフォトビューアを復元する"
 }

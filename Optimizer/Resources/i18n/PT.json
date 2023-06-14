@@ -447,5 +447,6 @@ Tem efeito negativo no desempenho.",
 	"advancedTab": "Avançado",
 	"btnRestartSafe": "Reiniciar no modo de segurança",
 	"btnRestart": "Reiniciar no modo normal",
-	"btnRestartDisableDefender": "Reiniciar && Desativar Defender"
+	"btnRestartDisableDefender": "Reiniciar && Desativar Defender",
+	"classicPhotoViewerSw": "Restaurar visualizador de fotos clássico"
 }

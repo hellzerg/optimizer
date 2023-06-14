@@ -260,6 +260,7 @@ namespace Optimizer
             vbsSw.ToggleClicked += VbsSw_ToggleClicked;
             hpetSw.ToggleClicked += HpetSw_ToggleClicked;
             loginVerboseSw.ToggleClicked += LoginVerboseSw_ToggleClicked;
+            classicPhotoViewerSw.ToggleClicked += ClassicPhotoViewerSw_ToggleClicked;
 
             PMB.ToggleClicked += PMB_ToggleClicked;
             SSB.ToggleClicked += SSB_ToggleClicked;
@@ -268,6 +269,19 @@ namespace Optimizer
             DSB.ToggleClicked += DSB_ToggleClicked;
             AddCMDB.ToggleClicked += AddCMDB_ToggleClicked;
             AddOwnerB.ToggleClicked += AddOwnerB_ToggleClicked;
+        }
+
+        private void ClassicPhotoViewerSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (classicPhotoViewerSw.ToggleChecked)
+            {
+                OptimizeHelper.RestoreClassicPhotoViewer();
+            }
+            else
+            {
+                OptimizeHelper.DisableClassicPhotoViewer();
+            }
+            Options.CurrentOptions.RestoreClassicPhotoViewer = classicPhotoViewerSw.ToggleChecked;
         }
 
         private void LoginVerboseSw_ToggleClicked(object sender, EventArgs e)
@@ -645,6 +659,7 @@ namespace Optimizer
                 vbsSw.Label.Tag = Options.TranslationList["vbsTip"].ToString();
                 hpetSw.Label.Tag = Options.TranslationList["hpetSw"].ToString();
                 loginVerboseSw.Label.Tag = Options.TranslationList["loginVerboseSw"].ToString();
+                classicPhotoViewerSw.Label.Tag = Options.TranslationList["classicPhotoViewerSw"].ToString();
             }
             catch (Exception err)
             {
@@ -2249,6 +2264,7 @@ namespace Optimizer
             castSw.ToggleChecked = Options.CurrentOptions.RemoveCastToDevice;
             gameModeSw.ToggleChecked = Options.CurrentOptions.EnableGamingMode;
             tpmSw.ToggleChecked = Options.CurrentOptions.DisableTPMCheck;
+            classicPhotoViewerSw.ToggleChecked = Options.CurrentOptions.RestoreClassicPhotoViewer;
         }
 
         private void LoadWindowsXIToggleStates()

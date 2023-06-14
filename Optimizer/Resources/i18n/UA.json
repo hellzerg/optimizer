@@ -452,5 +452,6 @@
 	"advancedTab": "Просунутий",
 	"btnRestartSafe": "Перезапустіть у безпечному режимі",
 	"btnRestart": "Перезапустіть у звичайному режимі",
-	"btnRestartDisableDefender": "Перезапустіть && Вимкніть Defender"
+	"btnRestartDisableDefender": "Перезапустіть && Вимкніть Defender",
+	"classicPhotoViewerSw": "Відновити Classic Photo Viewer"
 }

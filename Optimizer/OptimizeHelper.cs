@@ -1565,6 +1565,16 @@ namespace Optimizer
         //    Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "Start_ShowClassicMode", "0", RegistryValueKind.DWord);
         //}
 
+        internal static void RestoreClassicPhotoViewer()
+        {
+            Utilities.ImportRegistryScript(CoreHelper.ScriptsFolder + "RestoreClassicPhotoViewer.reg");
+        }
+
+        internal static void DisableClassicPhotoViewer()
+        {
+            Utilities.ImportRegistryScript(CoreHelper.ScriptsFolder + "DisableClassicPhotoViewer.reg");
+        }
+
         internal static void DisableVirtualizationBasedSecurity()
         {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard", "EnableVirtualizationBasedSecurity", 0, RegistryValueKind.DWord);

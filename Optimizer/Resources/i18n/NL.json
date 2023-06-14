@@ -401,5 +401,6 @@ Het heeft een negatief effect op de prestaties.",
 	"advancedTab": "Geavanceerd",
 	"btnRestartSafe": "Start opnieuw op in Veilige modus",
 	"btnRestart": "Start opnieuw op in de normale modus",
-	"btnRestartDisableDefender": "Herstart && Schakel Defender uit"
+	"btnRestartDisableDefender": "Herstart && Schakel Defender uit",
+   "classicPhotoViewerSw": "Herstel klassieke fotoviewer"
 }

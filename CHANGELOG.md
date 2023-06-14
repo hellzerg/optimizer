@@ -1,3 +1,7 @@
+## [15.4] - 2023-06-14
+- New: Restore Classic Photo Viewer in Windows 10/11 (#342)
+- Hotfix: Addressed various UI glitches
+
 ## [15.3] - 2023-05-18
 - New: Automation engine by using reusable templates (https://github.com/hellzerg/optimizer/blob/master/AUTOMATION.md)
 - Hotfix: Various localization updates

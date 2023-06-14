@@ -78,6 +78,7 @@ namespace Optimizer
         public bool EnableLongPaths { get; set; }
         public bool RemoveCastToDevice { get; set; }
         public bool EnableGamingMode { get; set; }
+        public bool RestoreClassicPhotoViewer { get; set; }
 
         // windows 11
         public bool TaskbarToLeft { get; set; }
@@ -159,14 +160,6 @@ namespace Optimizer
                     if ((string)c.Tag == _themeFlag)
                     {
                         c.ForeColor = c1;
-                    }
-                }
-
-                if (x is MoonComboBox)
-                {
-                    if ((string)c.Tag == _themeFlag)
-                    {
-                        c.SelectColor = c1;
                     }
                 }
 
@@ -275,6 +268,7 @@ namespace Optimizer
                     CurrentOptions.DisableSMB2 = false;
                     CurrentOptions.DisableNTFSTimeStamp = false;
                     CurrentOptions.DisableSearch = false;
+                    CurrentOptions.RestoreClassicPhotoViewer = false;
 
                     CurrentOptions.DisableVisualStudioTelemetry = false;
                     CurrentOptions.DisableFirefoxTemeletry = false;

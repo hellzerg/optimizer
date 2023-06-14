@@ -449,5 +449,6 @@
 	"advancedTab": "先進的",
 	"btnRestartSafe": "以安全模式重啟",
 	"btnRestart": "以正常模式重啟",
-	"btnRestartDisableDefender": "重新啟動 && 禁用 Defender"
+	"btnRestartDisableDefender": "重新啟動 && 禁用 Defender",
+	"classicPhotoViewerSw": "恢复经典照片查看器"
 }

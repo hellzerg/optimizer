@@ -450,5 +450,6 @@
 	"advancedTab": "متقدم",
 	"btnRestartSafe": "أعد التشغيل في الوضع الآمن",
 	"btnRestart": "أعد التشغيل في الوضع العاديe",
-	"btnRestartDisableDefender": "عادة تشغيل && تعطيل Defender"
+	"btnRestartDisableDefender": "عادة تشغيل && تعطيل Defender",
+	"classicPhotoViewerSw": "استعادة عارض الصور الكلاسيكي"
 }

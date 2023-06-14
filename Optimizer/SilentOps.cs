@@ -984,6 +984,19 @@ namespace Optimizer
                 }
                 Options.CurrentOptions.DisableEdgeDiscoverBar = CurrentSilentConfig.Tweaks.DisableEdgeDiscoverBar.Value;
             }
+
+            if (CurrentSilentConfig.Tweaks.RestoreClassicPhotoViewer.HasValue)
+            {
+                if (CurrentSilentConfig.Tweaks.RestoreClassicPhotoViewer.Value)
+                {
+                    OptimizeHelper.RestoreClassicPhotoViewer();
+                }
+                else
+                {
+                    OptimizeHelper.DisableClassicPhotoViewer();
+                }
+                Options.CurrentOptions.RestoreClassicPhotoViewer = CurrentSilentConfig.Tweaks.RestoreClassicPhotoViewer.Value;
+            }
         }
         #endregion
 

@@ -20,7 +20,7 @@ namespace Optimizer
             ReadyMadeMenusFolder + "SystemTools.reg",
             ReadyMadeMenusFolder + "WindowsApps.reg",
             ReadyMadeMenusFolder + "InstallTakeOwnership.reg",
-            ReadyMadeMenusFolder + "RemoveTakeOwnership.reg",
+            ReadyMadeMenusFolder + "RemoveTakeOwnership.reg"
         };
 
         readonly static string[] readyMadeMenusFiles =
@@ -31,7 +31,7 @@ namespace Optimizer
             Properties.Resources.SystemTools,
             Properties.Resources.WindowsApps,
             Properties.Resources.InstallTakeOwnership,
-            Properties.Resources.RemoveTakeOwnership
+            Properties.Resources.RemoveTakeOwnership,
         };
 
         readonly static string[] scriptItems =
@@ -46,7 +46,9 @@ namespace Optimizer
             ScriptsFolder + "EnableXboxTasks.bat",
             ScriptsFolder + "OneDrive_Uninstaller.cmd",
             ScriptsFolder + "GPEditEnablerInHome.bat",
-            ScriptsFolder + "AddOpenWithCMD.reg"
+            ScriptsFolder + "AddOpenWithCMD.reg",
+            ScriptsFolder + "RestoreClassicPhotoViewer.reg",
+            ScriptsFolder + "DisableClassicPhotoViewer.reg"
         };
 
         readonly static string[] scriptFiles =
@@ -61,7 +63,9 @@ namespace Optimizer
             Properties.Resources.EnableXboxTasks,
             Encoding.UTF8.GetString(Properties.Resources.OneDrive_Uninstaller),
             Properties.Resources.GPEditEnablerInHome,
-            Properties.Resources.AddOpenWithCMD
+            Properties.Resources.AddOpenWithCMD,
+            Properties.Resources.RestoreClassicPhotoViewer,
+            Properties.Resources.DisableClassicPhotoViewer
         };
 
         internal static void Deploy()

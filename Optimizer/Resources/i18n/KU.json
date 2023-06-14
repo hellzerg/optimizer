@@ -449,5 +449,6 @@
 	"advancedTab": "پێشکەوتوو",
 	"btnRestartSafe": "لە دۆخی سەلامەتدا دووبارە دەستپێبکەرەوە",
 	"btnRestart": "لە دۆخی ئاساییدا دووبارە دەستپێبکەرەوە",
-	"btnRestartDisableDefender": "دووبارە دەستپێکردنەوە && لەکارخستنی بەرگریکار"
+	"btnRestartDisableDefender": "دووبارە دەستپێکردنەوە && لەکارخستنی بەرگریکار",
+	"classicPhotoViewerSw": "گەڕاندنەوەی بینەری وێنەی کلاسیک"
 }

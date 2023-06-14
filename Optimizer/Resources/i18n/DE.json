@@ -426,5 +426,6 @@ Es wirkt sich negativ auf die Leistung aus.",
 	"advancedTab": "Fortschrittlich",
 	"btnRestartSafe": "Neustart im abgesicherten Modus",
 	"btnRestart": "Neustart im Normalmodus",
-	"btnRestartDisableDefender": "Neustart && Defender deaktivieren"
+	"btnRestartDisableDefender": "Neustart && Defender deaktivieren",
+	"classicPhotoViewerSw": "Stellen Sie den klassischen Fotobetrachter wieder her"
 }

@@ -90,9 +90,7 @@
     <Compile Include="Controls\ColorPicker.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\MoonComboBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controls\MoonComboBox.cs" />
     <Compile Include="Controls\MoonList.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -316,6 +314,7 @@
     <None Include="Resources\i18n\CZ.json" />
     <None Include="Resources\i18n\DE.json" />
     <None Include="Resources\Scripts\DesktopShortcuts.reg" />
+    <None Include="Resources\Scripts\DisableClassicPhotoViewer.reg" />
     <None Include="Resources\Scripts\DisableDefenderSafeMode1903Plus.bat" />
     <None Include="Resources\Scripts\DisableOfficeTelemetry.reg" />
     <None Include="Resources\i18n\EN.json" />
@@ -336,6 +335,7 @@
     <None Include="Resources\i18n\PT.json" />
     <None Include="Resources\Scripts\RemoveTakeOwnership.reg" />
     <None Include="Resources\i18n\RU.json" />
+    <None Include="Resources\Scripts\RestoreClassicPhotoViewer.reg" />
     <None Include="Resources\Scripts\SystemShortcuts.reg" />
     <None Include="Resources\Scripts\SystemTools.reg" />
     <None Include="Resources\i18n\TR.json" />

@@ -529,29 +529,30 @@ namespace Optimizer
             }
         }
 
-        internal static void RestoreWindowsPhotoViewer()
-        {
-            const string PHOTO_VIEWER_SHELL_COMMAND =
-                @"%SystemRoot%\System32\rundll32.exe ""%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll"", ImageView_Fullscreen %1";
-            const string PHOTO_VIEWER_CLSID = "{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}";
+        // old and untested method
+        //internal static void RestoreWindowsPhotoViewer()
+        //{
+        //    const string PHOTO_VIEWER_SHELL_COMMAND =
+        //        @"%SystemRoot%\System32\rundll32.exe ""%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll"", ImageView_Fullscreen %1";
+        //    const string PHOTO_VIEWER_CLSID = "{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}";
 
-            Registry.SetValue(@"HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open", "MuiVerb", "@photoviewer.dll,-3043");
-            Registry.SetValue(
-                @"HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open\command", valueName: null,
-                PHOTO_VIEWER_SHELL_COMMAND, RegistryValueKind.ExpandString
-            );
-            Registry.SetValue(@"HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open\DropTarget", "Clsid", PHOTO_VIEWER_CLSID);
+        //    Registry.SetValue(@"HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open", "MuiVerb", "@photoviewer.dll,-3043");
+        //    Registry.SetValue(
+        //        @"HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open\command", valueName: null,
+        //        PHOTO_VIEWER_SHELL_COMMAND, RegistryValueKind.ExpandString
+        //    );
+        //    Registry.SetValue(@"HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open\DropTarget", "Clsid", PHOTO_VIEWER_CLSID);
 
-            string[] imageTypes = { "Paint.Picture", "giffile", "jpegfile", "pngfile" };
-            foreach (string type in imageTypes)
-            {
-                Registry.SetValue(
-                    $@"HKEY_CLASSES_ROOT\{type}\shell\open\command", valueName: null,
-                    PHOTO_VIEWER_SHELL_COMMAND, RegistryValueKind.ExpandString
-                );
-                Registry.SetValue($@"HKEY_CLASSES_ROOT\{type}\shell\open\DropTarget", "Clsid", PHOTO_VIEWER_CLSID);
-            }
-        }
+        //    string[] imageTypes = { "Paint.Picture", "giffile", "jpegfile", "pngfile" };
+        //    foreach (string type in imageTypes)
+        //    {
+        //        Registry.SetValue(
+        //            $@"HKEY_CLASSES_ROOT\{type}\shell\open\command", valueName: null,
+        //            PHOTO_VIEWER_SHELL_COMMAND, RegistryValueKind.ExpandString
+        //        );
+        //        Registry.SetValue($@"HKEY_CLASSES_ROOT\{type}\shell\open\DropTarget", "Clsid", PHOTO_VIEWER_CLSID);
+        //    }
+        //}
 
         internal static void EnableProtectedService(string serviceName)
         {

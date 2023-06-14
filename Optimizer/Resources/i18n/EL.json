@@ -445,5 +445,6 @@
 	"advancedTab": "Προχωρημένα",
 	"btnRestartSafe": "Κάντε επανεκκίνηση σε ασφαλή λειτουργία",
 	"btnRestart": "Κάντε επανεκκίνηση σε κανονική λειτουργία",
-	"btnRestartDisableDefender": "Επανεκκινήστε && Απενεργοποιήστε το Defender"
+	"btnRestartDisableDefender": "Επανεκκινήστε && Απενεργοποιήστε το Defender",
+	"classicPhotoViewerSw": "Επαναφέρετε το κλασσικό Photo Viewer"
 }

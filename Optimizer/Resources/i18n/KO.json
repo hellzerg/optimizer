@@ -452,5 +452,6 @@ Microsoft 계정 로그인이 필요합니다.",
 	"btnRestart": "정상 모드에서 다시 시작",
 	"btnRestartDisableDefender": "Defender 다시 시작 및 사용 안 함",
 	"storeUpdatesSw": "Microsoft Store 업데이트 비활성화",
-	"storeUpdatesTip": "Microsoft Store 자동 업데이트 기능을 비활성화합니다."
+	"storeUpdatesTip": "Microsoft Store 자동 업데이트 기능을 비활성화합니다.",
+	"classicPhotoViewerSw": "클래식 사진 뷰어 복원"
 }

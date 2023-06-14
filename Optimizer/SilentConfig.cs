@@ -257,6 +257,7 @@ namespace Optimizer
         public bool? EnableLongPaths { get; set; }
         public bool? RemoveCastToDevice { get; set; }
         public bool? EnableGamingMode { get; set; }
+        public bool? RestoreClassicPhotoViewer { get; set; }
 
         public bool? DisableOneDrive { get; set; }
 

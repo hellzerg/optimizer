@@ -448,5 +448,6 @@ Performansa olumsuz etkisi vardır.",
 	"advancedTab": "Gelişmiş",
 	"btnRestartSafe": "Güvenli Modda Yeniden Başlatın",
 	"btnRestart": "Normal Modda Yeniden Başlat",
-	"btnRestartDisableDefender": "Yeniden Başlat && Defender'ı Devre Dışı Bırak"
+	"btnRestartDisableDefender": "Yeniden Başlat && Defender'ı Devre Dışı Bırak",
+	"classicPhotoViewerSw": "Klasik Fotoğraf Görüntüleyiciyi Geri Yükle"
 }

@@ -424,5 +424,6 @@ Necessite l'ouverture d'un compte Microsoft.",
 	"advancedTab": "Avancé",
 	"btnRestartSafe": "Redémarrer en mode sans échec",
 	"btnRestart": "Redémarrer en mode normal",
-	"btnRestartDisableDefender": "Redémarrer et désactiver Defender"
+	"btnRestartDisableDefender": "Redémarrer et désactiver Defender",
+	"classicPhotoViewerSw": "Restaurer la visionneuse de photos classique"
 }

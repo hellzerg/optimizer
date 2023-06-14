@@ -79,7 +79,7 @@ namespace Optimizer.Properties {
         ///[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWithCMD\command]
         ///@=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot;
         ///
-        ///[HKEY_CLASSES_ROOT\D [rest of string was truncated]&quot;;.
+        ///[HKEY_CLASSES_ROOT\Drive\shell\OpenWit [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AddOpenWithCMD {
             get {
@@ -251,13 +251,41 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
+        ///
+        ///; MajorGeeks.Com
+        ///; How to Restore the Windows Photo Viewer on Windows 10
+        ///; https://www.majorgeeks.com/content/page/restore_the_windows_photo_viewer_on_windows_10.html
+        ///
+        ///[HKEY_CLASSES_ROOT\jpegfile\shell\open\DropTarget]
+        ///&quot;Clsid&quot;=-
+        ///
+        ///[HKEY_CLASSES_ROOT\pngfile\shell\open\DropTarget]
+        ///&quot;Clsid&quot;=-
+        ///
+        ///[-HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open]
+        ///
+        ///[-HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Bitmap]
+        ///
+        ///[-HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.JFIF]
+        ///
+        ///[-H [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string DisableClassicPhotoViewer {
+            get {
+                return ResourceManager.GetString("DisableClassicPhotoViewer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to rem USE AT OWN RISK AS IS WITHOUT WARRANTY OF ANY KIND !!!!!
         ///
         ///rem https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/security-malware-windows-defender-disableantispyware
         ///rem &quot;DisableAntiSpyware&quot; is discontinued and will be ignored on client devices, as of the August 2020 (version 4.18.2007.8) update to Microsoft Defender Antivirus.
         ///
         ///rem Disable Tamper Protection First !!!!!
-        ///rem https://www.tenforums.com/tutorials/123792-turn-off-tamper-protection-windows-defender-antivirus.ht [rest of string was truncated]&quot;;.
+        ///rem https://www.tenforums.com/tutorials/123792-turn-off-tamper-protection-windows-defender-antivirus.html
+        ///reg [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableDefenderSafeMode1903Plus {
             get {
@@ -280,7 +308,7 @@ namespace Optimizer.Properties {
         ///&quot;xlsolution&quot;=dword:00000001
         /// 
         ///[HKEY_CURRENT_USER\Software\Policies\microsoft\office\16.0\osm\preventedsolutiontypes]
-        ///&quot;agave&quot; [rest of string was truncated]&quot;;.
+        ///&quot;agave&quot;=dword:0000000 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableOfficeTelemetry {
             get {
@@ -296,7 +324,7 @@ namespace Optimizer.Properties {
         ///
         ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgentFallBack&quot;
         ///schtasks /change /tn &quot;\Microsoft\Office\OfficeTelemetryAgentFallBack&quot; /disable
-        ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgen [rest of string was truncated]&quot;;.
+        ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgentLogOn&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableOfficeTelemetryTasks {
             get {
@@ -310,7 +338,7 @@ namespace Optimizer.Properties {
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot;
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot; /disable
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot;
-        ///schtasks /change /tn &quot;\Microsoft\ [rest of string was truncated]&quot;;.
+        ///schtasks /change /tn &quot;\Microsoft\Windo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableTelemetryTasks {
             get {
@@ -455,7 +483,7 @@ namespace Optimizer.Properties {
         ///schtasks /change /tn &quot;\Microsoft\Office\OfficeTelemetryAgentLogOn&quot; /enable
         ///
         ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\15.0\Outlook\Options\Mail&quot; /v &quot;EnableLogging&quot; /t REG_DWORD /d 1 /f
-        ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\16.0\Outlook\Options\Mail&quot; /v &quot;EnableLoggi [rest of string was truncated]&quot;;.
+        ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\16.0\Outlook\Options\Mail&quot; /v &quot;EnableLogging&quot; /t  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnableOfficeTelemetryTasks {
             get {
@@ -469,7 +497,7 @@ namespace Optimizer.Properties {
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot; /enable
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip&quot; /enable
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\Uploader&quot; /enable
-        ///schta [rest of string was truncated]&quot;;.
+        ///schtasks / [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnableTelemetryTasks {
             get {
@@ -639,7 +667,7 @@ namespace Optimizer.Properties {
         ///&quot;NoWorkingDirectory&quot;=&quot;&quot;
         ///
         ///[HKEY_CLASSES_ROOT\Directory\shell\runas\command]
-        ///@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d  [rest of string was truncated]&quot;;.
+        ///@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d y &amp;&amp; icacls \&quot;% [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string InstallTakeOwnership {
             get {
@@ -722,25 +750,25 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
-        ///	&quot;subSystem&quot;: &quot;체계&quot;,
-        ///	&quot;subPrivacy&quot;: &quot;은둔&quot;,
-        ///	&quot;subGaming&quot;: &quot;노름&quot;,
-        ///	&quot;subTouch&quot;: &quot;접촉&quot;,
+        ///	&quot;subSystem&quot;: &quot;시스템&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;개인 정보&quot;,
+        ///	&quot;subGaming&quot;: &quot;게이밍&quot;,
+        ///	&quot;subTouch&quot;: &quot;터치&quot;,
         ///	&quot;subTaskbar&quot;: &quot;작업 표시줄&quot;,
-        ///	&quot;subExtras&quot;: &quot;엑스트라&quot;,
-        ///    &quot;btnAbout&quot;: &quot;확인&quot;,
+        ///	&quot;subExtras&quot;: &quot;추가&quot;,	
+        ///	&quot;btnAbout&quot;: &quot;확인&quot;,
         ///	&quot;restartButton&quot;: &quot;지금 다시 시작&quot;,
         ///	&quot;restartButton8&quot;: &quot;지금 다시 시작&quot;,
         ///	&quot;restartButton10&quot;: &quot;지금 다시 시작&quot;,
         ///	&quot;btnFind&quot;: &quot;찾기&quot;,
         ///	&quot;btnKill&quot;: &quot;죽이기&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;파일 핸들&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;다시 시작하여 변경 사항을 적용하시겠습니까&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;다시 시작하여 변경 사항 적용&quot;,
         ///	&quot;txtVersion&quot;: &quot;버전: {VN}&quot;,
         ///	&quot;txtBitness&quot;: &quot;{BITS}로 작업중 - 한국어: 비너스걸&quot;,
         ///	&quot;linkUpdate&quot;: &quot;업데이트 가능&quot;,
         ///	&quot;lblLab&quot;: &quot;실험 빌드\n(테스트 후 삭제)&quot;,
-        ///	&quot;performanc [rest of string was truncated]&quot;;.
+        ///	&quot;performanceSw&quot;:  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string KO {
             get {
@@ -939,6 +967,26 @@ namespace Optimizer.Properties {
         internal static string RemoveTakeOwnership {
             get {
                 return ResourceManager.GetString("RemoveTakeOwnership", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
+        ///
+        ///; MajorGeeks.Com
+        ///; How to Restore the Windows Photo Viewer on Windows 10
+        ///; https://www.majorgeeks.com/content/page/restore_the_windows_photo_viewer_on_windows_10.html
+        ///
+        ///[HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open]
+        ///&quot;MuiVerb&quot;=&quot;@photoviewer.dll,-3043&quot;
+        ///
+        ///[HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open\command]
+        ///@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+        ///  00,5c,00,53,00,79,00,73,00,74,00,65,00,6d,00,33,0 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RestoreClassicPhotoViewer {
+            get {
+                return ResourceManager.GetString("RestoreClassicPhotoViewer", resourceCulture);
             }
         }
         

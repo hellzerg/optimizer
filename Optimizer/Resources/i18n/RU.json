@@ -420,5 +420,6 @@
 	"advancedTab": "Передовой",
 	"btnRestartSafe": "Перезапустите в безопасном режиме",
 	"btnRestart": "Перезапустите в обычном режиме",
-	"btnRestartDisableDefender": "Перезапустить и отключить Защитник"
+	"btnRestartDisableDefender": "Перезапустить и отключить Защитник",
+	"classicPhotoViewerSw": "Восстановить классический просмотрщик фотографий"
 }

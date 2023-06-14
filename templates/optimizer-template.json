@@ -129,6 +129,7 @@
         "DisableNVIDIATelemetry": null,
         "DisableSearch": null,
         "DisableEdgeDiscoverBar": null,
-        "DisableEdgeTelemetry": null
+        "DisableEdgeTelemetry": null,
+        "RestoreClassicPhotoViewer": null
     }
 }

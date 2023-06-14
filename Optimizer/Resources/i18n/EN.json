@@ -450,5 +450,6 @@ It has negative effect on performance.",
 	"advancedTab": "Advanced",
 	"btnRestartSafe": "Restart in Safe Mode",
 	"btnRestart": "Restart in Normal Mode",
-	"btnRestartDisableDefender": "Restart && Disable Defender"
+	"btnRestartDisableDefender": "Restart && Disable Defender",
+	"classicPhotoViewerSw": "Restore Classic Photo Viewer"
 }
