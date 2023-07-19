@@ -5560,7 +5560,8 @@ namespace Optimizer
             "Română",
             "Nederlands",
             "українська",
-            "日本語"});
+            "日本語",
+            "فارسی"});
             this.boxLang.Location = new System.Drawing.Point(92, 3);
             this.boxLang.Name = "boxLang";
             this.boxLang.Size = new System.Drawing.Size(212, 29);

@@ -542,6 +542,32 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;سیستم&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Privacy&quot;,
+        ///	&quot;subGaming&quot;: &quot;Gaming&quot;,
+        ///	&quot;subTouch&quot;: &quot;Touch&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;نوار وظیفه&quot;,
+        ///	&quot;subExtras&quot;: &quot;Extras&quot;,
+        ///	&quot;btnAbout&quot;: &quot;تایید&quot;,
+        ///	&quot;restartButton&quot;: &quot;Restart now&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Restart now&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Restart now&quot;,
+        ///	&quot;btnFind&quot;: &quot;پیدا کردن&quot;,
+        ///	&quot;btnKill&quot;: &quot;Kill&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;File Handles&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Restart to apply changes&quot;,
+        ///	&quot;txtVersion&quot;: &quot;نسخه: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;You are working with {BITS}&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;بروز [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string FA {
+            get {
+                return ResourceManager.GetString("FA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
         ///	&quot;subSystem&quot;: &quot;Système&quot;,
         ///	&quot;subPrivacy&quot;: &quot;Intimité&quot;,
         ///	&quot;subGaming&quot;: &quot;Jeux&quot;,
@@ -672,6 +698,16 @@ namespace Optimizer.Properties {
         internal static string InstallTakeOwnership {
             get {
                 return ResourceManager.GetString("InstallTakeOwnership", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iran {
+            get {
+                object obj = ResourceManager.GetObject("iran", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
