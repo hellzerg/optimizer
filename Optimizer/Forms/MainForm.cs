@@ -30,7 +30,7 @@ namespace Optimizer
         List<string> _hostsEntries = new List<string>();
         List<string> _customCommands = new List<string>();
         List<string> _desktopItems = new List<string>();
-        Dictionary<string, string> _modernApps = new Dictionary<string, string>();
+        List<KeyValuePair<string, string>> _modernApps = new List<KeyValuePair<string, string>>();
 
         bool _trayMenu = false;
 

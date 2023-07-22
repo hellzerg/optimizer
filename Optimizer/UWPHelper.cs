@@ -6,9 +6,9 @@ namespace Optimizer
 {
     internal static class UWPHelper
     {
-        internal static Dictionary<string, string> GetUWPApps(bool showAll)
+        internal static List<KeyValuePair<string, string>> GetUWPApps(bool showAll)
         {
-            Dictionary<string, string> modernApps = new Dictionary<string, string>();
+            List<KeyValuePair<string, string>> modernApps = new List<KeyValuePair<string, string>>();
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
             {
                 showAll = true;
@@ -41,7 +41,7 @@ namespace Optimizer
                 foreach (PSObject x in psResult)
                 {
                     tmp = x.ToString().Replace("@", string.Empty).Replace("{", string.Empty).Replace("}", string.Empty).Replace("Name=", string.Empty).Replace("InstallLocation=", string.Empty).Trim().Split(';');
-                    modernApps.Add(tmp[0], tmp[1]);
+                    modernApps.Add(new KeyValuePair<string, string>(tmp[0], tmp[1]));
                 }
             }
 

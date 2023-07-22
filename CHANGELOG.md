@@ -1,3 +1,6 @@
+## [15.6] - 2023-07-22
+- Hotfix: Crash on UWP load apps (#369 #370)
+
 ## [15.5] - 2023-07-22
 - New: Fully translated into Persian/Farsi (thanks to https://github.com/MjavadH - MjavadH)
 - New: RustDesk in Apps > Internet section
