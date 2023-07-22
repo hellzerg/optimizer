@@ -275,7 +275,7 @@ namespace Optimizer
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             Exception error = (Exception)e.ExceptionObject;
-            ErrorLogger.LogError("[Program.Main-UnhandledException]", error.Message, error.StackTrace);
+            ErrorLogger.LogError("Program.Main-UnhandledException", error.Message, error.StackTrace);
         }
 
         private static void LoadSettings()

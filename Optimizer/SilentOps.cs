@@ -1086,7 +1086,7 @@ namespace Optimizer
                 if (CurrentSilentConfig.Tweaks.DisableVirtualizationBasedTechnology.Value)
                 {
                     MessageBox.Show("no vbs");
-                   // OptimizeHelper.DisableVirtualizationBasedSecurity();
+                    // OptimizeHelper.DisableVirtualizationBasedSecurity();
                 }
                 else
                 {

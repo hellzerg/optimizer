@@ -216,7 +216,7 @@ namespace Optimizer
                 else
                 {
                     // DEFAULT OPTIONS
-                    
+
                     CurrentOptions.Theme = Color.FromArgb(153, 102, 204);
                     CurrentOptions.AppsFolder = Path.Combine(KnownFolders.GetPath(KnownFolder.Downloads), Constants.DOWNLOADS_FOLDER);
                     Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
