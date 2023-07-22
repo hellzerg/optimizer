@@ -17,7 +17,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Logs**
-Please, upload the required log file located in `C:\ProgramData\Optimizer\optimizer.log`
+Please, upload the required log file located in C:\ProgramData\Optimizer\optimizer.log
 
 **Desktop (please complete the following information):**
  - Windows version and build
