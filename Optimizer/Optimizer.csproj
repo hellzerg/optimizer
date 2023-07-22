@@ -301,6 +301,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Resources\i18n\AR.json" />
+    <None Include="Resources\i18n\FA.json" />
     <None Include="Resources\i18n\HU.json" />
     <None Include="Resources\i18n\JA.json" />
     <None Include="Resources\i18n\NL.json" />
@@ -375,6 +376,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Flags\iran.png" />
     <None Include="Resources\Flags\japan.png" />
     <None Include="Resources\Flags\ukraine.png" />
     <None Include="Resources\Assets\logo.png" />

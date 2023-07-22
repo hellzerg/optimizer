@@ -1253,6 +1253,10 @@ namespace Optimizer
             {
                 boxLang.Text = "日本語";
             }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.FA)
+            {
+                boxLang.Text = "فارسی";
+            }
         }
 
         private void GetHardwareSpecs()
@@ -4383,6 +4387,11 @@ namespace Optimizer
             {
                 picFlag.Image = Properties.Resources.japan;
                 Options.CurrentOptions.LanguageCode = LanguageCode.JA;
+            }
+            else if (boxLang.Text == "فارسی")
+            {
+                picFlag.Image = Properties.Resources.iran;
+                Options.CurrentOptions.LanguageCode = LanguageCode.FA;
             }
 
             Options.SaveSettings();

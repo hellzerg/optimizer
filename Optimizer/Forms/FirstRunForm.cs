@@ -261,5 +261,17 @@ namespace Optimizer
         {
             radioJapanese.PerformClick();
         }
+
+        private void radioFarsi_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.FA;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
+
+        private void pictureBox18_Click(object sender, EventArgs e)
+        {
+            radioFarsi.PerformClick();
+        }
     }
 }

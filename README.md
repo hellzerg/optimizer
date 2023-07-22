@@ -16,7 +16,7 @@ Advanced configuration utility that helps you restore your privacy and increase 
 Optimizer is recommended after a fresh, clean installation of Windows to achieve maximum privacy and security.<br>
 Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
 
-- Full multilingual support (21 languages available)
+- Full multilingual support (22 languages available)
 - Speed up your system and network performance
 - Disable unnecessary Windows services
 - Disable Windows telemetry, Cortana and many more
@@ -151,3 +151,4 @@ Support my hard work by donating me through [PayPal](https://www.paypal.com/payp
 - https://github.com/creeper-0910 - creeper-0910 for Correction of Japanese translation
 - Parwar Andam for Kurdish translation
 - Zan for Hungarian translation
+-  https://github.com/MjavadH - MjavadH for Farsi translation

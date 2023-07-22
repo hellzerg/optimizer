@@ -71,6 +71,8 @@ namespace Optimizer
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.radioJapanese = new Optimizer.MoonRadio();
+            this.radioFarsi = new Optimizer.MoonRadio();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox88)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox86)).BeginInit();
@@ -91,6 +93,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox88
@@ -638,6 +641,32 @@ namespace Optimizer
             this.radioJapanese.UseVisualStyleBackColor = true;
             this.radioJapanese.CheckedChanged += new System.EventHandler(this.radioJapanese_CheckedChanged);
             // 
+            // radioFarsi
+            // 
+            this.radioFarsi.AutoSize = true;
+            this.radioFarsi.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioFarsi.ForeColor = System.Drawing.Color.White;
+            this.radioFarsi.Location = new System.Drawing.Point(53, 300);
+            this.radioFarsi.Margin = new System.Windows.Forms.Padding(2);
+            this.radioFarsi.Name = "radioFarsi";
+            this.radioFarsi.Size = new System.Drawing.Size(69, 25);
+            this.radioFarsi.TabIndex = 122;
+            this.radioFarsi.Tag = "";
+            this.radioFarsi.Text = "فارسی";
+            this.radioFarsi.UseVisualStyleBackColor = true;
+            this.radioFarsi.CheckedChanged += new System.EventHandler(this.radioFarsi_CheckedChanged);
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.Image = global::Optimizer.Properties.Resources.iran;
+            this.pictureBox18.Location = new System.Drawing.Point(13, 302);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(32, 19);
+            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox18.TabIndex = 121;
+            this.pictureBox18.TabStop = false;
+            this.pictureBox18.Click += new System.EventHandler(this.pictureBox18_Click);
+            // 
             // FirstRunForm
             // 
             this.AcceptButton = this.btnStart;
@@ -646,6 +675,8 @@ namespace Optimizer
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnStart;
             this.ClientSize = new System.Drawing.Size(336, 400);
+            this.Controls.Add(this.radioFarsi);
+            this.Controls.Add(this.pictureBox18);
             this.Controls.Add(this.radioJapanese);
             this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.radioDutch);
@@ -719,6 +750,7 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -767,5 +799,7 @@ namespace Optimizer
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.PictureBox pictureBox17;
         private MoonRadio radioJapanese;
+        private MoonRadio radioFarsi;
+        private System.Windows.Forms.PictureBox pictureBox18;
     }
 }

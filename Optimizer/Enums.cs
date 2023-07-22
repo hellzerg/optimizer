@@ -106,6 +106,7 @@
         RO, // romanian
         NL, // dutch
         UA, // ukrainian
-        JA // japanese
+        JA, // japanese
+        FA //farsi
     }
 }
