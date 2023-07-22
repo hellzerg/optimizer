@@ -202,8 +202,12 @@ namespace Optimizer
         {
             try
             {
-                comment = (!string.IsNullOrEmpty(comment)) ? $"#{comment}" : string.Empty;
-                File.AppendAllText(HostsFile, NewLine + $"{entry} {comment}");
+                if (string.IsNullOrEmpty(comment))
+                {
+                    File.AppendAllText(HostsFile, NewLine + $"{entry}");
+                    return;
+                }
+                File.AppendAllText(HostsFile, NewLine + $"{entry} #{comment}");
             }
             catch (Exception ex)
             {

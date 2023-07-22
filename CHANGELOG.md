@@ -1,3 +1,13 @@
+## [15.5] - 2023-07-22
+- New: Fully translated into Persian/Farsi (thanks to https://github.com/MjavadH - MjavadH)
+- New: RustDesk in Apps > Internet section
+- New: Confirmation before restarting (#343)
+- New: Include WWW CNAME prefix in Hosts
+- Improved: Various localization updates
+- Improved: Error logger now supports unhandled exceptions
+- Improved: UI on low resolution displays
+- Improved: Default app downloads folder set to user's downloads folder
+
 ## [15.4] - 2023-06-14
 - New: Restore Classic Photo Viewer in Windows 10/11 (#342)
 - Hotfix: Addressed various UI glitches

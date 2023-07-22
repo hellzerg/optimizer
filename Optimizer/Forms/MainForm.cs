@@ -30,7 +30,7 @@ namespace Optimizer
         List<string> _hostsEntries = new List<string>();
         List<string> _customCommands = new List<string>();
         List<string> _desktopItems = new List<string>();
-        List<KeyValuePair<string, string>> _modernApps = new List<KeyValuePair<string, string>>();
+        Dictionary<string, string> _modernApps = new Dictionary<string, string>();
 
         bool _trayMenu = false;
 
@@ -58,6 +58,9 @@ namespace Optimizer
         readonly string _latestVersionLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/version.txt";
         //readonly string _changelogLink = "https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md";
         readonly string _changelogRawLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/CHANGELOG.md";
+
+        readonly string _bugReportLink = "https://github.com/hellzerg/optimizer/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=";
+        readonly string _featureRequestLink = "https://github.com/hellzerg/optimizer/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=";
 
         string _noNewVersionMessage = "You already have the latest version!";
         string _betaVersionMessage = "You are using an experimental version!";
@@ -771,7 +774,7 @@ namespace Optimizer
             Options.CurrentOptions.DisableFaxService = faxSw.ToggleChecked;
         }
 
-        //INIT
+        //ROOT
         public MainForm(SplashForm _splashForm, bool disableIndicium = false, bool disableHostsEditor = false, bool disableCommonApps = false, bool disableUWPApps = false, bool disableStartups = false, bool disableCleaner = false, bool disableIntegrator = false, bool disablePinger = false)
         {
             InitializeComponent();
@@ -1020,8 +1023,8 @@ namespace Optimizer
 
             if (string.IsNullOrEmpty(Options.CurrentOptions.AppsFolder))
             {
-                txtDownloadFolder.Text = Path.Combine(Application.StartupPath, "OptimizerDownloads");
-                Options.CurrentOptions.AppsFolder = Path.Combine(Application.StartupPath, "OptimizerDownloads");
+                Options.CurrentOptions.AppsFolder = Path.Combine(KnownFolders.GetPath(KnownFolder.Downloads), Constants.DOWNLOADS_FOLDER);
+                txtDownloadFolder.Text = Options.CurrentOptions.AppsFolder;
                 Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
                 Options.SaveSettings();
             }
@@ -1164,7 +1167,7 @@ namespace Optimizer
         {
             if (Options.CurrentOptions.LanguageCode == LanguageCode.EN)
             {
-                boxLang.Text = "English";
+                boxLang.Text = Constants.ENGLISH;
                 Translate(true);
             }
             else
@@ -1175,87 +1178,87 @@ namespace Optimizer
             // set default window size to fit content
             if (Options.CurrentOptions.LanguageCode == LanguageCode.RU)
             {
-                boxLang.Text = "Русский";
+                boxLang.Text = Constants.RUSSIAN;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.TR)
             {
-                boxLang.Text = "Türkçe";
+                boxLang.Text = Constants.TURKISH;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.EL)
             {
-                boxLang.Text = "Ελληνικά";
+                boxLang.Text = Constants.HELLENIC;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.DE)
             {
-                boxLang.Text = "Deutsch";
+                boxLang.Text = Constants.GERMAN;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.PT)
             {
-                boxLang.Text = "Português";
+                boxLang.Text = Constants.PORTUGUESE;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.FR)
             {
-                boxLang.Text = "Français";
+                boxLang.Text = Constants.FRENCH;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.ES)
             {
-                boxLang.Text = "Español";
+                boxLang.Text = Constants.SPANISH;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.IT)
             {
-                boxLang.Text = "Italiano";
+                boxLang.Text = Constants.ITALIAN;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.CN)
             {
-                boxLang.Text = "简体中文";
+                boxLang.Text = Constants.CHINESE;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.TW)
             {
-                boxLang.Text = "繁體中文";
+                boxLang.Text = Constants.TAIWANESE;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.CZ)
             {
-                boxLang.Text = "Čeština";
+                boxLang.Text = Constants.CZECH;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.KO)
             {
-                boxLang.Text = "한국어";
+                boxLang.Text = Constants.KOREAN;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.PL)
             {
-                boxLang.Text = "Polski";
+                boxLang.Text = Constants.POLISH;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.AR)
             {
-                boxLang.Text = "العربية";
+                boxLang.Text = Constants.ARABIC;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.KU)
             {
-                boxLang.Text = "کوردی";
+                boxLang.Text = Constants.KURDISH;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.HU)
             {
-                boxLang.Text = "Magyar";
+                boxLang.Text = Constants.HUNGARIAN;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.RO)
             {
-                boxLang.Text = "Română";
+                boxLang.Text = Constants.ROMANIAN;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.NL)
             {
-                boxLang.Text = "Nederlands";
+                boxLang.Text = Constants.DUTCH;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.UA)
             {
-                boxLang.Text = "українська";
+                boxLang.Text = Constants.UKRAINIAN;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.JA)
             {
-                boxLang.Text = "日本語";
+                boxLang.Text = Constants.JAPANESE;
             }
             if (Options.CurrentOptions.LanguageCode == LanguageCode.FA)
             {
-                boxLang.Text = "فارسی";
+                boxLang.Text = Constants.PERSIAN;
             }
         }
 
@@ -2592,6 +2595,11 @@ namespace Optimizer
                 string domain = txtDomain.Text.Trim();
 
                 HostsHelper.AddEntry(HostsHelper.SanitizeEntry(ip) + " " + HostsHelper.SanitizeEntry(domain));
+                if (chkIncludeWww.Checked)
+                {
+                    domain = $"www.{domain}";
+                    HostsHelper.AddEntry(HostsHelper.SanitizeEntry(ip) + " " + HostsHelper.SanitizeEntry(domain));
+                }
 
                 GetHostsEntries();
 
@@ -3526,9 +3534,7 @@ namespace Optimizer
             addHostB.Enabled = !chkReadOnly.Checked;
             removeAllHostsB.Enabled = !chkReadOnly.Checked;
             removeHostB.Enabled = !chkReadOnly.Checked;
-            refreshHostsB.Enabled = !chkReadOnly.Checked;
             linkRestoreDefault.Enabled = !chkReadOnly.Checked;
-            chkBlock.Enabled = !chkReadOnly.Checked;
             txtDomain.Enabled = !chkReadOnly.Checked;
             txtIP.Enabled = !chkReadOnly.Checked;
 
@@ -4283,112 +4289,112 @@ namespace Optimizer
 
         private void boxLang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (boxLang.Text == "English")
+            if (boxLang.Text == Constants.ENGLISH)
             {
                 picFlag.Image = Properties.Resources.united_kingdom;
                 Options.CurrentOptions.LanguageCode = LanguageCode.EN;
             }
-            else if (boxLang.Text == "Русский")
+            else if (boxLang.Text == Constants.RUSSIAN)
             {
                 picFlag.Image = Properties.Resources.russia;
                 Options.CurrentOptions.LanguageCode = LanguageCode.RU;
             }
-            else if (boxLang.Text == "Ελληνικά")
+            else if (boxLang.Text == Constants.HELLENIC)
             {
                 picFlag.Image = Properties.Resources.greece;
                 Options.CurrentOptions.LanguageCode = LanguageCode.EL;
             }
-            else if (boxLang.Text == "Deutsch")
+            else if (boxLang.Text == Constants.GERMAN)
             {
                 picFlag.Image = Properties.Resources.germany;
                 Options.CurrentOptions.LanguageCode = LanguageCode.DE;
             }
-            else if (boxLang.Text == "Italiano")
+            else if (boxLang.Text == Constants.ITALIAN)
             {
                 picFlag.Image = Properties.Resources.italy;
                 Options.CurrentOptions.LanguageCode = LanguageCode.IT;
             }
-            else if (boxLang.Text == "Čeština")
+            else if (boxLang.Text == Constants.CZECH)
             {
                 picFlag.Image = Properties.Resources.czech;
                 Options.CurrentOptions.LanguageCode = LanguageCode.CZ;
             }
-            else if (boxLang.Text == "Türkçe")
+            else if (boxLang.Text == Constants.TURKISH)
             {
                 picFlag.Image = Properties.Resources.turkey;
                 Options.CurrentOptions.LanguageCode = LanguageCode.TR;
             }
-            else if (boxLang.Text == "Español")
+            else if (boxLang.Text == Constants.SPANISH)
             {
                 picFlag.Image = Properties.Resources.spain;
                 Options.CurrentOptions.LanguageCode = LanguageCode.ES;
             }
-            else if (boxLang.Text == "Português")
+            else if (boxLang.Text == Constants.PORTUGUESE)
             {
                 picFlag.Image = Properties.Resources.brazil;
                 Options.CurrentOptions.LanguageCode = LanguageCode.PT;
             }
-            else if (boxLang.Text == "Français")
+            else if (boxLang.Text == Constants.FRENCH)
             {
                 picFlag.Image = Properties.Resources.france;
                 Options.CurrentOptions.LanguageCode = LanguageCode.FR;
             }
-            else if (boxLang.Text == "简体中文")
+            else if (boxLang.Text == Constants.CHINESE)
             {
                 picFlag.Image = Properties.Resources.china;
                 Options.CurrentOptions.LanguageCode = LanguageCode.CN;
             }
-            else if (boxLang.Text == "繁體中文")
+            else if (boxLang.Text == Constants.TAIWANESE)
             {
                 picFlag.Image = Properties.Resources.taiwan;
                 Options.CurrentOptions.LanguageCode = LanguageCode.TW;
             }
-            else if (boxLang.Text == "한국어")
+            else if (boxLang.Text == Constants.KOREAN)
             {
                 picFlag.Image = Properties.Resources.korea;
                 Options.CurrentOptions.LanguageCode = LanguageCode.KO;
             }
-            else if (boxLang.Text == "Polski")
+            else if (boxLang.Text == Constants.POLISH)
             {
                 picFlag.Image = Properties.Resources.poland;
                 Options.CurrentOptions.LanguageCode = LanguageCode.PL;
             }
-            else if (boxLang.Text == "العربية")
+            else if (boxLang.Text == Constants.ARABIC)
             {
                 picFlag.Image = Properties.Resources.egypt;
                 Options.CurrentOptions.LanguageCode = LanguageCode.AR;
             }
-            else if (boxLang.Text == "کوردی")
+            else if (boxLang.Text == Constants.KURDISH)
             {
                 picFlag.Image = Properties.Resources.kurdish;
                 Options.CurrentOptions.LanguageCode = LanguageCode.KU;
             }
-            else if (boxLang.Text == "Magyar")
+            else if (boxLang.Text == Constants.HUNGARIAN)
             {
                 picFlag.Image = Properties.Resources.hungary;
                 Options.CurrentOptions.LanguageCode = LanguageCode.HU;
             }
-            else if (boxLang.Text == "Română")
+            else if (boxLang.Text == Constants.ROMANIAN)
             {
                 picFlag.Image = Properties.Resources.romania;
                 Options.CurrentOptions.LanguageCode = LanguageCode.RO;
             }
-            else if (boxLang.Text == "Nederlands")
+            else if (boxLang.Text == Constants.DUTCH)
             {
                 picFlag.Image = Properties.Resources.dutch;
                 Options.CurrentOptions.LanguageCode = LanguageCode.NL;
             }
-            else if (boxLang.Text == "українська")
+            else if (boxLang.Text == Constants.UKRAINIAN)
             {
                 picFlag.Image = Properties.Resources.ukraine;
                 Options.CurrentOptions.LanguageCode = LanguageCode.UA;
             }
-            else if (boxLang.Text == "日本語")
+            else if (boxLang.Text == Constants.JAPANESE)
             {
                 picFlag.Image = Properties.Resources.japan;
                 Options.CurrentOptions.LanguageCode = LanguageCode.JA;
             }
-            else if (boxLang.Text == "فارسی")
+            else if (boxLang.Text == Constants.PERSIAN)
             {
                 picFlag.Image = Properties.Resources.iran;
                 Options.CurrentOptions.LanguageCode = LanguageCode.FA;
@@ -4408,6 +4414,15 @@ namespace Optimizer
 
         private void checkSelectAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            if (listCleanPreview.Items.Count < 1)
+            {
+                foreach (CheckBox x in panel1.Controls.OfType<CheckBox>())
+                {
+                    x.Checked = !x.Checked;
+                }
+                return;
+            }
+
             _cleanSelectAll = !_cleanSelectAll;
             for (int i = 0; i < listCleanPreview.Items.Count; i++)
             {
@@ -4671,8 +4686,7 @@ namespace Optimizer
 
         private void picRestartNeeded_Click(object sender, EventArgs e)
         {
-            Options.SaveSettings();
-            Utilities.Reboot();
+            ConfirmAndReboot();
         }
 
         private void ShowRestartNeeded()
@@ -4703,8 +4717,7 @@ namespace Optimizer
 
         private void restartAndApply_Click(object sender, EventArgs e)
         {
-            Options.SaveSettings();
-            Utilities.Reboot();
+            ConfirmAndReboot();
         }
 
         private void colorPicker1_ColorChanged(object sender, EventArgs e)
@@ -4760,6 +4773,25 @@ namespace Optimizer
         {
             Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce", "*OptimizerDisableDefender", Assembly.GetExecutingAssembly().Location + " /silentdisabledefender", Microsoft.Win32.RegistryValueKind.String);
             Program.RestartInSafeMode();
+        }
+
+        private void ConfirmAndReboot()
+        {
+            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Options.SaveSettings();
+                Utilities.Reboot();
+            }
+        }
+
+        private void linkLabel4_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(_bugReportLink);
+        }
+
+        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(_featureRequestLink);
         }
     }
 }

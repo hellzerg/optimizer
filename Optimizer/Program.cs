@@ -14,7 +14,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 15;
-        internal readonly static float Minor = 4;
+        internal readonly static float Minor = 5;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
         internal static bool SILENT_MODE = false;
@@ -63,6 +63,7 @@ namespace Optimizer
         {
             EmbeddedAssembly.Load(_jsonAssembly, _jsonAssembly.Replace("Optimizer.", string.Empty));
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             DPI_PREFERENCE = Convert.ToInt32(Microsoft.Win32.Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ThemeManager", "LastLoadedDPI", "96"));
             if (Environment.OSVersion.Version.Major >= 6) SetProcessDPIAware();
@@ -269,6 +270,12 @@ namespace Optimizer
             {
                 StartMainForm();
             }
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Exception error = (Exception)e.ExceptionObject;
+            ErrorLogger.LogError("[Program.Main-UnhandledException]", error.Message, error.StackTrace);
         }
 
         private static void LoadSettings()

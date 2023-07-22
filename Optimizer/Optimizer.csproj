@@ -201,6 +201,7 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="NetworkAdapter.cs" />
     <Compile Include="NetworkMonitor.cs" />
     <Compile Include="OptimizeHelper.cs" />
@@ -240,6 +241,7 @@
     <Compile Include="TelemetryData.cs" />
     <Compile Include="TelemetryHelper.cs" />
     <Compile Include="TokenPrivilege.cs" />
+    <Compile Include="UserFoldersHelper.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="UWPHelper.cs" />
     <EmbeddedResource Include="Controls\ToggleCard.resx">

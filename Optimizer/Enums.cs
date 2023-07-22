@@ -109,4 +109,14 @@
         JA, // japanese
         FA //farsi
     }
+
+    public enum KnownFolder
+    {
+        Contacts,
+        Downloads,
+        Favorites,
+        Links,
+        SavedGames,
+        SavedSearches
+    }
 }

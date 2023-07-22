@@ -150,7 +150,7 @@ namespace Optimizer
                     if (Directory.Exists(x)) Directory.Delete(x);
                     if (File.Exists(x)) File.Delete(x);
                 }
-                catch { }
+                catch { continue; }
             }
         }
 

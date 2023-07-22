@@ -32,14 +32,14 @@ namespace Optimizer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Processors", 0, 0);
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Memory", 1, 1);
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Graphics", 2, 2);
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Motherboard", 3, 3);
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Storage", 4, 4);
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Network Adapters", 5, 5);
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Audio", 6, 6);
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Peripherals", 7, 7);
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Processors", 0, 0);
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Memory", 1, 1);
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Graphics", 2, 2);
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Motherboard", 3, 3);
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Storage", 4, 4);
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Network Adapters", 5, 5);
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Audio", 6, 6);
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Peripherals", 7, 7);
             this.tpanel = new System.Windows.Forms.Panel();
             this.restartAndApply = new System.Windows.Forms.Label();
             this.picRestartNeeded = new System.Windows.Forms.PictureBox();
@@ -83,6 +83,7 @@ namespace Optimizer
             this.faxSw = new Optimizer.ToggleCard();
             this.performanceSw = new Optimizer.ToggleCard();
             this.windows10Tab = new System.Windows.Forms.TabPage();
+            this.classicPhotoViewerSw = new Optimizer.ToggleCard();
             this.edgeAiSw = new Optimizer.ToggleCard();
             this.edgeTelemetrySw = new Optimizer.ToggleCard();
             this.label18 = new System.Windows.Forms.Label();
@@ -256,6 +257,7 @@ namespace Optimizer
             this.boxDNS = new Optimizer.MoonSelect();
             this.hostsEditorTab = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.chkIncludeWww = new Optimizer.MoonCheck();
             this.linkAdvancedEdit = new System.Windows.Forms.LinkLabel();
             this.linkRestoreDefault = new System.Windows.Forms.LinkLabel();
             this.lblLock = new System.Windows.Forms.Label();
@@ -363,6 +365,10 @@ namespace Optimizer
             this.ccFileL = new System.Windows.Forms.Label();
             this.ccL = new System.Windows.Forms.Label();
             this.optionsTab = new System.Windows.Forms.TabPage();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.autoStartToggle = new Optimizer.ToggleCard();
             this.colorPicker1 = new Optimizer.Controls.ColorPicker();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -414,7 +420,6 @@ namespace Optimizer
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.trayExit = new System.Windows.Forms.ToolStripMenuItem();
             this.launcherIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.classicPhotoViewerSw = new Optimizer.ToggleCard();
             this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picRestartNeeded)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLab)).BeginInit();
@@ -473,6 +478,8 @@ namespace Optimizer
             this.tabPage11.SuspendLayout();
             this.panel6.SuspendLayout();
             this.optionsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
@@ -677,6 +684,7 @@ namespace Optimizer
             // 
             // universalTab
             // 
+            this.universalTab.AutoScroll = true;
             this.universalTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.universalTab.Controls.Add(this.winSearchSw);
             this.universalTab.Controls.Add(this.label13);
@@ -710,7 +718,7 @@ namespace Optimizer
             this.universalTab.Margin = new System.Windows.Forms.Padding(2);
             this.universalTab.Name = "universalTab";
             this.universalTab.Padding = new System.Windows.Forms.Padding(2);
-            this.universalTab.Size = new System.Drawing.Size(1273, 612);
+            this.universalTab.Size = new System.Drawing.Size(1273, 653);
             this.universalTab.TabIndex = 0;
             this.universalTab.Text = "General";
             // 
@@ -722,11 +730,11 @@ namespace Optimizer
             this.winSearchSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.winSearchSw.ForeColor = System.Drawing.Color.White;
             this.winSearchSw.LabelText = "Disable Search";
-            this.winSearchSw.Location = new System.Drawing.Point(21, 466);
+            this.winSearchSw.Location = new System.Drawing.Point(22, 466);
             this.winSearchSw.Margin = new System.Windows.Forms.Padding(6);
             this.winSearchSw.Name = "winSearchSw";
             this.winSearchSw.Size = new System.Drawing.Size(414, 24);
-            this.winSearchSw.TabIndex = 173;
+            this.winSearchSw.TabIndex = 229;
             this.winSearchSw.Tag = "themeable";
             this.winSearchSw.ToggleChecked = false;
             // 
@@ -735,11 +743,11 @@ namespace Optimizer
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Silver;
-            this.label13.Location = new System.Drawing.Point(460, 194);
+            this.label13.Location = new System.Drawing.Point(457, 194);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(54, 19);
-            this.label13.TabIndex = 172;
+            this.label13.TabIndex = 228;
             this.label13.Tag = "";
             this.label13.Text = "Privacy";
             // 
@@ -748,11 +756,11 @@ namespace Optimizer
             this.label4a.AutoSize = true;
             this.label4a.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4a.ForeColor = System.Drawing.Color.Silver;
-            this.label4a.Location = new System.Drawing.Point(460, 11);
+            this.label4a.Location = new System.Drawing.Point(457, 11);
             this.label4a.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4a.Name = "label4a";
             this.label4a.Size = new System.Drawing.Size(40, 19);
-            this.label4a.TabIndex = 171;
+            this.label4a.TabIndex = 227;
             this.label4a.Tag = "";
             this.label4a.Text = "Apps";
             // 
@@ -761,11 +769,11 @@ namespace Optimizer
             this.drives.AutoSize = true;
             this.drives.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.drives.ForeColor = System.Drawing.Color.Silver;
-            this.drives.Location = new System.Drawing.Point(17, 315);
+            this.drives.Location = new System.Drawing.Point(18, 315);
             this.drives.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.drives.Name = "drives";
             this.drives.Size = new System.Drawing.Size(42, 19);
-            this.drives.TabIndex = 170;
+            this.drives.TabIndex = 226;
             this.drives.Tag = "";
             this.drives.Text = "Disks";
             // 
@@ -778,7 +786,7 @@ namespace Optimizer
             this.label14s.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14s.Name = "label14s";
             this.label14s.Size = new System.Drawing.Size(54, 19);
-            this.label14s.TabIndex = 169;
+            this.label14s.TabIndex = 225;
             this.label14s.Tag = "";
             this.label14s.Text = "System";
             // 
@@ -790,11 +798,11 @@ namespace Optimizer
             this.nvidiaTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nvidiaTelemetrySw.ForeColor = System.Drawing.Color.White;
             this.nvidiaTelemetrySw.LabelText = "Disable NVIDIA Telemetry";
-            this.nvidiaTelemetrySw.Location = new System.Drawing.Point(464, 130);
+            this.nvidiaTelemetrySw.Location = new System.Drawing.Point(461, 130);
             this.nvidiaTelemetrySw.Margin = new System.Windows.Forms.Padding(6);
             this.nvidiaTelemetrySw.Name = "nvidiaTelemetrySw";
             this.nvidiaTelemetrySw.Size = new System.Drawing.Size(490, 24);
-            this.nvidiaTelemetrySw.TabIndex = 73;
+            this.nvidiaTelemetrySw.TabIndex = 224;
             this.nvidiaTelemetrySw.Tag = "themeable";
             this.nvidiaTelemetrySw.ToggleChecked = false;
             // 
@@ -806,11 +814,11 @@ namespace Optimizer
             this.ntfsStampSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ntfsStampSw.ForeColor = System.Drawing.Color.White;
             this.ntfsStampSw.LabelText = "Disable NTFS Timestamp";
-            this.ntfsStampSw.Location = new System.Drawing.Point(20, 436);
+            this.ntfsStampSw.Location = new System.Drawing.Point(21, 436);
             this.ntfsStampSw.Margin = new System.Windows.Forms.Padding(6);
             this.ntfsStampSw.Name = "ntfsStampSw";
             this.ntfsStampSw.Size = new System.Drawing.Size(414, 24);
-            this.ntfsStampSw.TabIndex = 72;
+            this.ntfsStampSw.TabIndex = 223;
             this.ntfsStampSw.Tag = "themeable";
             this.ntfsStampSw.ToggleChecked = false;
             // 
@@ -822,11 +830,11 @@ namespace Optimizer
             this.smb2Sw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.smb2Sw.ForeColor = System.Drawing.Color.White;
             this.smb2Sw.LabelText = "Disable SMBv2 Protocol";
-            this.smb2Sw.Location = new System.Drawing.Point(464, 344);
+            this.smb2Sw.Location = new System.Drawing.Point(461, 344);
             this.smb2Sw.Margin = new System.Windows.Forms.Padding(6);
             this.smb2Sw.Name = "smb2Sw";
             this.smb2Sw.Size = new System.Drawing.Size(414, 24);
-            this.smb2Sw.TabIndex = 71;
+            this.smb2Sw.TabIndex = 222;
             this.smb2Sw.Tag = "themeable";
             this.smb2Sw.ToggleChecked = false;
             // 
@@ -838,11 +846,11 @@ namespace Optimizer
             this.smb1Sw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.smb1Sw.ForeColor = System.Drawing.Color.White;
             this.smb1Sw.LabelText = "Disable SMBv1 Protocol";
-            this.smb1Sw.Location = new System.Drawing.Point(464, 314);
+            this.smb1Sw.Location = new System.Drawing.Point(461, 314);
             this.smb1Sw.Margin = new System.Windows.Forms.Padding(6);
             this.smb1Sw.Name = "smb1Sw";
             this.smb1Sw.Size = new System.Drawing.Size(414, 24);
-            this.smb1Sw.TabIndex = 70;
+            this.smb1Sw.TabIndex = 221;
             this.smb1Sw.Tag = "themeable";
             this.smb1Sw.ToggleChecked = false;
             // 
@@ -854,11 +862,11 @@ namespace Optimizer
             this.hibernateSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hibernateSw.ForeColor = System.Drawing.Color.White;
             this.hibernateSw.LabelText = "Disable Hibernation";
-            this.hibernateSw.Location = new System.Drawing.Point(20, 406);
+            this.hibernateSw.Location = new System.Drawing.Point(21, 406);
             this.hibernateSw.Margin = new System.Windows.Forms.Padding(6);
             this.hibernateSw.Name = "hibernateSw";
             this.hibernateSw.Size = new System.Drawing.Size(414, 24);
-            this.hibernateSw.TabIndex = 69;
+            this.hibernateSw.TabIndex = 220;
             this.hibernateSw.Tag = "themeable";
             this.hibernateSw.ToggleChecked = false;
             // 
@@ -870,11 +878,11 @@ namespace Optimizer
             this.chromeTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chromeTelemetrySw.ForeColor = System.Drawing.Color.White;
             this.chromeTelemetrySw.LabelText = "Disable Google Chrome Telemetry";
-            this.chromeTelemetrySw.Location = new System.Drawing.Point(464, 100);
+            this.chromeTelemetrySw.Location = new System.Drawing.Point(461, 100);
             this.chromeTelemetrySw.Margin = new System.Windows.Forms.Padding(6);
             this.chromeTelemetrySw.Name = "chromeTelemetrySw";
             this.chromeTelemetrySw.Size = new System.Drawing.Size(490, 24);
-            this.chromeTelemetrySw.TabIndex = 68;
+            this.chromeTelemetrySw.TabIndex = 219;
             this.chromeTelemetrySw.Tag = "themeable";
             this.chromeTelemetrySw.ToggleChecked = false;
             // 
@@ -886,11 +894,11 @@ namespace Optimizer
             this.ffTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ffTelemetrySw.ForeColor = System.Drawing.Color.White;
             this.ffTelemetrySw.LabelText = "Disable Mozilla Firefox Telemetry";
-            this.ffTelemetrySw.Location = new System.Drawing.Point(464, 70);
+            this.ffTelemetrySw.Location = new System.Drawing.Point(461, 70);
             this.ffTelemetrySw.Margin = new System.Windows.Forms.Padding(6);
             this.ffTelemetrySw.Name = "ffTelemetrySw";
             this.ffTelemetrySw.Size = new System.Drawing.Size(490, 24);
-            this.ffTelemetrySw.TabIndex = 67;
+            this.ffTelemetrySw.TabIndex = 218;
             this.ffTelemetrySw.Tag = "themeable";
             this.ffTelemetrySw.ToggleChecked = false;
             // 
@@ -902,11 +910,11 @@ namespace Optimizer
             this.vsSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vsSw.ForeColor = System.Drawing.Color.White;
             this.vsSw.LabelText = "Disable Visual Studio Telemetry";
-            this.vsSw.Location = new System.Drawing.Point(464, 160);
+            this.vsSw.Location = new System.Drawing.Point(461, 160);
             this.vsSw.Margin = new System.Windows.Forms.Padding(6);
             this.vsSw.Name = "vsSw";
             this.vsSw.Size = new System.Drawing.Size(490, 24);
-            this.vsSw.TabIndex = 66;
+            this.vsSw.TabIndex = 217;
             this.vsSw.Tag = "themeable";
             this.vsSw.ToggleChecked = false;
             // 
@@ -918,11 +926,11 @@ namespace Optimizer
             this.reportingSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportingSw.ForeColor = System.Drawing.Color.White;
             this.reportingSw.LabelText = "Disable Error Reporting";
-            this.reportingSw.Location = new System.Drawing.Point(20, 100);
+            this.reportingSw.Location = new System.Drawing.Point(21, 100);
             this.reportingSw.Margin = new System.Windows.Forms.Padding(6);
             this.reportingSw.Name = "reportingSw";
             this.reportingSw.Size = new System.Drawing.Size(414, 24);
-            this.reportingSw.TabIndex = 65;
+            this.reportingSw.TabIndex = 216;
             this.reportingSw.Tag = "themeable";
             this.reportingSw.ToggleChecked = false;
             // 
@@ -934,11 +942,11 @@ namespace Optimizer
             this.systemRestoreSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.systemRestoreSw.ForeColor = System.Drawing.Color.White;
             this.systemRestoreSw.LabelText = "Disable System Restore";
-            this.systemRestoreSw.Location = new System.Drawing.Point(20, 346);
+            this.systemRestoreSw.Location = new System.Drawing.Point(21, 346);
             this.systemRestoreSw.Margin = new System.Windows.Forms.Padding(6);
             this.systemRestoreSw.Name = "systemRestoreSw";
             this.systemRestoreSw.Size = new System.Drawing.Size(414, 24);
-            this.systemRestoreSw.TabIndex = 64;
+            this.systemRestoreSw.TabIndex = 215;
             this.systemRestoreSw.Tag = "themeable";
             this.systemRestoreSw.ToggleChecked = false;
             // 
@@ -950,11 +958,11 @@ namespace Optimizer
             this.officeTelemetrySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.officeTelemetrySw.ForeColor = System.Drawing.Color.White;
             this.officeTelemetrySw.LabelText = "Disable Office 2016 Telemetry";
-            this.officeTelemetrySw.Location = new System.Drawing.Point(463, 40);
+            this.officeTelemetrySw.Location = new System.Drawing.Point(460, 40);
             this.officeTelemetrySw.Margin = new System.Windows.Forms.Padding(6);
             this.officeTelemetrySw.Name = "officeTelemetrySw";
             this.officeTelemetrySw.Size = new System.Drawing.Size(490, 24);
-            this.officeTelemetrySw.TabIndex = 63;
+            this.officeTelemetrySw.TabIndex = 214;
             this.officeTelemetrySw.Tag = "themeable";
             this.officeTelemetrySw.ToggleChecked = false;
             // 
@@ -966,11 +974,11 @@ namespace Optimizer
             this.smartScreenSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.smartScreenSw.ForeColor = System.Drawing.Color.White;
             this.smartScreenSw.LabelText = "Disable SmartScreen";
-            this.smartScreenSw.Location = new System.Drawing.Point(20, 250);
+            this.smartScreenSw.Location = new System.Drawing.Point(21, 250);
             this.smartScreenSw.Margin = new System.Windows.Forms.Padding(6);
             this.smartScreenSw.Name = "smartScreenSw";
             this.smartScreenSw.Size = new System.Drawing.Size(414, 24);
-            this.smartScreenSw.TabIndex = 62;
+            this.smartScreenSw.TabIndex = 213;
             this.smartScreenSw.Tag = "themeable";
             this.smartScreenSw.ToggleChecked = false;
             // 
@@ -982,11 +990,11 @@ namespace Optimizer
             this.networkSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.networkSw.ForeColor = System.Drawing.Color.White;
             this.networkSw.LabelText = "Disable Network Throttling";
-            this.networkSw.Location = new System.Drawing.Point(20, 70);
+            this.networkSw.Location = new System.Drawing.Point(21, 70);
             this.networkSw.Margin = new System.Windows.Forms.Padding(6);
             this.networkSw.Name = "networkSw";
             this.networkSw.Size = new System.Drawing.Size(414, 24);
-            this.networkSw.TabIndex = 61;
+            this.networkSw.TabIndex = 212;
             this.networkSw.Tag = "themeable";
             this.networkSw.ToggleChecked = false;
             // 
@@ -998,11 +1006,11 @@ namespace Optimizer
             this.telemetryTasksSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.telemetryTasksSw.ForeColor = System.Drawing.Color.White;
             this.telemetryTasksSw.LabelText = "Disable Telemetry Tasks";
-            this.telemetryTasksSw.Location = new System.Drawing.Point(464, 224);
+            this.telemetryTasksSw.Location = new System.Drawing.Point(461, 224);
             this.telemetryTasksSw.Margin = new System.Windows.Forms.Padding(6);
             this.telemetryTasksSw.Name = "telemetryTasksSw";
             this.telemetryTasksSw.Size = new System.Drawing.Size(414, 24);
-            this.telemetryTasksSw.TabIndex = 60;
+            this.telemetryTasksSw.TabIndex = 211;
             this.telemetryTasksSw.Tag = "themeable";
             this.telemetryTasksSw.ToggleChecked = false;
             // 
@@ -1014,11 +1022,11 @@ namespace Optimizer
             this.defenderSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.defenderSw.ForeColor = System.Drawing.Color.White;
             this.defenderSw.LabelText = "Disable Windows Defender";
-            this.defenderSw.Location = new System.Drawing.Point(20, 280);
+            this.defenderSw.Location = new System.Drawing.Point(21, 280);
             this.defenderSw.Margin = new System.Windows.Forms.Padding(6);
             this.defenderSw.Name = "defenderSw";
             this.defenderSw.Size = new System.Drawing.Size(414, 24);
-            this.defenderSw.TabIndex = 59;
+            this.defenderSw.TabIndex = 210;
             this.defenderSw.Tag = "themeable";
             this.defenderSw.ToggleChecked = false;
             // 
@@ -1030,11 +1038,11 @@ namespace Optimizer
             this.homegroupSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homegroupSw.ForeColor = System.Drawing.Color.White;
             this.homegroupSw.LabelText = "Disable HomeGroup";
-            this.homegroupSw.Location = new System.Drawing.Point(464, 284);
+            this.homegroupSw.Location = new System.Drawing.Point(461, 284);
             this.homegroupSw.Margin = new System.Windows.Forms.Padding(6);
             this.homegroupSw.Name = "homegroupSw";
             this.homegroupSw.Size = new System.Drawing.Size(414, 24);
-            this.homegroupSw.TabIndex = 58;
+            this.homegroupSw.TabIndex = 209;
             this.homegroupSw.Tag = "themeable";
             this.homegroupSw.ToggleChecked = false;
             // 
@@ -1046,11 +1054,11 @@ namespace Optimizer
             this.stickySw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stickySw.ForeColor = System.Drawing.Color.White;
             this.stickySw.LabelText = "Disable Sticky Keys";
-            this.stickySw.Location = new System.Drawing.Point(20, 220);
+            this.stickySw.Location = new System.Drawing.Point(21, 220);
             this.stickySw.Margin = new System.Windows.Forms.Padding(6);
             this.stickySw.Name = "stickySw";
             this.stickySw.Size = new System.Drawing.Size(414, 24);
-            this.stickySw.TabIndex = 57;
+            this.stickySw.TabIndex = 208;
             this.stickySw.Tag = "themeable";
             this.stickySw.ToggleChecked = false;
             // 
@@ -1062,11 +1070,11 @@ namespace Optimizer
             this.compatSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.compatSw.ForeColor = System.Drawing.Color.White;
             this.compatSw.LabelText = "Disable Compatibility Assistant";
-            this.compatSw.Location = new System.Drawing.Point(20, 130);
+            this.compatSw.Location = new System.Drawing.Point(21, 130);
             this.compatSw.Margin = new System.Windows.Forms.Padding(6);
             this.compatSw.Name = "compatSw";
             this.compatSw.Size = new System.Drawing.Size(414, 24);
-            this.compatSw.TabIndex = 56;
+            this.compatSw.TabIndex = 207;
             this.compatSw.Tag = "themeable";
             this.compatSw.ToggleChecked = false;
             // 
@@ -1078,11 +1086,11 @@ namespace Optimizer
             this.mediaSharingSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mediaSharingSw.ForeColor = System.Drawing.Color.White;
             this.mediaSharingSw.LabelText = "Disable Media Player Sharing";
-            this.mediaSharingSw.Location = new System.Drawing.Point(464, 254);
+            this.mediaSharingSw.Location = new System.Drawing.Point(461, 254);
             this.mediaSharingSw.Margin = new System.Windows.Forms.Padding(6);
             this.mediaSharingSw.Name = "mediaSharingSw";
             this.mediaSharingSw.Size = new System.Drawing.Size(414, 24);
-            this.mediaSharingSw.TabIndex = 55;
+            this.mediaSharingSw.TabIndex = 206;
             this.mediaSharingSw.Tag = "themeable";
             this.mediaSharingSw.ToggleChecked = false;
             // 
@@ -1094,11 +1102,11 @@ namespace Optimizer
             this.printSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printSw.ForeColor = System.Drawing.Color.White;
             this.printSw.LabelText = "Disable Print Service";
-            this.printSw.Location = new System.Drawing.Point(20, 160);
+            this.printSw.Location = new System.Drawing.Point(21, 160);
             this.printSw.Margin = new System.Windows.Forms.Padding(6);
             this.printSw.Name = "printSw";
             this.printSw.Size = new System.Drawing.Size(414, 24);
-            this.printSw.TabIndex = 54;
+            this.printSw.TabIndex = 205;
             this.printSw.Tag = "themeable";
             this.printSw.ToggleChecked = false;
             // 
@@ -1110,11 +1118,11 @@ namespace Optimizer
             this.superfetchSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.superfetchSw.ForeColor = System.Drawing.Color.White;
             this.superfetchSw.LabelText = "Disable Superfetch";
-            this.superfetchSw.Location = new System.Drawing.Point(20, 376);
+            this.superfetchSw.Location = new System.Drawing.Point(21, 376);
             this.superfetchSw.Margin = new System.Windows.Forms.Padding(6);
             this.superfetchSw.Name = "superfetchSw";
             this.superfetchSw.Size = new System.Drawing.Size(414, 24);
-            this.superfetchSw.TabIndex = 53;
+            this.superfetchSw.TabIndex = 204;
             this.superfetchSw.Tag = "themeable";
             this.superfetchSw.ToggleChecked = false;
             // 
@@ -1126,11 +1134,11 @@ namespace Optimizer
             this.faxSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.faxSw.ForeColor = System.Drawing.Color.White;
             this.faxSw.LabelText = "Disable Fax Service";
-            this.faxSw.Location = new System.Drawing.Point(20, 190);
+            this.faxSw.Location = new System.Drawing.Point(21, 190);
             this.faxSw.Margin = new System.Windows.Forms.Padding(6);
             this.faxSw.Name = "faxSw";
             this.faxSw.Size = new System.Drawing.Size(414, 24);
-            this.faxSw.TabIndex = 52;
+            this.faxSw.TabIndex = 203;
             this.faxSw.Tag = "themeable";
             this.faxSw.ToggleChecked = false;
             // 
@@ -1142,16 +1150,17 @@ namespace Optimizer
             this.performanceSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.performanceSw.ForeColor = System.Drawing.Color.White;
             this.performanceSw.LabelText = "Enable Performance Tweaks";
-            this.performanceSw.Location = new System.Drawing.Point(20, 40);
+            this.performanceSw.Location = new System.Drawing.Point(21, 40);
             this.performanceSw.Margin = new System.Windows.Forms.Padding(6);
             this.performanceSw.Name = "performanceSw";
             this.performanceSw.Size = new System.Drawing.Size(414, 24);
-            this.performanceSw.TabIndex = 51;
+            this.performanceSw.TabIndex = 202;
             this.performanceSw.Tag = "themeable";
             this.performanceSw.ToggleChecked = false;
             // 
             // windows10Tab
             // 
+            this.windows10Tab.AutoScroll = true;
             this.windows10Tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.windows10Tab.Controls.Add(this.classicPhotoViewerSw);
             this.windows10Tab.Controls.Add(this.edgeAiSw);
@@ -1192,6 +1201,22 @@ namespace Optimizer
             this.windows10Tab.Size = new System.Drawing.Size(1273, 653);
             this.windows10Tab.TabIndex = 1;
             this.windows10Tab.Text = "Windows 10";
+            // 
+            // classicPhotoViewerSw
+            // 
+            this.classicPhotoViewerSw.AccessibleName = "Restore Classic Photo Viewer";
+            this.classicPhotoViewerSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
+            this.classicPhotoViewerSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.classicPhotoViewerSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classicPhotoViewerSw.ForeColor = System.Drawing.Color.White;
+            this.classicPhotoViewerSw.LabelText = "Restore Classic Photo Viewer";
+            this.classicPhotoViewerSw.Location = new System.Drawing.Point(21, 250);
+            this.classicPhotoViewerSw.Margin = new System.Windows.Forms.Padding(6);
+            this.classicPhotoViewerSw.Name = "classicPhotoViewerSw";
+            this.classicPhotoViewerSw.Size = new System.Drawing.Size(414, 24);
+            this.classicPhotoViewerSw.TabIndex = 180;
+            this.classicPhotoViewerSw.Tag = "themeable";
+            this.classicPhotoViewerSw.ToggleChecked = false;
             // 
             // edgeAiSw
             // 
@@ -1292,6 +1317,7 @@ namespace Optimizer
             // 
             // panelWin11Tweaks
             // 
+            this.panelWin11Tweaks.AutoScroll = true;
             this.panelWin11Tweaks.Controls.Add(this.label20);
             this.panelWin11Tweaks.Controls.Add(this.label19);
             this.panelWin11Tweaks.Controls.Add(this.stickersSw);
@@ -1816,6 +1842,7 @@ namespace Optimizer
             // 
             // windows8Tab
             // 
+            this.windows8Tab.AutoScroll = true;
             this.windows8Tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.windows8Tab.Controls.Add(this.label21);
             this.windows8Tab.Controls.Add(this.disableOneDriveSw);
@@ -1823,7 +1850,7 @@ namespace Optimizer
             this.windows8Tab.Margin = new System.Windows.Forms.Padding(2);
             this.windows8Tab.Name = "windows8Tab";
             this.windows8Tab.Padding = new System.Windows.Forms.Padding(2);
-            this.windows8Tab.Size = new System.Drawing.Size(1273, 612);
+            this.windows8Tab.Size = new System.Drawing.Size(1273, 653);
             this.windows8Tab.TabIndex = 2;
             this.windows8Tab.Text = "Windows 8.1";
             // 
@@ -1858,6 +1885,7 @@ namespace Optimizer
             // 
             // advancedTab
             // 
+            this.advancedTab.AutoScroll = true;
             this.advancedTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.advancedTab.Controls.Add(this.btnRestartDisableDefender);
             this.advancedTab.Controls.Add(this.btnRestart);
@@ -1868,7 +1896,7 @@ namespace Optimizer
             this.advancedTab.Margin = new System.Windows.Forms.Padding(2);
             this.advancedTab.Name = "advancedTab";
             this.advancedTab.Padding = new System.Windows.Forms.Padding(2);
-            this.advancedTab.Size = new System.Drawing.Size(1273, 612);
+            this.advancedTab.Size = new System.Drawing.Size(1273, 653);
             this.advancedTab.TabIndex = 15;
             this.advancedTab.Text = "Advanced";
             // 
@@ -1957,6 +1985,7 @@ namespace Optimizer
             // 
             // modernAppsTab
             // 
+            this.modernAppsTab.AutoScroll = true;
             this.modernAppsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.modernAppsTab.Controls.Add(this.btnRestoreUwp);
             this.modernAppsTab.Controls.Add(this.panelUwp);
@@ -1968,7 +1997,7 @@ namespace Optimizer
             this.modernAppsTab.Location = new System.Drawing.Point(4, 25);
             this.modernAppsTab.Name = "modernAppsTab";
             this.modernAppsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.modernAppsTab.Size = new System.Drawing.Size(1273, 612);
+            this.modernAppsTab.Size = new System.Drawing.Size(1273, 653);
             this.modernAppsTab.TabIndex = 11;
             this.modernAppsTab.Text = "UWP Apps";
             // 
@@ -2075,6 +2104,7 @@ namespace Optimizer
             // 
             // startupTab
             // 
+            this.startupTab.AutoScroll = true;
             this.startupTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.startupTab.Controls.Add(this.cancelBackup);
             this.startupTab.Controls.Add(this.doBackup);
@@ -2091,7 +2121,7 @@ namespace Optimizer
             this.startupTab.Location = new System.Drawing.Point(4, 25);
             this.startupTab.Margin = new System.Windows.Forms.Padding(2);
             this.startupTab.Name = "startupTab";
-            this.startupTab.Size = new System.Drawing.Size(1273, 612);
+            this.startupTab.Size = new System.Drawing.Size(1273, 653);
             this.startupTab.TabIndex = 7;
             this.startupTab.Text = "Startup";
             // 
@@ -2348,7 +2378,7 @@ namespace Optimizer
             this.appsTab.Location = new System.Drawing.Point(4, 25);
             this.appsTab.Name = "appsTab";
             this.appsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.appsTab.Size = new System.Drawing.Size(1273, 612);
+            this.appsTab.Size = new System.Drawing.Size(1273, 653);
             this.appsTab.TabIndex = 12;
             this.appsTab.Text = "Apps";
             // 
@@ -2360,7 +2390,7 @@ namespace Optimizer
             this.txtFeedError.ForeColor = System.Drawing.Color.Gold;
             this.txtFeedError.Location = new System.Drawing.Point(3, 47);
             this.txtFeedError.Name = "txtFeedError";
-            this.txtFeedError.Size = new System.Drawing.Size(1267, 442);
+            this.txtFeedError.Size = new System.Drawing.Size(1267, 483);
             this.txtFeedError.TabIndex = 171;
             this.txtFeedError.Text = "No internet connection, try refreshing links again";
             this.txtFeedError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2413,7 +2443,7 @@ namespace Optimizer
             this.groupSoundVideo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.groupSoundVideo.Location = new System.Drawing.Point(749, 64);
             this.groupSoundVideo.Name = "groupSoundVideo";
-            this.groupSoundVideo.Size = new System.Drawing.Size(227, 373);
+            this.groupSoundVideo.Size = new System.Drawing.Size(227, 460);
             this.groupSoundVideo.TabIndex = 166;
             // 
             // lblInternet
@@ -2437,7 +2467,7 @@ namespace Optimizer
             this.groupCoding.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.groupCoding.Location = new System.Drawing.Point(517, 64);
             this.groupCoding.Name = "groupCoding";
-            this.groupCoding.Size = new System.Drawing.Size(226, 373);
+            this.groupCoding.Size = new System.Drawing.Size(226, 460);
             this.groupCoding.TabIndex = 165;
             // 
             // groupInternet
@@ -2448,7 +2478,7 @@ namespace Optimizer
             this.groupInternet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.groupInternet.Location = new System.Drawing.Point(265, 64);
             this.groupInternet.Name = "groupInternet";
-            this.groupInternet.Size = new System.Drawing.Size(246, 373);
+            this.groupInternet.Size = new System.Drawing.Size(246, 460);
             this.groupInternet.TabIndex = 164;
             // 
             // panel10
@@ -2495,6 +2525,7 @@ namespace Optimizer
             // 
             // panelCommonApps
             // 
+            this.panelCommonApps.AutoScroll = true;
             this.panelCommonApps.Controls.Add(this.cAutoInstall);
             this.panelCommonApps.Controls.Add(this.progressDownloader);
             this.panelCommonApps.Controls.Add(this.c64);
@@ -2508,7 +2539,7 @@ namespace Optimizer
             this.panelCommonApps.Controls.Add(this.bitPref);
             this.panelCommonApps.Controls.Add(this.goToDownloadsB);
             this.panelCommonApps.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelCommonApps.Location = new System.Drawing.Point(3, 489);
+            this.panelCommonApps.Location = new System.Drawing.Point(3, 530);
             this.panelCommonApps.Name = "panelCommonApps";
             this.panelCommonApps.Size = new System.Drawing.Size(1267, 120);
             this.panelCommonApps.TabIndex = 162;
@@ -2694,7 +2725,7 @@ namespace Optimizer
             this.groupSystemTools.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.groupSystemTools.Location = new System.Drawing.Point(13, 64);
             this.groupSystemTools.Name = "groupSystemTools";
-            this.groupSystemTools.Size = new System.Drawing.Size(246, 373);
+            this.groupSystemTools.Size = new System.Drawing.Size(246, 460);
             this.groupSystemTools.TabIndex = 162;
             // 
             // cleanerTab
@@ -2707,7 +2738,7 @@ namespace Optimizer
             this.cleanerTab.Margin = new System.Windows.Forms.Padding(2);
             this.cleanerTab.Name = "cleanerTab";
             this.cleanerTab.Padding = new System.Windows.Forms.Padding(2);
-            this.cleanerTab.Size = new System.Drawing.Size(1273, 612);
+            this.cleanerTab.Size = new System.Drawing.Size(1273, 653);
             this.cleanerTab.TabIndex = 5;
             this.cleanerTab.Text = "Cleaner";
             // 
@@ -2718,7 +2749,7 @@ namespace Optimizer
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(221, 2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(1050, 547);
+            this.panel14.Size = new System.Drawing.Size(1050, 588);
             this.panel14.TabIndex = 51;
             // 
             // listCleanPreview
@@ -2732,11 +2763,12 @@ namespace Optimizer
             this.listCleanPreview.HorizontalScrollbar = true;
             this.listCleanPreview.Location = new System.Drawing.Point(0, 0);
             this.listCleanPreview.Name = "listCleanPreview";
-            this.listCleanPreview.Size = new System.Drawing.Size(1048, 545);
+            this.listCleanPreview.Size = new System.Drawing.Size(1048, 586);
             this.listCleanPreview.TabIndex = 1;
             // 
             // panel13
             // 
+            this.panel13.AutoScroll = true;
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel13.Controls.Add(this.btnWinClean);
             this.panel13.Controls.Add(this.analyzeDriveB);
@@ -2745,7 +2777,7 @@ namespace Optimizer
             this.panel13.Controls.Add(this.cleanDriveB);
             this.panel13.Controls.Add(this.lblFootprint);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel13.Location = new System.Drawing.Point(221, 549);
+            this.panel13.Location = new System.Drawing.Point(221, 590);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(1050, 61);
             this.panel13.TabIndex = 50;
@@ -2893,7 +2925,7 @@ namespace Optimizer
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(219, 608);
+            this.panel1.Size = new System.Drawing.Size(219, 649);
             this.panel1.TabIndex = 47;
             // 
             // bravePasswords
@@ -3327,7 +3359,7 @@ namespace Optimizer
             this.pingerTab.Location = new System.Drawing.Point(4, 25);
             this.pingerTab.Name = "pingerTab";
             this.pingerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.pingerTab.Size = new System.Drawing.Size(1273, 612);
+            this.pingerTab.Size = new System.Drawing.Size(1273, 653);
             this.pingerTab.TabIndex = 13;
             this.pingerTab.Text = "Pinger";
             // 
@@ -3343,12 +3375,13 @@ namespace Optimizer
             this.netTools.Name = "netTools";
             this.netTools.Padding = new System.Drawing.Point(0, 0);
             this.netTools.SelectedIndex = 0;
-            this.netTools.Size = new System.Drawing.Size(1267, 606);
+            this.netTools.Size = new System.Drawing.Size(1267, 647);
             this.netTools.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.netTools.TabIndex = 104;
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.tabPage1.Controls.Add(this.btnExport);
             this.tabPage1.Controls.Add(this.copyB);
@@ -3363,7 +3396,7 @@ namespace Optimizer
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1259, 577);
+            this.tabPage1.Size = new System.Drawing.Size(1259, 618);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Pinger";
             // 
@@ -3533,6 +3566,7 @@ namespace Optimizer
             // 
             // tabPage2
             // 
+            this.tabPage2.AutoScroll = true;
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.tabPage2.Controls.Add(this.dnsTitle);
             this.tabPage2.Controls.Add(this.linkDNSv6A);
@@ -3548,7 +3582,7 @@ namespace Optimizer
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1259, 577);
+            this.tabPage2.Size = new System.Drawing.Size(1259, 618);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "DNS";
             // 
@@ -3717,6 +3751,7 @@ namespace Optimizer
             // 
             // hostsEditorTab
             // 
+            this.hostsEditorTab.AutoScroll = true;
             this.hostsEditorTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.hostsEditorTab.Controls.Add(this.panel4);
             this.hostsEditorTab.Controls.Add(this.hostsTitle);
@@ -3725,7 +3760,7 @@ namespace Optimizer
             this.hostsEditorTab.Margin = new System.Windows.Forms.Padding(2);
             this.hostsEditorTab.Name = "hostsEditorTab";
             this.hostsEditorTab.Padding = new System.Windows.Forms.Padding(2);
-            this.hostsEditorTab.Size = new System.Drawing.Size(1273, 612);
+            this.hostsEditorTab.Size = new System.Drawing.Size(1273, 653);
             this.hostsEditorTab.TabIndex = 9;
             this.hostsEditorTab.Text = "Hosts";
             // 
@@ -3734,6 +3769,8 @@ namespace Optimizer
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.AutoScroll = true;
+            this.panel4.Controls.Add(this.chkIncludeWww);
             this.panel4.Controls.Add(this.linkAdvancedEdit);
             this.panel4.Controls.Add(this.linkRestoreDefault);
             this.panel4.Controls.Add(this.lblLock);
@@ -3753,6 +3790,19 @@ namespace Optimizer
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1002, 536);
             this.panel4.TabIndex = 53;
+            // 
+            // chkIncludeWww
+            // 
+            this.chkIncludeWww.AutoSize = true;
+            this.chkIncludeWww.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkIncludeWww.ForeColor = System.Drawing.Color.White;
+            this.chkIncludeWww.Location = new System.Drawing.Point(329, 136);
+            this.chkIncludeWww.Margin = new System.Windows.Forms.Padding(2);
+            this.chkIncludeWww.Name = "chkIncludeWww";
+            this.chkIncludeWww.Size = new System.Drawing.Size(134, 25);
+            this.chkIncludeWww.TabIndex = 63;
+            this.chkIncludeWww.Text = "WWW CNAME";
+            this.chkIncludeWww.UseVisualStyleBackColor = true;
             // 
             // linkAdvancedEdit
             // 
@@ -3796,7 +3846,7 @@ namespace Optimizer
             // 
             this.lblLock.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLock.ForeColor = System.Drawing.Color.Silver;
-            this.lblLock.Location = new System.Drawing.Point(325, 182);
+            this.lblLock.Location = new System.Drawing.Point(325, 234);
             this.lblLock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLock.Name = "lblLock";
             this.lblLock.Size = new System.Drawing.Size(315, 55);
@@ -3809,7 +3859,7 @@ namespace Optimizer
             this.chkReadOnly.AutoSize = true;
             this.chkReadOnly.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkReadOnly.ForeColor = System.Drawing.Color.White;
-            this.chkReadOnly.Location = new System.Drawing.Point(329, 155);
+            this.chkReadOnly.Location = new System.Drawing.Point(329, 207);
             this.chkReadOnly.Margin = new System.Windows.Forms.Padding(2);
             this.chkReadOnly.Name = "chkReadOnly";
             this.chkReadOnly.Size = new System.Drawing.Size(103, 25);
@@ -4014,6 +4064,7 @@ namespace Optimizer
             // 
             // registryFixerTab
             // 
+            this.registryFixerTab.AutoScroll = true;
             this.registryFixerTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.registryFixerTab.Controls.Add(this.panel2);
             this.registryFixerTab.Controls.Add(this.registryTitle);
@@ -4021,12 +4072,13 @@ namespace Optimizer
             this.registryFixerTab.Margin = new System.Windows.Forms.Padding(2);
             this.registryFixerTab.Name = "registryFixerTab";
             this.registryFixerTab.Padding = new System.Windows.Forms.Padding(2);
-            this.registryFixerTab.Size = new System.Drawing.Size(1273, 612);
+            this.registryFixerTab.Size = new System.Drawing.Size(1273, 653);
             this.registryFixerTab.TabIndex = 8;
             this.registryFixerTab.Text = "Registry";
             // 
             // panel2
             // 
+            this.panel2.AutoScroll = true;
             this.panel2.Controls.Add(this.regFixB);
             this.panel2.Controls.Add(this.regLbl);
             this.panel2.Controls.Add(this.checkRestartExplorer);
@@ -4230,7 +4282,7 @@ namespace Optimizer
             this.indiciumTab.Location = new System.Drawing.Point(4, 25);
             this.indiciumTab.Name = "indiciumTab";
             this.indiciumTab.Padding = new System.Windows.Forms.Padding(3);
-            this.indiciumTab.Size = new System.Drawing.Size(1273, 612);
+            this.indiciumTab.Size = new System.Drawing.Size(1273, 653);
             this.indiciumTab.TabIndex = 14;
             this.indiciumTab.Text = "Hardware";
             // 
@@ -4241,7 +4293,7 @@ namespace Optimizer
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(3, 38);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(1267, 571);
+            this.panel12.Size = new System.Drawing.Size(1267, 612);
             this.panel12.TabIndex = 2;
             // 
             // specsTree
@@ -4255,48 +4307,48 @@ namespace Optimizer
             this.specsTree.ForeColor = System.Drawing.Color.White;
             this.specsTree.Location = new System.Drawing.Point(0, 0);
             this.specsTree.Name = "specsTree";
-            treeNode9.ImageIndex = 0;
-            treeNode9.Name = "cpu";
-            treeNode9.SelectedImageIndex = 0;
-            treeNode9.Text = "Processors";
-            treeNode10.ImageIndex = 1;
-            treeNode10.Name = "ram";
-            treeNode10.SelectedImageIndex = 1;
-            treeNode10.Text = "Memory";
-            treeNode11.ImageIndex = 2;
-            treeNode11.Name = "gpu";
-            treeNode11.SelectedImageIndex = 2;
-            treeNode11.Text = "Graphics";
-            treeNode12.ImageIndex = 3;
-            treeNode12.Name = "mobo";
-            treeNode12.SelectedImageIndex = 3;
-            treeNode12.Text = "Motherboard";
-            treeNode13.ImageIndex = 4;
-            treeNode13.Name = "disk";
-            treeNode13.SelectedImageIndex = 4;
-            treeNode13.Text = "Storage";
-            treeNode14.ImageIndex = 5;
-            treeNode14.Name = "inet";
-            treeNode14.SelectedImageIndex = 5;
-            treeNode14.Text = "Network Adapters";
-            treeNode15.ImageIndex = 6;
-            treeNode15.Name = "audio";
-            treeNode15.SelectedImageIndex = 6;
-            treeNode15.Text = "Audio";
-            treeNode16.ImageIndex = 7;
-            treeNode16.Name = "dev";
-            treeNode16.SelectedImageIndex = 7;
-            treeNode16.Text = "Peripherals";
+            treeNode1.ImageIndex = 0;
+            treeNode1.Name = "cpu";
+            treeNode1.SelectedImageIndex = 0;
+            treeNode1.Text = "Processors";
+            treeNode2.ImageIndex = 1;
+            treeNode2.Name = "ram";
+            treeNode2.SelectedImageIndex = 1;
+            treeNode2.Text = "Memory";
+            treeNode3.ImageIndex = 2;
+            treeNode3.Name = "gpu";
+            treeNode3.SelectedImageIndex = 2;
+            treeNode3.Text = "Graphics";
+            treeNode4.ImageIndex = 3;
+            treeNode4.Name = "mobo";
+            treeNode4.SelectedImageIndex = 3;
+            treeNode4.Text = "Motherboard";
+            treeNode5.ImageIndex = 4;
+            treeNode5.Name = "disk";
+            treeNode5.SelectedImageIndex = 4;
+            treeNode5.Text = "Storage";
+            treeNode6.ImageIndex = 5;
+            treeNode6.Name = "inet";
+            treeNode6.SelectedImageIndex = 5;
+            treeNode6.Text = "Network Adapters";
+            treeNode7.ImageIndex = 6;
+            treeNode7.Name = "audio";
+            treeNode7.SelectedImageIndex = 6;
+            treeNode7.Text = "Audio";
+            treeNode8.ImageIndex = 7;
+            treeNode8.Name = "dev";
+            treeNode8.SelectedImageIndex = 7;
+            treeNode8.Text = "Peripherals";
             this.specsTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16});
-            this.specsTree.Size = new System.Drawing.Size(1265, 569);
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
+            this.specsTree.Size = new System.Drawing.Size(1265, 610);
             this.specsTree.TabIndex = 0;
             this.specsTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.specsTree_NodeMouseClick);
             // 
@@ -4419,7 +4471,7 @@ namespace Optimizer
             this.integratorTab.Margin = new System.Windows.Forms.Padding(2);
             this.integratorTab.Name = "integratorTab";
             this.integratorTab.Padding = new System.Windows.Forms.Padding(2);
-            this.integratorTab.Size = new System.Drawing.Size(1273, 612);
+            this.integratorTab.Size = new System.Drawing.Size(1273, 653);
             this.integratorTab.TabIndex = 10;
             this.integratorTab.Text = "Integrator";
             // 
@@ -4438,12 +4490,13 @@ namespace Optimizer
             this.synapse.Name = "synapse";
             this.synapse.Padding = new System.Drawing.Point(0, 0);
             this.synapse.SelectedIndex = 0;
-            this.synapse.Size = new System.Drawing.Size(1269, 608);
+            this.synapse.Size = new System.Drawing.Size(1269, 649);
             this.synapse.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.synapse.TabIndex = 0;
             // 
             // integratorInfoTab
             // 
+            this.integratorInfoTab.AutoScroll = true;
             this.integratorInfoTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.integratorInfoTab.Controls.Add(this.integrator7);
             this.integratorInfoTab.Controls.Add(this.integrator6);
@@ -4456,7 +4509,7 @@ namespace Optimizer
             this.integratorInfoTab.Margin = new System.Windows.Forms.Padding(2);
             this.integratorInfoTab.Name = "integratorInfoTab";
             this.integratorInfoTab.Padding = new System.Windows.Forms.Padding(2);
-            this.integratorInfoTab.Size = new System.Drawing.Size(1261, 579);
+            this.integratorInfoTab.Size = new System.Drawing.Size(1261, 620);
             this.integratorInfoTab.TabIndex = 0;
             this.integratorInfoTab.Text = "Info";
             // 
@@ -4551,6 +4604,7 @@ namespace Optimizer
             // 
             // tabPage8
             // 
+            this.tabPage8.AutoScroll = true;
             this.tabPage8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.tabPage8.Controls.Add(this.btnAddItem);
             this.tabPage8.Controls.Add(this.itemnamegroup);
@@ -4564,7 +4618,7 @@ namespace Optimizer
             this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage8.Size = new System.Drawing.Size(1293, 665);
+            this.tabPage8.Size = new System.Drawing.Size(1261, 620);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Add/Modify";
             // 
@@ -4898,6 +4952,7 @@ namespace Optimizer
             // 
             // tabPage9
             // 
+            this.tabPage9.AutoScroll = true;
             this.tabPage9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.tabPage9.Controls.Add(this.panel5);
             this.tabPage9.Controls.Add(this.refreshIIB);
@@ -4908,7 +4963,7 @@ namespace Optimizer
             this.tabPage9.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage9.Size = new System.Drawing.Size(1293, 665);
+            this.tabPage9.Size = new System.Drawing.Size(1261, 620);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Remove";
             // 
@@ -5005,6 +5060,7 @@ namespace Optimizer
             // 
             // tabPage10
             // 
+            this.tabPage10.AutoScroll = true;
             this.tabPage10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.tabPage10.Controls.Add(this.WAB);
             this.tabPage10.Controls.Add(this.AddCMDB);
@@ -5018,7 +5074,7 @@ namespace Optimizer
             this.tabPage10.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage10.Size = new System.Drawing.Size(1293, 665);
+            this.tabPage10.Size = new System.Drawing.Size(1261, 620);
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Ready Menus";
             // 
@@ -5149,6 +5205,7 @@ namespace Optimizer
             // 
             // tabPage11
             // 
+            this.tabPage11.AutoScroll = true;
             this.tabPage11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.tabPage11.Controls.Add(this.panel6);
             this.tabPage11.Controls.Add(this.removeCCB);
@@ -5165,7 +5222,7 @@ namespace Optimizer
             this.tabPage11.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage11.Size = new System.Drawing.Size(1293, 665);
+            this.tabPage11.Size = new System.Drawing.Size(1261, 620);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Run Dialog";
             // 
@@ -5341,7 +5398,12 @@ namespace Optimizer
             // 
             // optionsTab
             // 
+            this.optionsTab.AutoScroll = true;
             this.optionsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.optionsTab.Controls.Add(this.linkLabel6);
+            this.optionsTab.Controls.Add(this.linkLabel4);
+            this.optionsTab.Controls.Add(this.pictureBox6);
+            this.optionsTab.Controls.Add(this.pictureBox5);
             this.optionsTab.Controls.Add(this.autoStartToggle);
             this.optionsTab.Controls.Add(this.colorPicker1);
             this.optionsTab.Controls.Add(this.pictureBox3);
@@ -5372,6 +5434,64 @@ namespace Optimizer
             this.optionsTab.Size = new System.Drawing.Size(1273, 653);
             this.optionsTab.TabIndex = 6;
             this.optionsTab.Text = "Options";
+            // 
+            // linkLabel6
+            // 
+            this.linkLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.linkLabel6.AutoSize = true;
+            this.linkLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel6.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel6.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel6.Location = new System.Drawing.Point(43, 607);
+            this.linkLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel6.Name = "linkLabel6";
+            this.linkLabel6.Size = new System.Drawing.Size(172, 28);
+            this.linkLabel6.TabIndex = 102;
+            this.linkLabel6.TabStop = true;
+            this.linkLabel6.Tag = "themeable";
+            this.linkLabel6.Text = "Request a feature";
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel4.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel4.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel4.Location = new System.Drawing.Point(43, 573);
+            this.linkLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(131, 28);
+            this.linkLabel4.TabIndex = 101;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Tag = "themeable";
+            this.linkLabel4.Text = "Report a bug";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked_1);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox6.ErrorImage = null;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(14, 611);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 100;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox5.ErrorImage = null;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(14, 577);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 99;
+            this.pictureBox5.TabStop = false;
             // 
             // autoStartToggle
             // 
@@ -5985,22 +6105,6 @@ namespace Optimizer
             this.launcherIcon.Text = "Optimizer";
             this.launcherIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.launcherIcon_MouseDoubleClick);
             // 
-            // classicPhotoViewerSw
-            // 
-            this.classicPhotoViewerSw.AccessibleName = "Restore Classic Photo Viewer";
-            this.classicPhotoViewerSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
-            this.classicPhotoViewerSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.classicPhotoViewerSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.classicPhotoViewerSw.ForeColor = System.Drawing.Color.White;
-            this.classicPhotoViewerSw.LabelText = "Restore Classic Photo Viewer";
-            this.classicPhotoViewerSw.Location = new System.Drawing.Point(21, 250);
-            this.classicPhotoViewerSw.Margin = new System.Windows.Forms.Padding(6);
-            this.classicPhotoViewerSw.Name = "classicPhotoViewerSw";
-            this.classicPhotoViewerSw.Size = new System.Drawing.Size(414, 24);
-            this.classicPhotoViewerSw.TabIndex = 180;
-            this.classicPhotoViewerSw.Tag = "themeable";
-            this.classicPhotoViewerSw.ToggleChecked = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -6110,6 +6214,8 @@ namespace Optimizer
             this.panel6.ResumeLayout(false);
             this.optionsTab.ResumeLayout(false);
             this.optionsTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
@@ -6311,21 +6417,6 @@ namespace Optimizer
         private ToolStripMenuItem trayRegistry;
         private ToolStripMenuItem trayOptions;
         private Label txtFeedError;
-        private ToggleCard performanceSw;
-        private ToggleCard faxSw;
-        private ToggleCard homegroupSw;
-        private ToggleCard stickySw;
-        private ToggleCard compatSw;
-        private ToggleCard mediaSharingSw;
-        private ToggleCard printSw;
-        private ToggleCard superfetchSw;
-        private ToggleCard reportingSw;
-        private ToggleCard systemRestoreSw;
-        private ToggleCard officeTelemetrySw;
-        private ToggleCard smartScreenSw;
-        private ToggleCard networkSw;
-        private ToggleCard telemetryTasksSw;
-        private ToggleCard defenderSw;
         private ToggleCard tpmSw;
         private ToggleCard xboxSw;
         private ToggleCard inkSw;
@@ -6367,9 +6458,6 @@ namespace Optimizer
         private ToolStripMenuItem toolHWGoogle;
         private ToolStripMenuItem toolHWDuck;
         private ToolStripSeparator toolStripSeparator2;
-        private ToggleCard vsSw;
-        private ToggleCard chromeTelemetrySw;
-        private ToggleCard ffTelemetrySw;
         private LinkLabel linkLabel1;
         private PictureBox pictureBox13;
         private PictureBox pictureBox12;
@@ -6435,10 +6523,6 @@ namespace Optimizer
         private ToggleCard stickersSw;
         private PictureBox picRestartNeeded;
         private Label restartAndApply;
-        private ToggleCard hibernateSw;
-        private ToggleCard smb2Sw;
-        private ToggleCard smb1Sw;
-        private ToggleCard ntfsStampSw;
         private TabPage tabPage1;
         private Panel panel7;
         private MoonList listPingResults;
@@ -6457,14 +6541,9 @@ namespace Optimizer
         private MoonSelect boxDNS;
         private Controls.ColorPicker colorPicker1;
         private ToggleCard autoStartToggle;
-        private ToggleCard nvidiaTelemetrySw;
         private MoonTabs netTools;
         private Label dnsTitle;
         private ToggleCard vbsSw;
-        private Label label14s;
-        private Label label4a;
-        private Label drives;
-        private Label label13;
         private Label label14;
         private Label label15;
         private Label label16;
@@ -6473,7 +6552,6 @@ namespace Optimizer
         private Label label19;
         private Label label20;
         private Label label21;
-        private ToggleCard winSearchSw;
         private TabPage advancedTab;
         private ToggleCard edgeAiSw;
         private ToggleCard edgeTelemetrySw;
@@ -6500,6 +6578,39 @@ namespace Optimizer
         private System.Windows.Forms.Button btnRestart;
         private System.Windows.Forms.Button btnRestartSafe;
         private ToggleCard classicPhotoViewerSw;
+        private ToggleCard winSearchSw;
+        private Label label13;
+        private Label label4a;
+        private Label drives;
+        private Label label14s;
+        private ToggleCard nvidiaTelemetrySw;
+        private ToggleCard ntfsStampSw;
+        private ToggleCard smb2Sw;
+        private ToggleCard smb1Sw;
+        private ToggleCard hibernateSw;
+        private ToggleCard chromeTelemetrySw;
+        private ToggleCard ffTelemetrySw;
+        private ToggleCard vsSw;
+        private ToggleCard reportingSw;
+        private ToggleCard systemRestoreSw;
+        private ToggleCard officeTelemetrySw;
+        private ToggleCard smartScreenSw;
+        private ToggleCard networkSw;
+        private ToggleCard telemetryTasksSw;
+        private ToggleCard defenderSw;
+        private ToggleCard homegroupSw;
+        private ToggleCard stickySw;
+        private ToggleCard compatSw;
+        private ToggleCard mediaSharingSw;
+        private ToggleCard printSw;
+        private ToggleCard superfetchSw;
+        private ToggleCard faxSw;
+        private ToggleCard performanceSw;
+        private MoonCheck chkIncludeWww;
+        private LinkLabel linkLabel4;
+        private PictureBox pictureBox6;
+        private PictureBox pictureBox5;
+        private LinkLabel linkLabel6;
     }
 }
 
