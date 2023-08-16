@@ -1,93 +1,65 @@
-# Automating a Range of Operations Based on a Template
+## Run Optimizer on Windows Server 2008-2012-2016-2019-2022 ##
+#### Some options might not work properly ####
+- ```optimizer.exe /unsafe```
 
-To automate a range of operations using a provided template, follow these steps:
+## How to disable Windows Defender in Windows 10 1903 and later ##
+#### https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/security-malware-windows-defender-disableantispyware "DisableAntiSpyware" is discontinued and will be ignored on client devices, as of version 1903. ####
 
-1. **Download the Template**: Obtain the template file from [this link](https://github.com/hellzerg/optimizer/blob/master/templates/optimizer-template.json).
+- Restart in SAFE MODE
+- Execute: ```optimizer.exe /disabledefender```
 
-2. **Edit the Template**: Customize the template configuration according to your needs.
+-OR-
 
-3. **Execute the Optimizer**: Run the optimizer executable with the edited template configuration using the command: `optimizer.exe /config=template.json`
+- Execute: ```optimizer.exe /restart=disabledefender``` and let Optimizer do the rest automatically
 
-## Template Configuration Options
+## How to re-enable Windows Defender ##
 
-### WindowsVersion (required)
-- Should match your actual Windows version. Available values: `7 | 8 | 10 | 11`
+- Restart in SAFE MODE
+- Execute: ```optimizer.exe /enabledefender```
 
-### Cleaner
-- Choose target folders for cleaning by marking them as `true`.
+-OR-
 
-### Pinger
-- Choose DNS provider:
-- Available values: `Automatic | Cloudflare | OpenDNS | Quad9 | Google | AlternateDNS | Adguard | CleanBrowsing | CleanBrowsing (adult filter)`
-- Set FlushDNSCache to `true` to perform DNS cache flushing. Example:
+- Execute: ```optimizer.exe /restart=enabledefender``` and let Optimizer do the rest automatically
 
- ```
- "Pinger": {
-     "SetDNS": "Cloudflare",
-     "FlushDNSCache": true
- }
- ```
+## How to restart in SAFE MODE / NORMAL easily ##
 
-### ProcessControl
-- Prevent processes from running by providing filenames.
-- Allow previously prevented processes to run again. Example:
+- ```optimizer.exe /restart=safemode```
+- ```optimizer.exe /restart=normal```
 
- ```
- "ProcessControl": {
-     "Prevent": ["chrome.exe", "firefox.exe"],
-     "Allow": ["opera.exe"]
- }
- ```
+## Display version info from command line using:
 
-### Hosts
-- Manage hosts entries:
-- Entries in the `Block` list route to `0.0.0.0`, effectively blocking access.
-- Entries in the `Add` list are added. Example:
+- ```optimizer.exe /version```
 
- ```
- "HostsEditor": {
-     "Block": ["youtube.com", "google.com"],
-     "Add": [
-         {
-             "Domain": "test.com",
-             "IPAddress": "192.168.1.5",
-             "Comment": "comment is optional"
-         },
-         {
-             "Domain": "test2.com",
-             "IPAddress": "192.168.1.9",
-             "Comment": ""
-         }
-     ]
- }
- ```
+## You may disable specific tools for troubleshooting purposes ##
+#### Available list: ####
 
-### RegistryFix
-- Enable core Windows components by marking them as `true`. Use for repairing computers from malicious actions.
+* Hardware inspection utility (```indicium```)
+* Common Apps downloader tool (```apps```)
+* HOSTS Editor tool (```hosts```)
+* UWP Apps Uninstaller (```uwp```)
+* Startup items tool (```startup```)
+* Cleaner utility (```cleaner```)
+* Integrator tool (```integrator```)
+* Pinger tool (```pinger```)
 
-### Integrator
-- `TakeOwnership`: Add or remove "Take Ownership" option in right-click menu. (`false`)
-- `OpenWithCMD`: Add or remove "Open CMD here" option in right-click menu. (`false`)
+#### Examples ####
 
-### AdvancedTweaks
-- Caution: These tweaks are technical, avoid unless you understand them.
-- `UnlockAllCores`: Leave `null` or `false`.
-- `DisableHPET`: Enable or disable High Precision Event Timer.
-- `EnableLoginVerbose`: Enable or disable Detailed Login Screen.
+- ```optimizer.exe /disable=indicium,uwp```
+- ```optimizer.exe /disable=indicium,uwp,hosts```
 
-#### SvchostProcessSplitting
-- Mark `true` to reduce svchost.exe processes for optimal memory.
-- Mark `false` to enable process splitting for optimal performance.
+## Disable or Reset svchost process splitting mechanism ##
+### Reduces the amount of svchost processes running, improving RAM usage ###
+### To disable it, you need to provide your amount of RAM using this command (example for 8GB RAM): ###
 
-### Tweaks
-- Mark options to apply as `true`.
-- Mark options to reset as `false`.
-- Mark options to ignore as `null`.
+```optimizer.exe /svchostsplit=8```
 
-### PostAction
-- Final action after template execution:
-- Mark `Restart` as `true` to restart and apply changes.
-- Configure `RestartType` for different restart types (`Normal` or `SafeMode`).
-- Use `DisableDefender` and `EnableDefender` for automated Windows Defender control.
+#### Reset the mechanism to its default configuration using: ####
+```optimizer.exe /resetsvchostsplit```
 
-**Note**: Review and customize the template configuration carefully before executing.
+## Reset Optimizer configuration might fix it when can't open ##
+```optimizer.exe /repair```
+
+## How to disable/enable HPET (High Precision Event Timer) in order to gain a boost when gaming [use at your own risk!] ##
+
+- ```optimizer.exe /disablehpet```
+- ```optimizer.exe /enablehpet```
