@@ -1,91 +1,93 @@
-## Automating a range of operations based on a template. ##
+# Automating a Range of Operations Based on a Template
 
-Download the template file and edit it accordingly.
-Then, execute it like this: ```optimizer.exe /config=template.json```
+To automate a range of operations using a provided template, follow these steps:
 
-### Download the template: ###
-https://github.com/hellzerg/optimizer/blob/master/templates/optimizer-template.json
+1. **Download the Template**: Obtain the template file from [this link](https://github.com/hellzerg/optimizer/blob/master/templates/optimizer-template.json).
 
-### WindowsVersion (required) ###
-* Should match your actual Windows version. Available values: ```7 | 8 | 10 | 11```
+2. **Edit the Template**: Customize the template configuration according to your needs.
 
-### Cleaner ###
-* Choose which target folder you wish to clean by marking ```true```
+3. **Execute the Optimizer**: Run the optimizer executable with the edited template configuration using the command: `optimizer.exe /config=template.json`
 
-### Pinger ###
-* Choose your desired DNS provider.
-* Available values: ```Automatic | Cloudflare | OpenDNS | Quad9 | Google | AlternateDNS | Adguard | CleanBrowsing | CleanBrowsing (adult filter)```
-* If you wish to perform DNS cache flushing, set it to ```true```
-* Example:
-```
-"Pinger": {
-    "SetDNS": "Cloudflare",
-    "FlushDNSCache": true
-}
-```
+## Template Configuration Options
 
-### ProcessControl ###
-* Choose which processes you wish to prevent from running, using their filename.
-* You can remove previously prevented processes, in order to allow them to run again.
-* Example: 
-```
-"ProcessControl": {
-	"Prevent": ["chrome.exe", "firefox.exe"],
-	"Allow": ["opera.exe"]
-}
-```
+### WindowsVersion (required)
+- Should match your actual Windows version. Available values: `7 | 8 | 10 | 11`
 
-### Hosts ###
-* Control your hosts entries. ```Add``` list adds the entries, ```Block``` list routes the entries to ```0.0.0.0``` effectively blocking access to them.
-* Example:
-```
-"HostsEditor": {
-    "Block": ["youtube.com", "google.com"],
-    "Add": [
-	    {
-	    	"Domain": "test.com",
-	    	"IPAddress": "192.168.1.5",
-	    	"Comment": "comment is optional"
-	    },
-	    {
-	    	"Domain": "test2.com",
-	    	"IPAddress": "192.168.1.9",
-	    	"Comment": ""
-	    }
-    ]
-}	
-```
+### Cleaner
+- Choose target folders for cleaning by marking them as `true`.
 
-### RegistryFix ###
-* You can try enabling core Windows components by marking them ```true```
-* You typically do not need this, unless you are trying to repair a computer from malicious actions
+### Pinger
+- Choose DNS provider:
+- Available values: `Automatic | Cloudflare | OpenDNS | Quad9 | Google | AlternateDNS | Adguard | CleanBrowsing | CleanBrowsing (adult filter)`
+- Set FlushDNSCache to `true` to perform DNS cache flushing. Example:
 
-### Integrator ###
-* ```TakeOwnership```: Mark ```true``` to add a "Take Ownership" option in right-click menu. Remove it by marking ```false```
-* ```OpenWithCMD```: Mark ```true``` to add a "Open CMD here" option in right-click menu. Remove it by marking ```false```
+ ```
+ "Pinger": {
+     "SetDNS": "Cloudflare",
+     "FlushDNSCache": true
+ }
+ ```
 
-### AdvancedTweaks ###
-* Deeply technical tweaks that you should NOT touch, unless you know what you are really doing
+### ProcessControl
+- Prevent processes from running by providing filenames.
+- Allow previously prevented processes to run again. Example:
 
-* ```UnlockAllCores```: DO NOT use this option. Leave it ```null``` or ```false```.
-* ```DisableHPET```: Enables or disables High Precision Event Timer.
-* ```EnableLoginVerbose```: Enables or disables Detailed Login Screen
+ ```
+ "ProcessControl": {
+     "Prevent": ["chrome.exe", "firefox.exe"],
+     "Allow": ["opera.exe"]
+ }
+ ```
 
-#### SvchostProcessSplitting ####
-* Mark it ```true``` and set the amount of ```RAM``` to reduce the svchost.exe processes for optimal memory
-* Mark it ```false``` to enable process splitting for optimal performance
+### Hosts
+- Manage hosts entries:
+- Entries in the `Block` list route to `0.0.0.0`, effectively blocking access.
+- Entries in the `Add` list are added. Example:
 
-### Tweaks ###
-* Mark the options you want to APPLY to ```true```
-* Mark the options you want to RESET to ```false```
-* Mark the options you want to IGNORE to ```null```
+ ```
+ "HostsEditor": {
+     "Block": ["youtube.com", "google.com"],
+     "Add": [
+         {
+             "Domain": "test.com",
+             "IPAddress": "192.168.1.5",
+             "Comment": "comment is optional"
+         },
+         {
+             "Domain": "test2.com",
+             "IPAddress": "192.168.1.9",
+             "Comment": ""
+         }
+     ]
+ }
+ ```
 
-### PostAction ###
-* Final action after executing the template.
-* You may mark ```Restart``` to ```true``` to restart in order to effectively apply the changes.
-* You may choose between different types of restarting by configuring ```RestartType```
-* ```Normal``` performs a normal restart
-* ```SafeMode``` performs a restart in minimal safemode
+### RegistryFix
+- Enable core Windows components by marking them as `true`. Use for repairing computers from malicious actions.
 
-* ```DisableDefender```: you can disable Windows defender (Windows 10/11 needs this) by going through safemode and returning, everything automated
-* ```EnableDefender```: same, but for enabling Windows defender
+### Integrator
+- `TakeOwnership`: Add or remove "Take Ownership" option in right-click menu. (`false`)
+- `OpenWithCMD`: Add or remove "Open CMD here" option in right-click menu. (`false`)
+
+### AdvancedTweaks
+- Caution: These tweaks are technical, avoid unless you understand them.
+- `UnlockAllCores`: Leave `null` or `false`.
+- `DisableHPET`: Enable or disable High Precision Event Timer.
+- `EnableLoginVerbose`: Enable or disable Detailed Login Screen.
+
+#### SvchostProcessSplitting
+- Mark `true` to reduce svchost.exe processes for optimal memory.
+- Mark `false` to enable process splitting for optimal performance.
+
+### Tweaks
+- Mark options to apply as `true`.
+- Mark options to reset as `false`.
+- Mark options to ignore as `null`.
+
+### PostAction
+- Final action after template execution:
+- Mark `Restart` as `true` to restart and apply changes.
+- Configure `RestartType` for different restart types (`Normal` or `SafeMode`).
+- Use `DisableDefender` and `EnableDefender` for automated Windows Defender control.
+
+**Note**: Review and customize the template configuration carefully before executing.
