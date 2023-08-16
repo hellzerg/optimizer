@@ -1,65 +1,49 @@
-## Run Optimizer on Windows Server 2008-2012-2016-2019-2022 ##
-#### Some options might not work properly ####
-- ```optimizer.exe /unsafe```
+# Windows Server Optimizer Commands #
 
-## How to disable Windows Defender in Windows 10 1903 and later ##
-#### https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/security-malware-windows-defender-disableantispyware "DisableAntiSpyware" is discontinued and will be ignored on client devices, as of version 1903. ####
+## Running the Optimizer ##
+Please note that some options might not work properly.
+- Run the optimizer with: `optimizer.exe /unsafe`
 
-- Restart in SAFE MODE
-- Execute: ```optimizer.exe /disabledefender```
+## Disabling Windows Defender ##
+For Windows 10 1903 and later, `DisableAntiSpyware` is ignored starting from version 1903.
+To disable Windows Defender:
+1. Restart in SAFE MODE.
+2. Execute: `optimizer.exe /disabledefender` OR `optimizer.exe /restart=disabledefender` (automatic)
 
--OR-
+## Re-enabling Windows Defender ##
+To re-enable Windows Defender:
+1. Restart in SAFE MODE.
+2. Execute: `optimizer.exe /enabledefender` OR `optimizer.exe /restart=enabledefender` (automatic)
 
-- Execute: ```optimizer.exe /restart=disabledefender``` and let Optimizer do the rest automatically
+## Restart Modes ##
+Restart in SAFE MODE: `optimizer.exe /restart=safemode`
+Restart in NORMAL MODE: `optimizer.exe /restart=normal`
 
-## How to re-enable Windows Defender ##
+## Version Info ##
+Display version information: `optimizer.exe /version`
 
-- Restart in SAFE MODE
-- Execute: ```optimizer.exe /enabledefender```
+## Disabling Specific Tools ##
+For troubleshooting purposes, you can disable specific tools:
+- Hardware inspection utility: `indicium`
+- Common Apps downloader tool: `apps`
+- HOSTS Editor tool: `hosts`
+- UWP Apps Uninstaller: `uwp`
+- Startup items tool: `startup`
+- Cleaner utility: `cleaner`
+- Integrator tool: `integrator`
+- Pinger tool: `pinger`
+Example: `optimizer.exe /disable=indicium,uwp`
 
--OR-
+## svchost Process Splitting Mechanism ##
+Reduce svchost processes to improve RAM usage:
+- Disable (provide RAM amount): `optimizer.exe /svchostsplit=8`
+- Reset to default: `optimizer.exe /resetsvchostsplit`
 
-- Execute: ```optimizer.exe /restart=enabledefender``` and let Optimizer do the rest automatically
+## Resetting Optimizer Configuration ##
+To fix issues when unable to open the optimizer:
+- Reset configuration: `optimizer.exe /repair`
 
-## How to restart in SAFE MODE / NORMAL easily ##
-
-- ```optimizer.exe /restart=safemode```
-- ```optimizer.exe /restart=normal```
-
-## Display version info from command line using:
-
-- ```optimizer.exe /version```
-
-## You may disable specific tools for troubleshooting purposes ##
-#### Available list: ####
-
-* Hardware inspection utility (```indicium```)
-* Common Apps downloader tool (```apps```)
-* HOSTS Editor tool (```hosts```)
-* UWP Apps Uninstaller (```uwp```)
-* Startup items tool (```startup```)
-* Cleaner utility (```cleaner```)
-* Integrator tool (```integrator```)
-* Pinger tool (```pinger```)
-
-#### Examples ####
-
-- ```optimizer.exe /disable=indicium,uwp```
-- ```optimizer.exe /disable=indicium,uwp,hosts```
-
-## Disable or Reset svchost process splitting mechanism ##
-### Reduces the amount of svchost processes running, improving RAM usage ###
-### To disable it, you need to provide your amount of RAM using this command (example for 8GB RAM): ###
-
-```optimizer.exe /svchostsplit=8```
-
-#### Reset the mechanism to its default configuration using: ####
-```optimizer.exe /resetsvchostsplit```
-
-## Reset Optimizer configuration might fix it when can't open ##
-```optimizer.exe /repair```
-
-## How to disable/enable HPET (High Precision Event Timer) in order to gain a boost when gaming [use at your own risk!] ##
-
-- ```optimizer.exe /disablehpet```
-- ```optimizer.exe /enablehpet```
+## Disabling/Enabling HPET (High Precision Event Timer) ##
+Use at your own risk for gaming performance:
+- Disable: `optimizer.exe /disablehpet`
+- Enable: `optimizer.exe /enablehpet`
