@@ -1,19 +1,29 @@
-## How to include an app in Common Apps using feed.json: ##
+# Including an App in Common Apps using feed.json
 
-* You will need direct links for both x64 and x86 variants (if x64 or x86 is unavailable, just use either one)
-* Official app title
-* A tag, usually the app title - without spaces - preceded by a 'c'
-* A PNG image - needs to be up to 256x256, should not exceed 50kb in size and must be with transparent background
-* The group in which the app will be included to
+To include an app in Common Apps using the `feed.json` file, follow these steps:
 
-## Available groups: ##
+## Prerequisites
 
-* SystemTools
-* Internet
-* Coding
-* GraphicsSound
+You will need the following information:
 
-## Example: ##
+- Direct download links for both x64 and x86 variants of the app (if one variant is unavailable, provide the available variant).
+- Official app title.
+- A tag, usually the app title without spaces, preceded by a 'c'.
+- A PNG image with a transparent background, up to 256x256 pixels in size and not exceeding 50KB.
+- The group in which the app will be categorized.
+
+## Available Groups
+
+Choose one of the available groups to categorize your app:
+
+- SystemTools
+- Internet
+- Coding
+- GraphicsSound
+
+## Example
+
+Here's an example of how to structure your entry in the `feed.json` file:
 
 ```json
 {
@@ -24,4 +34,3 @@
   "Image": "<link_to_png>",
   "Group": "Internet"
 }
-```
