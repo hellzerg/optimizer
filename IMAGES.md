@@ -10,5 +10,3 @@
 ![alt](https://raw.githubusercontent.com/hellzerg/optimizer/master/images/10.PNG)
 ![alt](https://raw.githubusercontent.com/hellzerg/optimizer/master/images/11.PNG)
 ![alt](https://raw.githubusercontent.com/hellzerg/optimizer/master/images/12.PNG)
-![alt](https://raw.githubusercontent.com/hellzerg/optimizer/master/images/13.PNG)
-![alt](https://raw.githubusercontent.com/hellzerg/optimizer/master/images/14.PNG)

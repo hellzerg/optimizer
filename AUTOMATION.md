@@ -44,7 +44,6 @@ To automate a range of operations using a provided template, follow these steps:
  ```
 
 ### Hosts
-- Manage hosts entries:
 - Mark `IncludeWwwCname` to `true` in order to automatically adding an extra `www.` record for each entry.
 - Entries in the `Remove` list should be the domain names you want remove from the hosts file.
 - Entries in the `Block` list route to `0.0.0.0`, effectively blocking access.
