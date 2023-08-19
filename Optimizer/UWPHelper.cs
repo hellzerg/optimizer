@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Management.Automation;
 
 namespace Optimizer
@@ -41,7 +42,10 @@ namespace Optimizer
                 foreach (PSObject x in psResult)
                 {
                     tmp = x.ToString().Replace("@", string.Empty).Replace("{", string.Empty).Replace("}", string.Empty).Replace("Name=", string.Empty).Replace("InstallLocation=", string.Empty).Trim().Split(';');
-                    modernApps.Add(new KeyValuePair<string, string>(tmp[0], tmp[1]));
+                    if (!modernApps.Any(i => i.Key == tmp[0]))
+                    {
+                        modernApps.Add(new KeyValuePair<string, string>(tmp[0], tmp[1]));
+                    }
                 }
             }
 

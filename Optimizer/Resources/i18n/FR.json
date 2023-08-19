@@ -425,5 +425,12 @@ Necessite l'ouverture d'un compte Microsoft.",
 	"btnRestartSafe": "Redémarrer en mode sans échec",
 	"btnRestart": "Redémarrer en mode normal",
 	"btnRestartDisableDefender": "Redémarrer et désactiver Defender",
-	"classicPhotoViewerSw": "Restaurer la visionneuse de photos classique"
+	"classicPhotoViewerSw": "Restaurer la visionneuse de photos classique",
+	"tabPage3": "Polices",
+	"fontSetTitle": "Définir votre police préférée comme police par défaut de Windows",
+	"label11": "Police actuelle:",
+	"btnSetGlobalFont": "Définir par défaut",
+	"lblFontsCount": "Polices disponibles:",
+	"btnRestoreFont": "Retablir les valeurs par defaut",
+	"btnRefreshFonts": "Rafraichir"
 }

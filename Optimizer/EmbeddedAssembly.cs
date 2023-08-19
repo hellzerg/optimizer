@@ -34,7 +34,7 @@ namespace Optimizer
                 }
                 catch (Exception ex)
                 {
-                    ErrorLogger.LogError("EmbeddedAssembly.Load", ex.Message, ex.StackTrace);
+                    Logger.LogError("EmbeddedAssembly.Load", ex.Message, ex.StackTrace);
                 }
             }
 

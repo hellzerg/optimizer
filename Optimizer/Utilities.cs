@@ -205,7 +205,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Utilities.RunBatchFile", ex.Message, ex.StackTrace);
+                Logger.LogError("Utilities.RunBatchFile", ex.Message, ex.StackTrace);
             }
         }
 
@@ -226,7 +226,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 p.Dispose();
-                ErrorLogger.LogError("Utilities.ImportRegistryScript", ex.Message, ex.StackTrace);
+                Logger.LogError("Utilities.ImportRegistryScript", ex.Message, ex.StackTrace);
             }
             finally
             {
@@ -286,7 +286,7 @@ namespace Optimizer
                 }
                 catch (Exception ex)
                 {
-                    ErrorLogger.LogError("Utilities.StartService", ex.Message, ex.StackTrace);
+                    Logger.LogError("Utilities.StartService", ex.Message, ex.StackTrace);
                 }
             }
         }
@@ -369,7 +369,7 @@ namespace Optimizer
                 }
                 catch (Exception ex)
                 {
-                    ErrorLogger.LogError("Utilities.RunCommand", ex.Message, ex.StackTrace);
+                    Logger.LogError("Utilities.RunCommand", ex.Message, ex.StackTrace);
                 }
             }
         }
@@ -418,7 +418,7 @@ namespace Optimizer
                 }
                 catch (Exception ex)
                 {
-                    ErrorLogger.LogError("Utilities.RestartExplorer", ex.Message, ex.StackTrace);
+                    Logger.LogError("Utilities.RestartExplorer", ex.Message, ex.StackTrace);
                 }
             }
 
@@ -435,7 +435,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Utilities.FindKeyInRegistry", ex.Message, ex.StackTrace);
+                Logger.LogError("Utilities.FindKeyInRegistry", ex.Message, ex.StackTrace);
             }
         }
 
@@ -447,7 +447,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Utilities.ResetConfiguration", ex.Message, ex.StackTrace);
+                Logger.LogError("Utilities.ResetConfiguration", ex.Message, ex.StackTrace);
             }
             finally
             {
@@ -587,7 +587,7 @@ namespace Optimizer
 
             if (subKey == null)
             {
-                ErrorLogger.LogError("Utilities.OpenSubKeyWritable", $"Subkey {subkeyName} not found.", "-");
+                Logger.LogError("Utilities.OpenSubKeyWritable", $"Subkey {subkeyName} not found.", "-");
             }
 
             return subKey;
@@ -687,7 +687,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Utilities.EnableLoginVerbose", ex.Message, ex.StackTrace);
+                Logger.LogError("Utilities.EnableLoginVerbose", ex.Message, ex.StackTrace);
             }
         }
 
@@ -706,7 +706,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Utilities.UnlockAllCores", ex.Message, ex.StackTrace);
+                Logger.LogError("Utilities.UnlockAllCores", ex.Message, ex.StackTrace);
             }
         }
 
@@ -720,7 +720,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Utilities.DisableSvcHostProcessSplitting", ex.Message, ex.StackTrace);
+                Logger.LogError("Utilities.DisableSvcHostProcessSplitting", ex.Message, ex.StackTrace);
             }
         }
 
@@ -733,7 +733,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Utilities.EnableSvcHostProcessSplitting", ex.Message, ex.StackTrace);
+                Logger.LogError("Utilities.EnableSvcHostProcessSplitting", ex.Message, ex.StackTrace);
             }
         }
 
@@ -762,7 +762,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Utilities.AddToStartup", ex.Message, ex.StackTrace);
+                Logger.LogError("Utilities.AddToStartup", ex.Message, ex.StackTrace);
             }
         }
 
@@ -777,7 +777,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Utilities.DeleteFromStartup", ex.Message, ex.StackTrace);
+                Logger.LogError("Utilities.DeleteFromStartup", ex.Message, ex.StackTrace);
             }
         }
 
@@ -802,7 +802,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Utilities.AllowProcessToRun", ex.Message, ex.StackTrace);
+                Logger.LogError("Utilities.AllowProcessToRun", ex.Message, ex.StackTrace);
             }
         }
 
@@ -834,7 +834,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Utilities.PreventProcessFromRunning", ex.Message, ex.StackTrace);
+                Logger.LogError("Utilities.PreventProcessFromRunning", ex.Message, ex.StackTrace);
             }
         }
 

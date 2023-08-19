@@ -14,7 +14,7 @@ namespace Optimizer
         /* DO NOT LEAVE THEM EMPTY */
 
         internal readonly static float Major = 15;
-        internal readonly static float Minor = 6;
+        internal readonly static float Minor = 7;
 
         internal readonly static bool EXPERIMENTAL_BUILD = false;
         internal static bool SILENT_MODE = false;
@@ -238,6 +238,7 @@ namespace Optimizer
 
                 if (arg.StartsWith("/config="))
                 {
+                    UNSAFE_MODE = true;
                     string fileName = arg.Replace("/config=", string.Empty);
 
                     if (!File.Exists(fileName))
@@ -276,7 +277,7 @@ namespace Optimizer
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             Exception error = (Exception)e.ExceptionObject;
-            ErrorLogger.LogError("Program.Main-UnhandledException", error.Message, error.StackTrace);
+            Logger.LogError("Program.Main-UnhandledException", error.Message, error.StackTrace);
         }
 
         private static void LoadSettings()
@@ -318,7 +319,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Program.Main-LoadSettings", ex.Message, ex.StackTrace);
+                Logger.LogError("Program.Main-LoadSettings", ex.Message, ex.StackTrace);
                 Environment.Exit(0);
             }
         }

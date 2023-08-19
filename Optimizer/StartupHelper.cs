@@ -88,14 +88,14 @@ namespace Optimizer
                             }
                             catch (Exception ex)
                             {
-                                ErrorLogger.LogError("Utilities.GetRegistryStartupItemsHelper", ex.Message, ex.StackTrace);
+                                Logger.LogError("Utilities.GetRegistryStartupItemsHelper", ex.Message, ex.StackTrace);
                             }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    ErrorLogger.LogError("Utilities.GetRegistryStartupItemsHelper", ex.Message, ex.StackTrace);
+                    Logger.LogError("Utilities.GetRegistryStartupItemsHelper", ex.Message, ex.StackTrace);
                 }
             }
         }
@@ -116,7 +116,7 @@ namespace Optimizer
                 }
                 catch (Exception ex)
                 {
-                    ErrorLogger.LogError("Utilities.GetFolderStartupItemsHelper", ex.Message, ex.StackTrace);
+                    Logger.LogError("Utilities.GetFolderStartupItemsHelper", ex.Message, ex.StackTrace);
                 }
             }
 
@@ -134,7 +134,7 @@ namespace Optimizer
                 }
                 catch (Exception ex)
                 {
-                    ErrorLogger.LogError("Utilities.GetFolderStartupItemsHelper", ex.Message, ex.StackTrace);
+                    Logger.LogError("Utilities.GetFolderStartupItemsHelper", ex.Message, ex.StackTrace);
                 }
             }
         }

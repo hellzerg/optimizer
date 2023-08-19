@@ -116,7 +116,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("MainForm.CheckForUpdate", ex.Message, ex.StackTrace);
+                Logger.LogError("MainForm.CheckForUpdate", ex.Message, ex.StackTrace);
                 MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
@@ -179,7 +179,7 @@ namespace Optimizer
                         }
                         catch (Exception ex)
                         {
-                            ErrorLogger.LogError("MainForm.CheckForUpdate", ex.Message, ex.StackTrace);
+                            Logger.LogError("MainForm.CheckForUpdate", ex.Message, ex.StackTrace);
                             MessageBox.Show(ex.Message);
                         }
                     }
@@ -779,6 +779,7 @@ namespace Optimizer
         public MainForm(SplashForm _splashForm, bool disableIndicium = false, bool disableHostsEditor = false, bool disableCommonApps = false, bool disableUWPApps = false, bool disableStartups = false, bool disableCleaner = false, bool disableIntegrator = false, bool disablePinger = false)
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
 
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
             CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-US");
@@ -1041,7 +1042,7 @@ namespace Optimizer
                     catch (Exception ex)
                     {
                         txtDownloadFolder.Text = string.Empty;
-                        ErrorLogger.LogError("MainForm.INIT", ex.Message, ex.StackTrace);
+                        Logger.LogError("MainForm.INIT", ex.Message, ex.StackTrace);
                     }
                 }
                 txtDownloadFolder.Text = Options.CurrentOptions.AppsFolder;
@@ -1073,19 +1074,21 @@ namespace Optimizer
             lblFontsNumber.Text = _availableFonts.Length.ToString();
         }
 
-        private void FixFormSize()
+        private void FixTabHeaderWidth()
         {
-            int desiredWidth = (tabCollection.ItemSize.Width * tabCollection.TabPages.Count) + (Program.DPI_PREFERENCE / 3);
-            int desiredHeight = Convert.ToInt32(desiredWidth / 1.5);
+            if (tabCollection.ItemSize == new Size(0, 0)) return;
 
-            if (desiredWidth > this.Width)
+            int maxTextWidth = 0;
+            for (int i = 0; i < tabCollection.TabPages.Count; i++)
             {
-                this.Width = desiredWidth;
-                this.Height = desiredHeight;
+                var tabWidth = TextRenderer.MeasureText(tabCollection.TabPages[i]?.Text, tabCollection.TabPages[i]?.Font).Width;
+                if (tabWidth > maxTextWidth)
+                {
+                    maxTextWidth = tabWidth;
+                }
             }
 
-            this.MinimumSize = new Size(desiredWidth, desiredHeight);
-            this.CenterToScreen();
+            tabCollection.ItemSize = new Size(maxTextWidth, tabCollection.ItemSize.Height + 10);
         }
 
         private void LoadReadyMenusState()
@@ -2102,7 +2105,7 @@ namespace Optimizer
                         btnDownloadApps.Enabled = false;
                         txtFeedError.Visible = true;
 
-                        ErrorLogger.LogError("MainForm.GetFeed", ex.Message, ex.StackTrace);
+                        Logger.LogError("MainForm.GetFeed", ex.Message, ex.StackTrace);
                     }
                 }
             }
@@ -2111,7 +2114,7 @@ namespace Optimizer
                 btnDownloadApps.Enabled = false;
                 txtFeedError.Visible = true;
 
-                ErrorLogger.LogError("MainForm.GetFeed-DownloadImages", ex.Message, ex.StackTrace);
+                Logger.LogError("MainForm.GetFeed-DownloadImages", ex.Message, ex.StackTrace);
             }
         }
 
@@ -2130,7 +2133,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("MainForm.CleanPC", ex.Message, ex.StackTrace);
+                Logger.LogError("MainForm.CleanPC", ex.Message, ex.StackTrace);
             }
             finally
             {
@@ -2212,7 +2215,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("MainForm.FixRegistry", ex.Message, ex.StackTrace);
+                Logger.LogError("MainForm.FixRegistry", ex.Message, ex.StackTrace);
             }
 
             return changeDetected;
@@ -2301,7 +2304,7 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            FixFormSize();
+            FixTabHeaderWidth();
         }
 
         private void GetDesktopItems()
@@ -2357,6 +2360,11 @@ namespace Optimizer
                 list.SubItems.Add(_startUpItems[i].ToString());
 
                 listStartupItems.Items.Add(list);
+            }
+
+            foreach (ColumnHeader column in listStartupItems.Columns)
+            {
+                column.AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
         }
 
@@ -3716,7 +3724,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("MainForm.DownloadApp", ex.Message, ex.StackTrace);
+                Logger.LogError("MainForm.DownloadApp", ex.Message, ex.StackTrace);
                 downloadLog += "• " + app.Title + ":" + Environment.NewLine + Options.TranslationList["linkInvalid"] + Environment.NewLine + Environment.NewLine;
 
                 if (pref64) try { File.Delete(Path.Combine(txtDownloadFolder.Text, app.Title + "-x64.exe")); } catch { }
@@ -3807,9 +3815,9 @@ namespace Optimizer
 
         private void btnViewLog_Click(object sender, EventArgs e)
         {
-            if (File.Exists(ErrorLogger.ErrorLogFile))
+            if (File.Exists(Logger.ErrorLogFile))
             {
-                InfoForm iform = new InfoForm(File.ReadAllText(ErrorLogger.ErrorLogFile, Encoding.UTF8));
+                InfoForm iform = new InfoForm(File.ReadAllText(Logger.ErrorLogFile, Encoding.UTF8));
                 iform.ShowDialog();
             }
             else
@@ -3936,7 +3944,7 @@ namespace Optimizer
                 }
                 catch (Exception ex)
                 {
-                    ErrorLogger.LogError("btnExport.Click", ex.Message, ex.StackTrace);
+                    Logger.LogError("btnExport.Click", ex.Message, ex.StackTrace);
                     MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -4090,7 +4098,7 @@ namespace Optimizer
                 }
                 catch (Exception ex)
                 {
-                    ErrorLogger.LogError("MainForm.BackupStartupItems", ex.Message, ex.StackTrace);
+                    Logger.LogError("MainForm.BackupStartupItems", ex.Message, ex.StackTrace);
                 }
             }
         }
@@ -4270,7 +4278,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("MainForm.ParseChangelog", ex.Message, ex.StackTrace);
+                Logger.LogError("MainForm.ParseChangelog", ex.Message, ex.StackTrace);
                 MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return string.Empty;
             }
@@ -4416,7 +4424,7 @@ namespace Optimizer
             Options.LoadTranslation();
             Translate();
 
-            FixFormSize();
+            FixTabHeaderWidth();
             btnUpdate.Focus();
         }
 

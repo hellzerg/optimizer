@@ -1,5 +1,5 @@
 {
-    "WindowsVersion": 10,
+    "WindowsVersion": 11,
     "PostAction": {
         "Restart": null,
         "RestartType": "Normal"
@@ -46,7 +46,9 @@
     },
     "HostsEditor": {
         "Block": [],
-        "Add": []
+        "Add": [],
+        "Remove": [],
+        "IncludeWwwCname": null
     },
     "RegistryFix": {
         "TaskManager": null,

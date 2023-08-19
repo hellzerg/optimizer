@@ -445,5 +445,12 @@ Ha un effetto negativo sulle prestazioni.",
 	"btnRestartSafe": "Riavvia in modalità provvisoria",
 	"btnRestart": "Riavvia in modalità normale",
 	"btnRestartDisableDefender": "Riavvia && Disabilita Defender",
-	"classicPhotoViewerSw": "Ripristina il visualizzatore di foto classico"
+	"classicPhotoViewerSw": "Ripristina il visualizzatore di foto classico",
+	"tabPage3": "Caratteri",
+	"fontSetTitle": "Imposta il tuo carattere preferito come carattere predefinito di Windows",
+	"label11": "Carattere corrente:",
+	"btnSetGlobalFont": "Imposta come predefinito",
+	"lblFontsCount": "Caratteri disponibili:",
+	"btnRestoreFont": "Riprista predefinito",
+	"btnRefreshFonts": "Aggiorna"
 }

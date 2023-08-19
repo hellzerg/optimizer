@@ -66,7 +66,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("PingerHelper.GetActiveNetworkAdapters", ex.Message, ex.StackTrace);
+                Logger.LogError("PingerHelper.GetActiveNetworkAdapters", ex.Message, ex.StackTrace);
                 return null;
             }
 
@@ -81,7 +81,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("PingerHelper.GetDNSFromNetworkAdapter", ex.Message, ex.StackTrace);
+                Logger.LogError("PingerHelper.GetDNSFromNetworkAdapter", ex.Message, ex.StackTrace);
                 return null;
             }
         }

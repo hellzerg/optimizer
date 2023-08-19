@@ -109,8 +109,14 @@ namespace Optimizer
         [JsonProperty("Block", NullValueHandling = NullValueHandling.Ignore)]
         public string[] Block { get; set; }
 
+        [JsonProperty("Remove", NullValueHandling = NullValueHandling.Ignore)]
+        public string[] Remove { get; set; }
+
         [JsonProperty("Add", NullValueHandling = NullValueHandling.Ignore)]
         public AddHostsEntry[] Add { get; set; }
+
+        [JsonProperty("IncludeWwwCname", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? IncludeWwwCname { get; set; }
     }
 
     [Serializable]
@@ -121,9 +127,6 @@ namespace Optimizer
 
         [JsonProperty("IPAddress", NullValueHandling = NullValueHandling.Ignore)]
         public string IpAddress { get; set; }
-
-        [JsonProperty("Comment", NullValueHandling = NullValueHandling.Ignore)]
-        public string Comment { get; set; }
     }
 
     [Serializable]

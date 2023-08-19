@@ -420,5 +420,12 @@
 	"btnRestartSafe": "Uruchom ponownie w trybie awaryjnym",
 	"btnRestart": "Uruchom ponownie w trybie normalnym",
 	"btnRestartDisableDefender": "Uruchom ponownie i wyłącz program Defender",
-	"classicPhotoViewerSw": "Przywróć klasyczną przeglądarkę zdjęć"
+	"classicPhotoViewerSw": "Przywróć klasyczną przeglądarkę zdjęć",
+	"tabPage3": "Czcionki",
+	"fontSetTitle": "Ustaw swoją ulubioną czcionkę jako domyślną czcionkę systemu Windows",
+	"label11": "Bieżąca czcionka:",
+	"btnSetGlobalFont": "Ustaw jako domyślną",
+	"lblFontsCount": "Dostępne czcionki:",
+	"btnRestoreFont": "Przywróć wartości domyślne",
+	"btnRefreshFonts": "Odśwież"
 }

@@ -451,5 +451,12 @@ Negatív hatással van a teljesítményre.",
 	"btnRestartSafe": "Indítsa újra csökkentett módban",
 	"btnRestart": "Indítsa újra normál módban",
 	"btnRestartDisableDefender": "Indítsa újra és tiltsa le a Defendert",
-	"classicPhotoViewerSw": "A klasszikus fényképnézegető visszaállítása"
+	"classicPhotoViewerSw": "A klasszikus fényképnézegető visszaállítása",
+	"tabPage3": "Betűtípusok",
+	"fontSetTitle": "Állítsa be kedvenc betűtípusát a Windows alapértelmezett betűtípusaként",
+	"label11": "Jelenlegi betűtípus:",
+	"btnSetGlobalFont": "Beállítás alapértelmezettként",
+	"lblFontsCount": "Elérhető betűtípusok:",
+	"btnRestoreFont": "Alapértelmezett visszaállítása",
+	"btnRefreshFonts": "Frissítés"
 }

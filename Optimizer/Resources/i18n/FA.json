@@ -438,5 +438,12 @@
 	"btnRestartSafe": "راه اندازی مجدد در حالت ایمن",
 	"btnRestart": "راه اندازی مجدد در حالت معمولی",
 	"btnRestartDisableDefender": "راه اندازی مجدد && غیرفعال کردن Defender",
-	"classicPhotoViewerSw": "باز گرداندن Photo Viewer قدیمی"
+	"classicPhotoViewerSw": "باز گرداندن Photo Viewer قدیمی",
+	"tabPage3": "فونت",
+	"fontSetTitle": "فونت مورد علاقه خود را به عنوان فونت پیش فرض ویندوز تنظیم کنید",
+	"label11": "فونت های موجود:",
+	"btnSetGlobalFont": "تنظیم به عنوان پیش فرض",
+	"lblFontsCount": "فونت فعلی:",
+	"btnRestoreFont": "برگشت به حالت پیشفرض",
+	"btnRefreshFonts": "بارگذاری مجدد"
 }

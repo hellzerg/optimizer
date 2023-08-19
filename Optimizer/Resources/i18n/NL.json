@@ -402,5 +402,12 @@ Het heeft een negatief effect op de prestaties.",
 	"btnRestartSafe": "Start opnieuw op in Veilige modus",
 	"btnRestart": "Start opnieuw op in de normale modus",
 	"btnRestartDisableDefender": "Herstart && Schakel Defender uit",
-   "classicPhotoViewerSw": "Herstel klassieke fotoviewer"
+   "classicPhotoViewerSw": "Herstel klassieke fotoviewer",
+   "tabPage3": "Lettertypen",
+	"fontSetTitle": "Stel uw favoriete lettertype in als standaardlettertype van Windows",
+	"label11": "Huidig ​​lettertype:",
+	"btnSetGlobalFont": "Stel in als standaardlettertype",
+	"lblFontsCount": "Beschikbare lettertypen:",
+	"btnRestoreFont": "Standaard herstellen",
+	"btnRefreshFonts": "Ververs"
 }

@@ -425,5 +425,12 @@
 	"btnRestartSafe": "Neustart im abgesicherten Modus",
 	"btnRestart": "Neustart im Normalmodus",
 	"btnRestartDisableDefender": "Neustart && Defender deaktivieren",
-	"classicPhotoViewerSw": "Stellen Sie den klassischen Fotobetrachter wieder her"
+	"classicPhotoViewerSw": "Stellen Sie den klassischen Fotobetrachter wieder her",
+	"tabPage3": "Schriftarten",
+	"fontSetTitle": "Legen Sie Ihre Lieblingsschrift als Windows-Standard fest",
+	"label11": "Aktuelle Schrift:",
+	"btnSetGlobalFont": "Als Standard festlegen",
+	"lblFontsCount": "Verfügbare Schriftarten:",
+	"btnRestoreFont": "Standard wiederherstellen",
+	"btnRefreshFonts": "Aktualisieren"
 }

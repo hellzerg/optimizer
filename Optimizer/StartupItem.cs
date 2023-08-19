@@ -37,7 +37,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("FolderStartupItem.Remove", ex.Message, ex.StackTrace);
+                Logger.LogError("FolderStartupItem.Remove", ex.Message, ex.StackTrace);
             }
         }
 
@@ -49,7 +49,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("FolderStartupItem.LocateFile", ex.Message, ex.StackTrace);
+                Logger.LogError("FolderStartupItem.LocateFile", ex.Message, ex.StackTrace);
             }
         }
     }
@@ -66,7 +66,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("RegistryStartupItem.LocateKey", ex.Message, ex.StackTrace);
+                Logger.LogError("RegistryStartupItem.LocateKey", ex.Message, ex.StackTrace);
             }
         }
 
@@ -78,7 +78,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("RegistryStartupItem.Remove", ex.Message, ex.StackTrace);
+                Logger.LogError("RegistryStartupItem.Remove", ex.Message, ex.StackTrace);
             }
         }
 
@@ -90,7 +90,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("RegistryStartupItem.LocateFile", ex.Message, ex.StackTrace);
+                Logger.LogError("RegistryStartupItem.LocateFile", ex.Message, ex.StackTrace);
             }
         }
 

@@ -148,7 +148,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.DisablePerformanceTweaks", ex.Message, ex.StackTrace);
+                Logger.LogError("Optimize.DisablePerformanceTweaks", ex.Message, ex.StackTrace);
             }
         }
 
@@ -240,7 +240,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.EnableNetworkThrottling", ex.Message, ex.StackTrace);
+                Logger.LogError("Optimize.EnableNetworkThrottling", ex.Message, ex.StackTrace);
             }
         }
 
@@ -268,6 +268,7 @@ namespace Optimizer
             Utilities.StopService("HomeGroupListener");
             Utilities.StopService("HomeGroupProvider");
 
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\HomeGroup", "DisableHomeGroup", "1", RegistryValueKind.DWord);
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\HomeGroupListener", "Start", "4", RegistryValueKind.DWord);
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\HomeGroupProvider", "Start", "4", RegistryValueKind.DWord);
         }
@@ -276,6 +277,7 @@ namespace Optimizer
         {
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\HomeGroupListener", "Start", "2", RegistryValueKind.DWord);
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\HomeGroupProvider", "Start", "2", RegistryValueKind.DWord);
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\HomeGroup", "DisableHomeGroup");
 
             Utilities.StartService("HomeGroupListener");
             Utilities.StartService("HomeGroupProvider");
@@ -347,7 +349,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.DisableSystemRestore", ex.Message, ex.StackTrace);
+                Logger.LogError("Optimize.DisableSystemRestore", ex.Message, ex.StackTrace);
             }
 
             Utilities.StopService("VSS");
@@ -582,7 +584,7 @@ namespace Optimizer
                     }
                     catch (Exception ex)
                     {
-                        ErrorLogger.LogError("Optimize.UninstallOneDrive", ex.Message, ex.StackTrace);
+                        Logger.LogError("Optimize.UninstallOneDrive", ex.Message, ex.StackTrace);
                     }
                 }
             }
@@ -640,7 +642,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.UninstallOneDrive", ex.Message, ex.StackTrace);
+                Logger.LogError("Optimize.UninstallOneDrive", ex.Message, ex.StackTrace);
             }
         }
 
@@ -671,7 +673,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.InstallOneDrive", ex.Message, ex.StackTrace);
+                Logger.LogError("Optimize.InstallOneDrive", ex.Message, ex.StackTrace);
             }
         }
 
@@ -758,7 +760,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.EnableXboxLive", ex.Message, ex.StackTrace);
+                Logger.LogError("Optimize.EnableXboxLive", ex.Message, ex.StackTrace);
             }
 
             Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "EnableXboxTasks.bat");
@@ -875,7 +877,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.EnableTelemetryTasks", ex.Message, ex.StackTrace);
+                Logger.LogError("Optimize.EnableTelemetryTasks", ex.Message, ex.StackTrace);
             }
 
             Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "EnableTelemetryTasks.bat");
@@ -897,7 +899,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.DisableOffice2016Telemetry", ex.Message, ex.StackTrace);
+                Logger.LogError("Optimize.DisableOffice2016Telemetry", ex.Message, ex.StackTrace);
             }
 
             Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "DisableOfficeTelemetryTasks.bat");
@@ -920,7 +922,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.EnableOffice2016Telemetry", ex.Message, ex.StackTrace);
+                Logger.LogError("Optimize.EnableOffice2016Telemetry", ex.Message, ex.StackTrace);
             }
 
             Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.bat");
@@ -1524,7 +1526,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.RemoveCastToDevice", ex.Message, ex.StackTrace);
+                Logger.LogError("Optimize.RemoveCastToDevice", ex.Message, ex.StackTrace);
             }
         }
 
@@ -1537,7 +1539,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.AddCastToDevice", ex.Message, ex.StackTrace);
+                Logger.LogError("Optimize.AddCastToDevice", ex.Message, ex.StackTrace);
             }
         }
 
@@ -1788,7 +1790,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.DisableVisualStudioTelemetry", ex.Message, ex.StackTrace);
+                Logger.LogError("Optimize.DisableVisualStudioTelemetry", ex.Message, ex.StackTrace);
             }
         }
 
@@ -1820,7 +1822,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Optimize.EnableVisualStudioTelemetry", ex.Message, ex.StackTrace);
+                Logger.LogError("Optimize.EnableVisualStudioTelemetry", ex.Message, ex.StackTrace);
             }
         }
 

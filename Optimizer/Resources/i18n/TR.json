@@ -449,5 +449,12 @@ Performansa olumsuz etkisi vardır.",
 	"btnRestartSafe": "Güvenli Modda Yeniden Başlatın",
 	"btnRestart": "Normal Modda Yeniden Başlat",
 	"btnRestartDisableDefender": "Yeniden Başlat && Defender'ı Devre Dışı Bırak",
-	"classicPhotoViewerSw": "Klasik Fotoğraf Görüntüleyiciyi Geri Yükle"
+	"classicPhotoViewerSw": "Klasik Fotoğraf Görüntüleyiciyi Geri Yükle",
+	"tabPage3": "Yazı Tipleri",
+	"fontSetTitle": "Favori yazı tipinizi Windows varsayılan yazı tipi olarak ayarlayın",
+	"label11": "Geçerli yazı tipi:",
+	"btnSetGlobalFont": "Varsayılan olarak ayarla",
+	"lblFontsCount": "Kullanılabilir yazı tipleri:",
+	"btnRestoreFont": "Varsayılana Döndür",
+	"btnRefreshFonts": "Yenile"
 }

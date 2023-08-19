@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -13,16 +12,6 @@ namespace Optimizer
     {
         internal static string NewLine = Environment.NewLine;
         internal static readonly string HostsFile = CleanHelper.System32Folder + "\\drivers\\etc\\hosts";
-
-        //static string AdBlockBasicLink = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts";
-        //static string AdBlockWithPornLink = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts";
-        //static string AdBlockWithSocialLink = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-social/hosts";
-        //static string AdBlockUltimateLink = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts";
-
-        static WebClient _client = new WebClient()
-        {
-            Encoding = Encoding.UTF8
-        };
 
         internal static void RestoreDefaultHosts()
         {
@@ -37,82 +26,10 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("HostsHelper.RestoreDefaultHosts", ex.Message, ex.StackTrace);
+                Logger.LogError("HostsHelper.RestoreDefaultHosts", ex.Message, ex.StackTrace);
                 MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        //internal static void AdblockBasic()
-        //{
-        //    try
-        //    {
-        //        if (File.Exists(HostsFile))
-        //        {
-        //            File.Delete(HostsFile);
-        //        }
-
-        //        File.WriteAllText(HostsFile, _client.DownloadString(AdBlockBasicLink));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ErrorLogger.LogError("HostsHelper.AdblockBasic", ex.Message, ex.StackTrace);
-        //        MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //}
-
-        //internal static void AdBlockWithPorn()
-        //{
-        //    try
-        //    {
-        //        if (File.Exists(HostsFile))
-        //        {
-        //            File.Delete(HostsFile);
-        //        }
-
-        //        File.WriteAllText(HostsFile, _client.DownloadString(AdBlockWithPornLink));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ErrorLogger.LogError("HostsHelper.AdBlockWithPorn", ex.Message, ex.StackTrace);
-        //        MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //}
-
-        //internal static void AdBlockWithSocial()
-        //{
-        //    try
-        //    {
-        //        if (File.Exists(HostsFile))
-        //        {
-        //            File.Delete(HostsFile);
-        //        }
-
-        //        File.WriteAllText(HostsFile, _client.DownloadString(AdBlockWithSocialLink));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ErrorLogger.LogError("HostsHelper.AdBlockWithSocial", ex.Message, ex.StackTrace);
-        //        MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //}
-
-        //internal static void AdBlockUltimate()
-        //{
-        //    try
-        //    {
-        //        if (File.Exists(HostsFile))
-        //        {
-        //            File.Delete(HostsFile);
-        //        }
-
-        //        File.WriteAllText(HostsFile, _client.DownloadString(AdBlockUltimateLink));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ErrorLogger.LogError("HostsHelper.AdBlockUltimate", ex.Message, ex.StackTrace);
-        //        MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //}
 
         internal static string[] ReadHosts()
         {
@@ -127,7 +44,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("HostsHelper.ReadHosts", ex.Message, ex.StackTrace);
+                Logger.LogError("HostsHelper.ReadHosts", ex.Message, ex.StackTrace);
             }
 
             return sb.ToString().Split(Environment.NewLine.ToCharArray());
@@ -147,7 +64,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("HostsHelper.ReadHostsFast", ex.Message, ex.StackTrace);
+                Logger.LogError("HostsHelper.ReadHostsFast", ex.Message, ex.StackTrace);
             }
 
             return sb.ToString();
@@ -175,7 +92,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("HostsHelper.SaveHosts", ex.Message, ex.StackTrace);
+                Logger.LogError("HostsHelper.SaveHosts", ex.Message, ex.StackTrace);
                 MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -198,20 +115,15 @@ namespace Optimizer
             return entries;
         }
 
-        internal static void AddEntry(string entry, string comment = null)
+        internal static void AddEntry(string entry)
         {
             try
             {
-                if (string.IsNullOrEmpty(comment))
-                {
-                    File.AppendAllText(HostsFile, NewLine + $"{entry}");
-                    return;
-                }
-                File.AppendAllText(HostsFile, NewLine + $"{entry} #{comment}");
+                File.AppendAllText(HostsFile, NewLine + $"{entry}");
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("HostsHelper.AddEntry", ex.Message, ex.StackTrace);
+                Logger.LogError("HostsHelper.AddEntry", ex.Message, ex.StackTrace);
                 MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -224,8 +136,20 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("HostsHelper.RemoveEntry", ex.Message, ex.StackTrace);
+                Logger.LogError("HostsHelper.RemoveEntry", ex.Message, ex.StackTrace);
                 MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        internal static void RemoveEntryFromTemplate(string domain)
+        {
+            try
+            {
+                File.WriteAllLines(HostsFile, File.ReadLines(HostsFile).Where(x => !x.Contains(domain)).ToList());
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("HostsHelper.RemoveEntryFromTemplate", ex.Message, ex.StackTrace);
             }
         }
 
@@ -240,7 +164,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("HostsHelper.RemoveAllEntries", ex.Message, ex.StackTrace);
+                Logger.LogError("HostsHelper.RemoveAllEntries", ex.Message, ex.StackTrace);
                 MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -259,7 +183,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("HostsHelper.ReadOnly", ex.Message, ex.StackTrace);
+                Logger.LogError("HostsHelper.ReadOnly", ex.Message, ex.StackTrace);
                 return false;
             }
         }
@@ -274,7 +198,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("HostsHelper.ReadOnly", ex.Message, ex.StackTrace);
+                Logger.LogError("HostsHelper.ReadOnly", ex.Message, ex.StackTrace);
             }
         }
     }

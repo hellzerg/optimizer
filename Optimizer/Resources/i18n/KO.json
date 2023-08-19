@@ -453,5 +453,12 @@ Microsoft 계정 로그인이 필요합니다.",
 	"btnRestartDisableDefender": "Defender 다시 시작 및 사용 안 함",
 	"storeUpdatesSw": "Microsoft Store 업데이트 비활성화",
 	"storeUpdatesTip": "Microsoft Store 자동 업데이트 기능을 비활성화합니다.",
-	"classicPhotoViewerSw": "클래식 사진 뷰어 복원"
+	"classicPhotoViewerSw": "클래식 사진 뷰어 복원",
+	"tabPage3": "글꼴",
+	"fontSetTitle": "즐겨찾는 글꼴을 Windows 기본 글꼴로 설정",
+	"label11": "현재 글꼴:",
+	"btnSetGlobalFont": "기본값으로 설정",
+	"lblFontsCount": "사용 가능한 글꼴:",
+	"btnRestoreFont": "기본값 복원",
+	"btnRefreshFonts": "새로 고침"
 }

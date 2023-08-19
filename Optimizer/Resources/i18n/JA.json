@@ -442,5 +442,12 @@ SMBv3に置き換えられており、そちらのほうがより安全です。
 	"btnRestartSafe": "セーフモードで再起動",
 	"btnRestart": "通常モードで再起動",
 	"btnRestartDisableDefender": "Defender を再起動 && 無効化",
-	"classicPhotoViewerSw": "クラシックフォトビューアを復元する"
+	"classicPhotoViewerSw": "クラシックフォトビューアを復元する",
+	"tabPage3": "フォント",
+	"fontSetTitle": "お気に入りのフォントを Windows のデフォルト フォントとして設定",
+	"label11": "現在のフォント:",
+	"btnSetGlobalFont": "デフォルトとして設定",
+	"lblFontsCount": "利用可能なフォント:",
+	"btnRestoreFont": "デフォルトを復元",
+	"btnRefreshFonts": "更新"
 }

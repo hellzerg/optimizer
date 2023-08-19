@@ -433,5 +433,12 @@
 	"btnRestartSafe": "Reporniți în modul sigur",
 	"btnRestart": "Reporniți în modul normal",
 	"btnRestartDisableDefender": "Reporniți && Dezactivați Defender",
-	"classicPhotoViewerSw": "Restaurați vizualizatorul foto clasic"
+	"classicPhotoViewerSw": "Restaurați vizualizatorul foto clasic",
+	"tabPage3": "Fonturi",
+	"fontSetTitle": "Setați fontul preferat ca font implicit Windows",
+	"label11": "Font curent:",
+	"btnSetGlobalFont": "Set as default",
+	"lblFontsCount": "Setați ca implicit:",
+	"btnRestoreFont": "Restaurati Setariile implicite",
+	"btnRefreshFonts": "Reîmprospăteaza"
 }

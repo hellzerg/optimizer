@@ -2,7 +2,11 @@
 
 To automate a range of operations using a provided template, follow these steps:
 
-1. **Download the Template**: Obtain the template file from [this link](https://github.com/hellzerg/optimizer/blob/master/templates/optimizer-template.json).
+1. **Download the Template**: Obtain the template file for your Windows version:
+- [Windows 7](https://github.com/hellzerg/optimizer/blob/master/templates/template-windows7.json)
+- [Windows 8.1](https://github.com/hellzerg/optimizer/blob/master/templates/template-windows8.json)
+- [Windows 10](https://github.com/hellzerg/optimizer/blob/master/templates/template-windows10.json)
+- [Windows 11](https://github.com/hellzerg/optimizer/blob/master/templates/template-windows11.json)
 
 2. **Edit the Template**: Customize the template configuration according to your needs.
 
@@ -41,22 +45,24 @@ To automate a range of operations using a provided template, follow these steps:
 
 ### Hosts
 - Manage hosts entries:
+- Mark `IncludeWwwCname` to `true` in order to automatically adding an extra `www.` record for each entry.
+- Entries in the `Remove` list should be the domain names you want remove from the hosts file.
 - Entries in the `Block` list route to `0.0.0.0`, effectively blocking access.
 - Entries in the `Add` list are added. Example:
 
  ```
  "HostsEditor": {
+     "IncludeWwwCname": true,
      "Block": ["youtube.com", "google.com"],
+     "Remove": ["facebook.com"]
      "Add": [
          {
              "Domain": "test.com",
-             "IPAddress": "192.168.1.5",
-             "Comment": "comment is optional"
+             "IPAddress": "192.168.1.5"
          },
          {
              "Domain": "test2.com",
-             "IPAddress": "192.168.1.9",
-             "Comment": ""
+             "IPAddress": "192.168.1.9"
          }
      ]
  }

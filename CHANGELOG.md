@@ -1,3 +1,11 @@
+## [15.7] - 2023-08-19
+- New: Change Windows default font in Integrator (#358)
+- New: Template engine now runs on Windows Server 2008 or newer
+- Hotfix: Rare crash bug in UWP apps loading
+- Improved: Tab glitching resolved (#376)
+- Improved: Disable Start Menu ads and Disable Store Updates
+- Improved: Template engine changes regarding Hosts editing and logging
+
 ## [15.6] - 2023-07-22
 - Hotfix: Crash on UWP load apps (#369 #370)
 

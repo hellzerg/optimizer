@@ -1,0 +1,99 @@
+{
+    "WindowsVersion": 8,
+    "PostAction": {
+        "Restart": null,
+        "RestartType": "Normal"
+    },
+    "Cleaner": {
+        "TempFiles": null,
+        "BsodDumps": null,
+        "ErrorReports": null,
+        "RecycleBin": null,
+        "InternetExplorer": null,
+        "GoogleChrome": {
+            "Cache": null,
+            "Cookies": null,
+            "History": null,
+            "Session": null,
+            "Passwords": null
+        },
+        "MozillaFirefox": {
+            "Cache": null,
+            "Cookies": null,
+            "History": null
+        },
+        "MicrosoftEdge": {
+            "Cache": null,
+            "Cookies": null,
+            "History": null,
+            "Session": null
+        },
+        "BraveBrowser": {
+            "Cache": null,
+            "Cookies": null,
+            "History": null,
+            "Session": null,
+            "Passwords": null
+        }
+    },
+    "Pinger": {
+        "SetDNS": "",
+        "FlushDNSCache": null
+    },
+    "ProcessControl": {
+        "Prevent": [],
+        "Allow": []
+    },
+    "HostsEditor": {
+        "Block": [],
+        "Add": [],
+        "Remove": [],
+        "IncludeWwwCname": null
+    },
+    "RegistryFix": {
+        "TaskManager": null,
+        "CommandPrompt": null,
+        "ControlPanel": null,
+        "FolderOptions": null,
+        "RunDialog": null,
+        "RightClickMenu": null,
+        "WindowsFirewall": null,
+        "RegistryEditor": null
+    },
+    "Integrator": {
+        "TakeOwnership": null,
+        "OpenWithCMD": null
+    },
+    "AdvancedTweaks": {
+        "UnlockAllCores": null,
+        "DisableHPET": null,
+        "EnableLoginVerbose": null
+    },
+    "Tweaks": {
+        "EnablePerformanceTweaks": null,
+        "DisableNetworkThrottling": null,
+        "DisableWindowsDefender": null,
+        "DisableSystemRestore": null,
+        "DisablePrintService": null,
+        "DisableMediaPlayerSharing": null,
+        "DisableErrorReporting": null,
+        "DisableHomeGroup": null,
+        "DisableSuperfetch": null,
+        "DisableTelemetryTasks": null,
+        "DisableOffice2016Telemetry": null,
+        "DisableCompatibilityAssistant": null,
+        "DisableHibernation": null,
+        "DisableSMB1": null,
+        "DisableSMB2": null,
+        "DisableNTFSTimeStamp": null,
+        "DisableFaxService": null,
+        "DisableSmartScreen": null,
+        "DisableStickyKeys": null,
+        "DisableVisualStudioTelemetry": null,
+        "DisableFirefoxTemeletry": null,
+        "DisableChromeTelemetry": null,
+        "DisableNVIDIATelemetry": null,
+        "DisableSearch": null,
+        "DisableOneDrive": null
+    }
+}

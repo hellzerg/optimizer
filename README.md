@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/15.6/Optimizer-15.6.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/15.7/Optimizer-15.7.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -20,7 +20,7 @@ Welcome to Optimizer, an advanced configuration utility designed to enhance your
 - Enhance system and network performance
 - Disable unnecessary Windows services
 - Turn off Windows telemetry, Cortana, and more
-- Disable Office telemetry (works with Office 2016)
+- Disable Office telemetry (works with Office 2016 or newer)
 - Stop automatic Windows 10 updates
 - Download multiple useful apps quickly
 - Uninstall UWP apps
@@ -36,7 +36,7 @@ Welcome to Optimizer, an advanced configuration utility designed to enhance your
 - Hardware inspection tool
 - Add items to the desktop right-click menu
 - Define custom commands for the run dialog
-- Support silent runs using a configuration file
+- Support silent runs using a template file
 
 ## ⬇️ Downloads
 
@@ -80,10 +80,10 @@ Learn about our security measures in the [Security Policy](https://github.com/he
 
 ## 📊 Details
 
-- Latest version: 15.6 (Released: July 22, 2023)
-- SHA256: 147FF45704BF458F93E2132AC0EE648AA89DFE44FCDC73C6C880153A948E360A
+- Latest version: 15.7 (Released: August 19, 2023)
+- SHA256: C02ECD80CDCAB51654DF2D56E412252BF9509037301426F5E862602554747CED
 
-## ☕ Support the Developer
+## ☕ Buy me a delicious espresso
 
 If you find this tool useful, consider showing your support by [donating through PayPal](https://www.paypal.com/paypalme/supportoptimizer).
 

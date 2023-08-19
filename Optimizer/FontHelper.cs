@@ -59,7 +59,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("FontHelper.ChangeGlobalFont", ex.Message, ex.StackTrace);
+                Logger.LogError("FontHelper.ChangeGlobalFont", ex.Message, ex.StackTrace);
             }
         }
 
@@ -69,12 +69,12 @@ namespace Optimizer
             {
                 using (RegistryKey fontSubstitutesKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes", false))
                 {
-                   return fontSubstitutesKey.GetValue("Segoe UI", string.Empty) as string;
+                    return fontSubstitutesKey.GetValue("Segoe UI", string.Empty) as string;
                 }
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("FontHelper.GetCurrentGlobalFont", ex.Message, ex.StackTrace);
+                Logger.LogError("FontHelper.GetCurrentGlobalFont", ex.Message, ex.StackTrace);
                 return string.Empty;
             }
         }
@@ -114,7 +114,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("FontHelper.RestoreDefaultGlobalFont", ex.Message, ex.StackTrace);
+                Logger.LogError("FontHelper.RestoreDefaultGlobalFont", ex.Message, ex.StackTrace);
             }
         }
     }

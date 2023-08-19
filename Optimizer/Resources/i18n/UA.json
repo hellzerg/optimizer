@@ -453,5 +453,12 @@
 	"btnRestartSafe": "Перезапустіть у безпечному режимі",
 	"btnRestart": "Перезапустіть у звичайному режимі",
 	"btnRestartDisableDefender": "Перезапустіть && Вимкніть Defender",
-	"classicPhotoViewerSw": "Відновити Classic Photo Viewer"
+	"classicPhotoViewerSw": "Відновити Classic Photo Viewer",
+	"tabPage3": "Шрифти",
+	"fontSetTitle": "Установіть свій улюблений шрифт як стандартний шрифт Windows",
+	"label11": "Поточний шрифт:",
+	"btnSetGlobalFont": "Установіть за замовчуванням",
+	"lblFontsCount": "Доступні шрифти:",
+	"btnRestoreFont": "Відновити за замовчуванням",
+	"btnRefreshFonts": "Оновити"
 }

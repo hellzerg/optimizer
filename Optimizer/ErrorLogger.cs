@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Optimizer
 {
-    internal static class ErrorLogger
+    internal static class Logger
     {
         internal static string ErrorLogFile = Path.Combine(CoreHelper.CoreFolder, "Optimizer.log");
 
@@ -33,6 +33,7 @@ namespace Optimizer
 
             _silentReportLog.AppendLine(Utilities.GetWindowsDetails());
             _silentReportLog.AppendLine(string.Format("Optimizer {0} - .NET Framework {1} - Experimental build: {2}", Program.GetCurrentVersionTostring(), Utilities.GetNETFramework(), Program.EXPERIMENTAL_BUILD));
+            _silentReportLog.AppendLine($"{DateTime.Now.ToLongDateString()} - {DateTime.Now.ToLongTimeString()}");
 
             _silentReportLog.AppendLine();
             _silentReportLog.AppendLine();
@@ -42,7 +43,7 @@ namespace Optimizer
         {
             try
             {
-                File.WriteAllText("optimizer-silent-report.log", _silentReportLog.ToString());
+                File.WriteAllText($"Optimizer.SilentReport.{DateTime.Now.ToString("yyyyMMddTHHmm")}.log", _silentReportLog.ToString());
             }
             catch { }
         }

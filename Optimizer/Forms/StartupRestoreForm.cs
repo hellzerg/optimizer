@@ -78,7 +78,7 @@ namespace Optimizer
                     }
                     catch (Exception ex)
                     {
-                        ErrorLogger.LogError("StartupRestoreForm.DeleteStartupBackup", ex.Message, ex.StackTrace);
+                        Logger.LogError("StartupRestoreForm.DeleteStartupBackup", ex.Message, ex.StackTrace);
                     }
 
                     RefreshBackups();
@@ -168,7 +168,7 @@ namespace Optimizer
                         }
                         catch (Exception ex)
                         {
-                            ErrorLogger.LogError("StartupRestoreForm.RestoreStartupBackup", ex.Message, ex.StackTrace);
+                            Logger.LogError("StartupRestoreForm.RestoreStartupBackup", ex.Message, ex.StackTrace);
                         }
                     }
                 }

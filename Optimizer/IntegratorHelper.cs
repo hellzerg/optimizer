@@ -92,13 +92,13 @@ namespace Optimizer
                     }
                     catch (Exception ex)
                     {
-                        ErrorLogger.LogError("Integrator.RemoveItem", ex.Message, ex.StackTrace);
+                        Logger.LogError("Integrator.RemoveItem", ex.Message, ex.StackTrace);
                     }
                 }
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Integrator.RemoveItem", ex.Message, ex.StackTrace);
+                Logger.LogError("Integrator.RemoveItem", ex.Message, ex.StackTrace);
             }
         }
 
@@ -110,7 +110,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Integrator.ItemExists", ex.Message, ex.StackTrace);
+                Logger.LogError("Integrator.ItemExists", ex.Message, ex.StackTrace);
                 return false;
             }
         }
@@ -123,7 +123,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Integrator.TakeOwnershipExists", ex.Message, ex.StackTrace);
+                Logger.LogError("Integrator.TakeOwnershipExists", ex.Message, ex.StackTrace);
                 return false;
             }
         }
@@ -136,7 +136,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Integrator.OpenWithCMDExists", ex.Message, ex.StackTrace);
+                Logger.LogError("Integrator.OpenWithCMDExists", ex.Message, ex.StackTrace);
                 return false;
             }
         }
@@ -153,7 +153,7 @@ namespace Optimizer
                     }
                     catch (Exception ex)
                     {
-                        ErrorLogger.LogError("Integrator.RemoveAllItems", ex.Message, ex.StackTrace);
+                        Logger.LogError("Integrator.RemoveAllItems", ex.Message, ex.StackTrace);
                     }
                 }
             }
@@ -193,7 +193,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Integrator.DownloadFavicon", ex.Message, ex.StackTrace);
+                Logger.LogError("Integrator.DownloadFavicon", ex.Message, ex.StackTrace);
             }
 
             return favicon;
@@ -268,7 +268,7 @@ namespace Optimizer
                 }
                 catch (Exception ex)
                 {
-                    ErrorLogger.LogError("Integrator.TakeOwnership", ex.Message, ex.StackTrace);
+                    Logger.LogError("Integrator.TakeOwnership", ex.Message, ex.StackTrace);
                 }
             }
             if (!File.Exists(CoreHelper.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg"))
@@ -279,7 +279,7 @@ namespace Optimizer
                 }
                 catch (Exception ex)
                 {
-                    ErrorLogger.LogError("Integrator.TakeOwnership", ex.Message, ex.StackTrace);
+                    Logger.LogError("Integrator.TakeOwnership", ex.Message, ex.StackTrace);
                 }
             }
 

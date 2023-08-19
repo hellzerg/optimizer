@@ -452,11 +452,11 @@
 	"btnRestart": "أعد التشغيل في الوضع العاديe",
 	"btnRestartDisableDefender": "عادة تشغيل && تعطيل Defender",
 	"classicPhotoViewerSw": "استعادة عارض الصور الكلاسيكي",
-	"tabPage3": "Fonts",
-	"fontSetTitle": "Set your favorite font as Windows default font",
-	"label11": "Current font:",
-	"btnSetGlobalFont": "Set as default",
-	"lblFontsCount": "Available fonts:",
-	"btnRestoreFont": "Restore default",
-	"btnRefreshFonts": "Refresh"
+	"tabPage3": "الخطوط",
+	"fontSetTitle": "قم بتعيين الخط المفضل لديك كخط افتراضي في Windows",
+	"label11": "الخط الحالي:",
+	"btnSetGlobalFont": "تعيين كافتراضي",
+	"lblFontsCount": "الخطوط المتوفرة:",
+	"btnRestoreFont": "استعادة الافتراضي",
+	"btnRefreshFonts": "تحديث"
 }

@@ -448,5 +448,12 @@ Tiene un efecto negativo en el rendimiento.",
 	"btnRestartSafe": "Reiniciar en modo seguro",
 	"btnRestart": "Reiniciar en modo normal",
 	"btnRestartDisableDefender": "Reiniciar && Desactivar Defender",
-	"classicPhotoViewerSw": "Restaurar visor de fotos clásico"
+	"classicPhotoViewerSw": "Restaurar visor de fotos clásico",
+	"tabPage3": "Fuentes",
+	"fontSetTitle": "Establezca su fuente favorita como fuente predeterminada de Windows",
+	"label11": "Fuente actual:",
+	"btnSetGlobalFont": "Establecer como predeterminada",
+	"lblFontsCount": "Fuentes disponibles:",
+	"btnRestoreFont": "Restaurar predeterminado",
+	"btnRefreshFonts": "Actualizar"
 }

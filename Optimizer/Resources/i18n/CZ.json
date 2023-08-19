@@ -451,5 +451,12 @@ Má to negativní vliv na výkon.",
 	"btnRestartSafe": "Restartujte v nouzovém režimu",
 	"btnRestart": "Restartujte v normálním režimue",
 	"btnRestartDisableDefender": "Restartujte && Deaktivujte Defender",
-	"classicPhotoViewerSw": "Obnovte klasický prohlížeč fotografií"
+	"classicPhotoViewerSw": "Obnovte klasický prohlížeč fotografií",
+	"tabPage3": "Písma",
+	"fontSetTitle": "Nastavit své oblíbené písmo jako výchozí písmo systému Windows",
+	"label11": "Aktuální písmo:",
+	"btnSetGlobalFont": "Nastavit jako výchozí",
+	"lblFontsCount": "Dostupné písma:",
+	"btnRestoreFont": "Obnovit výchozí",
+	"btnRefreshFonts": "Obnovit"
 }

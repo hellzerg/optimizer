@@ -18,7 +18,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("SilentOps.GetSilentConfig", ex.Message, ex.StackTrace);
+                Logger.LogError("SilentOps.GetSilentConfig", ex.Message, ex.StackTrace);
                 CurrentSilentConfig = null;
             }
             return CurrentSilentConfig;
@@ -26,31 +26,31 @@ namespace Optimizer
 
         internal static void ProcessAllActions()
         {
-            ErrorLogger.InitSilentReport();
+            Logger.InitSilentReport();
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
             {
                 ProcessTweaksGeneral();
-                ErrorLogger.LogInfoSilent("Tweaks | Windows 7");
+                Logger.LogInfoSilent("Tweaks | Windows 7");
             }
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
             {
                 ProcessTweaksGeneral();
                 ProcessTweaksWindows8();
-                ErrorLogger.LogInfoSilent("Tweaks | Windows 8.1");
+                Logger.LogInfoSilent("Tweaks | Windows 8.1");
             }
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
             {
                 ProcessTweaksGeneral();
                 ProcessTweaksWindows10();
-                ErrorLogger.LogInfoSilent("Tweaks | Windows 10");
+                Logger.LogInfoSilent("Tweaks | Windows 10");
             }
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows11)
             {
                 ProcessTweaksGeneral();
                 ProcessTweaksWindows10();
                 ProcessTweaksWindows11();
-                ErrorLogger.LogInfoSilent("Tweaks | Windows 11");
+                Logger.LogInfoSilent("Tweaks | Windows 11");
             }
 
             ProcessAdvancedTweaks();
@@ -60,7 +60,7 @@ namespace Optimizer
             ProcessIntegrator();
             ProcessRegistryFix();
             ProcessCleaner();
-            ErrorLogger.GenerateSilentReport();
+            Logger.GenerateSilentReport();
 
             ProcessPostAction();
         }
@@ -133,23 +133,34 @@ namespace Optimizer
 
             CleanHelper.Clean();
             if (CurrentSilentConfig.Cleaner.RecycleBin.HasValue && CurrentSilentConfig.Cleaner.RecycleBin.Value) CleanHelper.EmptyRecycleBin();
-            ErrorLogger.LogInfoSilent($"Cleaner | Options");
+            Logger.LogInfoSilent($"Cleaner | Options");
         }
 
         internal static void ProcessHosts()
         {
             var addList = CurrentSilentConfig.HostsEditor.Add.Where(x => !string.IsNullOrEmpty(x.Domain) && !string.IsNullOrEmpty(x.IpAddress));
             var blockList = CurrentSilentConfig.HostsEditor.Block.Where(x => !string.IsNullOrEmpty(x));
+            var removeList = CurrentSilentConfig.HostsEditor.Remove.Where(x => !string.IsNullOrEmpty(x));
+            var includeWwwCname = CurrentSilentConfig.HostsEditor.IncludeWwwCname.HasValue ? CurrentSilentConfig.HostsEditor.IncludeWwwCname.Value : false;
 
             foreach (AddHostsEntry x in addList)
             {
-                HostsHelper.AddEntry(HostsHelper.SanitizeEntry(x.IpAddress) + " " + HostsHelper.SanitizeEntry(x.Domain), x.Comment);
-                ErrorLogger.LogInfoSilent($"Hosts | Add entry: {x.IpAddress} {x.Domain}");
+                HostsHelper.AddEntry(HostsHelper.SanitizeEntry(x.IpAddress) + " " + HostsHelper.SanitizeEntry(x.Domain));
+                if (includeWwwCname)
+                {
+                    HostsHelper.AddEntry(HostsHelper.SanitizeEntry(x.IpAddress) + " www." + HostsHelper.SanitizeEntry(x.Domain));
+                }
+                Logger.LogInfoSilent($"Hosts | Add entry: {x.IpAddress} {x.Domain}");
             }
             foreach (string x in blockList)
             {
                 HostsHelper.AddEntry("0.0.0.0 " + HostsHelper.SanitizeEntry(x));
-                ErrorLogger.LogInfoSilent($"Hosts | Block entry: {x}");
+                Logger.LogInfoSilent($"Hosts | Block entry: {x}");
+            }
+            foreach (string x in removeList)
+            {
+                HostsHelper.RemoveEntryFromTemplate(x);
+                Logger.LogInfoSilent($"Hosts | Remove entry: {x}");
             }
         }
 
@@ -194,13 +205,13 @@ namespace Optimizer
                 {
                     PingerHelper.SetDNSForAllNICs(PingerHelper.CleanBrowsingAdultDNSv4, PingerHelper.CleanBrowsingAdultDNSv6);
                 }
-                ErrorLogger.LogInfoSilent($"Pinger | Set DNS to: {dns}");
+                Logger.LogInfoSilent($"Pinger | Set DNS to: {dns}");
             }
             if (CurrentSilentConfig.Pinger.FlushDnsCache.HasValue &&
                 CurrentSilentConfig.Pinger.FlushDnsCache.Value == true)
             {
                 PingerHelper.FlushDNSCache();
-                ErrorLogger.LogInfoSilent($"Pinger | Flush DNS cache");
+                Logger.LogInfoSilent($"Pinger | Flush DNS cache");
             }
         }
 
@@ -212,12 +223,12 @@ namespace Optimizer
             foreach (string x in allowList)
             {
                 Utilities.AllowProcessToRun(x);
-                ErrorLogger.LogInfoSilent($"ProcessControl | Allow process: {x}");
+                Logger.LogInfoSilent($"ProcessControl | Allow process: {x}");
             }
             foreach (string x in blockList)
             {
                 Utilities.PreventProcessFromRunning(x);
-                ErrorLogger.LogInfoSilent($"ProcessControl | Prevent process: {x}");
+                Logger.LogInfoSilent($"ProcessControl | Prevent process: {x}");
             }
         }
 
@@ -227,49 +238,49 @@ namespace Optimizer
                 CurrentSilentConfig.RegistryFix.TaskManager.Value == true)
             {
                 Utilities.EnableTaskManager();
-                ErrorLogger.LogInfoSilent($"RegistryFix | EnableTaskManager");
+                Logger.LogInfoSilent($"RegistryFix | EnableTaskManager");
             }
             if (CurrentSilentConfig.RegistryFix.CommandPrompt.HasValue &&
                 CurrentSilentConfig.RegistryFix.CommandPrompt.Value == true)
             {
                 Utilities.EnableCommandPrompt();
-                ErrorLogger.LogInfoSilent($"RegistryFix | EnableCommandPrompt");
+                Logger.LogInfoSilent($"RegistryFix | EnableCommandPrompt");
             }
             if (CurrentSilentConfig.RegistryFix.ControlPanel.HasValue &&
                 CurrentSilentConfig.RegistryFix.ControlPanel.Value == true)
             {
                 Utilities.EnableControlPanel();
-                ErrorLogger.LogInfoSilent($"RegistryFix | EnableControlPanel");
+                Logger.LogInfoSilent($"RegistryFix | EnableControlPanel");
             }
             if (CurrentSilentConfig.RegistryFix.FolderOptions.HasValue &&
                 CurrentSilentConfig.RegistryFix.FolderOptions.Value == true)
             {
                 Utilities.EnableFolderOptions();
-                ErrorLogger.LogInfoSilent($"RegistryFix | EnableFolderOptions");
+                Logger.LogInfoSilent($"RegistryFix | EnableFolderOptions");
             }
             if (CurrentSilentConfig.RegistryFix.RunDialog.HasValue &&
                 CurrentSilentConfig.RegistryFix.RunDialog.Value == true)
             {
                 Utilities.EnableRunDialog();
-                ErrorLogger.LogInfoSilent($"RegistryFix | EnableRunDialog");
+                Logger.LogInfoSilent($"RegistryFix | EnableRunDialog");
             }
             if (CurrentSilentConfig.RegistryFix.RightClickMenu.HasValue &&
                 CurrentSilentConfig.RegistryFix.RightClickMenu.Value == true)
             {
                 Utilities.EnableContextMenu();
-                ErrorLogger.LogInfoSilent($"RegistryFix | EnableContextMenu");
+                Logger.LogInfoSilent($"RegistryFix | EnableContextMenu");
             }
             if (CurrentSilentConfig.RegistryFix.WindowsFirewall.HasValue &&
                 CurrentSilentConfig.RegistryFix.WindowsFirewall.Value == true)
             {
                 Utilities.EnableFirewall();
-                ErrorLogger.LogInfoSilent($"RegistryFix | EnableFirewall");
+                Logger.LogInfoSilent($"RegistryFix | EnableFirewall");
             }
             if (CurrentSilentConfig.RegistryFix.RegistryEditor.HasValue &&
                 CurrentSilentConfig.RegistryFix.RegistryEditor.Value == true)
             {
                 Utilities.EnableRegistryEditor();
-                ErrorLogger.LogInfoSilent($"RegistryFix | EnableRegistryEditor");
+                Logger.LogInfoSilent($"RegistryFix | EnableRegistryEditor");
             }
         }
 
@@ -280,18 +291,18 @@ namespace Optimizer
                 if (CurrentSilentConfig.Integrator.OpenWithCmd.Value)
                 {
                     IntegratorHelper.InstallOpenWithCMD();
-                    ErrorLogger.LogInfoSilent($"Integrator | InstallOpenWithCMD");
+                    Logger.LogInfoSilent($"Integrator | InstallOpenWithCMD");
                 }
                 else
                 {
                     IntegratorHelper.DeleteOpenWithCMD();
-                    ErrorLogger.LogInfoSilent($"Integrator | DeleteOpenWithCMD");
+                    Logger.LogInfoSilent($"Integrator | DeleteOpenWithCMD");
                 }
             }
             if (CurrentSilentConfig.Integrator.TakeOwnership.HasValue)
             {
                 IntegratorHelper.InstallTakeOwnership(!CurrentSilentConfig.Integrator.TakeOwnership.Value);
-                ErrorLogger.LogInfoSilent($"Integrator | TakeOwnership to {CurrentSilentConfig.Integrator.TakeOwnership.Value}");
+                Logger.LogInfoSilent($"Integrator | TakeOwnership to {CurrentSilentConfig.Integrator.TakeOwnership.Value}");
             }
         }
 
@@ -301,7 +312,7 @@ namespace Optimizer
                 CurrentSilentConfig.AdvancedTweaks.UnlockAllCores.Value == true)
             {
                 Utilities.UnlockAllCores();
-                ErrorLogger.LogInfoSilent("AdvancedTweaks | UnlockAllCores");
+                Logger.LogInfoSilent("AdvancedTweaks | UnlockAllCores");
             }
 
             if (CurrentSilentConfig.AdvancedTweaks.SvchostProcessSplitting.Disable.HasValue)
@@ -311,12 +322,12 @@ namespace Optimizer
                     CurrentSilentConfig.AdvancedTweaks.SvchostProcessSplitting.Ram > 0)
                 {
                     Utilities.DisableSvcHostProcessSplitting(CurrentSilentConfig.AdvancedTweaks.SvchostProcessSplitting.Ram.Value);
-                    ErrorLogger.LogInfoSilent($"AdvancedTweaks | DisableSvcHostProcessSplitting | RAM capacity: {CurrentSilentConfig.AdvancedTweaks.SvchostProcessSplitting.Ram.Value} GB");
+                    Logger.LogInfoSilent($"AdvancedTweaks | DisableSvcHostProcessSplitting | RAM capacity: {CurrentSilentConfig.AdvancedTweaks.SvchostProcessSplitting.Ram.Value} GB");
                 }
                 else
                 {
                     Utilities.EnableSvcHostProcessSplitting();
-                    ErrorLogger.LogInfoSilent("AdvancedTweaks | EnableSvcHostProcessSplitting");
+                    Logger.LogInfoSilent("AdvancedTweaks | EnableSvcHostProcessSplitting");
                 }
             }
 

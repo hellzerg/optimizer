@@ -447,5 +447,12 @@
 	"btnRestartSafe": "以安全模式重新啟動",
 	"btnRestart": "以正常模式重新啟動",
 	"btnRestartDisableDefender": "重新啟動並停用 Defender",
-	"classicPhotoViewerSw": "還原傳統相片檢視器"
+	"classicPhotoViewerSw": "還原傳統相片檢視器",
+	"tabPage3": "字体",
+	"fontSetTitle": "将您喜欢的字体设置为 Windows 默认字体",
+	"label11": "当前字体:",
+	"btnSetGlobalFont": "设置为默认",
+	"lblFontsCount": "可用字体:",
+	"btnRestoreFont": "還原預設值",
+	"btnRefreshFonts": "重新整理"
 }

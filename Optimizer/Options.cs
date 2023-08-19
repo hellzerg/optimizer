@@ -355,7 +355,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("Options.LoadTranslation", ex.Message, ex.StackTrace);
+                Logger.LogError("Options.LoadTranslation", ex.Message, ex.StackTrace);
                 TranslationList = JObject.Parse(Properties.Resources.EN);
             }
         }

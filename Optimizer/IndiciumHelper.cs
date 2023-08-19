@@ -73,7 +73,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("IndiciumHelper.GetCPUs", ex.Message, ex.StackTrace);
+                Logger.LogError("IndiciumHelper.GetCPUs", ex.Message, ex.StackTrace);
             }
 
             return CPUs;
@@ -103,7 +103,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("IndiciumHelper.GetVM", ex.Message, ex.StackTrace);
+                Logger.LogError("IndiciumHelper.GetVM", ex.Message, ex.StackTrace);
             }
 
             return vm;
@@ -135,7 +135,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("IndiciumHelper.GetRAM", ex.Message, ex.StackTrace);
+                Logger.LogError("IndiciumHelper.GetRAM", ex.Message, ex.StackTrace);
             }
 
             return modules;
@@ -202,7 +202,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("IndiciumHelper.GetMotherboards", ex.Message, ex.StackTrace);
+                Logger.LogError("IndiciumHelper.GetMotherboards", ex.Message, ex.StackTrace);
             }
 
             return mobos;
@@ -230,7 +230,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("IndiciumHelper.GetDisks", ex.Message, ex.StackTrace);
+                Logger.LogError("IndiciumHelper.GetDisks", ex.Message, ex.StackTrace);
             }
 
             return disks;
@@ -275,7 +275,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("IndiciumHelper.GetVolumes", ex.Message, ex.StackTrace);
+                Logger.LogError("IndiciumHelper.GetVolumes", ex.Message, ex.StackTrace);
             }
         }
 
@@ -300,7 +300,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("IndiciumHelper.GetKeyboards", ex.Message, ex.StackTrace);
+                Logger.LogError("IndiciumHelper.GetKeyboards", ex.Message, ex.StackTrace);
             }
 
             try
@@ -327,7 +327,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("IndiciumHelper.GetPointingDevices", ex.Message, ex.StackTrace);
+                Logger.LogError("IndiciumHelper.GetPointingDevices", ex.Message, ex.StackTrace);
             }
         }
 
@@ -356,7 +356,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("IndiciumHelper.GetGPUs", ex.Message, ex.StackTrace);
+                Logger.LogError("IndiciumHelper.GetGPUs", ex.Message, ex.StackTrace);
             }
 
             return GPUs;
@@ -391,7 +391,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("IndiciumHelper.GetNetworkAdapters", ex.Message, ex.StackTrace);
+                Logger.LogError("IndiciumHelper.GetNetworkAdapters", ex.Message, ex.StackTrace);
             }
         }
 
@@ -415,7 +415,7 @@ namespace Optimizer
             }
             catch (Exception ex)
             {
-                ErrorLogger.LogError("IndiciumHelper.GetAudioDevices", ex.Message, ex.StackTrace);
+                Logger.LogError("IndiciumHelper.GetAudioDevices", ex.Message, ex.StackTrace);
             }
 
             return audioDevices;
