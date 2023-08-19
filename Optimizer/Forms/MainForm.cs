@@ -38,6 +38,8 @@ namespace Optimizer
         string _shodanIP = string.Empty;
         PingReply tmpReply;
 
+        int _tabHeaderHeightMargin = 10;
+
         //NetworkMonitor _networkMonitor;
         //double uploadSpeed = 0;
         //double downloadSpeed = 0;
@@ -1088,7 +1090,7 @@ namespace Optimizer
                 }
             }
 
-            tabCollection.ItemSize = new Size(maxTextWidth, tabCollection.ItemSize.Height + 10);
+            tabCollection.ItemSize = new Size(maxTextWidth, tabCollection.ItemSize.Height + _tabHeaderHeightMargin);
         }
 
         private void LoadReadyMenusState()
@@ -2076,19 +2078,19 @@ namespace Optimizer
                             switch (x.Group)
                             {
                                 case "SystemTools":
-                                    appCard.Location = new Point(0, groupSystemTools.Controls.Count * (Program.DPI_PREFERENCE / 2));
+                                    appCard.Location = new Point(0, groupSystemTools.Controls.Count * (Program.DPI_PREFERENCE / 3));
                                     groupSystemTools.Controls.Add(appCard);
                                     break;
                                 case "Internet":
-                                    appCard.Location = new Point(0, groupInternet.Controls.Count * (Program.DPI_PREFERENCE / 2));
+                                    appCard.Location = new Point(0, groupInternet.Controls.Count * (Program.DPI_PREFERENCE / 3));
                                     groupInternet.Controls.Add(appCard);
                                     break;
                                 case "Coding":
-                                    appCard.Location = new Point(0, groupCoding.Controls.Count * (Program.DPI_PREFERENCE / 2));
+                                    appCard.Location = new Point(0, groupCoding.Controls.Count * (Program.DPI_PREFERENCE / 3));
                                     groupCoding.Controls.Add(appCard);
                                     break;
                                 case "GraphicsSound":
-                                    appCard.Location = new Point(0, groupSoundVideo.Controls.Count * (Program.DPI_PREFERENCE / 2));
+                                    appCard.Location = new Point(0, groupSoundVideo.Controls.Count * (Program.DPI_PREFERENCE / 3));
                                     groupSoundVideo.Controls.Add(appCard);
                                     break;
                                 default:
@@ -2410,7 +2412,7 @@ namespace Optimizer
                     catch { }
                 }
 
-                appCard.Location = new Point(0, panelUwp.Controls.Count * (Program.DPI_PREFERENCE / 2));
+                appCard.Location = new Point(0, panelUwp.Controls.Count * (Program.DPI_PREFERENCE / 3));
                 panelUwp.Controls.Add(appCard);
 
             }
