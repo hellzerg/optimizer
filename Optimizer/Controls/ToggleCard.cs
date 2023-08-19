@@ -22,11 +22,6 @@ namespace Optimizer
             Toggle.IsAccessible = true;
             Panel.IsAccessible = true;
 
-            //this.AccessibleRole = AccessibleRole.CheckButton;
-            //Label.AccessibleRole = AccessibleRole.CheckButton;
-            //Toggle.AccessibleRole = AccessibleRole.CheckButton;
-            //Panel.AccessibleRole = AccessibleRole.CheckButton;
-
             this.AccessibleName = LabelText;
             Label.AccessibleName = LabelText;
             Toggle.AccessibleName = LabelText;

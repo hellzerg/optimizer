@@ -90,7 +90,6 @@
     <Compile Include="Controls\ColorPicker.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\MoonComboBox.cs" />
     <Compile Include="Controls\MoonList.cs">
       <SubType>Component</SubType>
     </Compile>
