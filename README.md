@@ -10,145 +10,113 @@
 	</a>
 </p>
 
-### ℹ️ Summary:
+# ℹ️ Optimizer: Advanced Privacy and Security Configuration Utility
 
-Advanced configuration utility that helps you restore your privacy and increase your security.<br>
-Optimizer is recommended after a fresh, clean installation of Windows to achieve maximum privacy and security.<br>
-Depending on your version of Windows, Optimizer will also allow you to perform some specific tweaks.
+Welcome to Optimizer, an advanced configuration utility designed to enhance your privacy and security on Windows. This tool is highly recommended for use after a fresh installation of Windows to achieve maximum privacy and security benefits. Depending on your Windows version, Optimizer can also help you apply specific system tweaks.
+
+## 🏗️ Key Features:
 
 - Full multilingual support (22 languages available)
-- Speed up your system and network performance
+- Enhance system and network performance
 - Disable unnecessary Windows services
-- Disable Windows telemetry, Cortana and many more
-- Disable Office telemetry (works only with Office 2016)
-- Disable Windows 10 automatic updates
-- Download useful apps quickly at once
+- Turn off Windows telemetry, Cortana, and more
+- Disable Office telemetry (works with Office 2016)
+- Stop automatic Windows 10 updates
+- Download multiple useful apps quickly
 - Uninstall UWP apps
-- Clean your system drive and major browsers' profile data
+- Clean system drive and browser profiles
 - Fix common registry issues
-- Ping IPs and assess your latency
+- Ping IPs and assess latency
 - Search IPs on SHODAN.io
-- Rapidly change DNS server (from a pre-made list)
+- Quickly change DNS server (from a pre-made list)
 - Flush DNS cache
-- Remove unwanted programs running at startup
+- Remove unwanted startup programs
 - Edit your HOSTS file
-- Find file lock handles and kill associated processes
+- Identify and terminate file lock handles
 - Hardware inspection tool
-- Add items in desktop on right-click menu
-- Define custom commands for run dialog
-- Silent run support using a configuration file
+- Add items to the desktop right-click menu
+- Define custom commands for the run dialog
+- Support silent runs using a configuration file
 
-<hr>
+## ⬇️ Downloads
 
-### ⬇️ Downloads:
+Find the latest release of Optimizer on the [Releases](https://github.com/hellzerg/optimizer/releases) page.
 
-https://github.com/hellzerg/optimizer/releases
+## 🖼️ Screenshots
 
-<hr>
+View Optimizer in action through our [Screenshots](https://github.com/hellzerg/optimizer/blob/master/IMAGES.md) collection.
 
-### 🖼️ Screenshots:
+## 🆘 How to Disable Defender in Windows 10 1903 and Later
 
-https://github.com/hellzerg/optimizer/blob/master/IMAGES.md
+- Restart in SAFE-MODE and run Optimizer with `/disabledefender` switch
+- OR -
+- Execute Optimizer with `/restart=disabledefender` switch for automated disabling
 
-<hr>
+## 🔨 Automation using Templating
 
-### 🆘 How to effectively disable Defender in Windows 10 1903 and later
+Explore the possibilities of automation with Optimizer through our [Automation Guide](https://github.com/hellzerg/optimizer/blob/master/AUTOMATION.md).
 
-Restart in SAFE-MODE and run Optimizer with `/disabledefender` switch
-<br>-OR-<br>
-Execute Optimizer with `/restart=disabledefender` switch and let it do the rest automatically
+## 🔨 Command-line Options
 
-<hr>
+Check out the [Command-line Options](https://github.com/hellzerg/optimizer/blob/master/CONFS.md) available for Optimizer.
 
-### 🔨 Automation using templating:
+## ❓ Frequently Asked Questions
 
-https://github.com/hellzerg/optimizer/blob/master/AUTOMATION.md
+Find answers to common queries in the [FAQ Section](https://github.com/hellzerg/optimizer/blob/master/FAQ.md).
 
-<hr>
+## 📰 Changelog
 
-### 🔨 Command-line options:
+Stay updated with the latest changes through the [Changelog](https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md).
 
-https://github.com/hellzerg/optimizer/blob/master/CONFS.md
+## 🛡️ Security Policy
 
-<hr>
+Learn about our security measures in the [Security Policy](https://github.com/hellzerg/optimizer/blob/master/SECURITY.md).
 
-### ❓ Frequently asked questions section:
+## 💻 Compatibility
 
-https://github.com/hellzerg/optimizer/blob/master/FAQ.md
-
-<hr>
-
-### 📜 Changelog:
-
-https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md
-
-<hr>
-
-### 🛡️ Security policy:
-
-https://github.com/hellzerg/optimizer/blob/master/SECURITY.md
-
-<hr>
-
-### 🖼️ Early development images:
-
-https://github.com/hellzerg/optimizer/blob/master/LEGACY.md
-
-<hr>
-
-### 💻 Compatibility:
-
-- .NET Framework 4.8.1
+- Requires .NET Framework 4.8.1
 - Compatible with Windows 7, 8, 8.1, 10, 11
-- Can run under Windows Server 2008, 2012, 2016, 2019, 2022 using `/unsafe` switch
+- Can run on Windows Server 2008, 2012, 2016, 2019, 2022 using `/unsafe` switch
 
-<hr>
+## 📊 Details
 
-### 📊 Details:
-
-- Latest version: 15.6
-- Released: July 22, 2023
+- Latest version: 15.6 (Released: July 22, 2023)
 - SHA256: 147FF45704BF458F93E2132AC0EE648AA89DFE44FCDC73C6C880153A948E360A
 
-<hr>
+## ☕ Support the Developer
 
-### ☕ Buy me a delicious espresso
+If you find this tool useful, consider showing your support by [donating through PayPal](https://www.paypal.com/paypalme/supportoptimizer).
 
-Support my hard work by donating me through [PayPal](https://www.paypal.com/paypalme/supportoptimizer)
+## 🌐 Join our Community
 
-<hr>
+Be a part of our [Discord](https://discord.gg/rZh8BhmmQv) community.
 
-### 🌐 Join our [Discord](https://discord.gg/rZh8BhmmQv) community
+## ❤️ Credits and Acknowledgments
 
-<hr>
+- [ByteSize](https://github.com/omar/ByteSize) - A useful library by Omar Rahman
+- ColorPicker - Theme engine courtesy of cat ([GitHub Profile](https://github.com/vadiscode))
 
-### ❤️ Tools used:
+## ❤️ Translations
 
-- [ByteSize](https://github.com/omar/ByteSize) | Thanks for this really tiny, yet extremely useful library
-- ColorPicker | Thanks to cat - https://github.com/vadiscode for the new theme engine
+We'd like to extend our gratitude to the following contributors for their translations:
 
-<hr>
-
-### ❤️ Credits for translating:
-
-- https://github.com/mrkaban - mrkaban for Russian translation
-- https://github.com/theflamehd - theflamehd for German translation
-- https://github.com/Kheasyque - Kheasyque for Turkish translation
-- https://github.com/danielcshn - danielcshn for Spanish translation
-- https://github.com/cassiompf - Cassio for Portuguese translation
-- https://github.com/RAFF47 - RAFF for French translation
-- https://github.com/Ziocash - Ziocash for Italian translation
-- https://github.com/btwise - btwise for Chinese translation
-- https://github.com/tomlonghorn - Tom Longhorn for Czech translation
-- https://github.com/H3XDaemon - H3XDaemon for Taiwanese translation
-- https://github.com/VenusGirl - VenusGirl for Korean translation
-- https://github.com/Wilamaxin - Wilamaxin for Polish translation
-- https://github.com/MesterPerfect - MesterPerfect for Arabic translation
-- https://github.com/BeamingNG - BeamingNG, DefaultUser9148 for Romanian translation
-- https://github.com/svanlaere - svanlaere for Dutch translation
-- https://github.com/kirill0ermakov - Kirill Ermakov for Ukrainian translation
-- https://github.com/Hayao0819 - Yamada Hayao for Japanese translation
-- https://github.com/creeper-0910 - creeper-0910 for Correction of Japanese translation
-- Parwar Andam for Kurdish translation
-- Zan for Hungarian translation
--  https://github.com/MjavadH - MjavadH for Farsi translation
+- Russian: mrkaban
+- German: theflamehd
+- Turkish: Kheasyque
+- Spanish: danielcshn
+- Portuguese: Cassio
+- French: RAFF47
+- Italian: Ziocash
+- Chinese: btwise
+- Czech: Tom Longhorn
+- Taiwanese: H3XDaemon
+- Korean: VenusGirl
+- Polish: Wilamaxin
+- Arabic: MesterPerfect
+- Romanian: BeamingNG, DefaultUser9148
+- Dutch: svanlaere
+- Ukrainian: Kirill Ermakov
+- Japanese: Yamada Hayao, creeper-0910 (Japanese correction)
+- Kurdish: Parwar Andam
+- Hungarian: Zan
+- Farsi: MjavadH
