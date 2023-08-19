@@ -9,7 +9,7 @@ namespace Optimizer.Controls
 {
     [DefaultProperty("Color")]
     [DefaultEvent("ColorChanged")]
-    public sealed partial class ColorPicker : Control
+    public partial class ColorPicker : Control
     {
         #region Fields
 

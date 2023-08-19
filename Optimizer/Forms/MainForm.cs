@@ -1079,18 +1079,15 @@ namespace Optimizer
         private void FixTabHeaderWidth()
         {
             if (tabCollection.ItemSize == new Size(0, 0)) return;
-
-            int maxTextWidth = 0;
+            int maxTextWidth = 0, maxTextHeight = 0;
             for (int i = 0; i < tabCollection.TabPages.Count; i++)
             {
                 var tabWidth = TextRenderer.MeasureText(tabCollection.TabPages[i]?.Text, tabCollection.TabPages[i]?.Font).Width;
-                if (tabWidth > maxTextWidth)
-                {
-                    maxTextWidth = tabWidth;
-                }
+                var tabHeight = TextRenderer.MeasureText(tabCollection.TabPages[i]?.Text, tabCollection.TabPages[i]?.Font).Height;
+                if (tabWidth > maxTextWidth) maxTextWidth = tabWidth;
+                if (tabHeight > maxTextHeight) maxTextHeight = tabHeight;
             }
-
-            tabCollection.ItemSize = new Size(maxTextWidth, tabCollection.ItemSize.Height + _tabHeaderHeightMargin);
+            tabCollection.ItemSize = new Size(maxTextWidth, maxTextHeight + _tabHeaderHeightMargin);
         }
 
         private void LoadReadyMenusState()
