@@ -63,6 +63,22 @@ namespace Optimizer
             }
         }
 
+        internal static string GetCurrentGlobalFont()
+        {
+            try
+            {
+                using (RegistryKey fontSubstitutesKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes", false))
+                {
+                   return fontSubstitutesKey.GetValue("Segoe UI", string.Empty) as string;
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("FontHelper.GetCurrentGlobalFont", ex.Message, ex.StackTrace);
+                return string.Empty;
+            }
+        }
+
         internal static void RestoreDefaultGlobalFont()
         {
             try

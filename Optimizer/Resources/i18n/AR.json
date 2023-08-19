@@ -451,5 +451,12 @@
 	"btnRestartSafe": "أعد التشغيل في الوضع الآمن",
 	"btnRestart": "أعد التشغيل في الوضع العاديe",
 	"btnRestartDisableDefender": "عادة تشغيل && تعطيل Defender",
-	"classicPhotoViewerSw": "استعادة عارض الصور الكلاسيكي"
+	"classicPhotoViewerSw": "استعادة عارض الصور الكلاسيكي",
+	"tabPage3": "Fonts",
+	"fontSetTitle": "Set your favorite font as Windows default font",
+	"label11": "Current font:",
+	"btnSetGlobalFont": "Set as default",
+	"lblFontsCount": "Available fonts:",
+	"btnRestoreFont": "Restore default",
+	"btnRefreshFonts": "Refresh"
 }

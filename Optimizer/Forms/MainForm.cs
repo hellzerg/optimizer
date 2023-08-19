@@ -85,6 +85,7 @@ namespace Optimizer
         bool _skipSystemRestore = false;
 
         string[] _currentDNS;
+        string[] _availableFonts;
 
         ColorOverrider _colorOverrider;
 
@@ -950,6 +951,7 @@ namespace Optimizer
                 LoadReadyMenusState();
                 GetDesktopItems();
                 GetCustomCommands();
+                LoadAvailableFonts();
             }
             else
             {
@@ -1059,6 +1061,16 @@ namespace Optimizer
             //InitNetworkMonitoring();
             LoadTranslation();
             EnableToggleEvents();
+        }
+
+        private void LoadAvailableFonts()
+        {
+            listFonts.Items.Clear();
+            _availableFonts = FontHelper.GetAvailableFonts().ToArray();
+            listFonts.Items.AddRange(_availableFonts);
+            string currentFont = FontHelper.GetCurrentGlobalFont();
+            lblCurrentFont.Text = !string.IsNullOrEmpty(currentFont) ? currentFont : "-";
+            lblFontsNumber.Text = _availableFonts.Length.ToString();
         }
 
         private void FixFormSize()
@@ -4346,7 +4358,7 @@ namespace Optimizer
             }
             else if (boxLang.Text == Constants.TAIWANESE)
             {
-                picFlag.Image = Properties.Resources.taiwan;
+                picFlag.Image = Properties.Resources.china;
                 Options.CurrentOptions.LanguageCode = LanguageCode.TW;
             }
             else if (boxLang.Text == Constants.KOREAN)
@@ -4405,6 +4417,7 @@ namespace Optimizer
             Translate();
 
             FixFormSize();
+            btnUpdate.Focus();
         }
 
         private void cleanDriveB_Click(object sender, EventArgs e)
@@ -4792,6 +4805,47 @@ namespace Optimizer
         private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(_featureRequestLink);
+        }
+
+        private void btnRefreshFonts_Click(object sender, EventArgs e)
+        {
+            LoadAvailableFonts();
+        }
+
+        private void btnRestoreFont_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                FontHelper.RestoreDefaultGlobalFont();
+                ShowRestartNeeded();
+            }
+        }
+
+        private void btnSetGlobalFont_Click(object sender, EventArgs e)
+        {
+            if (listFonts.SelectedIndex < 0)
+            {
+                return;
+            }
+            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string fontName = listFonts.SelectedItem.ToString();
+                FontHelper.ChangeGlobalFont(fontName);
+                ShowRestartNeeded();
+            }
+        }
+
+        private void txtSearchFonts_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtSearchFonts.Text))
+            {
+                listFonts.Items.Clear();
+                listFonts.Items.AddRange(_availableFonts.Where(x => x.ToLowerInvariant().Contains(txtSearchFonts.Text.ToLowerInvariant().Trim())).ToArray());
+            }
+            else
+            {
+                LoadAvailableFonts();
+            }
         }
     }
 }

@@ -451,5 +451,12 @@ It has negative effect on performance.",
 	"btnRestartSafe": "Restart in Safe Mode",
 	"btnRestart": "Restart in Normal Mode",
 	"btnRestartDisableDefender": "Restart && Disable Defender",
-	"classicPhotoViewerSw": "Restore Classic Photo Viewer"
+	"classicPhotoViewerSw": "Restore Classic Photo Viewer",
+	"tabPage3": "Fonts",
+	"fontSetTitle": "Set your favorite font as Windows default font",
+	"label11": "Current font:",
+	"btnSetGlobalFont": "Set as default",
+	"lblFontsCount": "Available fonts:",
+	"btnRestoreFont": "Restore default",
+	"btnRefreshFonts": "Refresh"
 }
