@@ -10,11 +10,15 @@
 	</a>
 </p>
 
-# ℹ️ Optimizer: Advanced Privacy and Security Configuration Utility
+<center>
+<h2>ℹ️ Advanced Privacy and Security Configuration Utility</h2> 
+</center>
 
 Welcome to Optimizer, an advanced configuration utility designed to enhance your privacy and security on Windows. This tool is highly recommended for use after a fresh installation of Windows to achieve maximum privacy and security benefits. Depending on your Windows version, Optimizer can also help you apply specific system tweaks.
 
-## 🏗️ Key Features:
+<center>
+<h2> 🏗️ Key Features:</h2> 
+</center>
 
 - Full multilingual support (22 languages available)
 - Enhance system and network performance
@@ -38,65 +42,93 @@ Welcome to Optimizer, an advanced configuration utility designed to enhance your
 - Define custom commands for the run dialog
 - Support silent runs using a template file
 
-## ⬇️ Downloads
+<center>
+<h2> ⬇️ Downloads</h2> 
+</center>
 
 Find the latest release of Optimizer on the [Releases](https://github.com/hellzerg/optimizer/releases) page.
 
-## 🖼️ Screenshots
+<center>
+<h2>🖼️ Screenshots</h2> 
+</center>
 
 View Optimizer in action through our [Screenshots](https://github.com/hellzerg/optimizer/blob/master/IMAGES.md) collection.
 
-## 🆘 How to Disable Defender in Windows 10 1903 and Later
+<center>
+<h2> 🆘 How to Disable Defender in Windows 10 1903 and Later</h2> 
+</center>
 
 - Restart in SAFE-MODE and run Optimizer with `/disabledefender` switch
 - OR -
 - Execute Optimizer with `/restart=disabledefender` switch for automated disabling
 
-## 🔨 Automation using Templating
+<center>
+<h2>🔨 Automation using Templating</h2> 
+</center>
 
 Explore the possibilities of automation with Optimizer through our [Automation Guide](https://github.com/hellzerg/optimizer/blob/master/AUTOMATION.md).
 
-## 🔨 Command-line Options
+<center>
+<h2> 🔨 Command-line Options</h2> 
+</center>
 
 Check out the [Command-line Options](https://github.com/hellzerg/optimizer/blob/master/CONFS.md) available for Optimizer.
 
-## ❓ Frequently Asked Questions
+<center>
+<h2> ❓ Frequently Asked Questions</h2> 
+</center>
 
 Find answers to common queries in the [FAQ Section](https://github.com/hellzerg/optimizer/blob/master/FAQ.md).
 
-## 📰 Changelog
+<center>
+<h2> 📰 Changelog</h2> 
+</center>
 
 Stay updated with the latest changes through the [Changelog](https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md).
 
-## 🛡️ Security Policy
+<center>
+<h2>🛡️ Security Policy</h2> 
+</center>
 
 Learn about our security measures in the [Security Policy](https://github.com/hellzerg/optimizer/blob/master/SECURITY.md).
 
-## 💻 Compatibility
+<center>
+<h2> 💻 Compatibility</h2> 
+</center>
 
 - Requires .NET Framework 4.8.1
 - Compatible with Windows 7, 8, 8.1, 10, 11
 - Can run on Windows Server 2008, 2012, 2016, 2019, 2022 using `/unsafe` switch
 
-## 📊 Details
+<center>
+<h2> 📊 Details</h2> 
+</center>
 
 - Latest version: 15.7 (Released: August 19, 2023)
 - SHA256: C02ECD80CDCAB51654DF2D56E412252BF9509037301426F5E862602554747CED
 
-## ☕ Buy me a delicious espresso
+<center>
+<h2> ☕ Buy me a delicious espresso</h2>
+</center>
 
 If you find this tool useful, consider showing your support by [donating through PayPal](https://www.paypal.com/paypalme/supportoptimizer).
 
-## 🌐 Join our Community
+<center>
+<h2> 🌐 Join our Community</h2>
+</center>
 
 Be a part of our [Discord](https://discord.gg/rZh8BhmmQv) community.
 
-## ❤️ Credits and Acknowledgments
+<center>
+<h2> ❤️ Credits and Acknowledgments</h2>
+</center>
 
 - [ByteSize](https://github.com/omar/ByteSize) - A useful library by Omar Rahman
-- ColorPicker - Theme engine courtesy of cat ([GitHub Profile](https://github.com/vadiscode))
+- ColorPicker - Theme engine, courtesy of cat ([GitHub Profile](https://github.com/vadiscode))
 
-## ❤️ Translations
+<center>
+<h2> ❤️ Translations</h2>
+</center>
 
 We'd like to extend our gratitude to the following contributors for their translations:
 
