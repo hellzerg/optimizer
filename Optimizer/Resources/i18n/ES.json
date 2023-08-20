@@ -306,7 +306,7 @@
 	"cpu": "Procesadores",
 	"ram": "Memoria",
 	"gpu": "Gráficos",
-	"mobo": "Placas Base ",
+	"mobo": "Placas Base",
 	"disk": "Almacenamiento",
 	"inet": "Adaptadores de red",
 	"audio": "Audio",

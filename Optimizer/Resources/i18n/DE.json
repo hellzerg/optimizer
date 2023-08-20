@@ -325,7 +325,7 @@
 	- Deaktiviert die Benachrichtigung bei geringem Speicherplatz.
 	- Deaktiviert die Funktion Schütteln zum Minimieren.
 	- Zeigt immer Dateierweiterungen an
-	- Zeigt versteckte Dateien ",
+	- Zeigt versteckte Dateien",
 	"networkTip": "Windows implementiert einen Mechanismus zur Netzwerkdrosselung, der den Netzwerkverkehr einschränkt, wenn Multimedia-Anwendungen ausgeführt werden. Dies kann auch die Netzwerkleistung verringern, wenn Sie Online-Spiele spielen.",
 	"defenderTip": "Windows Defender ist der integrierte Virenschutz in Windows - Systemen.",
 	"smartScreenTip": "SmartScreen scannt automatisch Dateien, Downloads und Websites, blockiert bereits bekannte gefährliche Inhalte und warnt Sie, bevor Sie diese ausführen.",
@@ -357,7 +357,7 @@
 
 	- Auto-Korrektur
 	-Textvorschläge
-	-Rechtschreibprüfung ",
+	-Rechtschreibprüfung",
 	"xboxTip": "Xbox Live-Dienste bieten Streaming-, Aufnahme- und soziale Funktionen für Xbox-Spiele.",
 	"actionTip": "Das Benachrichtigungscenter ist ein zentraler Ort für Benachrichtigungen und Schnellaktionskacheln, wie Wi-Fi, Bluetooth, etc.",
 	"autoUpdatesTip": "Deaktiviert das automatische Herunterladen und Installieren von Windows-Updates. Stattdessen erfolgt eine Benachrichtigung, wenn neue Updates verfügbar sind. Außerdem wird der Dienst Bereitstellungsoptimierung deaktiviert.",
@@ -369,13 +369,13 @@
 	- Geolokalisierung
 	- Geräteübergreifende Freigabe von Apps
 	- Text-Logger
-	- Diagnose ",
+	- Diagnose",
 	"ccTip": "Die Cloud-Zwischenablage gibt die Daten der Zwischenablage für alle Geräte frei. So können Sie auf einem Gerät kopieren und auf einem anderen einfügen. Erfordert die Anmeldung bei einem Microsoft-Konto.",
 	"cortanaTip": "Cortana ist eine virtuelle KI-basierte Assistentin.
 
 	- Deaktiviert Cortana.
 	- Deaktiviert die Websuche im Startmenü
-	- Verhindert, dass der Suchverlauf gespeichert wird ",
+	- Verhindert, dass der Suchverlauf gespeichert wird",
 	"sensorTip": "Dienste, die die Funktionalität von Sensoren verwalten, wie z.B automatische Drehung, automatische Helligkeit, etc. Nützlich nur für Tablets oder Geräte mit Touchscreen.",
 	"castTip": "Entfernt den Rechtsklick, um Medieninhalte an Miracast-Geräte zu übertragen.",
 	"gameBarTip": "Game Bar ist ein Zugriffsmenü für Xbox Spieldienste.",
