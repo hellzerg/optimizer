@@ -29,7 +29,7 @@
 	"vsSW": "Visual Studio telemetria letiltása",
 	"ffTelemetrySw": "Mozilla Firefox telemetria letiltása",
 	"chromeTelemetrySw": "Google Chrome telemetria letiltása",
-    "compatSw": "Kompatibilitási asszisztens kikapcsolása",
+	"compatSw": "Kompatibilitási asszisztens kikapcsolása",
 	"smartScreenSw": "SmartScreen kikapcsolása",
 	"stickySw": "Beragadó billentyűk letiltása",
 	"universalTab": "Univerzális",
@@ -318,7 +318,7 @@
 	"pointings": "Mutatóeszközök",
 	"performanceTip": "Belső Windows-beállítások gyűjteménye a teljesítmény optimalizálása érdekében.
 	Alkalmazása teljesen biztonságos.
-	
+
 	- Csökkenti a várakozási időt a nem reagáló folyamatok leállítása előtt.
 	- A menü csökkenti a késleltetési időt.
 	- Letiltja a kevés lemezterület ellenőrzésére vonatkozó értesítést
@@ -329,7 +329,7 @@
 	hálózati forgalom multimédiás alkalmazások futtatásakor. Ez is csökkentheti a hálózatot
 	teljesítmény online játékok közben.",
 	"defenderTip": "⚠ A Windows Defender NEM tiltható le a Windows 10 1903-as és újabb verzióiban.
-	
+
 	A Windows Defender a Windows rendszerek beépített víruskeresője.",
 	"smartScreenTip": "A SmartScreen automatikusan átvizsgálja a fájlokat, letöltéseket és webhelyeket, blokkolva
 	már ismert veszélyes tartalom, és figyelmezteti Önt, mielőtt futtatná őket.",
@@ -367,7 +367,7 @@
 	"longPathsTip": "Eltávolítja a maximális elérési úthosszra vonatkozó 256 karakteres korlátozást.",
 	"inkTip": "A Windows Ink támogatja a digitális tollakat a képernyőre való rajzoláshoz.",
 	"spellTip": "Csak az érintőbillentyűzet funkciói, például:
-	
+
 	- Automatikus javítás
 	- Szöveges javaslatok
 	- Helyesírás-ellenőrzés",
@@ -382,7 +382,7 @@
 	"telemetryServicesTip": "A telemetriai szolgáltatások nyomon követik és naplózzák a használati adatokat, visszajelzést küldenek
 	elemzés céljából a Microsoftnak.",
 	"privacyTip": "Extra adatvédelmi módosítások, amelyek letiltják a következőket:
-	
+
 	- Biometrikus adatok
 	- Geolocation
 	- Alkalmazások megosztása eszközök között
@@ -392,7 +392,7 @@
 	Lehetővé teszi a másolást az egyik eszközre, és a beillesztést egy másikra.
 	Microsoft-fiókkal való bejelentkezés szükséges.",
 	"cortanaTip": "A Cortana egy virtuális AI-alapú asszisztens.
-	
+
 	- Letiltja a Cortanát.
 	- Letiltja a webes keresést a Start menüben
 	- Megakadályozza a keresési előzmények megőrzését",

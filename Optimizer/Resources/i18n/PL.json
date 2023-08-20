@@ -34,7 +34,7 @@
 	"vsSW": "Wyłącz telemetrię programu Visual Studio",
 	"ffTelemetrySw": "Wyłącz telemetrię Mozilla Firefox",
 	"chromeTelemetrySw": "Wyłącz telemetrię Google Chrome",
-    "compatSw": "Wyłącz usługę sprawdzania zgodności",
+	"compatSw": "Wyłącz usługę sprawdzania zgodności",
 	"smartScreenSw": "Wyłącz SmartScreen",
 	"stickySw": "Wyłącz lepkie klawisze",
 	"universalTab": "Uniwersalne",

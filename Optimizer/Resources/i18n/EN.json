@@ -32,7 +32,7 @@
 	"vsSW": "Disable Visual Studio Telemetry",
 	"ffTelemetrySw": "Disable Mozilla Firefox Telemetry",
 	"chromeTelemetrySw": "Disable Google Chrome Telemetry",
-    "compatSw": "Disable Compatibility Assistant",
+	"compatSw": "Disable Compatibility Assistant",
 	"smartScreenSw": "Disable SmartScreen",
 	"stickySw": "Disable Sticky Keys",
 	"universalTab": "General",

@@ -177,43 +177,43 @@
 	"integrator2": "• Jedes Programm",
 	"integrator3": "• Verknüpfungen zu Ordnern",
 	"integrator4": "• Links zu Websites",
-        "integrator5": "• Jede Art von Datei",
-        "integrator6": "• Befehle",
-        "integrator7": "Elemente können individuelle Symbole und Positionen haben.\nSie können auch versteckt werden und nur\nmit der SHIFT-Taste zugänglich sein.\nEs kann auch benutzerdefinierte Befehle erstellen\nfür den Ausführen-Dialog, um jede Anwendung nur durch Eingabe Ihres gewünschten Schlüsselworts zu starten.",
-        "integratorInfoTab": "Info",
-        "tabPage8": "Hinzufügen/Bearbeiten",
-        "tabPage9": "Löschen",
-        "tabPage10": "Fertige Menüs",
-        "tabPage11": "Ausführen-Dialog",
-        "addItemL": "Element hinzufügen oder bearbeiten",
-        "itemtype": "Elementtyp",
-        "radioProgram": "Programm",
-        "radioFolder": "Ordner",
-        "radioLink": "Link",
-        "radioFile": "Datei",
-        "radioCommand": "Befehl",
-        "itemtoaddgroup": "Hinzuzufügendes Programm",
-        "folderToAdd": "Hinzuzufügender Ordner",
-        "linkToAdd": "Hinzuzufügender Link",
-        "fileToAdd": "Hinzuzufügende Datei",
-        "commandToAdd": "Hinzuzufügender Befehl",
-        "icontoaddgroup": "Hinzuzufügendes Symbol",
-        "checkDefaultIcon": "Symbol des Programms verwenden",
-        "checkDefaultFolderIcon": "Standardordnersymbol verwenden",
-        "checkFavicon": "Website-Symbol (Favicon) herunterladen",
-        "checkNoIcon": "Kein Symbol",
-        "dnsCacheM": "Der DNS-Cache wird erstellt. Bitte versuchen Sie es später erneut!",
-        "itemposition": "Elementposition",
-        "radioTop": "Oben",
-        "radioMiddle": "Mitte",
-        "radioBottom": "Unten",
-        "security": "Sicherheit",
-        "checkShift": "Nur anzeigen, wenn die UMSCHALT-Taste gedrückt wird",
-        "itemnamegroup": "Elementname im Menü",
-        "btnAddItem": "Hinzufügen/Bearbeiten",
-        "removeIntegratorItemsL": "Bestehende Desktop-Elemente löschen",
-        "removeDIB": "Löschen",
-        "refreshIIB": "Aktualisieren",
+	"integrator5": "• Jede Art von Datei",
+	"integrator6": "• Befehle",
+	"integrator7": "Elemente können individuelle Symbole und Positionen haben.\nSie können auch versteckt werden und nur\nmit der SHIFT-Taste zugänglich sein.\nEs kann auch benutzerdefinierte Befehle erstellen\nfür den Ausführen-Dialog, um jede Anwendung nur durch Eingabe Ihres gewünschten Schlüsselworts zu starten.",
+	"integratorInfoTab": "Info",
+	"tabPage8": "Hinzufügen/Bearbeiten",
+	"tabPage9": "Löschen",
+	"tabPage10": "Fertige Menüs",
+	"tabPage11": "Ausführen-Dialog",
+	"addItemL": "Element hinzufügen oder bearbeiten",
+	"itemtype": "Elementtyp",
+	"radioProgram": "Programm",
+	"radioFolder": "Ordner",
+	"radioLink": "Link",
+	"radioFile": "Datei",
+	"radioCommand": "Befehl",
+	"itemtoaddgroup": "Hinzuzufügendes Programm",
+	"folderToAdd": "Hinzuzufügender Ordner",
+	"linkToAdd": "Hinzuzufügender Link",
+	"fileToAdd": "Hinzuzufügende Datei",
+	"commandToAdd": "Hinzuzufügender Befehl",
+	"icontoaddgroup": "Hinzuzufügendes Symbol",
+	"checkDefaultIcon": "Symbol des Programms verwenden",
+	"checkDefaultFolderIcon": "Standardordnersymbol verwenden",
+	"checkFavicon": "Website-Symbol (Favicon) herunterladen",
+	"checkNoIcon": "Kein Symbol",
+	"dnsCacheM": "Der DNS-Cache wird erstellt. Bitte versuchen Sie es später erneut!",
+	"itemposition": "Elementposition",
+	"radioTop": "Oben",
+	"radioMiddle": "Mitte",
+	"radioBottom": "Unten",
+	"security": "Sicherheit",
+	"checkShift": "Nur anzeigen, wenn die UMSCHALT-Taste gedrückt wird",
+	"itemnamegroup": "Elementname im Menü",
+	"btnAddItem": "Hinzufügen/Bearbeiten",
+	"removeIntegratorItemsL": "Bestehende Desktop-Elemente löschen",
+	"removeDIB": "Löschen",
+	"refreshIIB": "Aktualisieren",
 	"removeAllIIB": "Alles entfernen",
 	"PMB": "Power-Menü hinzufügen",
 	"STB": "Systemwerkzeuge hinzufügen",
@@ -354,9 +354,9 @@
 	"longPathsTip": "Entfernt die maximale Pfadlängenbegrenzung von 256 Zeichen.",
 	"inkTip": "Windows Ink fügt Unterstützung für digitale Stifte zum Zeichnen auf dem Bildschirm hinzu.",
 	"spellTip": "Nur Touch-Tastatur-Funktionen wie:
-	
-	- Auto-Korrektur 
-	-Textvorschläge 
+
+	- Auto-Korrektur
+	-Textvorschläge
 	-Rechtschreibprüfung ",
 	"xboxTip": "Xbox Live-Dienste bieten Streaming-, Aufnahme- und soziale Funktionen für Xbox-Spiele.",
 	"actionTip": "Das Benachrichtigungscenter ist ein zentraler Ort für Benachrichtigungen und Schnellaktionskacheln, wie Wi-Fi, Bluetooth, etc.",
@@ -364,15 +364,15 @@
 	"driversTip": "Nützlich, wenn Windows Update ständig einen ordnungsgemäß funktionierenden Treiber durch einen fehlerhaften ersetzt.",
 	"telemetryServicesTip": "Telemetrie-Dienste verfolgen und protokollieren Nutzungsdaten und senden Feedback and Microsoft zur Analyse.",
 	"privacyTip": "Zusätzliche Datenschutz-Tweaks, die Folgendes deaktivieren:
-	
-	- Biometrie 
+
+	- Biometrie
 	- Geolokalisierung
 	- Geräteübergreifende Freigabe von Apps
-	- Text-Logger 
+	- Text-Logger
 	- Diagnose ",
 	"ccTip": "Die Cloud-Zwischenablage gibt die Daten der Zwischenablage für alle Geräte frei. So können Sie auf einem Gerät kopieren und auf einem anderen einfügen. Erfordert die Anmeldung bei einem Microsoft-Konto.",
 	"cortanaTip": "Cortana ist eine virtuelle KI-basierte Assistentin.
-	
+
 	- Deaktiviert Cortana.
 	- Deaktiviert die Websuche im Startmenü
 	- Verhindert, dass der Suchverlauf gespeichert wird ",

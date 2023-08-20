@@ -32,7 +32,7 @@
 	"vsSW": "Visual Studio テレメトリを無効化",
 	"ffTelemetrySw": "Mozilla Firefox テレメトリを無効化",
 	"chromeTelemetrySw": "Google Chrome テレメトリを無効化",
-    "compatSw": "互換性アシスタントを無効化",
+	"compatSw": "互換性アシスタントを無効化",
 	"smartScreenSw": "SmartScreenを無効化",
 	"stickySw": "固定キーを無効化",
 	"universalTab": "一般",

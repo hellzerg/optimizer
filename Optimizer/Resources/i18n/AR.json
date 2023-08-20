@@ -34,7 +34,7 @@
 	"vsSW": "تعطيل القياس عن بعد في Visual Studio",
 	"ffTelemetrySw": "تعطيل القياس عن بعد في Mozilla Firefox",
 	"chromeTelemetrySw": "تعطيل القياس عن بعد في Google Chrome",
-    "compatSw": "تعطيل مساعد التوافق",
+	"compatSw": "تعطيل مساعد التوافق",
 	"smartScreenSw": "تعطيل الشاشات الذكية",
 	"stickySw": "تعطيل تثبيت المفاتيح",
 	"universalTab": "عالمي",

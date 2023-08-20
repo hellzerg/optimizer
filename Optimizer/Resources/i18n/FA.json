@@ -32,7 +32,7 @@
 	"vsSW": "غیرفعال کردن Visual Studio Telemetry",
 	"ffTelemetrySw": "غیرفعال کردن Mozilla Firefox Telemetry",
 	"chromeTelemetrySw": "غیرفعال کردن Google Chrome Telemetry",
-    "compatSw": "غیرفعال کردن Compatibility Assistant",
+	"compatSw": "غیرفعال کردن Compatibility Assistant",
 	"smartScreenSw": "غیرفعال کردن SmartScreen",
 	"stickySw": "غیرفعال کردن Sticky Keys",
 	"universalTab": "عمومی",

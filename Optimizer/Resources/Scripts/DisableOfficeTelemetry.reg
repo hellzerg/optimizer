@@ -10,7 +10,7 @@ Windows Registry Editor Version 5.00
 "visiosolution"=dword:00000001
 "wdsolution"=dword:00000001
 "xlsolution"=dword:00000001
- 
+
 [HKEY_CURRENT_USER\Software\Policies\microsoft\office\16.0\osm\preventedsolutiontypes]
 "agave"=dword:00000001
 "appaddins"=dword:00000001
