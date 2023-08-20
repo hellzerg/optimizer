@@ -395,8 +395,8 @@
 	"stickersTip": "Sticker sind große Emojis, die auf Hintergrundbildern erscheinen und in sozialen Messengern verwendet werden.",
 	"hibernateSw": "Ruhezustand deaktivieren",
 	"hibernateTip": "Deaktiviert die Windows-Ruhezustandsfunktion.",
-	"smbSw1": "Deaktiviere das SMBv1-Protokoll",
-	"smbSw2": "Deaktiviere das SMBv2-Protokoll",
+	"smb1Sw": "Deaktiviere das SMBv1-Protokoll",
+	"smb2Sw": "Deaktiviere das SMBv2-Protokoll",
 	"smbTip": "Das SMB{v}-Protokoll ist für die Dateifreigabe zwischen Windows-Computern verantwortlich.
 	Es wurde durch SMBv3 ersetzt, das sicherer ist.",
 	"ntfsStampSw": "Deaktiviere den NTFS-Zeitstempel",

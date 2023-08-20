@@ -403,8 +403,8 @@
 	"stickersTip": "Stickerele sunt emoji-uri mari care apar pe imagini de fundal, fiind folosite în mesageria socială.",
 	"hibernateSw": "Dezactivați Hibernarea",
 	"hibernateTip": "Dezactivează funcția de hibernare Windows.",
-	"smbSw1": "Dezactivați protocolul SMBv1",
-	"smbSw2": "Dezactivați protocolul SMBv2",
+	"smb1Sw": "Dezactivați protocolul SMBv1",
+	"smb2Sw": "Dezactivați protocolul SMBv2",
 	"smbTip": "Protocolul SMB{v} este responsabil pentru partajarea fișierelor între computerele Windows.
 	A fost înlocuit cu SMBv3, care este mai sigur.",
 	"ntfsStampSw": "Dezactivați marcajul de timp NTFS",

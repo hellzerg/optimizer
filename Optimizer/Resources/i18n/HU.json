@@ -421,8 +421,8 @@
 	"stickersTip": "A matricák nagy hangulatjelek, amelyek a háttérképeken jelennek meg, és közösségi üzenetküldőkben használatosak.",
 	"hibernateSw": "A hibernált állapot letiltása",
 	"hibernateTip": "Letiltja a Windows hibernált funkcióját.",
-	"smbSw1": "Az SMBv1 protokoll letiltása",
-	"smbSw2": "Az SMBv2 protokoll letiltása",
+	"smb1Sw": "Az SMBv1 protokoll letiltása",
+	"smb2Sw": "Az SMBv2 protokoll letiltása",
 	"smbTip": "Az SMB{v} protokoll felelős a Windows számítógépek közötti fájlmegosztásért.
 	Lecserélték SMBv3-ra, ami biztonságosabb.",
 	"ntfsStampSw": "Az NTFS időbélyegző letiltása",

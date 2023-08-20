@@ -416,8 +416,8 @@ prima che vengano rilasciate al pubblico.
 	"stickersTip": "Gli adesivi sono grandi emoji che appaiono sugli sfondi, utilizzati nei social messenger.",
 	"hibernateSw": "Disabilita l'ibernazione",
 	"hibernateTip": "Disabilita la funzione di ibernazione di Windows.",
-	"smbSw1": "Disabilita il protocollo SMBv1",
-	"smbSw2": "Disabilita il protocollo SMBv2",
+	"smb1Sw": "Disabilita il protocollo SMBv1",
+	"smb2Sw": "Disabilita il protocollo SMBv2",
 	"smbTip": "Il protocollo SMB{v} è responsabile della condivisione di file tra computer Windows.
 	È stato sostituito con SMBv3, che è più sicuro.",
 	"ntfsStampSw": "Disabilita il timestamp NTFS",

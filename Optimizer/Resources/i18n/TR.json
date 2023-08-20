@@ -419,8 +419,8 @@ Katılmak istemeyen kullanıcılar için gereksiz bir hizmet olarak kabul edilir
 	"stickersTip": "Çıkartmalar, sosyal mesajlaşma programlarında kullanılan duvar kağıtlarında görünen büyük emojilerdir.",
 	"hibernateSw": "Hazırda Bekletmeyi Devre Dışı Bırak",
 	"hibernateTip": "Windows hazırda bekletme özelliğini devre dışı bırakır.",
-	"smbSw1": "SMBv1 Protokolünü Devre Dışı Bırak",
-	"smbSw2": "SMBv2 Protokolünü Devre Dışı Bırak",
+	"smb1Sw": "SMBv1 Protokolünü Devre Dışı Bırak",
+	"smb2Sw": "SMBv2 Protokolünü Devre Dışı Bırak",
 	"smbTip": "SMB{v} protokolü, Windows bilgisayarlar arasında dosya paylaşımından sorumludur.
 	Daha güvenli olan SMBv3 ile değiştirildi.",
 	"ntfsStampSw": "NTFS Zaman Damgasını Devre Dışı Bırak",

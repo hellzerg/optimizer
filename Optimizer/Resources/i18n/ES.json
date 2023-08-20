@@ -418,8 +418,8 @@ Se considera un servicio innecesario para los usuarios que no desean participar.
 	"stickersTip": "Las pegatinas son emojis grandes que aparecen en los fondos de pantalla y se usan en los mensajeros sociales.",
 	"hibernateSw": "Desactivar hibernación",
 	"hibernateTip": "Desactiva la función de hibernación de Windows.",
-	"smbSw1": "Deshabilitar el protocolo SMBv1",
-	"smbSw2": "Deshabilitar el protocolo SMBv2",
+	"smb1Sw": "Deshabilitar el protocolo SMBv1",
+	"smb2Sw": "Deshabilitar el protocolo SMBv2",
 	"smbTip": "El protocolo SMB{v} es responsable de compartir archivos entre computadoras con Windows.
 	Ha sido reemplazado por SMBv3, que es más seguro.",
 	"ntfsStampSw": "Deshabilitar marca de tiempo NTFS",

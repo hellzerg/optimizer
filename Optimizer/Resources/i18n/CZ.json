@@ -421,8 +421,8 @@ Je považována za zbytečnou službu pro uživatele, kteří se jí nechtějí 
 	"stickersTip": "Nálepky jsou velké emotikony, které se objevují na tapetách a používají se v sociálních zprávách.",
 	"hibernateSw": "Zakázat Hibernaci",
 	"hibernateTip": "Zakáže funkci hibernace systému Windows.",
-	"smbSw1": "Zakázat protokol SMBv1",
-	"smbSw2": "Zakázat protokol SMBv2",
+	"smb1Sw": "Zakázat protokol SMBv1",
+	"smb2Sw": "Zakázat protokol SMBv2",
 	"smbTip": "Protokol SMB{v} je zodpovědný za sdílení souborů mezi počítači se systémem Windows.
 	Byl nahrazen SMBv3, který je bezpečnější.",
 	"ntfsStampSw": "Zakázat časové razítko NTFS",
