@@ -243,7 +243,7 @@
 	"confInvalidVersionMsg": "Версія Windows не відповідає!",
 	"confInvalidFormatMsg": "Конфігураційний файл у невірному форматі!",
 	"confNotFoundMsg": "Файл конфігурації не існує!",
-	"argInvalidMsg": "Недійсний аргумент! Приклад: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "Недійсний аргумент! Приклад: Optimizer.exe /template.json",
 	"alreadyRunningMsg": "Оптимізатор вже працює у фоновому режимі!",
 	"StartupPreviewForm": "Попередній перегляд елементів запуску",
 	"StartupRestoreForm": "Відновити елементи запуску",
@@ -460,5 +460,8 @@
 	"btnSetGlobalFont": "Установіть за замовчуванням",
 	"lblFontsCount": "Доступні шрифти:",
 	"btnRestoreFont": "Відновити за замовчуванням",
-	"btnRefreshFonts": "Оновити"
+	"btnRefreshFonts": "Оновити",
+	"chkAllNics": "Набір для всіх мережевих адаптерів",
+	"chkCustomDns": "Встановити спеціальний DNS",
+	"btnSetDns": "Встановити DNS"
 }

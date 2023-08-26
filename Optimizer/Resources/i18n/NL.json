@@ -246,7 +246,7 @@
    "confInvalidVersionMsg":"Windows-versie komt niet overeen!",
    "confInvalidFormatMsg":"Config-bestand heeft een ongeldig formaat!",
    "confNotFoundMsg":"Config-bestand bestaat niet!",
-   "argInvalidMsg":"Ongeldig argument! Voorbeeld: Optimizer.exe /silent.conf",
+   "argInvalidMsg":"Ongeldig argument! Voorbeeld: Optimizer.exe /template.json",
    "StartupPreviewForm":"Opstartitems voorbeeld",
    "StartupRestoreForm":"Opstartitems herstellen",
    "backupL":"Opstartitems herstellen",
@@ -409,5 +409,8 @@ Het heeft een negatief effect op de prestaties.",
 	"btnSetGlobalFont": "Stel in als standaardlettertype",
 	"lblFontsCount": "Beschikbare lettertypen:",
 	"btnRestoreFont": "Standaard herstellen",
-	"btnRefreshFonts": "Ververs"
+	"btnRefreshFonts": "Ververs",
+	"chkAllNics": "Instellen voor alle netwerkadapters",
+	"chkCustomDns": "Aangepaste DNS instellen",
+	"btnSetDns": "DNS instellen"
 }

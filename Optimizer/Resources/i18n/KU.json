@@ -244,7 +244,7 @@
 	"confInvalidVersionMsg": "وەشانی ویندۆزەکەت لەگەڵی نتگونجێ!",
 	"confInvalidFormatMsg": "فایلی کۆنفیگ لە فۆرماتی نادروستدایە!",
 	"confNotFoundMsg": "فایلی کۆنفیگ بوونی نییە!",
-	"argInvalidMsg": "ئارگیومێنتی نادروست! نموونە: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "ئارگیومێنتی نادروست! نموونە: Optimizer.exe /template.json",
 	"alreadyRunningMsg": "Optimizer ئێستا لە باکگراونددا ئیش دەکات!",
 	"StartupPreviewForm": "پێشبینی دەستپێکەری شتێک",
 	"StartupRestoreForm": "گەڕاندنەوەی دەستپێکەری شتێک",
@@ -457,5 +457,8 @@
 	"btnSetGlobalFont": "وەک پێشوەختە ڕێکبخە",
 	"lblFontsCount": "فۆنتەکانی بەردەست:",
 	"btnRestoreFont": "گەڕاندنەوەی بنەڕەت",
-	"btnRefreshFonts": "ڕیفرێش"
+	"btnRefreshFonts": "ڕیفرێش",
+	"chkAllNics": "بۆ هەموو ئەداپتەرەکانی تۆڕ ڕێکبخە",
+	"chkCustomDns": "DNS تایبەت بەخۆت دابنێ",
+	"btnSetDns": "DNS دابنێ"
 }

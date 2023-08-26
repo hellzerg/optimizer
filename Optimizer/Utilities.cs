@@ -354,6 +354,8 @@ namespace Optimizer
 
         internal static void RunCommand(string command)
         {
+            if (string.IsNullOrEmpty(command)) return;
+
             using (Process p = new Process())
             {
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;

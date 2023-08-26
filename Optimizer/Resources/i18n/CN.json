@@ -248,7 +248,7 @@
 	"confInvalidVersionMsg": "系统版本不匹配!",
 	"confInvalidFormatMsg": "配置文件格式无效!",
 	"confNotFoundMsg": "配置文件不存在!",
-	"argInvalidMsg": "无效的参数! 例如: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "无效的参数! 例如: Optimizer.exe /template.json",
 	"alreadyRunningMsg": "优化器已经在后台运行!",
 	"StartupPreviewForm": "启动项目预览",
 	"StartupRestoreForm": "恢复启动项目",
@@ -457,5 +457,8 @@
 	"btnSetGlobalFont": "设置为默认",
 	"lblFontsCount": "可用字体:",
 	"btnRestoreFont": "恢复为默认",
-	"btnRefreshFonts": "刷新"
+	"btnRefreshFonts": "刷新",
+	"chkAllNics": "为所有网络适配器设置",
+	"chkCustomDns": "设置自定义 DNS",
+	"btnSetDns": "设置DNS"
 }

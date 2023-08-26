@@ -13,7 +13,7 @@ namespace Optimizer
         /* VERSION PROPERTIES */
         /* DO NOT LEAVE THEM EMPTY */
         internal readonly static float Major = 15;
-        internal readonly static float Minor = 7;
+        internal readonly static float Minor = 8;
         internal readonly static bool EXPERIMENTAL_BUILD = false;
         /* END OF VERSION PROPERTIES */
 
@@ -46,7 +46,7 @@ namespace Optimizer
         static string _confInvalidVersionMsg = "Windows version does not match!";
         static string _confInvalidFormatMsg = "Config file is in invalid format!";
         static string _confNotFoundMsg = "Config file does not exist!";
-        static string _argInvalidMsg = "Invalid argument! Example: Optimizer.exe /config=win10.conf";
+        static string _argInvalidMsg = "Invalid argument! Example: Optimizer.exe /config=win10.json";
         static string _alreadyRunningMsg = "Optimizer is already running in the background!";
 
         const string MUTEX_GUID = @"{DEADMOON-0EFC7B8A-D1FC-467F-B4B1-0117C643FE19-OPTIMIZER}";
@@ -218,19 +218,17 @@ namespace Optimizer
                     string x = arg.Replace("/disable=", string.Empty);
                     string[] opts = x.Split(',');
 
-                    bool[] codes =
-                    {
-                        opts.Contains("indicium"),
-                        opts.Contains("uwp"),
-                        opts.Contains("apps"),
-                        opts.Contains("hosts"),
-                        opts.Contains("startup"),
-                        opts.Contains("cleaner"),
-                        opts.Contains("integrator"),
-                        opts.Contains("pinger")
-                    };
+                    bool? o1, o2, o3, o4, o5, o6, o7, o8;
+                    if (opts.Contains(Constants.INDICIUM_TOOL)) o1 = true; else o1 = null;
+                    if (opts.Contains(Constants.UWP_TOOL)) o2 = true; else o2 = null;
+                    if (opts.Contains(Constants.APPS_TOOL)) o3 = true; else o3 = null;
+                    if (opts.Contains(Constants.HOSTS_EDITOR)) o4 = true; else o4 = null;
+                    if (opts.Contains(Constants.STARTUP_TOOL)) o5 = true; else o5 = null;
+                    if (opts.Contains(Constants.CLEANER_TOOL)) o6 = true; else o6 = null;
+                    if (opts.Contains(Constants.INTEGRATOR_TOOL)) o7 = true; else o7 = null;
+                    if (opts.Contains(Constants.PINGER_TOOL)) o8 = true; else o8 = null;
 
-                    StartMainForm(codes);
+                    StartMainForm(new bool?[] { o1, o2, o3, o4, o5, o6, o7, o8 });
                     return;
                 }
 
@@ -388,7 +386,7 @@ namespace Optimizer
             Application.Run(_MainForm);
         }
 
-        private static void StartMainForm(bool[] codes)
+        private static void StartMainForm(bool?[] codes)
         {
             LoadSettings();
             StartSplashForm();

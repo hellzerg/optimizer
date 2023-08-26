@@ -243,7 +243,7 @@
 	"confInvalidVersionMsg": "Windows संस्करण मिलेन!",
 	"confInvalidFormatMsg": "कन्फिग फाइल अमान्य ढाँचामा छ!",
 	"confNotFoundMsg": "कन्फिग फाइल अवस्थित छैन!",
-	"argInvalidMsg": "अवैध आर्ग्यूमेन्ट! उदाहरण: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "अवैध आर्ग्यूमेन्ट! उदाहरण: Optimizer.exe /template.json",
 	"alreadyRunningMsg": "अपटिमाइजर पहिले नै पृष्ठभूमिमा चलिरहेको छ!",
 	"StartupPreviewForm": "स्टार्टअप वस्तुहरूको पूर्वावलोकन",
 	"StartupRestoreForm": "स्टार्टअप वस्तुहरू पुनर्स्थापन गर्नुहोस्",
@@ -408,5 +408,8 @@
 	"btnSetGlobalFont": "डिफ़ॉल्ट को रूपमा सेट गर्नुहोस्",
 	"lblFontsCount": "उपलब्ध फन्टहरू:",
 	"btnRestoreFont": "पूर्वनिर्धारित पुनः स्थापित गर्नुहोस्",
-	"btnRefreshFonts": "रिफ्रेस गर्नुहोस्"
+	"btnRefreshFonts": "रिफ्रेस गर्नुहोस्",
+	"chkAllNics": "सबै नेटवर्क एडेप्टरहरूको लागि सेट गर्नुहोस्",
+	"chkCustomDns": "अनुकूलन DNS सेट गर्नुहोस्",
+	"btnSetDns": "DNS सेट गर्नुहोस्"
 }

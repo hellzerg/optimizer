@@ -243,7 +243,7 @@
 	"confInvalidVersionMsg": "Windowsのバージョンが一致しません!",
 	"confInvalidFormatMsg": "間違った形式の設定ファイルです!",
 	"confNotFoundMsg": "設定ファイルが存在しません!",
-	"argInvalidMsg": "間違った引数です! 例: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "間違った引数です! 例: Optimizer.exe /template.json",
 	"alreadyRunningMsg": "Optimizerはすでにバックグラウンドで実行中です!",
 	"StartupPreviewForm": "スタートアップ項目のプレビュー",
 	"StartupRestoreForm": "スタートアップ項目を復元",
@@ -449,5 +449,8 @@ SMBv3に置き換えられており、そちらのほうがより安全です。
 	"btnSetGlobalFont": "デフォルトとして設定",
 	"lblFontsCount": "利用可能なフォント:",
 	"btnRestoreFont": "デフォルトを復元",
-	"btnRefreshFonts": "更新"
+	"btnRefreshFonts": "更新",
+	"chkAllNics": "すべてのネットワークアダプターに設定",
+	"chkCustomDns": "カスタムDNSを設定する",
+	"btnSetDns": "DNSの設定"
 }

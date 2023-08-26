@@ -22,12 +22,26 @@ To automate a range of operations using a provided template, follow these steps:
 
 ### Pinger
 - Choose DNS provider:
-- Available values: `Automatic | Cloudflare | OpenDNS | Quad9 | Google | AlternateDNS | Adguard | CleanBrowsing | CleanBrowsing (adult filter)`
+- Available values: `Automatic | Custom | Cloudflare | OpenDNS | Quad9 | Google | AlternateDNS | Adguard | CleanBrowsing | CleanBrowsing (adult filter)`
+- If you choose `Custom`, you should define at least one primary IPv4 and IPv6 DNS servers. Alternative DNS serves are optional.
 - Set FlushDNSCache to `true` to perform DNS cache flushing. Example:
 
+#### Using pre-defined options:
  ```
  "Pinger": {
      "SetDNS": "Cloudflare",
+     "CustomDNSv4": [],
+     "CustomDNSv6": [],
+     "FlushDNSCache": true
+ }
+ ```
+
+#### Using `Custom`:
+ ```
+ "Pinger": {
+     "SetDNS": "Custom",
+     "CustomDNSv4": ["3.3.3.3"],
+     "CustomDNSv6": ["::1"],
      "FlushDNSCache": true
  }
  ```

@@ -243,7 +243,7 @@
 	"confInvalidVersionMsg": "Wersja systemu Windows nie pasuje!",
 	"confInvalidFormatMsg": "Plik konfiguracyjny jest uszkodzony!",
 	"confNotFoundMsg": "Plik konfiguracyjny nie istnieje!",
-	"argInvalidMsg": "Niepoprawny argument! Przykład: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "Niepoprawny argument! Przykład: Optimizer.exe /template.json",
 	"alreadyRunningMsg": "Program jest już uruchomiony!",
 	"StartupPreviewForm": "Podgląd elementów startowych",
 	"StartupRestoreForm": "Przywróć elementy startowe",
@@ -427,5 +427,8 @@
 	"btnSetGlobalFont": "Ustaw jako domyślną",
 	"lblFontsCount": "Dostępne czcionki:",
 	"btnRestoreFont": "Przywróć wartości domyślne",
-	"btnRefreshFonts": "Odśwież"
+	"btnRefreshFonts": "Odśwież",
+	"chkAllNics": "Ustaw dla wszystkich kart sieciowych",
+	"chkCustomDns": "Ustaw niestandardowy DNS",
+	"btnSetDns": "Ustaw DNS"
 }

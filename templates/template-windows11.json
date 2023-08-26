@@ -38,6 +38,8 @@
     },
     "Pinger": {
         "SetDNS": "",
+        "CustomDNSv4": [],
+        "CustomDNSv6": [],
         "FlushDNSCache": null
     },
     "ProcessControl": {

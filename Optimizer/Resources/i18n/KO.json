@@ -460,5 +460,8 @@ Microsoft 계정 로그인이 필요합니다.",
 	"btnSetGlobalFont": "기본값으로 설정",
 	"lblFontsCount": "사용 가능한 글꼴:",
 	"btnRestoreFont": "기본값 복원",
-	"btnRefreshFonts": "새로 고침"
+	"btnRefreshFonts": "새로 고침",
+	"chkAllNics": "모든 네트워크 어댑터에 대해 설정",
+	"chkCustomDns": "맞춤 DNS 설정",
+	"btnSetDns": "DNS 설정"
 }
