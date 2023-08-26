@@ -79,7 +79,7 @@ namespace Optimizer.Properties {
         ///[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWithCMD\command]
         ///@=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot;
         ///
-        ///[HKEY_CLASSES_ROOT\Drive\shell\OpenWit [rest of string was truncated]&quot;;.
+        ///[HKEY_CLASSES_ROOT\D [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AddOpenWithCMD {
             get {
@@ -206,21 +206,21 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;subSystem&quot;: &quot;System&quot;,
-        ///	&quot;subPrivacy&quot;: &quot;Privatsphäre&quot;,
-        ///	&quot;subGaming&quot;: &quot;Spielen&quot;,
-        ///	&quot;subTouch&quot;: &quot;Berühren&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Datenschutz&quot;,
+        ///	&quot;subGaming&quot;: &quot;Gaming&quot;,
+        ///	&quot;subTouch&quot;: &quot;Touch&quot;,
         ///	&quot;subTaskbar&quot;: &quot;Taskleiste&quot;,
-        ///	&quot;subExtras&quot;: &quot;Extras&quot;,
+        ///	&quot;subExtras&quot;: &quot;Zusatzfunktionen&quot;,
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;Jetzt neu starten&quot;,
         ///	&quot;restartButton8&quot;: &quot;Jetzt neu starten&quot;,
         ///	&quot;restartButton10&quot;: &quot;Jetzt neu starten&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Neu starten, um Änderungen anzuwenden&quot;,
+        ///	&quot;btnFind&quot;: &quot;Suchen&quot;,
+        ///	&quot;btnKill&quot;: &quot;Beenden&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;Dateigriffe&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Neustart zur Anwendung der Änderungen&quot;,
         ///	&quot;txtVersion&quot;: &quot;Version: {VN}&quot;,
-        ///	&quot;btnFind&quot;: &quot;Finden&quot;,
-        ///	&quot;btnKill&quot;: &quot;Töten&quot;,
-        ///	&quot;trayUnlocker&quot;: &quot;Dateihandles&quot;,
-        ///	&quot;txtBitness&quot;: &quot;Betriebssyst [rest of string was truncated]&quot;;.
+        ///	&quot;txtBitness&quot;: &quot;Sie ar [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DE {
             get {
@@ -284,8 +284,7 @@ namespace Optimizer.Properties {
         ///rem &quot;DisableAntiSpyware&quot; is discontinued and will be ignored on client devices, as of the August 2020 (version 4.18.2007.8) update to Microsoft Defender Antivirus.
         ///
         ///rem Disable Tamper Protection First !!!!!
-        ///rem https://www.tenforums.com/tutorials/123792-turn-off-tamper-protection-windows-defender-antivirus.html
-        ///reg [rest of string was truncated]&quot;;.
+        ///rem https://www.tenforums.com/tutorials/123792-turn-off-tamper-protection-windows-defender-antivirus.ht [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableDefenderSafeMode1903Plus {
             get {
@@ -308,7 +307,7 @@ namespace Optimizer.Properties {
         ///&quot;xlsolution&quot;=dword:00000001
         /// 
         ///[HKEY_CURRENT_USER\Software\Policies\microsoft\office\16.0\osm\preventedsolutiontypes]
-        ///&quot;agave&quot;=dword:0000000 [rest of string was truncated]&quot;;.
+        ///&quot;agave&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableOfficeTelemetry {
             get {
@@ -324,7 +323,7 @@ namespace Optimizer.Properties {
         ///
         ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgentFallBack&quot;
         ///schtasks /change /tn &quot;\Microsoft\Office\OfficeTelemetryAgentFallBack&quot; /disable
-        ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgentLogOn&quot; [rest of string was truncated]&quot;;.
+        ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgen [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableOfficeTelemetryTasks {
             get {
@@ -338,7 +337,7 @@ namespace Optimizer.Properties {
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot;
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot; /disable
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot;
-        ///schtasks /change /tn &quot;\Microsoft\Windo [rest of string was truncated]&quot;;.
+        ///schtasks /change /tn &quot;\Microsoft\ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableTelemetryTasks {
             get {
@@ -483,7 +482,7 @@ namespace Optimizer.Properties {
         ///schtasks /change /tn &quot;\Microsoft\Office\OfficeTelemetryAgentLogOn&quot; /enable
         ///
         ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\15.0\Outlook\Options\Mail&quot; /v &quot;EnableLogging&quot; /t REG_DWORD /d 1 /f
-        ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\16.0\Outlook\Options\Mail&quot; /v &quot;EnableLogging&quot; /t  [rest of string was truncated]&quot;;.
+        ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\16.0\Outlook\Options\Mail&quot; /v &quot;EnableLoggi [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnableOfficeTelemetryTasks {
             get {
@@ -497,7 +496,7 @@ namespace Optimizer.Properties {
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot; /enable
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip&quot; /enable
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\Uploader&quot; /enable
-        ///schtasks / [rest of string was truncated]&quot;;.
+        ///schta [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnableTelemetryTasks {
             get {
@@ -543,22 +542,22 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;subSystem&quot;: &quot;سیستم&quot;,
-        ///	&quot;subPrivacy&quot;: &quot;Privacy&quot;,
-        ///	&quot;subGaming&quot;: &quot;Gaming&quot;,
-        ///	&quot;subTouch&quot;: &quot;Touch&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;حریم خصوصی&quot;,
+        ///	&quot;subGaming&quot;: &quot;بازی&quot;,
+        ///	&quot;subTouch&quot;: &quot;لمس کردن&quot;,
         ///	&quot;subTaskbar&quot;: &quot;نوار وظیفه&quot;,
-        ///	&quot;subExtras&quot;: &quot;Extras&quot;,
+        ///	&quot;subExtras&quot;: &quot;موارد اضافی&quot;,
         ///	&quot;btnAbout&quot;: &quot;تایید&quot;,
-        ///	&quot;restartButton&quot;: &quot;Restart now&quot;,
-        ///	&quot;restartButton8&quot;: &quot;Restart now&quot;,
-        ///	&quot;restartButton10&quot;: &quot;Restart now&quot;,
+        ///	&quot;restartButton&quot;: &quot;راه اندازی مجدد&quot;,
+        ///	&quot;restartButton8&quot;: &quot;راه اندازی مجدد&quot;,
+        ///	&quot;restartButton10&quot;: &quot;راه اندازی مجدد&quot;,
         ///	&quot;btnFind&quot;: &quot;پیدا کردن&quot;,
-        ///	&quot;btnKill&quot;: &quot;Kill&quot;,
-        ///	&quot;trayUnlocker&quot;: &quot;File Handles&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Restart to apply changes&quot;,
+        ///	&quot;btnKill&quot;: &quot;کشتن&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;دسته های فایل&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;ریست برای اعمال تغییرات&quot;,
         ///	&quot;txtVersion&quot;: &quot;نسخه: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;You are working with {BITS}&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;بروز [rest of string was truncated]&quot;;.
+        ///	&quot;txtBitness&quot;: &quot;شما کار میکنید با {BITS}&quot;,
+        ///	&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string FA {
             get {
@@ -693,7 +692,7 @@ namespace Optimizer.Properties {
         ///&quot;NoWorkingDirectory&quot;=&quot;&quot;
         ///
         ///[HKEY_CLASSES_ROOT\Directory\shell\runas\command]
-        ///@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d y &amp;&amp; icacls \&quot;% [rest of string was truncated]&quot;;.
+        ///@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string InstallTakeOwnership {
             get {
@@ -863,6 +862,40 @@ namespace Optimizer.Properties {
         internal static System.Drawing.Bitmap logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;सिस्टम&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;गोपनीयता&quot;,
+        ///	&quot;subGaming&quot;: &quot;गेमिङ&quot;,
+        ///	&quot;subTouch&quot;: &quot;स्पर्श&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;टास्कबार&quot;,
+        ///	&quot;subExtras&quot;: &quot;अतिरिक्त&quot;,
+        ///	&quot;btnAbout&quot;: &quot;ठिक छ&quot;,
+        ///	&quot;restartButton&quot;: &quot;अहिले पुन: प्रारंभ गर्नुहोस्&quot;,
+        ///	&quot;restartButton8&quot;: &quot;अहिले पुन: प्रारंभ गर्नुहोस्&quot;,
+        ///	&quot;restartButton10&quot;: &quot;अहिले पुन: प्रारंभ गर्नुहोस्&quot;,
+        ///	&quot;btnFind&quot;: &quot;फेला पर्ख्नुहोस्&quot;,
+        ///	&quot;btnKill&quot;: &quot;मार्नुहोस्&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;फाइल ह्यान्डलहरू&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;परिवर्तन लागू गर्नका लागि पुन: प्रारंभ गर्नुहोस्&quot;,
+        ///	&quot;t [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string NE {
+            get {
+                return ResourceManager.GetString("NE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nepal {
+            get {
+                object obj = ResourceManager.GetObject("nepal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1193,23 +1226,22 @@ namespace Optimizer.Properties {
         ///   Looks up a localized string similar to {
         ///	&quot;subSystem&quot;: &quot;系統&quot;,
         ///	&quot;subPrivacy&quot;: &quot;隱私&quot;,
-        ///	&quot;subGaming&quot;: &quot;賭博&quot;,
-        ///	&quot;subTouch&quot;: &quot;觸碰&quot;,
-        ///	&quot;subTaskbar&quot;: &quot;任務欄&quot;,
-        ///	&quot;subExtras&quot;: &quot;附加功能&quot;,
+        ///	&quot;subGaming&quot;: &quot;遊戲&quot;,
+        ///	&quot;subTouch&quot;: &quot;觸控&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;工作列&quot;,
+        ///	&quot;subExtras&quot;: &quot;額外功能&quot;,
         ///	&quot;btnAbout&quot;: &quot;確定&quot;,
-        ///	&quot;restartButton&quot;: &quot;現在重啟&quot;,
-        ///	&quot;restartButton8&quot;: &quot;現在重啟&quot;,
-        ///	&quot;restartButton10&quot;: &quot;現在重啟&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;重新啟動以應用更改&quot;,
-        ///	&quot;onedriveM&quot;: &quot;確定要卸載 OneDrive 嗎？ 這將刪除您的桌面和文檔文件！ 僅在本地帳戶上使用此選項！&quot;,
-        ///	&quot;txtVersion&quot;: &quot;版本: {VN}&quot;,
-        ///	&quot;systemRestoreM&quot;: &quot;您確定要禁用系統還原嗎？ 這將刪除您當前的備份圖像！&quot;,
-        ///	&quot;txtBitness&quot;: &quot;您使用的是{BITS}&quot;,
+        ///	&quot;restartButton&quot;: &quot;立即重新啟動&quot;,
+        ///	&quot;restartButton8&quot;: &quot;立即重新啟動&quot;,
+        ///	&quot;restartButton10&quot;: &quot;立即重新啟動&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;重新啟動以套用變更&quot;,
+        ///	&quot;onedriveM&quot;: &quot;您確定要移除 OneDrive 嗎？這將刪除您的桌面和文件檔案！僅在本機帳戶上使用此選項！&quot;,
+        ///	&quot;txtVersion&quot;: &quot;版本：{VN}&quot;,
+        ///	&quot;systemRestoreM&quot;: &quot;您確定要停用系統還原嗎？這將刪除您目前的備份映像！&quot;,
+        ///	&quot;txtBitness&quot;: &quot;您正在使用 {BITS}&quot;,
         ///	&quot;btnFind&quot;: &quot;尋找&quot;,
-        ///	&quot;btnKill&quot;: &quot;殺&quot;,
-        ///	&quot;trayUnlocker&quot;: &quot;文件句柄&quot;,
-        ///	&quot;li [rest of string was truncated]&quot;;.
+        ///	&quot;btnKill&quot;: &quot;結束&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;檔案控制&quot;,        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TW {
             get {

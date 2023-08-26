@@ -26,5 +26,6 @@
         internal static string UKRAINIAN = "українська";
         internal static string JAPANESE = "日本語";
         internal static string PERSIAN = "فارسی";
+        internal static string NEPALI = "नेपाली";
     }
 }

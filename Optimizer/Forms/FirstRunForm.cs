@@ -273,5 +273,17 @@ namespace Optimizer
         {
             radioFarsi.PerformClick();
         }
+
+        private void pictureBox19_Click(object sender, EventArgs e)
+        {
+            radioNepali.PerformClick();
+        }
+
+        private void radioNepali_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.CurrentOptions.LanguageCode = LanguageCode.NE;
+            Options.SaveSettings();
+            Options.LoadTranslation();
+        }
     }
 }

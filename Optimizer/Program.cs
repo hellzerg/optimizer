@@ -12,13 +12,10 @@ namespace Optimizer
     {
         /* VERSION PROPERTIES */
         /* DO NOT LEAVE THEM EMPTY */
-
         internal readonly static float Major = 15;
         internal readonly static float Minor = 7;
-
         internal readonly static bool EXPERIMENTAL_BUILD = false;
-        internal static bool SILENT_MODE = false;
-        internal static int DPI_PREFERENCE;
+        /* END OF VERSION PROPERTIES */
 
         internal static string GetCurrentVersionTostring()
         {
@@ -30,7 +27,8 @@ namespace Optimizer
             return float.Parse(GetCurrentVersionTostring());
         }
 
-        /* END OF VERSION PROPERTIES */
+        internal static bool SILENT_MODE = false;
+        internal static int DPI_PREFERENCE;
 
         // Enables the corresponding Windows tab for Windows Server machines
         internal static bool UNSAFE_MODE = false;

@@ -781,7 +781,6 @@ namespace Optimizer
         public MainForm(SplashForm _splashForm, bool disableIndicium = false, bool disableHostsEditor = false, bool disableCommonApps = false, bool disableUWPApps = false, bool disableStartups = false, bool disableCleaner = false, bool disableIntegrator = false, bool disablePinger = false)
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
 
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
             CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-US");
@@ -1064,6 +1063,8 @@ namespace Optimizer
             //InitNetworkMonitoring();
             LoadTranslation();
             EnableToggleEvents();
+
+            WindowState = FormWindowState.Maximized;
         }
 
         private void LoadAvailableFonts()
@@ -1273,6 +1274,10 @@ namespace Optimizer
             if (Options.CurrentOptions.LanguageCode == LanguageCode.FA)
             {
                 boxLang.Text = Constants.PERSIAN;
+            }
+            if (Options.CurrentOptions.LanguageCode == LanguageCode.NE)
+            {
+                boxLang.Text = Constants.NEPALI;
             }
         }
 
@@ -2304,6 +2309,10 @@ namespace Optimizer
         private void Main_Load(object sender, EventArgs e)
         {
             FixTabHeaderWidth();
+            if (Options.CurrentOptions.AutoStart && Options.CurrentOptions.EnableTray)
+            {
+                this.Hide();
+            }
         }
 
         private void GetDesktopItems()
@@ -4417,6 +4426,11 @@ namespace Optimizer
             {
                 picFlag.Image = Properties.Resources.iran;
                 Options.CurrentOptions.LanguageCode = LanguageCode.FA;
+            }
+            else if (boxLang.Text == Constants.NEPALI)
+            {
+                picFlag.Image = Properties.Resources.nepal;
+                Options.CurrentOptions.LanguageCode = LanguageCode.NE;
             }
 
             Options.SaveSettings();
