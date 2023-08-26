@@ -155,7 +155,7 @@ We'd like to extend our gratitude to the following contributors for their transl
 - Nepali: chapagetti
 
 <center>
-<h3> ❤️ Contribute with a translation</h3>
+<h2> ❤️ Contribute with a translation</h2>
 </center>
 
 If you would like to translate the app into your language, you can do so, by translating the EN.json and making a PR.
