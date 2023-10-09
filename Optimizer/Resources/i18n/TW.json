@@ -417,8 +417,8 @@
 	"stickersTip": "貼圖是出現在桌布上的大型表情符號，用於社交通訊軟體。",
 	"hibernateSw": "停用休眠",
 	"hibernateTip": "停用 Windows 休眠功能。",
-	"smbSw1": "停用 SMBv1 協定",
-	"smbSw2": "停用 SMBv2 協定",
+	"smb1Sw": "停用 SMBv1 協定",
+	"smb2Sw": "停用 SMBv2 協定",
 	"smbTip": "SMB{v} 協定負責 Windows 系統之間的檔案共享。
 	它已被更安全的 SMBv3 取代。",
 	"ntfsStampSw": "停用 NTFS 時間戳記",
