@@ -243,7 +243,7 @@
 	"confInvalidVersionMsg": "Versiunea Windows este invalida",
 	"confInvalidFormatMsg": "Fișierul de configurare este în format invalid!",
 	"confNotFoundMsg": "Fișierul de configurare nu există!",
-	"argInvalidMsg": "Argument invalid! Exemplu: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "Argument invalid! Exemplu: Optimizer.exe /template.json",
 	"alreadyRunningMsg": "Optimizer rulează deja în fundal!",
 	"StartupPreviewForm": "Previzualizare programele de pornire",
 	"StartupRestoreForm": "Restaurați programele de pornire",
@@ -440,5 +440,8 @@
 	"btnSetGlobalFont": "Set as default",
 	"lblFontsCount": "Setați ca implicit:",
 	"btnRestoreFont": "Restaurati Setariile implicite",
-	"btnRefreshFonts": "Reîmprospăteaza"
+	"btnRefreshFonts": "Reîmprospăteaza",
+	"chkAllNics": "Setați pentru toate adaptoarele de rețea",
+	"chkCustomDns": "Setați DNS personalizat",
+	"btnSetDns": "Setați DNS"
 }

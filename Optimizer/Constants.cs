@@ -3,6 +3,16 @@
     internal static class Constants
     {
         internal static string DOWNLOADS_FOLDER = "OptimizerDownloads";
+        internal static string InternalDNS = "1.1.1.1";
+
+        internal static string INDICIUM_TOOL = "indicium";
+        internal static string UWP_TOOL = "uwp";
+        internal static string APPS_TOOL = "apps";
+        internal static string HOSTS_EDITOR = "hosts";
+        internal static string STARTUP_TOOL = "startup";
+        internal static string CLEANER_TOOL = "cleaner";
+        internal static string INTEGRATOR_TOOL = "integrator";
+        internal static string PINGER_TOOL = "pinger";
 
         internal static string ENGLISH = "English";
         internal static string RUSSIAN = "Русский";
@@ -26,5 +36,17 @@
         internal static string UKRAINIAN = "українська";
         internal static string JAPANESE = "日本語";
         internal static string PERSIAN = "فارسی";
+        internal static string NEPALI = "नेपाली";
+
+        internal static string CloudflareDNS = "Cloudflare";
+        internal static string OpenDNS = "OpenDNS";
+        internal static string Quad9DNS = "Quad9";
+        internal static string GoogleDNS = "Google";
+        internal static string AlternateDNS = "AlternateDNS";
+        internal static string AdguardDNS = "Adguard";
+        internal static string CleanBrowsingDNS = "CleanBrowsing";
+        internal static string CleanBrowsingAdultFilterDNS = "CleanBrowsing (adult filter)";
+        internal static string AutomaticDNS = "Automatic";
+        internal static string CustomDNS = "Custom";
     }
 }

@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/15.7/Optimizer-15.7.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/15.8/Optimizer-15.8.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -104,8 +104,8 @@ Learn about our security measures in the [Security Policy](https://github.com/he
 <h2> 📊 Details</h2> 
 </center>
 
-- Latest version: 15.7 (Released: August 19, 2023)
-- SHA256: C02ECD80CDCAB51654DF2D56E412252BF9509037301426F5E862602554747CED
+- Latest version: 15.8 (Released: August 26, 2023)
+- SHA256: 2839B3E6F7BD5B3F530C2C4283CA5B16F6231358660A3AC05066FD432EAB9BC9
 
 <center>
 <h2> ☕ Buy me a delicious espresso</h2>
@@ -148,7 +148,16 @@ We'd like to extend our gratitude to the following contributors for their transl
 - Romanian: BeamingNG, DefaultUser9148
 - Dutch: svanlaere
 - Ukrainian: Kirill Ermakov
-- Japanese: Yamada Hayao, creeper-0910 (Japanese correction)
+- Japanese: Yamada Hayao, creeper-0910
 - Kurdish: Parwar Andam
 - Hungarian: Zan
 - Farsi: MjavadH
+- Nepali: chapagetti
+
+<center>
+<h2> ❤️ Contribute with a translation</h2>
+</center>
+
+If you would like to translate the app into your language, you can do so, by translating the EN.json and making a PR.
+Don't forget to mention your language's official name, as well as its national flag.
+- [EN.json](https://github.com/hellzerg/optimizer/blob/master/Optimizer/Resources/i18n/EN.json)

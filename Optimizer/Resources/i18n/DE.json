@@ -244,7 +244,7 @@
 	"confInvalidVersionMsg": "Windows-Version stimmt nicht überein!",
 	"confInvalidFormatMsg": "Config-Datei hat ein ungültiges Format!",
 	"confNotFoundMsg": "Config-Datei existiert nicht!",
-	"argInvalidMsg": "Ungültiges Argument! Beispiel: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "Ungültiges Argument! Beispiel: Optimizer.exe /template.json",
 	"StartupPreviewForm": "Startup Elemente Vorschau",
 	"StartupRestoreForm": "Startup-Elemente wiederherstellen",
 	"backupL": "Startobjekte wiederherstellen",
@@ -432,5 +432,8 @@
 	"btnSetGlobalFont": "Als Standard festlegen",
 	"lblFontsCount": "Verfügbare Schriftarten:",
 	"btnRestoreFont": "Standard wiederherstellen",
-	"btnRefreshFonts": "Aktualisieren"
+	"btnRefreshFonts": "Aktualisieren",
+	"chkAllNics": "Für alle Netzwerkadapter festgelegt",
+	"chkCustomDns": "Legen Sie benutzerdefiniertes DNS fest",
+	"btnSetDns": "DNS einstellen"
 }

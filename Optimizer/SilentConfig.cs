@@ -147,6 +147,12 @@ namespace Optimizer
 
         [JsonProperty("FlushDNSCache", NullValueHandling = NullValueHandling.Ignore)]
         public bool? FlushDnsCache { get; set; }
+
+        [JsonProperty("CustomDNSv4", NullValueHandling = NullValueHandling.Ignore)]
+        public string[] CustomDNSv4 { get; set; }
+
+        [JsonProperty("CustomDNSv6", NullValueHandling = NullValueHandling.Ignore)]
+        public string[] CustomDNSv6 { get; set; }
     }
 
     [Serializable]

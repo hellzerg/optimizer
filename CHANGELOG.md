@@ -1,3 +1,9 @@
+## [15.8] - 2023-08-26
+- New: Fully translated into Nepali (thanks to chapagetti)
+- New: You can now set custom DNS in Pinger, as well as from template
+- New: Internal settings for controlling which tools to load
+- Hotfix: Various UI glitches and localization updates
+
 ## [15.7] - 2023-08-19
 - New: Change Windows default font in Integrator (#358)
 - New: Template engine now runs on Windows Server 2008 or newer

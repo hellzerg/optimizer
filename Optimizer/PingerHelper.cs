@@ -88,11 +88,21 @@ namespace Optimizer
 
         internal static void SetDNS(string nic, string[] dnsv4, string[] dnsv6)
         {
+            string cmdv4Alternate = string.Empty;
+            string cmdv6Alternate = string.Empty;
+
             string cmdv4Primary = $"netsh interface ipv4 set dnsservers {nic} static {dnsv4[0]} primary";
-            string cmdv4Alternate = $"netsh interface ipv4 add dnsservers {nic} {dnsv4[1]} index=2";
+            if (dnsv4.Length == 2)
+            {
+                cmdv4Alternate = $"netsh interface ipv4 add dnsservers {nic} {dnsv4[1]} index=2";
+            }
 
             string cmdv6Primary = $"netsh interface ipv6 set dnsservers {nic} static {dnsv6[0]} primary";
-            string cmdv6Alternate = $"netsh interface ipv6 add dnsservers {nic} {dnsv6[1]} index=2";
+            if (dnsv6.Length == 2)
+            {
+                cmdv6Alternate = $"netsh interface ipv6 add dnsservers {nic} {dnsv6[1]} index=2";
+            }
+
 
             Utilities.RunCommand(cmdv4Primary);
             Utilities.RunCommand(cmdv4Alternate);
@@ -144,7 +154,7 @@ namespace Optimizer
         internal static bool IsInternetAvailable()
         {
             const int timeout = 1000;
-            const string host = "1.1.1.1";
+            string host = Options.CurrentOptions.InternalDNS ?? Constants.InternalDNS;
 
             var ping = new Ping();
             var buffer = new byte[32];

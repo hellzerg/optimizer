@@ -245,7 +245,7 @@
 	"confInvalidVersionMsg": "Verze Windows neodpovídá!",
 	"confInvalidFormatMsg": "Konfigurační soubor je v neplatném formátu!",
 	"confNotFoundMsg": "Konfigurační soubor neexistuje!",
-	"argInvalidMsg": "Neplatný argument! Příklad: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "Neplatný argument! Příklad: Optimizer.exe /template.json",
 	"alreadyRunningMsg": "Optimalizátor již běží na pozadí!",
 	"StartupPreviewForm": "Náhled položek po spuštění",
 	"StartupRestoreForm": "Obnovit položky po spuštění",
@@ -458,5 +458,8 @@ Má to negativní vliv na výkon.",
 	"btnSetGlobalFont": "Nastavit jako výchozí",
 	"lblFontsCount": "Dostupné písma:",
 	"btnRestoreFont": "Obnovit výchozí",
-	"btnRefreshFonts": "Obnovit"
+	"btnRefreshFonts": "Obnovit",
+	"chkAllNics": "Nastavení pro všechny síťové adaptéry",
+	"chkCustomDns": "Nastavte vlastní DNS",
+	"btnSetDns": "Nastavte DNS"
 }

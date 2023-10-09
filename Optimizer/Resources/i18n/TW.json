@@ -246,7 +246,7 @@
 	"confInvalidVersionMsg": "系統版本不符！",
 	"confInvalidFormatMsg": "設定檔案格式無效！",
 	"confNotFoundMsg": "找不到設定檔案！",
-	"argInvalidMsg": "無效的參數！範例：Optimizer.exe /silent.conf",
+	"argInvalidMsg": "無效的參數！範例：Optimizer.exe /template.json",
 	"alreadyRunningMsg": "最佳化器已在背景執行！",
 	"StartupPreviewForm": "啟動項目預覽",
 	"StartupRestoreForm": "還原啟動項目",
@@ -454,5 +454,8 @@
 	"btnSetGlobalFont": "设置为默认",
 	"lblFontsCount": "可用字体:",
 	"btnRestoreFont": "還原預設值",
-	"btnRefreshFonts": "重新整理"
+	"btnRefreshFonts": "重新整理",
+	"chkAllNics": "為所有網絡適配器設置",
+	"chkCustomDns": "設置自定義 DNS",
+	"btnSetDns": "設置DNS"
 }

@@ -15,7 +15,15 @@ namespace Optimizer
         public string AppsFolder { get; set; }
         public bool EnableTray { get; set; }
         public bool AutoStart { get; set; }
-
+        public string InternalDNS { get; set; }
+        public bool DisableIndicium { get; set; }
+        public bool DisableAppsTool { get; set; }
+        public bool DisableHostsEditor { get; set; }
+        public bool DisableUWPApps { get; set; }
+        public bool DisableStartupTool { get; set; }
+        public bool DisableCleaner { get; set; }
+        public bool DisableIntegrator { get; set; }
+        public bool DisablePinger { get; set; }
         //public string TelemetryClientID { get; set; }
         //public bool DisableOptimizerTelemetry { get; set; }
 
@@ -222,7 +230,15 @@ namespace Optimizer
                     Directory.CreateDirectory(Options.CurrentOptions.AppsFolder);
                     CurrentOptions.EnableTray = false;
                     CurrentOptions.AutoStart = false;
-
+                    CurrentOptions.InternalDNS = Constants.InternalDNS;
+                    CurrentOptions.DisableIndicium = false;
+                    CurrentOptions.DisableAppsTool = false;
+                    CurrentOptions.DisableHostsEditor = false;
+                    CurrentOptions.DisableUWPApps = false;
+                    CurrentOptions.DisableStartupTool = false;
+                    CurrentOptions.DisableCleaner = false;
+                    CurrentOptions.DisableIntegrator = false;
+                    CurrentOptions.DisablePinger = false;
                     //CurrentOptions.TelemetryClientID = Guid.NewGuid().ToString().ToUpperInvariant();
                     //CurrentOptions.DisableOptimizerTelemetry = false;
 
@@ -352,6 +368,7 @@ namespace Optimizer
                 if (CurrentOptions.LanguageCode == LanguageCode.UA) TranslationList = JObject.Parse(Properties.Resources.UA);
                 if (CurrentOptions.LanguageCode == LanguageCode.JA) TranslationList = JObject.Parse(Properties.Resources.JA);
                 if (CurrentOptions.LanguageCode == LanguageCode.FA) TranslationList = JObject.Parse(Properties.Resources.FA);
+                if (CurrentOptions.LanguageCode == LanguageCode.NE) TranslationList = JObject.Parse(Properties.Resources.NE);
             }
             catch (Exception ex)
             {

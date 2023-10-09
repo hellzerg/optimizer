@@ -107,7 +107,8 @@
         NL, // dutch
         UA, // ukrainian
         JA, // japanese
-        FA //farsi
+        FA, //farsi
+        NE //nepali
     }
 
     public enum KnownFolder

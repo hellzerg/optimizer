@@ -244,7 +244,7 @@
 	"confInvalidVersionMsg": "نسخة ويندوز لا تتطابق!",
 	"confInvalidFormatMsg": "ملف الإعدادات بتنسيق غير صالح!",
 	"confNotFoundMsg": "ملف الإعداد غير موجود!",
-	"argInvalidMsg": "وسيط غير صحيح! مثال: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "وسيط غير صحيح! مثال: Optimizer.exe /template.json",
 	"alreadyRunningMsg": "يعمل تطبيق المحسن بالفعل في الخلفية!",
 	"StartupPreviewForm": "معاينة عناصر بدء التشغيل",
 	"StartupRestoreForm": "استعادة عناصر بدء التشغيل",
@@ -458,5 +458,8 @@
 	"btnSetGlobalFont": "تعيين كافتراضي",
 	"lblFontsCount": "الخطوط المتوفرة:",
 	"btnRestoreFont": "استعادة الافتراضي",
-	"btnRefreshFonts": "تحديث"
+	"btnRefreshFonts": "تحديث",
+	"chkAllNics": "تعيين لجميع محولات الشبكة",
+	"chkCustomDns": "قم بتعيين DNS المخصص",
+	"btnSetDns": "تعيين DNS"
 }

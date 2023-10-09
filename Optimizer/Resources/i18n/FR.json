@@ -246,7 +246,7 @@
 	"confInvalidVersionMsg": "La version de Windows ne correspond pas!",
 	"confInvalidFormatMsg": "Le fichier de configuration est dans un format invalide!",
 	"confNotFoundMsg": "Le fichier de configuration n'est pas present!",
-	"argInvalidMsg": "Argument invalide! Exemple: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "Argument invalide! Exemple: Optimizer.exe /template.json",
 	"StartupPreviewForm": "Apercu des elements de demarrage",
 	"StartupRestoreForm": "Restaurer les elements de demarrage",
 	"backupL": "Recuperer vos elements de demarrage",
@@ -432,5 +432,8 @@ Necessite l'ouverture d'un compte Microsoft.",
 	"btnSetGlobalFont": "Définir par défaut",
 	"lblFontsCount": "Polices disponibles:",
 	"btnRestoreFont": "Retablir les valeurs par defaut",
-	"btnRefreshFonts": "Rafraichir"
+	"btnRefreshFonts": "Rafraichir",
+	"chkAllNics": "Définir pour toutes les cartes réseau",
+	"chkCustomDns": "Définir un DNS personnalisé",
+	"btnSetDns": "Définir le DNS"
 }

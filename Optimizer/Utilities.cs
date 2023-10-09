@@ -354,6 +354,8 @@ namespace Optimizer
 
         internal static void RunCommand(string command)
         {
+            if (string.IsNullOrEmpty(command)) return;
+
             using (Process p = new Process())
             {
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -842,7 +844,7 @@ namespace Optimizer
         internal static void FindDiffInTwoJsons()
         {
             JObject file1 = JObject.Parse(Properties.Resources.EN);
-            JObject file2 = JObject.Parse(Properties.Resources.KO);
+            JObject file2 = JObject.Parse(Properties.Resources.NE);
 
             var p1 = file1.Properties().ToList();
             var p2 = file2.Properties().ToList();

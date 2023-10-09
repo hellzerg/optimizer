@@ -236,7 +236,7 @@
 	"confInvalidVersionMsg": "La versione di Windows non corrisponde!",
 	"confInvalidFormatMsg": "Il file di configurazione è in formato non valido!",
 	"confNotFoundMsg": "Il file di configurazione non esiste!",
-	"argInvalidMsg": "Argomento non valido! Esempio: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "Argomento non valido! Esempio: Optimizer.exe /template.json",
 	"StartupPreviewForm": "Anteprima elementi avvio",
 	"StartupRestoreForm": "Ripristina elementi avvio",
 	"backupL": "Recupera elementi avvio originali da un backup",
@@ -452,5 +452,8 @@ Ha un effetto negativo sulle prestazioni.",
 	"btnSetGlobalFont": "Imposta come predefinito",
 	"lblFontsCount": "Caratteri disponibili:",
 	"btnRestoreFont": "Riprista predefinito",
-	"btnRefreshFonts": "Aggiorna"
+	"btnRefreshFonts": "Aggiorna",
+	"chkAllNics": "Impostato per tutti gli adattatori di rete",
+	"chkCustomDns": "Imposta DNS personalizzati",
+	"btnSetDns": "Imposta DNS"
 }

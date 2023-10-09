@@ -245,7 +245,7 @@
 	"confInvalidVersionMsg": "Версия Windows не совпадает!",
 	"confInvalidFormatMsg": "Файл конфигурации поврежден!",
 	"confNotFoundMsg": "Файл конфигурации отсутствует!",
-	"argInvalidMsg": "Недействительный параметр! Пример: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "Недействительный параметр! Пример: Optimizer.exe /template.json",
 	"alreadyRunningMsg": "Приложение уже запущено!",
 	"StartupPreviewForm": "Предварительный просмотр элементов автозагрузки",
 	"StartupRestoreForm": "Восстановить элементы автозагрузки",
@@ -428,5 +428,8 @@
 	"btnSetGlobalFont": "Установите по умолчанию",
 	"lblFontsCount": "Доступные шрифты:",
 	"btnRestoreFont": "Восстановить по умолчанию",
-	"btnRefreshFonts": "Обновить"
+	"btnRefreshFonts": "Обновить",
+	"chkAllNics": "Установить для всех сетевых адаптеров",
+	"chkCustomDns": "Установить собственный DNS",
+	"btnSetDns": "Установить DNS"
 }

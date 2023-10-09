@@ -166,46 +166,63 @@ namespace Optimizer
 
         internal static void ProcessPinger()
         {
-            string dns = CurrentSilentConfig.Pinger.SetDns;
-            if (!string.IsNullOrEmpty(dns) && PingerHelper.DNSOptions.Contains(dns))
+            string dnsOption = CurrentSilentConfig.Pinger.SetDns;
+
+            if (dnsOption == Constants.CustomDNS)
             {
-                if (dns == "Automatic")
+                bool atLeastOnePrimary4 = CurrentSilentConfig.Pinger.CustomDNSv4.Length > 0 && CurrentSilentConfig.Pinger.CustomDNSv4.Length < 3;
+                bool atLeastOnePrimary6 = CurrentSilentConfig.Pinger.CustomDNSv6.Length > 0 && CurrentSilentConfig.Pinger.CustomDNSv6.Length < 3;
+                bool notEmptyDNS4 = CurrentSilentConfig.Pinger.CustomDNSv4.Any(x => !string.IsNullOrEmpty(x));
+                bool notEmptyDNS6 = CurrentSilentConfig.Pinger.CustomDNSv6.Any(x => !string.IsNullOrEmpty(x));
+
+                if (atLeastOnePrimary4 && atLeastOnePrimary6 && notEmptyDNS4 && notEmptyDNS6)
+                {
+                    PingerHelper.SetDNSForAllNICs(CurrentSilentConfig.Pinger.CustomDNSv4, CurrentSilentConfig.Pinger.CustomDNSv6);
+                    Logger.LogInfoSilent("Pinger | Set DNS to custom:");
+                    Logger.LogInfoSilent($"Pinger | IPv4: {string.Join(", ", CurrentSilentConfig.Pinger.CustomDNSv4)}");
+                    Logger.LogInfoSilent($"Pinger | IPv6: {string.Join(", ", CurrentSilentConfig.Pinger.CustomDNSv6)}");
+                }
+            }
+
+            if (!string.IsNullOrEmpty(dnsOption) && PingerHelper.DNSOptions.Contains(dnsOption))
+            {
+                if (dnsOption == Constants.AutomaticDNS)
                 {
                     PingerHelper.ResetDefaultDNSForAllNICs();
                 }
-                if (dns == "Cloudflare")
+                if (dnsOption == Constants.CloudflareDNS)
                 {
                     PingerHelper.SetDNSForAllNICs(PingerHelper.CloudflareDNSv4, PingerHelper.CloudflareDNSv6);
                 }
-                if (dns == "OpenDNS")
+                if (dnsOption == Constants.OpenDNS)
                 {
                     PingerHelper.SetDNSForAllNICs(PingerHelper.OpenDNSv4, PingerHelper.OpenDNSv6);
                 }
-                if (dns == "Quad9")
+                if (dnsOption == Constants.Quad9DNS)
                 {
                     PingerHelper.SetDNSForAllNICs(PingerHelper.Quad9DNSv4, PingerHelper.Quad9DNSv6);
                 }
-                if (dns == "Google")
+                if (dnsOption == Constants.GoogleDNS)
                 {
                     PingerHelper.SetDNSForAllNICs(PingerHelper.GoogleDNSv4, PingerHelper.GoogleDNSv6);
                 }
-                if (dns == "AlternateDNS")
+                if (dnsOption == Constants.AlternateDNS)
                 {
                     PingerHelper.SetDNSForAllNICs(PingerHelper.AlternateDNSv4, PingerHelper.AlternateDNSv6);
                 }
-                if (dns == "Adguard")
+                if (dnsOption == Constants.AdguardDNS)
                 {
                     PingerHelper.SetDNSForAllNICs(PingerHelper.AdguardDNSv4, PingerHelper.AdguardDNSv6);
                 }
-                if (dns == "CleanBrowsing")
+                if (dnsOption == Constants.CleanBrowsingDNS)
                 {
                     PingerHelper.SetDNSForAllNICs(PingerHelper.CleanBrowsingDNSv4, PingerHelper.CleanBrowsingDNSv6);
                 }
-                if (dns == "CleanBrowsing (adult filter)")
+                if (dnsOption == Constants.CleanBrowsingAdultFilterDNS)
                 {
                     PingerHelper.SetDNSForAllNICs(PingerHelper.CleanBrowsingAdultDNSv4, PingerHelper.CleanBrowsingAdultDNSv6);
                 }
-                Logger.LogInfoSilent($"Pinger | Set DNS to: {dns}");
+                Logger.LogInfoSilent($"Pinger | Set DNS to: {dnsOption}");
             }
             if (CurrentSilentConfig.Pinger.FlushDnsCache.HasValue &&
                 CurrentSilentConfig.Pinger.FlushDnsCache.Value == true)

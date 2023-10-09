@@ -243,7 +243,7 @@
 	"confInvalidVersionMsg": "نسخه ویندوز مطابقت ندارد!",
 	"confInvalidFormatMsg": "فایل پیکربندی در قالب نامعتبر است!",
 	"confNotFoundMsg": "فایل کانفیگ وجود ندارد!",
-	"argInvalidMsg": "argument نامعتبر! مثال: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "argument نامعتبر! مثال: Optimizer.exe /template.json",
 	"alreadyRunningMsg": "Optimizer در حال حاضر در پس زمینه اجرا می شود!",
 	"StartupPreviewForm": "پیش نمایش آیتم ها Startup",
 	"StartupRestoreForm": "بازگرداندن آیتم های Startup",
@@ -445,5 +445,8 @@
 	"btnSetGlobalFont": "تنظیم به عنوان پیش فرض",
 	"lblFontsCount": "فونت فعلی:",
 	"btnRestoreFont": "برگشت به حالت پیشفرض",
-	"btnRefreshFonts": "بارگذاری مجدد"
+	"btnRefreshFonts": "بارگذاری مجدد",
+	"chkAllNics": "تنظیم برای همه آداپتورهای شبکه",
+	"chkCustomDns": "DNS سفارشی را تنظیم کنید",
+	"btnSetDns": "DNS را تنظیم کنید"
 }

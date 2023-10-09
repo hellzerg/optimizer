@@ -240,7 +240,7 @@
 	"confInvalidVersionMsg": "A Windows verzió nem egyezik!",
 	"confInvalidFormatMsg": "A konfigurációs fájl érvénytelen formátumú!",
 	"confNotFoundMsg": "Konfig fájl nem létezik!",
-	"argInvalidMsg": "Hibás érvelés! Példa: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "Hibás érvelés! Példa: Optimizer.exe /template.json",
 	"alreadyRunningMsg": "Az Optimizer már fut a háttérben!",
 	"StartupPreviewForm": "Indítási elemek előnézete",
 	"StartupRestoreForm": "Indítási elemek visszaállítása",
@@ -458,5 +458,8 @@ Negatív hatással van a teljesítményre.",
 	"btnSetGlobalFont": "Beállítás alapértelmezettként",
 	"lblFontsCount": "Elérhető betűtípusok:",
 	"btnRestoreFont": "Alapértelmezett visszaállítása",
-	"btnRefreshFonts": "Frissítés"
+	"btnRefreshFonts": "Frissítés",
+	"chkAllNics": "Minden hálózati adapterhez beállítva",
+	"chkCustomDns": "Állítsa be az egyéni DNS",
+	"btnSetDns": "Állítsa be a DNS"
 }

@@ -246,7 +246,7 @@
 	"confInvalidVersionMsg": "Windows sürümü eşleşmiyor!",
 	"confInvalidFormatMsg": "Yapılandırma(Config) dosyası geçersiz biçimde!",
 	"confNotFoundMsg": "Yapılandırma(Config) dosyası mevcut değil!",
-	"argInvalidMsg": "Geçersiz argüman! Örnek: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "Geçersiz argüman! Örnek: Optimizer.exe /template.json",
 	"StartupPreviewForm": "Başlangıç Öğeleri Önizlemesi",
 	"StartupRestoreForm": "Başlangıç Öğelerini Geri Yükle",
 	"backupL": "Başlangıç Öğelerinizi Kurtarın",
@@ -456,5 +456,8 @@ Performansa olumsuz etkisi vardır.",
 	"btnSetGlobalFont": "Varsayılan olarak ayarla",
 	"lblFontsCount": "Kullanılabilir yazı tipleri:",
 	"btnRestoreFont": "Varsayılana Döndür",
-	"btnRefreshFonts": "Yenile"
+	"btnRefreshFonts": "Yenile",
+	"chkAllNics": "Tüm ağ bağdaştırıcıları için ayarla",
+	"chkCustomDns": "Özel DNS ayarla",
+	"btnSetDns": "DNS ayarla"
 }

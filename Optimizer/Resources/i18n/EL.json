@@ -245,7 +245,7 @@
 	"confInvalidVersionMsg": "Λανθασμένη έκδοση Windows",
 	"confInvalidFormatMsg": "Μη έγκυρη μορφή αρχείου",
 	"confNotFoundMsg": "Το αρχείο διαμόρφωσης δεν υπάρχει",
-	"argInvalidMsg": "Μη έγκυρος ορισμός! Παράδειγμα: Optimizer.exe /silent.conf",
+	"argInvalidMsg": "Μη έγκυρος ορισμός! Παράδειγμα: Optimizer.exe /template.json",
 	"alreadyRunningMsg": "Το Optimizer εκτελειται ηδη στο παρασκηνιο!",
 	"StartupPreviewForm": "Προεπισκόπηση στοιχείων εκκίνησης",
 	"StartupRestoreForm": "Επαναφορά στοιχείων εκκίνησης",
@@ -453,5 +453,8 @@
 	"btnSetGlobalFont": "Αλλαγή font",
 	"lblFontsCount": "Διαθέσιμα fonts:",
 	"btnRestoreFont": "Επαναφορά",
-	"btnRefreshFonts": "Ανανέωση"
+	"btnRefreshFonts": "Ανανέωση",
+	"chkAllNics": "Εφαρμογή για όλους τους προσαρμογείς δικτύου",
+	"chkCustomDns": "Ορισμός προσαρμοσμένου DNS",
+	"btnSetDns": "Εφαρμογή DNS"
 }
