@@ -854,6 +854,8 @@ namespace Optimizer
         internal static void ReinforceCurrentTweaks()
         {
             SilentConfig silentConfig = new SilentConfig();
+            Tweaks silentConfigTweaks = new Tweaks();
+            silentConfig.Tweaks = silentConfigTweaks;
             #region Windows General
             silentConfig.Tweaks.EnablePerformanceTweaks = OptionsHelper.CurrentOptions.EnablePerformanceTweaks;
             silentConfig.Tweaks.DisableNetworkThrottling = OptionsHelper.CurrentOptions.DisableNetworkThrottling;

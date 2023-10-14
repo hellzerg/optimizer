@@ -24,6 +24,14 @@ namespace Optimizer
             return CurrentSilentConfig;
         }
 
+        internal static void ProcessMock()
+        {
+            if (CurrentSilentConfig.Tweaks.EnablePerformanceTweaks.HasValue)
+            {
+                MessageBox.Show(CurrentSilentConfig.Tweaks.EnablePerformanceTweaks.Value.ToString());
+            }
+        }
+
         internal static void ProcessAllActions()
         {
             Logger.InitializeSilentReport();

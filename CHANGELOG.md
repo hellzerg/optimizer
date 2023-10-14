@@ -1,3 +1,6 @@
+## [16.0] - 2023-10-14
+- Hotfix: 'Reinforce policies' crash resolved (#400)
+
 ## [15.9] - 2023-10-14
 - New: Disable CoPilot AI (in Windows 11)
 - New: Fully translated into Bulgarian
