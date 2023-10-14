@@ -431,5 +431,9 @@
 	"btnRefreshFonts": "Обновить",
 	"chkAllNics": "Установить для всех сетевых адаптеров",
 	"chkCustomDns": "Установить собственный DNS",
-	"btnSetDns": "Установить DNS"
+	"btnSetDns": "Установить DNS",
+	"copilotSw": "Отключить CoPilot AI",
+    "copilotTip": "Полностью отключает функцию CoPilot AI.",
+	"btnReinforce": "Укрепить политику",
+	"msgReinforce": "Вы уверены, что хотите повторно применить текущие политики?"
 }

@@ -461,5 +461,9 @@ Má to negativní vliv na výkon.",
 	"btnRefreshFonts": "Obnovit",
 	"chkAllNics": "Nastavení pro všechny síťové adaptéry",
 	"chkCustomDns": "Nastavte vlastní DNS",
-	"btnSetDns": "Nastavte DNS"
+	"btnSetDns": "Nastavte DNS",
+	"copilotSw": "Vypnout funkci CoPilot AI",
+    "copilotTip": "Úplně vypne funkci CoPilot AI.",
+	"btnReinforce": "Posílit politiky",
+	"msgReinforce": "Opravdu si přejete znovu použít své stávající politiky?"
 }

@@ -463,5 +463,9 @@ Microsoft 계정 로그인이 필요합니다.",
 	"btnRefreshFonts": "새로 고침",
 	"chkAllNics": "모든 네트워크 어댑터에 대해 설정",
 	"chkCustomDns": "맞춤 DNS 설정",
-	"btnSetDns": "DNS 설정"
+	"btnSetDns": "DNS 설정",
+	"copilotSw": "CoPilot AI 기능 완전히 비활성화",
+    "copilotTip": "CoPilot AI 기능을 완전히 비활성화합니다.",
+	"btnReinforce": "정책 강화",
+	"msgReinforce": "현재 정책을 다시 적용하시겠습니까?"
 }

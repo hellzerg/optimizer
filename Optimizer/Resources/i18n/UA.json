@@ -462,5 +462,9 @@
 	"btnRefreshFonts": "Оновити",
 	"chkAllNics": "Набір для всіх мережевих адаптерів",
 	"chkCustomDns": "Встановити спеціальний DNS",
-	"btnSetDns": "Встановити DNS"
+	"btnSetDns": "Встановити DNS",
+	"copilotSw": "Повністю вимкнути функцію CoPilot AI",
+    "copilotTip": "Повністю вимикає функцію CoPilot AI.",
+	"btnReinforce": "Підсилити політику",
+	"msgReinforce": "Ви впевнені, що хочете повторно застосувати поточну політику?"
 }

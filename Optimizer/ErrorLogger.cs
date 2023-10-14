@@ -27,7 +27,7 @@ namespace Optimizer
             _silentReportLog.AppendLine();
         }
 
-        internal static void InitSilentReport()
+        internal static void InitializeSilentReport()
         {
             _silentReportLog = new StringBuilder();
 

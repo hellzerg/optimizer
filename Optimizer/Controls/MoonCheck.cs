@@ -21,7 +21,7 @@ namespace Optimizer
                 this.Tag = "themeable";
                 this.Font = new Font(this.Font, FontStyle.Underline);
 
-                this.ForeColor = Options.ForegroundColor;
+                this.ForeColor = OptionsHelper.ForegroundColor;
             }
             else
             {

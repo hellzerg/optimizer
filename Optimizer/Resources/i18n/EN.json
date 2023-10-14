@@ -171,7 +171,7 @@
 	"lblUpdateDisabled": "Disabled in experimental builds",
 	"lblTroubleshoot": "Troubleshooting",
 	"btnViewLog": "View errors",
-	"btnOpenConf": "Show config folder",
+	"btnOpenConf": "Show configuration folder",
 	"btnResetConfig": "Repair",
 	"integrator1": "Integrator is able to add fully-customized\nitems in Desktop right-click menu:",
 	"integrator2": "• Any program",
@@ -461,5 +461,9 @@ It has negative effect on performance.",
 	"btnRefreshFonts": "Refresh",
 	"chkAllNics": "Set for all network adapters",
 	"chkCustomDns": "Set custom DNS",
-	"btnSetDns": "Set DNS"
+	"btnSetDns": "Set DNS",
+	"copilotSw": "Disable CoPilot AI",
+	"copilotTip": "Completely turns off CoPilot AI feature.",
+	"btnReinforce": "Reinforce policies",
+	"msgReinforce": "Are you sure you want to re-apply your current policies?"
 }

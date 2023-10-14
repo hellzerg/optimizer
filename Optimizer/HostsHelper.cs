@@ -27,7 +27,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 Logger.LogError("HostsHelper.RestoreDefaultHosts", ex.Message, ex.StackTrace);
-                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -93,7 +93,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 Logger.LogError("HostsHelper.SaveHosts", ex.Message, ex.StackTrace);
-                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -124,7 +124,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 Logger.LogError("HostsHelper.AddEntry", ex.Message, ex.StackTrace);
-                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -137,7 +137,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 Logger.LogError("HostsHelper.RemoveEntry", ex.Message, ex.StackTrace);
-                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -165,7 +165,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 Logger.LogError("HostsHelper.RemoveAllEntries", ex.Message, ex.StackTrace);
-                MessageBox.Show(Options.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -188,7 +188,6 @@ namespace Optimizer
             }
         }
 
-        // edit read-only attibute
         internal static void ReadOnly(bool enable)
         {
             try

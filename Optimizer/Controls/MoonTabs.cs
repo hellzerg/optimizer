@@ -172,7 +172,7 @@ namespace Optimizer
             if (TabCount > 0)
             {
                 using (SolidBrush brushBackgroundTab = new SolidBrush(Color.FromArgb(40, 40, 40)))
-                using (SolidBrush brushDivider = new SolidBrush(Options.ForegroundColor))
+                using (SolidBrush brushDivider = new SolidBrush(OptionsHelper.ForegroundColor))
                 {
                     {
                         e.Graphics.FillRectangle(brushBackgroundTab, DisplayRectangle);
@@ -206,16 +206,16 @@ namespace Optimizer
 
             SolidBrush brushActiveText;
 
-            using (Pen penActive = new Pen(Options.ForegroundColor))
+            using (Pen penActive = new Pen(OptionsHelper.ForegroundColor))
             using (Pen penBorder = new Pen(Color.FromArgb(40, 40, 40), 0))
-            using (SolidBrush brushActive = new SolidBrush(Options.ForegroundColor))
+            using (SolidBrush brushActive = new SolidBrush(OptionsHelper.ForegroundColor))
             using (SolidBrush brushInActive = new SolidBrush(Color.FromArgb(40, 40, 40)))
-            using (SolidBrush brushAlternative = new SolidBrush(Options.ForegroundColor))
-            using (SolidBrush brushActiveIndicator = new SolidBrush(ControlPaint.Light(Options.ForegroundColor)))
-            using (SolidBrush brushInActiveIndicator = new SolidBrush(Options.ForegroundColor))
-            using (brushActiveText = new SolidBrush(Options.TextColor))
+            using (SolidBrush brushAlternative = new SolidBrush(OptionsHelper.ForegroundColor))
+            using (SolidBrush brushActiveIndicator = new SolidBrush(ControlPaint.Light(OptionsHelper.ForegroundColor)))
+            using (SolidBrush brushInActiveIndicator = new SolidBrush(OptionsHelper.ForegroundColor))
+            using (brushActiveText = new SolidBrush(OptionsHelper.TextColor))
             using (SolidBrush brushInActiveText = new SolidBrush(Color.White))
-            using (SolidBrush brushDrag = new SolidBrush(ControlPaint.Dark(Options.ForegroundColor)))
+            using (SolidBrush brushDrag = new SolidBrush(ControlPaint.Dark(OptionsHelper.ForegroundColor)))
             {
                 //if (MoonManager.THEME_PREFERENCE == THEME.LIGHT) brushActiveText = new SolidBrush(Color.White);
 

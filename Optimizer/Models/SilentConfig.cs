@@ -279,5 +279,6 @@ namespace Optimizer
         public bool? CompactMode { get; set; }
         public bool? DisableStickers { get; set; }
         public bool? DisableVirtualizationBasedTechnology { get; set; }
+        public bool? DisableCoPilotAI { get; set; }
     }
 }

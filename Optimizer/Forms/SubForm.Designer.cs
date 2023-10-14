@@ -50,7 +50,7 @@
             this.txtInfo.ReadOnly = true;
             this.txtInfo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtInfo.ShortcutsEnabled = false;
-            this.txtInfo.Size = new System.Drawing.Size(391, 372);
+            this.txtInfo.Size = new System.Drawing.Size(391, 321);
             this.txtInfo.TabIndex = 0;
             this.txtInfo.Text = "";
             // 
@@ -62,7 +62,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(415, 396);
+            this.panel1.Size = new System.Drawing.Size(415, 345);
             this.panel1.TabIndex = 1;
             // 
             // btnStart
@@ -77,7 +77,7 @@
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.White;
-            this.btnStart.Location = new System.Drawing.Point(336, 352);
+            this.btnStart.Location = new System.Drawing.Point(336, 301);
             this.btnStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(67, 31);
@@ -94,7 +94,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.CancelButton = this.btnStart;
-            this.ClientSize = new System.Drawing.Size(415, 396);
+            this.ClientSize = new System.Drawing.Size(415, 345);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;

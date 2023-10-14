@@ -112,6 +112,7 @@
     <Compile Include="Controls\ToggleCard.Designer.cs">
       <DependentUpon>ToggleCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DebugHelper.cs" />
     <Compile Include="FileHandleHelper.cs" />
     <Compile Include="FontHelper.cs" />
     <Compile Include="Forms\AboutForm.cs">
@@ -134,7 +135,7 @@
     </Compile>
     <Compile Include="Controls\MoonMenuRenderer.cs" />
     <Compile Include="ErrorLogger.cs" />
-    <Compile Include="FeedApp.cs" />
+    <Compile Include="Models\AppInfo.cs" />
     <Compile Include="ByteSize\BinaryByteSize.cs" />
     <Compile Include="ByteSize\ByteSize.cs" />
     <Compile Include="ByteSize\DecimalByteSize.cs" />
@@ -146,7 +147,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="EmbeddedAssembly.cs" />
-    <Compile Include="Enums.cs" />
+    <Compile Include="Models\Enums.cs" />
     <Compile Include="Forms\FileUnlockForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,7 +178,7 @@
     <Compile Include="Forms\UpdateForm.Designer.cs">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HardwareModel.cs" />
+    <Compile Include="Models\Hardware.cs" />
     <Compile Include="Forms\HostsEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,10 +202,11 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="Models\Options.cs" />
     <Compile Include="NetworkAdapter.cs" />
     <Compile Include="NetworkMonitor.cs" />
     <Compile Include="OptimizeHelper.cs" />
-    <Compile Include="Options.cs" />
+    <Compile Include="OptionsHelper.cs" />
     <Compile Include="PingerHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -214,7 +216,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="CoreHelper.cs" />
-    <Compile Include="SilentConfig.cs" />
+    <Compile Include="Models\SilentConfig.cs" />
     <Compile Include="SilentOps.cs" />
     <Compile Include="Forms\SplashForm.cs">
       <SubType>Form</SubType>
@@ -234,13 +236,12 @@
     <Compile Include="Forms\StartupRestoreForm.Designer.cs">
       <DependentUpon>StartupRestoreForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StartupBackupItem.cs" />
+    <Compile Include="Models\StartupBackupItem.cs" />
     <Compile Include="StartupHelper.cs" />
-    <Compile Include="StartupItem.cs" />
-    <Compile Include="TelemetryData.cs" />
+    <Compile Include="Models\StartupItem.cs" />
+    <Compile Include="Models\TelemetryData.cs" />
     <Compile Include="TelemetryHelper.cs" />
-    <Compile Include="TokenPrivilege.cs" />
-    <Compile Include="UserFoldersHelper.cs" />
+    <Compile Include="TokenPrivilegeHelper.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="UWPHelper.cs" />
     <EmbeddedResource Include="Controls\ToggleCard.resx">
@@ -303,6 +304,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Resources\i18n\AR.json" />
+    <None Include="Resources\i18n\BG.json" />
     <None Include="Resources\i18n\FA.json" />
     <None Include="Resources\i18n\HU.json" />
     <None Include="Resources\i18n\JA.json" />
@@ -379,6 +381,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Flags\bulgaria.png" />
     <None Include="Resources\Flags\nepal.png" />
     <None Include="Resources\Flags\iran.png" />
     <None Include="Resources\Flags\japan.png" />

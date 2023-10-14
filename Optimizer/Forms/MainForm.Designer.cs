@@ -93,6 +93,7 @@ namespace Optimizer
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panelWin11Tweaks = new System.Windows.Forms.Panel();
+            this.copilotSw = new Optimizer.ToggleCard();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.stickersSw = new Optimizer.ToggleCard();
@@ -387,6 +388,7 @@ namespace Optimizer
             this.listFonts = new Optimizer.MoonList();
             this.fontSetTitle = new System.Windows.Forms.Label();
             this.optionsTab = new System.Windows.Forms.TabPage();
+            this.btnReinforce = new System.Windows.Forms.Button();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -742,7 +744,7 @@ namespace Optimizer
             this.universalTab.Margin = new System.Windows.Forms.Padding(2);
             this.universalTab.Name = "universalTab";
             this.universalTab.Padding = new System.Windows.Forms.Padding(2);
-            this.universalTab.Size = new System.Drawing.Size(1273, 611);
+            this.universalTab.Size = new System.Drawing.Size(1273, 628);
             this.universalTab.TabIndex = 0;
             this.universalTab.Text = "General";
             // 
@@ -1222,7 +1224,7 @@ namespace Optimizer
             this.windows10Tab.Margin = new System.Windows.Forms.Padding(2);
             this.windows10Tab.Name = "windows10Tab";
             this.windows10Tab.Padding = new System.Windows.Forms.Padding(2);
-            this.windows10Tab.Size = new System.Drawing.Size(1273, 611);
+            this.windows10Tab.Size = new System.Drawing.Size(1273, 628);
             this.windows10Tab.TabIndex = 1;
             this.windows10Tab.Text = "Windows 10";
             // 
@@ -1342,6 +1344,7 @@ namespace Optimizer
             // panelWin11Tweaks
             // 
             this.panelWin11Tweaks.AutoScroll = true;
+            this.panelWin11Tweaks.Controls.Add(this.copilotSw);
             this.panelWin11Tweaks.Controls.Add(this.label20);
             this.panelWin11Tweaks.Controls.Add(this.label19);
             this.panelWin11Tweaks.Controls.Add(this.stickersSw);
@@ -1356,6 +1359,22 @@ namespace Optimizer
             this.panelWin11Tweaks.Size = new System.Drawing.Size(971, 159);
             this.panelWin11Tweaks.TabIndex = 80;
             this.panelWin11Tweaks.Visible = false;
+            // 
+            // copilotSw
+            // 
+            this.copilotSw.AccessibleName = "Disable CoPilot AI";
+            this.copilotSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
+            this.copilotSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.copilotSw.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.copilotSw.ForeColor = System.Drawing.Color.White;
+            this.copilotSw.LabelText = "Disable CoPilot AI";
+            this.copilotSw.Location = new System.Drawing.Point(465, 126);
+            this.copilotSw.Margin = new System.Windows.Forms.Padding(6);
+            this.copilotSw.Name = "copilotSw";
+            this.copilotSw.Size = new System.Drawing.Size(414, 24);
+            this.copilotSw.TabIndex = 179;
+            this.copilotSw.Tag = "themeable";
+            this.copilotSw.ToggleChecked = false;
             // 
             // label20
             // 
@@ -1874,7 +1893,7 @@ namespace Optimizer
             this.windows8Tab.Margin = new System.Windows.Forms.Padding(2);
             this.windows8Tab.Name = "windows8Tab";
             this.windows8Tab.Padding = new System.Windows.Forms.Padding(2);
-            this.windows8Tab.Size = new System.Drawing.Size(1273, 611);
+            this.windows8Tab.Size = new System.Drawing.Size(1273, 628);
             this.windows8Tab.TabIndex = 2;
             this.windows8Tab.Text = "Windows 8.1";
             // 
@@ -1920,7 +1939,7 @@ namespace Optimizer
             this.advancedTab.Margin = new System.Windows.Forms.Padding(2);
             this.advancedTab.Name = "advancedTab";
             this.advancedTab.Padding = new System.Windows.Forms.Padding(2);
-            this.advancedTab.Size = new System.Drawing.Size(1273, 611);
+            this.advancedTab.Size = new System.Drawing.Size(1273, 628);
             this.advancedTab.TabIndex = 15;
             this.advancedTab.Text = "Advanced";
             // 
@@ -2021,7 +2040,7 @@ namespace Optimizer
             this.modernAppsTab.Location = new System.Drawing.Point(4, 26);
             this.modernAppsTab.Name = "modernAppsTab";
             this.modernAppsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.modernAppsTab.Size = new System.Drawing.Size(1273, 611);
+            this.modernAppsTab.Size = new System.Drawing.Size(1273, 628);
             this.modernAppsTab.TabIndex = 11;
             this.modernAppsTab.Text = "UWP Apps";
             // 
@@ -2145,7 +2164,7 @@ namespace Optimizer
             this.startupTab.Location = new System.Drawing.Point(4, 26);
             this.startupTab.Margin = new System.Windows.Forms.Padding(2);
             this.startupTab.Name = "startupTab";
-            this.startupTab.Size = new System.Drawing.Size(1273, 611);
+            this.startupTab.Size = new System.Drawing.Size(1273, 628);
             this.startupTab.TabIndex = 7;
             this.startupTab.Text = "Startup";
             // 
@@ -2402,7 +2421,7 @@ namespace Optimizer
             this.appsTab.Location = new System.Drawing.Point(4, 26);
             this.appsTab.Name = "appsTab";
             this.appsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.appsTab.Size = new System.Drawing.Size(1273, 611);
+            this.appsTab.Size = new System.Drawing.Size(1273, 628);
             this.appsTab.TabIndex = 12;
             this.appsTab.Text = "Apps";
             // 
@@ -2414,7 +2433,7 @@ namespace Optimizer
             this.txtFeedError.ForeColor = System.Drawing.Color.Gold;
             this.txtFeedError.Location = new System.Drawing.Point(3, 47);
             this.txtFeedError.Name = "txtFeedError";
-            this.txtFeedError.Size = new System.Drawing.Size(1267, 441);
+            this.txtFeedError.Size = new System.Drawing.Size(1267, 458);
             this.txtFeedError.TabIndex = 171;
             this.txtFeedError.Text = "No internet connection, try refreshing links again";
             this.txtFeedError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2563,7 +2582,7 @@ namespace Optimizer
             this.panelCommonApps.Controls.Add(this.bitPref);
             this.panelCommonApps.Controls.Add(this.goToDownloadsB);
             this.panelCommonApps.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelCommonApps.Location = new System.Drawing.Point(3, 488);
+            this.panelCommonApps.Location = new System.Drawing.Point(3, 505);
             this.panelCommonApps.Name = "panelCommonApps";
             this.panelCommonApps.Size = new System.Drawing.Size(1267, 120);
             this.panelCommonApps.TabIndex = 162;
@@ -2762,7 +2781,7 @@ namespace Optimizer
             this.cleanerTab.Margin = new System.Windows.Forms.Padding(2);
             this.cleanerTab.Name = "cleanerTab";
             this.cleanerTab.Padding = new System.Windows.Forms.Padding(2);
-            this.cleanerTab.Size = new System.Drawing.Size(1273, 611);
+            this.cleanerTab.Size = new System.Drawing.Size(1273, 628);
             this.cleanerTab.TabIndex = 5;
             this.cleanerTab.Text = "Cleaner";
             // 
@@ -2773,7 +2792,7 @@ namespace Optimizer
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(221, 2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(1050, 546);
+            this.panel14.Size = new System.Drawing.Size(1050, 563);
             this.panel14.TabIndex = 51;
             // 
             // listCleanPreview
@@ -2787,7 +2806,7 @@ namespace Optimizer
             this.listCleanPreview.HorizontalScrollbar = true;
             this.listCleanPreview.Location = new System.Drawing.Point(0, 0);
             this.listCleanPreview.Name = "listCleanPreview";
-            this.listCleanPreview.Size = new System.Drawing.Size(1048, 544);
+            this.listCleanPreview.Size = new System.Drawing.Size(1048, 561);
             this.listCleanPreview.TabIndex = 1;
             // 
             // panel13
@@ -2801,7 +2820,7 @@ namespace Optimizer
             this.panel13.Controls.Add(this.cleanDriveB);
             this.panel13.Controls.Add(this.lblFootprint);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel13.Location = new System.Drawing.Point(221, 548);
+            this.panel13.Location = new System.Drawing.Point(221, 565);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(1050, 61);
             this.panel13.TabIndex = 50;
@@ -2949,7 +2968,7 @@ namespace Optimizer
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(219, 607);
+            this.panel1.Size = new System.Drawing.Size(219, 624);
             this.panel1.TabIndex = 47;
             // 
             // bravePasswords
@@ -3383,7 +3402,7 @@ namespace Optimizer
             this.pingerTab.Location = new System.Drawing.Point(4, 26);
             this.pingerTab.Name = "pingerTab";
             this.pingerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.pingerTab.Size = new System.Drawing.Size(1273, 611);
+            this.pingerTab.Size = new System.Drawing.Size(1273, 628);
             this.pingerTab.TabIndex = 13;
             this.pingerTab.Text = "Pinger";
             // 
@@ -3399,7 +3418,7 @@ namespace Optimizer
             this.netTools.Name = "netTools";
             this.netTools.Padding = new System.Drawing.Point(0, 0);
             this.netTools.SelectedIndex = 0;
-            this.netTools.Size = new System.Drawing.Size(1267, 605);
+            this.netTools.Size = new System.Drawing.Size(1267, 622);
             this.netTools.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.netTools.TabIndex = 104;
             // 
@@ -3430,7 +3449,7 @@ namespace Optimizer
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1259, 575);
+            this.tabPage2.Size = new System.Drawing.Size(1259, 592);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "DNS";
             // 
@@ -3742,7 +3761,7 @@ namespace Optimizer
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1259, 575);
+            this.tabPage1.Size = new System.Drawing.Size(1259, 592);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Pinger";
             // 
@@ -3921,7 +3940,7 @@ namespace Optimizer
             this.hostsEditorTab.Margin = new System.Windows.Forms.Padding(2);
             this.hostsEditorTab.Name = "hostsEditorTab";
             this.hostsEditorTab.Padding = new System.Windows.Forms.Padding(2);
-            this.hostsEditorTab.Size = new System.Drawing.Size(1273, 611);
+            this.hostsEditorTab.Size = new System.Drawing.Size(1273, 628);
             this.hostsEditorTab.TabIndex = 9;
             this.hostsEditorTab.Text = "Hosts";
             // 
@@ -4233,7 +4252,7 @@ namespace Optimizer
             this.registryFixerTab.Margin = new System.Windows.Forms.Padding(2);
             this.registryFixerTab.Name = "registryFixerTab";
             this.registryFixerTab.Padding = new System.Windows.Forms.Padding(2);
-            this.registryFixerTab.Size = new System.Drawing.Size(1273, 611);
+            this.registryFixerTab.Size = new System.Drawing.Size(1273, 628);
             this.registryFixerTab.TabIndex = 8;
             this.registryFixerTab.Text = "Registry";
             // 
@@ -4443,7 +4462,7 @@ namespace Optimizer
             this.indiciumTab.Location = new System.Drawing.Point(4, 26);
             this.indiciumTab.Name = "indiciumTab";
             this.indiciumTab.Padding = new System.Windows.Forms.Padding(3);
-            this.indiciumTab.Size = new System.Drawing.Size(1273, 611);
+            this.indiciumTab.Size = new System.Drawing.Size(1273, 628);
             this.indiciumTab.TabIndex = 14;
             this.indiciumTab.Text = "Hardware";
             // 
@@ -4454,7 +4473,7 @@ namespace Optimizer
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(3, 38);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(1267, 570);
+            this.panel12.Size = new System.Drawing.Size(1267, 587);
             this.panel12.TabIndex = 2;
             // 
             // specsTree
@@ -4509,7 +4528,7 @@ namespace Optimizer
             treeNode6,
             treeNode7,
             treeNode8});
-            this.specsTree.Size = new System.Drawing.Size(1265, 568);
+            this.specsTree.Size = new System.Drawing.Size(1265, 585);
             this.specsTree.TabIndex = 0;
             this.specsTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.specsTree_NodeMouseClick);
             // 
@@ -4632,7 +4651,7 @@ namespace Optimizer
             this.integratorTab.Margin = new System.Windows.Forms.Padding(2);
             this.integratorTab.Name = "integratorTab";
             this.integratorTab.Padding = new System.Windows.Forms.Padding(2);
-            this.integratorTab.Size = new System.Drawing.Size(1273, 599);
+            this.integratorTab.Size = new System.Drawing.Size(1273, 628);
             this.integratorTab.TabIndex = 10;
             this.integratorTab.Text = "Integrator";
             // 
@@ -4652,7 +4671,7 @@ namespace Optimizer
             this.synapse.Name = "synapse";
             this.synapse.Padding = new System.Drawing.Point(0, 0);
             this.synapse.SelectedIndex = 0;
-            this.synapse.Size = new System.Drawing.Size(1269, 595);
+            this.synapse.Size = new System.Drawing.Size(1269, 624);
             this.synapse.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.synapse.TabIndex = 0;
             // 
@@ -4671,7 +4690,7 @@ namespace Optimizer
             this.integratorInfoTab.Margin = new System.Windows.Forms.Padding(2);
             this.integratorInfoTab.Name = "integratorInfoTab";
             this.integratorInfoTab.Padding = new System.Windows.Forms.Padding(2);
-            this.integratorInfoTab.Size = new System.Drawing.Size(1261, 565);
+            this.integratorInfoTab.Size = new System.Drawing.Size(1261, 594);
             this.integratorInfoTab.TabIndex = 0;
             this.integratorInfoTab.Text = "Info";
             // 
@@ -4780,7 +4799,7 @@ namespace Optimizer
             this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage8.Size = new System.Drawing.Size(1261, 619);
+            this.tabPage8.Size = new System.Drawing.Size(1261, 594);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Add/Modify";
             // 
@@ -5125,7 +5144,7 @@ namespace Optimizer
             this.tabPage9.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage9.Size = new System.Drawing.Size(1261, 619);
+            this.tabPage9.Size = new System.Drawing.Size(1261, 594);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Remove";
             // 
@@ -5236,7 +5255,7 @@ namespace Optimizer
             this.tabPage10.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage10.Size = new System.Drawing.Size(1261, 619);
+            this.tabPage10.Size = new System.Drawing.Size(1261, 594);
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Ready Menus";
             // 
@@ -5384,7 +5403,7 @@ namespace Optimizer
             this.tabPage11.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage11.Size = new System.Drawing.Size(1261, 619);
+            this.tabPage11.Size = new System.Drawing.Size(1261, 594);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Run Dialog";
             // 
@@ -5574,7 +5593,7 @@ namespace Optimizer
             this.tabPage3.Controls.Add(this.fontSetTitle);
             this.tabPage3.Location = new System.Drawing.Point(4, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1261, 619);
+            this.tabPage3.Size = new System.Drawing.Size(1261, 594);
             this.tabPage3.TabIndex = 5;
             this.tabPage3.Text = "Fonts";
             // 
@@ -5738,6 +5757,7 @@ namespace Optimizer
             // 
             this.optionsTab.AutoScroll = true;
             this.optionsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.optionsTab.Controls.Add(this.btnReinforce);
             this.optionsTab.Controls.Add(this.linkLabel6);
             this.optionsTab.Controls.Add(this.linkLabel4);
             this.optionsTab.Controls.Add(this.pictureBox6);
@@ -5772,6 +5792,24 @@ namespace Optimizer
             this.optionsTab.Size = new System.Drawing.Size(1273, 628);
             this.optionsTab.TabIndex = 6;
             this.optionsTab.Text = "Options";
+            // 
+            // btnReinforce
+            // 
+            this.btnReinforce.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnReinforce.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnReinforce.FlatAppearance.BorderSize = 0;
+            this.btnReinforce.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnReinforce.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnReinforce.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReinforce.ForeColor = System.Drawing.Color.White;
+            this.btnReinforce.Location = new System.Drawing.Point(34, 487);
+            this.btnReinforce.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReinforce.Name = "btnReinforce";
+            this.btnReinforce.Size = new System.Drawing.Size(261, 31);
+            this.btnReinforce.TabIndex = 103;
+            this.btnReinforce.Text = "Reinforce policies";
+            this.btnReinforce.UseVisualStyleBackColor = false;
+            this.btnReinforce.Click += new System.EventHandler(this.btnReinforce_Click);
             // 
             // linkLabel6
             // 
@@ -5970,30 +6008,6 @@ namespace Optimizer
             this.boxLang.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxLang.ForeColor = System.Drawing.Color.White;
             this.boxLang.FormattingEnabled = true;
-            this.boxLang.Items.AddRange(new object[] {
-            "English",
-            "Русский",
-            "Ελληνικά",
-            "Deutsch",
-            "Italiano",
-            "Čeština",
-            "Türkçe",
-            "Español",
-            "Português",
-            "Français",
-            "Polski",
-            "简体中文",
-            "繁體中文",
-            "한국어",
-            "العربية",
-            "کوردی",
-            "Magyar",
-            "Română",
-            "Nederlands",
-            "українська",
-            "日本語",
-            "فارسی",
-            "नेपाली"});
             this.boxLang.Location = new System.Drawing.Point(92, 3);
             this.boxLang.Name = "boxLang";
             this.boxLang.Size = new System.Drawing.Size(212, 29);
@@ -6050,12 +6064,12 @@ namespace Optimizer
             this.btnOpenConf.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnOpenConf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenConf.ForeColor = System.Drawing.Color.White;
-            this.btnOpenConf.Location = new System.Drawing.Point(34, 452);
+            this.btnOpenConf.Location = new System.Drawing.Point(34, 417);
             this.btnOpenConf.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpenConf.Name = "btnOpenConf";
             this.btnOpenConf.Size = new System.Drawing.Size(261, 31);
             this.btnOpenConf.TabIndex = 63;
-            this.btnOpenConf.Text = "Show config folder";
+            this.btnOpenConf.Text = "Show configuration folder";
             this.btnOpenConf.UseVisualStyleBackColor = false;
             this.btnOpenConf.Click += new System.EventHandler(this.btnOpenConf_Click);
             // 
@@ -6064,7 +6078,7 @@ namespace Optimizer
             this.lblTroubleshoot.AutoSize = true;
             this.lblTroubleshoot.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTroubleshoot.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblTroubleshoot.Location = new System.Drawing.Point(17, 379);
+            this.lblTroubleshoot.Location = new System.Drawing.Point(17, 344);
             this.lblTroubleshoot.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTroubleshoot.Name = "lblTroubleshoot";
             this.lblTroubleshoot.Size = new System.Drawing.Size(150, 25);
@@ -6077,7 +6091,7 @@ namespace Optimizer
             this.lblUpdating.AutoSize = true;
             this.lblUpdating.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUpdating.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblUpdating.Location = new System.Drawing.Point(17, 283);
+            this.lblUpdating.Location = new System.Drawing.Point(17, 244);
             this.lblUpdating.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUpdating.Name = "lblUpdating";
             this.lblUpdating.Size = new System.Drawing.Size(142, 25);
@@ -6093,7 +6107,7 @@ namespace Optimizer
             this.btnViewLog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnViewLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewLog.ForeColor = System.Drawing.Color.White;
-            this.btnViewLog.Location = new System.Drawing.Point(34, 417);
+            this.btnViewLog.Location = new System.Drawing.Point(34, 382);
             this.btnViewLog.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewLog.Name = "btnViewLog";
             this.btnViewLog.Size = new System.Drawing.Size(261, 31);
@@ -6128,7 +6142,7 @@ namespace Optimizer
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(34, 317);
+            this.btnUpdate.Location = new System.Drawing.Point(34, 278);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(261, 31);
@@ -6146,7 +6160,7 @@ namespace Optimizer
             this.btnResetConfig.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnResetConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResetConfig.ForeColor = System.Drawing.Color.White;
-            this.btnResetConfig.Location = new System.Drawing.Point(34, 487);
+            this.btnResetConfig.Location = new System.Drawing.Point(34, 452);
             this.btnResetConfig.Margin = new System.Windows.Forms.Padding(2);
             this.btnResetConfig.Name = "btnResetConfig";
             this.btnResetConfig.Size = new System.Drawing.Size(261, 31);
@@ -6160,7 +6174,7 @@ namespace Optimizer
             this.lblTheming.AutoSize = true;
             this.lblTheming.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTheming.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblTheming.Location = new System.Drawing.Point(17, 123);
+            this.lblTheming.Location = new System.Drawing.Point(17, 95);
             this.lblTheming.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTheming.Name = "lblTheming";
             this.lblTheming.Size = new System.Drawing.Size(174, 25);
@@ -6188,7 +6202,7 @@ namespace Optimizer
             // colorPicker1
             // 
             this.colorPicker1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.colorPicker1.Location = new System.Drawing.Point(22, 151);
+            this.colorPicker1.Location = new System.Drawing.Point(22, 123);
             this.colorPicker1.Name = "colorPicker1";
             this.colorPicker1.Size = new System.Drawing.Size(139, 98);
             this.colorPicker1.TabIndex = 97;
@@ -6974,6 +6988,8 @@ namespace Optimizer
         private TextBox txtDns4A;
         private Label label10;
         private Button btnSetDns;
+        private Button btnReinforce;
+        private ToggleCard copilotSw;
     }
 }
 

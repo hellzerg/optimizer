@@ -17,10 +17,10 @@ namespace Optimizer
             InitializeComponent();
 
             CheckForIllegalCrossThreadCalls = false;
-            Options.ApplyTheme(this);
+            OptionsHelper.ApplyTheme(this);
 
             // translate UI elements
-            if (Options.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
+            if (OptionsHelper.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
 
             RefreshBackups();
         }
@@ -43,9 +43,9 @@ namespace Optimizer
 
         private void Translate()
         {
-            this.Text = Options.TranslationList["StartupRestoreForm"];
+            this.Text = OptionsHelper.TranslationList["StartupRestoreForm"];
 
-            Dictionary<string, string> translationList = Options.TranslationList.ToObject<Dictionary<string, string>>();
+            Dictionary<string, string> translationList = OptionsHelper.TranslationList.ToObject<Dictionary<string, string>>();
 
             Control element;
 
@@ -90,7 +90,7 @@ namespace Optimizer
         {
             if (listRestoreItems.SelectedIndex > -1)
             {
-                List<StartupBackupItem> backup = JsonConvert.DeserializeObject<List<StartupBackupItem>>(File.ReadAllText(_backups[listRestoreItems.SelectedIndex]));
+                List<BackupStartupItem> backup = JsonConvert.DeserializeObject<List<BackupStartupItem>>(File.ReadAllText(_backups[listRestoreItems.SelectedIndex]));
                 StartupPreviewForm f = new StartupPreviewForm(backup);
                 f.ShowDialog(this);
             }
@@ -111,12 +111,12 @@ namespace Optimizer
         {
             if (listRestoreItems.SelectedIndex > -1)
             {
-                List<StartupBackupItem> backup = JsonConvert.DeserializeObject<List<StartupBackupItem>>(File.ReadAllText(_backups[listRestoreItems.SelectedIndex]));
+                List<BackupStartupItem> backup = JsonConvert.DeserializeObject<List<BackupStartupItem>>(File.ReadAllText(_backups[listRestoreItems.SelectedIndex]));
 
                 string keyPath = string.Empty;
                 RegistryKey hive = null;
 
-                foreach (StartupBackupItem x in backup)
+                foreach (BackupStartupItem x in backup)
                 {
                     if (x.RegistryLocation == StartupItemLocation.HKLM.ToString())
                     {

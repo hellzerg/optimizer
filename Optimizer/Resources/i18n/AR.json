@@ -461,5 +461,9 @@
 	"btnRefreshFonts": "تحديث",
 	"chkAllNics": "تعيين لجميع محولات الشبكة",
 	"chkCustomDns": "قم بتعيين DNS المخصص",
-	"btnSetDns": "تعيين DNS"
+	"btnSetDns": "تعيين DNS",
+	"copilotSw": "تعطيل ميزة CoPilot AI تمامًا",
+    "copilotTip": "يعطل ميزة CoPilot AI تمامًا.",
+	"btnReinforce": "تعزيز السياسات",
+	"msgReinforce": "هل أنت متأكد من رغبتك في إعادة تطبيق السياسات الحالية؟"
 }

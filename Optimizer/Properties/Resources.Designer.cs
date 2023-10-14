@@ -79,7 +79,7 @@ namespace Optimizer.Properties {
         ///[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWithCMD\command]
         ///@=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot;
         ///
-        ///[HKEY_CLASSES_ROOT\D [rest of string was truncated]&quot;;.
+        ///[HKEY_CLASSES_ROOT\Drive\shell\OpenWit [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AddOpenWithCMD {
             get {
@@ -122,11 +122,46 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;Система&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Анонимност&quot;,
+        ///	&quot;subGaming&quot;: &quot;Гейминг&quot;,
+        ///	&quot;subTouch&quot;: &quot;Пипане&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Лента за задачи&quot;,
+        ///	&quot;subExtras&quot;: &quot;Екстри&quot;,
+        ///	&quot;btnAbout&quot;: &quot;ОК&quot;,
+        ///	&quot;restartButton&quot;: &quot;Рестартирай Сега&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Рестартирай Сега&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Рестартирай Сега&quot;,
+        ///	&quot;btnFind&quot;: &quot;Намери&quot;,
+        ///	&quot;btnKill&quot;: &quot;Убий&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;Файлови Управители&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Рестартирай, за да приложиш промените&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Версия: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Работиш с [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BG {
+            get {
+                return ResourceManager.GetString("BG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap brazil {
             get {
                 object obj = ResourceManager.GetObject("brazil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bulgaria {
+            get {
+                object obj = ResourceManager.GetObject("bulgaria", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -284,7 +319,8 @@ namespace Optimizer.Properties {
         ///rem &quot;DisableAntiSpyware&quot; is discontinued and will be ignored on client devices, as of the August 2020 (version 4.18.2007.8) update to Microsoft Defender Antivirus.
         ///
         ///rem Disable Tamper Protection First !!!!!
-        ///rem https://www.tenforums.com/tutorials/123792-turn-off-tamper-protection-windows-defender-antivirus.ht [rest of string was truncated]&quot;;.
+        ///rem https://www.tenforums.com/tutorials/123792-turn-off-tamper-protection-windows-defender-antivirus.html
+        ///reg [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableDefenderSafeMode1903Plus {
             get {
@@ -305,9 +341,9 @@ namespace Optimizer.Properties {
         ///&quot;visiosolution&quot;=dword:00000001
         ///&quot;wdsolution&quot;=dword:00000001
         ///&quot;xlsolution&quot;=dword:00000001
-        /// 
+        ///
         ///[HKEY_CURRENT_USER\Software\Policies\microsoft\office\16.0\osm\preventedsolutiontypes]
-        ///&quot;agave&quot; [rest of string was truncated]&quot;;.
+        ///&quot;agave&quot;= [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableOfficeTelemetry {
             get {
@@ -323,7 +359,7 @@ namespace Optimizer.Properties {
         ///
         ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgentFallBack&quot;
         ///schtasks /change /tn &quot;\Microsoft\Office\OfficeTelemetryAgentFallBack&quot; /disable
-        ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgen [rest of string was truncated]&quot;;.
+        ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgentLogOn&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableOfficeTelemetryTasks {
             get {
@@ -337,7 +373,7 @@ namespace Optimizer.Properties {
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot;
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot; /disable
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot;
-        ///schtasks /change /tn &quot;\Microsoft\ [rest of string was truncated]&quot;;.
+        ///schtasks /change /tn &quot;\Microsoft\Windo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableTelemetryTasks {
             get {
@@ -459,7 +495,7 @@ namespace Optimizer.Properties {
         ///&quot;visiosolution&quot;=-
         ///&quot;wdsolution&quot;=-
         ///&quot;xlsolution&quot;=-
-        /// 
+        ///
         ///[HKEY_CURRENT_USER\Software\Policies\microsoft\office\16.0\osm\preventedsolutiontypes]
         ///&quot;agave&quot;=-
         ///&quot;appaddins&quot;=-
@@ -482,7 +518,7 @@ namespace Optimizer.Properties {
         ///schtasks /change /tn &quot;\Microsoft\Office\OfficeTelemetryAgentLogOn&quot; /enable
         ///
         ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\15.0\Outlook\Options\Mail&quot; /v &quot;EnableLogging&quot; /t REG_DWORD /d 1 /f
-        ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\16.0\Outlook\Options\Mail&quot; /v &quot;EnableLoggi [rest of string was truncated]&quot;;.
+        ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\16.0\Outlook\Options\Mail&quot; /v &quot;EnableLogging&quot; /t  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnableOfficeTelemetryTasks {
             get {
@@ -496,7 +532,7 @@ namespace Optimizer.Properties {
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot; /enable
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip&quot; /enable
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\Uploader&quot; /enable
-        ///schta [rest of string was truncated]&quot;;.
+        ///schtasks / [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnableTelemetryTasks {
             get {
@@ -610,11 +646,11 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to @echo off 
-        ///pushd &quot;%~dp0&quot; 
-        ///dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &gt;List.txt 
-        ///dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum &gt;&gt;List.txt 
-        ///for /f %%i in (&apos;findstr /i . List.txt 2^&gt;nul&apos;) do dism /online /norestart /add-package:&quot;%SystemRoot%\servicing\Packages\%%i&quot; 
+        ///   Looks up a localized string similar to @echo off
+        ///pushd &quot;%~dp0&quot;
+        ///dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &gt;List.txt
+        ///dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum &gt;&gt;List.txt
+        ///for /f %%i in (&apos;findstr /i . List.txt 2^&gt;nul&apos;) do dism /online /norestart /add-package:&quot;%SystemRoot%\servicing\Packages\%%i&quot;
         ///.
         /// </summary>
         internal static string GPEditEnablerInHome {
@@ -692,7 +728,7 @@ namespace Optimizer.Properties {
         ///&quot;NoWorkingDirectory&quot;=&quot;&quot;
         ///
         ///[HKEY_CLASSES_ROOT\Directory\shell\runas\command]
-        ///@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d  [rest of string was truncated]&quot;;.
+        ///@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d y &amp;&amp; icacls \&quot;% [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string InstallTakeOwnership {
             get {
@@ -790,7 +826,7 @@ namespace Optimizer.Properties {
         ///	&quot;subGaming&quot;: &quot;게이밍&quot;,
         ///	&quot;subTouch&quot;: &quot;터치&quot;,
         ///	&quot;subTaskbar&quot;: &quot;작업 표시줄&quot;,
-        ///	&quot;subExtras&quot;: &quot;추가&quot;,	
+        ///	&quot;subExtras&quot;: &quot;추가&quot;,
         ///	&quot;btnAbout&quot;: &quot;확인&quot;,
         ///	&quot;restartButton&quot;: &quot;지금 다시 시작&quot;,
         ///	&quot;restartButton8&quot;: &quot;지금 다시 시작&quot;,
@@ -803,7 +839,7 @@ namespace Optimizer.Properties {
         ///	&quot;txtBitness&quot;: &quot;{BITS}로 작업중 - 한국어: 비너스걸&quot;,
         ///	&quot;linkUpdate&quot;: &quot;업데이트 가능&quot;,
         ///	&quot;lblLab&quot;: &quot;실험 빌드\n(테스트 후 삭제)&quot;,
-        ///	&quot;performanceSw&quot;:  [rest of string was truncated]&quot;;.
+        ///	&quot;performanceSw&quot;: &quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string KO {
             get {
@@ -837,8 +873,8 @@ namespace Optimizer.Properties {
         ///	&quot;btnKill&quot;: &quot;بیکوژە (دایبخە)&quot;,
         ///	&quot;trayUnlocker&quot;: &quot;دەسکەکانی فایل&quot;,
         ///	&quot;restartAndApply&quot;: &quot;ڕیستارتی ئەکەیتەوە بۆ بینینی گۆڕانکاریەکان&quot;,
-        ///	&quot;txtVersion&quot;: &quot;وەشان : &quot;,
-        ///	&quot; [rest of string was truncated]&quot;;.
+        ///	&quot;txtVersion&quot;: &quot;وەشان :&quot;,
+        ///	&quot;t [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string KU {
             get {
@@ -1256,7 +1292,7 @@ namespace Optimizer.Properties {
         ///	&quot;subGaming&quot;: &quot;Ігри&quot;,
         ///	&quot;subTouch&quot;: &quot;Дотик&quot;,
         ///	&quot;subTaskbar&quot;: &quot;Панель задач&quot;,
-        ///	&quot;subExtras&quot;: &quot; Доповнення&quot;,
+        ///	&quot;subExtras&quot;: &quot;Доповнення&quot;,
         ///	&quot;btnAbout&quot;: &quot;OK&quot;,
         ///	&quot;restartButton&quot;: &quot;Перезапустити зараз&quot;,
         ///	&quot;restartButton8&quot;: &quot;Перезапустити зараз&quot;,
@@ -1266,7 +1302,7 @@ namespace Optimizer.Properties {
         ///	&quot;trayUnlocker&quot;: &quot;Дескриптор файлів&quot;,
         ///	&quot;restartAndApply&quot;: &quot;Перезапустити для застосування змін&quot;,
         ///	&quot;txtVersion&quot;: &quot;Версія: {VN}&quot;,
-        ///	 [rest of string was truncated]&quot;;.
+        ///	&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string UA {
             get {

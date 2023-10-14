@@ -459,5 +459,9 @@ Performansa olumsuz etkisi vardır.",
 	"btnRefreshFonts": "Yenile",
 	"chkAllNics": "Tüm ağ bağdaştırıcıları için ayarla",
 	"chkCustomDns": "Özel DNS ayarla",
-	"btnSetDns": "DNS ayarla"
+	"btnSetDns": "DNS ayarla",
+	"copilotSw": "CoPilot AI'yı Devre Dışı Bırak",
+    "copilotTip": "CoPilot AI özelliğini tamamen kapatır.",
+	"btnReinforce": "Politikaları Güçlendir",
+	"msgReinforce": "Şu anki politikalarınızı tekrar uygulamak istediğinizden emin misiniz?"
 }

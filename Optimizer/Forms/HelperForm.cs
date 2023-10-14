@@ -22,7 +22,7 @@ namespace Optimizer
             }
             if (_type == MessageType.Restart)
             {
-                Options.SaveSettings();
+                OptionsHelper.SaveSettings();
                 Utilities.Reboot();
             }
             if (_type == MessageType.Hosts)
@@ -38,7 +38,7 @@ namespace Optimizer
         internal HelperForm(MainForm main, MessageType m, string text)
         {
             InitializeComponent();
-            Options.ApplyTheme(this);
+            OptionsHelper.ApplyTheme(this);
 
             _main = main;
             _type = m;
@@ -48,7 +48,7 @@ namespace Optimizer
             if (_type == MessageType.Error)
             {
                 btnNo.Visible = false;
-                btnYes.Text = Options.TranslationList["btnOk"];
+                btnYes.Text = OptionsHelper.TranslationList["btnOk"];
 
                 this.AcceptButton = btnNo;
                 this.AcceptButton = btnYes;
@@ -57,7 +57,7 @@ namespace Optimizer
             }
 
             // translate UI elements
-            if (Options.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
+            if (OptionsHelper.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
         }
 
         private void btnNo_Click(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace Optimizer
 
         private void Translate()
         {
-            Dictionary<string, string> translationList = Options.TranslationList.ToObject<Dictionary<string, string>>();
+            Dictionary<string, string> translationList = OptionsHelper.TranslationList.ToObject<Dictionary<string, string>>();
 
             Control element;
 

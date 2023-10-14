@@ -435,5 +435,9 @@
 	"btnRefreshFonts": "Aktualisieren",
 	"chkAllNics": "Für alle Netzwerkadapter festgelegt",
 	"chkCustomDns": "Legen Sie benutzerdefiniertes DNS fest",
-	"btnSetDns": "DNS einstellen"
+	"btnSetDns": "DNS einstellen",
+	"copilotSw": "CoPilot AI deaktivieren",
+    "copilotTip": "Deaktiviert die CoPilot AI-Funktion vollständig.",
+	"btnReinforce": "Richtlinien verstärken",
+	"msgReinforce": "Sind Sie sicher, dass Sie Ihre aktuellen Richtlinien erneut anwenden möchten?"
 }

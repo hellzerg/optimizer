@@ -12,17 +12,17 @@ namespace Optimizer
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
 
-            Options.ApplyTheme(this);
+            OptionsHelper.ApplyTheme(this);
 
             txtInfo.Text = info;
 
             // translate UI elements
-            if (Options.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
+            if (OptionsHelper.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
         }
 
         private void Translate()
         {
-            Dictionary<string, string> translationList = Options.TranslationList.ToObject<Dictionary<string, string>>();
+            Dictionary<string, string> translationList = OptionsHelper.TranslationList.ToObject<Dictionary<string, string>>();
 
             Control element;
 

@@ -443,5 +443,9 @@
 	"btnRefreshFonts": "Reîmprospăteaza",
 	"chkAllNics": "Setați pentru toate adaptoarele de rețea",
 	"chkCustomDns": "Setați DNS personalizat",
-	"btnSetDns": "Setați DNS"
+	"btnSetDns": "Setați DNS",
+	"copilotSw": "Dezactivează funcția CoPilot AI",
+    "copilotTip": "Dezactivează complet funcționalitatea CoPilot AI.",
+	"btnReinforce": "Consolidarea politicilor",
+	"msgReinforce": "Sunteți sigur că doriți să reaplicați politicile actuale?"
 }

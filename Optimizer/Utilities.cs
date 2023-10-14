@@ -1,5 +1,4 @@
 ﻿using Microsoft.Win32;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +9,6 @@ using System.Reflection;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.ServiceProcess;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -236,7 +234,7 @@ namespace Optimizer
 
         internal static void Reboot()
         {
-            Options.SaveSettings();
+            OptionsHelper.SaveSettings();
             Process.Start("shutdown.exe", "/r /t 0");
         }
 
@@ -511,7 +509,7 @@ namespace Optimizer
 
         internal static void DisableProtectedService(string serviceName)
         {
-            using (TokenPrivilege.TakeOwnership)
+            using (TokenPrivilegeHelper.TakeOwnership)
             {
                 using (RegistryKey allServicesKey = Registry.LocalMachine.OpenSubKeyWritable(@"SYSTEM\CurrentControlSet\Services"))
                 {
@@ -558,7 +556,7 @@ namespace Optimizer
 
         internal static void EnableProtectedService(string serviceName)
         {
-            using (TokenPrivilege.TakeOwnership)
+            using (TokenPrivilegeHelper.TakeOwnership)
             {
                 using (RegistryKey allServicesKey = Registry.LocalMachine.OpenSubKeyWritable(@"SYSTEM\CurrentControlSet\Services"))
                 {
@@ -840,23 +838,111 @@ namespace Optimizer
             }
         }
 
-        // for debugging purposes
-        internal static void FindDiffInTwoJsons()
+        internal static string GetUserDownloadsFolder()
         {
-            JObject file1 = JObject.Parse(Properties.Resources.EN);
-            JObject file2 = JObject.Parse(Properties.Resources.NE);
-
-            var p1 = file1.Properties().ToList();
-            var p2 = file2.Properties().ToList();
-
-            var missingProps = p1.Where(expected => p2.Where(actual => actual.Name == expected.Name).Count() == 0);
-
-            StringBuilder sb = new StringBuilder();
-            foreach (var x in missingProps)
+            try
             {
-                sb.Append(x.Name + Environment.NewLine);
+                return Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "{374DE290-123F-4565-9164-39C4925E467B}", string.Empty).ToString();
             }
-            MessageBox.Show(sb.ToString());
+            catch (Exception ex)
+            {
+                Logger.LogError("Utilities.GetUserDownloadsFolder", ex.Message, ex.StackTrace);
+                return string.Empty;
+            }
+        }
+
+        internal static void ReinforceCurrentTweaks()
+        {
+            SilentConfig silentConfig = new SilentConfig();
+            #region Windows General
+            silentConfig.Tweaks.EnablePerformanceTweaks = OptionsHelper.CurrentOptions.EnablePerformanceTweaks;
+            silentConfig.Tweaks.DisableNetworkThrottling = OptionsHelper.CurrentOptions.DisableNetworkThrottling;
+            silentConfig.Tweaks.DisableWindowsDefender = OptionsHelper.CurrentOptions.DisableWindowsDefender;
+            silentConfig.Tweaks.DisableSystemRestore = OptionsHelper.CurrentOptions.DisableSystemRestore;
+            silentConfig.Tweaks.DisablePrintService = OptionsHelper.CurrentOptions.DisablePrintService;
+            silentConfig.Tweaks.DisableMediaPlayerSharing = OptionsHelper.CurrentOptions.DisableMediaPlayerSharing;
+            silentConfig.Tweaks.DisableErrorReporting = OptionsHelper.CurrentOptions.DisableErrorReporting;
+            silentConfig.Tweaks.DisableHomeGroup = OptionsHelper.CurrentOptions.DisableHomeGroup;
+            silentConfig.Tweaks.DisableSuperfetch = OptionsHelper.CurrentOptions.DisableSuperfetch;
+            silentConfig.Tweaks.DisableTelemetryTasks = OptionsHelper.CurrentOptions.DisableTelemetryTasks;
+            silentConfig.Tweaks.DisableOffice2016Telemetry = OptionsHelper.CurrentOptions.DisableOffice2016Telemetry;
+            silentConfig.Tweaks.DisableCompatibilityAssistant = OptionsHelper.CurrentOptions.DisableCompatibilityAssistant;
+            silentConfig.Tweaks.DisableHibernation = OptionsHelper.CurrentOptions.DisableHibernation;
+            silentConfig.Tweaks.DisableSMB1 = OptionsHelper.CurrentOptions.DisableSMB1;
+            silentConfig.Tweaks.DisableSMB2 = OptionsHelper.CurrentOptions.DisableSMB2;
+            silentConfig.Tweaks.DisableNTFSTimeStamp = OptionsHelper.CurrentOptions.DisableNTFSTimeStamp;
+            silentConfig.Tweaks.DisableFaxService = OptionsHelper.CurrentOptions.DisableFaxService;
+            silentConfig.Tweaks.DisableSmartScreen = OptionsHelper.CurrentOptions.DisableSmartScreen;
+            silentConfig.Tweaks.DisableStickyKeys = OptionsHelper.CurrentOptions.DisableStickyKeys;
+            silentConfig.Tweaks.DisableVisualStudioTelemetry = OptionsHelper.CurrentOptions.DisableVisualStudioTelemetry;
+            silentConfig.Tweaks.DisableFirefoxTemeletry = OptionsHelper.CurrentOptions.DisableFirefoxTemeletry;
+            silentConfig.Tweaks.DisableChromeTelemetry = OptionsHelper.CurrentOptions.DisableChromeTelemetry;
+            silentConfig.Tweaks.DisableNVIDIATelemetry = OptionsHelper.CurrentOptions.DisableNVIDIATelemetry;
+            silentConfig.Tweaks.DisableSearch = OptionsHelper.CurrentOptions.DisableSearch;
+            #endregion
+            #region Windows 8.1
+            silentConfig.Tweaks.DisableOneDrive = OptionsHelper.CurrentOptions.DisableOneDrive;
+            #endregion
+            #region Windows 10
+            silentConfig.Tweaks.DisableCloudClipboard = OptionsHelper.CurrentOptions.DisableCloudClipboard;
+            silentConfig.Tweaks.EnableLegacyVolumeSlider = OptionsHelper.CurrentOptions.EnableLegacyVolumeSlider;
+            silentConfig.Tweaks.DisableQuickAccessHistory = OptionsHelper.CurrentOptions.DisableQuickAccessHistory;
+            silentConfig.Tweaks.DisableStartMenuAds = OptionsHelper.CurrentOptions.DisableStartMenuAds;
+            silentConfig.Tweaks.UninstallOneDrive = OptionsHelper.CurrentOptions.UninstallOneDrive;
+            silentConfig.Tweaks.DisableMyPeople = OptionsHelper.CurrentOptions.DisableMyPeople;
+            silentConfig.Tweaks.DisableAutomaticUpdates = OptionsHelper.CurrentOptions.DisableAutomaticUpdates;
+            silentConfig.Tweaks.ExcludeDrivers = OptionsHelper.CurrentOptions.ExcludeDrivers;
+            silentConfig.Tweaks.DisableTelemetryServices = OptionsHelper.CurrentOptions.DisableTelemetryServices;
+            silentConfig.Tweaks.DisablePrivacyOptions = OptionsHelper.CurrentOptions.DisablePrivacyOptions;
+            silentConfig.Tweaks.DisableCortana = OptionsHelper.CurrentOptions.DisableCortana;
+            silentConfig.Tweaks.DisableSensorServices = OptionsHelper.CurrentOptions.DisableSensorServices;
+            silentConfig.Tweaks.DisableWindowsInk = OptionsHelper.CurrentOptions.DisableWindowsInk;
+            silentConfig.Tweaks.DisableSpellingTyping = OptionsHelper.CurrentOptions.DisableSpellingTyping;
+            silentConfig.Tweaks.DisableXboxLive = OptionsHelper.CurrentOptions.DisableXboxLive;
+            silentConfig.Tweaks.DisableGameBar = OptionsHelper.CurrentOptions.DisableGameBar;
+            silentConfig.Tweaks.DisableInsiderService = OptionsHelper.CurrentOptions.DisableInsiderService;
+            silentConfig.Tweaks.DisableStoreUpdates = OptionsHelper.CurrentOptions.DisableStoreUpdates;
+            silentConfig.Tweaks.EnableLongPaths = OptionsHelper.CurrentOptions.EnableLongPaths;
+            silentConfig.Tweaks.RemoveCastToDevice = OptionsHelper.CurrentOptions.RemoveCastToDevice;
+            silentConfig.Tweaks.EnableGamingMode = OptionsHelper.CurrentOptions.EnableGamingMode;
+            silentConfig.Tweaks.DisableTPMCheck = OptionsHelper.CurrentOptions.DisableTPMCheck;
+            silentConfig.Tweaks.DisableVirtualizationBasedTechnology = OptionsHelper.CurrentOptions.DisableVBS;
+            silentConfig.Tweaks.DisableEdgeDiscoverBar = OptionsHelper.CurrentOptions.DisableEdgeDiscoverBar;
+            silentConfig.Tweaks.DisableEdgeTelemetry = OptionsHelper.CurrentOptions.DisableEdgeTelemetry;
+            silentConfig.Tweaks.RestoreClassicPhotoViewer = OptionsHelper.CurrentOptions.RestoreClassicPhotoViewer;
+            #endregion
+            #region Windows 11
+            silentConfig.Tweaks.TaskbarToLeft = OptionsHelper.CurrentOptions.TaskbarToLeft;
+            silentConfig.Tweaks.DisableStickers = OptionsHelper.CurrentOptions.DisableStickers;
+            silentConfig.Tweaks.CompactMode = OptionsHelper.CurrentOptions.CompactMode;
+            silentConfig.Tweaks.DisableSnapAssist = OptionsHelper.CurrentOptions.DisableSnapAssist;
+            silentConfig.Tweaks.DisableWidgets = OptionsHelper.CurrentOptions.DisableWidgets;
+            silentConfig.Tweaks.DisableChat = OptionsHelper.CurrentOptions.DisableChat;
+            silentConfig.Tweaks.ClassicMenu = OptionsHelper.CurrentOptions.ClassicMenu;
+            silentConfig.Tweaks.DisableCoPilotAI = OptionsHelper.CurrentOptions.DisableCoPilotAI;
+            #endregion
+            SilentOps.CurrentSilentConfig = silentConfig;
+
+            if (CurrentWindowsVersion == WindowsVersion.Windows7)
+            {
+                SilentOps.ProcessTweaksGeneral();
+            }
+            if (CurrentWindowsVersion == WindowsVersion.Windows8)
+            {
+                SilentOps.ProcessTweaksGeneral();
+                SilentOps.ProcessTweaksWindows8();
+            }
+            if (CurrentWindowsVersion == WindowsVersion.Windows10)
+            {
+                SilentOps.ProcessTweaksGeneral();
+                SilentOps.ProcessTweaksWindows10();
+            }
+            if (CurrentWindowsVersion == WindowsVersion.Windows11)
+            {
+                SilentOps.ProcessTweaksGeneral();
+                SilentOps.ProcessTweaksWindows10();
+                SilentOps.ProcessTweaksWindows11();
+            }
         }
     }
 }

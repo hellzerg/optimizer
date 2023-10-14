@@ -457,5 +457,9 @@
 	"btnRefreshFonts": "重新整理",
 	"chkAllNics": "為所有網絡適配器設置",
 	"chkCustomDns": "設置自定義 DNS",
-	"btnSetDns": "設置DNS"
+	"btnSetDns": "設置DNS",
+	"copilotSw": "停用 CoPilot AI",
+	"copilotTip": "完全關閉 CoPilot AI 功能。",
+	"btnReinforce": "加強政策",
+	"msgReinforce": "您確定要重新應用目前的政策嗎？"
 }

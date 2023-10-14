@@ -461,5 +461,9 @@ Negatív hatással van a teljesítményre.",
 	"btnRefreshFonts": "Frissítés",
 	"chkAllNics": "Minden hálózati adapterhez beállítva",
 	"chkCustomDns": "Állítsa be az egyéni DNS",
-	"btnSetDns": "Állítsa be a DNS"
+	"btnSetDns": "Állítsa be a DNS",
+	"copilotSw": "CoPilot AI kikapcsolása",
+    "copilotTip": "Teljesen kikapcsolja a CoPilot AI funkciót.",
+	"btnReinforce": "Iránypontok erősítése",
+	"msgReinforce": "Biztos vagy benne, hogy újra alkalmazod az aktuális iránypontokat?"
 }

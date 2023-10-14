@@ -7,7 +7,7 @@ namespace Optimizer
     /*
      *  Allows clients to obtain a Windows token privilege for a well-defined scope simply by "using" an instance of this class.
      */
-    sealed class TokenPrivilege : IDisposable
+    sealed class TokenPrivilegeHelper : IDisposable
     {
         private enum PrivilegeAction : uint
         {
@@ -15,13 +15,13 @@ namespace Optimizer
             Enable = 0x2
         }
 
-        public static TokenPrivilege Backup => new TokenPrivilege("SeBackupPrivilege");
-        public static TokenPrivilege Restore => new TokenPrivilege("SeRestorePrivilege");
-        public static TokenPrivilege TakeOwnership => new TokenPrivilege("SeTakeOwnershipPrivilege");
+        public static TokenPrivilegeHelper Backup => new TokenPrivilegeHelper("SeBackupPrivilege");
+        public static TokenPrivilegeHelper Restore => new TokenPrivilegeHelper("SeRestorePrivilege");
+        public static TokenPrivilegeHelper TakeOwnership => new TokenPrivilegeHelper("SeTakeOwnershipPrivilege");
 
         private readonly string privilegeName;
 
-        private TokenPrivilege(string privilegeName)
+        private TokenPrivilegeHelper(string privilegeName)
         {
             this.privilegeName = privilegeName;
             Apply(PrivilegeAction.Enable);

@@ -411,5 +411,9 @@
 	"btnRefreshFonts": "रिफ्रेस गर्नुहोस्",
 	"chkAllNics": "सबै नेटवर्क एडेप्टरहरूको लागि सेट गर्नुहोस्",
 	"chkCustomDns": "अनुकूलन DNS सेट गर्नुहोस्",
-	"btnSetDns": "DNS सेट गर्नुहोस्"
+	"btnSetDns": "DNS सेट गर्नुहोस्",
+	"copilotSw": "CoPilot AI बिल्कुल बन्द गर्दछ।",
+    "copilotTip": "CoPilot AI कुरा पूरा बन्द गर्दछ।",
+	"btnReinforce": "नीत",
+	"msgReinforce": "तपाईंले आफ्ना हालका नीत"
 }

@@ -20,7 +20,7 @@ namespace Optimizer
 
             using (Stream stream = currentAssembly.GetManifestResourceStream(embeddedResource))
             {
-                if (stream == null) throw new Exception(embeddedResource + " is not found in Embedded Resources.");
+                if (stream == null) throw new Exception($"{embeddedResource} is not found in Embedded Resources.");
 
                 bytes = new byte[(int)stream.Length];
                 stream.Read(bytes, 0, (int)stream.Length);
@@ -69,16 +69,13 @@ namespace Optimizer
             }
 
             assembly = Assembly.LoadFile(tempFile);
-
             _dictionary.Add(assembly.FullName, assembly);
         }
 
         internal static Assembly Get(string assemblyFullName)
         {
             if (_dictionary == null || _dictionary.Count == 0) return null;
-
             if (_dictionary.ContainsKey(assemblyFullName)) return _dictionary[assemblyFullName];
-
             return null;
         }
     }

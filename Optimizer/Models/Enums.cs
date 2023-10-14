@@ -17,7 +17,8 @@
 
     public enum StartupItemLocation
     {
-        Folder,
+        LMStartupFolder,
+        CUStartupFolder,
         HKLM,
         HKLMWoW,
         HKCU
@@ -107,17 +108,8 @@
         NL, // dutch
         UA, // ukrainian
         JA, // japanese
-        FA, //farsi
-        NE //nepali
-    }
-
-    public enum KnownFolder
-    {
-        Contacts,
-        Downloads,
-        Favorites,
-        Links,
-        SavedGames,
-        SavedSearches
+        FA, // farsi
+        NE, // nepali
+        BG // bulgarian
     }
 }

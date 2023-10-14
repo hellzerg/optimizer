@@ -17,7 +17,7 @@ namespace Optimizer
 
         public override string ToString()
         {
-            if (RegistryLocation == StartupItemLocation.Folder) return RegistryLocation.ToString();
+            if (RegistryLocation == StartupItemLocation.LMStartupFolder) return RegistryLocation.ToString();
             return string.Format("{0}:{1}", RegistryLocation, StartupType);
         }
     }

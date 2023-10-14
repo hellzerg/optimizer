@@ -9,9 +9,9 @@ namespace Optimizer
         public AboutForm()
         {
             InitializeComponent();
-            Options.ApplyTheme(this);
+            OptionsHelper.ApplyTheme(this);
 
-            pictureBox1.BackColor = Options.CurrentOptions.Theme;
+            pictureBox1.BackColor = OptionsHelper.CurrentOptions.Theme;
         }
 
         private void About_Load(object sender, EventArgs e)

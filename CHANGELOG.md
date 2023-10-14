@@ -1,3 +1,12 @@
+## [15.9] - 2023-10-14
+- New: Disable CoPilot AI (in Windows 11)
+- New: Fully translated into Bulgarian
+- New: 'Reinforce policies' in Options re-applies your current enabled tweaks (#389)
+- Hotfix: Crash on localized versions of Windows (#383)
+- Hotfix: Various UI bugs
+- Improved: Optimized images and assets
+- Improved: Startup items detection
+
 ## [15.8] - 2023-08-26
 - New: Fully translated into Nepali (thanks to chapagetti)
 - New: You can now set custom DNS in Pinger, as well as from template

@@ -12,7 +12,7 @@ namespace Optimizer
         public HostsEditorForm()
         {
             InitializeComponent();
-            Options.ApplyTheme(this);
+            OptionsHelper.ApplyTheme(this);
 
             if (HostsHelper.GetReadOnly())
             {
@@ -20,7 +20,7 @@ namespace Optimizer
             }
 
             // translate UI elements
-            if (Options.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
+            if (OptionsHelper.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
         }
 
         private void HostsEditor_Load(object sender, EventArgs e)
@@ -37,8 +37,8 @@ namespace Optimizer
 
         private void Translate()
         {
-            this.Text = Options.TranslationList["HostsEditorForm"];
-            Dictionary<string, string> translationList = Options.TranslationList.ToObject<Dictionary<string, string>>();
+            this.Text = OptionsHelper.TranslationList["HostsEditorForm"];
+            Dictionary<string, string> translationList = OptionsHelper.TranslationList.ToObject<Dictionary<string, string>>();
 
             Control element;
 

@@ -448,5 +448,9 @@
 	"btnRefreshFonts": "بارگذاری مجدد",
 	"chkAllNics": "تنظیم برای همه آداپتورهای شبکه",
 	"chkCustomDns": "DNS سفارشی را تنظیم کنید",
-	"btnSetDns": "DNS را تنظیم کنید"
+	"btnSetDns": "DNS را تنظیم کنید",
+	"copilotSw": "غیرفعال کردن ویژگی CoPilot AI به طور کامل",
+    "copilotTip": "ویژگی CoPilot AI به طور کامل غیرفعال می‌شود.",
+	"btnReinforce": "تقویت سیاست‌ها",
+	"msgReinforce": "آیا مطمئن هستید که می‌خواهید سیاست‌های فعلی را مجدداً اعمال کنید؟"
 }

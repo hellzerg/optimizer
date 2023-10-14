@@ -10,17 +10,17 @@ namespace Optimizer
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
-            Options.ApplyTheme(this);
+            OptionsHelper.ApplyTheme(this);
 
             txtMessage.Text = message;
 
             if (newUpdate)
             {
                 this.Size = new Size(600, 545);
-                btnOK.Text = Options.TranslationList["btnYes"].ToString();
-                btnNo.Text = Options.TranslationList["btnNo"].ToString();
+                btnOK.Text = OptionsHelper.TranslationList["btnYes"].ToString();
+                btnNo.Text = OptionsHelper.TranslationList["btnNo"].ToString();
                 btnNo.Visible = true;
-                txtChanges.Text = Options.TranslationList["btnChangelog"].ToString();
+                txtChanges.Text = OptionsHelper.TranslationList["btnChangelog"].ToString();
                 txtVersions.Text = $"{Program.GetCurrentVersionTostring()} → {latestVersion}";
                 txtVersions.Visible = true;
 
@@ -34,7 +34,7 @@ namespace Optimizer
             else
             {
                 this.Size = new Size(600, 188);
-                btnOK.Text = Options.TranslationList["btnAbout"].ToString();
+                btnOK.Text = OptionsHelper.TranslationList["btnAbout"].ToString();
                 btnNo.Visible = false;
                 txtVersions.Visible = false;
 

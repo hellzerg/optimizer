@@ -134,6 +134,7 @@
         "DisableSearch": null,
         "DisableEdgeDiscoverBar": null,
         "DisableEdgeTelemetry": null,
+        "DisableCoPilotAI": null,
         "RestoreClassicPhotoViewer": null
     }
 }

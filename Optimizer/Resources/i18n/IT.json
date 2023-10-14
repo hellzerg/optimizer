@@ -455,5 +455,9 @@ Ha un effetto negativo sulle prestazioni.",
 	"btnRefreshFonts": "Aggiorna",
 	"chkAllNics": "Impostato per tutti gli adattatori di rete",
 	"chkCustomDns": "Imposta DNS personalizzati",
-	"btnSetDns": "Imposta DNS"
+	"btnSetDns": "Imposta DNS",
+	"copilotSw": "Disabilita CoPilot AI",
+    "copilotTip": "Disattiva completamente la funzionalità CoPilot AI.",
+	"btnReinforce": "Rafforzare le Politiche",
+	"msgReinforce": "Sei sicuro di voler riapplicare le tue attuali politiche?"
 }

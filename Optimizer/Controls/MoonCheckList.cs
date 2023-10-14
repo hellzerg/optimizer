@@ -13,7 +13,7 @@ namespace Optimizer
         protected override void OnDrawItem(DrawItemEventArgs e)
         {
             Color foreColor = Color.White;
-            Color accentColor = Options.ForegroundColor;
+            Color accentColor = OptionsHelper.ForegroundColor;
 
             if (this.Items.Count > 0)
             {

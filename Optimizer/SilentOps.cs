@@ -26,7 +26,7 @@ namespace Optimizer
 
         internal static void ProcessAllActions()
         {
-            Logger.InitSilentReport();
+            Logger.InitializeSilentReport();
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
             {
@@ -358,7 +358,7 @@ namespace Optimizer
                 {
                     Utilities.EnableHPET();
                 }
-                Options.CurrentOptions.DisableHPET = CurrentSilentConfig.AdvancedTweaks.DisableHPET.Value;
+                OptionsHelper.CurrentOptions.DisableHPET = CurrentSilentConfig.AdvancedTweaks.DisableHPET.Value;
             }
 
             if (CurrentSilentConfig.AdvancedTweaks.EnableLoginVerbose.HasValue)
@@ -371,7 +371,7 @@ namespace Optimizer
                 {
                     Utilities.DisableLoginVerbose();
                 }
-                Options.CurrentOptions.EnableLoginVerbose = CurrentSilentConfig.AdvancedTweaks.EnableLoginVerbose.Value;
+                OptionsHelper.CurrentOptions.EnableLoginVerbose = CurrentSilentConfig.AdvancedTweaks.EnableLoginVerbose.Value;
             }
         }
 
@@ -389,7 +389,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.DisablePerformanceTweaks();
                 }
-                Options.CurrentOptions.EnablePerformanceTweaks = CurrentSilentConfig.Tweaks.EnablePerformanceTweaks.Value;
+                OptionsHelper.CurrentOptions.EnablePerformanceTweaks = CurrentSilentConfig.Tweaks.EnablePerformanceTweaks.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableNetworkThrottling.HasValue)
@@ -402,7 +402,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableNetworkThrottling();
                 }
-                Options.CurrentOptions.DisableNetworkThrottling = CurrentSilentConfig.Tweaks.DisableNetworkThrottling.Value;
+                OptionsHelper.CurrentOptions.DisableNetworkThrottling = CurrentSilentConfig.Tweaks.DisableNetworkThrottling.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableWindowsDefender.HasValue)
@@ -415,7 +415,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableDefender();
                 }
-                Options.CurrentOptions.DisableWindowsDefender = CurrentSilentConfig.Tweaks.DisableWindowsDefender.Value;
+                OptionsHelper.CurrentOptions.DisableWindowsDefender = CurrentSilentConfig.Tweaks.DisableWindowsDefender.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableSystemRestore.HasValue)
@@ -428,7 +428,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableSystemRestore();
                 }
-                Options.CurrentOptions.DisableSystemRestore = CurrentSilentConfig.Tweaks.DisableSystemRestore.Value;
+                OptionsHelper.CurrentOptions.DisableSystemRestore = CurrentSilentConfig.Tweaks.DisableSystemRestore.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisablePrintService.HasValue)
@@ -441,7 +441,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnablePrintService();
                 }
-                Options.CurrentOptions.DisablePrintService = CurrentSilentConfig.Tweaks.DisablePrintService.Value;
+                OptionsHelper.CurrentOptions.DisablePrintService = CurrentSilentConfig.Tweaks.DisablePrintService.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableMediaPlayerSharing.HasValue)
@@ -454,7 +454,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableMediaPlayerSharing();
                 }
-                Options.CurrentOptions.DisableMediaPlayerSharing = CurrentSilentConfig.Tweaks.DisableMediaPlayerSharing.Value;
+                OptionsHelper.CurrentOptions.DisableMediaPlayerSharing = CurrentSilentConfig.Tweaks.DisableMediaPlayerSharing.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableErrorReporting.HasValue)
@@ -467,7 +467,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableErrorReporting();
                 }
-                Options.CurrentOptions.DisableErrorReporting = CurrentSilentConfig.Tweaks.DisableErrorReporting.Value;
+                OptionsHelper.CurrentOptions.DisableErrorReporting = CurrentSilentConfig.Tweaks.DisableErrorReporting.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableHomeGroup.HasValue)
@@ -480,7 +480,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableHomeGroup();
                 }
-                Options.CurrentOptions.DisableHomeGroup = CurrentSilentConfig.Tweaks.DisableHomeGroup.Value;
+                OptionsHelper.CurrentOptions.DisableHomeGroup = CurrentSilentConfig.Tweaks.DisableHomeGroup.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableSuperfetch.HasValue)
@@ -493,7 +493,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableSuperfetch();
                 }
-                Options.CurrentOptions.DisableSuperfetch = CurrentSilentConfig.Tweaks.DisableSuperfetch.Value;
+                OptionsHelper.CurrentOptions.DisableSuperfetch = CurrentSilentConfig.Tweaks.DisableSuperfetch.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableTelemetryTasks.HasValue)
@@ -506,7 +506,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableTelemetryTasks();
                 }
-                Options.CurrentOptions.DisableTelemetryTasks = CurrentSilentConfig.Tweaks.DisableTelemetryTasks.Value;
+                OptionsHelper.CurrentOptions.DisableTelemetryTasks = CurrentSilentConfig.Tweaks.DisableTelemetryTasks.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableOffice2016Telemetry.HasValue)
@@ -519,7 +519,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableOffice2016Telemetry();
                 }
-                Options.CurrentOptions.DisableOffice2016Telemetry = CurrentSilentConfig.Tweaks.DisableOffice2016Telemetry.Value;
+                OptionsHelper.CurrentOptions.DisableOffice2016Telemetry = CurrentSilentConfig.Tweaks.DisableOffice2016Telemetry.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableCompatibilityAssistant.HasValue)
@@ -532,7 +532,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableCompatibilityAssistant();
                 }
-                Options.CurrentOptions.DisableCompatibilityAssistant = CurrentSilentConfig.Tweaks.DisableCompatibilityAssistant.Value;
+                OptionsHelper.CurrentOptions.DisableCompatibilityAssistant = CurrentSilentConfig.Tweaks.DisableCompatibilityAssistant.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableFaxService.HasValue)
@@ -545,7 +545,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableFaxService();
                 }
-                Options.CurrentOptions.DisableFaxService = CurrentSilentConfig.Tweaks.DisableFaxService.Value;
+                OptionsHelper.CurrentOptions.DisableFaxService = CurrentSilentConfig.Tweaks.DisableFaxService.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableSmartScreen.HasValue)
@@ -558,7 +558,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableSmartScreen();
                 }
-                Options.CurrentOptions.DisableSmartScreen = CurrentSilentConfig.Tweaks.DisableSmartScreen.Value;
+                OptionsHelper.CurrentOptions.DisableSmartScreen = CurrentSilentConfig.Tweaks.DisableSmartScreen.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableStickyKeys.HasValue)
@@ -571,7 +571,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableStickyKeys();
                 }
-                Options.CurrentOptions.DisableStickyKeys = CurrentSilentConfig.Tweaks.DisableStickyKeys.Value;
+                OptionsHelper.CurrentOptions.DisableStickyKeys = CurrentSilentConfig.Tweaks.DisableStickyKeys.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableHibernation.HasValue)
@@ -584,7 +584,7 @@ namespace Optimizer
                 {
                     Utilities.EnableHibernation();
                 }
-                Options.CurrentOptions.DisableHibernation = CurrentSilentConfig.Tweaks.DisableHibernation.Value;
+                OptionsHelper.CurrentOptions.DisableHibernation = CurrentSilentConfig.Tweaks.DisableHibernation.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableSMB1.HasValue)
@@ -597,7 +597,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableSMB("1");
                 }
-                Options.CurrentOptions.DisableSMB1 = CurrentSilentConfig.Tweaks.DisableSMB1.Value;
+                OptionsHelper.CurrentOptions.DisableSMB1 = CurrentSilentConfig.Tweaks.DisableSMB1.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableSMB2.HasValue)
@@ -610,7 +610,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableSMB("2");
                 }
-                Options.CurrentOptions.DisableSMB2 = CurrentSilentConfig.Tweaks.DisableSMB2.Value;
+                OptionsHelper.CurrentOptions.DisableSMB2 = CurrentSilentConfig.Tweaks.DisableSMB2.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableNTFSTimeStamp.HasValue)
@@ -623,7 +623,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableNTFSTimeStamp();
                 }
-                Options.CurrentOptions.DisableNTFSTimeStamp = CurrentSilentConfig.Tweaks.DisableNTFSTimeStamp.Value;
+                OptionsHelper.CurrentOptions.DisableNTFSTimeStamp = CurrentSilentConfig.Tweaks.DisableNTFSTimeStamp.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableSearch.HasValue)
@@ -636,7 +636,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableSearch();
                 }
-                Options.CurrentOptions.DisableSearch = CurrentSilentConfig.Tweaks.DisableSearch.Value;
+                OptionsHelper.CurrentOptions.DisableSearch = CurrentSilentConfig.Tweaks.DisableSearch.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableChromeTelemetry.HasValue)
@@ -649,7 +649,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableChromeTelemetry();
                 }
-                Options.CurrentOptions.DisableChromeTelemetry = CurrentSilentConfig.Tweaks.DisableChromeTelemetry.Value;
+                OptionsHelper.CurrentOptions.DisableChromeTelemetry = CurrentSilentConfig.Tweaks.DisableChromeTelemetry.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableFirefoxTemeletry.HasValue)
@@ -662,7 +662,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableFirefoxTelemetry();
                 }
-                Options.CurrentOptions.DisableFirefoxTemeletry = CurrentSilentConfig.Tweaks.DisableFirefoxTemeletry.Value;
+                OptionsHelper.CurrentOptions.DisableFirefoxTemeletry = CurrentSilentConfig.Tweaks.DisableFirefoxTemeletry.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableVisualStudioTelemetry.HasValue)
@@ -675,7 +675,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableVisualStudioTelemetry();
                 }
-                Options.CurrentOptions.DisableVisualStudioTelemetry = CurrentSilentConfig.Tweaks.DisableVisualStudioTelemetry.Value;
+                OptionsHelper.CurrentOptions.DisableVisualStudioTelemetry = CurrentSilentConfig.Tweaks.DisableVisualStudioTelemetry.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableNVIDIATelemetry.HasValue)
@@ -688,7 +688,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableNvidiaTelemetry();
                 }
-                Options.CurrentOptions.DisableNVIDIATelemetry = CurrentSilentConfig.Tweaks.DisableNVIDIATelemetry.Value;
+                OptionsHelper.CurrentOptions.DisableNVIDIATelemetry = CurrentSilentConfig.Tweaks.DisableNVIDIATelemetry.Value;
             }
         }
         #endregion
@@ -706,7 +706,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableOneDrive();
                 }
-                Options.CurrentOptions.DisableOneDrive = CurrentSilentConfig.Tweaks.DisableOneDrive.Value;
+                OptionsHelper.CurrentOptions.DisableOneDrive = CurrentSilentConfig.Tweaks.DisableOneDrive.Value;
             }
         }
         #endregion
@@ -724,7 +724,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.DisableGamingMode();
                 }
-                Options.CurrentOptions.EnableGamingMode = CurrentSilentConfig.Tweaks.EnableGamingMode.Value;
+                OptionsHelper.CurrentOptions.EnableGamingMode = CurrentSilentConfig.Tweaks.EnableGamingMode.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.EnableLegacyVolumeSlider.HasValue)
@@ -737,7 +737,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.DisableLegacyVolumeSlider();
                 }
-                Options.CurrentOptions.EnableLegacyVolumeSlider = CurrentSilentConfig.Tweaks.EnableLegacyVolumeSlider.Value;
+                OptionsHelper.CurrentOptions.EnableLegacyVolumeSlider = CurrentSilentConfig.Tweaks.EnableLegacyVolumeSlider.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableQuickAccessHistory.HasValue)
@@ -750,7 +750,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableQuickAccessHistory();
                 }
-                Options.CurrentOptions.DisableQuickAccessHistory = CurrentSilentConfig.Tweaks.DisableQuickAccessHistory.Value;
+                OptionsHelper.CurrentOptions.DisableQuickAccessHistory = CurrentSilentConfig.Tweaks.DisableQuickAccessHistory.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableStartMenuAds.HasValue)
@@ -763,7 +763,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableStartMenuAds();
                 }
-                Options.CurrentOptions.DisableStartMenuAds = CurrentSilentConfig.Tweaks.DisableStartMenuAds.Value;
+                OptionsHelper.CurrentOptions.DisableStartMenuAds = CurrentSilentConfig.Tweaks.DisableStartMenuAds.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.UninstallOneDrive.HasValue)
@@ -776,7 +776,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.InstallOneDrive();
                 }
-                Options.CurrentOptions.UninstallOneDrive = CurrentSilentConfig.Tweaks.UninstallOneDrive.Value;
+                OptionsHelper.CurrentOptions.UninstallOneDrive = CurrentSilentConfig.Tweaks.UninstallOneDrive.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableMyPeople.HasValue)
@@ -789,7 +789,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableMyPeople();
                 }
-                Options.CurrentOptions.DisableMyPeople = CurrentSilentConfig.Tweaks.DisableMyPeople.Value;
+                OptionsHelper.CurrentOptions.DisableMyPeople = CurrentSilentConfig.Tweaks.DisableMyPeople.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.EnableLongPaths.HasValue)
@@ -802,7 +802,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.DisableLongPaths();
                 }
-                Options.CurrentOptions.EnableLongPaths = CurrentSilentConfig.Tweaks.EnableLongPaths.Value;
+                OptionsHelper.CurrentOptions.EnableLongPaths = CurrentSilentConfig.Tweaks.EnableLongPaths.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableAutomaticUpdates.HasValue)
@@ -815,7 +815,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableAutomaticUpdates();
                 }
-                Options.CurrentOptions.DisableAutomaticUpdates = CurrentSilentConfig.Tweaks.DisableAutomaticUpdates.Value;
+                OptionsHelper.CurrentOptions.DisableAutomaticUpdates = CurrentSilentConfig.Tweaks.DisableAutomaticUpdates.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.ExcludeDrivers.HasValue)
@@ -828,7 +828,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.IncludeDrivers();
                 }
-                Options.CurrentOptions.ExcludeDrivers = CurrentSilentConfig.Tweaks.ExcludeDrivers.Value;
+                OptionsHelper.CurrentOptions.ExcludeDrivers = CurrentSilentConfig.Tweaks.ExcludeDrivers.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableTelemetryServices.HasValue)
@@ -841,7 +841,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableTelemetryServices();
                 }
-                Options.CurrentOptions.DisableTelemetryServices = CurrentSilentConfig.Tweaks.DisableTelemetryServices.Value;
+                OptionsHelper.CurrentOptions.DisableTelemetryServices = CurrentSilentConfig.Tweaks.DisableTelemetryServices.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisablePrivacyOptions.HasValue)
@@ -854,7 +854,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.CompromisePrivacy();
                 }
-                Options.CurrentOptions.DisablePrivacyOptions = CurrentSilentConfig.Tweaks.DisablePrivacyOptions.Value;
+                OptionsHelper.CurrentOptions.DisablePrivacyOptions = CurrentSilentConfig.Tweaks.DisablePrivacyOptions.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableCortana.HasValue)
@@ -867,7 +867,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableCortana();
                 }
-                Options.CurrentOptions.DisableCortana = CurrentSilentConfig.Tweaks.DisableCortana.Value;
+                OptionsHelper.CurrentOptions.DisableCortana = CurrentSilentConfig.Tweaks.DisableCortana.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableSensorServices.HasValue)
@@ -880,7 +880,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableSensorServices();
                 }
-                Options.CurrentOptions.DisableSensorServices = CurrentSilentConfig.Tweaks.DisableSensorServices.Value;
+                OptionsHelper.CurrentOptions.DisableSensorServices = CurrentSilentConfig.Tweaks.DisableSensorServices.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableWindowsInk.HasValue)
@@ -893,7 +893,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableWindowsInk();
                 }
-                Options.CurrentOptions.DisableWindowsInk = CurrentSilentConfig.Tweaks.DisableWindowsInk.Value;
+                OptionsHelper.CurrentOptions.DisableWindowsInk = CurrentSilentConfig.Tweaks.DisableWindowsInk.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableSpellingTyping.HasValue)
@@ -906,7 +906,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableSpellingAndTypingFeatures();
                 }
-                Options.CurrentOptions.DisableSpellingTyping = CurrentSilentConfig.Tweaks.DisableSpellingTyping.Value;
+                OptionsHelper.CurrentOptions.DisableSpellingTyping = CurrentSilentConfig.Tweaks.DisableSpellingTyping.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableXboxLive.HasValue)
@@ -919,7 +919,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableXboxLive();
                 }
-                Options.CurrentOptions.DisableXboxLive = CurrentSilentConfig.Tweaks.DisableXboxLive.Value;
+                OptionsHelper.CurrentOptions.DisableXboxLive = CurrentSilentConfig.Tweaks.DisableXboxLive.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableGameBar.HasValue)
@@ -932,7 +932,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableGameBar();
                 }
-                Options.CurrentOptions.DisableGameBar = CurrentSilentConfig.Tweaks.DisableGameBar.Value;
+                OptionsHelper.CurrentOptions.DisableGameBar = CurrentSilentConfig.Tweaks.DisableGameBar.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableInsiderService.HasValue)
@@ -945,7 +945,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableInsiderService();
                 }
-                Options.CurrentOptions.DisableInsiderService = CurrentSilentConfig.Tweaks.DisableInsiderService.Value;
+                OptionsHelper.CurrentOptions.DisableInsiderService = CurrentSilentConfig.Tweaks.DisableInsiderService.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableStoreUpdates.HasValue)
@@ -958,7 +958,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableStoreUpdates();
                 }
-                Options.CurrentOptions.DisableStoreUpdates = CurrentSilentConfig.Tweaks.DisableStoreUpdates.Value;
+                OptionsHelper.CurrentOptions.DisableStoreUpdates = CurrentSilentConfig.Tweaks.DisableStoreUpdates.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableCloudClipboard.HasValue)
@@ -971,7 +971,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableCloudClipboard();
                 }
-                Options.CurrentOptions.DisableCloudClipboard = CurrentSilentConfig.Tweaks.DisableCloudClipboard.Value;
+                OptionsHelper.CurrentOptions.DisableCloudClipboard = CurrentSilentConfig.Tweaks.DisableCloudClipboard.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.RemoveCastToDevice.HasValue)
@@ -984,7 +984,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.AddCastToDevice();
                 }
-                Options.CurrentOptions.RemoveCastToDevice = CurrentSilentConfig.Tweaks.RemoveCastToDevice.Value;
+                OptionsHelper.CurrentOptions.RemoveCastToDevice = CurrentSilentConfig.Tweaks.RemoveCastToDevice.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableEdgeTelemetry.HasValue)
@@ -997,7 +997,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableEdgeTelemetry();
                 }
-                Options.CurrentOptions.DisableEdgeTelemetry = CurrentSilentConfig.Tweaks.DisableEdgeTelemetry.Value;
+                OptionsHelper.CurrentOptions.DisableEdgeTelemetry = CurrentSilentConfig.Tweaks.DisableEdgeTelemetry.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableEdgeDiscoverBar.HasValue)
@@ -1010,7 +1010,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableEdgeDiscoverBar();
                 }
-                Options.CurrentOptions.DisableEdgeDiscoverBar = CurrentSilentConfig.Tweaks.DisableEdgeDiscoverBar.Value;
+                OptionsHelper.CurrentOptions.DisableEdgeDiscoverBar = CurrentSilentConfig.Tweaks.DisableEdgeDiscoverBar.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.RestoreClassicPhotoViewer.HasValue)
@@ -1023,7 +1023,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.DisableClassicPhotoViewer();
                 }
-                Options.CurrentOptions.RestoreClassicPhotoViewer = CurrentSilentConfig.Tweaks.RestoreClassicPhotoViewer.Value;
+                OptionsHelper.CurrentOptions.RestoreClassicPhotoViewer = CurrentSilentConfig.Tweaks.RestoreClassicPhotoViewer.Value;
             }
         }
         #endregion
@@ -1041,7 +1041,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.AlignTaskbarToCenter();
                 }
-                Options.CurrentOptions.TaskbarToLeft = CurrentSilentConfig.Tweaks.TaskbarToLeft.Value;
+                OptionsHelper.CurrentOptions.TaskbarToLeft = CurrentSilentConfig.Tweaks.TaskbarToLeft.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableStickers.HasValue)
@@ -1054,7 +1054,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableStickers();
                 }
-                Options.CurrentOptions.DisableStickers = CurrentSilentConfig.Tweaks.DisableStickers.Value;
+                OptionsHelper.CurrentOptions.DisableStickers = CurrentSilentConfig.Tweaks.DisableStickers.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.CompactMode.HasValue)
@@ -1067,7 +1067,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.DisableFilesCompactMode();
                 }
-                Options.CurrentOptions.CompactMode = CurrentSilentConfig.Tweaks.CompactMode.Value;
+                OptionsHelper.CurrentOptions.CompactMode = CurrentSilentConfig.Tweaks.CompactMode.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableSnapAssist.HasValue)
@@ -1080,7 +1080,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableSnapAssist();
                 }
-                Options.CurrentOptions.DisableSnapAssist = CurrentSilentConfig.Tweaks.DisableSnapAssist.Value;
+                OptionsHelper.CurrentOptions.DisableSnapAssist = CurrentSilentConfig.Tweaks.DisableSnapAssist.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableWidgets.HasValue)
@@ -1093,7 +1093,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableWidgets();
                 }
-                Options.CurrentOptions.DisableWidgets = CurrentSilentConfig.Tweaks.DisableWidgets.Value;
+                OptionsHelper.CurrentOptions.DisableWidgets = CurrentSilentConfig.Tweaks.DisableWidgets.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableChat.HasValue)
@@ -1106,22 +1106,20 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableChat();
                 }
-                Options.CurrentOptions.DisableChat = CurrentSilentConfig.Tweaks.DisableChat.Value;
+                OptionsHelper.CurrentOptions.DisableChat = CurrentSilentConfig.Tweaks.DisableChat.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableVirtualizationBasedTechnology.HasValue)
             {
                 if (CurrentSilentConfig.Tweaks.DisableVirtualizationBasedTechnology.Value)
                 {
-                    MessageBox.Show("no vbs");
-                    // OptimizeHelper.DisableVirtualizationBasedSecurity();
+                    OptimizeHelper.DisableVirtualizationBasedSecurity();
                 }
                 else
                 {
-                    MessageBox.Show("OK vbs");
-                    //OptimizeHelper.EnableVirtualizationBasedSecurity();
+                    OptimizeHelper.EnableVirtualizationBasedSecurity();
                 }
-                Options.CurrentOptions.DisableVBS = CurrentSilentConfig.Tweaks.DisableVirtualizationBasedTechnology.Value;
+                OptionsHelper.CurrentOptions.DisableVBS = CurrentSilentConfig.Tweaks.DisableVirtualizationBasedTechnology.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.ClassicMenu.HasValue)
@@ -1134,7 +1132,7 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableShowMoreOptions();
                 }
-                Options.CurrentOptions.ClassicMenu = CurrentSilentConfig.Tweaks.ClassicMenu.Value;
+                OptionsHelper.CurrentOptions.ClassicMenu = CurrentSilentConfig.Tweaks.ClassicMenu.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableTPMCheck.HasValue)
@@ -1147,7 +1145,20 @@ namespace Optimizer
                 {
                     OptimizeHelper.EnableTPMCheck();
                 }
-                Options.CurrentOptions.DisableTPMCheck = CurrentSilentConfig.Tweaks.DisableTPMCheck.Value;
+                OptionsHelper.CurrentOptions.DisableTPMCheck = CurrentSilentConfig.Tweaks.DisableTPMCheck.Value;
+            }
+
+            if (CurrentSilentConfig.Tweaks.DisableCoPilotAI.HasValue)
+            {
+                if (CurrentSilentConfig.Tweaks.DisableCoPilotAI.Value)
+                {
+                    OptimizeHelper.DisableCoPilotAI();
+                }
+                else
+                {
+                    OptimizeHelper.EnableCoPilotAI();
+                }
+                OptionsHelper.CurrentOptions.DisableCoPilotAI = CurrentSilentConfig.Tweaks.DisableCoPilotAI.Value;
             }
         }
         #endregion

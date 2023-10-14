@@ -412,5 +412,9 @@ Het heeft een negatief effect op de prestaties.",
 	"btnRefreshFonts": "Ververs",
 	"chkAllNics": "Instellen voor alle netwerkadapters",
 	"chkCustomDns": "Aangepaste DNS instellen",
-	"btnSetDns": "DNS instellen"
+	"btnSetDns": "DNS instellen",
+   "copilotSw": "Schakel CoPilot AI uit",
+   "copilotTip": "Schakelt de CoPilot AI-functie volledig uit.",
+	"btnReinforce": "Beleid versterken",
+	"msgReinforce": "Weet u zeker dat u uw huidige beleid opnieuw wilt toepassen?"
 }

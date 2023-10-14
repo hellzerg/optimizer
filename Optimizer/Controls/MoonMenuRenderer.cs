@@ -51,7 +51,7 @@ namespace Optimizer
         {
             get
             {
-                return Options.BackgroundColor;
+                return OptionsHelper.BackgroundColor;
             }
         }
 
@@ -59,21 +59,21 @@ namespace Optimizer
         {
             get
             {
-                return Options.BackgroundColor;
+                return OptionsHelper.BackgroundColor;
             }
         }
         public override Color ImageMarginGradientMiddle
         {
             get
             {
-                return Options.BackgroundColor;
+                return OptionsHelper.BackgroundColor;
             }
         }
         public override Color ImageMarginGradientEnd
         {
             get
             {
-                return Options.BackgroundColor;
+                return OptionsHelper.BackgroundColor;
             }
         }
 
@@ -81,7 +81,7 @@ namespace Optimizer
         {
             get
             {
-                return Options.BackgroundColor;
+                return OptionsHelper.BackgroundColor;
             }
         }
 
@@ -89,7 +89,7 @@ namespace Optimizer
         {
             get
             {
-                return Options.BackAccentColor;
+                return OptionsHelper.BackAccentColor;
             }
         }
 
@@ -97,7 +97,7 @@ namespace Optimizer
         {
             get
             {
-                return Options.BackAccentColor;
+                return OptionsHelper.BackAccentColor;
             }
         }
 
@@ -105,7 +105,7 @@ namespace Optimizer
         {
             get
             {
-                return Options.BackAccentColor;
+                return OptionsHelper.BackAccentColor;
             }
         }
 
@@ -113,7 +113,7 @@ namespace Optimizer
         {
             get
             {
-                return Options.BackAccentColor;
+                return OptionsHelper.BackAccentColor;
             }
         }
 
@@ -121,7 +121,7 @@ namespace Optimizer
         {
             get
             {
-                return Options.BackAccentColor;
+                return OptionsHelper.BackAccentColor;
             }
         }
     }

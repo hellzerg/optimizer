@@ -16,10 +16,10 @@ namespace Optimizer
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
-            Options.ApplyTheme(this);
+            OptionsHelper.ApplyTheme(this);
 
-            radioFile.Text = Options.TranslationList["radioFile"].ToString();
-            btnKill.Text = Options.TranslationList["btnKill"].ToString();
+            radioFile.Text = OptionsHelper.TranslationList["radioFile"].ToString();
+            btnKill.Text = OptionsHelper.TranslationList["btnKill"].ToString();
         }
 
         private void FileUnlockForm_Load(object sender, EventArgs e)

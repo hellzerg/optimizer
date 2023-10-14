@@ -13,7 +13,7 @@ namespace Optimizer
         /* VERSION PROPERTIES */
         /* DO NOT LEAVE THEM EMPTY */
         internal readonly static float Major = 15;
-        internal readonly static float Minor = 8;
+        internal readonly static float Minor = 9;
         internal readonly static bool EXPERIMENTAL_BUILD = false;
         /* END OF VERSION PROPERTIES */
 
@@ -30,7 +30,8 @@ namespace Optimizer
         internal static bool SILENT_MODE = false;
         internal static int DPI_PREFERENCE;
 
-        // Enables the corresponding Windows tab for Windows Server machines
+        // Enables the corresponding Windows tab for Windows Server machines,
+        // as well as the Advanced tweaks tab
         internal static bool UNSAFE_MODE = false;
 
         const string _jsonAssembly = @"Optimizer.Newtonsoft.Json.dll";
@@ -40,8 +41,6 @@ namespace Optimizer
 
         static string _adminMissingMessage = "Optimizer needs to be run as administrator!\nApp will now close...";
         static string _unsupportedMessage = "Optimizer works with Windows 7 and higher!\nApp will now close...";
-
-        //static string _renameAppMessage = "It's recommended to rename the app from '{0}' to 'Optimizer' for a better experience.\n\nApp will now close...";
 
         static string _confInvalidVersionMsg = "Windows version does not match!";
         static string _confInvalidFormatMsg = "Config file is in invalid format!";
@@ -60,9 +59,8 @@ namespace Optimizer
         static void Main(string[] switches)
         {
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-
-            EmbeddedAssembly.Load(_jsonAssembly, _jsonAssembly.Replace("Optimizer.", string.Empty));
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+            EmbeddedAssembly.Load(_jsonAssembly, _jsonAssembly.Replace("Optimizer.", string.Empty));
 
             DPI_PREFERENCE = Convert.ToInt32(Microsoft.Win32.Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ThemeManager", "LastLoadedDPI", "96"));
             if (Environment.OSVersion.Version.Major >= 6) SetProcessDPIAware();
@@ -261,7 +259,7 @@ namespace Optimizer
                     SILENT_MODE = true;
                     LoadSettings();
                     SilentOps.ProcessAllActions();
-                    Options.SaveSettings();
+                    OptionsHelper.SaveSettings();
                 }
             }
             else
@@ -279,15 +277,15 @@ namespace Optimizer
         private static void LoadSettings()
         {
             // for backward compatibility (legacy)
-            Options.LegacyCheck();
+            OptionsHelper.LegacyCheck();
 
             // load settings, if there is no settings, load defaults
             try
             {
                 // show FirstRunForm/Language Selector if app is running first time
-                if (!File.Exists(Options.SettingsFile))
+                if (!File.Exists(OptionsHelper.SettingsFile))
                 {
-                    Options.LoadSettings();
+                    OptionsHelper.LoadSettings();
                     if (!SILENT_MODE)
                     {
                         FirstRunForm frf = new FirstRunForm();
@@ -296,7 +294,7 @@ namespace Optimizer
                 }
                 else
                 {
-                    Options.LoadSettings();
+                    OptionsHelper.LoadSettings();
                 }
 
                 //if (!Options.CurrentOptions.DisableOptimizerTelemetry)
@@ -305,13 +303,13 @@ namespace Optimizer
                 //}
 
                 // ideal place to replace internal messages from translation list
-                _adminMissingMessage = Options.TranslationList["adminMissingMsg"];
-                _unsupportedMessage = Options.TranslationList["unsupportedMsg"];
-                _confInvalidFormatMsg = Options.TranslationList["confInvalidFormatMsg"];
-                _confInvalidVersionMsg = Options.TranslationList["confInvalidVersionMsg"];
-                _confNotFoundMsg = Options.TranslationList["confNotFoundMsg"];
-                _argInvalidMsg = Options.TranslationList["argInvalidMsg"];
-                _alreadyRunningMsg = Options.TranslationList["alreadyRunningMsg"];
+                _adminMissingMessage = OptionsHelper.TranslationList["adminMissingMsg"];
+                _unsupportedMessage = OptionsHelper.TranslationList["unsupportedMsg"];
+                _confInvalidFormatMsg = OptionsHelper.TranslationList["confInvalidFormatMsg"];
+                _confInvalidVersionMsg = OptionsHelper.TranslationList["confInvalidVersionMsg"];
+                _confNotFoundMsg = OptionsHelper.TranslationList["confNotFoundMsg"];
+                _argInvalidMsg = OptionsHelper.TranslationList["argInvalidMsg"];
+                _alreadyRunningMsg = OptionsHelper.TranslationList["alreadyRunningMsg"];
             }
             catch (Exception ex)
             {

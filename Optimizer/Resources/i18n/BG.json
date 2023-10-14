@@ -461,5 +461,9 @@
 	"btnRefreshFonts": "Обнови",
 	"chkAllNics": "Приложи за всички мрежови адаптери",
 	"chkCustomDns": "Сложи персонализиран DNS",
-	"btnSetDns": "Сложи DNS"
+	"btnSetDns": "Сложи DNS",
+	"copilotSw": "Изключете CoPilot AI",
+	"copilotTip": "Изцяло изключва функцията CoPilot AI",
+	"btnReinforce": "Укрепете политиките",
+	"msgReinforce": "Сигурни ли сте, че искате да приложите отново текущите си политики?"
 }

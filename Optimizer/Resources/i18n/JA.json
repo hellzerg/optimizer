@@ -452,5 +452,9 @@ SMBv3に置き換えられており、そちらのほうがより安全です。
 	"btnRefreshFonts": "更新",
 	"chkAllNics": "すべてのネットワークアダプターに設定",
 	"chkCustomDns": "カスタムDNSを設定する",
-	"btnSetDns": "DNSの設定"
+	"btnSetDns": "DNSの設定",
+	"copilotSw": "CoPilot AI を無効にする",
+    "copilotTip": "CoPilot AI の機能を完全に無効にします.",
+	"btnReinforce": "ポリシーを強化する",
+	"msgReinforce": "現在のポリシーを再適用してもよろしいですか？"
 }

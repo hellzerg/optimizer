@@ -460,5 +460,9 @@
 	"btnRefreshFonts": "ڕیفرێش",
 	"chkAllNics": "بۆ هەموو ئەداپتەرەکانی تۆڕ ڕێکبخە",
 	"chkCustomDns": "DNS تایبەت بەخۆت دابنێ",
-	"btnSetDns": "DNS دابنێ"
+	"btnSetDns": "DNS دابنێ",
+	"copilotSw": "CoPilot AI تایبه‌تییه‌کرن",
+    "copilotTip": "ویژگی CoPilot AI تایبه‌تییه‌کرنەوەکی ته‌مامی.",
+	"btnReinforce": "سیاسهٔ بیشکوچین",
+	"msgReinforce": "داکۆ پێشەنگەتیە پێوستییە کرییە مە یانو دابەزەکیی نو رە بکە؟"
 }

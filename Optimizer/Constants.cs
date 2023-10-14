@@ -3,7 +3,9 @@
     internal static class Constants
     {
         internal static string DOWNLOADS_FOLDER = "OptimizerDownloads";
-        internal static string InternalDNS = "1.1.1.1";
+        internal static string INTERNAL_DNS = "1.1.1.1";
+        internal static string THEME_FLAG = "themeable";
+        internal static int CONTRAST_THRESHOLD = 149;
 
         internal static string INDICIUM_TOOL = "indicium";
         internal static string UWP_TOOL = "uwp";
@@ -37,6 +39,7 @@
         internal static string JAPANESE = "日本語";
         internal static string PERSIAN = "فارسی";
         internal static string NEPALI = "नेपाली";
+        internal static string BULGARIAN = "български";
 
         internal static string CloudflareDNS = "Cloudflare";
         internal static string OpenDNS = "OpenDNS";

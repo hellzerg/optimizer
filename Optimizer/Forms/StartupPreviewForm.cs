@@ -10,17 +10,17 @@ namespace Optimizer
     {
         string _token = string.Empty;
 
-        public StartupPreviewForm(List<StartupBackupItem> items)
+        public StartupPreviewForm(List<BackupStartupItem> items)
         {
             InitializeComponent();
 
             CheckForIllegalCrossThreadCalls = false;
-            Options.ApplyTheme(this);
+            OptionsHelper.ApplyTheme(this);
 
             // translate UI elements
-            if (Options.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
+            if (OptionsHelper.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
 
-            foreach (StartupBackupItem x in items)
+            foreach (BackupStartupItem x in items)
             {
                 if (File.Exists(SanitizePath(x.FileLocation)))
                 {
@@ -37,9 +37,9 @@ namespace Optimizer
 
         private void Translate()
         {
-            this.Text = Options.TranslationList["StartupPreviewForm"];
+            this.Text = OptionsHelper.TranslationList["StartupPreviewForm"];
 
-            Dictionary<string, string> translationList = Options.TranslationList.ToObject<Dictionary<string, string>>();
+            Dictionary<string, string> translationList = OptionsHelper.TranslationList.ToObject<Dictionary<string, string>>();
 
             Control element;
 

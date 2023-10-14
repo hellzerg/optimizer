@@ -9,7 +9,7 @@ namespace Optimizer
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            Options.ApplyTheme(this);
+            OptionsHelper.ApplyTheme(this);
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -19,7 +19,30 @@ namespace Optimizer
 
         private void FirstRunForm_Load(object sender, EventArgs e)
         {
-
+            radioArabic.Text = Constants.ARABIC;
+            radioPortuguese.Text = Constants.PORTUGUESE;
+            radioChinese.Text = Constants.CHINESE;
+            radioCzech.Text = Constants.CZECH;
+            radioDutch.Text = Constants.DUTCH;
+            radioFrench.Text = Constants.FRENCH;
+            radioGerman.Text = Constants.GERMAN;
+            radioHellenic.Text = Constants.HELLENIC;
+            radioHungarian.Text = Constants.HUNGARIAN;
+            radioFarsi.Text = Constants.PERSIAN;
+            radioItalian.Text = Constants.ITALIAN;
+            radioJapanese.Text = Constants.JAPANESE;
+            radioKorean.Text = Constants.KOREAN;
+            radioKurdish.Text = Constants.KURDISH;
+            radioNepali.Text = Constants.NEPALI;
+            radioPolish.Text = Constants.POLISH;
+            radioRomanian.Text = Constants.ROMANIAN;
+            radioRussian.Text = Constants.RUSSIAN;
+            radioSpanish.Text = Constants.SPANISH;
+            radioTaiwan.Text = Constants.TAIWANESE;
+            radioTurkish.Text = Constants.TURKISH;
+            radioUkrainian.Text = Constants.UKRAINIAN;
+            radioBulgarian.Text = Constants.BULGARIAN;
+            radioEnglish.Text = Constants.ENGLISH;
         }
 
         private void pictureBox86_Click(object sender, EventArgs e)
@@ -39,23 +62,23 @@ namespace Optimizer
 
         private void radioEnglish_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.EN;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.EN;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void radioRussian_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.RU;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.RU;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void radioHellenic_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.EL;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.EL;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -65,16 +88,16 @@ namespace Optimizer
 
         private void radioTurkish_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.TR;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.TR;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void radioGerman_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.DE;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.DE;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -89,16 +112,16 @@ namespace Optimizer
 
         private void radioSpanish_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.ES;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.ES;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void radioPortuguese_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.PT;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.PT;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -108,9 +131,9 @@ namespace Optimizer
 
         private void radioFrench_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.FR;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.FR;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -120,9 +143,9 @@ namespace Optimizer
 
         private void radioitalian_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.IT;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.IT;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -137,9 +160,9 @@ namespace Optimizer
 
         private void radioChinese_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.CN;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.CN;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
@@ -149,16 +172,16 @@ namespace Optimizer
 
         private void radioCzech_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.CZ;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.CZ;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void radioTaiwan_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.TW;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.TW;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
@@ -168,9 +191,9 @@ namespace Optimizer
 
         private void radioKorean_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.KO;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.KO;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
@@ -185,16 +208,16 @@ namespace Optimizer
 
         private void radioPolish_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.PL;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.PL;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void radioArabic_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.AR;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.AR;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void pictureBox12_Click(object sender, EventArgs e)
@@ -209,9 +232,9 @@ namespace Optimizer
 
         private void radioKurdish_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.KU;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.KU;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void pictureBox14_Click(object sender, EventArgs e)
@@ -221,16 +244,16 @@ namespace Optimizer
 
         private void radioHungarian_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.HU;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.HU;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void radioRomanian_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.RO;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.RO;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void pictureBox15_Click(object sender, EventArgs e)
@@ -240,9 +263,9 @@ namespace Optimizer
 
         private void radioDutch_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.NL;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.NL;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void pictureBox16_Click(object sender, EventArgs e)
@@ -252,9 +275,9 @@ namespace Optimizer
 
         private void radioJapanese_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.JA;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.JA;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void pictureBox17_Click(object sender, EventArgs e)
@@ -264,9 +287,9 @@ namespace Optimizer
 
         private void radioFarsi_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.FA;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.FA;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
 
         private void pictureBox18_Click(object sender, EventArgs e)
@@ -281,9 +304,23 @@ namespace Optimizer
 
         private void radioNepali_CheckedChanged(object sender, EventArgs e)
         {
-            Options.CurrentOptions.LanguageCode = LanguageCode.NE;
-            Options.SaveSettings();
-            Options.LoadTranslation();
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.NE;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
+        }
+
+        private void radioBulgarian_CheckedChanged(object sender, EventArgs e)
+        {
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.BG;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
+        }
+
+        private void radioUkrainian_CheckedChanged(object sender, EventArgs e)
+        {
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.UA;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
         }
     }
 }

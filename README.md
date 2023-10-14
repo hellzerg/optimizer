@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/15.8/Optimizer-15.8.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/15.9/Optimizer-15.9.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -20,13 +20,14 @@ Welcome to Optimizer, an advanced configuration utility designed to enhance your
 <h2> 🏗️ Key Features:</h2> 
 </center>
 
-- Full multilingual support (22 languages available)
+- Full multilingual support (24 languages available)
 - Enhance system and network performance
 - Disable unnecessary Windows services
 - Turn off Windows telemetry, Cortana, and more
 - Disable Office telemetry (works with Office 2016 or newer)
 - Stop automatic Windows 10 updates
 - Download multiple useful apps quickly
+- Disable CoPilot AI in Windows 11
 - Uninstall UWP apps
 - Clean system drive and browser profiles
 - Fix common registry issues
@@ -104,8 +105,8 @@ Learn about our security measures in the [Security Policy](https://github.com/he
 <h2> 📊 Details</h2> 
 </center>
 
-- Latest version: 15.8 (Released: August 26, 2023)
-- SHA256: 2839B3E6F7BD5B3F530C2C4283CA5B16F6231358660A3AC05066FD432EAB9BC9
+- Latest version: 15.9 (Released: October 14, 2023)
+- SHA256: 3708EC060E9DAF200F8B97950D210467951FC6FEAB214E679B4FE59601F14811
 
 <center>
 <h2> ☕ Buy me a delicious espresso</h2>
@@ -153,6 +154,8 @@ We'd like to extend our gratitude to the following contributors for their transl
 - Hungarian: Zan
 - Farsi: MjavadH
 - Nepali: chapagetti
+- Hellenic
+- Bulgarian
 
 <center>
 <h2> ❤️ Contribute with a translation</h2>

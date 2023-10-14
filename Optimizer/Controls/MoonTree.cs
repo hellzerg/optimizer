@@ -49,7 +49,7 @@ namespace Optimizer
             }
 
             if (FindName(e.Node.Name)) TextRenderer.DrawText(e.Graphics, e.Node.Text, this.Font, e.Node.Bounds, Color.Silver);
-            else if (e.Node.Tag != null && e.Node.Tag.ToString() == _primaryItemTag) TextRenderer.DrawText(e.Graphics, e.Node.Text, this.Font, e.Node.Bounds, Options.ForegroundColor);
+            else if (e.Node.Tag != null && e.Node.Tag.ToString() == _primaryItemTag) TextRenderer.DrawText(e.Graphics, e.Node.Text, this.Font, e.Node.Bounds, OptionsHelper.ForegroundColor);
             else TextRenderer.DrawText(e.Graphics, e.Node.Text, this.Font, e.Node.Bounds, Color.White);
 
             if (this.ImageList != null && this.ImageList.Images.Count > 0 && e.Node.SelectedImageIndex > -1)

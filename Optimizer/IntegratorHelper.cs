@@ -13,11 +13,6 @@ namespace Optimizer
     {
         internal static string FolderDefaultIcon = @"%systemroot%\system32\imageres.dll,-112";
 
-        private static T DirectCast<T>(object o)
-        {
-            return (T)o;
-        }
-
         internal static void CreateCustomCommand(string file, string keyword)
         {
             if (!keyword.EndsWith(".exe"))

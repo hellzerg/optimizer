@@ -154,7 +154,7 @@ namespace Optimizer
         internal static bool IsInternetAvailable()
         {
             const int timeout = 1000;
-            string host = Options.CurrentOptions.InternalDNS ?? Constants.InternalDNS;
+            string host = OptionsHelper.CurrentOptions.InternalDNS ?? Constants.INTERNAL_DNS;
 
             var ping = new Ping();
             var buffer = new byte[32];

@@ -22,7 +22,7 @@ namespace Optimizer
 
             rec.Width = (int)(rec.Width * ((double)base.Value / Maximum)) - 4;
             rec.Height -= 4;
-            brush = new LinearGradientBrush(rec, Options.ForegroundAccentColor, Options.ForegroundColor, LinearGradientMode.Vertical);
+            brush = new LinearGradientBrush(rec, OptionsHelper.ForegroundAccentColor, OptionsHelper.ForegroundColor, LinearGradientMode.Vertical);
             e.Graphics.FillRectangle(brush, 2, 2, rec.Width, rec.Height);
         }
     }

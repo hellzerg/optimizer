@@ -430,5 +430,9 @@
 	"btnRefreshFonts": "Odśwież",
 	"chkAllNics": "Ustaw dla wszystkich kart sieciowych",
 	"chkCustomDns": "Ustaw niestandardowy DNS",
-	"btnSetDns": "Ustaw DNS"
+	"btnSetDns": "Ustaw DNS",
+	"copilotSw": "Wyłącz funkcję CoPilot AI",
+    "copilotTip": "Całkowicie wyłącza funkcję CoPilot AI.",
+	"btnReinforce": "Wzmocnienie polityk",
+	"msgReinforce": "Czy na pewno chcesz ponownie zastosować obecne polityki?"
 }

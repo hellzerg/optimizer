@@ -13,7 +13,7 @@ namespace Optimizer
 
             LoadingStatus.Font = FontHelper.Poppins15;
 
-            pictureBox2.BackColor = Options.CurrentOptions.Theme;
+            pictureBox2.BackColor = OptionsHelper.CurrentOptions.Theme;
         }
     }
 }
