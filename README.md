@@ -6,7 +6,7 @@
 	<a href="https://github.com/hellzerg/optimizer/releases/download/16.0/Optimizer-16.0.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
-		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
+		<img src="https://media.discordapp.net/attachments/960964281568985108/1163663939381497906/flags.png?ex=6540657e&is=652df07e&hm=a698e9e73cf05b3c5ee3b5048977e44c593647e6a2af8f7328e9a6fb81b3a750&=">
 	</a>
 </p>
 
