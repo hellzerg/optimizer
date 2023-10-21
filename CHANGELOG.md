@@ -1,3 +1,8 @@
+## [16.1] - 2023-10-21
+- Hotfix: 'Reinforce policies' issues resolved (#401, #402)
+- New: Completely 'Remove Microsoft Edge' option in Advanced Tweaks (cannot be reverted!)
+- New: Selective tweaks for "Optimize Performance" and "Enhance Privacy" (#393, #374)
+
 ## [16.0] - 2023-10-14
 - Hotfix: 'Reinforce policies' crash resolved (#400)
 

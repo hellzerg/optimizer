@@ -339,6 +339,7 @@
     <None Include="Resources\i18n\KO.json" />
     <None Include="Resources\Scripts\PowerMenu.reg" />
     <None Include="Resources\i18n\PT.json" />
+    <None Include="Resources\Scripts\RemoveEdge.bat" />
     <None Include="Resources\Scripts\RemoveTakeOwnership.reg" />
     <None Include="Resources\i18n\RU.json" />
     <None Include="Resources\Scripts\RestoreClassicPhotoViewer.reg" />

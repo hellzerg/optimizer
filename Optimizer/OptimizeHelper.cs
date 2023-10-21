@@ -1912,5 +1912,11 @@ namespace Optimizer
             Utilities.RunCommand("schtasks.exe /change /enable /tn \"\\Mozilla\\Firefox Default Browser Agent 308046B0AF4A39CB\"");
             Utilities.RunCommand("schtasks.exe /change /enable /tn \"\\Mozilla\\Firefox Default Browser Agent D2CEEC440E2074BD\"");
         }
+
+        // One-way process, cannot be reverted back!
+        internal static void RemoveMicrosoftEdge()
+        {
+            Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "RemoveEdge.bat");
+        }
     }
 }

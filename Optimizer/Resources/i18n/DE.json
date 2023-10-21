@@ -439,5 +439,10 @@
 	"copilotSw": "CoPilot AI deaktivieren",
     "copilotTip": "Deaktiviert die CoPilot AI-Funktion vollständig.",
 	"btnReinforce": "Richtlinien verstärken",
-	"msgReinforce": "Sind Sie sicher, dass Sie Ihre aktuellen Richtlinien erneut anwenden möchten?"
+	"msgReinforce": "Sind Sie sicher, dass Sie Ihre aktuellen Richtlinien erneut anwenden möchten?",
+	"btnRemoveEdge": "Microsoft Edge entfernen",
+  	"msgRemoveEdge": "Sind Sie sicher, dass Sie Microsoft Edge entfernen möchten? Sie können es später nicht rückgängig machen.",
+	"chkNewsInterest": "News & Interessen deaktivieren",
+	"chkAllTrayIcons": "Alle Tray-Symbole anzeigen",
+	"chkMenuDelays": "Menüverzögerungen entfernen"
 }

@@ -434,5 +434,10 @@
 	"copilotSw": "Wyłącz funkcję CoPilot AI",
     "copilotTip": "Całkowicie wyłącza funkcję CoPilot AI.",
 	"btnReinforce": "Wzmocnienie polityk",
-	"msgReinforce": "Czy na pewno chcesz ponownie zastosować obecne polityki?"
+	"msgReinforce": "Czy na pewno chcesz ponownie zastosować obecne polityki?",
+	"btnRemoveEdge": "Usuń Microsoft Edge",
+  	"msgRemoveEdge": "Czy na pewno chcesz usunąć Microsoft Edge? Nie będziesz mógł tego potem cofnąć.",
+	"chkNewsInterest": "Wyłącz wiadomości i zainteresowania",
+	"chkAllTrayIcons": "Pokaż wszystkie ikony w zasobniku",
+	"chkMenuDelays": "Usuń opóźnienia w menu"
 }

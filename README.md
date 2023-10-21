@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/16.0/Optimizer-16.0.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/16.1/Optimizer-16.1.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -29,6 +29,7 @@ Welcome to Optimizer, an advanced configuration utility designed to enhance your
 - Download multiple useful apps quickly
 - Disable CoPilot AI in Windows 11
 - Uninstall UWP apps
+- Cimpletely remove Microsoft Edge (Windows 10/11)
 - Clean system drive and browser profiles
 - Fix common registry issues
 - Ping IPs and assess latency
@@ -105,8 +106,8 @@ Learn about our security measures in the [Security Policy](https://github.com/he
 <h2> 📊 Details</h2> 
 </center>
 
-- Latest version: 16.0 (Released: October 14, 2023)
-- SHA256: 871F3C2E03F87CC61490BD02BB90FEBA5C6D7344C14363640B4121790876C264
+- Latest version: 16.1 (Released: October 14, 2023)
+- SHA256: E68AA2C093129F85706905201762DB54964DA1D57BF08C4F80E84F27E255FB7A
 
 <center>
 <h2> ☕ Buy me a delicious espresso</h2>

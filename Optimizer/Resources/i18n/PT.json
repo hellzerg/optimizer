@@ -462,5 +462,10 @@ Tem efeito negativo no desempenho.",
 	"copilotSw": "Desativar CoPilot AI",
     "copilotTip": "Desativa completamente a funcionalidade CoPilot AI.",
 	"btnReinforce": "Reforçar Políticas",
-	"msgReinforce": "Tem certeza de que deseja reaplicar suas políticas atuais?"
+	"msgReinforce": "Tem certeza de que deseja reaplicar suas políticas atuais?",
+	"btnRemoveEdge": "Remover o Microsoft Edge",
+	"msgRemoveEdge": "Tem a certeza de que deseja remover o Microsoft Edge? Não poderá reverter mais tarde.",
+	"chkNewsInterest": "Desativar Notícias e Interesses",
+	"chkAllTrayIcons": "Mostrar todos os ícones da bandeja",
+	"chkMenuDelays": "Remover atrasos no menu"
 }

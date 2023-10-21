@@ -856,73 +856,75 @@ namespace Optimizer
             SilentConfig silentConfig = new SilentConfig();
             Tweaks silentConfigTweaks = new Tweaks();
             silentConfig.Tweaks = silentConfigTweaks;
+
             #region Windows General
-            silentConfig.Tweaks.EnablePerformanceTweaks = OptionsHelper.CurrentOptions.EnablePerformanceTweaks;
-            silentConfig.Tweaks.DisableNetworkThrottling = OptionsHelper.CurrentOptions.DisableNetworkThrottling;
-            silentConfig.Tweaks.DisableWindowsDefender = OptionsHelper.CurrentOptions.DisableWindowsDefender;
-            silentConfig.Tweaks.DisableSystemRestore = OptionsHelper.CurrentOptions.DisableSystemRestore;
-            silentConfig.Tweaks.DisablePrintService = OptionsHelper.CurrentOptions.DisablePrintService;
-            silentConfig.Tweaks.DisableMediaPlayerSharing = OptionsHelper.CurrentOptions.DisableMediaPlayerSharing;
-            silentConfig.Tweaks.DisableErrorReporting = OptionsHelper.CurrentOptions.DisableErrorReporting;
-            silentConfig.Tweaks.DisableHomeGroup = OptionsHelper.CurrentOptions.DisableHomeGroup;
-            silentConfig.Tweaks.DisableSuperfetch = OptionsHelper.CurrentOptions.DisableSuperfetch;
-            silentConfig.Tweaks.DisableTelemetryTasks = OptionsHelper.CurrentOptions.DisableTelemetryTasks;
-            silentConfig.Tweaks.DisableOffice2016Telemetry = OptionsHelper.CurrentOptions.DisableOffice2016Telemetry;
-            silentConfig.Tweaks.DisableCompatibilityAssistant = OptionsHelper.CurrentOptions.DisableCompatibilityAssistant;
-            silentConfig.Tweaks.DisableHibernation = OptionsHelper.CurrentOptions.DisableHibernation;
-            silentConfig.Tweaks.DisableSMB1 = OptionsHelper.CurrentOptions.DisableSMB1;
-            silentConfig.Tweaks.DisableSMB2 = OptionsHelper.CurrentOptions.DisableSMB2;
-            silentConfig.Tweaks.DisableNTFSTimeStamp = OptionsHelper.CurrentOptions.DisableNTFSTimeStamp;
-            silentConfig.Tweaks.DisableFaxService = OptionsHelper.CurrentOptions.DisableFaxService;
-            silentConfig.Tweaks.DisableSmartScreen = OptionsHelper.CurrentOptions.DisableSmartScreen;
-            silentConfig.Tweaks.DisableStickyKeys = OptionsHelper.CurrentOptions.DisableStickyKeys;
-            silentConfig.Tweaks.DisableVisualStudioTelemetry = OptionsHelper.CurrentOptions.DisableVisualStudioTelemetry;
-            silentConfig.Tweaks.DisableFirefoxTemeletry = OptionsHelper.CurrentOptions.DisableFirefoxTemeletry;
-            silentConfig.Tweaks.DisableChromeTelemetry = OptionsHelper.CurrentOptions.DisableChromeTelemetry;
-            silentConfig.Tweaks.DisableNVIDIATelemetry = OptionsHelper.CurrentOptions.DisableNVIDIATelemetry;
-            silentConfig.Tweaks.DisableSearch = OptionsHelper.CurrentOptions.DisableSearch;
+            silentConfig.Tweaks.EnablePerformanceTweaks = OptionsHelper.CurrentOptions.EnablePerformanceTweaks ? true : (bool?)null;
+            silentConfig.Tweaks.DisableNetworkThrottling = OptionsHelper.CurrentOptions.DisableNetworkThrottling ? true : (bool?)null;
+            silentConfig.Tweaks.DisableWindowsDefender = OptionsHelper.CurrentOptions.DisableWindowsDefender ? true : (bool?)null;
+            silentConfig.Tweaks.DisableSystemRestore = OptionsHelper.CurrentOptions.DisableSystemRestore ? true : (bool?)null;
+            silentConfig.Tweaks.DisablePrintService = OptionsHelper.CurrentOptions.DisablePrintService ? true : (bool?)null;
+            silentConfig.Tweaks.DisableMediaPlayerSharing = OptionsHelper.CurrentOptions.DisableMediaPlayerSharing ? true : (bool?)null;
+            silentConfig.Tweaks.DisableErrorReporting = OptionsHelper.CurrentOptions.DisableErrorReporting ? true : (bool?)null;
+            silentConfig.Tweaks.DisableHomeGroup = OptionsHelper.CurrentOptions.DisableHomeGroup ? true : (bool?)null;
+            silentConfig.Tweaks.DisableSuperfetch = OptionsHelper.CurrentOptions.DisableSuperfetch ? true : (bool?)null;
+            silentConfig.Tweaks.DisableTelemetryTasks = OptionsHelper.CurrentOptions.DisableTelemetryTasks ? true : (bool?)null;
+            silentConfig.Tweaks.DisableOffice2016Telemetry = OptionsHelper.CurrentOptions.DisableOffice2016Telemetry ? true : (bool?)null;
+            silentConfig.Tweaks.DisableCompatibilityAssistant = OptionsHelper.CurrentOptions.DisableCompatibilityAssistant ? true : (bool?)null;
+            silentConfig.Tweaks.DisableHibernation = OptionsHelper.CurrentOptions.DisableHibernation ? true : (bool?)null;
+            silentConfig.Tweaks.DisableSMB1 = OptionsHelper.CurrentOptions.DisableSMB1 ? true : (bool?)null;
+            silentConfig.Tweaks.DisableSMB2 = OptionsHelper.CurrentOptions.DisableSMB2 ? true : (bool?)null;
+            silentConfig.Tweaks.DisableNTFSTimeStamp = OptionsHelper.CurrentOptions.DisableNTFSTimeStamp ? true : (bool?)null;
+            silentConfig.Tweaks.DisableFaxService = OptionsHelper.CurrentOptions.DisableFaxService ? true : (bool?)null;
+            silentConfig.Tweaks.DisableSmartScreen = OptionsHelper.CurrentOptions.DisableSmartScreen ? true : (bool?)null;
+            silentConfig.Tweaks.DisableStickyKeys = OptionsHelper.CurrentOptions.DisableStickyKeys ? true : (bool?)null;
+            silentConfig.Tweaks.DisableVisualStudioTelemetry = OptionsHelper.CurrentOptions.DisableVisualStudioTelemetry ? true : (bool?)null;
+            silentConfig.Tweaks.DisableFirefoxTemeletry = OptionsHelper.CurrentOptions.DisableFirefoxTemeletry ? true : (bool?)null;
+            silentConfig.Tweaks.DisableChromeTelemetry = OptionsHelper.CurrentOptions.DisableChromeTelemetry ? true : (bool?)null;
+            silentConfig.Tweaks.DisableNVIDIATelemetry = OptionsHelper.CurrentOptions.DisableNVIDIATelemetry ? true : (bool?)null;
+            silentConfig.Tweaks.DisableSearch = OptionsHelper.CurrentOptions.DisableSearch ? true : (bool?)null;
             #endregion
             #region Windows 8.1
-            silentConfig.Tweaks.DisableOneDrive = OptionsHelper.CurrentOptions.DisableOneDrive;
+            silentConfig.Tweaks.DisableOneDrive = OptionsHelper.CurrentOptions.DisableOneDrive ? true : (bool?)null;
             #endregion
             #region Windows 10
-            silentConfig.Tweaks.DisableCloudClipboard = OptionsHelper.CurrentOptions.DisableCloudClipboard;
-            silentConfig.Tweaks.EnableLegacyVolumeSlider = OptionsHelper.CurrentOptions.EnableLegacyVolumeSlider;
-            silentConfig.Tweaks.DisableQuickAccessHistory = OptionsHelper.CurrentOptions.DisableQuickAccessHistory;
-            silentConfig.Tweaks.DisableStartMenuAds = OptionsHelper.CurrentOptions.DisableStartMenuAds;
-            silentConfig.Tweaks.UninstallOneDrive = OptionsHelper.CurrentOptions.UninstallOneDrive;
-            silentConfig.Tweaks.DisableMyPeople = OptionsHelper.CurrentOptions.DisableMyPeople;
-            silentConfig.Tweaks.DisableAutomaticUpdates = OptionsHelper.CurrentOptions.DisableAutomaticUpdates;
-            silentConfig.Tweaks.ExcludeDrivers = OptionsHelper.CurrentOptions.ExcludeDrivers;
-            silentConfig.Tweaks.DisableTelemetryServices = OptionsHelper.CurrentOptions.DisableTelemetryServices;
-            silentConfig.Tweaks.DisablePrivacyOptions = OptionsHelper.CurrentOptions.DisablePrivacyOptions;
-            silentConfig.Tweaks.DisableCortana = OptionsHelper.CurrentOptions.DisableCortana;
-            silentConfig.Tweaks.DisableSensorServices = OptionsHelper.CurrentOptions.DisableSensorServices;
-            silentConfig.Tweaks.DisableWindowsInk = OptionsHelper.CurrentOptions.DisableWindowsInk;
-            silentConfig.Tweaks.DisableSpellingTyping = OptionsHelper.CurrentOptions.DisableSpellingTyping;
-            silentConfig.Tweaks.DisableXboxLive = OptionsHelper.CurrentOptions.DisableXboxLive;
-            silentConfig.Tweaks.DisableGameBar = OptionsHelper.CurrentOptions.DisableGameBar;
-            silentConfig.Tweaks.DisableInsiderService = OptionsHelper.CurrentOptions.DisableInsiderService;
-            silentConfig.Tweaks.DisableStoreUpdates = OptionsHelper.CurrentOptions.DisableStoreUpdates;
-            silentConfig.Tweaks.EnableLongPaths = OptionsHelper.CurrentOptions.EnableLongPaths;
-            silentConfig.Tweaks.RemoveCastToDevice = OptionsHelper.CurrentOptions.RemoveCastToDevice;
-            silentConfig.Tweaks.EnableGamingMode = OptionsHelper.CurrentOptions.EnableGamingMode;
-            silentConfig.Tweaks.DisableTPMCheck = OptionsHelper.CurrentOptions.DisableTPMCheck;
-            silentConfig.Tweaks.DisableVirtualizationBasedTechnology = OptionsHelper.CurrentOptions.DisableVBS;
-            silentConfig.Tweaks.DisableEdgeDiscoverBar = OptionsHelper.CurrentOptions.DisableEdgeDiscoverBar;
-            silentConfig.Tweaks.DisableEdgeTelemetry = OptionsHelper.CurrentOptions.DisableEdgeTelemetry;
-            silentConfig.Tweaks.RestoreClassicPhotoViewer = OptionsHelper.CurrentOptions.RestoreClassicPhotoViewer;
+            silentConfig.Tweaks.DisableCloudClipboard = OptionsHelper.CurrentOptions.DisableCloudClipboard ? true : (bool?)null;
+            silentConfig.Tweaks.EnableLegacyVolumeSlider = OptionsHelper.CurrentOptions.EnableLegacyVolumeSlider ? true : (bool?)null;
+            silentConfig.Tweaks.DisableQuickAccessHistory = OptionsHelper.CurrentOptions.DisableQuickAccessHistory ? true : (bool?)null;
+            silentConfig.Tweaks.DisableStartMenuAds = OptionsHelper.CurrentOptions.DisableStartMenuAds ? true : (bool?)null;
+            silentConfig.Tweaks.UninstallOneDrive = OptionsHelper.CurrentOptions.UninstallOneDrive ? true : (bool?)null;
+            silentConfig.Tweaks.DisableMyPeople = OptionsHelper.CurrentOptions.DisableMyPeople ? true : (bool?)null;
+            silentConfig.Tweaks.DisableAutomaticUpdates = OptionsHelper.CurrentOptions.DisableAutomaticUpdates ? true : (bool?)null;
+            silentConfig.Tweaks.ExcludeDrivers = OptionsHelper.CurrentOptions.ExcludeDrivers ? true : (bool?)null;
+            silentConfig.Tweaks.DisableTelemetryServices = OptionsHelper.CurrentOptions.DisableTelemetryServices ? true : (bool?)null;
+            silentConfig.Tweaks.DisablePrivacyOptions = OptionsHelper.CurrentOptions.DisablePrivacyOptions ? true : (bool?)null;
+            silentConfig.Tweaks.DisableCortana = OptionsHelper.CurrentOptions.DisableCortana ? true : (bool?)null;
+            silentConfig.Tweaks.DisableSensorServices = OptionsHelper.CurrentOptions.DisableSensorServices ? true : (bool?)null;
+            silentConfig.Tweaks.DisableWindowsInk = OptionsHelper.CurrentOptions.DisableWindowsInk ? true : (bool?)null;
+            silentConfig.Tweaks.DisableSpellingTyping = OptionsHelper.CurrentOptions.DisableSpellingTyping ? true : (bool?)null;
+            silentConfig.Tweaks.DisableXboxLive = OptionsHelper.CurrentOptions.DisableXboxLive ? true : (bool?)null;
+            silentConfig.Tweaks.DisableGameBar = OptionsHelper.CurrentOptions.DisableGameBar ? true : (bool?)null;
+            silentConfig.Tweaks.DisableInsiderService = OptionsHelper.CurrentOptions.DisableInsiderService ? true : (bool?)null;
+            silentConfig.Tweaks.DisableStoreUpdates = OptionsHelper.CurrentOptions.DisableStoreUpdates ? true : (bool?)null;
+            silentConfig.Tweaks.EnableLongPaths = OptionsHelper.CurrentOptions.EnableLongPaths ? true : (bool?)null;
+            silentConfig.Tweaks.RemoveCastToDevice = OptionsHelper.CurrentOptions.RemoveCastToDevice ? true : (bool?)null;
+            silentConfig.Tweaks.EnableGamingMode = OptionsHelper.CurrentOptions.EnableGamingMode ? true : (bool?)null;
+            silentConfig.Tweaks.DisableTPMCheck = OptionsHelper.CurrentOptions.DisableTPMCheck ? true : (bool?)null;
+            silentConfig.Tweaks.DisableVirtualizationBasedTechnology = OptionsHelper.CurrentOptions.DisableVBS ? true : (bool?)null;
+            silentConfig.Tweaks.DisableEdgeDiscoverBar = OptionsHelper.CurrentOptions.DisableEdgeDiscoverBar ? true : (bool?)null;
+            silentConfig.Tweaks.DisableEdgeTelemetry = OptionsHelper.CurrentOptions.DisableEdgeTelemetry ? true : (bool?)null;
+            silentConfig.Tweaks.RestoreClassicPhotoViewer = OptionsHelper.CurrentOptions.RestoreClassicPhotoViewer ? true : (bool?)null;
             #endregion
             #region Windows 11
-            silentConfig.Tweaks.TaskbarToLeft = OptionsHelper.CurrentOptions.TaskbarToLeft;
-            silentConfig.Tweaks.DisableStickers = OptionsHelper.CurrentOptions.DisableStickers;
-            silentConfig.Tweaks.CompactMode = OptionsHelper.CurrentOptions.CompactMode;
-            silentConfig.Tweaks.DisableSnapAssist = OptionsHelper.CurrentOptions.DisableSnapAssist;
-            silentConfig.Tweaks.DisableWidgets = OptionsHelper.CurrentOptions.DisableWidgets;
-            silentConfig.Tweaks.DisableChat = OptionsHelper.CurrentOptions.DisableChat;
-            silentConfig.Tweaks.ClassicMenu = OptionsHelper.CurrentOptions.ClassicMenu;
-            silentConfig.Tweaks.DisableCoPilotAI = OptionsHelper.CurrentOptions.DisableCoPilotAI;
+            silentConfig.Tweaks.TaskbarToLeft = OptionsHelper.CurrentOptions.TaskbarToLeft ? true : (bool?)null;
+            silentConfig.Tweaks.DisableStickers = OptionsHelper.CurrentOptions.DisableStickers ? true : (bool?)null;
+            silentConfig.Tweaks.CompactMode = OptionsHelper.CurrentOptions.CompactMode ? true : (bool?)null;
+            silentConfig.Tweaks.DisableSnapAssist = OptionsHelper.CurrentOptions.DisableSnapAssist ? true : (bool?)null;
+            silentConfig.Tweaks.DisableWidgets = OptionsHelper.CurrentOptions.DisableWidgets ? true : (bool?)null;
+            silentConfig.Tweaks.DisableChat = OptionsHelper.CurrentOptions.DisableChat ? true : (bool?)null;
+            silentConfig.Tweaks.ClassicMenu = OptionsHelper.CurrentOptions.ClassicMenu ? true : (bool?)null;
+            silentConfig.Tweaks.DisableCoPilotAI = OptionsHelper.CurrentOptions.DisableCoPilotAI ? true : (bool?)null;
             #endregion
+
             SilentOps.CurrentSilentConfig = silentConfig;
 
             if (CurrentWindowsVersion == WindowsVersion.Windows7)

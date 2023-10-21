@@ -456,5 +456,10 @@ SMBv3に置き換えられており、そちらのほうがより安全です。
 	"copilotSw": "CoPilot AI を無効にする",
     "copilotTip": "CoPilot AI の機能を完全に無効にします.",
 	"btnReinforce": "ポリシーを強化する",
-	"msgReinforce": "現在のポリシーを再適用してもよろしいですか？"
+	"msgReinforce": "現在のポリシーを再適用してもよろしいですか？",
+	"btnRemoveEdge": "Microsoft Edge の削除",
+  	"msgRemoveEdge": "Microsoft Edge を削除してもよろしいですか？後で元に戻すことはできません。",
+	"chkNewsInterest": "ニュースと興味を無効にする",
+	"chkAllTrayIcons": "すべてのトレイアイコンを表示",
+	"chkMenuDelays": "メニューの遅延を削除"
 }

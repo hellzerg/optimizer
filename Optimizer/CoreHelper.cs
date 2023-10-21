@@ -48,7 +48,8 @@ namespace Optimizer
             ScriptsFolder + "GPEditEnablerInHome.bat",
             ScriptsFolder + "AddOpenWithCMD.reg",
             ScriptsFolder + "RestoreClassicPhotoViewer.reg",
-            ScriptsFolder + "DisableClassicPhotoViewer.reg"
+            ScriptsFolder + "DisableClassicPhotoViewer.reg",
+            ScriptsFolder + "RemoveEdge.bat"
         };
 
         readonly static string[] scriptFiles =
@@ -65,7 +66,8 @@ namespace Optimizer
             Properties.Resources.GPEditEnablerInHome,
             Properties.Resources.AddOpenWithCMD,
             Properties.Resources.RestoreClassicPhotoViewer,
-            Properties.Resources.DisableClassicPhotoViewer
+            Properties.Resources.DisableClassicPhotoViewer,
+            Properties.Resources.RemoveEdge
         };
 
         internal static void Deploy()

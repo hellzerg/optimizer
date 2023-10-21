@@ -79,7 +79,8 @@ namespace Optimizer
         string _repairMessage = "Are you sure you want to reset configuration?\n\nThis will reset all your preferences, including any icons you extracted or downloaded using Integrator, but will not touch anything on your computer!";
         string _flushDNSMessage = "Are you sure you wish to flush the DNS cache of Windows?\n\nThis will cause internet disconnection for a moment and it may be needed a restart to function properly.";
         string _uwpRestoreMessage = "Are you sure you want to do this?";
-        string _reinforcePoliciesMessage = "Are you sure you want to re-apply your current policies?";
+        string _reinforcePoliciesMessage = "Are you sure you want to re-apply your current active policies?";
+        string _removeEdgeMessage = "Are you sure you want to remove Microsoft Edge? You cannot revert it later.";
 
         string _byteSizeNullString = " b";
         string _primaryItemTag = "_primary";
@@ -2183,6 +2184,7 @@ namespace Optimizer
                 _uwpRestoreMessage = OptionsHelper.TranslationList["restoreUwpMessage"];
                 _reinforcePoliciesMessage = OptionsHelper.TranslationList["msgReinforce"];
                 _flushDNSMessage = OptionsHelper.TranslationList["flushDNSMessage"];
+                _removeEdgeMessage = OptionsHelper.TranslationList["msgRemoveEdge"];
 
                 listStartupItems.Columns[0].Text = translationList["startupItemName"];
                 listStartupItems.Columns[1].Text = translationList["startupItemLocation"];
@@ -3368,7 +3370,7 @@ namespace Optimizer
         {
             if (performanceSw.ToggleChecked)
             {
-                OptimizeHelper.EnablePerformanceTweaks();
+                OptimizeHelper.EnablePerformanceTweaks(chkAllTrayIcons.Checked, chkMenuDelays.Checked);
             }
             else
             {
@@ -3642,7 +3644,7 @@ namespace Optimizer
         {
             if (privacySw.ToggleChecked)
             {
-                Task t = new Task(() => OptimizeHelper.EnhancePrivacy());
+                Task t = new Task(() => OptimizeHelper.EnhancePrivacy(chkNewsInterest.Checked));
                 t.Start();
             }
             else
@@ -5051,6 +5053,14 @@ namespace Optimizer
                     Program.MUTEX = null;
                 }
                 Application.Restart();
+            }
+        }
+
+        private void btnRemoveEdge_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(_removeEdgeMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                OptimizeHelper.RemoveMicrosoftEdge();
             }
         }
     }

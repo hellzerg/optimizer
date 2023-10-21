@@ -416,5 +416,10 @@ Het heeft een negatief effect op de prestaties.",
    "copilotSw": "Schakel CoPilot AI uit",
    "copilotTip": "Schakelt de CoPilot AI-functie volledig uit.",
 	"btnReinforce": "Beleid versterken",
-	"msgReinforce": "Weet u zeker dat u uw huidige beleid opnieuw wilt toepassen?"
+	"msgReinforce": "Weet u zeker dat u uw huidige beleid opnieuw wilt toepassen?",
+   "btnRemoveEdge": "Microsoft Edge verwijderen",
+   "msgRemoveEdge": "Weet u zeker dat u Microsoft Edge wilt verwijderen? U kunt dit later niet ongedaan maken.",
+   "chkNewsInterest": "Schakel Nieuws en Interesses uit",
+   "chkAllTrayIcons": "Toon alle systeemvakpictogrammen",
+   "chkMenuDelays": "Verwijder menuvertragingen"
 }

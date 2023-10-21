@@ -463,5 +463,10 @@ Performansa olumsuz etkisi vardır.",
 	"copilotSw": "CoPilot AI'yı Devre Dışı Bırak",
     "copilotTip": "CoPilot AI özelliğini tamamen kapatır.",
 	"btnReinforce": "Politikaları Güçlendir",
-	"msgReinforce": "Şu anki politikalarınızı tekrar uygulamak istediğinizden emin misiniz?"
+	"msgReinforce": "Şu anki politikalarınızı tekrar uygulamak istediğinizden emin misiniz?",
+	"btnRemoveEdge": "Microsoft Edge'i Kaldır",
+	"msgRemoveEdge": "Microsoft Edge'i kaldırmak istediğinizden emin misiniz? Daha sonra geri alamazsınız.",
+	"chkNewsInterest": "Haberler ve İlgiyi Devre Dışı Bırak",
+	"chkAllTrayIcons": "Tüm tepsici simgelerini göster",
+	"chkMenuDelays": "Menü gecikmelerini kaldır"
 }

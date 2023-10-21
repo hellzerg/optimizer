@@ -49,6 +49,9 @@ namespace Optimizer
         [JsonProperty("UnlockAllCores", NullValueHandling = NullValueHandling.Ignore)]
         public bool? UnlockAllCores { get; set; }
 
+        [JsonProperty("RemoveMicrosoftEdge", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? RemoveMicrosoftEdge { get; set; }
+
         [JsonProperty("SvchostProcessSplitting", NullValueHandling = NullValueHandling.Ignore)]
         public SvchostProcessSplitting SvchostProcessSplitting { get; set; }
     }

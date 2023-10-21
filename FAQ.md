@@ -25,6 +25,9 @@ The decision to disable System Restore is up to you. Keep in mind that disabling
 ### **Should I disable Print Service or Fax Service?**
 If you actively use printer and/or fax devices, it's advisable not to disable these services. Disabling them might hinder your ability to use these devices effectively.
 
+### **My Windows Hello stopped working! Why?**
+You should reset the "Enhance Privacy" and restart your computer.
+
 ### **I cannot log in to Xbox Live! Why?**
 If you're facing login issues with Xbox Live, follow these steps to troubleshoot:
 

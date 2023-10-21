@@ -415,5 +415,10 @@
 	"copilotSw": "CoPilot AI बिल्कुल बन्द गर्दछ।",
     "copilotTip": "CoPilot AI कुरा पूरा बन्द गर्दछ।",
 	"btnReinforce": "नीत",
-	"msgReinforce": "तपाईंले आफ्ना हालका नीत"
+	"msgReinforce": "तपाईंले आफ्ना हालका नीत",
+	"btnRemoveEdge": "Microsoft Edge हटाउनुहोस्",
+  	"msgRemoveEdge": "के तपाईं Microsoft Edge हटाउन चाहनुहुन्छ? तपाईं पछि यसलाई पुनः परामर्श गर्दैनुहुनेछ।",
+	"chkNewsInterest": "समाचार र रुचिहरू अक्षम गर्नुहोस्",
+	"chkAllTrayIcons": "सम्पूर्ण ट्रे आइकनहरू देखाउनुहोस्",
+	"chkMenuDelays": "मेनु ल्याग्ले हटाउनुहोस्"
 }
