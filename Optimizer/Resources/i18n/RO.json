@@ -448,8 +448,6 @@
     "copilotTip": "Dezactivează complet funcționalitatea CoPilot AI.",
 	"btnReinforce": "Consolidarea politicilor",
 	"msgReinforce": "Sunteți sigur că doriți să reaplicați politicile actuale?",
-	"btnRemoveEdge": "Eliminare Microsoft Edge",
-	"msgRemoveEdge": "Sunteți sigur că doriți să eliminați Microsoft Edge? Nu puteți reveni mai târziu.",
 	"chkNewsInterest": "Dezactivează Știri și Interese",
 	"chkAllTrayIcons": "Arată toate pictogramele din zona de notificare",
 	"chkMenuDelays": "Elimină întârzierile din meniu"

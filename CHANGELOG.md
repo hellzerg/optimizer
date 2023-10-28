@@ -1,3 +1,6 @@
+## [16.2] - 2023-10-28
+- Regression: 'Remove Microsoft Edge' removed as an option due to too many false positives in VirusTotal
+
 ## [16.1] - 2023-10-21
 - Hotfix: 'Reinforce policies' issues resolved (#401, #402)
 - New: Completely 'Remove Microsoft Edge' option in Advanced Tweaks (cannot be reverted!)

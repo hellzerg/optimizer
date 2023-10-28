@@ -466,8 +466,6 @@ Negatív hatással van a teljesítményre.",
     "copilotTip": "Teljesen kikapcsolja a CoPilot AI funkciót.",
 	"btnReinforce": "Iránypontok erősítése",
 	"msgReinforce": "Biztos vagy benne, hogy újra alkalmazod az aktuális iránypontokat?",
-	"btnRemoveEdge": "Microsoft Edge eltávolítása",
-	"msgRemoveEdge": "Biztos vagy benne, hogy eltávolítod a Microsoft Edge-et? Később nem állíthatod vissza.",
 	"chkNewsInterest": "Hírek és Érdeklődés kikapcsolása",
 	"chkAllTrayIcons": "Az összes tálca ikon megjelenítése",
 	"chkMenuDelays": "Menü késleltetések eltávolítása"

@@ -466,8 +466,6 @@ Má to negativní vliv na výkon.",
     "copilotTip": "Úplně vypne funkci CoPilot AI.",
 	"btnReinforce": "Posílit politiky",
 	"msgReinforce": "Opravdu si přejete znovu použít své stávající politiky?",
-	"btnRemoveEdge": "Odstranit Microsoft Edge",
-  	"msgRemoveEdge": "Jste si jisti, že chcete odstranit Microsoft Edge? Později to nebudete moci vrátit.",
 	"chkNewsInterest": "Vypnout Novinky a Zájmy",
 	"chkAllTrayIcons": "Zobrazit všechny ikony v oznamovací oblasti",
 	"chkMenuDelays": "Odstranit zpoždění v menu"

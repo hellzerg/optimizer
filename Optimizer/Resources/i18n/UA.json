@@ -467,8 +467,6 @@
     "copilotTip": "Повністю вимикає функцію CoPilot AI.",
 	"btnReinforce": "Підсилити політику",
 	"msgReinforce": "Ви впевнені, що хочете повторно застосувати поточну політику?",
-	"btnRemoveEdge": "Видалити Microsoft Edge",
-  	"msgRemoveEdge": "Ви впевнені, що хочете видалити Microsoft Edge? Ви не зможете це скасувати пізніше.",
 	"chkNewsInterest": "Вимкнути Новини та Інтереси",
 	"chkAllTrayIcons": "Показати всі значки на панелі задач",
 	"chkMenuDelays": "Видалити затримки у меню"

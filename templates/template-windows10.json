@@ -70,7 +70,6 @@
         "UnlockAllCores": null,
         "DisableHPET": null,
         "EnableLoginVerbose": null,
-        "RemoveMicrosoftEdge": null,
         "SvchostProcessSplitting": {
             "Disable": null,
             "RAM": null

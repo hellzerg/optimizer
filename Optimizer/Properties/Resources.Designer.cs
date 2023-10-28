@@ -1061,23 +1061,6 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to @(set &quot;0=%~f0&quot;^)#) &amp; powershell -nop -c iex([io.file]::ReadAllText($env:0)) &amp; exit /b
-        ///#:: just copy-paste into powershell - it&apos;s a standalone hybrid script
-        ///sp &apos;HKCU:\Volatile Environment&apos; &apos;Edge_Removal&apos; @&apos;
-        ///
-        ///$also_remove_webview = 1
-        ///## why also remove webview? because it is 2 copies of edge, not a slimmed down CEF, and is driving bloated web apps
-        ///$also_remove_widgets = 1
-        ///## why also remove widgets? because it is a webview glorified ad portal on msn and bing news cathering to stupid people
-        ///$also_remov [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string RemoveEdge {
-            get {
-                return ResourceManager.GetString("RemoveEdge", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
         ///
         ///

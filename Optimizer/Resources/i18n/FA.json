@@ -453,8 +453,6 @@
     "copilotTip": "ویژگی CoPilot AI به طور کامل غیرفعال می‌شود.",
 	"btnReinforce": "تقویت سیاست‌ها",
 	"msgReinforce": "آیا مطمئن هستید که می‌خواهید سیاست‌های فعلی را مجدداً اعمال کنید؟",
-	"btnRemoveEdge": "حذف Microsoft Edge",
-  	"msgRemoveEdge": "آیا مطمئن هستید که می‌خواهید Microsoft Edge را حذف کنید؟ شما نمی‌توانید بعداً آن را بازگردانی کنید.",
 	"chkNewsInterest": "غیرفعال کردن اخبار و علاقه‌مندی‌ها",
 	"chkAllTrayIcons": "نمایش همه آیکون‌های سینی",
 	"chkMenuDelays": "حذف تأخیرهای منو"

@@ -465,8 +465,6 @@
     "copilotTip": "完全关闭 CoPilot AI 功能。",
 	"btnReinforce": "强化政策",
 	"msgReinforce": "您确定要重新应用当前的政策吗?",
-	"btnRemoveEdge": "删除 Microsoft Edge",
-  	"msgRemoveEdge": "您确定要删除 Microsoft Edge 吗？以后无法还原。",
 	"chkNewsInterest": "禁用新闻和兴趣",
 	"chkAllTrayIcons": "显示所有托盘图标",
 	"chkMenuDelays": "删除菜单延迟"

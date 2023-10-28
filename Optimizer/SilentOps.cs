@@ -372,14 +372,6 @@ namespace Optimizer
                 }
                 OptionsHelper.CurrentOptions.EnableLoginVerbose = CurrentSilentConfig.AdvancedTweaks.EnableLoginVerbose.Value;
             }
-
-            if (CurrentSilentConfig.AdvancedTweaks.RemoveMicrosoftEdge.HasValue)
-            {
-                if (CurrentSilentConfig.AdvancedTweaks.RemoveMicrosoftEdge.Value)
-                {
-                    OptimizeHelper.RemoveMicrosoftEdge();
-                }
-            }
         }
 
 

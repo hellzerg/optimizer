@@ -466,8 +466,6 @@
     "copilotTip": "يعطل ميزة CoPilot AI تمامًا.",
 	"btnReinforce": "تعزيز السياسات",
 	"msgReinforce": "هل أنت متأكد من رغبتك في إعادة تطبيق السياسات الحالية؟",
-	"btnRemoveEdge": "إزالة Microsoft Edge",
-	"msgRemoveEdge": "هل أنت متأكد من رغبتك في إزالة Microsoft Edge؟ لا يمكنك التراجع عن ذلك لاحقًا.",
 	"chkNewsInterest": "تعطيل الأخبار والاهتمامات",
 	"chkAllTrayIcons": "عرض جميع الرموز في منطقة العلبة",
 	"chkMenuDelays": "إزالة تأخيرات القائمة"

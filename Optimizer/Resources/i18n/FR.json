@@ -440,8 +440,6 @@ Necessite l'ouverture d'un compte Microsoft.",
     "copilotTip": "Désactive complètement la fonctionnalité CoPilot AI.",
 	"btnReinforce": "Renforcer les politiques",
 	"msgReinforce": "Êtes-vous sûr de vouloir réappliquer vos politiques actuelles?",
-	"btnRemoveEdge": "Supprimer Microsoft Edge",
-  	"msgRemoveEdge": "Êtes-vous sûr de vouloir supprimer Microsoft Edge ? Vous ne pourrez pas revenir en arrière.",
 	"chkNewsInterest": "Désactiver les Actualités et les Centres d'Intérêt",
 	"chkAllTrayIcons": "Afficher toutes les icônes de la zone de notification",
 	"chkMenuDelays": "Supprimer les retards dans le menu"

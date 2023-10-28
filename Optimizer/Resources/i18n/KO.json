@@ -468,8 +468,6 @@ Microsoft 계정 로그인이 필요합니다.",
     "copilotTip": "CoPilot AI 기능을 완전히 비활성화합니다.",
 	"btnReinforce": "정책 강화",
 	"msgReinforce": "현재 정책을 다시 적용하시겠습니까?",
-	"btnRemoveEdge": "Microsoft Edge 제거",
-  	"msgRemoveEdge": "Microsoft Edge를 제거하시겠습니까? 나중에 되돌릴 수 없습니다.",
 	"chkNewsInterest": "뉴스 및 관심사 비활성화",
 	"chkAllTrayIcons": "모든 트레이 아이콘 표시",
 	"chkMenuDelays": "메뉴 지연 제거"

@@ -133,7 +133,6 @@ namespace Optimizer
             this.label21 = new System.Windows.Forms.Label();
             this.disableOneDriveSw = new Optimizer.ToggleCard();
             this.advancedTab = new System.Windows.Forms.TabPage();
-            this.btnRemoveEdge = new System.Windows.Forms.Button();
             this.btnRestartDisableDefender = new System.Windows.Forms.Button();
             this.btnRestart = new System.Windows.Forms.Button();
             this.btnRestartSafe = new System.Windows.Forms.Button();
@@ -1985,7 +1984,6 @@ namespace Optimizer
             // 
             this.advancedTab.AutoScroll = true;
             this.advancedTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.advancedTab.Controls.Add(this.btnRemoveEdge);
             this.advancedTab.Controls.Add(this.btnRestartDisableDefender);
             this.advancedTab.Controls.Add(this.btnRestart);
             this.advancedTab.Controls.Add(this.btnRestartSafe);
@@ -1998,23 +1996,6 @@ namespace Optimizer
             this.advancedTab.Size = new System.Drawing.Size(1273, 695);
             this.advancedTab.TabIndex = 15;
             this.advancedTab.Text = "Advanced";
-            // 
-            // btnRemoveEdge
-            // 
-            this.btnRemoveEdge.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnRemoveEdge.FlatAppearance.BorderSize = 0;
-            this.btnRemoveEdge.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnRemoveEdge.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnRemoveEdge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveEdge.ForeColor = System.Drawing.Color.White;
-            this.btnRemoveEdge.Location = new System.Drawing.Point(17, 103);
-            this.btnRemoveEdge.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRemoveEdge.Name = "btnRemoveEdge";
-            this.btnRemoveEdge.Size = new System.Drawing.Size(414, 31);
-            this.btnRemoveEdge.TabIndex = 89;
-            this.btnRemoveEdge.Text = "Remove Microsoft Edge";
-            this.btnRemoveEdge.UseVisualStyleBackColor = false;
-            this.btnRemoveEdge.Click += new System.EventHandler(this.btnRemoveEdge_Click);
             // 
             // btnRestartDisableDefender
             // 
@@ -7063,7 +7044,6 @@ namespace Optimizer
         private Button btnSetDns;
         private Button btnReinforce;
         private ToggleCard copilotSw;
-        private Button btnRemoveEdge;
         private MoonCheck chkMenuDelays;
         private MoonCheck chkAllTrayIcons;
         private MoonCheck chkNewsInterest;
