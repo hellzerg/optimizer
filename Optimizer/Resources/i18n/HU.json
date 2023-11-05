@@ -1,7 +1,7 @@
 ﻿{
 	"subSystem": "Rendszer",
-	"subPrivacy": "Magánélet",
-	"subGaming": "Szerencsejáték",
+	"subPrivacy": "Adatvédelem",
+	"subGaming": "Játék",
 	"subTouch": "Érintés",
 	"subTaskbar": "Tálca",
 	"subExtras": "Extrák",
@@ -9,9 +9,9 @@
 	"restartButton": "Újraindítás most",
 	"restartButton8": "Újraindítás most",
 	"restartButton10": "Újraindítás most",
-	"restartAndApply": "Újraindítod az eszközt, hogy a változások érvénybe kerüljenek",
-	"txtVersion": "Verzuó: {VN}",
-	"txtBitness": "You are working with {BITS}",
+	"restartAndApply": "Eszköz újraindítása most, hogy a változások érvénybe kerüljenek",
+	"txtVersion": "Verzió: {VN}",
+	"txtBitness": "Te {BITS}-el dolgozol",
 	"linkUpdate": "Frissítés elérhető",
 	"lblLab": "Kísérleti verzió\n(töröld tesztelés után!)",
 	"performanceSw": "Teljesítményjavítások engedélyezése",
@@ -38,7 +38,7 @@
 	"appsTab": "Alkalmazások",
 	"cleanerTab": "Tisztító",
 	"pingerTab": "Pinger",
-	"registryFixerTab": "Nyilvántartás",
+	"registryFixerTab": "Beállítások",
 	"integratorTab": "Integrátor",
 	"CleanPreviewForm": "Tiszta előnézet",
 	"optionsTab": "Beállítások",
@@ -60,7 +60,7 @@
 	"spellSw": "Helyesírás-ellenőrzés kikapcsolása",
 	"xboxSw": "Xbox Live letiltása",
 	"gameBarSw": "Játék sáv kikapcsolása",
-	"insiderSw": "Insider szolgáltatás letiltása",
+	"insiderSw": "Insider program letiltása",
 	"actionSw": "Értesítési központ letiltása",
 	"disableOneDriveSw": "OneDrive letiltása",
 	"tpmSw": "TPM 2.0 ellenőrzés letiltása",
@@ -73,14 +73,14 @@
 	"classicContextSw": "Klasszikus jobb klikk menü engedélyezése",
 	"refreshModernAppsButton": "Frissítés",
 	"uninstallModernAppsButton": "Eltávolítás",
-	"txtModernAppsTitle": "Távolítsa el a nem kívánt UWP-alkalmazásokat",
+	"txtModernAppsTitle": "Távolítsd el a nem kívánt UWP-alkalmazásokat",
 	"chkSelectAllModernApps": "Összes kijelölése",
 	"chkOnlyRemovable": "Csak az eltávolítható elemek",
 	"onedriveM": "Biztos, hogy szeretné eltávolítani a OneDrive-ot? Ez törölni fogja az asztali és dokumentumfájljait! Csak helyi fiókon használja ezt a lehetőséget!",
 	"startupTitle": "Válaszd ki az indító elemeket",
 	"removeStartupItemB": "Törlés",
 	"locateFileB": "Fájl keresése",
-	"findInRegB": "Keresés a nyilvántartásban",
+	"findInRegB": "Keresés a Beállításszerkesztőben",
 	"analyzeDriveB": "Elemzés",
 	"refreshStartupB": "Frissítés",
 	"restoreStartupB": "Visszaállítás",
@@ -97,7 +97,7 @@
 	"bitPref": "Bit preferencia beállítása",
 	"linkWarnings": "Láthatóak a figyelmeztetések",
 	"txtDownloadStatus": "Tétlen",
-	"goToDownloadsB": "Menj a Letöltési mappába",
+	"goToDownloadsB": "Letöltési mappa",
 	"btnDownloadApps": "Letöltés",
 	"cAutoInstall": "Telepítés letöltés után",
 	"setDownDirLbl": "Letöltési mappa beállítása",
@@ -123,9 +123,9 @@
 	"lblResults": "Eredmények",
 	"flushCacheB": "DNS gyorsítótár ürítése",
 	"btnExport": "Exportálás",
-	"hostsTitle": "Szerkeszd hatékonyan a hosts fájlját",
+	"hostsTitle": "Szerkeszd hatékonyan a Hosts fájlját",
 	"linkLocate": "Keresd meg",
-	"linkAdvancedEdit": "Haladó szerkesztő",
+	"linkAdvancedEdit": "Speciális szerkesztő",
 	"linkRestoreDefault": "Alapértelmezett visszaállítása",
 	"lblIP": "IP cím",
 	"lblDomain": "Domain",
@@ -140,10 +140,10 @@
 	"removeHostB": "Törlés",
 	"refreshHostsB": "Frissítés",
 	"removeAllHostsB": "Minden törlése",
-	"regFixB": "Megjavít",
+	"regFixB": "Javítás",
 	"regLbl": "(néhány változtatásra szükség lehet ehhez)",
 	"checkRestartExplorer": "A változások alkalmazásához indítsa újra a Böngészőt is",
-	"checkRegistryEditor": "Nyilvántartási szerkesztő",
+	"checkRegistryEditor": "Beállításszerkesztő",
 	"checkFirewall": "Windows tűzfal",
 	"checkContextMenu": "Jobb klikk menü",
 	"checkRunDialog": "Párbeszédpanel futtatása",
@@ -152,7 +152,7 @@
 	"checkCommandPrompt": "Parancssor",
 	"checkTaskManager": "Feladatkezelő",
 	"checkEnableAll": "Összes engedélyezése",
-	"registryTitle": "A közös rendszerleíró adatbázis problémáinak javítása",
+	"registryTitle": "Gyakori beállítási problémák javítása",
 	"quickAccessToggle": "Gyorselérési menü megjelenítése",
 	"helpTipsToggle": "Súgóüzenetek megjelenítése",
 	"lblTheming": "Válassz egy témát",
@@ -223,11 +223,11 @@
 	"DeleteCMDB": "'Megnyitás CMD-vel' törlése",
 	"readyMenusL": "Hasznos, előre elkészített menük hozzáadása",
 	"refreshCCB": "Frissítés",
-	"removeCCB": "Töröl",
+	"removeCCB": "Törlés",
 	"removeCCL": "Meglévő parancsok törlése",
 	"btnCreateCustomCommand": "Új",
 	"ccKeywordL": "kulcsszó",
-	"ccFileL": "Fájl helye",
+	"ccFileL": "Fájl helyszíne",
 	"ccL": "Határozd meg egyéni futtatási parancsait",
 	"btnYes": "Igen",
 	"btnNo": "Nem",
@@ -235,8 +235,8 @@
 	"HostsEditorForm": "Gazdaszerkesztő",
 	"savebtn": "Mentés",
 	"closebtn": "Bezárás",
-	"adminMissingMsg": "Az optimalizálót rendszergazdaként kell futtatni!\nAz alkalmazás most bezárul...",
-	"unsupportedMsg": "Az Optimizer Windows 7 vagy újabb rendszeren működik!\nAz alkalmazás most bezáródik...",
+	"adminMissingMsg": "Optimizer-t rendszergazdaként kell futtatni!\nAz alkalmazás most bezárul...",
+	"unsupportedMsg": "Optimizer csak Windows 7 és annál újabb operációs rendszerekkel működik!\nAz alkalmazás most bezárul...",
 	"confInvalidVersionMsg": "A Windows verzió nem egyezik!",
 	"confInvalidFormatMsg": "A konfigurációs fájl érvénytelen formátumú!",
 	"confNotFoundMsg": "Konfig fájl nem létezik!",
@@ -251,10 +251,10 @@
 	"deleteBackupB": "Törlés",
 	"noNewVersion": "Már a legújabb verziót használod!",
 	"betaVersion": "Kísérleti verziót használsz!",
-	"removeAllStartup": "Biztosan törölni akarja az összes indítási elemet?",
-	"removeAllHosts": "Biztosan törölni akarja az összes gazdagép bejegyzést?",
-	"removeAllItems": "Biztosan törölni akarja az összes asztali elemet?",
-	"removeModernApps": "Biztosan eltávolítja a következő alkalmazás(oka)t?",
+	"removeAllStartup": "Biztosan törölni akarod az összes indítási elemet?",
+	"removeAllHosts": "Biztosan törölni akarod az összes gazdagép bejegyzést?",
+	"removeAllItems": "Biztosan törölni akarod az összes asztali elemet?",
+	"removeModernApps": "Biztosan eltávolítod a következő alkalmazás(oka)t?",
 	"errorModernApps": "A következő alkalmazás(ok) nem távolíthatók el:\n",
 	"latestVersionM": "Legújabb verzió: {LATEST}",
 	"currentVersionM": "Jelenlegi verzió: {CURRENT}",
@@ -263,8 +263,8 @@
 	"flushDNSMessage": "Biztosan ki szeretné üríteni a Windows DNS-gyorsítótárát?\n\nEz egy pillanatra megszakítja az internetkapcsolatot, és a megfelelő működéshez újraindításra lehet szükség.",
 	"downloadsFinished": "Kész",
 	"downloadDirInvalid": "A megadott letöltési mappa nem érvényes",
-	"no64Download": "Nem érhető el 64 bites, letöltés 32 bites",
-	"no32Download": "Nincs elérhető 32 bites, kihagyva",
+	"no64Download": "Nincs 64 bites verzió, 32 bites letöltése",
+	"no32Download": "Nincs 32 bites verzió, kihagyva",
 	"installing": "Telepítés",
 	"linkInvalid": "A link már nem érvényes",
 	"noErrorsM": "Nincs megjeleníthető hiba!",
@@ -281,13 +281,13 @@
 	"timeout": "A kérés időtúllépése lejárt",
 	"languagesL": "Nyelv kiválasztása",
 	"trayStartup": "Indításkezelő",
-	"trayCleaner": "Drive Cleaner",
+	"trayCleaner": "Lemeztisztító",
 	"trayPinger": "Pinger eszköz",
 	"trayHosts": "HOSTS szerkesztő",
 	"trayAD": "Alkalmazások letöltő",
 	"trayOptions": "Opciók",
-	"trayRegistry": "Registry Repair",
-	"trayRestartExplorer": "Indítsa újra az Explorert",
+	"trayRegistry": "Beállítások javítása",
+	"trayRestartExplorer": "Explorer Újraindítása",
 	"trayExit": "Kilépés",
 	"tipWhatsThis": "Mi ez?",
 	"hwDetailed": "Részletes nézet",
@@ -303,36 +303,34 @@
 	"ram": "Memória",
 	"gpu": "Grafika",
 	"mobo": "Alaplapok",
-	"disk": "Tárolás",
+	"disk": "Lemezek",
 	"inet": "Hálózati adapterek",
-	"audio": "Audio",
+	"audio": "Audió",
 	"dev": "Perifériák",
 	"vm": "Virtuális memória",
-	"drives": "Lemezmeghajtók",
+	"drives": "Lemezek",
 	"volumes": "Partíciók",
 	"opticals": "Optikai meghajtók",
 	"removables": "Cserélhető meghajtók",
-	"physicalAdapters": "Physical Adapters",
+	"physicalAdapters": "Fizikális adapterek",
 	"virtualAdapters": "Virtuális adapterek",
 	"keyboards": "Billentyűzetek",
 	"pointings": "Mutatóeszközök",
 	"performanceTip": "Belső Windows-beállítások gyűjteménye a teljesítmény optimalizálása érdekében.
-	Alkalmazása teljesen biztonságos.
+	Teljesen kockázatmentes az alkalmazása.
 
 	- Csökkenti a várakozási időt a nem reagáló folyamatok leállítása előtt.
-	- A menü csökkenti a késleltetési időt.
-	- Letiltja a kevés lemezterület ellenőrzésére vonatkozó értesítést
-	- Letiltja a rázás minimalizálása funkciót
-	- Mindig a fájlkiterjesztéseket mutatja
-	- Rejtett fájlokat jelenít meg",
+	- Csökkenti a menü megjelenítésének késleltetési idejét.
+	- Letiltja az alacsony lemezterület ellenőrzéséről szóló értesítést
+	- Letiltja a shake-to-minimize funkciót
+	- Mindig megmutatja a fájlkiterjesztéseket
+	- Megjeleníti a rejtett fájlokat",
 	"networkTip": "A Windows olyan hálózati szabályozási mechanizmust valósít meg, amely korlátozza
 	hálózati forgalom multimédiás alkalmazások futtatásakor. Ez is csökkentheti a hálózatot
 	teljesítmény online játékok közben.",
-	"defenderTip": "⚠ A Windows Defender NEM tiltható le a Windows 10 1903-as és újabb verzióiban.
-
-	A Windows Defender a Windows rendszerek beépített víruskeresője.",
+	"defenderTip": "A Windows Defender a Windows rendszerek beépített víruskeresője.",
 	"smartScreenTip": "A SmartScreen automatikusan átvizsgálja a fájlokat, letöltéseket és webhelyeket, blokkolva
-	már ismert veszélyes tartalom, és figyelmezteti Önt, mielőtt futtatná őket.",
+	már ismert veszélyes tartalomat, és figyelmeztet, mielőtt futtatná őket.",
 	"systemRestoreTip": "A rendszer-visszaállítás egy olyan szolgáltatás, amely lehetővé teszi a Windows állapotának visszaállítását
 	egy előzőhöz, hogy helyreálljon a meghibásodások vagy egyéb problémák után.",
 	"reportingTip": "A hibajelentés összegyűjti az alkalmazások összeomlását és a hibákat, és elküldi a Microsoftnak.",
@@ -377,16 +375,16 @@
 	"autoUpdatesTip": "Letiltja a Windows frissítések automatikus letöltését és telepítését.
 	Ehelyett értesítés jelenik meg, ha új frissítések állnak rendelkezésre.
 	Ezenkívül letiltja a kézbesítés-optimalizálási szolgáltatást.",
-	"driversTip": "Hasznos, ha a Windows Update folyamatosan megfelelően lecseréli a
-	működő sofőr hibásan.",
+	"driversTip": "Hasznos, ha a Windows Update folyamatosan lecseréli a
+	megfelően működő drivert egy hibással.",
 	"telemetryServicesTip": "A telemetriai szolgáltatások nyomon követik és naplózzák a használati adatokat, visszajelzést küldenek
 	elemzés céljából a Microsoftnak.",
-	"privacyTip": "Extra adatvédelmi módosítások, amelyek letiltják a következőket:
+	"privacyTip": "Extra adatvédelmi beállítások, amelyek letiltják a következőket:
 
 	- Biometrikus adatok
-	- Geolocation
-	- Alkalmazások megosztása eszközök között
-	- Szövegnaplózó
+	- Geolokáció
+	- Alkalmazások megosztása az eszközök között
+	- Szövegnaplózás
 	- Diagnosztika",
 	"ccTip": "A Cloud Clipboard megosztja a vágólap adatait az eszközökön.
 	Lehetővé teszi a másolást az egyik eszközre, és a beillesztést egy másikra.
@@ -403,7 +401,7 @@
 	"gameBarTip": "A Game Bar egy gyors hozzáférésű menü az Xbox játékszolgáltatásokhoz.",
 	"insiderTip": "A Windows Insider program lehetővé teszi a legújabb szolgáltatások kipróbálását
 	mielőtt nyilvánosságra hozzák őket.
-	Felesleges szolgáltatásnak tekintik azon felhasználók számára, akik nem kívánnak részt venni benne.",
+	Feleslegesnek azoknak a felhasználók számára, akik nem kívánnak részt venni benne.",
 	"tpmTip": "Kikerüli a Secure Boot és a TPM 2.0 követelményeit, lehetővé téve a Windows 11-re való frissítést.",
 	"leftTaskbarTip": "A tálcaikonokat balra igazítja.",
 	"snapAssistTip": "Letiltja a Snap Assist Flyout funkciót, amikor a nagyítás gombokat lebegteti.",
@@ -426,19 +424,19 @@
 	"smbTip": "Az SMB{v} protokoll felelős a Windows számítógépek közötti fájlmegosztásért.
 	Lecserélték SMBv3-ra, ami biztonságosabb.",
 	"ntfsStampSw": "Az NTFS időbélyegző letiltása",
-	"ntfsStampTip": "A fájl utoljára elért bélyegzőjét jelzi.
-	A letiltása csökkentheti az I/O műveleteket a lemezeken.",
+	"ntfsStampTip": "A fájl utolsó elérési időpontjának bélyegzőjét jelzi.
+	Kikapcsolása csökkentheti a lemezeken végzett I/O műveleteket.",
 	"autoStartToggle": "Kezdje a Windows rendszerrel",
 	"nvidiaTelemetrySw": "Az NVIDIA telemetria letiltása",
 	"dnsTitle": "DNS-kiszolgáló gyors cseréje",
-	"vbsSw": "A virtualizáció alapú biztonság letiltása",
-	"vbsTip": "Kernel funkció, amely megakadályozza a rosszindulatú illesztőprogramok bejutását a folyamatokba.
-Negatív hatással van a teljesítményre.",
+	"vbsSw": "Virtualizáció alapú biztonság kikapcsolása",
+	"vbsTip": "A kernel olyan funkciója, amely megakadályozza a kártékony driverek folyamatokba történő betöltését.
+	Ez negatív hatással van a teljesítményre.",
 	"winSearchSw": "Keresés letiltása",
 	"winSearchTip": "Letiltja a Windows keresőszolgáltatást.",
 	"storeUpdatesSw": "A Microsoft Store frissítéseinek letiltása",
 	"storeUpdatesTip": "Letiltja a Microsoft Store automatikus frissítési funkcióját.",
-	"btnRestoreUwp": "Állítsa vissza az összes UWP",
+	"btnRestoreUwp": "Állítsa vissza az összes UWP-t",
 	"restoreUwpMessage": "Biztosan ezt akarod csinálni?",
 	"telemetrySvcToggle": "Az Optimizer telemetria letiltása",
 	"edgeAiSw": "Az Edge Discover letiltása",
@@ -447,9 +445,9 @@ Negatív hatással van a teljesítményre.",
 	"edgeTelemetryTip": "Letiltja a SmartScreen, a Spotlight és a telemetria szolgáltatásokat az Edge-ben.",
 	"hpetSw": "HPET letiltása",
 	"loginVerboseSw": "Részletes bejelentkezési képernyő engedélyezése",
-	"advancedTab": "Fejlett",
-	"btnRestartSafe": "Indítsa újra csökkentett módban",
-	"btnRestart": "Indítsa újra normál módban",
+	"advancedTab": "Speciális",
+	"btnRestartSafe": "Újraindítás csökkentett módban",
+	"btnRestart": "Újraindítás normál módban",
 	"btnRestartDisableDefender": "Indítsa újra és tiltsa le a Defendert",
 	"classicPhotoViewerSw": "A klasszikus fényképnézegető visszaállítása",
 	"tabPage3": "Betűtípusok",
@@ -460,8 +458,8 @@ Negatív hatással van a teljesítményre.",
 	"btnRestoreFont": "Alapértelmezett visszaállítása",
 	"btnRefreshFonts": "Frissítés",
 	"chkAllNics": "Minden hálózati adapterhez beállítva",
-	"chkCustomDns": "Állítsa be az egyéni DNS",
-	"btnSetDns": "Állítsa be a DNS",
+	"chkCustomDns": "Állítson be egy egyéni DNS-t",
+	"btnSetDns": "Állítson be egy DNS-t",
 	"copilotSw": "CoPilot AI kikapcsolása",
     "copilotTip": "Teljesen kikapcsolja a CoPilot AI funkciót.",
 	"btnReinforce": "Iránypontok erősítése",
