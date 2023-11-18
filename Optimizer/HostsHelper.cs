@@ -79,7 +79,7 @@ namespace Optimizer
         {
             for (int i = 0; i < lines.Length; i++)
             {
-                if (!lines[i].StartsWith('#') && (!string.IsNullOrEmpty(lines[i])))
+                if (!lines[i].StartsWith("#") && (!string.IsNullOrEmpty(lines[i])))
                 {
                     lines[i] = SanitizeEntry(lines[i]);
                 }
@@ -106,7 +106,7 @@ namespace Optimizer
 
             foreach (string line in lines)
             {
-                if (!line.StartsWith('#') && (!string.IsNullOrEmpty(line)))
+                if (!line.StartsWith("#") && (!string.IsNullOrEmpty(line)))
                 {
                     entries.Add(line.Replace(" ", " : "));
                 }
