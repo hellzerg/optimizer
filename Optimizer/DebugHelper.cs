@@ -18,7 +18,7 @@ namespace Optimizer
             var p1 = file1.Properties().ToList();
             var p2 = file2.Properties().ToList();
 
-            var missingProps = p1.Where(expected => p2.Where(actual => actual.Name == expected.Name).Count() == 0);
+            var missingProps = p1.Where(expected => !p2.Where(actual => actual.Name == expected.Name).Any());
 
             StringBuilder sb = new StringBuilder();
             foreach (var x in missingProps)
