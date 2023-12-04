@@ -257,7 +257,7 @@ namespace Optimizer
 
         internal static bool ServiceExists(string serviceName)
         {
-            return ServiceController.GetServices().Any(serviceController => serviceController.ServiceName.Equals(serviceName));
+            return Array.Exists(ServiceController.GetServices(), (serviceController => serviceController.ServiceName.Equals(serviceName)));
         }
 
         internal static void StopService(string serviceName)

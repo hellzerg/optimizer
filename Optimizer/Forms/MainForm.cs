@@ -1192,42 +1192,42 @@ namespace Optimizer
             if (_currentDNS == null) return;
             if (_currentDNS.Length == 0) return;
 
-            if (PingerHelper.CloudflareDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            if (Array.Exists(PingerHelper.CloudflareDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {
                 boxDNS.Text = Constants.CloudflareDNS;
                 return;
             }
-            else if (PingerHelper.OpenDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            else if (Array.Exists(PingerHelper.OpenDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {
                 boxDNS.Text = Constants.OpenDNS;
                 return;
             }
-            else if (PingerHelper.Quad9DNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            else if (Array.Exists(PingerHelper.Quad9DNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {
                 boxDNS.Text = Constants.Quad9DNS;
                 return;
             }
-            else if (PingerHelper.GoogleDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            else if (Array.Exists(PingerHelper.GoogleDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {
                 boxDNS.Text = Constants.GoogleDNS;
                 return;
             }
-            else if (PingerHelper.AlternateDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            else if (Array.Exists(PingerHelper.AlternateDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {
                 boxDNS.Text = Constants.AlternateDNS;
                 return;
             }
-            else if (PingerHelper.AdguardDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            else if (Array.Exists(PingerHelper.AdguardDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {
                 boxDNS.Text = Constants.AdguardDNS;
                 return;
             }
-            else if (PingerHelper.CleanBrowsingDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            else if (Array.Exists(PingerHelper.CleanBrowsingDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {
                 boxDNS.Text = Constants.CleanBrowsingDNS;
                 return;
             }
-            else if (PingerHelper.CleanBrowsingAdultDNSv4.Any(x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            else if (Array.Exists(PingerHelper.CleanBrowsingAdultDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
             {
                 boxDNS.Text = Constants.CleanBrowsingAdultFilterDNS;
                 return;
@@ -1318,7 +1318,7 @@ namespace Optimizer
                 txtDns6B.Text
             };
 
-            if (customDns4.Any(x => string.IsNullOrEmpty(x)) || customDns6.Any(x => string.IsNullOrEmpty(x)))
+            if (Array.Exists(customDns4, x => string.IsNullOrEmpty(x)) || Array.Exists(customDns6, x => string.IsNullOrEmpty(x)))
             {
                 return;
             }
@@ -2223,9 +2223,9 @@ namespace Optimizer
 
                     if (element == null) continue;
 
-                    if (element is ToggleCard)
+                    if (element is ToggleCard tc)
                     {
-                        ((ToggleCard)element).LabelText = x.Value;
+                        tc.LabelText = x.Value;
                         continue;
                     }
 
@@ -3352,7 +3352,7 @@ namespace Optimizer
         {
             foreach (Control c in Utilities.GetSelfAndChildrenRecursive(panelUwp))
             {
-                if (c is MoonCheck) ((MoonCheck)c).Checked = chkSelectAllModernApps.Checked;
+                if (c is MoonCheck mc) mc.Checked = chkSelectAllModernApps.Checked;
             }
         }
 
@@ -3833,7 +3833,7 @@ namespace Optimizer
             {
                 if (string.IsNullOrEmpty(x.Tag)) continue;
                 temp = appsTab.Controls.Find(x.Tag, true);
-                if (temp.Count() == 0) continue;
+                if (!temp.Any()) continue;
                 currentCheck = (MoonCheck)temp[0];
                 if (currentCheck == null) continue;
                 if (!currentCheck.Checked) continue;

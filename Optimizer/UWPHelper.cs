@@ -42,7 +42,7 @@ namespace Optimizer
                 foreach (PSObject x in psResult)
                 {
                     tmp = x.ToString().Replace("@", string.Empty).Replace("{", string.Empty).Replace("}", string.Empty).Replace("Name=", string.Empty).Replace("InstallLocation=", string.Empty).Trim().Split(';');
-                    if (!modernApps.Any(i => i.Key == tmp[0]))
+                    if (!modernApps.Exists(i => i.Key == tmp[0]))
                     {
                         modernApps.Add(new KeyValuePair<string, string>(tmp[0], tmp[1]));
                     }

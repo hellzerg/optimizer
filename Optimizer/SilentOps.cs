@@ -171,8 +171,8 @@ namespace Optimizer
             {
                 bool atLeastOnePrimary4 = CurrentSilentConfig.Pinger.CustomDNSv4.Length > 0 && CurrentSilentConfig.Pinger.CustomDNSv4.Length < 3;
                 bool atLeastOnePrimary6 = CurrentSilentConfig.Pinger.CustomDNSv6.Length > 0 && CurrentSilentConfig.Pinger.CustomDNSv6.Length < 3;
-                bool notEmptyDNS4 = CurrentSilentConfig.Pinger.CustomDNSv4.Any(x => !string.IsNullOrEmpty(x));
-                bool notEmptyDNS6 = CurrentSilentConfig.Pinger.CustomDNSv6.Any(x => !string.IsNullOrEmpty(x));
+                bool notEmptyDNS4 = Array.Exists(CurrentSilentConfig.Pinger.CustomDNSv4, (x => !string.IsNullOrEmpty(x)));
+                bool notEmptyDNS6 = Array.Exists(CurrentSilentConfig.Pinger.CustomDNSv6, (x => !string.IsNullOrEmpty(x)));
 
                 if (atLeastOnePrimary4 && atLeastOnePrimary6 && notEmptyDNS4 && notEmptyDNS6)
                 {
