@@ -93,7 +93,7 @@ namespace Optimizer
             catch (Exception ex)
             {
                 Logger.LogError("HostsHelper.SaveHosts", ex.Message, ex.StackTrace);
-                MessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
