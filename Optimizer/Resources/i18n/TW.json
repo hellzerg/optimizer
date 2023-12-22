@@ -464,5 +464,8 @@
 	"msgReinforce": "您確定要重新應用目前的政策嗎？",
 	"chkNewsInterest": "停用新聞和興趣",
 	"chkAllTrayIcons": "顯示所有系統匣圖示",
-	"chkMenuDelays": "移除選單延遲"
+	"chkMenuDelays": "移除選單延遲",
+	"chkHideSearch": "隱藏搜尋",
+	"chkHideFeed": "隱藏天氣",
+	"autoUpdateToggle": "啟動時更新"
 }

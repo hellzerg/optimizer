@@ -1,3 +1,11 @@
+## [16.3] - 2023-12-22
+- New: Check for updates on launch option (#441, #423)
+- New: Options for hiding Weather and Search in Restore Classic Windows Explorer (#447)
+- Hotfix: Web search disable for all users (#427)
+- Hotfix: Tweak options are now dynamically disabled properly (#431)
+- Hotfix: Disable Automatic Updates does not break Store app install/update
+- Hotfix: DPI scaling count fallback added
+
 ## [16.2] - 2023-10-28
 - Regression: 'Remove Microsoft Edge' removed as an option due to too many false positives in VirusTotal
 

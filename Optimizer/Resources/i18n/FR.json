@@ -442,5 +442,8 @@ Necessite l'ouverture d'un compte Microsoft.",
 	"msgReinforce": "Êtes-vous sûr de vouloir réappliquer vos politiques actuelles?",
 	"chkNewsInterest": "Désactiver les Actualités et les Centres d'Intérêt",
 	"chkAllTrayIcons": "Afficher toutes les icônes de la zone de notification",
-	"chkMenuDelays": "Supprimer les retards dans le menu"
+	"chkMenuDelays": "Supprimer les retards dans le menu",
+	"chkHideSearch": "Masquer la recherche",
+	"chkHideFeed": "Masquer la météo",
+	"autoUpdateToggle": "Mise à jour au lancement"
 }

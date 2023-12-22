@@ -466,5 +466,8 @@ Performansa olumsuz etkisi vardır.",
 	"msgReinforce": "Şu anki politikalarınızı tekrar uygulamak istediğinizden emin misiniz?",
 	"chkNewsInterest": "Haberler ve İlgiyi Devre Dışı Bırak",
 	"chkAllTrayIcons": "Tüm tepsici simgelerini göster",
-	"chkMenuDelays": "Menü gecikmelerini kaldır"
+	"chkMenuDelays": "Menü gecikmelerini kaldır",
+	"chkHideSearch": "Aramayı Gizle",
+	"chkHideFeed": "Hava Durumunu Gizle",
+	"autoUpdateToggle": "Başlangıçta Güncelle"
 }

@@ -467,5 +467,8 @@
 	"msgReinforce": "您确定要重新应用当前的政策吗?",
 	"chkNewsInterest": "禁用新闻和兴趣",
 	"chkAllTrayIcons": "显示所有托盘图标",
-	"chkMenuDelays": "删除菜单延迟"
+	"chkMenuDelays": "删除菜单延迟",
+	"chkHideSearch": "隐藏搜索",
+	"chkHideFeed": "隐藏天气",
+	"autoUpdateToggle": "启动时更新"
 }

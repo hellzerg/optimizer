@@ -9,11 +9,11 @@ namespace Optimizer
     // Collection of useful debugging methods and utilities
     internal sealed class DebugHelper
     {
-        // For comparing and detecting missing properties in two translation JSON files
+        // For comparing and detecting missing keys between two translation JSON files
         internal static void FindDifferenceInTwoJsons()
         {
             JObject file1 = JObject.Parse(Properties.Resources.EN);
-            JObject file2 = JObject.Parse(Properties.Resources.NE);
+            JObject file2 = JObject.Parse(Properties.Resources.RU);
 
             var p1 = file1.Properties().ToList();
             var p2 = file2.Properties().ToList();

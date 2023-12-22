@@ -468,5 +468,8 @@ It has negative effect on performance.",
 	"msgReinforce": "Are you sure you want to re-apply your current active policies?",
 	"chkNewsInterest": "Disable News && Interest",
 	"chkAllTrayIcons": "Show all tray icons",
-	"chkMenuDelays": "Remove menu delays"
+	"chkMenuDelays": "Remove menu delays",
+	"chkHideSearch": "Hide Search",
+	"chkHideFeed": "Hide Weather",
+	"autoUpdateToggle": "Update on launch"
 }

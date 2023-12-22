@@ -131,6 +131,8 @@ namespace Optimizer
                     CurrentOptions.EnableTray = false;
                     CurrentOptions.AutoStart = false;
                     CurrentOptions.InternalDNS = Constants.INTERNAL_DNS;
+                    CurrentOptions.UpdateOnLaunch = true;
+
                     CurrentOptions.DisableIndicium = false;
                     CurrentOptions.DisableAppsTool = false;
                     CurrentOptions.DisableHostsEditor = false;
@@ -139,6 +141,7 @@ namespace Optimizer
                     CurrentOptions.DisableCleaner = false;
                     CurrentOptions.DisableIntegrator = false;
                     CurrentOptions.DisablePinger = false;
+
                     //CurrentOptions.TelemetryClientID = Guid.NewGuid().ToString().ToUpperInvariant();
                     //CurrentOptions.DisableOptimizerTelemetry = false;
 

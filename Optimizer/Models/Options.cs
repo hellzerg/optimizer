@@ -11,6 +11,8 @@ namespace Optimizer
         public bool EnableTray { get; set; }
         public bool AutoStart { get; set; }
         public string InternalDNS { get; set; }
+        public bool UpdateOnLaunch { get; set; }
+
         public bool DisableIndicium { get; set; }
         public bool DisableAppsTool { get; set; }
         public bool DisableHostsEditor { get; set; }
@@ -19,6 +21,7 @@ namespace Optimizer
         public bool DisableCleaner { get; set; }
         public bool DisableIntegrator { get; set; }
         public bool DisablePinger { get; set; }
+
         //public string TelemetryClientID { get; set; }
         //public bool DisableOptimizerTelemetry { get; set; }
 

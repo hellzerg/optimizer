@@ -418,5 +418,8 @@
 	"msgReinforce": "तपाईंले आफ्ना हालका नीत",
 	"chkNewsInterest": "समाचार र रुचिहरू अक्षम गर्नुहोस्",
 	"chkAllTrayIcons": "सम्पूर्ण ट्रे आइकनहरू देखाउनुहोस्",
-	"chkMenuDelays": "मेनु ल्याग्ले हटाउनुहोस्"
+	"chkMenuDelays": "मेनु ल्याग्ले हटाउनुहोस्",
+	"chkHideSearch": "खोज लुकाउनुहोस्",
+	"chkHideFeed": "मौसम लुकाउनुहोस्",
+	"autoUpdateToggle": "प्रक्षेपमा अद्यतन गर्नुहोस्"
 }

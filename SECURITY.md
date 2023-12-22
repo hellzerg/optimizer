@@ -8,7 +8,7 @@ We actively support the following version of the Optimizer:
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 15.x   | ✅                |
+| 16.x   | ✅                |
 
 If you are using a version older than 15.x, we highly recommend upgrading to the latest version to benefit from the latest security enhancements and features.
 

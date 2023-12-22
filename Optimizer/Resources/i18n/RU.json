@@ -438,5 +438,8 @@
 	"msgReinforce": "Вы уверены, что хотите повторно применить текущие политики?",
 	"chkNewsInterest": "Отключить Новости и Интересы",
 	"chkAllTrayIcons": "Показать все значки трея",
-	"chkMenuDelays": "Убрать задержки в меню"
+	"chkMenuDelays": "Убрать задержки в меню",
+	"chkHideSearch": "Скрыть поиск",
+	"chkHideFeed": "Скрыть погоду",
+	"autoUpdateToggle": "Обновить при запуске"
 }

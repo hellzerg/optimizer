@@ -465,5 +465,8 @@ Tem efeito negativo no desempenho.",
 	"msgReinforce": "Tem certeza de que deseja reaplicar suas políticas atuais?",
 	"chkNewsInterest": "Desativar Notícias e Interesses",
 	"chkAllTrayIcons": "Mostrar todos os ícones da bandeja",
-	"chkMenuDelays": "Remover atrasos no menu"
+	"chkMenuDelays": "Remover atrasos no menu",
+	"chkHideSearch": "Ocultar busca",
+	"chkHideFeed": "Ocultar tempo",
+	"autoUpdateToggle": "Atualizar no lançamento"
 }

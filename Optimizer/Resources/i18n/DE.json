@@ -442,5 +442,8 @@
 	"msgReinforce": "Sind Sie sicher, dass Sie Ihre aktuellen Richtlinien erneut anwenden möchten?",
 	"chkNewsInterest": "News & Interessen deaktivieren",
 	"chkAllTrayIcons": "Alle Tray-Symbole anzeigen",
-	"chkMenuDelays": "Menüverzögerungen entfernen"
+	"chkMenuDelays": "Menüverzögerungen entfernen",
+	"chkHideSearch": "Suche ausblenden",
+	"chkHideFeed": "Wetter ausblenden",
+	"autoUpdateToggle": "Aktualisieren beim Start"
 }

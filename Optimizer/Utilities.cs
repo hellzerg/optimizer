@@ -241,12 +241,12 @@ namespace Optimizer
         internal static void DisableHibernation()
         {
             Utilities.RunCommand("powercfg -h off");
-            Utilities.RunCommand("powercfg -h off");
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power", "HibernateEnabled", "0", RegistryValueKind.DWord);
         }
 
         internal static void EnableHibernation()
         {
-            Utilities.RunCommand("powercfg -h on");
+            Utilities.TryDeleteRegistryValue(true, @"SYSTEM\CurrentControlSet\Control\Power", "HibernateEnabled");
             Utilities.RunCommand("powercfg -h on");
         }
 

@@ -468,5 +468,8 @@
 	"msgReinforce": "هل أنت متأكد من رغبتك في إعادة تطبيق السياسات الحالية؟",
 	"chkNewsInterest": "تعطيل الأخبار والاهتمامات",
 	"chkAllTrayIcons": "عرض جميع الرموز في منطقة العلبة",
-	"chkMenuDelays": "إزالة تأخيرات القائمة"
+	"chkMenuDelays": "إزالة تأخيرات القائمة",
+	"chkHideSearch": "إخفاء البحث",
+	"chkHideFeed": "إخفاء الطقس",
+	"autoUpdateToggle": "تحديث عند الإطلاق"
 }

@@ -466,5 +466,8 @@
 	"msgReinforce": "Biztos vagy benne, hogy újra alkalmazod az aktuális iránypontokat?",
 	"chkNewsInterest": "Hírek és Érdeklődés kikapcsolása",
 	"chkAllTrayIcons": "Az összes tálca ikon megjelenítése",
-	"chkMenuDelays": "Menü késleltetések eltávolítása"
+	"chkMenuDelays": "Menü késleltetések eltávolítása",
+	"chkHideSearch": "Keresés elrejtése",
+	"chkHideFeed": "Időjárás elrejtése",
+	"autoUpdateToggle": "Frissítés indításkor"
 }

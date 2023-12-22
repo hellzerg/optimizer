@@ -459,5 +459,8 @@ SMBv3に置き換えられており、そちらのほうがより安全です。
 	"msgReinforce": "現在のポリシーを再適用してもよろしいですか？",
 	"chkNewsInterest": "ニュースと興味を無効にする",
 	"chkAllTrayIcons": "すべてのトレイアイコンを表示",
-	"chkMenuDelays": "メニューの遅延を削除"
+	"chkMenuDelays": "メニューの遅延を削除",
+	"chkHideSearch": "検索を非表示",
+	"chkHideFeed": "天気を非表示",
+	"autoUpdateToggle": "起動時に更新"
 }

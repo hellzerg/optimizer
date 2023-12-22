@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/16.2/Optimizer-16.2.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/16.3/Optimizer-16.3.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -27,7 +27,7 @@ Welcome to Optimizer, an advanced configuration utility designed to enhance your
 - Disable Office telemetry (works with Office 2016 or newer)
 - Stop automatic Windows 10 updates
 - Download multiple useful apps quickly
-- Disable CoPilot AI in Windows 11
+- Disable CoPilot AI in Windows 11 and Edge
 - Uninstall UWP apps
 - Clean system drive and browser profiles
 - Fix common registry issues
@@ -105,8 +105,8 @@ Learn about our security measures in the [Security Policy](https://github.com/he
 <h2> 📊 Details</h2> 
 </center>
 
-- Latest version: 16.2 (Released: October 28, 2023)
-- SHA256: D97A8782B1563F7C7CA71B9094F90C1737E8A04119501196E5C7EA7F30857393
+- Latest version: 16.3 (Released: December 22, 2023)
+- SHA256: A70EECA600155EFB57A52BB29493B5CD33409F475B9293AF38677B26EBB9F79B
 
 <center>
 <h2> ☕ Buy me a delicious espresso</h2>

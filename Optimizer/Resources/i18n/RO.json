@@ -450,5 +450,8 @@
 	"msgReinforce": "Sunteți sigur că doriți să reaplicați politicile actuale?",
 	"chkNewsInterest": "Dezactivează Știri și Interese",
 	"chkAllTrayIcons": "Arată toate pictogramele din zona de notificare",
-	"chkMenuDelays": "Elimină întârzierile din meniu"
+	"chkMenuDelays": "Elimină întârzierile din meniu",
+	"chkHideSearch": "Ascunde căutarea",
+	"chkHideFeed": "Ascunde vremea",
+	"autoUpdateToggle": "Actualizare la pornire"
 }

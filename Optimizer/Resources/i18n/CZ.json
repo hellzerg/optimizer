@@ -468,5 +468,8 @@ Má to negativní vliv na výkon.",
 	"msgReinforce": "Opravdu si přejete znovu použít své stávající politiky?",
 	"chkNewsInterest": "Vypnout Novinky a Zájmy",
 	"chkAllTrayIcons": "Zobrazit všechny ikony v oznamovací oblasti",
-	"chkMenuDelays": "Odstranit zpoždění v menu"
+	"chkMenuDelays": "Odstranit zpoždění v menu",
+	"chkHideSearch": "Skrýt vyhledávání",
+	"chkHideFeed": "Skrýt počasí",
+	"autoUpdateToggle": "Aktualizovat při spuštění"
 }

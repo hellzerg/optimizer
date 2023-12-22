@@ -868,6 +868,7 @@ namespace Optimizer
             quickAccessToggle.ToggleChecked = OptionsHelper.CurrentOptions.EnableTray;
             launcherIcon.Visible = OptionsHelper.CurrentOptions.EnableTray;
             autoStartToggle.ToggleChecked = OptionsHelper.CurrentOptions.AutoStart;
+            autoUpdateToggle.ToggleChecked = OptionsHelper.CurrentOptions.UpdateOnLaunch;
             //telemetrySvcToggle.ToggleChecked = Options.CurrentOptions.DisableOptimizerTelemetry;
 
             //seperatorNetMon.Visible = Options.CurrentOptions.EnableTray;
@@ -1110,9 +1111,12 @@ namespace Optimizer
                 txtDownloadFolder.Text = OptionsHelper.CurrentOptions.AppsFolder;
             }
 
-            if (!Program.EXPERIMENTAL_BUILD && PingerHelper.IsInternetAvailable())
+            if (OptionsHelper.CurrentOptions.UpdateOnLaunch)
             {
-                CheckForUpdate(true);
+                if (!Program.EXPERIMENTAL_BUILD && PingerHelper.IsInternetAvailable())
+                {
+                    CheckForUpdate(true);
+                }
             }
 
             if (Program.EXPERIMENTAL_BUILD)
@@ -2078,80 +2082,6 @@ namespace Optimizer
         //    });
         //}
 
-        //private void TranslateIndicium()
-        //{
-        //    if (hwDetailed.ToggleChecked)
-        //    {
-        //        // DETAILS TRANSLATION
-        //        TreeNode cpu = specsTree.Nodes["cpu"];
-        //        TreeNode ram = specsTree.Nodes["ram"];
-        //        TreeNode gpu = specsTree.Nodes["gpu"];
-        //        TreeNode mobo = specsTree.Nodes["mobo"];
-        //        TreeNode disk = specsTree.Nodes["disk"];
-        //        TreeNode inet = specsTree.Nodes["inet"];
-        //        TreeNode audio = specsTree.Nodes["audio"];
-        //        TreeNode dev = specsTree.Nodes["dev"];
-
-        //        if (cpu != null) cpu.Text = translationList["cpu"];
-        //        if (ram != null)
-        //        {
-        //            ram.Text = translationList["ram"];
-        //            TreeNode vm = ram.Nodes["vm"];
-        //            if (vm != null) vm.Text = translationList["vm"];
-        //        }
-        //        if (gpu != null) gpu.Text = translationList["gpu"];
-        //        if (mobo != null) mobo.Text = translationList["mobo"];
-        //        if (disk != null)
-        //        {
-        //            disk.Text = translationList["disk"];
-        //            TreeNode disks = disk.Nodes["drives"];
-        //            TreeNode vols = disk.Nodes["volumes"];
-        //            TreeNode opticals = disk.Nodes["opticals"];
-        //            TreeNode removables = disk.Nodes["removables"];
-        //            if (disks != null) disks.Text = translationList["drives"];
-        //            if (vols != null) vols.Text = translationList["volumes"];
-        //            if (opticals != null) opticals.Text = translationList["opticals"];
-        //            if (removables != null) removables.Text = translationList["removables"];
-        //        }
-        //        if (inet != null)
-        //        {
-        //            inet.Text = translationList["inet"];
-        //            TreeNode pas = inet.Nodes["physicalAdapters"];
-        //            TreeNode vas = inet.Nodes["virtualAdapters"];
-        //            if (pas != null) pas.Text = translationList["physicalAdapters"];
-        //            if (vas != null) vas.Text = translationList["virtualAdapters"];
-        //        }
-        //        if (audio != null) audio.Text = translationList["audio"];
-        //        if (dev != null)
-        //        {
-        //            dev.Text = translationList["dev"];
-        //            TreeNode kbs = dev.Nodes["keyboards"];
-        //            TreeNode pds = dev.Nodes["pointings"];
-        //            if (kbs != null) kbs.Text = translationList["keyboards"];
-        //            if (pds != null) pds.Text = translationList["pointings"];
-        //        }
-        //    }
-        //    else
-        //    {
-        //        // SUMMARY TRANSLATION
-        //        TreeNode os = specsTree.Nodes["os"];
-        //        TreeNode scpu = specsTree.Nodes["scpu"];
-        //        TreeNode sram = specsTree.Nodes["sram"];
-        //        TreeNode sgpu = specsTree.Nodes["sgpu"];
-        //        TreeNode smobo = specsTree.Nodes["smobo"];
-        //        TreeNode sdisk = specsTree.Nodes["sdisk"];
-        //        TreeNode sinet = specsTree.Nodes["sinet"];
-
-        //        if (os != null) os.Text = translationList["os"];
-        //        if (scpu != null) scpu.Text = translationList["cpu"];
-        //        if (sram != null) sram.Text = translationList["ram"];
-        //        if (sgpu != null) sgpu.Text = translationList["gpu"];
-        //        if (smobo != null) smobo.Text = translationList["mobo"];
-        //        if (sdisk != null) sdisk.Text = translationList["disk"];
-        //        if (sinet != null) sinet.Text = translationList["inet"];
-        //    }
-        //}
-
         private void Translate(bool skipFull = false)
         {
             translationList = OptionsHelper.TranslationList.ToObject<Dictionary<string, string>>();
@@ -2444,6 +2374,8 @@ namespace Optimizer
         private void LoadUniversalToggleStates()
         {
             performanceSw.ToggleChecked = OptionsHelper.CurrentOptions.EnablePerformanceTweaks;
+            chkAllTrayIcons.Enabled = !OptionsHelper.CurrentOptions.EnablePerformanceTweaks;
+            chkMenuDelays.Enabled = !OptionsHelper.CurrentOptions.EnablePerformanceTweaks;
             networkSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableNetworkThrottling;
             defenderSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableWindowsDefender;
             systemRestoreSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableSystemRestore;
@@ -2484,8 +2416,11 @@ namespace Optimizer
             edgeAiSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableEdgeDiscoverBar;
             xboxSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableXboxLive;
             oldExplorerSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableQuickAccessHistory;
+            chkHideSearch.Enabled = !OptionsHelper.CurrentOptions.DisableQuickAccessHistory;
+            chkHideFeed.Enabled = !OptionsHelper.CurrentOptions.DisableQuickAccessHistory;
             sensorSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableSensorServices;
             privacySw.ToggleChecked = OptionsHelper.CurrentOptions.DisablePrivacyOptions;
+            chkNewsInterest.Enabled = !OptionsHelper.CurrentOptions.DisablePrivacyOptions;
             telemetryServicesSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableTelemetryServices;
             autoUpdatesSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableAutomaticUpdates;
             peopleSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableMyPeople;
@@ -2524,6 +2459,7 @@ namespace Optimizer
             {
                 this.Hide();
             }
+            //DebugHelper.FindDifferenceInTwoJsons();
         }
 
         private void GetDesktopItems()
@@ -2611,9 +2547,9 @@ namespace Optimizer
                 try
                 {
                     pngTmp = new DirectoryInfo(x.Value)
-                    .EnumerateFiles("*.png", SearchOption.AllDirectories)
-                    .OrderByDescending(f => f.Length)
-                    .FirstOrDefault();
+                        .EnumerateFiles("*.png", SearchOption.AllDirectories)
+                        .OrderByDescending(f => f.Length)
+                        .FirstOrDefault();
                 }
                 catch
                 {
@@ -2726,16 +2662,6 @@ namespace Optimizer
 
                 GetStartupItems();
             }
-
-            //foreach (int x in listStartupItems.CheckedIndices)
-            //{
-            //    MessageBox.Show(x.ToString());
-            //}
-            //if (listStartupItems.SelectedItems.Count == 1)
-            //{
-            //    _startUpItems[listStartupItems.SelectedIndices[0]].Remove();
-            //    GetStartupItems();
-            //}
         }
 
         internal void RemoveAllStartupItems()
@@ -2747,16 +2673,6 @@ namespace Optimizer
 
             GetStartupItems();
         }
-
-        // REMOVE ALL STARTUP ITEMS BUTTON
-        //private void button22_Click(object sender, EventArgs e)
-        //{
-        //    if (listStartupItems.Items.Count > 0)
-        //    {
-        //        HelperForm r = new HelperForm(this, MessageType.Startup, _removeStartupItemsMessage);
-        //        r.ShowDialog(this);
-        //    }
-        //}
 
         private void button31_Click(object sender, EventArgs e)
         {
@@ -3369,10 +3285,14 @@ namespace Optimizer
             if (performanceSw.ToggleChecked)
             {
                 OptimizeHelper.EnablePerformanceTweaks(chkAllTrayIcons.Checked, chkMenuDelays.Checked);
+                chkAllTrayIcons.Enabled = false;
+                chkMenuDelays.Enabled = false;
             }
             else
             {
                 OptimizeHelper.DisablePerformanceTweaks();
+                chkAllTrayIcons.Enabled = true;
+                chkMenuDelays.Enabled = true;
             }
             OptionsHelper.CurrentOptions.EnablePerformanceTweaks = performanceSw.ToggleChecked;
             ShowRestartNeeded();
@@ -3535,11 +3455,15 @@ namespace Optimizer
         {
             if (oldExplorerSw.ToggleChecked)
             {
-                OptimizeHelper.DisableQuickAccessHistory();
+                OptimizeHelper.DisableQuickAccessHistory(chkHideFeed.Checked, true, chkHideSearch.Checked);
+                chkHideFeed.Enabled = false;
+                chkHideSearch.Enabled = false;
             }
             else
             {
                 OptimizeHelper.EnableQuickAccessHistory();
+                chkHideFeed.Enabled = true;
+                chkHideSearch.Enabled = true;
             }
             OptionsHelper.CurrentOptions.DisableQuickAccessHistory = oldExplorerSw.ToggleChecked;
             ShowRestartNeeded();
@@ -3644,11 +3568,13 @@ namespace Optimizer
             {
                 Task t = new Task(() => OptimizeHelper.EnhancePrivacy(chkNewsInterest.Checked));
                 t.Start();
+                chkNewsInterest.Enabled = false;
             }
             else
             {
                 Task t = new Task(() => OptimizeHelper.CompromisePrivacy());
                 t.Start();
+                chkNewsInterest.Enabled = true;
             }
             OptionsHelper.CurrentOptions.DisablePrivacyOptions = privacySw.ToggleChecked;
             ShowRestartNeeded();
@@ -5052,6 +4978,12 @@ namespace Optimizer
                 }
                 Application.Restart();
             }
+        }
+
+        private void autoUpdateToggle_ToggleClicked(object sender, EventArgs e)
+        {
+            OptionsHelper.CurrentOptions.UpdateOnLaunch = autoUpdateToggle.ToggleChecked;
+            OptionsHelper.SaveSettings();
         }
     }
 }

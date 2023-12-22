@@ -419,5 +419,8 @@ Het heeft een negatief effect op de prestaties.",
 	"msgReinforce": "Weet u zeker dat u uw huidige beleid opnieuw wilt toepassen?",
    "chkNewsInterest": "Schakel Nieuws en Interesses uit",
    "chkAllTrayIcons": "Toon alle systeemvakpictogrammen",
-   "chkMenuDelays": "Verwijder menuvertragingen"
+   "chkMenuDelays": "Verwijder menuvertragingen",
+   "chkHideSearch": "Zoeken verbergen",
+   "chkHideFeed": "Weer verbergen",
+   "autoUpdateToggle": "Bij start bijwerken"
 }
