@@ -203,6 +203,8 @@
     </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="Models\Options.cs" />
+    <Compile Include="Models\WorkEvent.cs" />
+    <Compile Include="Models\WorkEventArgs.cs" />
     <Compile Include="NetworkAdapter.cs" />
     <Compile Include="NetworkMonitor.cs" />
     <Compile Include="OptimizeHelper.cs" />

@@ -1,24 +1,19 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public sealed partial class FirstRunForm : Form
-    {
-        public FirstRunForm()
-        {
+namespace Optimizer {
+    public sealed partial class FirstRunForm : Form {
+        public FirstRunForm() {
             InitializeComponent();
             this.DoubleBuffered = true;
             OptionsHelper.ApplyTheme(this);
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
-        {
+        private void btnStart_Click(object sender, EventArgs e) {
             this.Close();
         }
 
-        private void FirstRunForm_Load(object sender, EventArgs e)
-        {
+        private void FirstRunForm_Load(object sender, EventArgs e) {
             radioArabic.Text = Constants.ARABIC;
             radioPortuguese.Text = Constants.PORTUGUESE;
             radioChinese.Text = Constants.CHINESE;
@@ -45,279 +40,233 @@ namespace Optimizer
             radioEnglish.Text = Constants.ENGLISH;
         }
 
-        private void pictureBox86_Click(object sender, EventArgs e)
-        {
+        private void pictureBox86_Click(object sender, EventArgs e) {
             radioEnglish.PerformClick();
         }
 
-        private void pictureBox87_Click(object sender, EventArgs e)
-        {
+        private void pictureBox87_Click(object sender, EventArgs e) {
             radioRussian.PerformClick();
         }
 
-        private void pictureBox88_Click(object sender, EventArgs e)
-        {
+        private void pictureBox88_Click(object sender, EventArgs e) {
             radioHellenic.PerformClick();
         }
 
-        private void radioEnglish_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioEnglish_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.EN;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void radioRussian_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioRussian_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.RU;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void radioHellenic_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioHellenic_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.EL;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
+        private void pictureBox1_Click(object sender, EventArgs e) {
             radioTurkish.PerformClick();
         }
 
-        private void radioTurkish_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioTurkish_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.TR;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void radioGerman_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioGerman_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.DE;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
+        private void pictureBox2_Click(object sender, EventArgs e) {
             radioGerman.PerformClick();
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
+        private void pictureBox3_Click(object sender, EventArgs e) {
             radioSpanish.PerformClick();
         }
 
-        private void radioSpanish_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioSpanish_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.ES;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void radioPortuguese_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioPortuguese_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.PT;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
+        private void pictureBox4_Click(object sender, EventArgs e) {
             radioPortuguese.PerformClick();
         }
 
-        private void radioFrench_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioFrench_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.FR;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
+        private void pictureBox5_Click(object sender, EventArgs e) {
             radioFrench.PerformClick();
         }
 
-        private void radioitalian_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioitalian_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.IT;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
+        private void pictureBox6_Click(object sender, EventArgs e) {
             radioItalian.PerformClick();
         }
 
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
+        private void pictureBox7_Click(object sender, EventArgs e) {
             radioChinese.PerformClick();
         }
 
-        private void radioChinese_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioChinese_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.CN;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
+        private void pictureBox8_Click(object sender, EventArgs e) {
             radioCzech.PerformClick();
         }
 
-        private void radioCzech_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioCzech_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.CZ;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void radioTaiwan_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioTaiwan_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.TW;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void pictureBox9_Click(object sender, EventArgs e)
-        {
+        private void pictureBox9_Click(object sender, EventArgs e) {
             radioTaiwan.PerformClick();
         }
 
-        private void radioKorean_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioKorean_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.KO;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void pictureBox10_Click(object sender, EventArgs e)
-        {
+        private void pictureBox10_Click(object sender, EventArgs e) {
             radioChinese.PerformClick();
         }
 
-        private void pictureBox11_Click(object sender, EventArgs e)
-        {
+        private void pictureBox11_Click(object sender, EventArgs e) {
             radioPolish.PerformClick();
         }
 
-        private void radioPolish_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioPolish_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.PL;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void radioArabic_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioArabic_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.AR;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void pictureBox12_Click(object sender, EventArgs e)
-        {
+        private void pictureBox12_Click(object sender, EventArgs e) {
             radioArabic.PerformClick();
         }
 
-        private void pictureBox13_Click(object sender, EventArgs e)
-        {
+        private void pictureBox13_Click(object sender, EventArgs e) {
             radioKurdish.PerformClick();
         }
 
-        private void radioKurdish_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioKurdish_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.KU;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void pictureBox14_Click(object sender, EventArgs e)
-        {
+        private void pictureBox14_Click(object sender, EventArgs e) {
             radioHungarian.PerformClick();
         }
 
-        private void radioHungarian_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioHungarian_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.HU;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void radioRomanian_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioRomanian_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.RO;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void pictureBox15_Click(object sender, EventArgs e)
-        {
+        private void pictureBox15_Click(object sender, EventArgs e) {
             radioRomanian.PerformClick();
         }
 
-        private void radioDutch_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioDutch_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.NL;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void pictureBox16_Click(object sender, EventArgs e)
-        {
+        private void pictureBox16_Click(object sender, EventArgs e) {
             radioDutch.PerformClick();
         }
 
-        private void radioJapanese_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioJapanese_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.JA;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void pictureBox17_Click(object sender, EventArgs e)
-        {
+        private void pictureBox17_Click(object sender, EventArgs e) {
             radioJapanese.PerformClick();
         }
 
-        private void radioFarsi_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioFarsi_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.FA;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void pictureBox18_Click(object sender, EventArgs e)
-        {
+        private void pictureBox18_Click(object sender, EventArgs e) {
             radioFarsi.PerformClick();
         }
 
-        private void pictureBox19_Click(object sender, EventArgs e)
-        {
+        private void pictureBox19_Click(object sender, EventArgs e) {
             radioNepali.PerformClick();
         }
 
-        private void radioNepali_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioNepali_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.NE;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void radioBulgarian_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioBulgarian_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.BG;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
 
-        private void radioUkrainian_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioUkrainian_CheckedChanged(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.UA;
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();

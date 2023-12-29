@@ -3,20 +3,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace Optimizer
-{
-    public static class FileHandleHelper
-    {
-        public static List<Process> GetProcessesLockingFile(string path)
-        {
+namespace Optimizer {
+    public static class FileHandleHelper {
+        public static List<Process> GetProcessesLockingFile(string path) {
             uint handle;
             string key = Guid.NewGuid().ToString();
             int res = RmStartSession(out handle, 0, key);
 
             if (res != 0) return null;
 
-            try
-            {
+            try {
                 const int MORE_DATA = 234;
                 uint pnProcInfoNeeded, pnProcInfo = 0, lpdwRebootReasons = RmRebootReasonNone;
 
@@ -28,14 +24,12 @@ namespace Optimizer
 
                 res = RmGetList(handle, out pnProcInfoNeeded, ref pnProcInfo, null, ref lpdwRebootReasons);
 
-                if (res == MORE_DATA)
-                {
+                if (res == MORE_DATA) {
                     return EnumerateProcesses(pnProcInfoNeeded, handle, lpdwRebootReasons);
                 }
                 else if (res != 0) return null;
             }
-            finally
-            {
+            finally {
                 RmEndSession(handle);
             }
 
@@ -44,8 +38,7 @@ namespace Optimizer
 
 
         [StructLayout(LayoutKind.Sequential)]
-        public struct RM_UNIQUE_PROCESS
-        {
+        public struct RM_UNIQUE_PROCESS {
             public int dwProcessId;
             public System.Runtime.InteropServices.ComTypes.FILETIME ProcessStartTime;
         }
@@ -54,8 +47,7 @@ namespace Optimizer
         const int CCH_RM_MAX_APP_NAME = 255;
         const int CCH_RM_MAX_SVC_NAME = 63;
 
-        public enum RM_APP_TYPE
-        {
+        public enum RM_APP_TYPE {
             RmUnknownApp = 0,
             RmMainWindow = 1,
             RmOtherWindow = 2,
@@ -66,8 +58,7 @@ namespace Optimizer
         }
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-        public struct RM_PROCESS_INFO
-        {
+        public struct RM_PROCESS_INFO {
             public RM_UNIQUE_PROCESS Process;
 
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst = CCH_RM_MAX_APP_NAME + 1)] public string strAppName;
@@ -96,8 +87,7 @@ namespace Optimizer
             ref uint pnProcInfo, [In, Out] RM_PROCESS_INFO[] rgAffectedApps,
             ref uint lpdwRebootReasons);
 
-        private static List<Process> EnumerateProcesses(uint pnProcInfoNeeded, uint handle, uint lpdwRebootReasons)
-        {
+        private static List<Process> EnumerateProcesses(uint pnProcInfoNeeded, uint handle, uint lpdwRebootReasons) {
             var processes = new List<Process>(10);
 
             var processInfo = new RM_PROCESS_INFO[pnProcInfoNeeded];
@@ -108,10 +98,8 @@ namespace Optimizer
 
             if (res != 0) return null;
 
-            for (int i = 0; i < pnProcInfo; i++)
-            {
-                try
-                {
+            for (int i = 0; i < pnProcInfo; i++) {
+                try {
                     processes.Add(Process.GetProcessById(processInfo[i].Process.dwProcessId));
                 }
                 catch { }

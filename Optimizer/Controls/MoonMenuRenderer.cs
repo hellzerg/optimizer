@@ -1,12 +1,9 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    internal sealed class MoonMenuRenderer : ToolStripProfessionalRenderer
-    {
-        internal MoonMenuRenderer() : base(new MoonColors())
-        {
+namespace Optimizer {
+    internal sealed class MoonMenuRenderer : ToolStripProfessionalRenderer {
+        internal MoonMenuRenderer() : base(new MoonColors()) {
 
         }
 
@@ -26,8 +23,7 @@ namespace Optimizer
         //    base.OnRenderSeparator(e);
         //}
 
-        protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
-        {
+        protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e) {
             var tsMenuItem = e.Item as ToolStripMenuItem;
             if (tsMenuItem != null)
                 e.ArrowColor = Color.DimGray;
@@ -35,92 +31,69 @@ namespace Optimizer
         }
     }
 
-    internal class MoonColors : ProfessionalColorTable
-    {
-        public override Color SeparatorLight
-        {
+    internal class MoonColors : ProfessionalColorTable {
+        public override Color SeparatorLight {
             get { return Color.DimGray; }
         }
 
-        public override Color SeparatorDark
-        {
+        public override Color SeparatorDark {
             get { return Color.DimGray; }
         }
 
-        public override Color ToolStripDropDownBackground
-        {
-            get
-            {
+        public override Color ToolStripDropDownBackground {
+            get {
                 return OptionsHelper.BackgroundColor;
             }
         }
 
-        public override Color ImageMarginGradientBegin
-        {
-            get
-            {
+        public override Color ImageMarginGradientBegin {
+            get {
                 return OptionsHelper.BackgroundColor;
             }
         }
-        public override Color ImageMarginGradientMiddle
-        {
-            get
-            {
+        public override Color ImageMarginGradientMiddle {
+            get {
                 return OptionsHelper.BackgroundColor;
             }
         }
-        public override Color ImageMarginGradientEnd
-        {
-            get
-            {
+        public override Color ImageMarginGradientEnd {
+            get {
                 return OptionsHelper.BackgroundColor;
             }
         }
 
-        public override Color ToolStripBorder
-        {
-            get
-            {
+        public override Color ToolStripBorder {
+            get {
                 return OptionsHelper.BackgroundColor;
             }
         }
 
-        public override Color MenuBorder
-        {
-            get
-            {
+        public override Color MenuBorder {
+            get {
                 return OptionsHelper.BackAccentColor;
             }
         }
 
-        public override Color MenuItemSelected
-        {
-            get
-            {
+        public override Color MenuItemSelected {
+            get {
                 return OptionsHelper.BackAccentColor;
             }
         }
 
-        public override Color MenuItemSelectedGradientBegin
-        {
-            get
-            {
+        public override Color MenuItemSelectedGradientBegin {
+            get {
                 return OptionsHelper.BackAccentColor;
             }
         }
 
-        public override Color MenuItemSelectedGradientEnd
-        {
-            get
-            {
+        public override Color MenuItemSelectedGradientEnd {
+            get {
                 return OptionsHelper.BackAccentColor;
             }
         }
 
-        public override Color MenuItemBorder
-        {
-            get
-            {
+        public override Color MenuItemBorder {
+            get {
                 return OptionsHelper.BackAccentColor;
             }
         }

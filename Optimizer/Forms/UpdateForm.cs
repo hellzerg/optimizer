@@ -2,20 +2,16 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public sealed partial class UpdateForm : Form
-    {
-        public UpdateForm(string message, bool newUpdate, string changelog, string latestVersion)
-        {
+namespace Optimizer {
+    public sealed partial class UpdateForm : Form {
+        public UpdateForm(string message, bool newUpdate, string changelog, string latestVersion) {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
             OptionsHelper.ApplyTheme(this);
 
             txtMessage.Text = message;
 
-            if (newUpdate)
-            {
+            if (newUpdate) {
                 this.Size = new Size(600, 545);
                 btnOK.Text = OptionsHelper.TranslationList["btnYes"].ToString();
                 btnNo.Text = OptionsHelper.TranslationList["btnNo"].ToString();
@@ -31,8 +27,7 @@ namespace Optimizer
                 txtInfo.Visible = true;
                 txtChanges.Visible = true;
             }
-            else
-            {
+            else {
                 this.Size = new Size(600, 188);
                 btnOK.Text = OptionsHelper.TranslationList["btnAbout"].ToString();
                 btnNo.Visible = false;
@@ -45,8 +40,7 @@ namespace Optimizer
             }
         }
 
-        private void UpdateForm_Load(object sender, EventArgs e)
-        {
+        private void UpdateForm_Load(object sender, EventArgs e) {
 
         }
     }

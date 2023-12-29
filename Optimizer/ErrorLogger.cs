@@ -2,16 +2,13 @@
 using System.IO;
 using System.Text;
 
-namespace Optimizer
-{
-    internal static class Logger
-    {
+namespace Optimizer {
+    internal static class Logger {
         internal static string ErrorLogFile = Path.Combine(CoreHelper.CoreFolder, "Optimizer.log");
 
         static StringBuilder _silentReportLog;
 
-        private static void LogErrorSilent(string functionName, string errorMessage, string errorStackTrace)
-        {
+        private static void LogErrorSilent(string functionName, string errorMessage, string errorStackTrace) {
             _silentReportLog.AppendLine(string.Format("[ERROR] [{0}] in function [{1}]", DateTime.Now.ToString(), functionName));
             _silentReportLog.AppendLine();
             _silentReportLog.AppendLine(errorMessage);
@@ -21,14 +18,12 @@ namespace Optimizer
             _silentReportLog.AppendLine();
         }
 
-        internal static void LogInfoSilent(string message)
-        {
+        internal static void LogInfoSilent(string message) {
             _silentReportLog.AppendLine($"[OK] {message}");
             _silentReportLog.AppendLine();
         }
 
-        internal static void InitializeSilentReport()
-        {
+        internal static void InitializeSilentReport() {
             _silentReportLog = new StringBuilder();
 
             _silentReportLog.AppendLine(Utilities.GetWindowsDetails());
@@ -39,27 +34,21 @@ namespace Optimizer
             _silentReportLog.AppendLine();
         }
 
-        internal static void GenerateSilentReport()
-        {
-            try
-            {
+        internal static void GenerateSilentReport() {
+            try {
                 File.WriteAllText($"Optimizer.SilentReport.{DateTime.Now.ToString("yyyyMMddTHHmm")}.log", _silentReportLog.ToString());
             }
             catch { }
         }
 
-        internal static void LogError(string functionName, string errorMessage, string errorStackTrace)
-        {
-            if (Program.SILENT_MODE)
-            {
+        internal static void LogError(string functionName, string errorMessage, string errorStackTrace) {
+            if (Program.SILENT_MODE) {
                 LogErrorSilent(functionName, errorMessage, errorStackTrace);
                 return;
             }
 
-            try
-            {
-                if (!File.Exists(ErrorLogFile) || (File.Exists(ErrorLogFile) && File.ReadAllText(ErrorLogFile).Trim() == string.Empty))
-                {
+            try {
+                if (!File.Exists(ErrorLogFile) || (File.Exists(ErrorLogFile) && File.ReadAllText(ErrorLogFile).Trim() == string.Empty)) {
                     File.AppendAllText(ErrorLogFile, Utilities.GetWindowsDetails());
                     File.AppendAllText(ErrorLogFile, Environment.NewLine);
                     File.AppendAllText(ErrorLogFile, string.Format("Optimizer {0} - .NET Framework {1} - Experimental build: {2}", Program.GetCurrentVersionTostring(), Utilities.GetNETFramework(), Program.EXPERIMENTAL_BUILD));

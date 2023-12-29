@@ -1,11 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace Optimizer
-{
+namespace Optimizer {
     [Serializable]
-    public sealed class SilentConfig
-    {
+    public sealed class SilentConfig {
         [JsonProperty("WindowsVersion", Required = Required.Always, NullValueHandling = NullValueHandling.Ignore)]
         public int WindowsVersion { get; set; }
 
@@ -38,8 +36,7 @@ namespace Optimizer
     }
 
     [Serializable]
-    public sealed class AdvancedTweaks
-    {
+    public sealed class AdvancedTweaks {
         [JsonProperty("DisableHPET", NullValueHandling = NullValueHandling.Ignore)]
         public bool? DisableHPET { get; set; }
 
@@ -54,8 +51,7 @@ namespace Optimizer
     }
 
     [Serializable]
-    public sealed class Cleaner
-    {
+    public sealed class Cleaner {
         [JsonProperty("TempFiles", NullValueHandling = NullValueHandling.Ignore)]
         public bool? TempFiles { get; set; }
 
@@ -85,8 +81,7 @@ namespace Optimizer
     }
 
     [Serializable]
-    public sealed class BaseBrowser
-    {
+    public sealed class BaseBrowser {
         [JsonProperty("Cache", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Cache { get; set; }
 
@@ -104,8 +99,7 @@ namespace Optimizer
     }
 
     [Serializable]
-    public sealed class HostsEditor
-    {
+    public sealed class HostsEditor {
         [JsonProperty("Block", NullValueHandling = NullValueHandling.Ignore)]
         public string[] Block { get; set; }
 
@@ -120,8 +114,7 @@ namespace Optimizer
     }
 
     [Serializable]
-    public sealed class AddHostsEntry
-    {
+    public sealed class AddHostsEntry {
         [JsonProperty("Domain", NullValueHandling = NullValueHandling.Ignore)]
         public string Domain { get; set; }
 
@@ -130,8 +123,7 @@ namespace Optimizer
     }
 
     [Serializable]
-    public sealed class Integrator
-    {
+    public sealed class Integrator {
         [JsonProperty("TakeOwnership", NullValueHandling = NullValueHandling.Ignore)]
         public bool? TakeOwnership { get; set; }
 
@@ -140,8 +132,7 @@ namespace Optimizer
     }
 
     [Serializable]
-    public sealed class Pinger
-    {
+    public sealed class Pinger {
         [JsonProperty("SetDNS", NullValueHandling = NullValueHandling.Ignore)]
         public string SetDns { get; set; }
 
@@ -156,8 +147,7 @@ namespace Optimizer
     }
 
     [Serializable]
-    public sealed class PostAction
-    {
+    public sealed class PostAction {
         [JsonProperty("Restart", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Restart { get; set; }
 
@@ -166,8 +156,7 @@ namespace Optimizer
     }
 
     [Serializable]
-    public sealed class ProcessControl
-    {
+    public sealed class ProcessControl {
         [JsonProperty("Prevent", NullValueHandling = NullValueHandling.Ignore)]
         public string[] Prevent { get; set; }
 
@@ -176,8 +165,7 @@ namespace Optimizer
     }
 
     [Serializable]
-    public sealed class RegistryFix
-    {
+    public sealed class RegistryFix {
         [JsonProperty("TaskManager", NullValueHandling = NullValueHandling.Ignore)]
         public bool? TaskManager { get; set; }
 
@@ -204,8 +192,7 @@ namespace Optimizer
     }
 
     [Serializable]
-    public sealed class SvchostProcessSplitting
-    {
+    public sealed class SvchostProcessSplitting {
         [JsonProperty("Disable", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Disable { get; set; }
 
@@ -214,8 +201,7 @@ namespace Optimizer
     }
 
     [Serializable]
-    public sealed class Tweaks
-    {
+    public sealed class Tweaks {
         public bool? EnablePerformanceTweaks { get; set; }
         public bool? DisableNetworkThrottling { get; set; }
         public bool? DisableWindowsDefender { get; set; }

@@ -3,29 +3,23 @@ using System;
 using System.Diagnostics;
 using System.IO;
 
-namespace Optimizer
-{
-    public static class OptimizeHelper
-    {
+namespace Optimizer {
+    public static class OptimizeHelper {
         readonly static string DiagnosisAutoLoggerFolder = Path.Combine(CleanHelper.ProgramData, @"Microsoft\Diagnosis\ETLLogs\AutoLogger");
 
-        internal static void DisableTelemetryRunner()
-        {
+        internal static void DisableTelemetryRunner() {
             Utilities.PreventProcessFromRunning("CompatTelRunner.exe");
             Utilities.PreventProcessFromRunning("DeviceCensus.exe");
         }
 
-        internal static void EnablePerformanceTweaks(bool showAllTrayIcons = true, bool noDelayForMenus = true)
-        {
+        internal static void EnablePerformanceTweaks(bool showAllTrayIcons = true, bool noDelayForMenus = true) {
             // show all tray icons
-            if (showAllTrayIcons)
-            {
+            if (showAllTrayIcons) {
                 Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer", "EnableAutoTray", "0", RegistryValueKind.DWord);
             }
 
             // no delay when menus showing up
-            if (noDelayForMenus)
-            {
+            if (noDelayForMenus) {
                 Registry.SetValue("HKEY_CURRENT_USER\\Control Panel\\Desktop", "MenuShowDelay", "0");
                 Registry.SetValue("HKEY_CURRENT_USER\\Control Panel\\Mouse", "MouseHoverTime", "0");
             }
@@ -89,10 +83,8 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Low Latency", "SFIO Priority", "High", RegistryValueKind.String);
         }
 
-        internal static void DisablePerformanceTweaks()
-        {
-            try
-            {
+        internal static void DisablePerformanceTweaks() {
+            try {
                 // disable auto-complete in Run Dialog
                 Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete", true).DeleteValue("Append Completion", false);
                 Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete", true).DeleteValue("AutoSuggest", false);
@@ -154,14 +146,12 @@ namespace Optimizer
                 Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Low Latency", true).DeleteValue("Scheduling Category", false);
                 Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Low Latency", true).DeleteValue("SFIO Priority", false);
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Optimize.DisablePerformanceTweaks", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static void DisableTelemetryServices()
-        {
+        internal static void DisableTelemetryServices() {
             Utilities.StopService("DiagTrack");
             Utilities.StopService("diagnosticshub.standardcollector.service");
             Utilities.StopService("dmwappushservice");
@@ -178,8 +168,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat", "DisableEngine", 1, RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat", "SbEnable", 0, RegistryValueKind.DWord);
 
-            if (Environment.Is64BitOperatingSystem)
-            {
+            if (Environment.Is64BitOperatingSystem) {
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\AppCompat", "DisableEngine", 1, RegistryValueKind.DWord);
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\AppCompat", "SbEnable", 0, RegistryValueKind.DWord);
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\AppCompat", "DisablePCA", 1, RegistryValueKind.DWord);
@@ -201,8 +190,7 @@ namespace Optimizer
             Utilities.DisableProtectedService("WdiServiceHost");
         }
 
-        internal static void EnableTelemetryServices()
-        {
+        internal static void EnableTelemetryServices() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DiagTrack", "Start", "2", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service", "Start", "2", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\dmwappushservice", "Start", "2", RegistryValueKind.DWord);
@@ -217,37 +205,31 @@ namespace Optimizer
             Utilities.StartService("DcpSvc");
         }
 
-        internal static void DisableMediaPlayerSharing()
-        {
+        internal static void DisableMediaPlayerSharing() {
             Utilities.StopService("WMPNetworkSvc");
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WMPNetworkSvc", "Start", "4", RegistryValueKind.DWord);
         }
 
-        internal static void EnableMediaPlayerSharing()
-        {
+        internal static void EnableMediaPlayerSharing() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WMPNetworkSvc", "Start", "2", RegistryValueKind.DWord);
             Utilities.StartService("WMPNetworkSvc");
         }
 
-        internal static void DisableNetworkThrottling()
-        {
+        internal static void DisableNetworkThrottling() {
             Int32 tempInt = Convert.ToInt32("ffffffff", 16);
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile", "NetworkThrottlingIndex", tempInt, RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Psched", "NonBestEffortLimit", 0, RegistryValueKind.DWord);
         }
 
-        internal static void EnableNetworkThrottling()
-        {
-            try
-            {
+        internal static void EnableNetworkThrottling() {
+            try {
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Psched", "NonBestEffortLimit", 80, RegistryValueKind.DWord);
                 Registry.LocalMachine.OpenSubKey(@"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile", true).DeleteValue("NetworkThrottlingIndex", false);
 
                 Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Dnscache\Parameters", true).DeleteValue("MaxCacheTtl", false);
                 Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Dnscache\Parameters", true).DeleteValue("MaxNegativeCacheTtl", false);
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Optimize.EnableNetworkThrottling", ex.Message, ex.StackTrace);
             }
         }
@@ -271,8 +253,7 @@ namespace Optimizer
         //    }
         //}
 
-        internal static void DisableHomeGroup()
-        {
+        internal static void DisableHomeGroup() {
             Utilities.StopService("HomeGroupListener");
             Utilities.StopService("HomeGroupProvider");
 
@@ -281,8 +262,7 @@ namespace Optimizer
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\HomeGroupProvider", "Start", "4", RegistryValueKind.DWord);
         }
 
-        internal static void EnableHomeGroup()
-        {
+        internal static void EnableHomeGroup() {
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\HomeGroupListener", "Start", "2", RegistryValueKind.DWord);
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\HomeGroupProvider", "Start", "2", RegistryValueKind.DWord);
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\HomeGroup", "DisableHomeGroup");
@@ -291,20 +271,17 @@ namespace Optimizer
             Utilities.StartService("HomeGroupProvider");
         }
 
-        internal static void DisablePrintService()
-        {
+        internal static void DisablePrintService() {
             Utilities.StopService("Spooler");
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Spooler", "Start", "3", RegistryValueKind.DWord);
         }
 
-        internal static void EnablePrintService()
-        {
+        internal static void EnablePrintService() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Spooler", "Start", "2", RegistryValueKind.DWord);
             Utilities.StartService("Spooler");
         }
 
-        internal static void DisableSuperfetch()
-        {
+        internal static void DisableSuperfetch() {
             Utilities.StopService("SysMain");
             //Utilities.StopService("Schedule");
 
@@ -315,8 +292,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters", "SfTracingState", "1", RegistryValueKind.DWord);
         }
 
-        internal static void EnableSuperfetch()
-        {
+        internal static void EnableSuperfetch() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SysMain", "Start", "2", RegistryValueKind.DWord);
             //Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Schedule", "Start", "2", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters", "EnableSuperfetch", "1", RegistryValueKind.DWord);
@@ -327,24 +303,19 @@ namespace Optimizer
             //Utilities.StartService("Schedule");
         }
 
-        internal static void EnableCompatibilityAssistant()
-        {
+        internal static void EnableCompatibilityAssistant() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PcaSvc", "Start", "2", RegistryValueKind.DWord);
             Utilities.StartService("PcaSvc");
         }
 
-        internal static void DisableCompatibilityAssistant()
-        {
+        internal static void DisableCompatibilityAssistant() {
             Utilities.StopService("PcaSvc");
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PcaSvc", "Start", "4", RegistryValueKind.DWord);
         }
 
-        internal static void DisableSystemRestore()
-        {
-            try
-            {
-                using (Process p = new Process())
-                {
+        internal static void DisableSystemRestore() {
+            try {
+                using (Process p = new Process()) {
                     p.StartInfo.CreateNoWindow = true;
                     p.StartInfo.FileName = "vssadmin";
                     p.StartInfo.Arguments = "delete shadows /for=c: /all /quiet";
@@ -355,8 +326,7 @@ namespace Optimizer
                     p.Close();
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Optimize.DisableSystemRestore", ex.Message, ex.StackTrace);
             }
 
@@ -366,16 +336,14 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore", "DisableConfig", "1", RegistryValueKind.DWord);
         }
 
-        internal static void EnableSystemRestore()
-        {
+        internal static void EnableSystemRestore() {
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore", "DisableSR");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore", "DisableConfig");
 
             Utilities.StartService("VSS");
         }
 
-        internal static void DisableDefender()
-        {
+        internal static void DisableDefender() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender", "DisableAntiVirus", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender", "DisableSpecialRunningModes", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender", "DisableRoutinelyTakingAction", "1", RegistryValueKind.DWord);
@@ -401,19 +369,16 @@ namespace Optimizer
 
             RegistryKey k = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
 
-            using (RegistryKey tmp = k.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true))
-            {
+            using (RegistryKey tmp = k.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true)) {
                 tmp.DeleteValue("WindowsDefender", false);
                 tmp.DeleteValue("SecurityHealth", false);
             }
 
             string rootPath;
-            if (Environment.Is64BitOperatingSystem)
-            {
+            if (Environment.Is64BitOperatingSystem) {
                 rootPath = Environment.ExpandEnvironmentVariables("%ProgramW6432%");
             }
-            else
-            {
+            else {
                 rootPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
             }
 
@@ -421,8 +386,7 @@ namespace Optimizer
             //Utilities.RunCommand("Gpupdate /Force");
         }
 
-        internal static void EnableDefender()
-        {
+        internal static void EnableDefender() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\MpEngine", "MpEnablePus", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender", "PUAProtection", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Policy Manager", "DisableScanningNetworkFiles", "0", RegistryValueKind.DWord);
@@ -448,40 +412,33 @@ namespace Optimizer
             //Utilities.RunCommand("Gpupdate /Force");
         }
 
-        internal static void DisableSearch()
-        {
+        internal static void DisableSearch() {
             Utilities.StopService("WSearch");
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WSearch", "Start", "4", RegistryValueKind.DWord);
         }
 
-        internal static void EnableSearch()
-        {
+        internal static void EnableSearch() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WSearch", "Start", "2", RegistryValueKind.DWord);
             Utilities.StartService("WSearch");
         }
 
-        internal static void DisableSMB(string v)
-        {
+        internal static void DisableSMB(string v) {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters", $"SMB{v}", 0, RegistryValueKind.DWord);
         }
 
-        internal static void EnableSMB(string v)
-        {
+        internal static void EnableSMB(string v) {
             Utilities.TryDeleteRegistryValue(true, @"SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters", $"SMB{v}");
         }
 
-        internal static void DisableNTFSTimeStamp()
-        {
+        internal static void DisableNTFSTimeStamp() {
             Utilities.RunCommand("fsutil behavior set disablelastaccess 1");
         }
 
-        internal static void EnableNTFSTimeStamp()
-        {
+        internal static void EnableNTFSTimeStamp() {
             Utilities.RunCommand("fsutil behavior set disablelastaccess 2");
         }
 
-        internal static void DisableErrorReporting()
-        {
+        internal static void DisableErrorReporting() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting", "Disabled", 1);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting", "DoReport", 0);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting", "Disabled", 1);
@@ -492,8 +449,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wercplsupport", "Start", "4", RegistryValueKind.DWord);
         }
 
-        internal static void EnableErrorReporting()
-        {
+        internal static void EnableErrorReporting() {
             Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting", true).DeleteValue("Disabled", false);
             Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting", true).DeleteValue("DoReport", false);
             Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\Windows Error Reporting", true).DeleteValue("Disabled", false);
@@ -532,18 +488,15 @@ namespace Optimizer
         //    Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "AppsUseLightTheme", "1", RegistryValueKind.DWord);
         //}
 
-        internal static void EnableLegacyVolumeSlider()
-        {
+        internal static void EnableLegacyVolumeSlider() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\MTCUVC", "EnableMtcUvc", "0", RegistryValueKind.DWord);
         }
 
-        internal static void DisableLegacyVolumeSlider()
-        {
+        internal static void DisableLegacyVolumeSlider() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\MTCUVC", "EnableMtcUvc", "1", RegistryValueKind.DWord);
         }
 
-        internal static void EnableTaskbarColor()
-        {
+        internal static void EnableTaskbarColor() {
             // disable transparency
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "EnableTransparency", "0", RegistryValueKind.DWord);
 
@@ -551,8 +504,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "ColorPrevalence", "00000000", RegistryValueKind.DWord);
         }
 
-        internal static void DisableTaskbarColor()
-        {
+        internal static void DisableTaskbarColor() {
             // enable transparency
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "EnableTransparency", "1", RegistryValueKind.DWord);
 
@@ -560,15 +512,12 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "ColorPrevalence", "00000001", RegistryValueKind.DWord);
         }
 
-        internal static void UninstallOneDrive()
-        {
+        internal static void UninstallOneDrive() {
             Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "OneDrive_Uninstaller.cmd");
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OneDrive", "DisableFileSyncNGSC", "1", RegistryValueKind.DWord);
 
-            using (RegistryKey localMachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
-            {
-                using (RegistryKey key = localMachine.CreateSubKey(@"SOFTWARE\Microsoft\OneDrive"))
-                {
+            using (RegistryKey localMachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64)) {
+                using (RegistryKey key = localMachine.CreateSubKey(@"SOFTWARE\Microsoft\OneDrive")) {
                     key.SetValue("PreventNetworkTrafficPreUserSignIn", 1);
                 }
             }
@@ -582,16 +531,12 @@ namespace Optimizer
                 Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\Microsoft OneDrive"
             };
 
-            foreach (string x in oneDriveFolders)
-            {
-                if (Directory.Exists(x))
-                {
-                    try
-                    {
+            foreach (string x in oneDriveFolders) {
+                if (Directory.Exists(x)) {
+                    try {
                         Directory.Delete(x, true);
                     }
-                    catch (Exception ex)
-                    {
+                    catch (Exception ex) {
                         Logger.LogError("Optimize.UninstallOneDrive", ex.Message, ex.StackTrace);
                     }
                 }
@@ -607,86 +552,67 @@ namespace Optimizer
             int byteArray = BitConverter.ToInt32(BitConverter.GetBytes(0xb090010d), 0);
             var reg = RegistryKey.OpenBaseKey(RegistryHive.ClassesRoot, RegistryView.Registry64);
 
-            try
-            {
-                using (var key = Registry.ClassesRoot.OpenSubKey(rootKey, true))
-                {
+            try {
+                using (var key = Registry.ClassesRoot.OpenSubKey(rootKey, true)) {
                     key.SetValue("System.IsPinnedToNameSpaceTree", 0, RegistryValueKind.DWord);
                 }
 
-                using (var key = Registry.ClassesRoot.OpenSubKey(rootKey + "\\ShellFolder", true))
-                {
-                    if (key != null)
-                    {
+                using (var key = Registry.ClassesRoot.OpenSubKey(rootKey + "\\ShellFolder", true)) {
+                    if (key != null) {
                         key.SetValue("Attributes", byteArray, RegistryValueKind.DWord);
                     }
                 }
 
                 var reg2 = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64);
-                using (var key = reg2.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true))
-                {
+                using (var key = reg2.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true)) {
                     key.DeleteValue("OneDriveSetup", false);
                 }
 
                 // 64-bit Windows modifications
-                if (Environment.Is64BitOperatingSystem)
-                {
-                    using (var key = reg.OpenSubKey(rootKey, true))
-                    {
-                        if (key != null)
-                        {
+                if (Environment.Is64BitOperatingSystem) {
+                    using (var key = reg.OpenSubKey(rootKey, true)) {
+                        if (key != null) {
                             key.SetValue("System.IsPinnedToNameSpaceTree", 0, RegistryValueKind.DWord);
                         }
                     }
 
-                    using (var key = reg.OpenSubKey(rootKey + "\\ShellFolder", true))
-                    {
-                        if (key != null)
-                        {
+                    using (var key = reg.OpenSubKey(rootKey + "\\ShellFolder", true)) {
+                        if (key != null) {
                             key.SetValue("Attributes", byteArray, RegistryValueKind.DWord);
                         }
                     }
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Optimize.UninstallOneDrive", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static void InstallOneDrive()
-        {
-            try
-            {
+        internal static void InstallOneDrive() {
+            try {
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OneDrive", "DisableFileSyncNGSC", "0", RegistryValueKind.DWord);
 
-                using (RegistryKey localMachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
-                {
-                    using (RegistryKey key = localMachine.CreateSubKey(@"SOFTWARE\Microsoft\OneDrive"))
-                    {
+                using (RegistryKey localMachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64)) {
+                    using (RegistryKey key = localMachine.CreateSubKey(@"SOFTWARE\Microsoft\OneDrive")) {
                         key.DeleteValue("PreventNetworkTrafficPreUserSignIn", false);
                     }
                 }
 
                 string oneDriveInstaller;
-                if (Environment.Is64BitOperatingSystem)
-                {
+                if (Environment.Is64BitOperatingSystem) {
                     oneDriveInstaller = Path.Combine(Path.GetPathRoot(Environment.SystemDirectory), "Windows\\SysWOW64\\OneDriveSetup.exe");
                 }
-                else
-                {
+                else {
                     oneDriveInstaller = Path.Combine(Path.GetPathRoot(Environment.SystemDirectory), "Windows\\System32\\OneDriveSetup.exe");
                 }
                 Process.Start(oneDriveInstaller);
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Optimize.InstallOneDrive", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static void DisableCortana()
-        {
+        internal static void DisableCortana() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SearchSettings", "IsDeviceSearchHistoryEnabled", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search", "AllowCortana", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search", "DisableWebSearch", "1", RegistryValueKind.DWord);
@@ -702,8 +628,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search", "AllowCloudSearch", "0", RegistryValueKind.DWord);
         }
 
-        internal static void EnableCortana()
-        {
+        internal static void EnableCortana() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search", "AllowCortana", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search", "DisableWebSearch", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search", "ConnectedSearchUseWeb", "1", RegistryValueKind.DWord);
@@ -718,24 +643,21 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search", "AllowCloudSearch", "1", RegistryValueKind.DWord);
         }
 
-        internal static void EnableGamingMode()
-        {
+        internal static void EnableGamingMode() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers", "HwSchMode", "2", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\GameBar", "AllowAutoGameMode", 1, RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\GameBar", "AutoGameModeEnabled", 1, RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\System\GameConfigStore", "GameDVR_FSEBehaviorMode", 2, RegistryValueKind.DWord);
         }
 
-        internal static void DisableGamingMode()
-        {
+        internal static void DisableGamingMode() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers", "HwSchMode", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\GameBar", "AllowAutoGameMode", 0, RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\GameBar", "AutoGameModeEnabled", 0, RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\System\GameConfigStore", "GameDVR_FSEBehaviorMode", 0, RegistryValueKind.DWord);
         }
 
-        internal static void DisableXboxLive()
-        {
+        internal static void DisableXboxLive() {
             Utilities.StopService("XboxNetApiSvc");
             Utilities.StopService("XblAuthManager");
             Utilities.StopService("XblGameSave");
@@ -751,31 +673,26 @@ namespace Optimizer
             Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "DisableXboxTasks.bat");
         }
 
-        internal static void EnableXboxLive()
-        {
+        internal static void EnableXboxLive() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XboxNetApiSvc", "Start", "2", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XblAuthManager", "Start", "2", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XblGameSave", "Start", "2", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XboxGipSvc", "Start", "2", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\xbgm", "Start", "2", RegistryValueKind.DWord);
 
-            try
-            {
-                if (!File.Exists(CoreHelper.ScriptsFolder + "EnableXboxTasks.bat"))
-                {
+            try {
+                if (!File.Exists(CoreHelper.ScriptsFolder + "EnableXboxTasks.bat")) {
                     File.WriteAllText(CoreHelper.ScriptsFolder + "EnableXboxTasks.bat", Properties.Resources.EnableXboxTasks);
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Optimize.EnableXboxLive", ex.Message, ex.StackTrace);
             }
 
             Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "EnableXboxTasks.bat");
         }
 
-        internal static void DisableAutomaticUpdates()
-        {
+        internal static void DisableAutomaticUpdates() {
             //Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeliveryOptimization", "SystemSettingsDownloadMode", "3", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_USERS\S-1-5-20\Software\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Settings", "DownloadMode", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings", "UxOption", "1", RegistryValueKind.DWord);
@@ -791,8 +708,7 @@ namespace Optimizer
             //Utilities.StopService("DoSvc");
         }
 
-        internal static void EnableAutomaticUpdates()
-        {
+        internal static void EnableAutomaticUpdates() {
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\DeliveryOptimization", "SystemSettingsDownloadMode");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\WindowsUpdate\UX\Settings", "UxOption");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU", "AUOptions");
@@ -809,8 +725,7 @@ namespace Optimizer
             //Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance", "MaintenanceDisabled", "0", RegistryValueKind.DWord);
         }
 
-        internal static void DisableStoreUpdates()
-        {
+        internal static void DisableStoreUpdates() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "SilentInstalledAppsEnabled", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent", "DisableSoftLanding", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "PreInstalledAppsEnabled", "0", RegistryValueKind.DWord);
@@ -819,8 +734,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore", "AutoDownload", "2", RegistryValueKind.DWord);
         }
 
-        internal static void EnableStoreUpdates()
-        {
+        internal static void EnableStoreUpdates() {
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "SilentInstalledAppsEnabled");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\CloudContent", "DisableSoftLanding");
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "PreInstalledAppsEnabled");
@@ -838,18 +752,15 @@ namespace Optimizer
         //    Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\OSUpgrade", "ReservationsAllowed", "00000000", RegistryValueKind.DWord);
         //}
 
-        internal static void DisableOneDrive()
-        {
+        internal static void DisableOneDrive() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OneDrive", "DisableFileSyncNGSC", "1", RegistryValueKind.DWord);
         }
 
-        internal static void EnableOneDrive()
-        {
+        internal static void EnableOneDrive() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OneDrive", "DisableFileSyncNGSC", "0", RegistryValueKind.DWord);
         }
 
-        internal static void EnableSensorServices()
-        {
+        internal static void EnableSensorServices() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SensrSvc", "Start", "2", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SensorService", "Start", "2", RegistryValueKind.DWord);
 
@@ -857,8 +768,7 @@ namespace Optimizer
             Utilities.StartService("SensorService");
         }
 
-        internal static void DisableSensorServices()
-        {
+        internal static void DisableSensorServices() {
             Utilities.StopService("SensrSvc");
             Utilities.StopService("SensorService");
 
@@ -866,8 +776,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SensorService", "Start", "4", RegistryValueKind.DWord);
         }
 
-        internal static void DisableTelemetryTasks()
-        {
+        internal static void DisableTelemetryTasks() {
             // Deny System access to DiagnosisAutoLogger folder
             Utilities.RunCommand(string.Format("icacls {0} /deny SYSTEM:`(OI`)`(CI`)F", DiagnosisAutoLoggerFolder));
 
@@ -875,39 +784,30 @@ namespace Optimizer
             Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "DisableTelemetryTasks.bat");
         }
 
-        internal static void EnableTelemetryTasks()
-        {
-            try
-            {
-                if (!File.Exists(CoreHelper.ScriptsFolder + "EnableTelemetryTasks.bat"))
-                {
+        internal static void EnableTelemetryTasks() {
+            try {
+                if (!File.Exists(CoreHelper.ScriptsFolder + "EnableTelemetryTasks.bat")) {
                     File.WriteAllText(CoreHelper.ScriptsFolder + "EnableTelemetryTasks.bat", Properties.Resources.EnableTelemetryTasks);
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Optimize.EnableTelemetryTasks", ex.Message, ex.StackTrace);
             }
 
             Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "EnableTelemetryTasks.bat");
         }
 
-        internal static void DisableOffice2016Telemetry()
-        {
-            try
-            {
-                if (!File.Exists(CoreHelper.ScriptsFolder + "DisableOfficeTelemetryTasks.reg"))
-                {
+        internal static void DisableOffice2016Telemetry() {
+            try {
+                if (!File.Exists(CoreHelper.ScriptsFolder + "DisableOfficeTelemetryTasks.reg")) {
                     File.WriteAllText(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.reg", Properties.Resources.EnableOfficeTelemetry);
                 }
 
-                if (!File.Exists(CoreHelper.ScriptsFolder + "DisableOfficeTelemetryTasks.bat"))
-                {
+                if (!File.Exists(CoreHelper.ScriptsFolder + "DisableOfficeTelemetryTasks.bat")) {
                     File.WriteAllText(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.bat", Properties.Resources.EnableOfficeTelemetryTasks);
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Optimize.DisableOffice2016Telemetry", ex.Message, ex.StackTrace);
             }
 
@@ -915,22 +815,17 @@ namespace Optimizer
             Utilities.ImportRegistryScript(CoreHelper.ScriptsFolder + "DisableOfficeTelemetryTasks.reg");
         }
 
-        internal static void EnableOffice2016Telemetry()
-        {
-            try
-            {
-                if (!File.Exists(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.reg"))
-                {
+        internal static void EnableOffice2016Telemetry() {
+            try {
+                if (!File.Exists(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.reg")) {
                     File.WriteAllText(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.reg", Properties.Resources.EnableOfficeTelemetry);
                 }
 
-                if (!File.Exists(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.bat"))
-                {
+                if (!File.Exists(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.bat")) {
                     File.WriteAllText(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.bat", Properties.Resources.EnableOfficeTelemetryTasks);
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Optimize.EnableOffice2016Telemetry", ex.Message, ex.StackTrace);
             }
 
@@ -938,10 +833,8 @@ namespace Optimizer
             Utilities.ImportRegistryScript(CoreHelper.ScriptsFolder + "EnableOfficeTelemetryTasks.reg");
         }
 
-        internal static void EnhancePrivacy(bool disableNewsAndInterest = true)
-        {
-            if (disableNewsAndInterest)
-            {
+        internal static void EnhancePrivacy(bool disableNewsAndInterest = true) {
+            if (disableNewsAndInterest) {
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds", "EnableFeeds", "0", RegistryValueKind.DWord);
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\NewsAndInterests\AllowNewsAndInterests", "value", "0", RegistryValueKind.DWord);
             }
@@ -1066,14 +959,12 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\System", "RSoPLogging", 0, RegistryValueKind.DWord);
 
             // attempt to enable Local Group Policy Editor on Windows 10 Home editions
-            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10 && Utilities.GetOS().ToLowerInvariant().Contains("home"))
-            {
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10 && Utilities.GetOS().ToLowerInvariant().Contains("home")) {
                 Utilities.EnableGPEDitor();
             }
         }
 
-        internal static void CompromisePrivacy()
-        {
+        internal static void CompromisePrivacy() {
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "RotatingLockScreenOverlayEnabled");
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "RotatingLockScreenEnabled");
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "DisableWindowsSpotlightFeatures");
@@ -1196,8 +1087,7 @@ namespace Optimizer
             Utilities.TryDeleteRegistryValue(true, @"Software\Policies\Microsoft\Windows\System", "RSoPLogging");
         }
 
-        internal static void DisableGameBar()
-        {
+        internal static void DisableGameBar() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\GameDVR", "AppCaptureEnabled", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\GameDVR", "AudioCaptureEnabled", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\GameDVR", "CursorCaptureEnabled", "0", RegistryValueKind.DWord);
@@ -1207,8 +1097,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\GameDVR", "AllowGameDVR", "0", RegistryValueKind.DWord);
         }
 
-        internal static void EnableGameBar()
-        {
+        internal static void EnableGameBar() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\GameDVR", "AppCaptureEnabled", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\GameDVR", "AudioCaptureEnabled", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\GameDVR", "CursorCaptureEnabled", "1", RegistryValueKind.DWord);
@@ -1219,23 +1108,19 @@ namespace Optimizer
         }
 
         // restores classic files explorer
-        internal static void DisableQuickAccessHistory(bool disableFeedsIcon = true, bool disableTasksIcon = true, bool disableSearchIcon = true)
-        {
-            if (disableFeedsIcon)
-            {
+        internal static void DisableQuickAccessHistory(bool disableFeedsIcon = true, bool disableTasksIcon = true, bool disableSearchIcon = true) {
+            if (disableFeedsIcon) {
                 // Disable News and Weather
                 Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Feeds", "ShellFeedsTaskbarViewMode", "2", RegistryValueKind.DWord);
                 Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Feeds", "IsFeedsAvailable", 0, RegistryValueKind.DWord);
             }
 
-            if (disableSearchIcon)
-            {
+            if (disableSearchIcon) {
                 // Hide search button from taskbar
                 Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search", "SearchboxTaskbarMode", "0", RegistryValueKind.DWord);
             }
 
-            if (disableTasksIcon)
-            {
+            if (disableTasksIcon) {
                 // Hide task view button from taskbar
                 Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "ShowTaskViewButton", "0", RegistryValueKind.DWord);
             }
@@ -1243,14 +1128,12 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager", "EnthusiastMode", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "ShowSyncProviderNotifications", "0", RegistryValueKind.DWord);
 
-            using (RegistryKey k = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer", true))
-            {
+            using (RegistryKey k = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer", true)) {
                 k.SetValue("ShowFrequent", 0, RegistryValueKind.DWord);
                 k.SetValue("ShowRecent", 0, RegistryValueKind.DWord);
             }
 
-            using (RegistryKey k = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", true))
-            {
+            using (RegistryKey k = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", true)) {
                 k.SetValue("LaunchTo", 1, RegistryValueKind.DWord);
             }
 
@@ -1263,19 +1146,16 @@ namespace Optimizer
             //Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\File History", "Disabled", "1", RegistryValueKind.DWord);
         }
 
-        internal static void EnableQuickAccessHistory()
-        {
+        internal static void EnableQuickAccessHistory() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager", "EnthusiastMode", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "ShowSyncProviderNotifications", "1", RegistryValueKind.DWord);
 
-            using (RegistryKey k = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer", true))
-            {
+            using (RegistryKey k = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer", true)) {
                 k.SetValue("ShowFrequent", 1, RegistryValueKind.DWord);
                 k.SetValue("ShowRecent", 1, RegistryValueKind.DWord);
             }
 
-            using (RegistryKey k = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", true))
-            {
+            using (RegistryKey k = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", true)) {
                 k.SetValue("LaunchTo", 2, RegistryValueKind.DWord);
                 k.DeleteValue("ShowTaskViewButton", false);
             }
@@ -1291,8 +1171,7 @@ namespace Optimizer
             Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer", true).DeleteValue(@"HideSCAMeetNow", false);
         }
 
-        internal static void DisableStartMenuAds()
-        {
+        internal static void DisableStartMenuAds() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "SubscribedContent-88000326Enabled", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement", "ScoobeSystemSettingEnabled", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "ContentDeliveryAllowed", "0", RegistryValueKind.DWord);
@@ -1315,8 +1194,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer", "DisableSearchBoxSuggestions", 1, RegistryValueKind.DWord);
         }
 
-        internal static void EnableStartMenuAds()
-        {
+        internal static void EnableStartMenuAds() {
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "SubscribedContent-88000326Enabled");
             Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement", "ScoobeSystemSettingEnabled");
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "ContentDeliveryAllowed");
@@ -1339,18 +1217,15 @@ namespace Optimizer
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\Explorer", "DisableSearchBoxSuggestions");
         }
 
-        internal static void DisableMyPeople()
-        {
+        internal static void DisableMyPeople() {
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People", "PeopleBand", "0", RegistryValueKind.DWord);
         }
 
-        internal static void EnableMyPeople()
-        {
+        internal static void EnableMyPeople() {
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People", "PeopleBand", "1", RegistryValueKind.DWord);
         }
 
-        internal static void ExcludeDrivers()
-        {
+        internal static void ExcludeDrivers() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate", "ExcludeWUDriversInQualityUpdate", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings", "ExcludeWUDriversInQualityUpdate", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Update\ExcludeWUDriversInQualityUpdate", "value", "1", RegistryValueKind.DWord);
@@ -1358,8 +1233,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Update", "ExcludeWUDriversInQualityUpdate", "1", RegistryValueKind.DWord);
         }
 
-        internal static void IncludeDrivers()
-        {
+        internal static void IncludeDrivers() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate", "ExcludeWUDriversInQualityUpdate", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings", "ExcludeWUDriversInQualityUpdate", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Update\ExcludeWUDriversInQualityUpdate", "value", "0", RegistryValueKind.DWord);
@@ -1367,22 +1241,19 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Update", "ExcludeWUDriversInQualityUpdate", "0", RegistryValueKind.DWord);
         }
 
-        internal static void DisableWindowsInk()
-        {
+        internal static void DisableWindowsInk() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace", "AllowWindowsInkWorkspace", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace", "AllowSuggestedAppsInWindowsInkWorkspace", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\TabletTip\1.7", "EnableInkingWithTouch", "0", RegistryValueKind.DWord);
         }
 
-        internal static void EnableWindowsInk()
-        {
+        internal static void EnableWindowsInk() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace", "AllowWindowsInkWorkspace", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace", "AllowSuggestedAppsInWindowsInkWorkspace", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\TabletTip\1.7", "EnableInkingWithTouch", "1", RegistryValueKind.DWord);
         }
 
-        internal static void DisableSpellingAndTypingFeatures()
-        {
+        internal static void DisableSpellingAndTypingFeatures() {
             // Spelling
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\TabletTip\1.7", "EnableAutocorrection", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\TabletTip\1.7", "EnableSpellchecking", "0", RegistryValueKind.DWord);
@@ -1394,8 +1265,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\TabletTip\1.7", "EnableTextPrediction", "0", RegistryValueKind.DWord);
         }
 
-        internal static void EnableSpellingAndTypingFeatures()
-        {
+        internal static void EnableSpellingAndTypingFeatures() {
             // Spelling
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\TabletTip\1.7", "EnableAutocorrection", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\TabletTip\1.7", "EnableSpellchecking", "1", RegistryValueKind.DWord);
@@ -1407,25 +1277,21 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\TabletTip\1.7", "EnableTextPrediction", "1", RegistryValueKind.DWord);
         }
 
-        internal static void EnableFaxService()
-        {
+        internal static void EnableFaxService() {
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Fax", "Start", "3", RegistryValueKind.DWord);
         }
 
-        internal static void DisableFaxService()
-        {
+        internal static void DisableFaxService() {
             Utilities.StopService("Fax");
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Fax", "Start", "4", RegistryValueKind.DWord);
         }
 
-        internal static void EnableInsiderService()
-        {
+        internal static void EnableInsiderService() {
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\wisvc", "Start", "3", RegistryValueKind.DWord);
             Utilities.StartService("wisvc");
         }
 
-        internal static void DisableInsiderService()
-        {
+        internal static void DisableInsiderService() {
             Utilities.StopService("wisvc");
             Registry.SetValue("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\wisvc", "Start", "4", RegistryValueKind.DWord);
         }
@@ -1469,8 +1335,7 @@ namespace Optimizer
         //    }
         //}
 
-        internal static void DisableSmartScreen()
-        {
+        internal static void DisableSmartScreen() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Attachments", "SaveZoneInformation", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Attachments", "ScanWithAntiVirus", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System", "ShellSmartScreenLevel", "Warn", RegistryValueKind.String);
@@ -1479,32 +1344,36 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\PhishingFilter", "EnabledV9", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AppHost", "PreventOverride", 0, RegistryValueKind.DWord);
 
-            using (RegistryKey localMachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
-            {
-                localMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance").SetValue("Enabled", 0);
+            using (RegistryKey key = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64)) {
+                key.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance").SetValue("Enabled", 0);
             }
         }
 
-        internal static void EnableSmartScreen()
-        {
-            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Attachments", "SaveZoneInformation", "2", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Attachments", "ScanWithAntiVirus", "2", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System", "EnableSmartScreen", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer", "SmartScreenEnabled", "On", RegistryValueKind.String);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\PhishingFilter", "EnabledV9", "1", RegistryValueKind.DWord);
+        internal static void EnableSmartScreen() {
+            Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\Policies\Attachments", "SaveZoneInformation");
+            Utilities.TryDeleteRegistryValue(true, @"Software\Microsoft\Windows\CurrentVersion\Policies\Attachments", "ScanWithAntiVirus");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\System", "ShellSmartScreenLevel");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\System", "EnableSmartScreen");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer", "SmartScreenEnabled");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\Internet Explorer\PhishingFilter", "EnabledV9");
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\AppHost", "PreventOverride");
+
+            try {
+                using (RegistryKey key = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64)) {
+                    key.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance", true).DeleteValue("Enabled", false);
+                }
+            }
+            catch { }
         }
 
-        internal static void DisableCloudClipboard()
-        {
+        internal static void DisableCloudClipboard() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System", "AllowClipboardHistory", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System", "AllowCrossDeviceClipboard", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Clipboard", "EnableClipboardHistory", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Clipboard", "EnableClipboardHistory", "0", RegistryValueKind.DWord);
         }
 
-        internal static void EnableCloudClipboard()
-        {
+        internal static void EnableCloudClipboard() {
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\System", "AllowClipboardHistory");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\System", "AllowCrossDeviceClipboard");
             Utilities.TryDeleteRegistryValue(true, @"Software\Microsoft\Clipboard", "EnableClipboardHistory");
@@ -1513,18 +1382,15 @@ namespace Optimizer
 
         // Working only on Windows 10
         // Removes 260 character path limit
-        internal static void EnableLongPaths()
-        {
+        internal static void EnableLongPaths() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem", "LongPathsEnabled", "1", RegistryValueKind.DWord);
         }
 
-        internal static void DisableLongPaths()
-        {
+        internal static void DisableLongPaths() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem", "LongPathsEnabled", "0", RegistryValueKind.DWord);
         }
 
-        internal static void DisableStickyKeys()
-        {
+        internal static void DisableStickyKeys() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys", "Flags", "506", RegistryValueKind.String);
             Registry.SetValue(@"HKEY_CURRENT_USER\Control Panel\Accessibility\Keyboard Response", "Flags", "122", RegistryValueKind.String);
             Registry.SetValue(@"HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys", "Flags", "58", RegistryValueKind.String);
@@ -1533,8 +1399,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_USERS\.DEFAULT\Control Panel\Accessibility\ToggleKeys", "Flags", "58", RegistryValueKind.String);
         }
 
-        internal static void EnableStickyKeys()
-        {
+        internal static void EnableStickyKeys() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys", "Flags", "510", RegistryValueKind.String);
             Registry.SetValue(@"HKEY_CURRENT_USER\Control Panel\Accessibility\Keyboard Response", "Flags", "126", RegistryValueKind.String);
             Registry.SetValue(@"HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys", "Flags", "62", RegistryValueKind.String);
@@ -1543,28 +1408,22 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_USERS\.DEFAULT\Control Panel\Accessibility\ToggleKeys", "Flags", "62", RegistryValueKind.String);
         }
 
-        internal static void RemoveCastToDevice()
-        {
-            try
-            {
+        internal static void RemoveCastToDevice() {
+            try {
                 Utilities.RunCommand("REG ADD \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Shell Extensions\\Blocked\" /V {7AD84985-87B4-4a16-BE58-8B72A5B390F7} /T REG_SZ /D \"Play to Menu\" /F");
                 //Utilities.RestartExplorer();
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Optimize.RemoveCastToDevice", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static void AddCastToDevice()
-        {
-            try
-            {
+        internal static void AddCastToDevice() {
+            try {
                 Utilities.RunCommand("REG Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Shell Extensions\\Blocked\" /V {7AD84985-87B4-4a16-BE58-8B72A5B390F7} /F");
                 //Utilities.RestartExplorer();
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Optimize.AddCastToDevice", ex.Message, ex.StackTrace);
             }
         }
@@ -1595,65 +1454,53 @@ namespace Optimizer
         //    Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "Start_ShowClassicMode", "0", RegistryValueKind.DWord);
         //}
 
-        internal static void RestoreClassicPhotoViewer()
-        {
+        internal static void RestoreClassicPhotoViewer() {
             Utilities.ImportRegistryScript(CoreHelper.ScriptsFolder + "RestoreClassicPhotoViewer.reg");
         }
 
-        internal static void DisableClassicPhotoViewer()
-        {
+        internal static void DisableClassicPhotoViewer() {
             Utilities.ImportRegistryScript(CoreHelper.ScriptsFolder + "DisableClassicPhotoViewer.reg");
         }
 
-        internal static void DisableVirtualizationBasedSecurity()
-        {
+        internal static void DisableVirtualizationBasedSecurity() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard", "EnableVirtualizationBasedSecurity", 0, RegistryValueKind.DWord);
         }
 
-        internal static void EnableVirtualizationBasedSecurity()
-        {
+        internal static void EnableVirtualizationBasedSecurity() {
             Utilities.TryDeleteRegistryValue(true, @"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard", "EnableVirtualizationBasedSecurity");
         }
 
-        internal static void AlignTaskbarToLeft()
-        {
+        internal static void AlignTaskbarToLeft() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarAl", "0", RegistryValueKind.DWord);
         }
 
-        internal static void AlignTaskbarToCenter()
-        {
+        internal static void AlignTaskbarToCenter() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarAl", "1", RegistryValueKind.DWord);
         }
 
-        internal static void DisableSnapAssist()
-        {
+        internal static void DisableSnapAssist() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "EnableSnapAssistFlyout", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Control Panel\Desktop", "DockMoving", "0", RegistryValueKind.String);
         }
 
-        internal static void EnableSnapAssist()
-        {
+        internal static void EnableSnapAssist() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "EnableSnapAssistFlyout", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Control Panel\Desktop", "DockMoving", "1", RegistryValueKind.String);
         }
 
-        internal static void DisableWidgets()
-        {
+        internal static void DisableWidgets() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarDa", "0", RegistryValueKind.DWord);
         }
 
-        internal static void EnableWidgets()
-        {
+        internal static void EnableWidgets() {
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarDa");
         }
 
-        internal static void DisableChat()
-        {
+        internal static void DisableChat() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarMn", "0", RegistryValueKind.DWord);
         }
 
-        internal static void EnableChat()
-        {
+        internal static void EnableChat() {
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarMn");
         }
 
@@ -1668,18 +1515,15 @@ namespace Optimizer
         //    Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarSi", "1", RegistryValueKind.DWord);
         //}
 
-        internal static void DisableShowMoreOptions()
-        {
+        internal static void DisableShowMoreOptions() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32", "", "");
         }
 
-        internal static void EnableShowMoreOptions()
-        {
+        internal static void EnableShowMoreOptions() {
             Registry.CurrentUser.DeleteSubKeyTree(@"Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}", false);
         }
 
-        internal static void DisableTPMCheck()
-        {
+        internal static void DisableTPMCheck() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\Setup\MoSetup", "AllowUpgradesWithUnsupportedTPMOrCPU", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig", "BypassCPUCheck", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig", "BypassStorageCheck", "1", RegistryValueKind.DWord);
@@ -1689,8 +1533,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_CURRENT_USER\Control Panel\UnsupportedHardwareNotificationCache", "SV2", 0, RegistryValueKind.DWord);
         }
 
-        internal static void EnableTPMCheck()
-        {
+        internal static void EnableTPMCheck() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\Setup\MoSetup", "AllowUpgradesWithUnsupportedTPMOrCPU", "0", RegistryValueKind.DWord);
             Registry.LocalMachine.OpenSubKey(@"SYSTEM\Setup\LabConfig", true).DeleteValue("BypassTPMCheck", false);
             Registry.LocalMachine.OpenSubKey(@"SYSTEM\Setup\LabConfig", true).DeleteValue("BypassRAMCheck", false);
@@ -1711,43 +1554,36 @@ namespace Optimizer
         //    Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell\Update\Packages", "UndockingDisable");
         //}
 
-        internal static void EnableFilesCompactMode()
-        {
+        internal static void EnableFilesCompactMode() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "UseCompactMode", 1, RegistryValueKind.DWord);
         }
 
-        internal static void DisableFilesCompactMode()
-        {
+        internal static void DisableFilesCompactMode() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "UseCompactMode", 0, RegistryValueKind.DWord);
         }
 
-        internal static void DisableStickers()
-        {
+        internal static void DisableStickers() {
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\PolicyManager\current\device\Stickers", "EnableStickers");
         }
 
-        internal static void EnableStickers()
-        {
+        internal static void EnableStickers() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Stickers", "EnableStickers", 1, RegistryValueKind.DWord);
         }
 
         /* Microsoft Edge-related tweaks */
-        internal static void DisableEdgeDiscoverBar()
-        {
+        internal static void DisableEdgeDiscoverBar() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "HubsSidebarEnabled", 0, RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge", "HubsSidebarEnabled", 0, RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "WebWidgetAllowed", 0, RegistryValueKind.DWord);
         }
 
-        internal static void EnableEdgeDiscoverBar()
-        {
+        internal static void EnableEdgeDiscoverBar() {
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Edge", "HubsSidebarEnabled");
             Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Policies\Microsoft\Edge", "HubsSidebarEnabled");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Edge", "WebWidgetAllowed");
         }
 
-        internal static void DisableEdgeTelemetry()
-        {
+        internal static void DisableEdgeTelemetry() {
             // Microsoft Edge settings -> Privacy, search and services -> Personalize your web experience
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "PersonalizationReportingEnabled", 0);
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge", "PersonalizationReportingEnabled", 0);
@@ -1766,8 +1602,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge", "SpotlightExperiencesAndRecommendationsEnabled", 0);
         }
 
-        internal static void EnableEdgeTelemetry()
-        {
+        internal static void EnableEdgeTelemetry() {
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Edge\SmartScreenEnabled", "");
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Edge\SmartScreenPuaEnabled", "");
 
@@ -1785,21 +1620,18 @@ namespace Optimizer
             Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Policies\Microsoft\Edge", "SpotlightExperiencesAndRecommendationsEnabled");
         }
 
-        internal static void DisableCoPilotAI()
-        {
+        internal static void DisableCoPilotAI() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\WindowsCopilot", "TurnOffWindowsCopilot", "1", RegistryValueKind.DWord);
         }
 
-        internal static void EnableCoPilotAI()
-        {
+        internal static void EnableCoPilotAI() {
             Utilities.TryDeleteRegistryValue(false, @"Software\Policies\Microsoft\Windows\WindowsCopilot", "TurnOffWindowsCopilot");
         }
 
         /* Apps-specific tweaks */
 
         // VISUAL STUDIO TELEMETRY
-        internal static void DisableVisualStudioTelemetry()
-        {
+        internal static void DisableVisualStudioTelemetry() {
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\Telemetry", "TurnOffSwitch", 1);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableFeedbackDialog", 1);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableEmailInput", 1);
@@ -1807,31 +1639,26 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\VisualStudio\SQM", "OptIn", 0);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\VisualStudio\Setup", "ConcurrentDownloads", 2, RegistryValueKind.DWord);
 
-            if (Environment.Is64BitOperatingSystem)
-            {
+            if (Environment.Is64BitOperatingSystem) {
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\14.0\SQM", "OptIn", 0);
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\15.0\SQM", "OptIn", 0);
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\16.0\SQM", "OptIn", 0);
             }
-            else
-            {
+            else {
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\14.0\SQM", "OptIn", 0);
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM", "OptIn", 0);
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\16.0\SQM", "OptIn", 0);
             }
 
-            try
-            {
+            try {
                 Utilities.DisableProtectedService("VSStandardCollectorService150");
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Optimize.DisableVisualStudioTelemetry", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static void EnableVisualStudioTelemetry()
-        {
+        internal static void EnableVisualStudioTelemetry() {
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\VisualStudio\Telemetry", "TurnOffSwitch");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableFeedbackDialog");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\VisualStudio\Feedback", "DisableEmailInput");
@@ -1839,32 +1666,27 @@ namespace Optimizer
             Utilities.TryDeleteRegistryValue(true, @"Software\Policies\Microsoft\VisualStudio\SQM", "OptIn");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\VisualStudio\Setup", "ConcurrentDownloads");
 
-            if (Environment.Is64BitOperatingSystem)
-            {
+            if (Environment.Is64BitOperatingSystem) {
                 Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Microsoft\VSCommon\14.0\SQM", "OptIn");
                 Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Microsoft\VSCommon\15.0\SQM", "OptIn");
                 Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Microsoft\VSCommon\16.0\SQM", "OptIn");
             }
-            else
-            {
+            else {
                 Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Wow6432Node\Microsoft\VSCommon\14.0\SQM", "OptIn");
                 Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM", "OptIn");
                 Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Wow6432Node\Microsoft\VSCommon\16.0\SQM", "OptIn");
             }
 
-            try
-            {
+            try {
                 Utilities.EnableProtectedService("VSStandardCollectorService150");
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Optimize.EnableVisualStudioTelemetry", ex.Message, ex.StackTrace);
             }
         }
 
         // NVIDIA TELEMETRY
-        internal static void DisableNvidiaTelemetry()
-        {
+        internal static void DisableNvidiaTelemetry() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NvTelemetryContainer", "Start", 4);
 
             Utilities.RunCommand("schtasks.exe /change /tn NvTmRepOnLogon_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} /disable");
@@ -1875,8 +1697,7 @@ namespace Optimizer
             Utilities.RunCommand("sc.exe stop NvTelemetryContainer");
         }
 
-        internal static void EnableNvidiaTelemetry()
-        {
+        internal static void EnableNvidiaTelemetry() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NvTelemetryContainer", "Start", 2);
 
             Utilities.RunCommand("schtasks.exe /change /tn NvTmRepOnLogon_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} /enable");
@@ -1888,8 +1709,7 @@ namespace Optimizer
         }
 
         // CHROME TELEMETRY + SOFTWARE REPORTER TOOL
-        internal static void DisableChromeTelemetry()
-        {
+        internal static void DisableChromeTelemetry() {
             Utilities.PreventProcessFromRunning("software_reporter_tool.exe");
 
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome", "MetricsReportingEnabled", 0);
@@ -1899,8 +1719,7 @@ namespace Optimizer
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome", "DeviceMetricsReportingEnabled", 0);
         }
 
-        internal static void EnableChromeTelemetry()
-        {
+        internal static void EnableChromeTelemetry() {
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Google\Chrome", "MetricsReportingEnabled");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Google\Chrome", "ChromeCleanupReportingEnabled");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Google\Chrome", "ChromeCleanupEnabled");
@@ -1909,8 +1728,7 @@ namespace Optimizer
         }
 
         // FIREFOX TELEMETRY
-        internal static void DisableFirefoxTelemetry()
-        {
+        internal static void DisableFirefoxTelemetry() {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Mozilla\Firefox", "DisableTelemetry", 1);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Mozilla\Firefox", "DisableDefaultBrowserAgent", 1);
 
@@ -1918,8 +1736,7 @@ namespace Optimizer
             Utilities.RunCommand("schtasks.exe /change /disable /tn \"\\Mozilla\\Firefox Default Browser Agent D2CEEC440E2074BD\"");
         }
 
-        internal static void EnableFirefoxTelemetry()
-        {
+        internal static void EnableFirefoxTelemetry() {
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Mozilla\Firefox", "DisableTelemetry");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Mozilla\Firefox", "DisableDefaultBrowserAgent");
 

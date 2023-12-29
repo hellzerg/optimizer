@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Optimizer
-{
-    internal static class StartupHelper
-    {
+namespace Optimizer {
+    internal static class StartupHelper {
         internal static readonly string LocalMachineRun = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
         internal static readonly string LocalMachineRunOnce = "Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce";
         internal static readonly string LocalMachineRunWoW = "Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run";
@@ -18,65 +16,50 @@ namespace Optimizer
         internal static readonly string LocalMachineStartupFolder = CleanHelper.ProgramData + "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup";
         internal static readonly string CurrentUserStartupFolder = CleanHelper.ProfileAppDataRoaming + "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup";
 
-        private static void GetRegistryStartupItemsHelper(ref List<StartupItem> list, StartupItemLocation location, StartupItemType type)
-        {
+        private static void GetRegistryStartupItemsHelper(ref List<StartupItem> list, StartupItemLocation location, StartupItemType type) {
             string keyPath = string.Empty;
             RegistryKey hive = null;
 
-            if (location == StartupItemLocation.HKLM)
-            {
+            if (location == StartupItemLocation.HKLM) {
                 hive = Registry.LocalMachine;
 
-                if (type == StartupItemType.Run)
-                {
+                if (type == StartupItemType.Run) {
                     keyPath = LocalMachineRun;
                 }
-                else if (type == StartupItemType.RunOnce)
-                {
+                else if (type == StartupItemType.RunOnce) {
                     keyPath = LocalMachineRunOnce;
                 }
             }
-            else if (location == StartupItemLocation.HKLMWoW)
-            {
+            else if (location == StartupItemLocation.HKLMWoW) {
                 hive = Registry.LocalMachine;
 
-                if (type == StartupItemType.Run)
-                {
+                if (type == StartupItemType.Run) {
                     keyPath = LocalMachineRunWoW;
                 }
-                else if (type == StartupItemType.RunOnce)
-                {
+                else if (type == StartupItemType.RunOnce) {
                     keyPath = LocalMachineRunOnceWow;
                 }
             }
-            else if (location == StartupItemLocation.HKCU)
-            {
+            else if (location == StartupItemLocation.HKCU) {
                 hive = Registry.CurrentUser;
 
-                if (type == StartupItemType.Run)
-                {
+                if (type == StartupItemType.Run) {
                     keyPath = CurrentUserRun;
                 }
-                else if (type == StartupItemType.RunOnce)
-                {
+                else if (type == StartupItemType.RunOnce) {
                     keyPath = CurrentUserRunOnce;
                 }
             }
 
-            if (hive != null)
-            {
-                try
-                {
+            if (hive != null) {
+                try {
                     RegistryKey key = hive.OpenSubKey(keyPath, true);
 
-                    if (key != null)
-                    {
+                    if (key != null) {
                         string[] valueNames = key.GetValueNames();
 
-                        foreach (string x in valueNames)
-                        {
-                            try
-                            {
+                        foreach (string x in valueNames) {
+                            try {
                                 RegistryStartupItem item = new RegistryStartupItem();
                                 item.Name = x;
                                 item.FileLocation = key.GetValue(x).ToString();
@@ -86,26 +69,21 @@ namespace Optimizer
 
                                 list.Add(item);
                             }
-                            catch (Exception ex)
-                            {
+                            catch (Exception ex) {
                                 Logger.LogError("Utilities.GetRegistryStartupItemsHelper", ex.Message, ex.StackTrace);
                             }
                         }
                     }
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     Logger.LogError("Utilities.GetRegistryStartupItemsHelper", ex.Message, ex.StackTrace);
                 }
             }
         }
 
-        private static void GetFolderStartupItemsHelper(ref List<StartupItem> list, IEnumerable<string> files, IEnumerable<string> shortcuts, StartupItemLocation folderOrigin)
-        {
-            foreach (string file in files)
-            {
-                try
-                {
+        private static void GetFolderStartupItemsHelper(ref List<StartupItem> list, IEnumerable<string> files, IEnumerable<string> shortcuts, StartupItemLocation folderOrigin) {
+            foreach (string file in files) {
+                try {
                     FolderStartupItem item = new FolderStartupItem();
                     item.Name = Path.GetFileNameWithoutExtension(file);
                     item.FileLocation = file;
@@ -114,16 +92,13 @@ namespace Optimizer
 
                     list.Add(item);
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     Logger.LogError("Utilities.GetFolderStartupItemsHelper", ex.Message, ex.StackTrace);
                 }
             }
 
-            foreach (string shortcut in shortcuts)
-            {
-                try
-                {
+            foreach (string shortcut in shortcuts) {
+                try {
                     FolderStartupItem item = new FolderStartupItem();
                     item.Name = Path.GetFileNameWithoutExtension(shortcut);
                     item.FileLocation = Utilities.GetShortcutTargetFile(shortcut);
@@ -132,15 +107,13 @@ namespace Optimizer
 
                     list.Add(item);
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     Logger.LogError("Utilities.GetFolderStartupItemsHelper", ex.Message, ex.StackTrace);
                 }
             }
         }
 
-        internal static List<StartupItem> GetStartupItems()
-        {
+        internal static List<StartupItem> GetStartupItems() {
             List<StartupItem> startupItems = new List<StartupItem>();
 
             GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKLM, StartupItemType.Run);
@@ -149,14 +122,12 @@ namespace Optimizer
             GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKCU, StartupItemType.Run);
             GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKCU, StartupItemType.RunOnce);
 
-            if (Environment.Is64BitOperatingSystem)
-            {
+            if (Environment.Is64BitOperatingSystem) {
                 GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKLMWoW, StartupItemType.Run);
                 GetRegistryStartupItemsHelper(ref startupItems, StartupItemLocation.HKLMWoW, StartupItemType.RunOnce);
             }
 
-            if (Directory.Exists(CurrentUserStartupFolder))
-            {
+            if (Directory.Exists(CurrentUserStartupFolder)) {
                 IEnumerable<string> currentUserFiles = Directory.EnumerateFiles(CurrentUserStartupFolder, "*.*", SearchOption.AllDirectories)
                     .Where(s => s.EndsWith(".exe") || s.EndsWith(".bat") || s.EndsWith(".cmd"));
 
@@ -165,8 +136,7 @@ namespace Optimizer
                 GetFolderStartupItemsHelper(ref startupItems, currentUserFiles, currentUserShortcuts, StartupItemLocation.CUStartupFolder);
             }
 
-            if (Directory.Exists(LocalMachineStartupFolder))
-            {
+            if (Directory.Exists(LocalMachineStartupFolder)) {
                 IEnumerable<string> localMachineFiles = Directory.EnumerateFiles(LocalMachineStartupFolder, "*.*", SearchOption.AllDirectories)
                     .Where(s => s.EndsWith(".exe") || s.EndsWith(".bat") || s.EndsWith(".cmd"));
 

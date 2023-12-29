@@ -1,3 +1,11 @@
+## [16.4] - 2023-12-29
+- New: FAQ section link in Options
+- New: Various performance improvements from code refactoring
+- Hotfix: Rare bug when checking for update (#444)
+- Hotfix: SmartScreen resets properly now (#453)
+- Hotfix: Apps download folder is now by default empty to avoid issues
+- Hotfix: Rare bug when fetching app feeds (#450)
+
 ## [16.3] - 2023-12-22
 - New: Check for updates on launch option (#441, #423)
 - New: Options for hiding Weather and Search in Restore Classic Windows Explorer (#447)

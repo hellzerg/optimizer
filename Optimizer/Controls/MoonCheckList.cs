@@ -1,28 +1,21 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public sealed class MoonCheckList : CheckedListBox
-    {
-        public MoonCheckList()
-        {
+namespace Optimizer {
+    public sealed class MoonCheckList : CheckedListBox {
+        public MoonCheckList() {
             DoubleBuffered = true;
         }
 
-        protected override void OnDrawItem(DrawItemEventArgs e)
-        {
+        protected override void OnDrawItem(DrawItemEventArgs e) {
             Color foreColor = Color.White;
             Color accentColor = OptionsHelper.ForegroundColor;
 
-            if (this.Items.Count > 0)
-            {
-                if (e.Index >= 0)
-                {
+            if (this.Items.Count > 0) {
+                if (e.Index >= 0) {
                     foreColor = GetItemChecked(e.Index) ? accentColor : foreColor;
                 }
-                else
-                {
+                else {
                     foreColor = e.ForeColor;
                 }
             }

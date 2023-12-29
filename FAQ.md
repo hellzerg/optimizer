@@ -48,6 +48,9 @@ If your clipboard history has stopped working, try these steps:
 1. Reset the "Disable Cloud Clipboard" setting in our application.
 2. Verify if the clipboard history is now functioning as expected.
 
+### **My Phone Link suddenly stopped working!**
+You should reset the "Enhance Privacy" and restart your computer.
+
 ### **Should I disable Sensor Services?**
 If your device is a tablet, has various sensors (proximity, auto-brightness, etc.), or features a touch screen, it's recommended not to disable Sensor Services. These services likely contribute to the functionality of these features on your device.
 

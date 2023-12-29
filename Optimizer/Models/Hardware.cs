@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Optimizer
-{
-    public sealed class CPU
-    {
+namespace Optimizer {
+    /// <summary>
+    /// A full representation of all the computer components with the most usual details
+    /// </summary>
+
+    public sealed class CPU {
         public string Name { get; set; }
         public ByteSize L2CacheSize { get; set; }
         public ByteSize L3CacheSize { get; set; }
@@ -17,8 +19,7 @@ namespace Optimizer
         public string Revision { get; set; }
     }
 
-    public sealed class RAM
-    {
+    public sealed class RAM {
         public string BankLabel { get; set; }
         public ByteSize Capacity { get; set; }
         public string FormFactor { get; set; }
@@ -27,15 +28,13 @@ namespace Optimizer
         public UInt32 Speed { get; set; }
     }
 
-    public sealed class VirtualMemory
-    {
+    public sealed class VirtualMemory {
         public ByteSize TotalVirtualMemory { get; set; }
         public ByteSize AvailableVirtualMemory { get; set; }
         public ByteSize UsedVirtualMemory { get; set; }
     }
 
-    public sealed class GPU
-    {
+    public sealed class GPU {
         public string Name { get; set; }
         public ByteSize Memory { get; set; }
         public UInt32 ResolutionX { get; set; }
@@ -45,8 +44,7 @@ namespace Optimizer
         public string VideoMemoryType { get; set; }
     }
 
-    public sealed class Disk
-    {
+    public sealed class Disk {
         public UInt32 BytesPerSector { get; set; }
         public string FirmwareRevision { get; set; }
         public string MediaType { get; set; }
@@ -54,8 +52,7 @@ namespace Optimizer
         public ByteSize Capacity { get; set; }
     }
 
-    public sealed class Volume
-    {
+    public sealed class Volume {
         public UInt64 BlockSize { get; set; }
         public ByteSize Capacity { get; set; }
         public string Compressed { get; set; }
@@ -68,8 +65,7 @@ namespace Optimizer
         public string Label { get; set; }
     }
 
-    public sealed class NetworkDevice
-    {
+    public sealed class NetworkDevice {
         public string AdapterType { get; set; }
         public string Manufacturer { get; set; }
         public string ProductName { get; set; }
@@ -78,8 +74,7 @@ namespace Optimizer
         public string ServiceName { get; set; }
     }
 
-    public sealed class Keyboard
-    {
+    public sealed class Keyboard {
         public string Name { get; set; }
         public string Layout { get; set; }
         public string Status { get; set; }
@@ -87,8 +82,7 @@ namespace Optimizer
         public string Locked { get; set; }
     }
 
-    public sealed class PointingDevice
-    {
+    public sealed class PointingDevice {
         public string Name { get; set; }
         public string Manufacturer { get; set; }
         public string Status { get; set; }
@@ -99,15 +93,13 @@ namespace Optimizer
         public string DeviceInterface { get; set; }
     }
 
-    public sealed class AudioDevice
-    {
+    public sealed class AudioDevice {
         public string ProductName { get; set; }
         public string Manufacturer { get; set; }
         public string Status { get; set; }
     }
 
-    public sealed class Motherboard
-    {
+    public sealed class Motherboard {
         public string Model { get; set; }
         public string Manufacturer { get; set; }
         public string Chipset { get; set; }
@@ -122,8 +114,7 @@ namespace Optimizer
         public string BIOSBuildNumber { get; set; }
     }
 
-    public static class HardwareSummary
-    {
+    public static class HardwareSummary {
         public static List<string> CPUs = new List<string>();
         public static string TotalRAM = string.Empty;
         public static List<string> Motherboards = new List<string>();

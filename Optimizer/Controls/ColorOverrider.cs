@@ -7,10 +7,8 @@ using System.Linq;
 using System.Reflection;
 
 
-namespace Optimizer
-{
-    public sealed class ColorOverrider
-    {
+namespace Optimizer {
+    public sealed class ColorOverrider {
         public static event Action SystemColorsChanging;
         public static event Action SystemColorsChanged;
 
@@ -21,8 +19,7 @@ namespace Optimizer
         private readonly FieldInfo _colorTableField;
         private readonly PropertyInfo _threadDataProperty;
 
-        public ColorOverrider()
-        {
+        public ColorOverrider() {
             // force init color table
             byte unused = SystemColors.Window.R;
 
@@ -56,8 +53,7 @@ namespace Optimizer
                 ?.GetValue(null);
         }
 
-        private void userPreferenceChanging(object sender, UserPreferenceChangingEventArgs e)
-        {
+        private void userPreferenceChanging(object sender, UserPreferenceChangingEventArgs e) {
             if (e.Category != UserPreferenceCategory.Color)
                 return;
 
@@ -65,8 +61,7 @@ namespace Optimizer
             fireColorsChangedEvents();
         }
 
-        private static void fireColorsChangedEvents()
-        {
+        private static void fireColorsChangedEvents() {
             SystemColorsChanging?.Invoke();
             SystemColorsChanged?.Invoke();
         }
@@ -74,8 +69,7 @@ namespace Optimizer
         private int[] readColorTable() =>
             (int[])_colorTableField.GetValue(null);
 
-        public void SetColor(KnownColor knownColor, int argb)
-        {
+        public void SetColor(KnownColor knownColor, int argb) {
             setColor(knownColor, argb);
 
             if (SystemBrushesKey != null)
@@ -93,8 +87,7 @@ namespace Optimizer
         public int GetOriginalColor(KnownColor knownColor) =>
             OriginalColors[(int)knownColor];
 
-        public int GetColor(KnownColor knownColor)
-        {
+        public int GetColor(KnownColor knownColor) {
             if (!KnownColors.Contains(knownColor))
                 throw new ArgumentException();
 
@@ -105,10 +98,8 @@ namespace Optimizer
             KnownColors.Cast<int>()
                 .ToDictionary(i => i, i => _colorTable[i]);
 
-        public void Load(IReadOnlyDictionary<int, int> saved)
-        {
-            foreach (var color in KnownColors)
-            {
+        public void Load(IReadOnlyDictionary<int, int> saved) {
+            foreach (var color in KnownColors) {
                 int v;
                 var value = saved.TryGetValue((int)color, out v);
                 setColor(color, v);

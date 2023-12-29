@@ -1,12 +1,9 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public sealed class MoonList : ListBox
-    {
-        public MoonList()
-        {
+namespace Optimizer {
+    public sealed class MoonList : ListBox {
+        public MoonList() {
             this.DrawMode = DrawMode.OwnerDrawVariable;
             this.BorderStyle = BorderStyle.None;
 
@@ -14,8 +11,7 @@ namespace Optimizer
             this.DrawItem += MoonListBox_DrawItem;
         }
 
-        private void MoonListBox_DrawItem(object sender, DrawItemEventArgs e)
-        {
+        private void MoonListBox_DrawItem(object sender, DrawItemEventArgs e) {
             if (e.Index < 0) return;
             if (this.Items.Count <= 0) return;
 
@@ -23,13 +19,11 @@ namespace Optimizer
 
             Brush myBrush = new SolidBrush(Color.White);
 
-            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-            {
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected) {
                 e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(50, 50, 50)), e.Bounds);
             }
 
-            else
-            {
+            else {
                 e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(20, 20, 20)), e.Bounds);
 
             }
@@ -38,8 +32,7 @@ namespace Optimizer
             e.DrawFocusRectangle();
         }
 
-        private void MoonListBox_MeasureItem(object sender, MeasureItemEventArgs e)
-        {
+        private void MoonListBox_MeasureItem(object sender, MeasureItemEventArgs e) {
             e.ItemHeight = this.Font.Height;
         }
     }

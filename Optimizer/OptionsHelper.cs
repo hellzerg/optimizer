@@ -6,10 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    internal static class OptionsHelper
-    {
+namespace Optimizer {
+    internal static class OptionsHelper {
         internal static Color ForegroundColor = Color.FromArgb(153, 102, 204);
         internal static Color ForegroundAccentColor = Color.FromArgb(134, 89, 179);
         internal static Color BackgroundColor = Color.FromArgb(10, 10, 10);
@@ -22,30 +20,25 @@ namespace Optimizer
 
         internal static dynamic TranslationList;
 
-        internal static Color GetContrastColor(Color c)
-        {
+        internal static Color GetContrastColor(Color c) {
             double brightness = c.R * 0.299 + c.G * 0.587 + c.B * 0.114;
             return brightness > Constants.CONTRAST_THRESHOLD ? Color.Black : Color.White;
         }
 
-        internal static void ApplyTheme(Form f)
-        {
+        internal static void ApplyTheme(Form f) {
             SetTheme(f, CurrentOptions.Theme, ColorHelper.ChangeColorBrightness(CurrentOptions.Theme, 0.7));
         }
 
-        private static void SetTheme(Form f, Color c1, Color c2)
-        {
+        private static void SetTheme(Form f, Color c1, Color c2) {
             dynamic c;
             ForegroundColor = c1;
             ForegroundAccentColor = c2;
             TextColor = GetContrastColor(CurrentOptions.Theme);
 
-            Utilities.GetSelfAndChildrenRecursive(f).ToList().ForEach(x =>
-            {
+            Utilities.GetSelfAndChildrenRecursive(f).ToList().ForEach(x => {
                 c = x;
 
-                if (x is Button)
-                {
+                if (x is Button) {
                     c.ForeColor = TextColor;
                     c.BackColor = c1;
                     c.FlatAppearance.BorderColor = c1;
@@ -54,20 +47,16 @@ namespace Optimizer
                     c.FlatAppearance.BorderSize = 0;
                 }
 
-                if (x is LinkLabel)
-                {
-                    if ((string)c.Tag == Constants.THEME_FLAG)
-                    {
+                if (x is LinkLabel) {
+                    if ((string)c.Tag == Constants.THEME_FLAG) {
                         c.LinkColor = c1;
                         c.VisitedLinkColor = c1;
                         c.ActiveLinkColor = c2;
                     }
                 }
 
-                if (x is CheckBox || x is RadioButton || x is Label)
-                {
-                    if ((string)c.Tag == Constants.THEME_FLAG)
-                    {
+                if (x is CheckBox || x is RadioButton || x is Label) {
+                    if ((string)c.Tag == Constants.THEME_FLAG) {
                         c.ForeColor = c1;
                     }
                 }
@@ -76,21 +65,16 @@ namespace Optimizer
             });
         }
 
-        internal static void LegacyCheck()
-        {
-            if (File.Exists(SettingsFile))
-            {
-                if (File.ReadAllText(SettingsFile).Contains("FirstRun"))
-                {
+        internal static void LegacyCheck() {
+            if (File.Exists(SettingsFile)) {
+                if (File.ReadAllText(SettingsFile).Contains("FirstRun")) {
                     File.Delete(SettingsFile);
                 }
             }
         }
 
-        internal static void SaveSettings()
-        {
-            if (File.Exists(SettingsFile))
-            {
+        internal static void SaveSettings() {
+            if (File.Exists(SettingsFile)) {
                 string jsonFile = File.ReadAllText(SettingsFile);
                 string jsonMemory = JsonConvert.SerializeObject(CurrentOptions);
 
@@ -101,8 +85,7 @@ namespace Optimizer
 
                 using (FileStream fs = File.Open(SettingsFile, FileMode.OpenOrCreate))
                 using (StreamWriter sw = new StreamWriter(fs))
-                using (JsonWriter jw = new JsonTextWriter(sw))
-                {
+                using (JsonWriter jw = new JsonTextWriter(sw)) {
                     jw.Formatting = Formatting.Indented;
 
                     JsonSerializer serializer = new JsonSerializer();
@@ -111,23 +94,18 @@ namespace Optimizer
             }
         }
 
-        internal static void LoadSettings()
-        {
-            if (!File.Exists(SettingsFile) || File.ReadAllText(SettingsFile).Contains("\"Color\":"))
-            {
+        internal static void LoadSettings() {
+            if (!File.Exists(SettingsFile) || File.ReadAllText(SettingsFile).Contains("\"Color\":")) {
                 // settings migration for new color picker
-                if (File.Exists(SettingsFile) && File.ReadAllText(SettingsFile).Contains("\"Color\":"))
-                {
+                if (File.Exists(SettingsFile) && File.ReadAllText(SettingsFile).Contains("\"Color\":")) {
                     Options tmpJson = JsonConvert.DeserializeObject<Options>(File.ReadAllText(SettingsFile));
                     tmpJson.Theme = Color.FromArgb(153, 102, 204);
                     CurrentOptions = tmpJson;
                 }
-                else
-                {
+                else {
                     // DEFAULT OPTIONS
                     CurrentOptions.Theme = Color.FromArgb(153, 102, 204);
-                    CurrentOptions.AppsFolder = Path.Combine(Utilities.GetUserDownloadsFolder(), Constants.DOWNLOADS_FOLDER);
-                    Directory.CreateDirectory(OptionsHelper.CurrentOptions.AppsFolder);
+                    CurrentOptions.AppsFolder = string.Empty;
                     CurrentOptions.EnableTray = false;
                     CurrentOptions.AutoStart = false;
                     CurrentOptions.InternalDNS = Constants.INTERNAL_DNS;
@@ -216,8 +194,7 @@ namespace Optimizer
 
                     using (FileStream fs = File.Open(SettingsFile, FileMode.CreateNew))
                     using (StreamWriter sw = new StreamWriter(fs))
-                    using (JsonWriter jw = new JsonTextWriter(sw))
-                    {
+                    using (JsonWriter jw = new JsonTextWriter(sw)) {
                         jw.Formatting = Formatting.Indented;
 
                         JsonSerializer serializer = new JsonSerializer();
@@ -225,14 +202,12 @@ namespace Optimizer
                     }
                 }
             }
-            else
-            {
+            else {
                 CurrentOptions = JsonConvert.DeserializeObject<Options>(File.ReadAllText(SettingsFile));
             }
 
             // prevent options from corruption
-            if (CurrentOptions.Theme == Color.Empty || CurrentOptions.Theme == Color.FromArgb(0, 0, 0, 0))
-            {
+            if (CurrentOptions.Theme == Color.Empty || CurrentOptions.Theme == Color.FromArgb(0, 0, 0, 0)) {
                 CurrentOptions.Theme = Color.FromArgb(153, 102, 204);
             }
             // generate random telemetry ID if not present
@@ -245,11 +220,9 @@ namespace Optimizer
             LoadTranslation();
         }
 
-        internal static void LoadTranslation()
-        {
+        internal static void LoadTranslation() {
             // load proper translation list
-            try
-            {
+            try {
                 if (CurrentOptions.LanguageCode == LanguageCode.EN) TranslationList = JObject.Parse(Properties.Resources.EN);
                 if (CurrentOptions.LanguageCode == LanguageCode.RU) TranslationList = JObject.Parse(Properties.Resources.RU);
                 if (CurrentOptions.LanguageCode == LanguageCode.EL) TranslationList = JObject.Parse(Properties.Resources.EL);
@@ -275,8 +248,7 @@ namespace Optimizer
                 if (CurrentOptions.LanguageCode == LanguageCode.NE) TranslationList = JObject.Parse(Properties.Resources.NE);
                 if (CurrentOptions.LanguageCode == LanguageCode.BG) TranslationList = JObject.Parse(Properties.Resources.BG);
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Options.LoadTranslation", ex.Message, ex.StackTrace);
                 TranslationList = JObject.Parse(Properties.Resources.EN);
             }

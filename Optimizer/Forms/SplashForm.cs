@@ -1,11 +1,8 @@
 ﻿using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public sealed partial class SplashForm : Form
-    {
-        public SplashForm()
-        {
+namespace Optimizer {
+    public sealed partial class SplashForm : Form {
+        public SplashForm() {
             InitializeComponent();
 
             this.DoubleBuffered = true;

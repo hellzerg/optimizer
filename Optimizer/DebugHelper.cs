@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
+namespace Optimizer {
     // Collection of useful debugging methods and utilities
-    internal sealed class DebugHelper
-    {
+    internal sealed class DebugHelper {
         // For comparing and detecting missing keys between two translation JSON files
-        internal static void FindDifferenceInTwoJsons()
-        {
+        internal static void FindDifferenceInTwoJsons() {
             JObject file1 = JObject.Parse(Properties.Resources.EN);
             JObject file2 = JObject.Parse(Properties.Resources.RU);
 
@@ -21,8 +18,7 @@ namespace Optimizer
             var missingProps = p1.Where(expected => !p2.Where(actual => actual.Name == expected.Name).Any());
 
             StringBuilder sb = new StringBuilder();
-            foreach (var x in missingProps)
-            {
+            foreach (var x in missingProps) {
                 sb.Append(x.Name + Environment.NewLine);
             }
             MessageBox.Show(sb.ToString());

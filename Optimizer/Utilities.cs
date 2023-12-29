@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Security.AccessControl;
 using System.Security.Principal;
@@ -13,10 +12,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    internal static class Utilities
-    {
+namespace Optimizer {
+    internal static class Utilities {
         // DEPRECATED
         //internal readonly static string DefaultEdgeDownloadFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
 
@@ -27,24 +24,19 @@ namespace Optimizer
 
         internal delegate void SetControlPropertyThreadSafeDelegate(Control control, string propertyName, object propertyValue);
 
-        internal static void SetControlPropertyThreadSafe(Control control, string propertyName, object propertyValue)
-        {
-            if (control.InvokeRequired)
-            {
+        internal static void SetControlPropertyThreadSafe(Control control, string propertyName, object propertyValue) {
+            if (control.InvokeRequired) {
                 control.Invoke(new SetControlPropertyThreadSafeDelegate(SetControlPropertyThreadSafe), new object[] { control, propertyName, propertyValue });
             }
-            else
-            {
+            else {
                 control.GetType().InvokeMember(propertyName, BindingFlags.SetProperty, null, control, new object[] { propertyValue });
             }
         }
 
-        internal static IEnumerable<Control> GetSelfAndChildrenRecursive(Control parent)
-        {
+        internal static IEnumerable<Control> GetSelfAndChildrenRecursive(Control parent) {
             List<Control> controls = new List<Control>();
 
-            foreach (Control child in parent.Controls)
-            {
+            foreach (Control child in parent.Controls) {
                 controls.AddRange(GetSelfAndChildrenRecursive(child));
             }
 
@@ -52,8 +44,7 @@ namespace Optimizer
             return controls;
         }
 
-        internal static Color ToGrayScale(this Color originalColor)
-        {
+        internal static Color ToGrayScale(this Color originalColor) {
             if (originalColor.Equals(Color.Transparent))
                 return originalColor;
 
@@ -61,63 +52,49 @@ namespace Optimizer
             return Color.FromArgb(grayScale, grayScale, grayScale);
         }
 
-        internal static string GetWindowsDetails()
-        {
+        internal static string GetWindowsDetails() {
             string bitness = Environment.Is64BitOperatingSystem ? "64-bit" : "32-bit";
-            if (CurrentWindowsVersion == WindowsVersion.Windows10 || CurrentWindowsVersion == WindowsVersion.Windows11)
-            {
+            if (CurrentWindowsVersion == WindowsVersion.Windows10 || CurrentWindowsVersion == WindowsVersion.Windows11) {
                 return string.Format("{0} - {1} ({2})", GetOS(), GetWindows10Build(), bitness);
             }
-            else
-            {
+            else {
                 return string.Format("{0} - ({1})", GetOS(), bitness);
             }
         }
 
-        internal static string GetWindows10Build()
-        {
+        internal static string GetWindows10Build() {
             return (string)Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "DisplayVersion", "");
         }
 
-        internal static string GetOS()
-        {
+        internal static string GetOS() {
             productName = (string)Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "ProductName", "");
 
-            if (productName.Contains("Windows 7"))
-            {
+            if (productName.Contains("Windows 7")) {
                 CurrentWindowsVersion = WindowsVersion.Windows7;
             }
-            if ((productName.Contains("Windows 8")) || (productName.Contains("Windows 8.1")))
-            {
+            if ((productName.Contains("Windows 8")) || (productName.Contains("Windows 8.1"))) {
                 CurrentWindowsVersion = WindowsVersion.Windows8;
             }
-            if (productName.Contains("Windows 10"))
-            {
+            if (productName.Contains("Windows 10")) {
                 buildNumber = (string)Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "CurrentBuild", "");
 
-                if (Convert.ToInt32(buildNumber) >= 22000)
-                {
+                if (Convert.ToInt32(buildNumber) >= 22000) {
                     productName = productName.Replace("Windows 10", "Windows 11");
                     CurrentWindowsVersion = WindowsVersion.Windows11;
                 }
-                else
-                {
+                else {
                     CurrentWindowsVersion = WindowsVersion.Windows10;
                 }
             }
 
-            if (Program.UNSAFE_MODE)
-            {
-                if (productName.Contains("Windows Server 2008"))
-                {
+            if (Program.UNSAFE_MODE) {
+                if (productName.Contains("Windows Server 2008")) {
                     CurrentWindowsVersion = WindowsVersion.Windows7;
                 }
-                if (productName.Contains("Windows Server 2012"))
-                {
+                if (productName.Contains("Windows Server 2012")) {
                     CurrentWindowsVersion = WindowsVersion.Windows8;
                 }
-                if (productName.Contains("Windows Server 2016") || productName.Contains("Windows Server 2019") || productName.Contains("Windows Server 2022"))
-                {
+                if (productName.Contains("Windows Server 2016") || productName.Contains("Windows Server 2019") || productName.Contains("Windows Server 2022")) {
                     CurrentWindowsVersion = WindowsVersion.Windows10;
                 }
             }
@@ -125,38 +102,31 @@ namespace Optimizer
             return productName;
         }
 
-        internal static string GetBitness()
-        {
+        internal static string GetBitness() {
             string bitness;
 
-            if (Environment.Is64BitOperatingSystem)
-            {
+            if (Environment.Is64BitOperatingSystem) {
                 bitness = "You are working with 64-bit";
             }
-            else
-            {
+            else {
                 bitness = "You are working with 32-bit";
             }
 
             return bitness;
         }
 
-        internal static bool IsAdmin()
-        {
+        internal static bool IsAdmin() {
             return new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
         }
 
-        internal static bool IsCompatible()
-        {
+        internal static bool IsCompatible() {
             bool legit;
             string os = GetOS();
 
-            if ((os.Contains("XP")) || (os.Contains("Vista")) || os.Contains("Server 2003"))
-            {
+            if ((os.Contains("XP")) || (os.Contains("Vista")) || os.Contains("Server 2003")) {
                 legit = false;
             }
-            else
-            {
+            else {
                 legit = true;
             }
             return legit;
@@ -186,12 +156,9 @@ namespace Optimizer
         //    Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "DownloadDirectory", path, RegistryValueKind.String);
         //}
 
-        internal static void RunBatchFile(string batchFile)
-        {
-            try
-            {
-                using (Process p = new Process())
-                {
+        internal static void RunBatchFile(string batchFile) {
+            try {
+                using (Process p = new Process()) {
                     p.StartInfo.CreateNoWindow = true;
                     p.StartInfo.FileName = batchFile;
                     p.StartInfo.UseShellExecute = false;
@@ -201,19 +168,16 @@ namespace Optimizer
                     p.Close();
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Utilities.RunBatchFile", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static void ImportRegistryScript(string scriptFile)
-        {
+        internal static void ImportRegistryScript(string scriptFile) {
             string path = "\"" + scriptFile + "\"";
 
             Process p = new Process();
-            try
-            {
+            try {
                 p.StartInfo.FileName = "regedit.exe";
                 p.StartInfo.UseShellExecute = false;
 
@@ -221,171 +185,135 @@ namespace Optimizer
 
                 p.WaitForExit();
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 p.Dispose();
                 Logger.LogError("Utilities.ImportRegistryScript", ex.Message, ex.StackTrace);
             }
-            finally
-            {
+            finally {
                 p.Dispose();
             }
         }
 
-        internal static void Reboot()
-        {
+        internal static void Reboot() {
             OptionsHelper.SaveSettings();
             Process.Start("shutdown.exe", "/r /t 0");
         }
 
-        internal static void DisableHibernation()
-        {
+        internal static void DisableHibernation() {
             Utilities.RunCommand("powercfg -h off");
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power", "HibernateEnabled", "0", RegistryValueKind.DWord);
         }
 
-        internal static void EnableHibernation()
-        {
+        internal static void EnableHibernation() {
             Utilities.TryDeleteRegistryValue(true, @"SYSTEM\CurrentControlSet\Control\Power", "HibernateEnabled");
             Utilities.RunCommand("powercfg -h on");
         }
 
-        internal static void ActivateMainForm()
-        {
+        internal static void ActivateMainForm() {
             Program._MainForm.Activate();
         }
 
-        internal static bool ServiceExists(string serviceName)
-        {
+        internal static bool ServiceExists(string serviceName) {
             return Array.Exists(ServiceController.GetServices(), (serviceController => serviceController.ServiceName.Equals(serviceName)));
         }
 
-        internal static void StopService(string serviceName)
-        {
-            if (ServiceExists(serviceName))
-            {
+        internal static void StopService(string serviceName) {
+            if (ServiceExists(serviceName)) {
                 ServiceController sc = new ServiceController(serviceName);
-                if (sc.CanStop)
-                {
+                if (sc.CanStop) {
                     sc.Stop();
                 }
             }
         }
 
-        internal static void StartService(string serviceName)
-        {
-            if (ServiceExists(serviceName))
-            {
+        internal static void StartService(string serviceName) {
+            if (ServiceExists(serviceName)) {
                 ServiceController sc = new ServiceController(serviceName);
 
-                try
-                {
+                try {
                     sc.Start();
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     Logger.LogError("Utilities.StartService", ex.Message, ex.StackTrace);
                 }
             }
         }
 
-        internal static void EnableFirewall()
-        {
+        internal static void EnableFirewall() {
             RunCommand("netsh advfirewall set currentprofile state on");
         }
 
-        internal static void EnableCommandPrompt()
-        {
-            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Policies\\Microsoft\\Windows\\System"))
-            {
+        internal static void EnableCommandPrompt() {
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Policies\\Microsoft\\Windows\\System")) {
                 key.SetValue("DisableCMD", 0, RegistryValueKind.DWord);
             }
         }
 
-        internal static void EnableControlPanel()
-        {
-            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer"))
-            {
+        internal static void EnableControlPanel() {
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer")) {
                 key.SetValue("NoControlPanel", 0, RegistryValueKind.DWord);
             }
         }
 
-        internal static void EnableFolderOptions()
-        {
-            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer"))
-            {
+        internal static void EnableFolderOptions() {
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer")) {
                 key.SetValue("NoFolderOptions", 0, RegistryValueKind.DWord);
             }
         }
 
-        internal static void EnableRunDialog()
-        {
-            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer"))
-            {
+        internal static void EnableRunDialog() {
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer")) {
                 key.SetValue("NoRun", 0, RegistryValueKind.DWord);
             }
         }
 
-        internal static void EnableContextMenu()
-        {
-            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer"))
-            {
+        internal static void EnableContextMenu() {
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer")) {
                 key.SetValue("NoViewContextMenu", 0, RegistryValueKind.DWord);
             }
         }
 
-        internal static void EnableTaskManager()
-        {
-            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System"))
-            {
+        internal static void EnableTaskManager() {
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System")) {
                 key.SetValue("DisableTaskMgr", 0, RegistryValueKind.DWord);
             }
         }
 
-        internal static void EnableRegistryEditor()
-        {
-            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System"))
-            {
+        internal static void EnableRegistryEditor() {
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System")) {
                 key.SetValue("DisableRegistryTools", 0, RegistryValueKind.DWord);
             }
         }
 
-        internal static void RunCommand(string command)
-        {
+        internal static void RunCommand(string command) {
             if (string.IsNullOrEmpty(command)) return;
 
-            using (Process p = new Process())
-            {
+            using (Process p = new Process()) {
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 p.StartInfo.FileName = "cmd.exe";
                 p.StartInfo.Arguments = "/C " + command;
                 p.StartInfo.CreateNoWindow = true;
 
-                try
-                {
+                try {
                     p.Start();
                     p.WaitForExit();
                     p.Close();
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     Logger.LogError("Utilities.RunCommand", ex.Message, ex.StackTrace);
                 }
             }
         }
 
-        internal static void FindFile(string fileName)
-        {
+        internal static void FindFile(string fileName) {
             if (File.Exists(fileName)) Process.Start("explorer.exe", $"/select, \"{fileName}\"");
         }
 
-        internal static void FindFolder(string folder)
-        {
+        internal static void FindFolder(string folder) {
             if (Directory.Exists(folder)) RunCommand($"explorer.exe \"{folder}\"");
         }
 
-        internal static string GetShortcutTargetFile(string shortcutFilename)
-        {
+        internal static string GetShortcutTargetFile(string shortcutFilename) {
             string pathOnly = Path.GetDirectoryName(shortcutFilename);
             string filenameOnly = Path.GetFileName(shortcutFilename);
 
@@ -393,8 +321,7 @@ namespace Optimizer
             Shell32.Folder folder = shell.NameSpace(pathOnly);
             Shell32.FolderItem folderItem = folder.ParseName(filenameOnly);
 
-            if (folderItem != null)
-            {
+            if (folderItem != null) {
                 Shell32.ShellLinkObject link = (Shell32.ShellLinkObject)folderItem.GetLink;
                 return link.Path;
             }
@@ -402,22 +329,17 @@ namespace Optimizer
             return string.Empty;
         }
 
-        internal static void RestartExplorer()
-        {
+        internal static void RestartExplorer() {
             const string explorer = "explorer.exe";
             string explorerPath = string.Format("{0}\\{1}", Environment.GetEnvironmentVariable("WINDIR"), explorer);
 
-            foreach (Process process in Process.GetProcesses())
-            {
-                try
-                {
-                    if (string.Compare(process.MainModule.FileName, explorerPath, StringComparison.OrdinalIgnoreCase) == 0)
-                    {
+            foreach (Process process in Process.GetProcesses()) {
+                try {
+                    if (string.Compare(process.MainModule.FileName, explorerPath, StringComparison.OrdinalIgnoreCase) == 0) {
                         process.Kill();
                     }
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     Logger.LogError("Utilities.RestartExplorer", ex.Message, ex.StackTrace);
                 }
             }
@@ -426,36 +348,27 @@ namespace Optimizer
             Process.Start(explorer);
         }
 
-        internal static void FindKeyInRegistry(string key)
-        {
-            try
-            {
+        internal static void FindKeyInRegistry(string key) {
+            try {
                 Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit", "LastKey", key);
                 Process.Start("regedit");
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Utilities.FindKeyInRegistry", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static void Repair(bool withoutRestart = false)
-        {
-            try
-            {
+        internal static void Repair(bool withoutRestart = false) {
+            try {
                 Directory.Delete(CoreHelper.CoreFolder, true);
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Utilities.ResetConfiguration", ex.Message, ex.StackTrace);
             }
-            finally
-            {
-                if (!withoutRestart)
-                {
+            finally {
+                if (!withoutRestart) {
                     // BYPASS SINGLE-INSTANCE MECHANISM
-                    if (Program.MUTEX != null)
-                    {
+                    if (Program.MUTEX != null) {
                         Program.MUTEX.ReleaseMutex();
                         Program.MUTEX.Dispose();
                         Program.MUTEX = null;
@@ -466,8 +379,7 @@ namespace Optimizer
             }
         }
 
-        internal static Task RunAsync(this Process process)
-        {
+        internal static Task RunAsync(this Process process) {
             var tcs = new TaskCompletionSource<object>();
             process.EnableRaisingEvents = true;
             process.Exited += (s, e) => tcs.TrySetResult(null);
@@ -476,50 +388,39 @@ namespace Optimizer
             return tcs.Task;
         }
 
-        internal static string SanitizeFileFolderName(string fileName)
-        {
+        internal static string SanitizeFileFolderName(string fileName) {
             char[] invalids = Path.GetInvalidFileNameChars();
             return string.Join("_", fileName.Split(invalids, StringSplitOptions.RemoveEmptyEntries)).TrimEnd('.');
         }
 
         // attempt to enable Local Group Policy Editor on Windows 10 Home editions
-        internal static void EnableGPEDitor()
-        {
+        internal static void EnableGPEDitor() {
             Utilities.RunBatchFile(CoreHelper.ScriptsFolder + "GPEditEnablerInHome.bat");
         }
 
-        internal static void TryDeleteRegistryValue(bool localMachine, string path, string valueName)
-        {
-            try
-            {
+        internal static void TryDeleteRegistryValue(bool localMachine, string path, string valueName) {
+            try {
                 if (localMachine) Registry.LocalMachine.OpenSubKey(path, true).DeleteValue(valueName, false);
                 if (!localMachine) Registry.CurrentUser.OpenSubKey(path, true).DeleteValue(valueName, false);
             }
             catch { }
         }
 
-        internal static void TryDeleteRegistryValueDefaultUsers(string path, string valueName)
-        {
-            try
-            {
+        internal static void TryDeleteRegistryValueDefaultUsers(string path, string valueName) {
+            try {
                 Registry.Users.OpenSubKey(path, true).DeleteValue(valueName, false);
             }
             catch { }
         }
 
-        internal static void DisableProtectedService(string serviceName)
-        {
-            using (TokenPrivilegeHelper.TakeOwnership)
-            {
-                using (RegistryKey allServicesKey = Registry.LocalMachine.OpenSubKeyWritable(@"SYSTEM\CurrentControlSet\Services"))
-                {
+        internal static void DisableProtectedService(string serviceName) {
+            using (TokenPrivilegeHelper.TakeOwnership) {
+                using (RegistryKey allServicesKey = Registry.LocalMachine.OpenSubKeyWritable(@"SYSTEM\CurrentControlSet\Services")) {
                     allServicesKey.GrantFullControlOnSubKey(serviceName);
-                    using (RegistryKey serviceKey = allServicesKey.OpenSubKeyWritable(serviceName))
-                    {
+                    using (RegistryKey serviceKey = allServicesKey.OpenSubKeyWritable(serviceName)) {
                         if (serviceKey == null) return;
 
-                        foreach (string subkeyName in serviceKey.GetSubKeyNames())
-                        {
+                        foreach (string subkeyName in serviceKey.GetSubKeyNames()) {
                             serviceKey.TakeOwnershipOnSubKey(subkeyName);
                             serviceKey.GrantFullControlOnSubKey(subkeyName);
                         }
@@ -554,19 +455,14 @@ namespace Optimizer
         //    }
         //}
 
-        internal static void EnableProtectedService(string serviceName)
-        {
-            using (TokenPrivilegeHelper.TakeOwnership)
-            {
-                using (RegistryKey allServicesKey = Registry.LocalMachine.OpenSubKeyWritable(@"SYSTEM\CurrentControlSet\Services"))
-                {
+        internal static void EnableProtectedService(string serviceName) {
+            using (TokenPrivilegeHelper.TakeOwnership) {
+                using (RegistryKey allServicesKey = Registry.LocalMachine.OpenSubKeyWritable(@"SYSTEM\CurrentControlSet\Services")) {
                     allServicesKey.GrantFullControlOnSubKey(serviceName);
-                    using (RegistryKey serviceKey = allServicesKey.OpenSubKeyWritable(serviceName))
-                    {
+                    using (RegistryKey serviceKey = allServicesKey.OpenSubKeyWritable(serviceName)) {
                         if (serviceKey == null) return;
 
-                        foreach (string subkeyName in serviceKey.GetSubKeyNames())
-                        {
+                        foreach (string subkeyName in serviceKey.GetSubKeyNames()) {
                             serviceKey.TakeOwnershipOnSubKey(subkeyName);
                             serviceKey.GrantFullControlOnSubKey(subkeyName);
                         }
@@ -576,8 +472,7 @@ namespace Optimizer
             }
         }
 
-        public static RegistryKey OpenSubKeyWritable(this RegistryKey registryKey, string subkeyName, RegistryRights? rights = null)
-        {
+        public static RegistryKey OpenSubKeyWritable(this RegistryKey registryKey, string subkeyName, RegistryRights? rights = null) {
             RegistryKey subKey;
 
             if (rights == null)
@@ -585,8 +480,7 @@ namespace Optimizer
             else
                 subKey = registryKey.OpenSubKey(subkeyName, RegistryKeyPermissionCheck.ReadWriteSubTree, rights.Value);
 
-            if (subKey == null)
-            {
+            if (subKey == null) {
                 Logger.LogError("Utilities.OpenSubKeyWritable", $"Subkey {subkeyName} not found.", "-");
             }
 
@@ -596,12 +490,10 @@ namespace Optimizer
         internal static SecurityIdentifier RetrieveCurrentUserIdentifier()
             => WindowsIdentity.GetCurrent().User ?? throw new Exception("Unable to retrieve current user SID.");
 
-        internal static void GrantFullControlOnSubKey(this RegistryKey registryKey, string subkeyName)
-        {
+        internal static void GrantFullControlOnSubKey(this RegistryKey registryKey, string subkeyName) {
             using (RegistryKey subKey = registryKey.OpenSubKeyWritable(subkeyName,
                 RegistryRights.TakeOwnership | RegistryRights.ChangePermissions
-            ))
-            {
+            )) {
                 RegistrySecurity accessRules = subKey.GetAccessControl();
                 SecurityIdentifier currentUser = RetrieveCurrentUserIdentifier();
                 accessRules.SetOwner(currentUser);
@@ -618,29 +510,23 @@ namespace Optimizer
             }
         }
 
-        internal static void TakeOwnershipOnSubKey(this RegistryKey registryKey, string subkeyName)
-        {
-            using (RegistryKey subKey = registryKey.OpenSubKeyWritable(subkeyName, RegistryRights.TakeOwnership))
-            {
+        internal static void TakeOwnershipOnSubKey(this RegistryKey registryKey, string subkeyName) {
+            using (RegistryKey subKey = registryKey.OpenSubKeyWritable(subkeyName, RegistryRights.TakeOwnership)) {
                 RegistrySecurity accessRules = subKey.GetAccessControl();
                 accessRules.SetOwner(RetrieveCurrentUserIdentifier());
                 subKey.SetAccessControl(accessRules);
             }
         }
 
-        internal static string GetNETFramework()
-        {
+        internal static string GetNETFramework() {
             string subkey = @"SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\";
             int netRelease;
 
-            using (RegistryKey ndpKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(subkey))
-            {
-                if (ndpKey != null && ndpKey.GetValue("Release") != null)
-                {
+            using (RegistryKey ndpKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(subkey)) {
+                if (ndpKey != null && ndpKey.GetValue("Release") != null) {
                     netRelease = (int)ndpKey.GetValue("Release");
                 }
-                else
-                {
+                else {
                     return "4.0";
                 }
             }
@@ -669,130 +555,101 @@ namespace Optimizer
             return "4.0";
         }
 
-        internal static void SearchWith(string term, bool ddg)
-        {
-            try
-            {
+        internal static void SearchWith(string term, bool ddg) {
+            try {
                 if (ddg) Process.Start(string.Format("https://duckduckgo.com/?q={0}", term));
                 if (!ddg) Process.Start(string.Format("https://www.google.com/search?q={0}", term));
             }
             catch { }
         }
 
-        internal static void EnableLoginVerbose()
-        {
-            try
-            {
+        internal static void EnableLoginVerbose() {
+            try {
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "verbosestatus", 1, RegistryValueKind.DWord);
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Utilities.EnableLoginVerbose", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static void DisableLoginVerbose()
-        {
+        internal static void DisableLoginVerbose() {
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "verbosestatus");
         }
 
         // [!!!]
-        internal static void UnlockAllCores()
-        {
-            try
-            {
+        internal static void UnlockAllCores() {
+            try {
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583", "ValueMax", 0, RegistryValueKind.DWord);
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583", "ValueMin", 0, RegistryValueKind.DWord);
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Utilities.UnlockAllCores", ex.Message, ex.StackTrace);
             }
         }
 
         // value = RAM in GB * 1024 * 1024
-        internal static void DisableSvcHostProcessSplitting(int ramInGb)
-        {
-            try
-            {
+        internal static void DisableSvcHostProcessSplitting(int ramInGb) {
+            try {
                 ramInGb = ramInGb * 1024 * 1024;
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control", "SvcHostSplitThresholdInKB", ramInGb, RegistryValueKind.DWord);
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Utilities.DisableSvcHostProcessSplitting", ex.Message, ex.StackTrace);
             }
         }
 
         // reset the value to default
-        internal static void EnableSvcHostProcessSplitting()
-        {
-            try
-            {
+        internal static void EnableSvcHostProcessSplitting() {
+            try {
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control", "SvcHostSplitThresholdInKB", 380000, RegistryValueKind.DWord);
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Utilities.EnableSvcHostProcessSplitting", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static void DisableHPET()
-        {
+        internal static void DisableHPET() {
             Utilities.RunCommand("bcdedit /deletevalue useplatformclock");
             Thread.Sleep(500);
             Utilities.RunCommand("bcdedit /set disabledynamictick yes");
         }
 
-        internal static void EnableHPET()
-        {
+        internal static void EnableHPET() {
             Utilities.RunCommand("bcdedit /set useplatformclock true");
             Thread.Sleep(500);
             Utilities.RunCommand("bcdedit /set disabledynamictick no");
         }
 
-        internal static void RegisterAutoStart()
-        {
-            try
-            {
-                using (RegistryKey k = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
-                {
+        internal static void RegisterAutoStart() {
+            try {
+                using (RegistryKey k = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true)) {
                     k.SetValue("Optimizer", Assembly.GetEntryAssembly().Location);
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Utilities.AddToStartup", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static void UnregisterAutoStart()
-        {
-            try
-            {
-                using (RegistryKey k = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
-                {
+        internal static void UnregisterAutoStart() {
+            try {
+                using (RegistryKey k = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true)) {
                     k.DeleteValue("Optimizer", false);
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Utilities.DeleteFromStartup", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static void AllowProcessToRun(string pName)
-        {
-            try
-            {
-                using (RegistryKey ifeo = Registry.LocalMachine.OpenSubKeyWritable(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", RegistryRights.FullControl))
-                {
+        internal static void AllowProcessToRun(string pName) {
+            try {
+                using (RegistryKey ifeo = Registry.LocalMachine.OpenSubKeyWritable(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", RegistryRights.FullControl)) {
                     if (ifeo == null) return;
 
                     ifeo.GrantFullControlOnSubKey("Image File Execution Options");
 
-                    using (RegistryKey k = ifeo.OpenSubKeyWritable("Image File Execution Options", RegistryRights.FullControl))
-                    {
+                    using (RegistryKey k = ifeo.OpenSubKeyWritable("Image File Execution Options", RegistryRights.FullControl)) {
                         if (k == null) return;
 
                         k.GrantFullControlOnSubKey(pName);
@@ -800,31 +657,25 @@ namespace Optimizer
                     }
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Utilities.AllowProcessToRun", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static void PreventProcessFromRunning(string pName)
-        {
-            try
-            {
-                using (RegistryKey ifeo = Registry.LocalMachine.OpenSubKeyWritable(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", RegistryRights.FullControl))
-                {
+        internal static void PreventProcessFromRunning(string pName) {
+            try {
+                using (RegistryKey ifeo = Registry.LocalMachine.OpenSubKeyWritable(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", RegistryRights.FullControl)) {
                     if (ifeo == null) return;
 
                     ifeo.GrantFullControlOnSubKey("Image File Execution Options");
 
-                    using (RegistryKey k = ifeo.OpenSubKeyWritable("Image File Execution Options", RegistryRights.FullControl))
-                    {
+                    using (RegistryKey k = ifeo.OpenSubKeyWritable("Image File Execution Options", RegistryRights.FullControl)) {
                         if (k == null) return;
 
                         k.CreateSubKey(pName);
                         k.GrantFullControlOnSubKey(pName);
 
-                        using (RegistryKey f = k.OpenSubKeyWritable(pName, RegistryRights.FullControl))
-                        {
+                        using (RegistryKey f = k.OpenSubKeyWritable(pName, RegistryRights.FullControl)) {
                             if (f == null) return;
 
                             f.SetValue("Debugger", @"%windir%\System32\taskkill.exe");
@@ -832,27 +683,22 @@ namespace Optimizer
                     }
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Utilities.PreventProcessFromRunning", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static string GetUserDownloadsFolder()
-        {
-            try
-            {
+        internal static string GetUserDownloadsFolder() {
+            try {
                 return Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "{374DE290-123F-4565-9164-39C4925E467B}", string.Empty).ToString();
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("Utilities.GetUserDownloadsFolder", ex.Message, ex.StackTrace);
                 return string.Empty;
             }
         }
 
-        internal static void ReinforceCurrentTweaks()
-        {
+        internal static void ReinforceCurrentTweaks() {
             SilentConfig silentConfig = new SilentConfig();
             Tweaks silentConfigTweaks = new Tweaks();
             silentConfig.Tweaks = silentConfigTweaks;
@@ -927,22 +773,18 @@ namespace Optimizer
 
             SilentOps.CurrentSilentConfig = silentConfig;
 
-            if (CurrentWindowsVersion == WindowsVersion.Windows7)
-            {
+            if (CurrentWindowsVersion == WindowsVersion.Windows7) {
                 SilentOps.ProcessTweaksGeneral();
             }
-            if (CurrentWindowsVersion == WindowsVersion.Windows8)
-            {
+            if (CurrentWindowsVersion == WindowsVersion.Windows8) {
                 SilentOps.ProcessTweaksGeneral();
                 SilentOps.ProcessTweaksWindows8();
             }
-            if (CurrentWindowsVersion == WindowsVersion.Windows10)
-            {
+            if (CurrentWindowsVersion == WindowsVersion.Windows10) {
                 SilentOps.ProcessTweaksGeneral();
                 SilentOps.ProcessTweaksWindows10();
             }
-            if (CurrentWindowsVersion == WindowsVersion.Windows11)
-            {
+            if (CurrentWindowsVersion == WindowsVersion.Windows11) {
                 SilentOps.ProcessTweaksGeneral();
                 SilentOps.ProcessTweaksWindows10();
                 SilentOps.ProcessTweaksWindows11();

@@ -2,18 +2,14 @@
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    internal sealed class MoonProgress : ProgressBar
-    {
-        public MoonProgress()
-        {
+namespace Optimizer {
+    internal sealed class MoonProgress : ProgressBar {
+        public MoonProgress() {
             DoubleBuffered = true;
             this.SetStyle(ControlStyles.UserPaint, true);
         }
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
+        protected override void OnPaint(PaintEventArgs e) {
             LinearGradientBrush brush = null;
             Rectangle rec = new Rectangle(0, 0, this.Width, this.Height);
 

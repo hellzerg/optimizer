@@ -1,10 +1,8 @@
 ﻿using System.IO;
 using System.Text;
 
-namespace Optimizer
-{
-    internal static class CoreHelper
-    {
+namespace Optimizer {
+    internal static class CoreHelper {
         internal readonly static string CoreFolder = CleanHelper.ProgramData + "\\Optimizer\\";
         internal readonly static string ReadyMadeMenusFolder = CleanHelper.ProgramData + "\\Optimizer\\ReadyMadeMenus\\";
         internal readonly static string ScriptsFolder = CleanHelper.ProgramData + "\\Optimizer\\Required\\";
@@ -68,48 +66,36 @@ namespace Optimizer
             Properties.Resources.DisableClassicPhotoViewer
         };
 
-        internal static void Deploy()
-        {
-            if (!Directory.Exists(CoreFolder))
-            {
+        internal static void Deploy() {
+            if (!Directory.Exists(CoreFolder)) {
                 Directory.CreateDirectory(CoreFolder);
             }
-            if (!Directory.Exists(ReadyMadeMenusFolder))
-            {
+            if (!Directory.Exists(ReadyMadeMenusFolder)) {
                 Directory.CreateDirectory(ReadyMadeMenusFolder);
             }
-            if (!Directory.Exists(ScriptsFolder))
-            {
+            if (!Directory.Exists(ScriptsFolder)) {
                 Directory.CreateDirectory(ScriptsFolder);
             }
-            if (!Directory.Exists(ExtractedIconsFolder))
-            {
+            if (!Directory.Exists(ExtractedIconsFolder)) {
                 Directory.CreateDirectory(ExtractedIconsFolder);
             }
-            if (!Directory.Exists(FavIconsFolder))
-            {
+            if (!Directory.Exists(FavIconsFolder)) {
                 Directory.CreateDirectory(FavIconsFolder);
             }
-            if (!Directory.Exists(StartupItemsBackupFolder))
-            {
+            if (!Directory.Exists(StartupItemsBackupFolder)) {
                 Directory.CreateDirectory(StartupItemsBackupFolder);
             }
 
-            for (int i = 0; i < readyMadeMenusItems.Length; i++)
-            {
+            for (int i = 0; i < readyMadeMenusItems.Length; i++) {
                 if (!File.Exists(readyMadeMenusItems[i])) File.WriteAllText(readyMadeMenusItems[i], readyMadeMenusFiles[i]);
             }
 
-            for (int i = 0; i < scriptItems.Length; i++)
-            {
-                if (!File.Exists(scriptItems[i]))
-                {
-                    if (scriptItems[i].Contains("OneDrive"))
-                    {
+            for (int i = 0; i < scriptItems.Length; i++) {
+                if (!File.Exists(scriptItems[i])) {
+                    if (scriptItems[i].Contains("OneDrive")) {
                         File.WriteAllBytes(scriptItems[i], Encoding.UTF8.GetBytes(scriptFiles[i]));
                     }
-                    else
-                    {
+                    else {
                         File.WriteAllText(scriptItems[i], scriptFiles[i]);
                     }
                 }

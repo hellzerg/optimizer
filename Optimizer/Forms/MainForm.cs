@@ -16,10 +16,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public sealed partial class MainForm : Form
-    {
+namespace Optimizer {
+    public sealed partial class MainForm : Form {
         Dictionary<string, string> translationList;
 
         ListViewColumnSorter _columnSorter;
@@ -58,8 +56,8 @@ namespace Optimizer
         readonly string _paypalSupportLink = "https://www.paypal.com/paypalme/supportoptimizer";
 
         readonly string _latestVersionLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/version.txt";
-        //readonly string _changelogLink = "https://github.com/hellzerg/optimizer/blob/master/CHANGELOG.md";
         readonly string _changelogRawLink = "https://raw.githubusercontent.com/hellzerg/optimizer/master/CHANGELOG.md";
+        readonly string _faqSectionLink = "https://github.com/hellzerg/optimizer/blob/master/FAQ.md";
 
         readonly string _bugReportLink = "https://github.com/hellzerg/optimizer/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=";
         readonly string _featureRequestLink = "https://github.com/hellzerg/optimizer/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=";
@@ -109,49 +107,43 @@ namespace Optimizer
         bool _disableIntegrator;
         bool _disablePinger;
 
-        private string NewDownloadLink(string latestVersion)
-        {
+        private string NewDownloadLink(string latestVersion) {
             return string.Format("https://github.com/hellzerg/optimizer/releases/download/{0}/Optimizer-{0}.exe", latestVersion);
         }
 
-        private void CheckForUpdate(bool silentCheck = false)
-        {
-            WebClient client = new WebClient
-            {
+        private void CheckForUpdate(bool silentCheck = false) {
+            WebClient client = new WebClient {
                 Encoding = Encoding.UTF8
             };
 
             string latestVersion = string.Empty;
-            try
-            {
+            try {
                 latestVersion = client.DownloadString(_latestVersionLink).Trim();
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("MainForm.CheckForUpdate", ex.Message, ex.StackTrace);
                 MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
-            if (!string.IsNullOrEmpty(latestVersion))
-            {
-                if (float.Parse(latestVersion) > Program.GetCurrentVersion())
-                {
-                    // show UPDATE AVAILABLE on app launch
-                    if (silentCheck)
-                    {
+            if (!string.IsNullOrEmpty(latestVersion)) {
+                bool conversionSuccess = float.TryParse(latestVersion, out float latestVersionFloat);
+                if (!conversionSuccess) {
+                    return;
+                }
+
+                if (latestVersionFloat > Program.GetCurrentVersionToFloat()) {
+                    if (silentCheck) {
                         picUpdate.Visible = true;
                         return;
                     }
 
                     _updateForm = new UpdateForm(_newVersionMessage, true, ParseChangelog(), latestVersion);
-                    if (_updateForm.ShowDialog() == DialogResult.Yes)
-                    {
-                        try
-                        {
+                    if (_updateForm.ShowDialog() == DialogResult.Yes) {
+                        try {
                             Assembly currentAssembly = Assembly.GetEntryAssembly();
 
-                            if (currentAssembly == null)
-                            {
+                            if (currentAssembly == null) {
                                 currentAssembly = Assembly.GetCallingAssembly();
                             }
 
@@ -167,8 +159,7 @@ namespace Optimizer
                             client.DownloadFile(NewDownloadLink(latestVersion), tempFile);
 
                             // DELETE PREVIOUS BACK-UP
-                            if (File.Exists(archiveFile))
-                            {
+                            if (File.Exists(archiveFile)) {
                                 File.Delete(archiveFile);
                             }
 
@@ -180,8 +171,7 @@ namespace Optimizer
 
                             // BYPASS SINGLE-INSTANCE MECHANISM
                             _trayMenu = false;
-                            if (Program.MUTEX != null)
-                            {
+                            if (Program.MUTEX != null) {
                                 Program.MUTEX.ReleaseMutex();
                                 Program.MUTEX.Dispose();
                                 Program.MUTEX = null;
@@ -189,25 +179,20 @@ namespace Optimizer
 
                             Application.Restart();
                         }
-                        catch (Exception ex)
-                        {
+                        catch (Exception ex) {
                             Logger.LogError("MainForm.CheckForUpdate", ex.Message, ex.StackTrace);
                             MessageBox.Show(ex.Message);
                         }
                     }
                 }
-                else if (float.Parse(latestVersion) == Program.GetCurrentVersion())
-                {
-                    if (!silentCheck)
-                    {
+                else if (latestVersionFloat == Program.GetCurrentVersionToFloat()) {
+                    if (!silentCheck) {
                         _updateForm = new UpdateForm(_noNewVersionMessage, false, string.Empty, latestVersion);
                         _updateForm.ShowDialog();
                     }
                 }
-                else
-                {
-                    if (!silentCheck)
-                    {
+                else {
+                    if (!silentCheck) {
                         _updateForm = new UpdateForm(_betaVersionMessage, false, string.Empty, latestVersion);
                         _updateForm.ShowDialog();
                     }
@@ -215,8 +200,7 @@ namespace Optimizer
             }
         }
 
-        private void EnableToggleEvents()
-        {
+        private void EnableToggleEvents() {
             officeTelemetrySw.ToggleClicked += new EventHandler(toggleSwitch12_Click);
             telemetryTasksSw.ToggleClicked += new EventHandler(toggleSwitch11_Click);
             superfetchSw.ToggleClicked += new EventHandler(toggleSwitch10_Click);
@@ -288,345 +272,268 @@ namespace Optimizer
             AddOwnerB.ToggleClicked += AddOwnerB_ToggleClicked;
         }
 
-        private void CopilotSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (copilotSw.ToggleChecked)
-            {
+        private void CopilotSw_ToggleClicked(object sender, EventArgs e) {
+            if (copilotSw.ToggleChecked) {
                 OptimizeHelper.DisableCoPilotAI();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableCoPilotAI();
             }
             OptionsHelper.CurrentOptions.DisableCoPilotAI = copilotSw.ToggleChecked;
         }
 
-        private void ClassicPhotoViewerSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (classicPhotoViewerSw.ToggleChecked)
-            {
+        private void ClassicPhotoViewerSw_ToggleClicked(object sender, EventArgs e) {
+            if (classicPhotoViewerSw.ToggleChecked) {
                 OptimizeHelper.RestoreClassicPhotoViewer();
             }
-            else
-            {
+            else {
                 OptimizeHelper.DisableClassicPhotoViewer();
             }
             OptionsHelper.CurrentOptions.RestoreClassicPhotoViewer = classicPhotoViewerSw.ToggleChecked;
         }
 
-        private void LoginVerboseSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (loginVerboseSw.ToggleChecked)
-            {
+        private void LoginVerboseSw_ToggleClicked(object sender, EventArgs e) {
+            if (loginVerboseSw.ToggleChecked) {
                 Utilities.EnableLoginVerbose();
             }
-            else
-            {
+            else {
                 Utilities.DisableLoginVerbose();
             }
             OptionsHelper.CurrentOptions.EnableLoginVerbose = loginVerboseSw.ToggleChecked;
         }
 
-        private void HpetSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (hpetSw.ToggleChecked)
-            {
+        private void HpetSw_ToggleClicked(object sender, EventArgs e) {
+            if (hpetSw.ToggleChecked) {
                 Utilities.DisableHPET();
             }
-            else
-            {
+            else {
                 Utilities.EnableHPET();
             }
             OptionsHelper.CurrentOptions.DisableHPET = hpetSw.ToggleChecked;
         }
 
-        private void EdgeTelemetrySw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (edgeTelemetrySw.ToggleChecked)
-            {
+        private void EdgeTelemetrySw_ToggleClicked(object sender, EventArgs e) {
+            if (edgeTelemetrySw.ToggleChecked) {
                 OptimizeHelper.DisableEdgeTelemetry();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableEdgeTelemetry();
             }
             OptionsHelper.CurrentOptions.DisableEdgeTelemetry = edgeTelemetrySw.ToggleChecked;
         }
 
-        private void EdgeAiSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (edgeAiSw.ToggleChecked)
-            {
+        private void EdgeAiSw_ToggleClicked(object sender, EventArgs e) {
+            if (edgeAiSw.ToggleChecked) {
                 OptimizeHelper.DisableEdgeDiscoverBar();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableEdgeDiscoverBar();
             }
             OptionsHelper.CurrentOptions.DisableEdgeDiscoverBar = edgeAiSw.ToggleChecked;
         }
 
-        private void WinSearchSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (winSearchSw.ToggleChecked)
-            {
+        private void WinSearchSw_ToggleClicked(object sender, EventArgs e) {
+            if (winSearchSw.ToggleChecked) {
                 OptimizeHelper.DisableSearch();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableSearch();
             }
             OptionsHelper.CurrentOptions.DisableSearch = winSearchSw.ToggleChecked;
         }
 
-        private void VbsSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (vbsSw.ToggleChecked)
-            {
+        private void VbsSw_ToggleClicked(object sender, EventArgs e) {
+            if (vbsSw.ToggleChecked) {
                 OptimizeHelper.DisableVirtualizationBasedSecurity();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableVirtualizationBasedSecurity();
             }
             OptionsHelper.CurrentOptions.DisableVBS = vbsSw.ToggleChecked;
             ShowRestartNeeded();
         }
 
-        private void NvidiaTelemetrySw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (nvidiaTelemetrySw.ToggleChecked)
-            {
+        private void NvidiaTelemetrySw_ToggleClicked(object sender, EventArgs e) {
+            if (nvidiaTelemetrySw.ToggleChecked) {
                 OptimizeHelper.DisableNvidiaTelemetry();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableNvidiaTelemetry();
             }
             OptionsHelper.CurrentOptions.DisableNVIDIATelemetry = nvidiaTelemetrySw.ToggleChecked;
             ShowRestartNeeded();
         }
 
-        private void NtfsStampSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (ntfsStampSw.ToggleChecked)
-            {
+        private void NtfsStampSw_ToggleClicked(object sender, EventArgs e) {
+            if (ntfsStampSw.ToggleChecked) {
                 OptimizeHelper.DisableNTFSTimeStamp();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableNTFSTimeStamp();
             }
             OptionsHelper.CurrentOptions.DisableNTFSTimeStamp = ntfsStampSw.ToggleChecked;
             ShowRestartNeeded();
         }
 
-        private void Smb2Sw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (smb2Sw.ToggleChecked)
-            {
+        private void Smb2Sw_ToggleClicked(object sender, EventArgs e) {
+            if (smb2Sw.ToggleChecked) {
                 OptimizeHelper.DisableSMB("2");
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableSMB("2");
             }
             OptionsHelper.CurrentOptions.DisableSMB2 = smb2Sw.ToggleChecked;
             ShowRestartNeeded();
         }
 
-        private void Smb1Sw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (smb1Sw.ToggleChecked)
-            {
+        private void Smb1Sw_ToggleClicked(object sender, EventArgs e) {
+            if (smb1Sw.ToggleChecked) {
                 OptimizeHelper.DisableSMB("1");
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableSMB("1");
             }
             OptionsHelper.CurrentOptions.DisableSMB1 = smb1Sw.ToggleChecked;
             ShowRestartNeeded();
         }
 
-        private void HibernateSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (hibernateSw.ToggleChecked)
-            {
+        private void HibernateSw_ToggleClicked(object sender, EventArgs e) {
+            if (hibernateSw.ToggleChecked) {
                 Utilities.DisableHibernation();
             }
-            else
-            {
+            else {
                 Utilities.EnableHibernation();
             }
             OptionsHelper.CurrentOptions.DisableHibernation = hibernateSw.ToggleChecked;
             ShowRestartNeeded();
         }
 
-        private void StickersSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (stickersSw.ToggleChecked)
-            {
+        private void StickersSw_ToggleClicked(object sender, EventArgs e) {
+            if (stickersSw.ToggleChecked) {
                 OptimizeHelper.DisableStickers();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableStickers();
             }
             OptionsHelper.CurrentOptions.DisableStickers = stickersSw.ToggleChecked;
         }
 
-        private void TpmSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (tpmSw.ToggleChecked)
-            {
+        private void TpmSw_ToggleClicked(object sender, EventArgs e) {
+            if (tpmSw.ToggleChecked) {
                 OptimizeHelper.DisableTPMCheck();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableTPMCheck();
             }
             OptionsHelper.CurrentOptions.DisableTPMCheck = tpmSw.ToggleChecked;
         }
 
-        private void CompactModeSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (compactModeSw.ToggleChecked)
-            {
+        private void CompactModeSw_ToggleClicked(object sender, EventArgs e) {
+            if (compactModeSw.ToggleChecked) {
                 OptimizeHelper.EnableFilesCompactMode();
             }
-            else
-            {
+            else {
                 OptimizeHelper.DisableFilesCompactMode();
             }
             OptionsHelper.CurrentOptions.CompactMode = compactModeSw.ToggleChecked;
             ShowRestartNeeded();
         }
 
-        private void GameModeSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (gameModeSw.ToggleChecked)
-            {
+        private void GameModeSw_ToggleClicked(object sender, EventArgs e) {
+            if (gameModeSw.ToggleChecked) {
                 OptimizeHelper.EnableGamingMode();
             }
-            else
-            {
+            else {
                 OptimizeHelper.DisableGamingMode();
             }
             OptionsHelper.CurrentOptions.EnableGamingMode = gameModeSw.ToggleChecked;
             ShowRestartNeeded();
         }
 
-        private void VsSw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (vsSw.ToggleChecked)
-            {
+        private void VsSw_ToggleClicked(object sender, EventArgs e) {
+            if (vsSw.ToggleChecked) {
                 OptimizeHelper.DisableVisualStudioTelemetry();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableVisualStudioTelemetry();
             }
             OptionsHelper.CurrentOptions.DisableVisualStudioTelemetry = vsSw.ToggleChecked;
         }
 
-        private void ChromeTelemetrySw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (chromeTelemetrySw.ToggleChecked)
-            {
+        private void ChromeTelemetrySw_ToggleClicked(object sender, EventArgs e) {
+            if (chromeTelemetrySw.ToggleChecked) {
                 OptimizeHelper.DisableChromeTelemetry();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableChromeTelemetry();
             }
             OptionsHelper.CurrentOptions.DisableChromeTelemetry = chromeTelemetrySw.ToggleChecked;
         }
 
-        private void FfTelemetrySw_ToggleClicked(object sender, EventArgs e)
-        {
-            if (ffTelemetrySw.ToggleChecked)
-            {
+        private void FfTelemetrySw_ToggleClicked(object sender, EventArgs e) {
+            if (ffTelemetrySw.ToggleChecked) {
                 OptimizeHelper.DisableFirefoxTelemetry();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableFirefoxTelemetry();
             }
             OptionsHelper.CurrentOptions.DisableFirefoxTemeletry = ffTelemetrySw.ToggleChecked;
         }
 
-        private void ClassicContextSw_Click(object sender, EventArgs e)
-        {
-            if (classicContextSw.ToggleChecked)
-            {
+        private void ClassicContextSw_Click(object sender, EventArgs e) {
+            if (classicContextSw.ToggleChecked) {
                 OptimizeHelper.DisableShowMoreOptions();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableShowMoreOptions();
             }
             OptionsHelper.CurrentOptions.ClassicMenu = classicContextSw.ToggleChecked;
             ShowRestartNeeded();
         }
 
-        private void chatSw_Click(object sender, EventArgs e)
-        {
-            if (chatSw.ToggleChecked)
-            {
+        private void chatSw_Click(object sender, EventArgs e) {
+            if (chatSw.ToggleChecked) {
                 OptimizeHelper.DisableChat();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableChat();
             }
             OptionsHelper.CurrentOptions.DisableChat = chatSw.ToggleChecked;
         }
 
-        private void WidgetsSw_Click(object sender, EventArgs e)
-        {
-            if (widgetsSw.ToggleChecked)
-            {
+        private void WidgetsSw_Click(object sender, EventArgs e) {
+            if (widgetsSw.ToggleChecked) {
                 OptimizeHelper.DisableWidgets();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableWidgets();
             }
             OptionsHelper.CurrentOptions.DisableWidgets = widgetsSw.ToggleChecked;
         }
 
-        private void SnapAssistSw_Click(object sender, EventArgs e)
-        {
-            if (snapAssistSw.ToggleChecked)
-            {
+        private void SnapAssistSw_Click(object sender, EventArgs e) {
+            if (snapAssistSw.ToggleChecked) {
                 OptimizeHelper.DisableSnapAssist();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableSnapAssist();
             }
             OptionsHelper.CurrentOptions.DisableSnapAssist = snapAssistSw.ToggleChecked;
             ShowRestartNeeded();
         }
 
-        private void LeftTaskbarSw_Click(object sender, EventArgs e)
-        {
-            if (leftTaskbarSw.ToggleChecked)
-            {
+        private void LeftTaskbarSw_Click(object sender, EventArgs e) {
+            if (leftTaskbarSw.ToggleChecked) {
                 OptimizeHelper.AlignTaskbarToLeft();
             }
-            else
-            {
+            else {
                 OptimizeHelper.AlignTaskbarToCenter();
             }
             OptionsHelper.CurrentOptions.TaskbarToLeft = leftTaskbarSw.ToggleChecked;
         }
 
-        private void TranslateTips()
-        {
-            try
-            {
+        private void TranslateTips() {
+            try {
                 performanceSw.Label.Tag = OptionsHelper.TranslationList["performanceTip"].ToString();
                 networkSw.Label.Tag = OptionsHelper.TranslationList["networkTip"].ToString();
                 defenderSw.Label.Tag = OptionsHelper.TranslationList["defenderTip"].ToString();
@@ -692,119 +599,93 @@ namespace Optimizer
                 classicPhotoViewerSw.Label.Tag = OptionsHelper.TranslationList["classicPhotoViewerSw"].ToString();
                 copilotSw.Label.Tag = OptionsHelper.TranslationList["copilotTip"].ToString();
             }
-            catch (Exception err)
-            {
+            catch (Exception err) {
                 MessageBox.Show(err.Message);
             }
         }
 
-        private void ToggleSwitch40_Click(object sender, EventArgs e)
-        {
-            if (castSw.ToggleChecked)
-            {
+        private void ToggleSwitch40_Click(object sender, EventArgs e) {
+            if (castSw.ToggleChecked) {
                 OptimizeHelper.RemoveCastToDevice();
             }
-            else
-            {
+            else {
                 OptimizeHelper.AddCastToDevice();
             }
             OptionsHelper.CurrentOptions.RemoveCastToDevice = castSw.ToggleChecked;
         }
 
-        private void ToggleSwitch39_Click(object sender, EventArgs e)
-        {
-            if (longPathsSw.ToggleChecked)
-            {
+        private void ToggleSwitch39_Click(object sender, EventArgs e) {
+            if (longPathsSw.ToggleChecked) {
                 OptimizeHelper.EnableLongPaths();
             }
-            else
-            {
+            else {
                 OptimizeHelper.DisableLongPaths();
             }
             OptionsHelper.CurrentOptions.EnableLongPaths = longPathsSw.ToggleChecked;
         }
 
-        private void ToggleSwitch38_Click(object sender, EventArgs e)
-        {
-            if (stickySw.ToggleChecked)
-            {
+        private void ToggleSwitch38_Click(object sender, EventArgs e) {
+            if (stickySw.ToggleChecked) {
                 OptimizeHelper.DisableStickyKeys();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableStickyKeys();
             }
             OptionsHelper.CurrentOptions.DisableStickyKeys = stickySw.ToggleChecked;
         }
 
-        private void ToggleSwitch37_Click(object sender, EventArgs e)
-        {
-            if (ccSw.ToggleChecked)
-            {
+        private void ToggleSwitch37_Click(object sender, EventArgs e) {
+            if (ccSw.ToggleChecked) {
                 OptimizeHelper.DisableCloudClipboard();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableCloudClipboard();
             }
             OptionsHelper.CurrentOptions.DisableCloudClipboard = ccSw.ToggleChecked;
         }
 
-        private void ToggleSwitch36_Click(object sender, EventArgs e)
-        {
-            if (smartScreenSw.ToggleChecked)
-            {
+        private void ToggleSwitch36_Click(object sender, EventArgs e) {
+            if (smartScreenSw.ToggleChecked) {
                 OptimizeHelper.DisableSmartScreen();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableSmartScreen();
             }
             OptionsHelper.CurrentOptions.DisableSmartScreen = smartScreenSw.ToggleChecked;
         }
 
-        private void ToggleSwitch35_Click(object sender, EventArgs e)
-        {
-            if (storeUpdatesSw.ToggleChecked)
-            {
+        private void ToggleSwitch35_Click(object sender, EventArgs e) {
+            if (storeUpdatesSw.ToggleChecked) {
                 OptimizeHelper.DisableStoreUpdates();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableStoreUpdates();
             }
             OptionsHelper.CurrentOptions.DisableStoreUpdates = storeUpdatesSw.ToggleChecked;
         }
 
-        private void ToggleSwitch34_Click(object sender, EventArgs e)
-        {
-            if (insiderSw.ToggleChecked)
-            {
+        private void ToggleSwitch34_Click(object sender, EventArgs e) {
+            if (insiderSw.ToggleChecked) {
                 OptimizeHelper.DisableInsiderService();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableInsiderService();
             }
             OptionsHelper.CurrentOptions.DisableInsiderService = insiderSw.ToggleChecked;
         }
 
-        private void ToggleSwitch33_Click(object sender, EventArgs e)
-        {
-            if (faxSw.ToggleChecked)
-            {
+        private void ToggleSwitch33_Click(object sender, EventArgs e) {
+            if (faxSw.ToggleChecked) {
                 OptimizeHelper.DisableFaxService();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableFaxService();
             }
             OptionsHelper.CurrentOptions.DisableFaxService = faxSw.ToggleChecked;
         }
 
         //ROOT
-        public MainForm(SplashForm _splashForm, bool? disableIndicium = null, bool? disableHostsEditor = null, bool? disableCommonApps = null, bool? disableUWPApps = null, bool? disableStartups = null, bool? disableCleaner = null, bool? disableIntegrator = null, bool? disablePinger = null)
-        {
+        public MainForm(SplashForm _splashForm, bool? disableIndicium = null, bool? disableHostsEditor = null, bool? disableCommonApps = null, bool? disableUWPApps = null, bool? disableStartups = null, bool? disableCleaner = null, bool? disableIntegrator = null, bool? disablePinger = null) {
             InitializeComponent();
 
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
@@ -895,16 +776,14 @@ namespace Optimizer
             _colorOverrider.SetColor(KnownColor.Highlight, Color.FromArgb(50, 50, 50).ToArgb());
             _colorOverrider.SetColor(KnownColor.HighlightText, Color.White.ToArgb());
 
-            if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
-            {
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported) {
                 tabCollection.TabPages.Remove(universalTab);
                 tabCollection.TabPages.Remove(windows8Tab);
                 tabCollection.TabPages.Remove(windows10Tab);
                 tabCollection.TabPages.Remove(modernAppsTab);
             }
 
-            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows7)
-            {
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows7) {
                 LoadUniversalToggleStates();
 
                 tabCollection.TabPages.Remove(windows8Tab);
@@ -912,26 +791,22 @@ namespace Optimizer
                 tabCollection.TabPages.Remove(modernAppsTab);
             }
 
-            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows8)
-            {
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows8) {
                 LoadUniversalToggleStates();
                 LoadWindows8ToggleStates();
 
                 tabCollection.TabPages.Remove(windows10Tab);
 
-                if (!_disableUWPApps)
-                {
+                if (!_disableUWPApps) {
                     chkOnlyRemovable.Visible = false;
                     chkOnlyRemovable.Checked = true;
                 }
-                else
-                {
+                else {
                     tabCollection.TabPages.Remove(modernAppsTab);
                 }
             }
 
-            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10)
-            {
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows10) {
                 LoadUniversalToggleStates();
                 LoadWindows10ToggleStates();
 
@@ -941,20 +816,17 @@ namespace Optimizer
                 oldMixerSw.Visible = true;
                 this.Controls.Remove(panelWin11Tweaks);
 
-                if (!_disableUWPApps)
-                {
+                if (!_disableUWPApps) {
                     chkOnlyRemovable.Checked = true;
                 }
-                else
-                {
+                else {
                     tabCollection.TabPages.Remove(modernAppsTab);
                 }
 
                 txtOS.Text += string.Format(" ({0})", Utilities.GetWindows10Build());
             }
 
-            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows11)
-            {
+            if (Utilities.CurrentWindowsVersion == WindowsVersion.Windows11) {
                 LoadUniversalToggleStates();
                 LoadWindows10ToggleStates();
                 LoadWindows11ToggleStates();
@@ -966,12 +838,10 @@ namespace Optimizer
                 panelWin11Tweaks.Visible = true;
                 oldMixerSw.Visible = false;
 
-                if (!_disableUWPApps)
-                {
+                if (!_disableUWPApps) {
                     chkOnlyRemovable.Checked = true;
                 }
-                else
-                {
+                else {
                     tabCollection.TabPages.Remove(modernAppsTab);
                 }
 
@@ -990,60 +860,51 @@ namespace Optimizer
             specsTree.ImageList = imagesHw;
 
             // STARTUP ITEMS
-            if (!_disableStartupTool)
-            {
+            if (!_disableStartupTool) {
                 GetStartupItems();
             }
-            else
-            {
+            else {
                 tabCollection.TabPages.Remove(startupTab);
                 launcherMenu.Items.RemoveByKey("trayStartup");
             }
 
             // HOSTS EDITOR
-            if (!_disableHostsEditor)
-            {
+            if (!_disableHostsEditor) {
                 GetHostsEntries();
             }
-            else
-            {
+            else {
                 tabCollection.TabPages.Remove(hostsEditorTab);
                 launcherMenu.Items.RemoveByKey("trayHosts");
             }
 
             // INTEGRATOR
-            if (!_disableIntegrator)
-            {
+            if (!_disableIntegrator) {
                 LoadReadyMenusState();
                 GetDesktopItems();
                 GetCustomCommands();
                 LoadAvailableFonts();
             }
-            else
-            {
+            else {
                 tabCollection.TabPages.Remove(integratorTab);
             }
 
             _splashForm.LoadingStatus.Text = "fetching feed";
 
             // APPS DOWNLOADER
-            if (!_disableAppsTool)
-            {
+            if (!_disableAppsTool) {
                 GetFeed();
+                txtDownloadFolder.ReadOnly = true;
             }
-            else
-            {
+            else {
                 tabCollection.TabPages.Remove(appsTab);
                 launcherMenu.Items.RemoveByKey("trayAD");
             }
 
             // CLEANER
-            if (!_disableCleaner)
-            {
+            if (!_disableCleaner) {
                 GetFootprint();
             }
-            else
-            {
+            else {
                 tabCollection.TabPages.Remove(cleanerTab);
                 launcherMenu.Items.RemoveByKey("trayCleaner");
             }
@@ -1051,76 +912,49 @@ namespace Optimizer
             _splashForm.LoadingStatus.Text = "inspecting hardware";
 
             // INDICIUM
-            if (!_disableIndicium)
-            {
+            if (!_disableIndicium) {
                 GetHardwareSpecs();
             }
-            else
-            {
+            else {
                 tabCollection.TabPages.Remove(indiciumTab);
                 launcherMenu.Items.RemoveByKey("trayHW");
             }
 
             // PINGER
-            if (!_disablePinger)
-            {
+            if (!_disablePinger) {
                 boxDNS.Items.AddRange(PingerHelper.DNSOptions);
                 LoadPingerDNSConfig();
                 DisplayCurrentDNS();
                 boxAdapter.SelectedIndexChanged += boxAdapter_SelectedIndexChanged;
             }
-            else
-            {
+            else {
                 tabCollection.TabPages.Remove(pingerTab);
                 launcherMenu.Items.RemoveByKey("trayPinger");
             }
 
             // ADVANCED
-            if (Program.UNSAFE_MODE)
-            {
+            if (Program.UNSAFE_MODE) {
                 LoadAdvancedToggleStates();
             }
-            else
-            {
+            else {
                 tabCollection.TabPages.Remove(advancedTab);
             }
 
             Program._MainForm = this;
 
-            if (string.IsNullOrEmpty(OptionsHelper.CurrentOptions.AppsFolder))
-            {
-                OptionsHelper.CurrentOptions.AppsFolder = Path.Combine(Utilities.GetUserDownloadsFolder(), Constants.DOWNLOADS_FOLDER);
-                txtDownloadFolder.Text = OptionsHelper.CurrentOptions.AppsFolder;
-                Directory.CreateDirectory(OptionsHelper.CurrentOptions.AppsFolder);
+            // if AppsFolder is a malformed or non-existent path, reset it to default
+            if (!string.IsNullOrWhiteSpace(OptionsHelper.CurrentOptions.AppsFolder) && !Directory.Exists(OptionsHelper.CurrentOptions.AppsFolder)) {
+                OptionsHelper.CurrentOptions.AppsFolder = string.Empty;
                 OptionsHelper.SaveSettings();
             }
-            else
-            {
-                if (!Directory.Exists(OptionsHelper.CurrentOptions.AppsFolder))
-                {
-                    try
-                    {
-                        Directory.CreateDirectory(OptionsHelper.CurrentOptions.AppsFolder);
-                    }
-                    catch (Exception ex)
-                    {
-                        txtDownloadFolder.Text = string.Empty;
-                        Logger.LogError("MainForm.INIT", ex.Message, ex.StackTrace);
-                    }
-                }
-                txtDownloadFolder.Text = OptionsHelper.CurrentOptions.AppsFolder;
-            }
 
-            if (OptionsHelper.CurrentOptions.UpdateOnLaunch)
-            {
-                if (!Program.EXPERIMENTAL_BUILD && PingerHelper.IsInternetAvailable())
-                {
+            if (OptionsHelper.CurrentOptions.UpdateOnLaunch) {
+                if (!Program.EXPERIMENTAL_BUILD && PingerHelper.IsInternetAvailable()) {
                     CheckForUpdate(true);
                 }
             }
 
-            if (Program.EXPERIMENTAL_BUILD)
-            {
+            if (Program.EXPERIMENTAL_BUILD) {
                 btnUpdate.Enabled = false;
                 picLab.Visible = true;
             }
@@ -1132,8 +966,7 @@ namespace Optimizer
             WindowState = FormWindowState.Maximized;
         }
 
-        private void LoadAvailableFonts()
-        {
+        private void LoadAvailableFonts() {
             listFonts.Items.Clear();
             _availableFonts = FontHelper.GetAvailableFonts().ToArray();
             listFonts.Items.AddRange(_availableFonts);
@@ -1142,12 +975,10 @@ namespace Optimizer
             lblFontsNumber.Text = _availableFonts.Length.ToString();
         }
 
-        private void FixTabHeaderWidth()
-        {
+        private void FixTabHeaderWidth() {
             if (tabCollection.ItemSize == new Size(0, 0)) return;
             int maxTextWidth = 0, maxTextHeight = 0;
-            for (int i = 0; i < tabCollection.TabPages.Count; i++)
-            {
+            for (int i = 0; i < tabCollection.TabPages.Count; i++) {
                 var tabWidth = TextRenderer.MeasureText(tabCollection.TabPages[i]?.Text, tabCollection.TabPages[i]?.Font).Width;
                 var tabHeight = TextRenderer.MeasureText(tabCollection.TabPages[i]?.Text, tabCollection.TabPages[i]?.Font).Height;
                 if (tabWidth > maxTextWidth) maxTextWidth = tabWidth;
@@ -1156,8 +987,7 @@ namespace Optimizer
             tabCollection.ItemSize = new Size(maxTextWidth, maxTextHeight + _tabHeaderHeightMargin);
         }
 
-        private void LoadReadyMenusState()
-        {
+        private void LoadReadyMenusState() {
             AddCMDB.ToggleChecked = IntegratorHelper.OpenWithCMDExists();
             AddOwnerB.ToggleChecked = IntegratorHelper.TakeOwnershipExists();
             DSB.ToggleChecked = IntegratorHelper.DesktopItemExists("DesktopShortcuts");
@@ -1167,8 +997,7 @@ namespace Optimizer
             WAB.ToggleChecked = IntegratorHelper.DesktopItemExists("WindowsApps");
         }
 
-        private void LoadPingerDNSConfig()
-        {
+        private void LoadPingerDNSConfig() {
             NetworkInterface[] nics = PingerHelper.GetActiveNetworkAdapters();
             if (nics == null) return;
             if (nics.Length == 0) return;
@@ -1184,8 +1013,7 @@ namespace Optimizer
             LoadNetworkAdapterConfig();
         }
 
-        private void LoadNetworkAdapterConfig()
-        {
+        private void LoadNetworkAdapterConfig() {
             if (boxAdapter.Items.Count <= 0) return;
 
             PingerHelper.GetActiveNetworkAdapters();
@@ -1196,66 +1024,53 @@ namespace Optimizer
             if (_currentDNS == null) return;
             if (_currentDNS.Length == 0) return;
 
-            if (Array.Exists(PingerHelper.CloudflareDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
+            if (Array.Exists(PingerHelper.CloudflareDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x))) {
                 boxDNS.Text = Constants.CloudflareDNS;
                 return;
             }
-            else if (Array.Exists(PingerHelper.OpenDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
+            else if (Array.Exists(PingerHelper.OpenDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x))) {
                 boxDNS.Text = Constants.OpenDNS;
                 return;
             }
-            else if (Array.Exists(PingerHelper.Quad9DNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
+            else if (Array.Exists(PingerHelper.Quad9DNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x))) {
                 boxDNS.Text = Constants.Quad9DNS;
                 return;
             }
-            else if (Array.Exists(PingerHelper.GoogleDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
+            else if (Array.Exists(PingerHelper.GoogleDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x))) {
                 boxDNS.Text = Constants.GoogleDNS;
                 return;
             }
-            else if (Array.Exists(PingerHelper.AlternateDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
+            else if (Array.Exists(PingerHelper.AlternateDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x))) {
                 boxDNS.Text = Constants.AlternateDNS;
                 return;
             }
-            else if (Array.Exists(PingerHelper.AdguardDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
+            else if (Array.Exists(PingerHelper.AdguardDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x))) {
                 boxDNS.Text = Constants.AdguardDNS;
                 return;
             }
-            else if (Array.Exists(PingerHelper.CleanBrowsingDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
+            else if (Array.Exists(PingerHelper.CleanBrowsingDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x))) {
                 boxDNS.Text = Constants.CleanBrowsingDNS;
                 return;
             }
-            else if (Array.Exists(PingerHelper.CleanBrowsingAdultDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
+            else if (Array.Exists(PingerHelper.CleanBrowsingAdultDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x))) {
                 boxDNS.Text = Constants.CleanBrowsingAdultFilterDNS;
                 return;
             }
-            else
-            {
+            else {
                 boxDNS.Text = Constants.CustomDNS;
                 chkCustomDns.Checked = true;
-                try
-                {
-                    if (_currentDNS.Length == 1)
-                    {
+                try {
+                    if (_currentDNS.Length == 1) {
                         linkDNSv4.Text = _currentDNS[0];
                         txtDns4A.Text = _currentDNS[0];
                     }
-                    else if (_currentDNS.Length == 2)
-                    {
+                    else if (_currentDNS.Length == 2) {
                         linkDNSv4.Text = _currentDNS[0];
                         linkDNSv4A.Text = _currentDNS[1];
                         txtDns4A.Text = _currentDNS[0];
                         txtDns4B.Text = _currentDNS[1];
                     }
-                    else if (_currentDNS.Length == 3)
-                    {
+                    else if (_currentDNS.Length == 3) {
                         linkDNSv6.Text = _currentDNS[0];
                         linkDNSv4.Text = _currentDNS[1];
                         linkDNSv4A.Text = _currentDNS[2];
@@ -1263,8 +1078,7 @@ namespace Optimizer
                         txtDns4A.Text = _currentDNS[1];
                         txtDns4B.Text = _currentDNS[2];
                     }
-                    else if (_currentDNS.Length == 4)
-                    {
+                    else if (_currentDNS.Length == 4) {
                         linkDNSv4.Text = _currentDNS[2];
                         linkDNSv4A.Text = _currentDNS[3];
                         linkDNSv6.Text = _currentDNS[0];
@@ -1281,36 +1095,29 @@ namespace Optimizer
             }
         }
 
-        private void SetDNS(string[] v4, string[] v6)
-        {
-            if (chkAllNics.Checked)
-            {
+        private void SetDNS(string[] v4, string[] v6) {
+            if (chkAllNics.Checked) {
                 PingerHelper.SetDNSForAllNICs(v4, v6);
             }
-            else
-            {
+            else {
                 PingerHelper.SetDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name, v4, v6);
             }
             PingerHelper.GetActiveNetworkAdapters();
             DisplayCurrentDNS();
         }
 
-        private void ResetDNS()
-        {
-            if (chkAllNics.Checked)
-            {
+        private void ResetDNS() {
+            if (chkAllNics.Checked) {
                 PingerHelper.ResetDefaultDNSForAllNICs();
             }
-            else
-            {
+            else {
                 PingerHelper.ResetDefaultDNS(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex].Name);
             }
             PingerHelper.GetActiveNetworkAdapters();
             DisplayCurrentDNS();
         }
 
-        private void ApplyCustomDNS()
-        {
+        private void ApplyCustomDNS() {
             string[] customDns4 =
             {
                 txtDns4A.Text,
@@ -1322,8 +1129,7 @@ namespace Optimizer
                 txtDns6B.Text
             };
 
-            if (Array.Exists(customDns4, x => string.IsNullOrEmpty(x)) || Array.Exists(customDns6, x => string.IsNullOrEmpty(x)))
-            {
+            if (Array.Exists(customDns4, x => string.IsNullOrEmpty(x)) || Array.Exists(customDns6, x => string.IsNullOrEmpty(x))) {
                 return;
             }
 
@@ -1335,167 +1141,130 @@ namespace Optimizer
             txtDns6B.Text = string.Empty;
         }
 
-        private void ApplySelectedDNS()
-        {
+        private void ApplySelectedDNS() {
             if (boxAdapter.Items.Count <= 0) return;
             if (boxAdapter.SelectedIndex <= -1) return;
 
-            if (boxDNS.Text == Constants.AutomaticDNS)
-            {
+            if (boxDNS.Text == Constants.AutomaticDNS) {
                 ResetDNS();
                 return;
             }
-            else if (boxDNS.Text == Constants.CloudflareDNS)
-            {
+            else if (boxDNS.Text == Constants.CloudflareDNS) {
                 SetDNS(PingerHelper.CloudflareDNSv4, PingerHelper.CloudflareDNSv6);
                 return;
             }
-            else if (boxDNS.Text == Constants.OpenDNS)
-            {
+            else if (boxDNS.Text == Constants.OpenDNS) {
                 SetDNS(PingerHelper.OpenDNSv4, PingerHelper.OpenDNSv6);
                 return;
             }
-            else if (boxDNS.Text == Constants.Quad9DNS)
-            {
+            else if (boxDNS.Text == Constants.Quad9DNS) {
                 SetDNS(PingerHelper.Quad9DNSv4, PingerHelper.Quad9DNSv6);
                 return;
             }
-            else if (boxDNS.Text == Constants.GoogleDNS)
-            {
+            else if (boxDNS.Text == Constants.GoogleDNS) {
                 SetDNS(PingerHelper.GoogleDNSv4, PingerHelper.GoogleDNSv6);
                 return;
             }
-            else if (boxDNS.Text == Constants.AlternateDNS)
-            {
+            else if (boxDNS.Text == Constants.AlternateDNS) {
                 SetDNS(PingerHelper.AlternateDNSv4, PingerHelper.AlternateDNSv6);
                 return;
             }
-            else if (boxDNS.Text == Constants.AdguardDNS)
-            {
+            else if (boxDNS.Text == Constants.AdguardDNS) {
                 SetDNS(PingerHelper.AdguardDNSv4, PingerHelper.AdguardDNSv6);
                 return;
             }
-            else if (boxDNS.Text == Constants.CleanBrowsingDNS)
-            {
+            else if (boxDNS.Text == Constants.CleanBrowsingDNS) {
                 SetDNS(PingerHelper.CleanBrowsingDNSv4, PingerHelper.CleanBrowsingDNSv6);
                 return;
             }
-            else if (boxDNS.Text == Constants.CleanBrowsingAdultFilterDNS)
-            {
+            else if (boxDNS.Text == Constants.CleanBrowsingAdultFilterDNS) {
                 SetDNS(PingerHelper.CleanBrowsingAdultDNSv4, PingerHelper.CleanBrowsingAdultDNSv6);
                 return;
             }
         }
 
-        private void LoadTranslation()
-        {
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.EN)
-            {
+        private void LoadTranslation() {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.EN) {
                 boxLang.Text = Constants.ENGLISH;
                 Translate(true);
             }
-            else
-            {
+            else {
                 Translate();
             }
 
             // set default window size to fit content
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.RU)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.RU) {
                 boxLang.Text = Constants.RUSSIAN;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.TR)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.TR) {
                 boxLang.Text = Constants.TURKISH;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.EL)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.EL) {
                 boxLang.Text = Constants.HELLENIC;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.DE)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.DE) {
                 boxLang.Text = Constants.GERMAN;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.PT)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.PT) {
                 boxLang.Text = Constants.PORTUGUESE;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.FR)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.FR) {
                 boxLang.Text = Constants.FRENCH;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.ES)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.ES) {
                 boxLang.Text = Constants.SPANISH;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.IT)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.IT) {
                 boxLang.Text = Constants.ITALIAN;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.CN)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.CN) {
                 boxLang.Text = Constants.CHINESE;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.TW)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.TW) {
                 boxLang.Text = Constants.TAIWANESE;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.CZ)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.CZ) {
                 boxLang.Text = Constants.CZECH;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.KO)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.KO) {
                 boxLang.Text = Constants.KOREAN;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.PL)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.PL) {
                 boxLang.Text = Constants.POLISH;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.AR)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.AR) {
                 boxLang.Text = Constants.ARABIC;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.KU)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.KU) {
                 boxLang.Text = Constants.KURDISH;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.HU)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.HU) {
                 boxLang.Text = Constants.HUNGARIAN;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.RO)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.RO) {
                 boxLang.Text = Constants.ROMANIAN;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.NL)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.NL) {
                 boxLang.Text = Constants.DUTCH;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.UA)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.UA) {
                 boxLang.Text = Constants.UKRAINIAN;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.JA)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.JA) {
                 boxLang.Text = Constants.JAPANESE;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.FA)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.FA) {
                 boxLang.Text = Constants.PERSIAN;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.NE)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.NE) {
                 boxLang.Text = Constants.NEPALI;
             }
-            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.BG)
-            {
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.BG) {
                 boxLang.Text = Constants.BULGARIAN;
             }
         }
 
-        private void GetHardwareSpecs()
-        {
+        private void GetHardwareSpecs() {
             GetCPUs();
             GetRAM();
             GetGPUs();
@@ -1514,8 +1283,7 @@ namespace Optimizer
 
         }
 
-        private TreeNode[] BuildHardwareSummaryNodes()
-        {
+        private TreeNode[] BuildHardwareSummaryNodes() {
             TreeNode osNode = new TreeNode("Operating System");
             osNode.Name = "os";
             osNode.Tag = _primaryItemTag;
@@ -1569,27 +1337,21 @@ namespace Optimizer
             };
         }
 
-        private void GetOSInfo()
-        {
+        private void GetOSInfo() {
             HardwareSummary.OSInfo.Add($"{Utilities.GetOS()} ({(Environment.Is64BitOperatingSystem ? "64-bit" : "32-bit")})");
-            if (SystemInformation.PowerStatus.BatteryChargeStatus == BatteryChargeStatus.NoSystemBattery)
-            {
+            if (SystemInformation.PowerStatus.BatteryChargeStatus == BatteryChargeStatus.NoSystemBattery) {
                 HardwareSummary.OSInfo.Add($"Desktop ({Environment.MachineName})");
             }
-            else
-            {
+            else {
                 HardwareSummary.OSInfo.Add($"Laptop ({Environment.MachineName})");
             }
         }
 
-        private void GetAudioDevices()
-        {
+        private void GetAudioDevices() {
             List<AudioDevice> audios = IndiciumHelper.GetAudioDevices();
 
-            if (audios.Count > 0)
-            {
-                foreach (AudioDevice device in audios)
-                {
+            if (audios.Count > 0) {
+                foreach (AudioDevice device in audios) {
                     TreeNode node = new TreeNode(device.ProductName);
 
                     node.Tag = _primaryItemTag;
@@ -1600,17 +1362,14 @@ namespace Optimizer
             }
         }
 
-        private void GetPeripherals()
-        {
+        private void GetPeripherals() {
             IndiciumHelper.GetPeripherals();
 
-            if (IndiciumHelper.Keyboards.Count > 0)
-            {
+            if (IndiciumHelper.Keyboards.Count > 0) {
                 TreeNode kbNodes = new TreeNode("Keyboards");
                 kbNodes.Name = "keyboards";
 
-                foreach (Keyboard keyboard in IndiciumHelper.Keyboards)
-                {
+                foreach (Keyboard keyboard in IndiciumHelper.Keyboards) {
                     TreeNode node = new TreeNode(keyboard.Name);
                     node.Tag = _primaryItemTag;
                     node.Nodes.Add("Layout: " + keyboard.Layout);
@@ -1622,13 +1381,11 @@ namespace Optimizer
                 specsTree.Nodes["dev"].Nodes.Add(kbNodes);
             }
 
-            if (IndiciumHelper.PointingDevices.Count > 0)
-            {
+            if (IndiciumHelper.PointingDevices.Count > 0) {
                 TreeNode pdNodes = new TreeNode("Pointing Devices");
                 pdNodes.Name = "pointings";
 
-                foreach (PointingDevice pointingDevice in IndiciumHelper.PointingDevices)
-                {
+                foreach (PointingDevice pointingDevice in IndiciumHelper.PointingDevices) {
                     TreeNode node = new TreeNode(pointingDevice.Name);
                     node.Tag = _primaryItemTag;
                     node.Nodes.Add("Manufacturer: " + pointingDevice.Manufacturer);
@@ -1644,17 +1401,14 @@ namespace Optimizer
             }
         }
 
-        private void GetNetworkAdapters()
-        {
+        private void GetNetworkAdapters() {
             IndiciumHelper.GetNetworkAdapters();
 
-            if (IndiciumHelper.PhysicalAdapters.Count > 0)
-            {
+            if (IndiciumHelper.PhysicalAdapters.Count > 0) {
                 TreeNode physicalsNode = new TreeNode("Physical Adapters");
                 physicalsNode.Name = "physicalAdapters";
 
-                foreach (NetworkDevice adapter in IndiciumHelper.PhysicalAdapters)
-                {
+                foreach (NetworkDevice adapter in IndiciumHelper.PhysicalAdapters) {
                     TreeNode node = new TreeNode(adapter.ProductName);
                     HardwareSummary.NetworkAdapters.Add(adapter.ProductName);
 
@@ -1669,13 +1423,11 @@ namespace Optimizer
                 specsTree.Nodes["inet"].Nodes.Add(physicalsNode);
             }
 
-            if (IndiciumHelper.VirtualAdapters.Count > 0)
-            {
+            if (IndiciumHelper.VirtualAdapters.Count > 0) {
                 TreeNode virtualsNode = new TreeNode("Virtual Adapters");
                 virtualsNode.Name = "virtualAdapters";
 
-                foreach (NetworkDevice adapter in IndiciumHelper.VirtualAdapters)
-                {
+                foreach (NetworkDevice adapter in IndiciumHelper.VirtualAdapters) {
                     TreeNode node = new TreeNode(adapter.ProductName);
 
                     node.Tag = _primaryItemTag;
@@ -1690,28 +1442,23 @@ namespace Optimizer
             }
         }
 
-        private void GetStorage()
-        {
+        private void GetStorage() {
             List<Disk> disks = IndiciumHelper.GetDisks();
             IndiciumHelper.GetVolumes();
 
-            if (disks.Count > 0)
-            {
+            if (disks.Count > 0) {
                 TreeNode disksNode = new TreeNode("Disk Drives");
                 disksNode.Name = "drives";
 
-                foreach (Disk disk in disks)
-                {
+                foreach (Disk disk in disks) {
                     TreeNode node = new TreeNode(disk.Model);
                     node.Tag = _primaryItemTag;
 
-                    if (disk.Capacity.ToString() != _byteSizeNullString)
-                    {
+                    if (disk.Capacity.ToString() != _byteSizeNullString) {
                         node.Nodes.Add("Size: " + disk.Capacity);
                         HardwareSummary.Disks.Add($"{disk.Model} ({disk.Capacity})");
                     }
-                    else
-                    {
+                    else {
                         node.Nodes.Add("Size: -");
                     }
                     node.Nodes.Add("Firmware Revision: " + disk.FirmwareRevision);
@@ -1723,20 +1470,16 @@ namespace Optimizer
                 specsTree.Nodes["disk"].Nodes.Add(disksNode);
             }
 
-            if (IndiciumHelper.Opticals.Count > 0)
-            {
+            if (IndiciumHelper.Opticals.Count > 0) {
                 TreeNode opticalsNode = new TreeNode("Optical Drives");
                 opticalsNode.Name = "opticals";
 
-                foreach (Volume optical in IndiciumHelper.Opticals)
-                {
+                foreach (Volume optical in IndiciumHelper.Opticals) {
                     string tmp = string.Empty;
-                    if (!string.IsNullOrEmpty(optical.DriveLetter))
-                    {
+                    if (!string.IsNullOrEmpty(optical.DriveLetter)) {
                         tmp = " (" + optical.DriveLetter + ")";
                     }
-                    else
-                    {
+                    else {
                         tmp = "-";
                     }
 
@@ -1744,28 +1487,22 @@ namespace Optimizer
                     node.Tag = _primaryItemTag;
                     node.Nodes.Add("File System: " + optical.FileSystem);
 
-                    if (optical.Capacity.ToString() != _byteSizeNullString)
-                    {
+                    if (optical.Capacity.ToString() != _byteSizeNullString) {
                         node.Nodes.Add("Size: " + optical.Capacity);
                     }
-                    else
-                    {
+                    else {
                         node.Nodes.Add("Size: -");
                     }
-                    if (optical.UsedSpace.ToString() != _byteSizeNullString)
-                    {
+                    if (optical.UsedSpace.ToString() != _byteSizeNullString) {
                         node.Nodes.Add("Used Space: " + optical.UsedSpace);
                     }
-                    else
-                    {
+                    else {
                         node.Nodes.Add("Used Space: -");
                     }
-                    if (optical.FreeSpace.ToString() != _byteSizeNullString)
-                    {
+                    if (optical.FreeSpace.ToString() != _byteSizeNullString) {
                         node.Nodes.Add("Free Space: " + optical.FreeSpace);
                     }
-                    else
-                    {
+                    else {
                         node.Nodes.Add("Free Space: -");
                     }
                     node.Nodes.Add("Indexing: " + optical.Indexing);
@@ -1778,20 +1515,16 @@ namespace Optimizer
                 specsTree.Nodes["disk"].Nodes.Add(opticalsNode);
             }
 
-            if (IndiciumHelper.Volumes.Count > 0)
-            {
+            if (IndiciumHelper.Volumes.Count > 0) {
                 TreeNode volumesNode = new TreeNode("Partitions");
                 volumesNode.Name = "volumes";
 
-                foreach (Volume volume in IndiciumHelper.Volumes)
-                {
+                foreach (Volume volume in IndiciumHelper.Volumes) {
                     string tmp = string.Empty;
-                    if (!string.IsNullOrEmpty(volume.DriveLetter))
-                    {
+                    if (!string.IsNullOrEmpty(volume.DriveLetter)) {
                         tmp = " (" + volume.DriveLetter + ")";
                     }
-                    else
-                    {
+                    else {
                         tmp = "-";
                     }
 
@@ -1799,28 +1532,22 @@ namespace Optimizer
                     node.Tag = _primaryItemTag;
 
                     node.Nodes.Add("File System: " + volume.FileSystem);
-                    if (volume.Capacity.ToString() != _byteSizeNullString)
-                    {
+                    if (volume.Capacity.ToString() != _byteSizeNullString) {
                         node.Nodes.Add("Size: " + volume.Capacity);
                     }
-                    else
-                    {
+                    else {
                         node.Nodes.Add("Size: -");
                     }
-                    if (volume.UsedSpace.ToString() != _byteSizeNullString)
-                    {
+                    if (volume.UsedSpace.ToString() != _byteSizeNullString) {
                         node.Nodes.Add("Used Space: " + volume.UsedSpace);
                     }
-                    else
-                    {
+                    else {
                         node.Nodes.Add("Used Space: -");
                     }
-                    if (volume.FreeSpace.ToString() != _byteSizeNullString)
-                    {
+                    if (volume.FreeSpace.ToString() != _byteSizeNullString) {
                         node.Nodes.Add("Free Space: " + volume.FreeSpace);
                     }
-                    else
-                    {
+                    else {
                         node.Nodes.Add("Free Space: -");
                     }
                     node.Nodes.Add("Indexing: " + volume.Indexing);
@@ -1832,20 +1559,16 @@ namespace Optimizer
                 }
                 specsTree.Nodes["disk"].Nodes.Add(volumesNode);
 
-                if (IndiciumHelper.Removables.Count > 0)
-                {
+                if (IndiciumHelper.Removables.Count > 0) {
                     TreeNode removablesNode = new TreeNode("Removable Drives");
                     removablesNode.Name = "removables";
 
-                    foreach (Volume removable in IndiciumHelper.Removables)
-                    {
+                    foreach (Volume removable in IndiciumHelper.Removables) {
                         string tmp = string.Empty;
-                        if (!string.IsNullOrEmpty(removable.DriveLetter))
-                        {
+                        if (!string.IsNullOrEmpty(removable.DriveLetter)) {
                             tmp = " (" + removable.DriveLetter + ")";
                         }
-                        else
-                        {
+                        else {
                             tmp = "-";
                         }
 
@@ -1854,28 +1577,22 @@ namespace Optimizer
                         node.Tag = _primaryItemTag;
 
                         node.Nodes.Add("File System: " + removable.FileSystem);
-                        if (removable.Capacity.ToString() != _byteSizeNullString)
-                        {
+                        if (removable.Capacity.ToString() != _byteSizeNullString) {
                             node.Nodes.Add("Size: " + removable.Capacity);
                         }
-                        else
-                        {
+                        else {
                             node.Nodes.Add("Size: -");
                         }
-                        if (removable.UsedSpace.ToString() != _byteSizeNullString)
-                        {
+                        if (removable.UsedSpace.ToString() != _byteSizeNullString) {
                             node.Nodes.Add("Used Space: " + removable.UsedSpace);
                         }
-                        else
-                        {
+                        else {
                             node.Nodes.Add("Used Space: -");
                         }
-                        if (removable.FreeSpace.ToString() != _byteSizeNullString)
-                        {
+                        if (removable.FreeSpace.ToString() != _byteSizeNullString) {
                             node.Nodes.Add("Free Space: " + removable.FreeSpace);
                         }
-                        else
-                        {
+                        else {
                             node.Nodes.Add("Free Space: -");
                         }
                         node.Nodes.Add("Indexing: " + removable.Indexing);
@@ -1889,14 +1606,11 @@ namespace Optimizer
             }
         }
 
-        private void GetCPUs()
-        {
+        private void GetCPUs() {
             List<CPU> cpus = IndiciumHelper.GetCPUs();
 
-            if (cpus.Count > 0)
-            {
-                foreach (CPU cpu in cpus)
-                {
+            if (cpus.Count > 0) {
+                foreach (CPU cpu in cpus) {
                     TreeNode node = new TreeNode(cpu.Name);
                     node.Tag = _primaryItemTag;
 
@@ -1916,14 +1630,11 @@ namespace Optimizer
             }
         }
 
-        private void GetMotherboards()
-        {
+        private void GetMotherboards() {
             List<Motherboard> mobos = IndiciumHelper.GetMotherboards();
 
-            if (mobos.Count > 0)
-            {
-                foreach (Motherboard mobo in mobos)
-                {
+            if (mobos.Count > 0) {
+                foreach (Motherboard mobo in mobos) {
                     TreeNode node = new TreeNode(mobo.Manufacturer);
                     TreeNode node2 = new TreeNode("BIOS");
                     node.Tag = _primaryItemTag;
@@ -1950,14 +1661,11 @@ namespace Optimizer
             }
         }
 
-        private void GetGPUs()
-        {
+        private void GetGPUs() {
             List<GPU> gpus = IndiciumHelper.GetGPUs();
 
-            if (gpus.Count > 0)
-            {
-                foreach (GPU gpu in gpus)
-                {
+            if (gpus.Count > 0) {
+                foreach (GPU gpu in gpus) {
                     TreeNode node = new TreeNode(gpu.Name);
                     node.Tag = _primaryItemTag;
 
@@ -1974,8 +1682,7 @@ namespace Optimizer
             }
         }
 
-        private void GetRAM()
-        {
+        private void GetRAM() {
             List<RAM> ramInfo = IndiciumHelper.GetRAM();
             VirtualMemory vm = IndiciumHelper.GetVM();
 
@@ -1983,10 +1690,8 @@ namespace Optimizer
             string memoryType = string.Empty;
             uint memorySpeed = 0;
 
-            if (ramInfo.Count > 0)
-            {
-                foreach (RAM ram in ramInfo)
-                {
+            if (ramInfo.Count > 0) {
+                foreach (RAM ram in ramInfo) {
                     TreeNode node = new TreeNode(ram.BankLabel.ToLowerInvariant().Replace("bank", "Module"));
                     node.Tag = _primaryItemTag;
 
@@ -2006,8 +1711,7 @@ namespace Optimizer
                 HardwareSummary.TotalRAM = $"{totalRAM.ToString("GiB")} {memoryType} @ {memorySpeed} MHz";
             }
 
-            if (vm != null)
-            {
+            if (vm != null) {
                 TreeNode node = new TreeNode("Virtual Memory");
                 node.Name = "vm";
                 node.Tag = _primaryItemTag;
@@ -2082,24 +1786,20 @@ namespace Optimizer
         //    });
         //}
 
-        private void Translate(bool skipFull = false)
-        {
+        private void Translate(bool skipFull = false) {
             translationList = OptionsHelper.TranslationList.ToObject<Dictionary<string, string>>();
 
-            if (Environment.Is64BitOperatingSystem)
-            {
+            if (Environment.Is64BitOperatingSystem) {
                 translationList["txtBitness"] = translationList["txtBitness"].Replace("{BITS}", translationList["c64"]);
             }
-            else
-            {
+            else {
                 translationList["txtBitness"] = translationList["txtBitness"].Replace("{BITS}", translationList["c32"]);
             }
 
             TranslateTips();
             //TranslateIndicium();
 
-            if (!skipFull)
-            {
+            if (!skipFull) {
                 _noNewVersionMessage = OptionsHelper.TranslationList["noNewVersion"];
                 _betaVersionMessage = OptionsHelper.TranslationList["betaVersion"];
                 _newVersionMessage = OptionsHelper.TranslationList["newVersion"];
@@ -2146,15 +1846,13 @@ namespace Optimizer
                 label21.Text = translationList["subSystem"];
 
                 Control element;
-                foreach (var x in translationList)
-                {
+                foreach (var x in translationList) {
                     if (x.Key == null || x.Key == string.Empty) continue;
                     element = this.Controls.Find(x.Key, true).FirstOrDefault();
 
                     if (element == null) continue;
 
-                    if (element is ToggleCard tc)
-                    {
+                    if (element is ToggleCard tc) {
                         tc.LabelText = x.Value;
                         continue;
                     }
@@ -2166,35 +1864,29 @@ namespace Optimizer
             txtVersion.Text = txtVersion.Text.Replace("{VN}", Program.GetCurrentVersionTostring());
         }
 
-        private void GetFootprint()
-        {
+        private void GetFootprint() {
             ByteSize footprint = CleanHelper.PreviewSizeToBeFreed;
             if (footprint > ByteSize.FromBytes(0)) lblFootprint.Text = footprint.ToString();
             else lblFootprint.Text = "-";
         }
 
-        private void GetFeed()
-        {
-            WebClient client = new WebClient
-            {
+        private void GetFeed() {
+            WebClient client = new WebClient {
                 Encoding = Encoding.UTF8
             };
 
             client.Headers.Add("Cache-Control", "no-cache");
 
-            try
-            {
+            try {
                 byte[] feedData;
                 string tmpImageFileName = string.Empty;
 
                 feedData = client.DownloadData(_feedImages);
 
-                using (ZipArchive zip = new ZipArchive(new MemoryStream(feedData)))
-                {
+                using (ZipArchive zip = new ZipArchive(new MemoryStream(feedData))) {
                     var zipEntries = zip.Entries;
 
-                    try
-                    {
+                    try {
                         string feed = client.DownloadString(_feedLink);
                         AppsFromFeed = JsonConvert.DeserializeObject<List<AppInfo>>(feed);
 
@@ -2204,8 +1896,7 @@ namespace Optimizer
                         groupCoding.Controls.Clear();
                         groupSoundVideo.Controls.Clear();
 
-                        foreach (AppInfo x in AppsFromFeed)
-                        {
+                        foreach (AppInfo x in AppsFromFeed) {
                             appCard = new AppCard();
                             appCard.AutoSize = true;
                             appCard.Anchor = AnchorStyles.None;
@@ -2217,8 +1908,7 @@ namespace Optimizer
                             tmpImageFileName = x.Image.Substring(x.Image.LastIndexOf("/") + 1, x.Image.Length - (x.Image.LastIndexOf("/") + 1));
                             appCard.appImage.Image = Image.FromStream(zipEntries.First(ifn => ifn.Name == tmpImageFileName).Open());
 
-                            switch (x.Group)
-                            {
+                            switch (x.Group) {
                                 case "SystemTools":
                                     appCard.Location = new Point(0, groupSystemTools.Controls.Count * (Program.DPI_PREFERENCE / 3));
                                     groupSystemTools.Controls.Add(appCard);
@@ -2244,8 +1934,7 @@ namespace Optimizer
                         btnDownloadApps.Enabled = true;
                         txtFeedError.Visible = false;
                     }
-                    catch (Exception ex)
-                    {
+                    catch (Exception ex) {
                         btnDownloadApps.Enabled = false;
                         txtFeedError.Visible = true;
 
@@ -2253,8 +1942,7 @@ namespace Optimizer
                     }
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 btnDownloadApps.Enabled = false;
                 txtFeedError.Visible = true;
 
@@ -2262,10 +1950,8 @@ namespace Optimizer
             }
         }
 
-        private void PreviewCleanPC()
-        {
-            try
-            {
+        private void PreviewCleanPC() {
+            try {
                 if (checkTemp.Checked) CleanHelper.PreviewTemp();
                 if (checkMiniDumps.Checked) CleanHelper.PreviewMinidumps();
                 if (checkErrorReports.Checked) CleanHelper.PreviewErrorReports();
@@ -2275,19 +1961,16 @@ namespace Optimizer
                 CleanHelper.PreviewBraveClean(braveCache.Checked, braveCookies.Checked, braveHistory.Checked, braveSession.Checked, bravePasswords.Checked);
                 if (IECache.Checked) CleanHelper.PreviewInternetExplorerCache();
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("MainForm.CleanPC", ex.Message, ex.StackTrace);
             }
-            finally
-            {
+            finally {
                 _cleanPreviewList = CleanHelper.PreviewCleanList;
 
                 _cleanPreviewList.Sort();
                 listCleanPreview.Items.AddRange(_cleanPreviewList.ToArray());
 
-                for (int i = 0; i < listCleanPreview.Items.Count; i++)
-                {
+                for (int i = 0; i < listCleanPreview.Items.Count; i++) {
                     listCleanPreview.SetItemChecked(i, true);
                 }
 
@@ -2295,10 +1978,8 @@ namespace Optimizer
             }
         }
 
-        private void CleanPC()
-        {
-            for (int i = 0; i < listCleanPreview.CheckedItems.Count; i++)
-            {
+        private void CleanPC() {
+            for (int i = 0; i < listCleanPreview.CheckedItems.Count; i++) {
                 CleanHelper.PreviewCleanList.Add(listCleanPreview.CheckedItems[i].ToString());
             }
 
@@ -2310,69 +1991,56 @@ namespace Optimizer
             CleanHelper.PreviewCleanList.Clear();
         }
 
-        private bool FixRegistry()
-        {
+        private bool FixRegistry() {
             bool changeDetected = false;
 
-            try
-            {
-                if (checkFirewall.Checked)
-                {
+            try {
+                if (checkFirewall.Checked) {
                     Utilities.EnableFirewall();
                     changeDetected = true;
                 }
-                if (checkCommandPrompt.Checked)
-                {
+                if (checkCommandPrompt.Checked) {
                     Utilities.EnableCommandPrompt();
                     changeDetected = true;
                 }
-                if (checkControlPanel.Checked)
-                {
+                if (checkControlPanel.Checked) {
                     Utilities.EnableControlPanel();
                     changeDetected = true;
                 }
-                if (checkFolderOptions.Checked)
-                {
+                if (checkFolderOptions.Checked) {
                     Utilities.EnableFolderOptions();
                     changeDetected = true;
                 }
-                if (checkRunDialog.Checked)
-                {
+                if (checkRunDialog.Checked) {
                     Utilities.EnableRunDialog();
                     changeDetected = true;
                 }
-                if (checkContextMenu.Checked)
-                {
+                if (checkContextMenu.Checked) {
                     Utilities.EnableContextMenu();
                     changeDetected = true;
                 }
-                if (checkTaskManager.Checked)
-                {
+                if (checkTaskManager.Checked) {
                     Utilities.EnableTaskManager();
                     changeDetected = true;
                 }
-                if (checkRegistryEditor.Checked)
-                {
+                if (checkRegistryEditor.Checked) {
                     Utilities.EnableRegistryEditor();
                     changeDetected = true;
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("MainForm.FixRegistry", ex.Message, ex.StackTrace);
             }
 
             return changeDetected;
         }
 
-        private void LoadAdvancedToggleStates()
-        {
+        private void LoadAdvancedToggleStates() {
             hpetSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableHPET;
             loginVerboseSw.ToggleChecked = OptionsHelper.CurrentOptions.EnableLoginVerbose;
         }
 
-        private void LoadUniversalToggleStates()
-        {
+        private void LoadUniversalToggleStates() {
             performanceSw.ToggleChecked = OptionsHelper.CurrentOptions.EnablePerformanceTweaks;
             chkAllTrayIcons.Enabled = !OptionsHelper.CurrentOptions.EnablePerformanceTweaks;
             chkMenuDelays.Enabled = !OptionsHelper.CurrentOptions.EnablePerformanceTweaks;
@@ -2401,13 +2069,11 @@ namespace Optimizer
             nvidiaTelemetrySw.ToggleChecked = OptionsHelper.CurrentOptions.DisableNVIDIATelemetry;
         }
 
-        private void LoadWindows8ToggleStates()
-        {
+        private void LoadWindows8ToggleStates() {
             disableOneDriveSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableOneDrive;
         }
 
-        private void LoadWindows10ToggleStates()
-        {
+        private void LoadWindows10ToggleStates() {
             oldMixerSw.ToggleChecked = OptionsHelper.CurrentOptions.EnableLegacyVolumeSlider;
             uODSw.ToggleChecked = OptionsHelper.CurrentOptions.UninstallOneDrive;
             gameBarSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableGameBar;
@@ -2438,8 +2104,7 @@ namespace Optimizer
             classicPhotoViewerSw.ToggleChecked = OptionsHelper.CurrentOptions.RestoreClassicPhotoViewer;
         }
 
-        private void LoadWindows11ToggleStates()
-        {
+        private void LoadWindows11ToggleStates() {
             leftTaskbarSw.ToggleChecked = OptionsHelper.CurrentOptions.TaskbarToLeft;
             snapAssistSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableSnapAssist;
             widgetsSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableWidgets;
@@ -2452,25 +2117,20 @@ namespace Optimizer
             copilotSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableCoPilotAI;
         }
 
-        private void Main_Load(object sender, EventArgs e)
-        {
+        private void Main_Load(object sender, EventArgs e) {
             FixTabHeaderWidth();
-            if (OptionsHelper.CurrentOptions.AutoStart && OptionsHelper.CurrentOptions.EnableTray)
-            {
+            if (OptionsHelper.CurrentOptions.AutoStart && OptionsHelper.CurrentOptions.EnableTray) {
                 this.Hide();
             }
             //DebugHelper.FindDifferenceInTwoJsons();
         }
 
-        private void GetDesktopItems()
-        {
+        private void GetDesktopItems() {
             _desktopItems = IntegratorHelper.GetDesktopItems();
             listDesktopItems.Items.Clear();
 
-            for (int i = 0; i < _desktopItems.Count; i++)
-            {
-                if (!string.IsNullOrEmpty(_desktopItems[i]))
-                {
+            for (int i = 0; i < _desktopItems.Count; i++) {
+                if (!string.IsNullOrEmpty(_desktopItems[i])) {
                     listDesktopItems.Items.Add(_desktopItems[i]);
                 }
             }
@@ -2478,8 +2138,7 @@ namespace Optimizer
             if (_desktopItems.Count > 0) listDesktopItems.SelectedIndex = 0;
         }
 
-        private void GetHostsEntries()
-        {
+        private void GetHostsEntries() {
             ((Control)this.hostsEditorTab).Enabled = false;
 
             _hostsEntries = HostsHelper.GetHostsEntries();
@@ -2503,13 +2162,11 @@ namespace Optimizer
             if (_hostsEntries.Count > 0) listHostEntries.SelectedIndex = 0;
         }
 
-        private void GetStartupItems()
-        {
+        private void GetStartupItems() {
             _startUpItems = StartupHelper.GetStartupItems();
             listStartupItems.Items.Clear();
 
-            for (int i = 0; i < _startUpItems.Count; i++)
-            {
+            for (int i = 0; i < _startUpItems.Count; i++) {
                 ListViewItem list = new ListViewItem(_startUpItems[i].Name);
                 list.SubItems.Add(_startUpItems[i].FileLocation);
                 list.SubItems.Add(_startUpItems[i].ToString());
@@ -2517,14 +2174,12 @@ namespace Optimizer
                 listStartupItems.Items.Add(list);
             }
 
-            foreach (ColumnHeader column in listStartupItems.Columns)
-            {
+            foreach (ColumnHeader column in listStartupItems.Columns) {
                 column.AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
         }
 
-        private void GetModernApps(bool showAll)
-        {
+        private void GetModernApps(bool showAll) {
             uninstallModernAppsButton.Enabled = false;
             refreshModernAppsButton.Enabled = false;
 
@@ -2534,8 +2189,7 @@ namespace Optimizer
             AppCard appCard;
             FileInfo pngTmp;
 
-            foreach (var x in _modernApps)
-            {
+            foreach (var x in _modernApps) {
                 appCard = new AppCard();
                 appCard.AutoSize = true;
                 appCard.Anchor = AnchorStyles.None;
@@ -2544,71 +2198,64 @@ namespace Optimizer
                 appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
 
                 // gets largest picture
-                try
-                {
+                try {
                     pngTmp = new DirectoryInfo(x.Value)
                         .EnumerateFiles("*.png", SearchOption.AllDirectories)
                         .OrderByDescending(f => f.Length)
                         .FirstOrDefault();
                 }
-                catch
-                {
+                catch (Exception ex) {
+                    Logger.LogError("MainForm.GetModernApps-ImageSearch", ex.Message, ex.StackTrace);
                     pngTmp = null;
                 }
 
-                if (pngTmp != null)
-                {
-                    try
-                    {
-                        appCard.appImage.Image = Image.FromFile(pngTmp.FullName);
+                if (pngTmp != null) {
+                    try {
+                        using (FileStream fs = new FileStream(pngTmp.FullName, FileMode.Open, FileAccess.Read)) {
+                            appCard.appImage.Image = Image.FromStream(fs);
+                        }
                     }
-                    catch { }
+                    catch (Exception ex) {
+                        Logger.LogError("MainForm.GetModernApps-ImageLoad", ex.Message, ex.StackTrace);
+                    }
                 }
 
                 appCard.Location = new Point(0, panelUwp.Controls.Count * (Program.DPI_PREFERENCE / 3));
                 panelUwp.Controls.Add(appCard);
-
             }
 
             uninstallModernAppsButton.Enabled = true;
             refreshModernAppsButton.Enabled = true;
         }
 
-        private async void UninstallModernApps()
-        {
+        private async void UninstallModernApps() {
             List<string> selectedApps = new List<string>();
 
-            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(panelUwp))
-            {
+            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(panelUwp)) {
                 //if ((c.Name == "chkSelectAllModernApps") || (c.Name == "chkOnlyRemovable")) continue;
-                if (c is MoonCheck && ((MoonCheck)c).Checked)
-                {
+                if (c is MoonCheck && ((MoonCheck)c).Checked) {
                     selectedApps.Add(c.Text);
                 }
             }
 
             if (selectedApps.Count <= 0) return;
 
-            if (MessageBox.Show(_removeModernAppsMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
+            if (MessageBox.Show(_removeModernAppsMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                 uninstallModernAppsButton.Enabled = false;
                 refreshModernAppsButton.Enabled = false;
 
                 bool errorOccured = false;
                 string failedApps = string.Empty;
 
-                foreach (string app in selectedApps)
-                {
+                foreach (string app in selectedApps) {
                     await Task.Run(() => errorOccured = UWPHelper.UninstallUWPApp(app));
 
-                    if (errorOccured)
-                    {
+                    if (errorOccured) {
                         failedApps += Environment.NewLine + app;
                     }
                 }
 
-                if (!string.IsNullOrEmpty(failedApps))
-                {
+                if (!string.IsNullOrEmpty(failedApps)) {
                     MessageBox.Show(_errorModernAppsMessage + failedApps, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -2616,47 +2263,38 @@ namespace Optimizer
             }
         }
 
-        private void GetCustomCommands()
-        {
+        private void GetCustomCommands() {
             _customCommands = IntegratorHelper.GetCustomCommands();
             listCustomCommands.Items.Clear();
 
-            foreach (string s in _customCommands)
-            {
+            foreach (string s in _customCommands) {
                 listCustomCommands.Items.Add(s);
             }
 
             if (_customCommands.Count > 0) listCustomCommands.SelectedIndex = 0;
         }
 
-        private void Main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (_trayMenu)
-            {
+        private void Main_FormClosing(object sender, FormClosingEventArgs e) {
+            if (_trayMenu) {
                 e.Cancel = true;
                 this.Hide();
             }
-            else
-            {
+            else {
                 OptionsHelper.CurrentOptions.AppsFolder = txtDownloadFolder.Text;
                 OptionsHelper.SaveSettings();
             }
         }
 
-        private void button32_Click(object sender, EventArgs e)
-        {
+        private void button32_Click(object sender, EventArgs e) {
             if (listStartupItems.CheckedItems.Count <= 0) return;
 
             string report = string.Empty;
 
-            foreach (ListViewItem i in listStartupItems.CheckedItems)
-            {
+            foreach (ListViewItem i in listStartupItems.CheckedItems) {
                 report += i.Text + Environment.NewLine;
             }
-            if (MessageBox.Show(_removeStartupItemsMessage + Environment.NewLine + Environment.NewLine + report, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                foreach (int x in listStartupItems.CheckedIndices)
-                {
+            if (MessageBox.Show(_removeStartupItemsMessage + Environment.NewLine + Environment.NewLine + report, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                foreach (int x in listStartupItems.CheckedIndices) {
                     _startUpItems[x].Remove();
                 }
 
@@ -2664,26 +2302,21 @@ namespace Optimizer
             }
         }
 
-        internal void RemoveAllStartupItems()
-        {
-            foreach (ListViewItem i in listStartupItems.Items)
-            {
+        internal void RemoveAllStartupItems() {
+            foreach (ListViewItem i in listStartupItems.Items) {
                 _startUpItems[i.Index].Remove();
             }
 
             GetStartupItems();
         }
 
-        private void button31_Click(object sender, EventArgs e)
-        {
-            if (listStartupItems.SelectedItems.Count == 1)
-            {
+        private void button31_Click(object sender, EventArgs e) {
+            if (listStartupItems.SelectedItems.Count == 1) {
                 _startUpItems[listStartupItems.SelectedIndices[0]].LocateFile();
             }
         }
 
-        private void checkEnableAll_CheckedChanged(object sender, EventArgs e)
-        {
+        private void checkEnableAll_CheckedChanged(object sender, EventArgs e) {
             checkTaskManager.Checked = checkEnableAll.Checked;
             checkCommandPrompt.Checked = checkEnableAll.Checked;
             checkControlPanel.Checked = checkEnableAll.Checked;
@@ -2694,17 +2327,14 @@ namespace Optimizer
             checkRegistryEditor.Checked = checkEnableAll.Checked;
         }
 
-        private void button33_Click(object sender, EventArgs e)
-        {
+        private void button33_Click(object sender, EventArgs e) {
             bool flag = FixRegistry();
 
-            if (flag)
-            {
+            if (flag) {
                 panel2.Enabled = false;
                 regFixB.Enabled = false;
 
-                if (checkRestartExplorer.Checked)
-                {
+                if (checkRestartExplorer.Checked) {
                     Utilities.RestartExplorer();
                 }
 
@@ -2713,45 +2343,37 @@ namespace Optimizer
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
+        private void pictureBox1_Click(object sender, EventArgs e) {
             AboutForm f = new AboutForm();
             f.ShowDialog(this);
         }
 
-        private void button37_Click(object sender, EventArgs e)
-        {
+        private void button37_Click(object sender, EventArgs e) {
             GetStartupItems();
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             HostsHelper.LocateHosts();
         }
 
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             HostsEditorForm f = new HostsEditorForm();
             f.ShowDialog(this);
             GetHostsEntries();
         }
 
-        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             HostsHelper.RestoreDefaultHosts();
             GetHostsEntries();
         }
 
-        private void button47_Click(object sender, EventArgs e)
-        {
-            if ((txtIP.Text != string.Empty) && (txtDomain.Text != string.Empty))
-            {
+        private void button47_Click(object sender, EventArgs e) {
+            if ((txtIP.Text != string.Empty) && (txtDomain.Text != string.Empty)) {
                 string ip = txtIP.Text.Trim();
                 string domain = txtDomain.Text.Trim();
 
                 HostsHelper.AddEntry(HostsHelper.SanitizeEntry(ip) + " " + HostsHelper.SanitizeEntry(domain));
-                if (chkIncludeWww.Checked)
-                {
+                if (chkIncludeWww.Checked) {
                     domain = $"www.{domain}";
                     HostsHelper.AddEntry(HostsHelper.SanitizeEntry(ip) + " " + HostsHelper.SanitizeEntry(domain));
                 }
@@ -2765,35 +2387,28 @@ namespace Optimizer
             }
         }
 
-        private void button41_Click(object sender, EventArgs e)
-        {
+        private void button41_Click(object sender, EventArgs e) {
             GetHostsEntries();
         }
 
-        private void button42_Click(object sender, EventArgs e)
-        {
-            if (listHostEntries.SelectedItems.Count == 1)
-            {
+        private void button42_Click(object sender, EventArgs e) {
+            if (listHostEntries.SelectedItems.Count == 1) {
                 HostsHelper.RemoveEntry(listHostEntries.SelectedItem.ToString().Replace(" : ", " "));
                 GetHostsEntries();
             }
         }
 
-        private void button46_Click(object sender, EventArgs e)
-        {
-            if (listHostEntries.Items.Count > 0)
-            {
+        private void button46_Click(object sender, EventArgs e) {
+            if (listHostEntries.Items.Count > 0) {
                 HelperForm r = new HelperForm(this, MessageType.Hosts, _removeHostsEntriesMessage);
                 r.ShowDialog(this);
             }
         }
 
-        internal void RemoveAllHostsEntries()
-        {
+        internal void RemoveAllHostsEntries() {
             List<string> collection = new List<string>();
 
-            foreach (string item in listHostEntries.Items)
-            {
+            foreach (string item in listHostEntries.Items) {
                 collection.Add(item.Replace(" : ", " "));
             }
 
@@ -2801,22 +2416,18 @@ namespace Optimizer
             GetHostsEntries();
         }
 
-        private void aio_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void aio_SelectedIndexChanged(object sender, EventArgs e) {
             if (tabCollection.SelectedTab == hostsEditorTab) txtIP.Focus();
 
             if (tabCollection.SelectedTab == pingerTab) txtPingInput.Focus();
         }
 
-        private void button48_Click(object sender, EventArgs e)
-        {
+        private void button48_Click(object sender, EventArgs e) {
             defineCommandDialog.ShowDialog();
         }
 
-        private void button50_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtRunFile.Text) && !string.IsNullOrEmpty(txtRunKeyword.Text))
-            {
+        private void button50_Click(object sender, EventArgs e) {
+            if (!string.IsNullOrEmpty(txtRunFile.Text) && !string.IsNullOrEmpty(txtRunKeyword.Text)) {
                 IntegratorHelper.CreateCustomCommand(txtRunFile.Text, txtRunKeyword.Text);
 
                 txtRunFile.Clear();
@@ -2826,31 +2437,25 @@ namespace Optimizer
             }
         }
 
-        private void DefineCmd_FileOk(object sender, CancelEventArgs e)
-        {
+        private void DefineCmd_FileOk(object sender, CancelEventArgs e) {
             txtRunFile.Text = defineCommandDialog.FileName;
             txtRunKeyword.Text = Path.GetFileNameWithoutExtension(txtRunFile.Text).ToLower();
         }
 
-        private void button60_Click(object sender, EventArgs e)
-        {
+        private void button60_Click(object sender, EventArgs e) {
             GetDesktopItems();
         }
 
-        private void button61_Click(object sender, EventArgs e)
-        {
-            if (listDesktopItems.SelectedItems.Count == 1)
-            {
+        private void button61_Click(object sender, EventArgs e) {
+            if (listDesktopItems.SelectedItems.Count == 1) {
                 IntegratorHelper.RemoveItem(listDesktopItems.SelectedItem.ToString());
                 GetDesktopItems();
             }
         }
 
-        internal void RemoveAllDesktopItems()
-        {
+        internal void RemoveAllDesktopItems() {
             List<string> collection = new List<string>();
-            foreach (string item in listDesktopItems.Items)
-            {
+            foreach (string item in listDesktopItems.Items) {
                 collection.Add(item);
             }
 
@@ -2859,19 +2464,15 @@ namespace Optimizer
             GetDesktopItems();
         }
 
-        private void button62_Click(object sender, EventArgs e)
-        {
-            if (listDesktopItems.Items.Count > 0)
-            {
+        private void button62_Click(object sender, EventArgs e) {
+            if (listDesktopItems.Items.Count > 0) {
                 HelperForm r = new HelperForm(this, MessageType.Integrator, _removeDesktopItemsMessage);
                 r.ShowDialog(this);
             }
         }
 
-        private void radioProgram_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioProgram.Checked)
-            {
+        private void radioProgram_CheckedChanged(object sender, EventArgs e) {
+            if (radioProgram.Checked) {
                 btnBrowseItem.Enabled = true;
                 txtItem.Clear();
                 checkDefaultIcon.Checked = true;
@@ -2887,10 +2488,8 @@ namespace Optimizer
             }
         }
 
-        private void radioFolder_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioFolder.Checked)
-            {
+        private void radioFolder_CheckedChanged(object sender, EventArgs e) {
+            if (radioFolder.Checked) {
                 checkDefaultIcon.Checked = true;
                 btnBrowseItem.Enabled = true;
                 txtItem.Clear();
@@ -2903,10 +2502,8 @@ namespace Optimizer
             }
         }
 
-        private void radioLink_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioLink.Checked)
-            {
+        private void radioLink_CheckedChanged(object sender, EventArgs e) {
+            if (radioLink.Checked) {
                 checkDefaultIcon.Checked = true;
                 checkDefaultIcon.Text = OptionsHelper.TranslationList["checkFavicon"];
                 btnBrowseItem.Enabled = false;
@@ -2920,10 +2517,8 @@ namespace Optimizer
             }
         }
 
-        private void radioFile_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioFile.Checked)
-            {
+        private void radioFile_CheckedChanged(object sender, EventArgs e) {
+            if (radioFile.Checked) {
                 checkDefaultIcon.Checked = true;
                 checkDefaultIcon.Text = OptionsHelper.TranslationList["checkNoIcon"];
                 btnBrowseItem.Enabled = true;
@@ -2937,10 +2532,8 @@ namespace Optimizer
             }
         }
 
-        private void radioCommand_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioCommand.Checked)
-            {
+        private void radioCommand_CheckedChanged(object sender, EventArgs e) {
+            if (radioCommand.Checked) {
                 btnBrowseItem.Enabled = false;
                 txtItem.Clear();
                 checkDefaultIcon.Checked = true;
@@ -2956,26 +2549,21 @@ namespace Optimizer
             }
         }
 
-        private void checkDefaultIcon_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkDefaultIcon.Checked)
-            {
+        private void checkDefaultIcon_CheckedChanged(object sender, EventArgs e) {
+            if (checkDefaultIcon.Checked) {
                 txtIcon.Clear();
                 txtIcon.Enabled = false;
                 btnBrowseIcon.Enabled = false;
             }
-            else
-            {
+            else {
                 txtIcon.Clear();
                 txtIcon.Enabled = true;
                 btnBrowseIcon.Enabled = true;
             }
         }
 
-        private void btnBrowseItem_Click(object sender, EventArgs e)
-        {
-            switch (_desktopItemType)
-            {
+        private void btnBrowseItem_Click(object sender, EventArgs e) {
+            switch (_desktopItemType) {
                 case DesktopItemType.Program:
                     defineProgramDialog.ShowDialog();
                     break;
@@ -2991,22 +2579,18 @@ namespace Optimizer
             }
         }
 
-        private void DefineProgramDialog_FileOk(object sender, CancelEventArgs e)
-        {
+        private void DefineProgramDialog_FileOk(object sender, CancelEventArgs e) {
             txtItem.Text = defineProgramDialog.FileName;
             txtItemName.Text = defineProgramDialog.SafeFileName.Replace(".exe", string.Empty);
         }
 
-        private void DefineFileDialog_FileOk(object sender, CancelEventArgs e)
-        {
+        private void DefineFileDialog_FileOk(object sender, CancelEventArgs e) {
             txtItem.Text = defineFileDialog.FileName;
             txtItemName.Text = defineFileDialog.SafeFileName;
         }
 
-        private void btnBrowseIcon_Click(object sender, EventArgs e)
-        {
-            switch (_desktopItemType)
-            {
+        private void btnBrowseIcon_Click(object sender, EventArgs e) {
+            switch (_desktopItemType) {
                 case DesktopItemType.Program:
                     DefineProgramIconDialog.ShowDialog();
                     break;
@@ -3025,84 +2609,68 @@ namespace Optimizer
             }
         }
 
-        private void DefineProgramIconDialog_FileOk(object sender, CancelEventArgs e)
-        {
+        private void DefineProgramIconDialog_FileOk(object sender, CancelEventArgs e) {
             txtIcon.Text = DefineProgramIconDialog.FileName;
 
-            if (txtIcon.Text.Contains(".exe"))
-            {
+            if (txtIcon.Text.Contains(".exe")) {
                 string iconpath = IntegratorHelper.ExtractIconFromExecutable(txtItemName.Text, DefineProgramIconDialog.FileName);
                 txtIcon.Text = iconpath;
             }
         }
 
-        private void DefineFolderIconDialog_FileOk(object sender, CancelEventArgs e)
-        {
+        private void DefineFolderIconDialog_FileOk(object sender, CancelEventArgs e) {
             txtIcon.Text = DefineFolderIconDialog.FileName;
 
-            if (txtIcon.Text.Contains(".exe"))
-            {
+            if (txtIcon.Text.Contains(".exe")) {
                 string iconpath = IntegratorHelper.ExtractIconFromExecutable(txtItemName.Text, DefineFolderIconDialog.FileName);
                 txtIcon.Text = iconpath;
             }
         }
 
-        private void DefineURLIconDialog_FileOk(object sender, CancelEventArgs e)
-        {
+        private void DefineURLIconDialog_FileOk(object sender, CancelEventArgs e) {
             txtIcon.Text = DefineURLIconDialog.FileName;
 
-            if (txtIcon.Text.Contains(".exe"))
-            {
+            if (txtIcon.Text.Contains(".exe")) {
                 string iconpath = IntegratorHelper.ExtractIconFromExecutable(txtItemName.Text, DefineURLIconDialog.FileName);
                 txtIcon.Text = iconpath;
             }
         }
 
-        private void DefineFileIconDialog_FileOk(object sender, CancelEventArgs e)
-        {
+        private void DefineFileIconDialog_FileOk(object sender, CancelEventArgs e) {
             txtIcon.Text = DefineFileIconDialog.FileName;
 
-            if (txtIcon.Text.Contains(".exe"))
-            {
+            if (txtIcon.Text.Contains(".exe")) {
                 string iconpath = IntegratorHelper.ExtractIconFromExecutable(txtItemName.Text, DefineFileIconDialog.FileName);
                 txtIcon.Text = iconpath;
             }
         }
 
-        private void DefineCommandIconDialog_FileOk(object sender, CancelEventArgs e)
-        {
+        private void DefineCommandIconDialog_FileOk(object sender, CancelEventArgs e) {
             txtIcon.Text = DefineCommandIconDialog.FileName;
 
-            if (txtIcon.Text.Contains(".exe"))
-            {
+            if (txtIcon.Text.Contains(".exe")) {
                 string iconpath = IntegratorHelper.ExtractIconFromExecutable(txtItemName.Text, DefineCommandIconDialog.FileName);
                 txtIcon.Text = iconpath;
             }
         }
 
-        private void btnAddItem_Click(object sender, EventArgs e)
-        {
-            if (!checkDefaultIcon.Checked && (string.IsNullOrEmpty(txtItem.Text) || string.IsNullOrEmpty(txtItemName.Text) || string.IsNullOrEmpty(txtIcon.Text)))
-            {
+        private void btnAddItem_Click(object sender, EventArgs e) {
+            if (!checkDefaultIcon.Checked && (string.IsNullOrEmpty(txtItem.Text) || string.IsNullOrEmpty(txtItemName.Text) || string.IsNullOrEmpty(txtIcon.Text))) {
                 return;
             }
 
-            if (checkDefaultIcon.Checked && (string.IsNullOrEmpty(txtItem.Text) || string.IsNullOrEmpty(txtItemName.Text)))
-            {
+            if (checkDefaultIcon.Checked && (string.IsNullOrEmpty(txtItem.Text) || string.IsNullOrEmpty(txtItemName.Text))) {
                 return;
             }
 
             string icon = string.Empty;
 
-            switch (_desktopItemType)
-            {
+            switch (_desktopItemType) {
                 case DesktopItemType.Program:
-                    if (checkDefaultIcon.Checked)
-                    {
+                    if (checkDefaultIcon.Checked) {
                         icon = txtItem.Text;
                     }
-                    else
-                    {
+                    else {
                         icon = txtIcon.Text;
                     }
 
@@ -3110,12 +2678,10 @@ namespace Optimizer
 
                     break;
                 case DesktopItemType.Folder:
-                    if (checkDefaultIcon.Checked)
-                    {
+                    if (checkDefaultIcon.Checked) {
                         icon = IntegratorHelper.FolderDefaultIcon;
                     }
-                    else
-                    {
+                    else {
                         icon = txtIcon.Text;
                     }
 
@@ -3123,12 +2689,10 @@ namespace Optimizer
 
                     break;
                 case DesktopItemType.Link:
-                    if (checkDefaultIcon.Checked)
-                    {
+                    if (checkDefaultIcon.Checked) {
                         icon = IntegratorHelper.DownloadFavicon(txtItem.Text, txtItemName.Text);
                     }
-                    else
-                    {
+                    else {
                         icon = txtIcon.Text;
                     }
 
@@ -3136,8 +2700,7 @@ namespace Optimizer
 
                     break;
                 case DesktopItemType.File:
-                    if (!checkDefaultIcon.Checked)
-                    {
+                    if (!checkDefaultIcon.Checked) {
                         icon = txtIcon.Text;
                     }
 
@@ -3145,8 +2708,7 @@ namespace Optimizer
 
                     break;
                 case DesktopItemType.Command:
-                    if (!checkDefaultIcon.Checked)
-                    {
+                    if (!checkDefaultIcon.Checked) {
                         icon = txtIcon.Text;
                     }
 
@@ -3159,66 +2721,51 @@ namespace Optimizer
             ResetIntegratorForm();
         }
 
-        private void radioTop_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioTop.Checked)
-            {
+        private void radioTop_CheckedChanged(object sender, EventArgs e) {
+            if (radioTop.Checked) {
                 _desktopItemPosition = DesktopTypePosition.Top;
             }
         }
 
-        private void radioMiddle_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioMiddle.Checked)
-            {
+        private void radioMiddle_CheckedChanged(object sender, EventArgs e) {
+            if (radioMiddle.Checked) {
                 _desktopItemPosition = DesktopTypePosition.Middle;
             }
         }
 
-        private void radioBottom_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioBottom.Checked)
-            {
+        private void radioBottom_CheckedChanged(object sender, EventArgs e) {
+            if (radioBottom.Checked) {
                 _desktopItemPosition = DesktopTypePosition.Bottom;
             }
         }
 
-        private void ResetIntegratorForm()
-        {
+        private void ResetIntegratorForm() {
             txtItem.Clear();
             txtIcon.Clear();
             checkDefaultIcon.Checked = true;
             txtItemName.Clear();
 
-            if (radioLink.Checked)
-            {
+            if (radioLink.Checked) {
                 txtItem.Text = "http://";
             }
         }
 
-        private void button64_Click(object sender, EventArgs e)
-        {
-            if (listStartupItems.SelectedItems.Count == 1)
-            {
+        private void button64_Click(object sender, EventArgs e) {
+            if (listStartupItems.SelectedItems.Count == 1) {
                 _startUpItems[listStartupItems.SelectedIndices[0]].LocateKey();
             }
         }
 
-        private void listStartupItems_ColumnClick(object sender, ColumnClickEventArgs e)
-        {
-            if (e.Column == _columnSorter.CurrentColumn)
-            {
-                if (_columnSorter.SortOrder == SortOrder.Ascending)
-                {
+        private void listStartupItems_ColumnClick(object sender, ColumnClickEventArgs e) {
+            if (e.Column == _columnSorter.CurrentColumn) {
+                if (_columnSorter.SortOrder == SortOrder.Ascending) {
                     _columnSorter.SortOrder = SortOrder.Descending;
                 }
-                else
-                {
+                else {
                     _columnSorter.SortOrder = SortOrder.Ascending;
                 }
             }
-            else
-            {
+            else {
                 _columnSorter.CurrentColumn = e.Column;
                 _columnSorter.SortOrder = SortOrder.Ascending;
             }
@@ -3226,70 +2773,55 @@ namespace Optimizer
             listStartupItems.Sort();
         }
 
-        private void chkBlock_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkBlock.Checked)
-            {
+        private void chkBlock_CheckedChanged(object sender, EventArgs e) {
+            if (chkBlock.Checked) {
                 txtIP.Text = _blockedIP;
                 txtIP.Enabled = false;
             }
-            else
-            {
+            else {
                 txtIP.Clear();
                 txtIP.Enabled = true;
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
+        private void button8_Click(object sender, EventArgs e) {
             GetCustomCommands();
         }
 
-        private void button26_Click(object sender, EventArgs e)
-        {
-            if (listCustomCommands.SelectedItems.Count == 1)
-            {
+        private void button26_Click(object sender, EventArgs e) {
+            if (listCustomCommands.SelectedItems.Count == 1) {
                 IntegratorHelper.DeleteCustomCommand(listCustomCommands.SelectedItem.ToString());
                 GetCustomCommands();
             }
         }
 
-        private void button75_Click(object sender, EventArgs e)
-        {
+        private void button75_Click(object sender, EventArgs e) {
             GetModernApps(!chkOnlyRemovable.Checked);
         }
 
-        private void button74_Click(object sender, EventArgs e)
-        {
+        private void button74_Click(object sender, EventArgs e) {
             UninstallModernApps();
         }
 
-        private void chkSelectAllModernApps_CheckedChanged(object sender, EventArgs e)
-        {
-            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(panelUwp))
-            {
+        private void chkSelectAllModernApps_CheckedChanged(object sender, EventArgs e) {
+            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(panelUwp)) {
                 if (c is MoonCheck mc) mc.Checked = chkSelectAllModernApps.Checked;
             }
         }
 
-        private void btnResetConfig_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(_repairMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
+        private void btnResetConfig_Click(object sender, EventArgs e) {
+            if (MessageBox.Show(_repairMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                 Utilities.Repair();
             }
         }
 
-        private void toggleSwitch1_Click(object sender, EventArgs e)
-        {
-            if (performanceSw.ToggleChecked)
-            {
+        private void toggleSwitch1_Click(object sender, EventArgs e) {
+            if (performanceSw.ToggleChecked) {
                 OptimizeHelper.EnablePerformanceTweaks(chkAllTrayIcons.Checked, chkMenuDelays.Checked);
                 chkAllTrayIcons.Enabled = false;
                 chkMenuDelays.Enabled = false;
             }
-            else
-            {
+            else {
                 OptimizeHelper.DisablePerformanceTweaks();
                 chkAllTrayIcons.Enabled = true;
                 chkMenuDelays.Enabled = true;
@@ -3298,38 +2830,29 @@ namespace Optimizer
             ShowRestartNeeded();
         }
 
-        private void toggleSwitch2_Click(object sender, EventArgs e)
-        {
-            if (networkSw.ToggleChecked)
-            {
+        private void toggleSwitch2_Click(object sender, EventArgs e) {
+            if (networkSw.ToggleChecked) {
                 OptimizeHelper.DisableNetworkThrottling();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableNetworkThrottling();
             }
             OptionsHelper.CurrentOptions.DisableNetworkThrottling = networkSw.ToggleChecked;
         }
 
-        private void toggleSwitch3_Click(object sender, EventArgs e)
-        {
-            if (defenderSw.ToggleChecked)
-            {
+        private void toggleSwitch3_Click(object sender, EventArgs e) {
+            if (defenderSw.ToggleChecked) {
                 OptimizeHelper.DisableDefender();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableDefender();
             }
             OptionsHelper.CurrentOptions.DisableWindowsDefender = defenderSw.ToggleChecked;
         }
 
-        private void toggleSwitch4_Click(object sender, EventArgs e)
-        {
-            if (systemRestoreSw.ToggleChecked)
-            {
-                if (MessageBox.Show(OptionsHelper.TranslationList["systemRestoreM"].ToString(), "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                {
+        private void toggleSwitch4_Click(object sender, EventArgs e) {
+            if (systemRestoreSw.ToggleChecked) {
+                if (MessageBox.Show(OptionsHelper.TranslationList["systemRestoreM"].ToString(), "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
                     _skipSystemRestore = true;
                     systemRestoreSw.ToggleChecked = false;
                     return;
@@ -3338,8 +2861,7 @@ namespace Optimizer
                 _skipSystemRestore = false;
                 OptimizeHelper.DisableSystemRestore();
             }
-            else
-            {
+            else {
                 if (_skipSystemRestore) return;
 
                 OptimizeHelper.EnableSystemRestore();
@@ -3347,120 +2869,93 @@ namespace Optimizer
             if (!_skipSystemRestore) OptionsHelper.CurrentOptions.DisableSystemRestore = systemRestoreSw.ToggleChecked;
         }
 
-        private void toggleSwitch5_Click(object sender, EventArgs e)
-        {
-            if (printSw.ToggleChecked)
-            {
+        private void toggleSwitch5_Click(object sender, EventArgs e) {
+            if (printSw.ToggleChecked) {
                 OptimizeHelper.DisablePrintService();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnablePrintService();
             }
             OptionsHelper.CurrentOptions.DisablePrintService = printSw.ToggleChecked;
         }
 
-        private void toggleSwitch6_Click(object sender, EventArgs e)
-        {
-            if (mediaSharingSw.ToggleChecked)
-            {
+        private void toggleSwitch6_Click(object sender, EventArgs e) {
+            if (mediaSharingSw.ToggleChecked) {
                 OptimizeHelper.DisableMediaPlayerSharing();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableMediaPlayerSharing();
             }
             OptionsHelper.CurrentOptions.DisableMediaPlayerSharing = mediaSharingSw.ToggleChecked;
         }
 
-        private void toggleSwitch8_Click(object sender, EventArgs e)
-        {
-            if (reportingSw.ToggleChecked)
-            {
+        private void toggleSwitch8_Click(object sender, EventArgs e) {
+            if (reportingSw.ToggleChecked) {
                 OptimizeHelper.DisableErrorReporting();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableErrorReporting();
             }
             OptionsHelper.CurrentOptions.DisableErrorReporting = reportingSw.ToggleChecked;
         }
 
-        private void toggleSwitch9_Click(object sender, EventArgs e)
-        {
-            if (homegroupSw.ToggleChecked)
-            {
+        private void toggleSwitch9_Click(object sender, EventArgs e) {
+            if (homegroupSw.ToggleChecked) {
                 OptimizeHelper.DisableHomeGroup();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableHomeGroup();
             }
             OptionsHelper.CurrentOptions.DisableHomeGroup = homegroupSw.ToggleChecked;
         }
 
-        private void toggleSwitch10_Click(object sender, EventArgs e)
-        {
-            if (superfetchSw.ToggleChecked)
-            {
+        private void toggleSwitch10_Click(object sender, EventArgs e) {
+            if (superfetchSw.ToggleChecked) {
                 OptimizeHelper.DisableSuperfetch();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableSuperfetch();
             }
             OptionsHelper.CurrentOptions.DisableSuperfetch = superfetchSw.ToggleChecked;
         }
 
-        private void toggleSwitch11_Click(object sender, EventArgs e)
-        {
-            if (telemetryTasksSw.ToggleChecked)
-            {
+        private void toggleSwitch11_Click(object sender, EventArgs e) {
+            if (telemetryTasksSw.ToggleChecked) {
                 OptimizeHelper.DisableTelemetryTasks();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableTelemetryTasks();
             }
             OptionsHelper.CurrentOptions.DisableTelemetryTasks = telemetryTasksSw.ToggleChecked;
         }
 
-        private void toggleSwitch12_Click(object sender, EventArgs e)
-        {
-            if (officeTelemetrySw.ToggleChecked)
-            {
+        private void toggleSwitch12_Click(object sender, EventArgs e) {
+            if (officeTelemetrySw.ToggleChecked) {
                 OptimizeHelper.DisableOffice2016Telemetry();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableOffice2016Telemetry();
             }
             OptionsHelper.CurrentOptions.DisableOffice2016Telemetry = officeTelemetrySw.ToggleChecked;
         }
 
-        private void toggleSwitch13_Click(object sender, EventArgs e)
-        {
-            if (oldMixerSw.ToggleChecked)
-            {
+        private void toggleSwitch13_Click(object sender, EventArgs e) {
+            if (oldMixerSw.ToggleChecked) {
                 OptimizeHelper.EnableLegacyVolumeSlider();
             }
-            else
-            {
+            else {
                 OptimizeHelper.DisableLegacyVolumeSlider();
             }
             OptionsHelper.CurrentOptions.EnableLegacyVolumeSlider = oldMixerSw.ToggleChecked;
         }
 
-        private void toggleSwitch18_Click(object sender, EventArgs e)
-        {
-            if (oldExplorerSw.ToggleChecked)
-            {
+        private void toggleSwitch18_Click(object sender, EventArgs e) {
+            if (oldExplorerSw.ToggleChecked) {
                 OptimizeHelper.DisableQuickAccessHistory(chkHideFeed.Checked, true, chkHideSearch.Checked);
                 chkHideFeed.Enabled = false;
                 chkHideSearch.Enabled = false;
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableQuickAccessHistory();
                 chkHideFeed.Enabled = true;
                 chkHideSearch.Enabled = true;
@@ -3469,25 +2964,19 @@ namespace Optimizer
             ShowRestartNeeded();
         }
 
-        private void toggleSwitch26_Click(object sender, EventArgs e)
-        {
-            if (adsSw.ToggleChecked)
-            {
+        private void toggleSwitch26_Click(object sender, EventArgs e) {
+            if (adsSw.ToggleChecked) {
                 OptimizeHelper.DisableStartMenuAds();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableStartMenuAds();
             }
             OptionsHelper.CurrentOptions.DisableStartMenuAds = adsSw.ToggleChecked;
         }
 
-        private void toggleSwitch14_Click(object sender, EventArgs e)
-        {
-            if (uODSw.ToggleChecked)
-            {
-                if (MessageBox.Show(OptionsHelper.TranslationList["onedriveM"].ToString(), "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                {
+        private void toggleSwitch14_Click(object sender, EventArgs e) {
+            if (uODSw.ToggleChecked) {
+                if (MessageBox.Show(OptionsHelper.TranslationList["onedriveM"].ToString(), "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
                     _skipOneDrive = true;
                     uODSw.ToggleChecked = false;
                     return;
@@ -3498,8 +2987,7 @@ namespace Optimizer
                 Task t = new Task(() => OptimizeHelper.UninstallOneDrive());
                 t.Start();
             }
-            else
-            {
+            else {
                 if (_skipOneDrive) return;
 
                 Task t = new Task(() => OptimizeHelper.InstallOneDrive());
@@ -3509,69 +2997,54 @@ namespace Optimizer
             if (!_skipOneDrive) OptionsHelper.CurrentOptions.UninstallOneDrive = uODSw.ToggleChecked;
         }
 
-        private void toggleSwitch25_Click(object sender, EventArgs e)
-        {
-            if (peopleSw.ToggleChecked)
-            {
+        private void toggleSwitch25_Click(object sender, EventArgs e) {
+            if (peopleSw.ToggleChecked) {
                 OptimizeHelper.DisableMyPeople();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableMyPeople();
             }
             OptionsHelper.CurrentOptions.DisableMyPeople = peopleSw.ToggleChecked;
         }
 
-        private void toggleSwitch24_Click(object sender, EventArgs e)
-        {
-            if (autoUpdatesSw.ToggleChecked)
-            {
+        private void toggleSwitch24_Click(object sender, EventArgs e) {
+            if (autoUpdatesSw.ToggleChecked) {
                 OptimizeHelper.DisableAutomaticUpdates();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableAutomaticUpdates();
             }
             OptionsHelper.CurrentOptions.DisableAutomaticUpdates = autoUpdatesSw.ToggleChecked;
         }
 
-        private void toggleSwitch30_Click(object sender, EventArgs e)
-        {
-            if (driversSw.ToggleChecked)
-            {
+        private void toggleSwitch30_Click(object sender, EventArgs e) {
+            if (driversSw.ToggleChecked) {
                 OptimizeHelper.ExcludeDrivers();
             }
-            else
-            {
+            else {
                 OptimizeHelper.IncludeDrivers();
             }
             OptionsHelper.CurrentOptions.ExcludeDrivers = driversSw.ToggleChecked;
         }
 
-        private void toggleSwitch23_Click(object sender, EventArgs e)
-        {
-            if (telemetryServicesSw.ToggleChecked)
-            {
+        private void toggleSwitch23_Click(object sender, EventArgs e) {
+            if (telemetryServicesSw.ToggleChecked) {
                 OptimizeHelper.DisableTelemetryServices();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableTelemetryServices();
             }
             OptionsHelper.CurrentOptions.DisableTelemetryServices = telemetryServicesSw.ToggleChecked;
             ShowRestartNeeded();
         }
 
-        private void toggleSwitch21_Click(object sender, EventArgs e)
-        {
-            if (privacySw.ToggleChecked)
-            {
+        private void toggleSwitch21_Click(object sender, EventArgs e) {
+            if (privacySw.ToggleChecked) {
                 Task t = new Task(() => OptimizeHelper.EnhancePrivacy(chkNewsInterest.Checked));
                 t.Start();
                 chkNewsInterest.Enabled = false;
             }
-            else
-            {
+            else {
                 Task t = new Task(() => OptimizeHelper.CompromisePrivacy());
                 t.Start();
                 chkNewsInterest.Enabled = true;
@@ -3580,120 +3053,94 @@ namespace Optimizer
             ShowRestartNeeded();
         }
 
-        private void toggleSwitch16_Click(object sender, EventArgs e)
-        {
-            if (cortanaSw.ToggleChecked)
-            {
+        private void toggleSwitch16_Click(object sender, EventArgs e) {
+            if (cortanaSw.ToggleChecked) {
                 OptimizeHelper.DisableCortana();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableCortana();
             }
             OptionsHelper.CurrentOptions.DisableCortana = cortanaSw.ToggleChecked;
         }
 
-        private void toggleSwitch20_Click(object sender, EventArgs e)
-        {
-            if (sensorSw.ToggleChecked)
-            {
+        private void toggleSwitch20_Click(object sender, EventArgs e) {
+            if (sensorSw.ToggleChecked) {
                 OptimizeHelper.DisableSensorServices();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableSensorServices();
             }
             OptionsHelper.CurrentOptions.DisableSensorServices = sensorSw.ToggleChecked;
             ShowRestartNeeded();
         }
 
-        private void toggleSwitch29_Click(object sender, EventArgs e)
-        {
-            if (inkSw.ToggleChecked)
-            {
+        private void toggleSwitch29_Click(object sender, EventArgs e) {
+            if (inkSw.ToggleChecked) {
                 OptimizeHelper.DisableWindowsInk();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableWindowsInk();
             }
             OptionsHelper.CurrentOptions.DisableWindowsInk = inkSw.ToggleChecked;
         }
 
-        private void toggleSwitch28_Click(object sender, EventArgs e)
-        {
-            if (spellSw.ToggleChecked)
-            {
+        private void toggleSwitch28_Click(object sender, EventArgs e) {
+            if (spellSw.ToggleChecked) {
                 OptimizeHelper.DisableSpellingAndTypingFeatures();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableSpellingAndTypingFeatures();
             }
             OptionsHelper.CurrentOptions.DisableSpellingTyping = spellSw.ToggleChecked;
         }
 
-        private void toggleSwitch17_Click(object sender, EventArgs e)
-        {
-            if (xboxSw.ToggleChecked)
-            {
+        private void toggleSwitch17_Click(object sender, EventArgs e) {
+            if (xboxSw.ToggleChecked) {
                 OptimizeHelper.DisableXboxLive();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableXboxLive();
             }
             OptionsHelper.CurrentOptions.DisableXboxLive = xboxSw.ToggleChecked;
             ShowRestartNeeded();
         }
 
-        private void toggleSwitch15_Click(object sender, EventArgs e)
-        {
-            if (gameBarSw.ToggleChecked)
-            {
+        private void toggleSwitch15_Click(object sender, EventArgs e) {
+            if (gameBarSw.ToggleChecked) {
                 OptimizeHelper.DisableGameBar();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableGameBar();
             }
             OptionsHelper.CurrentOptions.DisableGameBar = gameBarSw.ToggleChecked;
             ShowRestartNeeded();
         }
 
-        private void toggleSwitch31_Click(object sender, EventArgs e)
-        {
-            if (disableOneDriveSw.ToggleChecked)
-            {
+        private void toggleSwitch31_Click(object sender, EventArgs e) {
+            if (disableOneDriveSw.ToggleChecked) {
                 OptimizeHelper.DisableOneDrive();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableOneDrive();
             }
             OptionsHelper.CurrentOptions.DisableOneDrive = disableOneDriveSw.ToggleChecked;
         }
 
-        private void toggleSwitch32_Click(object sender, EventArgs e)
-        {
-            if (compatSw.ToggleChecked)
-            {
+        private void toggleSwitch32_Click(object sender, EventArgs e) {
+            if (compatSw.ToggleChecked) {
                 OptimizeHelper.DisableCompatibilityAssistant();
             }
-            else
-            {
+            else {
                 OptimizeHelper.EnableCompatibilityAssistant();
             }
             OptionsHelper.CurrentOptions.DisableCompatibilityAssistant = compatSw.ToggleChecked;
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
+        private void btnUpdate_Click(object sender, EventArgs e) {
             CheckForUpdate();
         }
 
-        private void chkReadOnly_CheckedChanged(object sender, EventArgs e)
-        {
+        private void chkReadOnly_CheckedChanged(object sender, EventArgs e) {
             HostsHelper.ReadOnly(chkReadOnly.Checked);
 
             addHostB.Enabled = !chkReadOnly.Checked;
@@ -3706,8 +3153,7 @@ namespace Optimizer
             txtIP.Focus();
         }
 
-        private void RenderAppDownloaderBusy()
-        {
+        private void RenderAppDownloaderBusy() {
             btnDownloadApps.Enabled = false;
             changeDownDirB.Enabled = false;
             txtDownloadFolder.ReadOnly = true;
@@ -3715,8 +3161,7 @@ namespace Optimizer
             linkWarnings.Visible = false;
         }
 
-        private void RenderAppDownloaderFree()
-        {
+        private void RenderAppDownloaderFree() {
             btnDownloadApps.Enabled = true;
             changeDownDirB.Enabled = true;
             txtDownloadFolder.ReadOnly = false;
@@ -3732,10 +3177,8 @@ namespace Optimizer
         Process p;
         string downloadLog = string.Empty;
 
-        private async void btnDownloadApps_Click(object sender, EventArgs e)
-        {
-            if (!Directory.Exists(txtDownloadFolder.Text))
-            {
+        private async void btnDownloadApps_Click(object sender, EventArgs e) {
+            if (string.IsNullOrWhiteSpace(txtDownloadFolder.Text) || !Directory.Exists(txtDownloadFolder.Text)) {
                 MessageBox.Show(OptionsHelper.TranslationList["downloadDirInvalid"].ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -3746,8 +3189,7 @@ namespace Optimizer
             count = 0;
             downloadLog = string.Empty;
 
-            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
-            {
+            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab)) {
                 if (c.Name == "cAutoInstall") continue;
                 if (c is MoonCheck && ((MoonCheck)c).Checked) maxCount++;
             }
@@ -3755,8 +3197,7 @@ namespace Optimizer
             MoonCheck currentCheck;
             Control[] temp;
 
-            foreach (AppInfo x in AppsFromFeed)
-            {
+            foreach (AppInfo x in AppsFromFeed) {
                 if (string.IsNullOrEmpty(x.Tag)) continue;
                 temp = appsTab.Controls.Find(x.Tag, true);
                 if (!temp.Any()) continue;
@@ -3766,40 +3207,31 @@ namespace Optimizer
 
                 appNameTemp = x.Title;
 
-                if (c64.Checked)
-                {
+                if (c64.Checked) {
                     count++;
-                    if (string.IsNullOrEmpty(x.Link64))
-                    {
+                    if (string.IsNullOrEmpty(x.Link64)) {
                         downloadLog += "• " + x.Title + ":" + Environment.NewLine + OptionsHelper.TranslationList["no64Download"] + Environment.NewLine + Environment.NewLine;
                         await DownloadApp(x, false);
                     }
-                    else
-                    {
+                    else {
                         await DownloadApp(x, true);
                     }
                 }
-                else
-                {
+                else {
                     count++;
-                    if (!string.IsNullOrEmpty(x.Link))
-                    {
+                    if (!string.IsNullOrEmpty(x.Link)) {
                         await DownloadApp(x, false);
                     }
-                    else
-                    {
+                    else {
                         downloadLog += "• " + x.Title + ":" + Environment.NewLine + OptionsHelper.TranslationList["no32Download"] + Environment.NewLine + Environment.NewLine;
                     }
                 }
             }
 
-            if (cAutoInstall.Checked)
-            {
+            if (cAutoInstall.Checked) {
                 count = 0;
-                foreach (string a in Directory.GetFiles(txtDownloadFolder.Text, "*.*", SearchOption.TopDirectoryOnly))
-                {
-                    using (p = new Process())
-                    {
+                foreach (string a in Directory.GetFiles(txtDownloadFolder.Text, "*.*", SearchOption.TopDirectoryOnly)) {
+                    using (p = new Process()) {
                         count++;
                         p.StartInfo.FileName = a;
                         p.EnableRaisingEvents = true;
@@ -3817,8 +3249,7 @@ namespace Optimizer
             }
 
             // reset all checkboxes
-            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
-            {
+            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab)) {
                 if (c.Name == "cAutoInstall") continue;
                 if (c is MoonCheck && ((MoonCheck)c).Checked) ((MoonCheck)c).Checked = false;
             }
@@ -3827,39 +3258,30 @@ namespace Optimizer
         }
 
         string fileExtension = ".exe";
-        private async Task DownloadApp(AppInfo app, bool pref64)
-        {
-            try
-            {
-                using (WebClient downloader = new WebClient())
-                {
+        private async Task DownloadApp(AppInfo app, bool pref64) {
+            try {
+                using (WebClient downloader = new WebClient()) {
                     downloader.Headers.Add("User-Agent: Other");
                     downloader.Encoding = Encoding.UTF8;
 
                     downloader.DownloadProgressChanged += Downloader_DownloadProgressChanged;
                     downloader.DownloadFileCompleted += Downloader_DownloadFileCompleted;
 
-                    if (pref64)
-                    {
-                        if (app.Link64.Contains(".msi"))
-                        {
+                    if (pref64) {
+                        if (app.Link64.Contains(".msi")) {
                             fileExtension = ".msi";
                         }
-                        else
-                        {
+                        else {
                             fileExtension = ".exe";
                         }
 
                         await downloader.DownloadFileTaskAsync(new Uri(app.Link64), Path.Combine(txtDownloadFolder.Text, app.Title + "-x64" + fileExtension));
                     }
-                    else
-                    {
-                        if (app.Link.Contains(".msi"))
-                        {
+                    else {
+                        if (app.Link.Contains(".msi")) {
                             fileExtension = ".msi";
                         }
-                        else
-                        {
+                        else {
                             fileExtension = ".exe";
                         }
 
@@ -3867,8 +3289,7 @@ namespace Optimizer
                     }
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("MainForm.DownloadApp", ex.Message, ex.StackTrace);
                 downloadLog += "• " + app.Title + ":" + Environment.NewLine + OptionsHelper.TranslationList["linkInvalid"] + Environment.NewLine + Environment.NewLine;
 
@@ -3879,19 +3300,15 @@ namespace Optimizer
             }
         }
 
-        private void Downloader_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-            this.BeginInvoke((MethodInvoker)delegate
-            {
+        private void Downloader_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e) {
+            this.BeginInvoke((MethodInvoker)delegate {
                 //txtDownloadStatus.Text = "Finished";
             });
         }
 
         int tempProgress;
-        private void Downloader_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-            this.BeginInvoke((MethodInvoker)delegate
-            {
+        private void Downloader_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e) {
+            this.BeginInvoke((MethodInvoker)delegate {
                 double bytesIn = double.Parse(e.BytesReceived.ToString());
                 double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
                 double percentage = bytesIn / totalBytes * 100;
@@ -3899,14 +3316,12 @@ namespace Optimizer
                 tempProgress = int.Parse(Math.Truncate(percentage).ToString());
 
                 // if Content-Length header is missing, just show an animation
-                if (Math.Abs(tempProgress) > 100)
-                {
+                if (Math.Abs(tempProgress) > 100) {
                     txtDownloadStatus.Text = string.Format("({1}/{2}) - {0} ...", appNameTemp, count, maxCount);
                     progressDownloader.Style = ProgressBarStyle.Marquee;
                 }
                 // if not, show actual progress
-                else
-                {
+                else {
                     txtDownloadStatus.Text = string.Format("({1}/{2}) - {0} - {3} / {4}", appNameTemp, count, maxCount, ByteSize.FromBytes(e.BytesReceived).ToString("MB"), ByteSize.FromBytes(e.TotalBytesToReceive).ToString("MB"));
                     progressDownloader.Style = ProgressBarStyle.Continuous;
                     progressDownloader.Value = tempProgress;
@@ -3914,103 +3329,80 @@ namespace Optimizer
             });
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
+        private void button5_Click(object sender, EventArgs e) {
             FolderBrowserDialog d = new FolderBrowserDialog();
-            if (d.ShowDialog() == DialogResult.OK)
-            {
+            if (d.ShowDialog() == DialogResult.OK) {
                 txtDownloadFolder.Text = d.SelectedPath;
                 OptionsHelper.CurrentOptions.AppsFolder = d.SelectedPath;
                 OptionsHelper.SaveSettings();
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
+        private void button6_Click(object sender, EventArgs e) {
             Process.Start(txtDownloadFolder.Text);
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             InfoForm lf = new InfoForm(downloadLog);
             lf.ShowDialog(this);
         }
 
-        private void txtDownloadFolder_TextChanged(object sender, EventArgs e)
-        {
-            OptionsHelper.CurrentOptions.AppsFolder = txtDownloadFolder.Text;
-            OptionsHelper.SaveSettings();
-        }
-
-        private void chkOnlyRemovable_CheckedChanged(object sender, EventArgs e)
-        {
+        private void chkOnlyRemovable_CheckedChanged(object sender, EventArgs e) {
             GetModernApps(!chkOnlyRemovable.Checked);
         }
 
-        private void btnGetFeed_Click(object sender, EventArgs e)
-        {
+        private void btnGetFeed_Click(object sender, EventArgs e) {
             GetFeed();
         }
 
-        private void l2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        private void l2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             AboutForm f = new AboutForm();
             f.ShowDialog(this);
         }
 
-        private void btnViewLog_Click(object sender, EventArgs e)
-        {
-            if (File.Exists(Logger.ErrorLogFile))
-            {
+        private void btnViewLog_Click(object sender, EventArgs e) {
+            if (File.Exists(Logger.ErrorLogFile)) {
                 InfoForm iform = new InfoForm(File.ReadAllText(Logger.ErrorLogFile, Encoding.UTF8));
                 iform.ShowDialog();
             }
-            else
-            {
+            else {
                 MessageBox.Show(OptionsHelper.TranslationList["noErrorsM"].ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void btnOpenConf_Click(object sender, EventArgs e)
-        {
+        private void btnOpenConf_Click(object sender, EventArgs e) {
             Process.Start(CoreHelper.CoreFolder);
         }
 
-        private void btnPing_Click(object sender, EventArgs e)
-        {
+        private void btnPing_Click(object sender, EventArgs e) {
             if (string.IsNullOrEmpty(txtPingInput.Text)) return;
 
             _pingResults = new List<PingReply>();
 
             listPingResults.Items.Clear();
 
-            if (PingerHelper.PingHost(txtPingInput.Text) == null)
-            {
+            if (PingerHelper.PingHost(txtPingInput.Text) == null) {
                 listPingResults.Items.Add(string.Format("{0} [{1}]", OptionsHelper.TranslationList["hostNotFound"], txtPingInput.Text));
                 return;
             }
 
-            Task pinger = new Task(() =>
-            {
+            Task pinger = new Task(() => {
                 btnShodan.Enabled = false;
                 btnPing.Enabled = false;
 
                 listPingResults.Items.Add(string.Format("{0}", OptionsHelper.TranslationList["pinging"]));
                 listPingResults.Items.Add("");
 
-                for (int i = 0; i < 9; i++)
-                {
+                for (int i = 0; i < 9; i++) {
                     // wait before each pinging
                     Thread.Sleep(1000);
 
                     tmpReply = PingerHelper.PingHost(txtPingInput.Text);
 
-                    if (tmpReply.Address == null)
-                    {
+                    if (tmpReply.Address == null) {
                         listPingResults.Items.Add(tmpReply.Status);
                     }
-                    else
-                    {
+                    else {
                         _pingResults.Add(tmpReply);
                         _shodanIP = _pingResults[i].Address.ToString();
                         listPingResults.Items.Add(string.Format("{0} - {1}: {2} ms - TTL: {3}", _pingResults[i].Status, OptionsHelper.TranslationList["latency"], _pingResults[i].RoundtripTime, _pingResults[i].Options.Ttl));
@@ -4020,16 +3412,14 @@ namespace Optimizer
                 listPingResults.Items.Add("");
 
                 // calculate statistics
-                if (_pingResults.Count > 0)
-                {
+                if (_pingResults.Count > 0) {
                     long maxLatency = _pingResults.Max(x => x.RoundtripTime);
                     long minLatency = _pingResults.Min(x => x.RoundtripTime);
                     double averageLatency = _pingResults.Average(x => x.RoundtripTime);
 
                     listPingResults.Items.Add(string.Format("{0} = {1}, {2} = {3}, {4} = {5:F2}", OptionsHelper.TranslationList["min"], minLatency, OptionsHelper.TranslationList["max"], maxLatency, OptionsHelper.TranslationList["avg"], averageLatency));
                 }
-                else
-                {
+                else {
                     listPingResults.Items.Add(OptionsHelper.TranslationList["timeout"]);
                 }
 
@@ -4040,95 +3430,77 @@ namespace Optimizer
             pinger.Start();
         }
 
-        private void btnShodan_Click(object sender, EventArgs e)
-        {
+        private void btnShodan_Click(object sender, EventArgs e) {
             IPAddress tryIP;
-            if (IPAddress.TryParse(txtPingInput.Text, out tryIP))
-            {
+            if (IPAddress.TryParse(txtPingInput.Text, out tryIP)) {
                 Process.Start(string.Format("https://www.shodan.io/host/{0}", txtPingInput.Text));
                 return;
             }
 
-            if (!string.IsNullOrEmpty(_shodanIP))
-            {
+            if (!string.IsNullOrEmpty(_shodanIP)) {
                 Process.Start(string.Format("https://www.shodan.io/host/{0}", _shodanIP));
                 return;
             }
         }
 
-        private void copyB_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        private void copyB_Click(object sender, EventArgs e) {
+            try {
                 Clipboard.SetText(_shodanIP);
             }
             catch { }
         }
 
-        private void copyIPB_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        private void copyIPB_Click(object sender, EventArgs e) {
+            try {
                 Clipboard.SetText(txtPingInput.Text);
             }
             catch { }
         }
 
-        private void txtPingInput_KeyDown(object sender, KeyEventArgs e)
-        {
+        private void txtPingInput_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Enter) btnPing.PerformClick();
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-            if (ExportDialog.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
+        private void btnExport_Click(object sender, EventArgs e) {
+            if (ExportDialog.ShowDialog() == DialogResult.OK) {
+                try {
                     File.WriteAllLines(ExportDialog.FileName, listPingResults.Items.Cast<string>());
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     Logger.LogError("btnExport.Click", ex.Message, ex.StackTrace);
                     MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
 
-        private void startupItem_Click(object sender, EventArgs e)
-        {
+        private void startupItem_Click(object sender, EventArgs e) {
             tabCollection.SelectedTab = startupTab;
             RestoreWindow();
         }
 
-        private void cleanerItem_Click(object sender, EventArgs e)
-        {
+        private void cleanerItem_Click(object sender, EventArgs e) {
             tabCollection.SelectedTab = cleanerTab;
             RestoreWindow();
         }
 
-        private void pingerItem_Click(object sender, EventArgs e)
-        {
+        private void pingerItem_Click(object sender, EventArgs e) {
             tabCollection.SelectedTab = pingerTab;
             RestoreWindow();
             txtPingInput.Focus();
         }
 
-        private void hostsItem_Click(object sender, EventArgs e)
-        {
+        private void hostsItem_Click(object sender, EventArgs e) {
             tabCollection.SelectedTab = hostsEditorTab;
             RestoreWindow();
             txtIP.Focus();
         }
 
-        private void appsItem_Click(object sender, EventArgs e)
-        {
+        private void appsItem_Click(object sender, EventArgs e) {
             tabCollection.SelectedTab = appsTab;
             RestoreWindow();
         }
 
-        private void exitItem_Click(object sender, EventArgs e)
-        {
+        private void exitItem_Click(object sender, EventArgs e) {
             _trayMenu = false;
 
             OptionsHelper.CurrentOptions.AppsFolder = txtDownloadFolder.Text;
@@ -4137,52 +3509,42 @@ namespace Optimizer
             Application.Exit();
         }
 
-        private void RestoreWindow()
-        {
+        private void RestoreWindow() {
             if (this.WindowState == FormWindowState.Minimized) this.WindowState = FormWindowState.Normal;
             this.Show();
             this.Activate();
             this.Focus();
         }
 
-        private void launcherIcon_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (this.Visible)
-            {
+        private void launcherIcon_MouseDoubleClick(object sender, MouseEventArgs e) {
+            if (this.Visible) {
                 if (this.WindowState == FormWindowState.Minimized) this.WindowState = FormWindowState.Normal;
                 this.Hide();
             }
-            else
-            {
+            else {
                 RestoreWindow();
             }
         }
 
-        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             Process.Start(_licenseLink);
         }
 
-        private void restartExpolorerItem_Click(object sender, EventArgs e)
-        {
+        private void restartExpolorerItem_Click(object sender, EventArgs e) {
             Utilities.RestartExplorer();
         }
 
-        private void flushCacheB_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(_flushDNSMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
+        private void flushCacheB_Click(object sender, EventArgs e) {
+            if (MessageBox.Show(_flushDNSMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                 PingerHelper.FlushDNSCache();
             }
         }
 
-        private void button11_Click(object sender, EventArgs e)
-        {
+        private void button11_Click(object sender, EventArgs e) {
             ShowBackupConfirm();
         }
 
-        private void ShowBackupConfirm()
-        {
+        private void ShowBackupConfirm() {
             removeStartupItemB.Visible = false;
             locateFileB.Visible = false;
             findInRegB.Visible = false;
@@ -4196,8 +3558,7 @@ namespace Optimizer
             txtBackupTitle.Visible = true;
         }
 
-        private void HideBackupConfirm()
-        {
+        private void HideBackupConfirm() {
             removeStartupItemB.Visible = true;
             locateFileB.Visible = true;
             findInRegB.Visible = true;
@@ -4211,74 +3572,60 @@ namespace Optimizer
             txtBackupTitle.Visible = false;
         }
 
-        private void button12_Click(object sender, EventArgs e)
-        {
+        private void button12_Click(object sender, EventArgs e) {
             StartupRestoreForm f = new StartupRestoreForm();
             f.ShowDialog(this);
 
             GetStartupItems();
         }
 
-        private void button14_Click(object sender, EventArgs e)
-        {
+        private void button14_Click(object sender, EventArgs e) {
             HideBackupConfirm();
         }
 
-        private void button13_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtBackupTitle.Text.Trim()))
-            {
+        private void button13_Click(object sender, EventArgs e) {
+            if (!string.IsNullOrEmpty(txtBackupTitle.Text.Trim())) {
                 HideBackupConfirm();
 
                 _backupItems.Clear();
 
-                foreach (var x in _startUpItems)
-                {
+                foreach (var x in _startUpItems) {
                     _backupItems.Add(new BackupStartupItem(x.Name, x.FileLocation, x.RegistryLocation.ToString(), x.StartupType.ToString()));
                 }
 
-                try
-                {
+                try {
                     File.WriteAllText(CoreHelper.StartupItemsBackupFolder + Utilities.SanitizeFileFolderName(txtBackupTitle.Text + " - [" + DateTime.Now.ToShortDateString() + "-" + DateTime.Now.ToShortTimeString()) + "].json", JsonConvert.SerializeObject(_backupItems, Formatting.Indented));
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     Logger.LogError("MainForm.BackupStartupItems", ex.Message, ex.StackTrace);
                 }
             }
         }
 
-        private void btnOpenNetwork_Click(object sender, EventArgs e)
-        {
+        private void btnOpenNetwork_Click(object sender, EventArgs e) {
             Process.Start("NCPA.cpl");
         }
 
-        private void listStartupItems_ItemChecked(object sender, ItemCheckedEventArgs e)
-        {
-            if (e.Item.Checked)
-            {
+        private void listStartupItems_ItemChecked(object sender, ItemCheckedEventArgs e) {
+            if (e.Item.Checked) {
                 e.Item.ForeColor = OptionsHelper.ForegroundColor;
             }
-            else
-            {
+            else {
                 e.Item.ForeColor = Color.White;
             }
         }
 
-        private void trayOptions_Click(object sender, EventArgs e)
-        {
+        private void trayOptions_Click(object sender, EventArgs e) {
             tabCollection.SelectedTab = optionsTab;
             RestoreWindow();
         }
 
-        private void trayRegistry_Click(object sender, EventArgs e)
-        {
+        private void trayRegistry_Click(object sender, EventArgs e) {
             tabCollection.SelectedTab = registryFixerTab;
             RestoreWindow();
         }
 
-        private void quickAccessToggle_ToggleClicked(object sender, EventArgs e)
-        {
+        private void quickAccessToggle_ToggleClicked(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.EnableTray = quickAccessToggle.ToggleChecked;
             OptionsHelper.SaveSettings();
 
@@ -4295,21 +3642,17 @@ namespace Optimizer
             //}
         }
 
-        private void picUpdate_Click(object sender, EventArgs e)
-        {
+        private void picUpdate_Click(object sender, EventArgs e) {
             CheckForUpdate();
         }
 
-        private void hwDetailed_ToggleClicked(object sender, EventArgs e)
-        {
+        private void hwDetailed_ToggleClicked(object sender, EventArgs e) {
             specsTree.Nodes.Clear();
 
-            if (hwDetailed.ToggleChecked)
-            {
+            if (hwDetailed.ToggleChecked) {
                 specsTree.Nodes.AddRange(_hwDetailed.ToArray());
             }
-            else
-            {
+            else {
                 specsTree.Nodes.AddRange(_hwSummarized);
             }
 
@@ -4318,87 +3661,69 @@ namespace Optimizer
             specsTree.Nodes[0].EnsureVisible();
         }
 
-        private void trayHW_Click(object sender, EventArgs e)
-        {
+        private void trayHW_Click(object sender, EventArgs e) {
             tabCollection.SelectedTab = indiciumTab;
             RestoreWindow();
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        private void toolStripMenuItem1_Click(object sender, EventArgs e) {
+            try {
                 Clipboard.SetText(specsTree.SelectedNode.Text);
             }
             catch { }
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            if (specsTree.Nodes.Count > 0)
-            {
+        private void toolStripMenuItem2_Click(object sender, EventArgs e) {
+            if (specsTree.Nodes.Count > 0) {
                 Utilities.SearchWith(specsTree.SelectedNode.Text, false);
             }
         }
 
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            if (specsTree.Nodes.Count > 0)
-            {
+        private void toolStripMenuItem3_Click(object sender, EventArgs e) {
+            if (specsTree.Nodes.Count > 0) {
                 Utilities.SearchWith(specsTree.SelectedNode.Text, true);
             }
         }
 
-        private string GetSpecsToString(TreeView trv)
-        {
+        private string GetSpecsToString(TreeView trv) {
             StringBuilder sb = new StringBuilder();
-            foreach (TreeNode node in trv.Nodes)
-            {
+            foreach (TreeNode node in trv.Nodes) {
                 WriteNodeIntoString(0, node, sb);
             }
 
             return sb.ToString();
         }
 
-        private void WriteNodeIntoString(int level, TreeNode node, StringBuilder sb)
-        {
+        private void WriteNodeIntoString(int level, TreeNode node, StringBuilder sb) {
             sb.AppendLine(new string('\t', level) + node.Text);
 
-            foreach (TreeNode child in node.Nodes)
-            {
+            foreach (TreeNode child in node.Nodes) {
                 WriteNodeIntoString(level + 1, child, sb);
             }
         }
 
-        private void specsTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right || e.Button == MouseButtons.Left)
-            {
+        private void specsTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e) {
+            if (e.Button == MouseButtons.Right || e.Button == MouseButtons.Left) {
                 specsTree.SelectedNode = e.Node;
             }
         }
 
-        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e) {
             Process.Start(_discordLink);
         }
 
-        private void linkLabel2_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        private void linkLabel2_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e) {
             Process.Start(_githubProjectLink);
         }
 
-        private void btnCopyHW_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        private void btnCopyHW_Click(object sender, EventArgs e) {
+            try {
                 Clipboard.SetText(GetSpecsToString(specsTree));
             }
             catch { }
         }
 
-        private void btnSaveHW_Click(object sender, EventArgs e)
-        {
+        private void btnSaveHW_Click(object sender, EventArgs e) {
             SaveFileDialog d = new SaveFileDialog();
             d.InitialDirectory = Application.StartupPath;
             d.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
@@ -4407,22 +3732,18 @@ namespace Optimizer
             if (d.ShowDialog() == DialogResult.OK) File.WriteAllText(d.FileName, GetSpecsToString(specsTree), Encoding.UTF8);
         }
 
-        private string ParseChangelog()
-        {
-            WebClient client = new WebClient
-            {
+        private string ParseChangelog() {
+            WebClient client = new WebClient {
                 Encoding = Encoding.UTF8
             };
 
             List<string> changelogText = new List<string>();
 
-            try
-            {
+            try {
                 changelogText = client.DownloadString(_changelogRawLink).Trim().Split(
                     new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList();
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Logger.LogError("MainForm.ParseChangelog", ex.Message, ex.StackTrace);
                 MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return string.Empty;
@@ -4431,10 +3752,8 @@ namespace Optimizer
             if (changelogText.Count == 0) return string.Empty;
 
             int markVersion = 0;
-            for (int d = 0; d < changelogText.Count; d++)
-            {
-                if (changelogText[d].Contains($"## [{Program.GetCurrentVersionTostring()}]"))
-                {
+            for (int d = 0; d < changelogText.Count; d++) {
+                if (changelogText[d].Contains($"## [{Program.GetCurrentVersionTostring()}]")) {
                     markVersion = d;
                     break;
                 }
@@ -4443,8 +3762,7 @@ namespace Optimizer
 
             changelogText.RemoveRange(markVersion, changelogText.Count - markVersion);
 
-            if (changelogText.Count <= 0)
-            {
+            if (changelogText.Count <= 0) {
                 MessageBox.Show(_noNewVersionMessage, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return string.Empty;
             }
@@ -4452,125 +3770,100 @@ namespace Optimizer
             return string.Join(Environment.NewLine, changelogText).Replace("##", "➤");
         }
 
-        private void boxLang_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (boxLang.Text == Constants.ENGLISH)
-            {
+        private void boxLang_SelectedIndexChanged(object sender, EventArgs e) {
+            if (boxLang.Text == Constants.ENGLISH) {
                 picFlag.Image = Properties.Resources.united_kingdom;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.EN;
             }
-            else if (boxLang.Text == Constants.RUSSIAN)
-            {
+            else if (boxLang.Text == Constants.RUSSIAN) {
                 picFlag.Image = Properties.Resources.russia;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.RU;
             }
-            else if (boxLang.Text == Constants.HELLENIC)
-            {
+            else if (boxLang.Text == Constants.HELLENIC) {
                 picFlag.Image = Properties.Resources.greece;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.EL;
             }
-            else if (boxLang.Text == Constants.GERMAN)
-            {
+            else if (boxLang.Text == Constants.GERMAN) {
                 picFlag.Image = Properties.Resources.germany;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.DE;
             }
-            else if (boxLang.Text == Constants.ITALIAN)
-            {
+            else if (boxLang.Text == Constants.ITALIAN) {
                 picFlag.Image = Properties.Resources.italy;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.IT;
             }
-            else if (boxLang.Text == Constants.CZECH)
-            {
+            else if (boxLang.Text == Constants.CZECH) {
                 picFlag.Image = Properties.Resources.czech;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.CZ;
             }
-            else if (boxLang.Text == Constants.TURKISH)
-            {
+            else if (boxLang.Text == Constants.TURKISH) {
                 picFlag.Image = Properties.Resources.turkey;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.TR;
             }
-            else if (boxLang.Text == Constants.SPANISH)
-            {
+            else if (boxLang.Text == Constants.SPANISH) {
                 picFlag.Image = Properties.Resources.spain;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.ES;
             }
-            else if (boxLang.Text == Constants.PORTUGUESE)
-            {
+            else if (boxLang.Text == Constants.PORTUGUESE) {
                 picFlag.Image = Properties.Resources.brazil;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.PT;
             }
-            else if (boxLang.Text == Constants.FRENCH)
-            {
+            else if (boxLang.Text == Constants.FRENCH) {
                 picFlag.Image = Properties.Resources.france;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.FR;
             }
-            else if (boxLang.Text == Constants.CHINESE)
-            {
+            else if (boxLang.Text == Constants.CHINESE) {
                 picFlag.Image = Properties.Resources.china;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.CN;
             }
-            else if (boxLang.Text == Constants.TAIWANESE)
-            {
+            else if (boxLang.Text == Constants.TAIWANESE) {
                 picFlag.Image = Properties.Resources.china;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.TW;
             }
-            else if (boxLang.Text == Constants.KOREAN)
-            {
+            else if (boxLang.Text == Constants.KOREAN) {
                 picFlag.Image = Properties.Resources.korea;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.KO;
             }
-            else if (boxLang.Text == Constants.POLISH)
-            {
+            else if (boxLang.Text == Constants.POLISH) {
                 picFlag.Image = Properties.Resources.poland;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.PL;
             }
-            else if (boxLang.Text == Constants.ARABIC)
-            {
+            else if (boxLang.Text == Constants.ARABIC) {
                 picFlag.Image = Properties.Resources.egypt;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.AR;
             }
-            else if (boxLang.Text == Constants.KURDISH)
-            {
+            else if (boxLang.Text == Constants.KURDISH) {
                 picFlag.Image = Properties.Resources.kurdish;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.KU;
             }
-            else if (boxLang.Text == Constants.HUNGARIAN)
-            {
+            else if (boxLang.Text == Constants.HUNGARIAN) {
                 picFlag.Image = Properties.Resources.hungary;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.HU;
             }
-            else if (boxLang.Text == Constants.ROMANIAN)
-            {
+            else if (boxLang.Text == Constants.ROMANIAN) {
                 picFlag.Image = Properties.Resources.romania;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.RO;
             }
-            else if (boxLang.Text == Constants.DUTCH)
-            {
+            else if (boxLang.Text == Constants.DUTCH) {
                 picFlag.Image = Properties.Resources.dutch;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.NL;
             }
-            else if (boxLang.Text == Constants.UKRAINIAN)
-            {
+            else if (boxLang.Text == Constants.UKRAINIAN) {
                 picFlag.Image = Properties.Resources.ukraine;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.UA;
             }
-            else if (boxLang.Text == Constants.JAPANESE)
-            {
+            else if (boxLang.Text == Constants.JAPANESE) {
                 picFlag.Image = Properties.Resources.japan;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.JA;
             }
-            else if (boxLang.Text == Constants.PERSIAN)
-            {
+            else if (boxLang.Text == Constants.PERSIAN) {
                 picFlag.Image = Properties.Resources.iran;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.FA;
             }
-            else if (boxLang.Text == Constants.NEPALI)
-            {
+            else if (boxLang.Text == Constants.NEPALI) {
                 picFlag.Image = Properties.Resources.nepal;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.NE;
             }
-            else if (boxLang.Text == Constants.BULGARIAN)
-            {
+            else if (boxLang.Text == Constants.BULGARIAN) {
                 picFlag.Image = Properties.Resources.bulgaria;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.BG;
             }
@@ -4583,53 +3876,43 @@ namespace Optimizer
             btnUpdate.Focus();
         }
 
-        private void cleanDriveB_Click(object sender, EventArgs e)
-        {
+        private void cleanDriveB_Click(object sender, EventArgs e) {
             CleanPC();
         }
 
-        private void checkSelectAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            if (listCleanPreview.Items.Count < 1)
-            {
-                foreach (CheckBox x in panel1.Controls.OfType<CheckBox>())
-                {
+        private void checkSelectAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            if (listCleanPreview.Items.Count < 1) {
+                foreach (CheckBox x in panel1.Controls.OfType<CheckBox>()) {
                     x.Checked = !x.Checked;
                 }
                 return;
             }
 
             _cleanSelectAll = !_cleanSelectAll;
-            for (int i = 0; i < listCleanPreview.Items.Count; i++)
-            {
+            for (int i = 0; i < listCleanPreview.Items.Count; i++) {
                 listCleanPreview.SetItemChecked(i, _cleanSelectAll);
             }
         }
 
-        private void analyzeDriveB_Click(object sender, EventArgs e)
-        {
+        private void analyzeDriveB_Click(object sender, EventArgs e) {
             CleanHelper.PreviewSizeToBeFreed = new ByteSize(0);
             CleanHelper.PreviewCleanList.Clear();
             listCleanPreview.Items.Clear();
             PreviewCleanPC();
         }
 
-        private void linkLabel3_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        private void linkLabel3_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e) {
             Process.Start(_paypalSupportLink);
         }
 
-        private void linkDNSIP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            try
-            {
+        private void linkDNSIP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            try {
                 Clipboard.SetText(((LinkLabel)sender).Text);
             }
             catch { }
         }
 
-        private void DisplayCurrentDNS()
-        {
+        private void DisplayCurrentDNS() {
             if (boxAdapter.Items.Count <= 0) return;
             if (boxAdapter.SelectedIndex <= -1) return;
 
@@ -4638,25 +3921,20 @@ namespace Optimizer
             if (_currentDNS == null) return;
             if (_currentDNS.Length == 0) return;
 
-            try
-            {
-                if (_currentDNS.Length == 1)
-                {
+            try {
+                if (_currentDNS.Length == 1) {
                     linkDNSv4.Text = _currentDNS[0];
                 }
-                else if (_currentDNS.Length == 2)
-                {
+                else if (_currentDNS.Length == 2) {
                     linkDNSv4.Text = _currentDNS[0];
                     linkDNSv4A.Text = _currentDNS[1];
                 }
-                else if (_currentDNS.Length == 3)
-                {
+                else if (_currentDNS.Length == 3) {
                     linkDNSv6.Text = _currentDNS[0];
                     linkDNSv4.Text = _currentDNS[1];
                     linkDNSv4A.Text = _currentDNS[2];
                 }
-                else if (_currentDNS.Length == 4)
-                {
+                else if (_currentDNS.Length == 4) {
                     linkDNSv4.Text = _currentDNS[2];
                     linkDNSv4A.Text = _currentDNS[3];
                     linkDNSv6.Text = _currentDNS[0];
@@ -4667,167 +3945,134 @@ namespace Optimizer
             finally { pingerTab.Focus(); }
         }
 
-        private void boxAdapter_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void boxAdapter_SelectedIndexChanged(object sender, EventArgs e) {
             LoadNetworkAdapterConfig();
             pingerTab.Focus();
         }
 
         // FIX FOR LAGGING WHEN MOVING THE FORM
-        private void MainForm_ResizeBegin(object sender, EventArgs e)
-        {
+        private void MainForm_ResizeBegin(object sender, EventArgs e) {
             bpanel.Controls.Remove(tabCollection);
         }
 
-        private void MainForm_ResizeEnd(object sender, EventArgs e)
-        {
+        private void MainForm_ResizeEnd(object sender, EventArgs e) {
             bpanel.Controls.Add(tabCollection);
             tabCollection.Dock = DockStyle.Fill;
         }
         // END FIX
 
-        private void PMB_ToggleClicked(object sender, EventArgs e)
-        {
-            if (PMB.ToggleChecked)
-            {
+        private void PMB_ToggleClicked(object sender, EventArgs e) {
+            if (PMB.ToggleChecked) {
                 Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "\\PowerMenu.reg");
             }
-            else
-            {
+            else {
                 IntegratorHelper.RemoveItem("Power Menu");
             }
 
             GetDesktopItems();
         }
 
-        private void AddOwnerB_ToggleClicked(object sender, EventArgs e)
-        {
-            if (AddOwnerB.ToggleChecked)
-            {
+        private void AddOwnerB_ToggleClicked(object sender, EventArgs e) {
+            if (AddOwnerB.ToggleChecked) {
                 IntegratorHelper.InstallTakeOwnership(false);
             }
-            else
-            {
+            else {
                 IntegratorHelper.InstallTakeOwnership(true);
             }
 
             GetDesktopItems();
         }
 
-        private void AddCMDB_ToggleClicked(object sender, EventArgs e)
-        {
-            if (AddCMDB.ToggleChecked)
-            {
+        private void AddCMDB_ToggleClicked(object sender, EventArgs e) {
+            if (AddCMDB.ToggleChecked) {
                 IntegratorHelper.InstallOpenWithCMD();
             }
-            else
-            {
+            else {
                 IntegratorHelper.DeleteOpenWithCMD();
             }
 
             GetDesktopItems();
         }
 
-        private void DSB_ToggleClicked(object sender, EventArgs e)
-        {
-            if (DSB.ToggleChecked)
-            {
+        private void DSB_ToggleClicked(object sender, EventArgs e) {
+            if (DSB.ToggleChecked) {
                 Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "\\DesktopShortcuts.reg");
             }
-            else
-            {
+            else {
                 IntegratorHelper.RemoveItem("DesktopShortcuts");
             }
 
             GetDesktopItems();
         }
 
-        private void STB_ToggleClicked(object sender, EventArgs e)
-        {
-            if (STB.ToggleChecked)
-            {
+        private void STB_ToggleClicked(object sender, EventArgs e) {
+            if (STB.ToggleChecked) {
                 Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "\\SystemTools.reg");
             }
-            else
-            {
+            else {
                 IntegratorHelper.RemoveItem("SystemTools");
             }
 
             GetDesktopItems();
         }
 
-        private void WAB_ToggleClicked(object sender, EventArgs e)
-        {
-            if (WAB.ToggleChecked)
-            {
+        private void WAB_ToggleClicked(object sender, EventArgs e) {
+            if (WAB.ToggleChecked) {
                 Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "\\WindowsApps.reg");
             }
-            else
-            {
+            else {
                 IntegratorHelper.RemoveItem("WindowsApps");
             }
 
             GetDesktopItems();
         }
 
-        private void SSB_ToggleClicked(object sender, EventArgs e)
-        {
-            if (SSB.ToggleChecked)
-            {
+        private void SSB_ToggleClicked(object sender, EventArgs e) {
+            if (SSB.ToggleChecked) {
                 Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "\\SystemShortcuts.reg");
             }
-            else
-            {
+            else {
                 IntegratorHelper.RemoveItem("SystemShortcuts");
             }
 
             GetDesktopItems();
         }
 
-        private void trayUnlocker_Click(object sender, EventArgs e)
-        {
+        private void trayUnlocker_Click(object sender, EventArgs e) {
             FileUnlockForm fuf = new FileUnlockForm();
             fuf.ShowDialog(this);
         }
 
-        private void picRestartNeeded_Click(object sender, EventArgs e)
-        {
+        private void picRestartNeeded_Click(object sender, EventArgs e) {
             ConfirmAndReboot();
         }
 
-        private void ShowRestartNeeded()
-        {
+        private void ShowRestartNeeded() {
             restartAndApply.Visible = true;
             picRestartNeeded.Visible = true;
         }
 
-        private void btnWinClean_Click(object sender, EventArgs e)
-        {
+        private void btnWinClean_Click(object sender, EventArgs e) {
             Process.Start("cleanmgr.exe");
         }
 
-        private void restartAndApply_MouseLeave(object sender, EventArgs e)
-        {
+        private void restartAndApply_MouseLeave(object sender, EventArgs e) {
             restartAndApply.Font = new Font(restartAndApply.Font, FontStyle.Regular);
         }
 
-        private void restartAndApply_MouseHover(object sender, EventArgs e)
-        {
+        private void restartAndApply_MouseHover(object sender, EventArgs e) {
             restartAndApply.Font = new Font(restartAndApply.Font, FontStyle.Underline);
         }
 
-        private void restartAndApply_MouseEnter(object sender, EventArgs e)
-        {
+        private void restartAndApply_MouseEnter(object sender, EventArgs e) {
             restartAndApply.Font = new Font(restartAndApply.Font, FontStyle.Underline);
         }
 
-        private void restartAndApply_Click(object sender, EventArgs e)
-        {
+        private void restartAndApply_Click(object sender, EventArgs e) {
             ConfirmAndReboot();
         }
 
-        private void colorPicker1_ColorChanged(object sender, EventArgs e)
-        {
+        private void colorPicker1_ColorChanged(object sender, EventArgs e) {
             pictureBox1.BackColor = colorPicker1.Color;
             OptionsHelper.CurrentOptions.Theme = colorPicker1.Color;
             OptionsHelper.ApplyTheme(this);
@@ -4835,114 +4080,91 @@ namespace Optimizer
             OptionsHelper.SaveSettings();
         }
 
-        private void autoStartToggle_ToggleClicked(object sender, EventArgs e)
-        {
+        private void autoStartToggle_ToggleClicked(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.AutoStart = autoStartToggle.ToggleChecked;
             OptionsHelper.SaveSettings();
 
-            if (OptionsHelper.CurrentOptions.AutoStart)
-            {
+            if (OptionsHelper.CurrentOptions.AutoStart) {
                 Utilities.RegisterAutoStart();
             }
-            else
-            {
+            else {
                 Utilities.UnregisterAutoStart();
             }
         }
 
-        private void picLab_Click(object sender, EventArgs e)
-        {
+        private void picLab_Click(object sender, EventArgs e) {
             SubForm sf = new SubForm();
             sf.SetTip(translationList["lblLab"].ToString());
             sf.ShowDialog(this);
         }
 
-        private void btnRestoreUwp_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
+        private void btnRestoreUwp_Click(object sender, EventArgs e) {
+            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                 UWPHelper.RestoreAllUWPApps();
             }
         }
 
-        private void btnRestartSafe_Click(object sender, EventArgs e)
-        {
+        private void btnRestartSafe_Click(object sender, EventArgs e) {
             Program.RestartInSafeMode();
         }
 
-        private void btnRestart_Click(object sender, EventArgs e)
-        {
+        private void btnRestart_Click(object sender, EventArgs e) {
             Program.RestartInNormalMode();
         }
 
-        private void btnRestartDisableDefender_Click(object sender, EventArgs e)
-        {
+        private void btnRestartDisableDefender_Click(object sender, EventArgs e) {
             Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce", "*OptimizerDisableDefender", Assembly.GetExecutingAssembly().Location + " /silentdisabledefender", Microsoft.Win32.RegistryValueKind.String);
             Program.RestartInSafeMode();
         }
 
-        private void ConfirmAndReboot()
-        {
-            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
+        private void ConfirmAndReboot() {
+            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                 OptionsHelper.SaveSettings();
                 Utilities.Reboot();
             }
         }
 
-        private void linkLabel4_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        private void linkLabel4_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e) {
             Process.Start(_bugReportLink);
         }
 
-        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             Process.Start(_featureRequestLink);
         }
 
-        private void btnRefreshFonts_Click(object sender, EventArgs e)
-        {
+        private void btnRefreshFonts_Click(object sender, EventArgs e) {
             LoadAvailableFonts();
         }
 
-        private void btnRestoreFont_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
+        private void btnRestoreFont_Click(object sender, EventArgs e) {
+            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                 FontHelper.RestoreDefaultGlobalFont();
                 ShowRestartNeeded();
             }
         }
 
-        private void btnSetGlobalFont_Click(object sender, EventArgs e)
-        {
-            if (listFonts.SelectedIndex < 0)
-            {
+        private void btnSetGlobalFont_Click(object sender, EventArgs e) {
+            if (listFonts.SelectedIndex < 0) {
                 return;
             }
-            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
+            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                 string fontName = listFonts.SelectedItem.ToString();
                 FontHelper.ChangeGlobalFont(fontName);
                 ShowRestartNeeded();
             }
         }
 
-        private void txtSearchFonts_TextChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtSearchFonts.Text))
-            {
+        private void txtSearchFonts_TextChanged(object sender, EventArgs e) {
+            if (!string.IsNullOrEmpty(txtSearchFonts.Text)) {
                 listFonts.Items.Clear();
                 listFonts.Items.AddRange(_availableFonts.Where(x => x.ToLowerInvariant().Contains(txtSearchFonts.Text.ToLowerInvariant().Trim())).ToArray());
             }
-            else
-            {
+            else {
                 LoadAvailableFonts();
             }
         }
 
-        private void chkCustomDns_CheckedChanged(object sender, EventArgs e)
-        {
+        private void chkCustomDns_CheckedChanged(object sender, EventArgs e) {
             label10.Visible = chkCustomDns.Checked;
             label12.Visible = chkCustomDns.Checked;
             txtDns4A.Visible = chkCustomDns.Checked;
@@ -4952,26 +4174,20 @@ namespace Optimizer
             boxDNS.Visible = !chkCustomDns.Checked;
         }
 
-        private void btnSetDns_Click(object sender, EventArgs e)
-        {
-            if (chkCustomDns.Checked)
-            {
+        private void btnSetDns_Click(object sender, EventArgs e) {
+            if (chkCustomDns.Checked) {
                 ApplyCustomDNS();
             }
-            else
-            {
+            else {
                 ApplySelectedDNS();
             }
         }
 
-        private void btnReinforce_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(_reinforcePoliciesMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
+        private void btnReinforce_Click(object sender, EventArgs e) {
+            if (MessageBox.Show(_reinforcePoliciesMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                 Utilities.ReinforceCurrentTweaks();
 
-                if (Program.MUTEX != null)
-                {
+                if (Program.MUTEX != null) {
                     Program.MUTEX.ReleaseMutex();
                     Program.MUTEX.Dispose();
                     Program.MUTEX = null;
@@ -4980,10 +4196,13 @@ namespace Optimizer
             }
         }
 
-        private void autoUpdateToggle_ToggleClicked(object sender, EventArgs e)
-        {
+        private void autoUpdateToggle_ToggleClicked(object sender, EventArgs e) {
             OptionsHelper.CurrentOptions.UpdateOnLaunch = autoUpdateToggle.ToggleChecked;
             OptionsHelper.SaveSettings();
+        }
+
+        private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            Process.Start(_faqSectionLink);
         }
     }
 }
