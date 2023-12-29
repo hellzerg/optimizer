@@ -19,6 +19,10 @@ Please note that the "Disable Windows Defender" toggle is only functional on Win
 3. After the safe mode restart, your system will restart in normal mode with Windows Defender disabled.
 4. You can re-enable Windows Defender at any time using the command `/restart=enabledefender`.
 
+### **My games stopped working or I am experiencing issues with them!**
+You should reset "Enhance Privacy", "Disable Xbox Live", "Disable Game Bar" and restart your computer.
+If the problem persists, you may open an issue.
+
 ### **Should I disable System Restore?**
 The decision to disable System Restore is up to you. Keep in mind that disabling it will result in the deletion of your existing backups. Consider the implications and potential risks before making this choice.
 
