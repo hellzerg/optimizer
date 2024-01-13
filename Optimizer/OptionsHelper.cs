@@ -247,6 +247,7 @@ namespace Optimizer {
                 if (CurrentOptions.LanguageCode == LanguageCode.FA) TranslationList = JObject.Parse(Properties.Resources.FA);
                 if (CurrentOptions.LanguageCode == LanguageCode.NE) TranslationList = JObject.Parse(Properties.Resources.NE);
                 if (CurrentOptions.LanguageCode == LanguageCode.BG) TranslationList = JObject.Parse(Properties.Resources.BG);
+                if (CurrentOptions.LanguageCode == LanguageCode.VN) TranslationList = JObject.Parse(Properties.Resources.VN);
             }
             catch (Exception ex) {
                 Logger.LogError("Options.LoadTranslation", ex.Message, ex.StackTrace);

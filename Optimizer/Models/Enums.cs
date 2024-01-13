@@ -104,6 +104,7 @@
         JA, // japanese
         FA, // farsi
         NE, // nepali
-        BG // bulgarian
+        BG, // bulgarian
+        VN // vietnamese
     }
 }

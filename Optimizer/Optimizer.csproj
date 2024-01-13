@@ -316,6 +316,7 @@
     <None Include="Resources\i18n\RO.json" />
     <None Include="Resources\Fonts\Poppins-Regular.ttf" />
     <None Include="Resources\i18n\UA.json" />
+    <None Include="Resources\i18n\VN.json" />
     <None Include="Resources\Scripts\AddOpenWithCMD.reg" />
     <None Include="Resources\i18n\CN.json" />
     <None Include="Resources\i18n\CZ.json" />
@@ -383,6 +384,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Flags\vietnam.png" />
     <None Include="Resources\Flags\bulgaria.png" />
     <None Include="Resources\Flags\nepal.png" />
     <None Include="Resources\Flags\iran.png" />

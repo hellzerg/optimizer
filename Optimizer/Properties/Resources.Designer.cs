@@ -79,7 +79,7 @@ namespace Optimizer.Properties {
         ///[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWithCMD\command]
         ///@=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot;
         ///
-        ///[HKEY_CLASSES_ROOT\Drive\shell\OpenWit [rest of string was truncated]&quot;;.
+        ///[HKEY_CLASSES_ROOT\D [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AddOpenWithCMD {
             get {
@@ -319,8 +319,7 @@ namespace Optimizer.Properties {
         ///rem &quot;DisableAntiSpyware&quot; is discontinued and will be ignored on client devices, as of the August 2020 (version 4.18.2007.8) update to Microsoft Defender Antivirus.
         ///
         ///rem Disable Tamper Protection First !!!!!
-        ///rem https://www.tenforums.com/tutorials/123792-turn-off-tamper-protection-windows-defender-antivirus.html
-        ///reg [rest of string was truncated]&quot;;.
+        ///rem https://www.tenforums.com/tutorials/123792-turn-off-tamper-protection-windows-defender-antivirus.ht [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableDefenderSafeMode1903Plus {
             get {
@@ -359,7 +358,7 @@ namespace Optimizer.Properties {
         ///
         ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgentFallBack&quot;
         ///schtasks /change /tn &quot;\Microsoft\Office\OfficeTelemetryAgentFallBack&quot; /disable
-        ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgentLogOn&quot; [rest of string was truncated]&quot;;.
+        ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgen [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableOfficeTelemetryTasks {
             get {
@@ -373,7 +372,7 @@ namespace Optimizer.Properties {
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot;
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot; /disable
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot;
-        ///schtasks /change /tn &quot;\Microsoft\Windo [rest of string was truncated]&quot;;.
+        ///schtasks /change /tn &quot;\Microsoft\ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableTelemetryTasks {
             get {
@@ -518,7 +517,7 @@ namespace Optimizer.Properties {
         ///schtasks /change /tn &quot;\Microsoft\Office\OfficeTelemetryAgentLogOn&quot; /enable
         ///
         ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\15.0\Outlook\Options\Mail&quot; /v &quot;EnableLogging&quot; /t REG_DWORD /d 1 /f
-        ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\16.0\Outlook\Options\Mail&quot; /v &quot;EnableLogging&quot; /t  [rest of string was truncated]&quot;;.
+        ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\16.0\Outlook\Options\Mail&quot; /v &quot;EnableLoggi [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnableOfficeTelemetryTasks {
             get {
@@ -532,7 +531,7 @@ namespace Optimizer.Properties {
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot; /enable
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip&quot; /enable
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\Uploader&quot; /enable
-        ///schtasks / [rest of string was truncated]&quot;;.
+        ///schta [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnableTelemetryTasks {
             get {
@@ -682,8 +681,8 @@ namespace Optimizer.Properties {
         /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;subSystem&quot;: &quot;Rendszer&quot;,
-        ///	&quot;subPrivacy&quot;: &quot;Magánélet&quot;,
-        ///	&quot;subGaming&quot;: &quot;Szerencsejáték&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Adatvédelem&quot;,
+        ///	&quot;subGaming&quot;: &quot;Játék&quot;,
         ///	&quot;subTouch&quot;: &quot;Érintés&quot;,
         ///	&quot;subTaskbar&quot;: &quot;Tálca&quot;,
         ///	&quot;subExtras&quot;: &quot;Extrák&quot;,
@@ -691,10 +690,11 @@ namespace Optimizer.Properties {
         ///	&quot;restartButton&quot;: &quot;Újraindítás most&quot;,
         ///	&quot;restartButton8&quot;: &quot;Újraindítás most&quot;,
         ///	&quot;restartButton10&quot;: &quot;Újraindítás most&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;Újraindítod az eszközt, hogy a változások érvénybe kerüljenek&quot;,
-        ///	&quot;txtVersion&quot;: &quot;Verzuó: {VN}&quot;,
-        ///	&quot;txtBitness&quot;: &quot;You are working with {BITS}&quot;,
-        ///	&quot;linkUpdate&quot;: &quot;Frissítés elérhető&quot; [rest of string was truncated]&quot;;.
+        ///	&quot;restartAndApply&quot;: &quot;Eszköz újraindítása most, hogy a változások érvénybe kerüljenek&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Verzió: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Te {BITS}-el dolgozol&quot;,
+        ///	&quot;linkUpdate&quot;: &quot;Frissítés elérhető&quot;,
+        ///	&quot;lblLab [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HU {
             get {
@@ -728,7 +728,7 @@ namespace Optimizer.Properties {
         ///&quot;NoWorkingDirectory&quot;=&quot;&quot;
         ///
         ///[HKEY_CLASSES_ROOT\Directory\shell\runas\command]
-        ///@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d y &amp;&amp; icacls \&quot;% [rest of string was truncated]&quot;;.
+        ///@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string InstallTakeOwnership {
             get {
@@ -1327,6 +1327,41 @@ namespace Optimizer.Properties {
             get {
                 object obj = ResourceManager.GetObject("united_kingdom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vietnam {
+            get {
+                object obj = ResourceManager.GetObject("vietnam", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///  &quot;subSystem&quot;: &quot;Hệ thống&quot;,
+        ///  &quot;subPrivacy&quot;: &quot;Quyền riêng tư&quot;,
+        ///  &quot;subGaming&quot;: &quot;Dành cho Game&quot;,
+        ///  &quot;subTouch&quot;: &quot;Cảm ứng&quot;,
+        ///  &quot;subTaskbar&quot;: &quot;Thanh tác vụ&quot;,
+        ///  &quot;subExtras&quot;: &quot;Mở rộng&quot;,
+        ///  &quot;btnAbout&quot;: &quot;OK&quot;,
+        ///  &quot;restartButton&quot;: &quot;Khởi động lại ngay&quot;,
+        ///  &quot;restartButton8&quot;: &quot;Khởi động lại ngay&quot;,
+        ///  &quot;restartButton10&quot;: &quot;Khởi động lại ngay&quot;,
+        ///  &quot;btnFind&quot;: &quot;Tìm&quot;,
+        ///  &quot;btnKill&quot;: &quot;Dừng&quot;,
+        ///  &quot;trayUnlocker&quot;: &quot;Xử lý tệp&quot;,
+        ///  &quot;restartAndApply&quot;: &quot;Khởi động lại để lưu lại các thay đổi&quot;,
+        ///  &quot;txtVersion&quot;: &quot;Phiên bản: {VN}&quot;,
+        ///  &quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string VN {
+            get {
+                return ResourceManager.GetString("VN", resourceCulture);
             }
         }
         

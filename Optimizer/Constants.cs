@@ -37,6 +37,7 @@
         internal static string PERSIAN = "فارسی";
         internal static string NEPALI = "नेपाली";
         internal static string BULGARIAN = "български";
+        internal static string VIETNAMESE = "Tiếng Việt";
 
         internal static string CloudflareDNS = "Cloudflare";
         internal static string OpenDNS = "OpenDNS";

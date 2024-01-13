@@ -719,6 +719,7 @@ namespace Optimizer {
                 Constants.PERSIAN,
                 Constants.NEPALI,
                 Constants.BULGARIAN,
+                Constants.VIETNAMESE
             });
 
             _splashForm.LoadingStatus.Text = "checking for requirements";
@@ -1261,6 +1262,9 @@ namespace Optimizer {
             }
             if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.BG) {
                 boxLang.Text = Constants.BULGARIAN;
+            }
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.VN) {
+                boxLang.Text = Constants.VIETNAMESE;
             }
         }
 
@@ -3866,6 +3870,11 @@ namespace Optimizer {
             else if (boxLang.Text == Constants.BULGARIAN) {
                 picFlag.Image = Properties.Resources.bulgaria;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.BG;
+            }
+            else if (boxLang.Text == Constants.VIETNAMESE)
+            {
+                picFlag.Image = Properties.Resources.vietnam;
+                OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.VN;
             }
 
             OptionsHelper.SaveSettings();
