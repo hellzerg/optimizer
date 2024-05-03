@@ -464,10 +464,12 @@ Performansa olumsuz etkisi vardır.",
     "copilotTip": "CoPilot AI özelliğini tamamen kapatır.",
 	"btnReinforce": "Politikaları Güçlendir",
 	"msgReinforce": "Şu anki politikalarınızı tekrar uygulamak istediğinizden emin misiniz?",
-	"chkNewsInterest": "Haberler ve İlgiyi Devre Dışı Bırak",
-	"chkAllTrayIcons": "Tüm tepsici simgelerini göster",
-	"chkMenuDelays": "Menü gecikmelerini kaldır",
-	"chkHideSearch": "Aramayı Gizle",
-	"chkHideFeed": "Hava Durumunu Gizle",
-	"autoUpdateToggle": "Başlangıçta Güncelle"
+	"newsInterestsSw": "Başlıkları ve ilgileri devre dışı bırak",
+	"allTrayIconsSw": "Tüm bildirim simgelerini göster",
+	"noMenuDelaySw": "Menü gecikmesini kaldır",
+	"hideSearchSw": "Görev çubuğundaki aramayı gizle",
+	"hideWeatherSw": "Görev çubuğundaki hava durumunu gizle",
+	"autoUpdateToggle": "Başlangıçta güncelle",
+	"enableUtcSw": "UTC Saati Etkinleştir",
+	"modernStandbySw": "Modern bekleme modunu devre dışı bırak"
 }

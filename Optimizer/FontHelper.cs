@@ -5,8 +5,10 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 
-namespace Optimizer {
-    internal static class FontHelper {
+namespace Optimizer
+{
+    internal static class FontHelper
+    {
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
             IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
@@ -15,7 +17,8 @@ namespace Optimizer {
 
         internal static Font Poppins15;
 
-        internal static void LoadFont() {
+        internal static void LoadFont()
+        {
             byte[] fontData = Properties.Resources.Poppins_Regular;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
@@ -29,13 +32,17 @@ namespace Optimizer {
             Poppins15 = new Font(fonts.Families[0], 13f);
         }
 
-        internal static IEnumerable<string> GetAvailableFonts() {
+        internal static IEnumerable<string> GetAvailableFonts()
+        {
             return new InstalledFontCollection().Families.Select(x => x.Name);
         }
 
-        internal static void ChangeGlobalFont(string fontName) {
-            try {
-                using (RegistryKey fontsKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts", true)) {
+        internal static void ChangeGlobalFont(string fontName)
+        {
+            try
+            {
+                using (RegistryKey fontsKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts", true))
+                {
                     fontsKey.SetValue("Segoe UI (TrueType)", "");
                     fontsKey.SetValue("Segoe UI Bold (TrueType)", "");
                     fontsKey.SetValue("Segoe UI Bold Italic (TrueType)", "");
@@ -45,30 +52,39 @@ namespace Optimizer {
                     fontsKey.SetValue("Segoe UI Symbol (TrueType)", "");
                 }
 
-                using (RegistryKey fontSubstitutesKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes", true)) {
+                using (RegistryKey fontSubstitutesKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes", true))
+                {
                     fontSubstitutesKey.SetValue("Segoe UI", fontName);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("FontHelper.ChangeGlobalFont", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static string GetCurrentGlobalFont() {
-            try {
-                using (RegistryKey fontSubstitutesKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes", false)) {
+        internal static string GetCurrentGlobalFont()
+        {
+            try
+            {
+                using (RegistryKey fontSubstitutesKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes", false))
+                {
                     return fontSubstitutesKey.GetValue("Segoe UI", string.Empty) as string;
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("FontHelper.GetCurrentGlobalFont", ex.Message, ex.StackTrace);
                 return string.Empty;
             }
         }
 
-        internal static void RestoreDefaultGlobalFont() {
-            try {
-                using (RegistryKey fontsKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts", true)) {
+        internal static void RestoreDefaultGlobalFont()
+        {
+            try
+            {
+                using (RegistryKey fontsKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts", true))
+                {
                     fontsKey.SetValue("Segoe UI (TrueType)", "segoeui.ttf");
                     fontsKey.SetValue("Segoe UI Black (TrueType)", "seguibl.ttf");
                     fontsKey.SetValue("Segoe UI Black Italic (TrueType)", "seguibli.ttf");
@@ -91,11 +107,13 @@ namespace Optimizer {
                     fontsKey.SetValue("Segoe Script Bold (TrueType)", "segoescb.ttf");
                 }
 
-                using (RegistryKey fontSubstitutesKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes", true)) {
+                using (RegistryKey fontSubstitutesKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes", true))
+                {
                     fontSubstitutesKey.DeleteValue("Segoe UI", false);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("FontHelper.RestoreDefaultGlobalFont", ex.Message, ex.StackTrace);
             }
         }

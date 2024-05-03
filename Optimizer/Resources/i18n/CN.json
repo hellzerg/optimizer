@@ -465,10 +465,12 @@
     "copilotTip": "完全关闭 CoPilot AI 功能。",
 	"btnReinforce": "强化政策",
 	"msgReinforce": "您确定要重新应用当前的政策吗?",
-	"chkNewsInterest": "禁用新闻和兴趣",
-	"chkAllTrayIcons": "显示所有托盘图标",
-	"chkMenuDelays": "删除菜单延迟",
-	"chkHideSearch": "隐藏搜索",
-	"chkHideFeed": "隐藏天气",
-	"autoUpdateToggle": "启动时更新"
+	"newsInterestsSw": "禁用新闻和兴趣",
+	"allTrayIconsSw": "显示所有通知图标",
+	"noMenuDelaySw": "删除菜单延迟",
+	"hideSearchSw": "隐藏任务栏搜索",
+	"hideWeatherSw": "隐藏任务栏天气",
+	"autoUpdateToggle": "启动时更新",
+	"enableUtcSw": "启用协调世界时",
+	"modernStandbySw": "禁用现代待机"
 }

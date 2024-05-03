@@ -4,11 +4,14 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Optimizer {
-    public sealed partial class StartupPreviewForm : Form {
+namespace Optimizer
+{
+    public sealed partial class StartupPreviewForm : Form
+    {
         string _token = string.Empty;
 
-        public StartupPreviewForm(List<BackupStartupItem> items) {
+        public StartupPreviewForm(List<BackupStartupItem> items)
+        {
             InitializeComponent();
 
             CheckForIllegalCrossThreadCalls = false;
@@ -17,11 +20,14 @@ namespace Optimizer {
             // translate UI elements
             if (OptionsHelper.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
 
-            foreach (BackupStartupItem x in items) {
-                if (File.Exists(SanitizePath(x.FileLocation))) {
+            foreach (BackupStartupItem x in items)
+            {
+                if (File.Exists(SanitizePath(x.FileLocation)))
+                {
                     _token = "[✓] ";
                 }
-                else {
+                else
+                {
                     _token = "[⚠] ";
                 }
 
@@ -29,14 +35,16 @@ namespace Optimizer {
             }
         }
 
-        private void Translate() {
+        private void Translate()
+        {
             this.Text = OptionsHelper.TranslationList["StartupPreviewForm"];
 
             Dictionary<string, string> translationList = OptionsHelper.TranslationList.ToObject<Dictionary<string, string>>();
 
             Control element;
 
-            foreach (var x in translationList) {
+            foreach (var x in translationList)
+            {
                 if (x.Key == null || x.Key == string.Empty) continue;
                 element = this.Controls.Find(x.Key, true).FirstOrDefault();
 
@@ -46,15 +54,18 @@ namespace Optimizer {
             }
         }
 
-        private void StartupPreviewForm_Load(object sender, EventArgs e) {
+        private void StartupPreviewForm_Load(object sender, EventArgs e)
+        {
             this.Focus();
         }
 
-        private string SanitizePath(string s) {
+        private string SanitizePath(string s)
+        {
             s = s.Replace("\"", string.Empty);
             int i;
 
-            while (s.Contains("/")) {
+            while (s.Contains("/"))
+            {
                 i = s.LastIndexOf("/");
                 s = s.Substring(0, i);
             }

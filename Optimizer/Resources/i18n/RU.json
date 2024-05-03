@@ -436,10 +436,12 @@
     "copilotTip": "Полностью отключает функцию CoPilot AI.",
 	"btnReinforce": "Укрепить политику",
 	"msgReinforce": "Вы уверены, что хотите повторно применить текущие политики?",
-	"chkNewsInterest": "Отключить Новости и Интересы",
-	"chkAllTrayIcons": "Показать все значки трея",
-	"chkMenuDelays": "Убрать задержки в меню",
-	"chkHideSearch": "Скрыть поиск",
-	"chkHideFeed": "Скрыть погоду",
-	"autoUpdateToggle": "Обновить при запуске"
+	"newsInterestsSw": "Отключить новости и интересы",
+	"allTrayIconsSw": "Показать все значки уведомлений",
+	"noMenuDelaySw": "Убрать задержку меню",
+	"hideSearchSw": "Скрыть поиск на панели задач",
+	"hideWeatherSw": "Скрыть погоду на панели задач",
+	"autoUpdateToggle": "Обновление при запуске",
+	"enableUtcSw": "Включить ВСЕВРЕМЕННОЕ",
+	"modernStandbySw": "Отключить режим современного ожидания"
 }

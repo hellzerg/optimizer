@@ -463,10 +463,12 @@ Tem efeito negativo no desempenho.",
     "copilotTip": "Desativa completamente a funcionalidade CoPilot AI.",
 	"btnReinforce": "Reforçar Políticas",
 	"msgReinforce": "Tem certeza de que deseja reaplicar suas políticas atuais?",
-	"chkNewsInterest": "Desativar Notícias e Interesses",
-	"chkAllTrayIcons": "Mostrar todos os ícones da bandeja",
-	"chkMenuDelays": "Remover atrasos no menu",
-	"chkHideSearch": "Ocultar busca",
-	"chkHideFeed": "Ocultar tempo",
-	"autoUpdateToggle": "Atualizar no lançamento"
+	"newsInterestsSw": "Desativar notícias e interesses",
+	"allTrayIconsSw": "Mostrar todos os ícones de notificação",
+	"noMenuDelaySw": "Remover atraso de menus",
+	"hideSearchSw": "Ocultar pesquisa na barra de tarefas",
+	"enableUtcSw": "Ativar Hora UTC",
+	"hideWeatherSw": "Ocultar clima na barra de tarefas",
+	"autoUpdateToggle": "Atualizar no lançamento",
+	"modernStandbySw": "Desativar Modo de Espera Moderno"
 }

@@ -440,10 +440,12 @@
     "copilotTip": "Deaktiviert die CoPilot AI-Funktion vollständig.",
 	"btnReinforce": "Richtlinien verstärken",
 	"msgReinforce": "Sind Sie sicher, dass Sie Ihre aktuellen Richtlinien erneut anwenden möchten?",
-	"chkNewsInterest": "News & Interessen deaktivieren",
-	"chkAllTrayIcons": "Alle Tray-Symbole anzeigen",
-	"chkMenuDelays": "Menüverzögerungen entfernen",
-	"chkHideSearch": "Suche ausblenden",
-	"chkHideFeed": "Wetter ausblenden",
-	"autoUpdateToggle": "Aktualisieren beim Start"
+	"newsInterestsSw": "Nachrichten und Interessen deaktivieren",
+	"allTrayIconsSw": "Alle Benachrichtigungssymbole anzeigen",
+	"noMenuDelaySw": "Menüverzögerung entfernen",
+	"hideSearchSw": "Suche in der Taskleiste ausblenden",
+	"hideWeatherSw": "Wetter in der Taskleiste ausblenden",
+	"autoUpdateToggle": "Aktualisierung beim Start",
+	"enableUtcSw": "UTC-Zeit aktivieren",
+	"modernStandbySw": "Modernen Standby deaktivieren"
 }

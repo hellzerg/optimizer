@@ -79,7 +79,7 @@ namespace Optimizer.Properties {
         ///[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWithCMD\command]
         ///@=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot;
         ///
-        ///[HKEY_CLASSES_ROOT\D [rest of string was truncated]&quot;;.
+        ///[HKEY_CLASSES_ROOT\Drive\shell\OpenWit [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AddOpenWithCMD {
             get {
@@ -89,21 +89,22 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
-        ///	&quot;subSystem&quot;: &quot;نظام&quot;,
-        ///	&quot;subPrivacy&quot;: &quot;خصوصية&quot;,
+        ///	&quot;subSystem&quot;: &quot;النظام&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;الخصوصية&quot;,
         ///	&quot;subGaming&quot;: &quot;الألعاب&quot;,
-        ///	&quot;subTouch&quot;: &quot;يلمس&quot;,
-        ///	&quot;subTaskbar&quot;: &quot;ريط المهام&quot;,
-        ///	&quot;subExtras&quot;: &quot;إضافات&quot;,
+        ///	&quot;subTouch&quot;: &quot;اللمس&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;شريط المهام&quot;,
+        ///	&quot;subExtras&quot;: &quot;الإضافات&quot;,
         ///	&quot;btnAbout&quot;: &quot;حسنا&quot;,
         ///	&quot;restartButton&quot;: &quot;إعادة التشغيل الآن&quot;,
         ///	&quot;restartButton8&quot;: &quot;إعادة التشغيل الآن&quot;,
         ///	&quot;restartButton10&quot;: &quot;إعادة التشغيل الآن&quot;,
-        ///	&quot;restartAndApply&quot;: &quot;إعادة التشغيل لتطبيق التغييرات&quot;,
-        ///	&quot;btnFind&quot;: &quot;يجد&quot;,
-        ///	&quot;btnKill&quot;: &quot;قتل&quot;,
-        ///	&quot;trayUnlocker&quot;: &quot;مقابض الملفات&quot;,
-        ///	&quot;onedriveM&quot;: &quot;هل أنت متأكد من أنك تريد إزالة تثبيت OneDrive؟ يؤدي هذا إلى حذف  [rest of string was truncated]&quot;;.
+        ///	&quot;btnFind&quot;: &quot;البحث&quot;,
+        ///	&quot;btnKill&quot;: &quot;إنهاء&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;مفاتيح الملفات&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;لتطبيق الإعدادات يجب إعادة التشغيل&quot;,
+        ///	&quot;txtVersion&quot;: &quot;الإصدار: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;أنت تعمل مع { [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AR {
             get {
@@ -319,7 +320,8 @@ namespace Optimizer.Properties {
         ///rem &quot;DisableAntiSpyware&quot; is discontinued and will be ignored on client devices, as of the August 2020 (version 4.18.2007.8) update to Microsoft Defender Antivirus.
         ///
         ///rem Disable Tamper Protection First !!!!!
-        ///rem https://www.tenforums.com/tutorials/123792-turn-off-tamper-protection-windows-defender-antivirus.ht [rest of string was truncated]&quot;;.
+        ///rem https://www.tenforums.com/tutorials/123792-turn-off-tamper-protection-windows-defender-antivirus.html
+        ///reg [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableDefenderSafeMode1903Plus {
             get {
@@ -358,7 +360,7 @@ namespace Optimizer.Properties {
         ///
         ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgentFallBack&quot;
         ///schtasks /change /tn &quot;\Microsoft\Office\OfficeTelemetryAgentFallBack&quot; /disable
-        ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgen [rest of string was truncated]&quot;;.
+        ///schtasks /end /tn &quot;\Microsoft\Office\OfficeTelemetryAgentLogOn&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableOfficeTelemetryTasks {
             get {
@@ -372,7 +374,7 @@ namespace Optimizer.Properties {
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot;
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\BthSQM&quot; /disable
         ///schtasks /end /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot;
-        ///schtasks /change /tn &quot;\Microsoft\ [rest of string was truncated]&quot;;.
+        ///schtasks /change /tn &quot;\Microsoft\Windo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DisableTelemetryTasks {
             get {
@@ -517,7 +519,7 @@ namespace Optimizer.Properties {
         ///schtasks /change /tn &quot;\Microsoft\Office\OfficeTelemetryAgentLogOn&quot; /enable
         ///
         ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\15.0\Outlook\Options\Mail&quot; /v &quot;EnableLogging&quot; /t REG_DWORD /d 1 /f
-        ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\16.0\Outlook\Options\Mail&quot; /v &quot;EnableLoggi [rest of string was truncated]&quot;;.
+        ///reg add &quot;HKCU\SOFTWARE\Microsoft\Office\16.0\Outlook\Options\Mail&quot; /v &quot;EnableLogging&quot; /t  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnableOfficeTelemetryTasks {
             get {
@@ -531,7 +533,7 @@ namespace Optimizer.Properties {
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask&quot; /enable
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip&quot; /enable
         ///schtasks /change /tn &quot;\Microsoft\Windows\Customer Experience Improvement Program\Uploader&quot; /enable
-        ///schta [rest of string was truncated]&quot;;.
+        ///schtasks / [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnableTelemetryTasks {
             get {
@@ -728,7 +730,7 @@ namespace Optimizer.Properties {
         ///&quot;NoWorkingDirectory&quot;=&quot;&quot;
         ///
         ///[HKEY_CLASSES_ROOT\Directory\shell\runas\command]
-        ///@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d  [rest of string was truncated]&quot;;.
+        ///@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d y &amp;&amp; icacls \&quot;% [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string InstallTakeOwnership {
             get {
@@ -968,6 +970,16 @@ namespace Optimizer.Properties {
             get {
                 object obj = ResourceManager.GetObject("OneDrive_Uninstaller", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pakistan {
+            get {
+                object obj = ResourceManager.GetObject("pakistan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -1327,6 +1339,31 @@ namespace Optimizer.Properties {
             get {
                 object obj = ResourceManager.GetObject("united_kingdom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///&quot;subSystem&quot;: &quot;سسٹم&quot;,
+        ///&quot;subPrivacy&quot;: &quot;رازداری&quot;,
+        ///&quot;subGaming&quot;: &quot;گیمنگ&quot;,
+        ///&quot;subTouch&quot;: &quot;ٹچ&quot;,
+        ///&quot;subTaskbar&quot;: &quot;ٹاسک بار&quot;,
+        ///&quot;subExtras&quot;: &quot;اضافی&quot;,
+        ///&quot;btnAbout&quot;: &quot;ٹھیک ہے&quot;,
+        ///&quot;restartButton&quot;: &quot;ابھی دوبارہ شروع کریں&quot;,
+        ///&quot;restartButton8&quot;: &quot;ابھی دوبارہ شروع کریں&quot;,
+        ///&quot;restartButton10&quot;: &quot;ابھی دوبارہ شروع کریں&quot;,
+        ///&quot;btnFind&quot;: &quot;تلاش کریں&quot;,
+        ///&quot;btnKill&quot;: &quot;مار ڈالو&quot;,
+        ///&quot;trayUnlocker&quot;: &quot;فائل ہینڈلز&quot;,
+        ///&quot;restartAndApply&quot;: &quot;تبدیلیاں لاگو کرنے کے لیے دوبارہ شروع کریں&quot;,
+        ///&quot;txtVersion&quot;: &quot;ورژن: {VN}&quot;,
+        ///&quot;txtBitness&quot;: &quot;آپ {BITS} کے ساتھ کام  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string UR {
+            get {
+                return ResourceManager.GetString("UR", resourceCulture);
             }
         }
         

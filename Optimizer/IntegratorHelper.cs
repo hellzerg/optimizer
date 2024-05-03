@@ -7,12 +7,16 @@ using System.IO;
 using System.Net;
 using System.Windows.Forms;
 
-namespace Optimizer {
-    public static class IntegratorHelper {
+namespace Optimizer
+{
+    public static class IntegratorHelper
+    {
         internal static string FolderDefaultIcon = @"%systemroot%\system32\imageres.dll,-112";
 
-        internal static void CreateCustomCommand(string file, string keyword) {
-            if (!keyword.EndsWith(".exe")) {
+        internal static void CreateCustomCommand(string file, string keyword)
+        {
+            if (!keyword.EndsWith(".exe"))
+            {
                 keyword = keyword + ".exe";
             }
 
@@ -23,11 +27,14 @@ namespace Optimizer {
             Registry.SetValue(key, "Path", file.Substring(0, file.LastIndexOf("\\")));
         }
 
-        internal static List<string> GetCustomCommands() {
+        internal static List<string> GetCustomCommands()
+        {
             List<string> items = new List<string>();
 
-            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\")) {
-                foreach (string command in key.GetSubKeyNames()) {
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\"))
+            {
+                foreach (string command in key.GetSubKeyNames())
+                {
                     items.Add(command);
                 }
             }
@@ -35,21 +42,27 @@ namespace Optimizer {
             return items;
         }
 
-        internal static void DeleteCustomCommand(string command) {
+        internal static void DeleteCustomCommand(string command)
+        {
             Registry.LocalMachine.DeleteSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\" + command, false);
         }
 
-        private static void CreateDefaultCommand(string itemName) {
-            using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + itemName, true)) {
+        private static void CreateDefaultCommand(string itemName)
+        {
+            using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + itemName, true))
+            {
                 key.CreateSubKey("command", RegistryKeyPermissionCheck.Default);
             }
         }
 
-        internal static List<string> GetDesktopItems() {
+        internal static List<string> GetDesktopItems()
+        {
             List<string> items = new List<string>();
 
-            using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", false)) {
-                foreach (string item in key.GetSubKeyNames()) {
+            using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", false))
+            {
+                foreach (string item in key.GetSubKeyNames())
+                {
                     // filter the list, so the default items will not be visible
                     if (item.Contains("Gadgets")) continue;
                     if (item.Contains("Display")) continue;
@@ -62,69 +75,91 @@ namespace Optimizer {
             return items;
         }
 
-        internal static void RemoveItem(string name) {
-            try {
-                using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true)) {
-                    try {
+        internal static void RemoveItem(string name)
+        {
+            try
+            {
+                using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true))
+                {
+                    try
+                    {
                         key.DeleteSubKeyTree(name, false);
                     }
-                    catch (Exception ex) {
+                    catch (Exception ex)
+                    {
                         Logger.LogError("Integrator.RemoveItem", ex.Message, ex.StackTrace);
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("Integrator.RemoveItem", ex.Message, ex.StackTrace);
             }
         }
 
-        internal static bool DesktopItemExists(string name) {
-            try {
+        internal static bool DesktopItemExists(string name)
+        {
+            try
+            {
                 return Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + name, false) != null;
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("Integrator.ItemExists", ex.Message, ex.StackTrace);
                 return false;
             }
         }
 
-        internal static bool TakeOwnershipExists() {
-            try {
+        internal static bool TakeOwnershipExists()
+        {
+            try
+            {
                 return Registry.ClassesRoot.OpenSubKey(@"*\shell\runas", false).GetValue("").ToString() == "Take Ownership";
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("Integrator.TakeOwnershipExists", ex.Message, ex.StackTrace);
                 return false;
             }
         }
 
-        internal static bool OpenWithCMDExists() {
-            try {
+        internal static bool OpenWithCMDExists()
+        {
+            try
+            {
                 return Registry.ClassesRoot.OpenSubKey(@"Directory\shell\OpenWithCMD", false) != null;
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("Integrator.OpenWithCMDExists", ex.Message, ex.StackTrace);
                 return false;
             }
         }
 
-        internal static void RemoveAllItems(List<string> items) {
-            using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true)) {
-                foreach (string item in items) {
-                    try {
+        internal static void RemoveAllItems(List<string> items)
+        {
+            using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true))
+            {
+                foreach (string item in items)
+                {
+                    try
+                    {
                         key.DeleteSubKeyTree(item, false);
                     }
-                    catch (Exception ex) {
+                    catch (Exception ex)
+                    {
                         Logger.LogError("Integrator.RemoveAllItems", ex.Message, ex.StackTrace);
                     }
                 }
             }
         }
 
-        internal static string ExtractIconFromExecutable(string itemName, string fileName) {
+        internal static string ExtractIconFromExecutable(string itemName, string fileName)
+        {
             string iconPath = string.Empty;
 
-            if (File.Exists(fileName)) {
+            if (File.Exists(fileName))
+            {
                 Icon ico = Icon.ExtractAssociatedIcon(fileName);
 
                 Clipboard.SetImage(ico.ToBitmap());
@@ -137,36 +172,45 @@ namespace Optimizer {
             return iconPath;
         }
 
-        internal static string DownloadFavicon(string link, string name) {
+        internal static string DownloadFavicon(string link, string name)
+        {
             string favicon = string.Empty;
 
-            try {
+            try
+            {
                 Uri url = new Uri(link);
-                if (url.HostNameType == UriHostNameType.Dns) {
+                if (url.HostNameType == UriHostNameType.Dns)
+                {
                     Image.FromStream(((HttpWebResponse)WebRequest.Create("http://" + url.Host + "/favicon.ico").GetResponse()).GetResponseStream()).Save(CoreHelper.FavIconsFolder + name + ".ico", ImageFormat.Bmp);
 
                     favicon = CoreHelper.FavIconsFolder + name + ".ico";
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("Integrator.DownloadFavicon", ex.Message, ex.StackTrace);
             }
 
             return favicon;
         }
 
-        internal static void AddItem(string name, string item, string icon, DesktopTypePosition position, bool shift, DesktopItemType type) {
-            using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true)) {
+        internal static void AddItem(string name, string item, string icon, DesktopTypePosition position, bool shift, DesktopItemType type)
+        {
+            using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell", true))
+            {
                 key.CreateSubKey(name, RegistryKeyPermissionCheck.Default);
             }
 
             CreateDefaultCommand(name);
 
-            if (shift) {
+            if (shift)
+            {
                 Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Extended", "");
             }
-            else {
-                using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + name, true)) {
+            else
+            {
+                using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"DesktopBackground\Shell\" + name, true))
+                {
                     key.CreateSubKey(name, RegistryKeyPermissionCheck.Default);
                 }
             }
@@ -174,7 +218,8 @@ namespace Optimizer {
             Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Icon", icon);
             Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name, "Position", position.ToString());
 
-            switch (type) {
+            switch (type)
+            {
                 case DesktopItemType.Program:
                     Registry.SetValue(@"HKEY_CLASSES_ROOT\DesktopBackground\Shell\" + name + "\\command", "", item);
                     break;
@@ -196,38 +241,49 @@ namespace Optimizer {
             }
         }
 
-        internal static void InstallOpenWithCMD() {
+        internal static void InstallOpenWithCMD()
+        {
             Utilities.ImportRegistryScript(CoreHelper.ScriptsFolder + "AddOpenWithCMD.reg");
         }
 
-        internal static void DeleteOpenWithCMD() {
+        internal static void DeleteOpenWithCMD()
+        {
             Registry.ClassesRoot.DeleteSubKeyTree(@"Directory\shell\OpenWithCMD", false);
             Registry.ClassesRoot.DeleteSubKeyTree(@"Directory\Background\shell\OpenWithCMD", false);
             Registry.ClassesRoot.DeleteSubKeyTree(@"Drive\shell\OpenWithCMD", false);
         }
 
-        internal static void InstallTakeOwnership(bool remove) {
-            if (!File.Exists(CoreHelper.ReadyMadeMenusFolder + "InstallTakeOwnership.reg")) {
-                try {
+        internal static void InstallTakeOwnership(bool remove)
+        {
+            if (!File.Exists(CoreHelper.ReadyMadeMenusFolder + "InstallTakeOwnership.reg"))
+            {
+                try
+                {
                     File.WriteAllText(CoreHelper.ReadyMadeMenusFolder + "InstallTakeOwnership.reg", Properties.Resources.InstallTakeOwnership);
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     Logger.LogError("Integrator.TakeOwnership", ex.Message, ex.StackTrace);
                 }
             }
-            if (!File.Exists(CoreHelper.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg")) {
-                try {
+            if (!File.Exists(CoreHelper.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg"))
+            {
+                try
+                {
                     File.WriteAllText(CoreHelper.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg", Properties.Resources.RemoveTakeOwnership);
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     Logger.LogError("Integrator.TakeOwnership", ex.Message, ex.StackTrace);
                 }
             }
 
-            if (!remove) {
+            if (!remove)
+            {
                 Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "InstallTakeOwnership.reg");
             }
-            else {
+            else
+            {
                 Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg");
             }
         }

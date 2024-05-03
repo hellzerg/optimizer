@@ -4,8 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 
-namespace Optimizer {
-    internal static class CleanHelper {
+namespace Optimizer
+{
+    internal static class CleanHelper
+    {
         [DllImport("Shell32.dll")]
         static extern int SHEmptyRecycleBin(IntPtr hwnd, string pszRootPath, RecycleFlag dwFlags);
 
@@ -118,24 +120,31 @@ namespace Optimizer {
 
         internal static ByteSize PreviewSizeToBeFreed = new ByteSize(0);
 
-        internal static void PreviewFolder(string path) {
-            try {
-                if (File.Exists(path)) {
+        internal static void PreviewFolder(string path)
+        {
+            try
+            {
+                if (File.Exists(path))
+                {
                     PreviewCleanList.Add(path);
                     return;
                 }
 
                 DirectoryInfo di = new DirectoryInfo(path);
 
-                foreach (FileInfo file in di.GetFiles("*", SearchOption.AllDirectories)) {
-                    try {
+                foreach (FileInfo file in di.GetFiles("*", SearchOption.AllDirectories))
+                {
+                    try
+                    {
                         PreviewCleanList.Add(file.FullName);
                     }
                     catch { }
                 }
 
-                foreach (DirectoryInfo dir in di.GetDirectories("*", SearchOption.AllDirectories)) {
-                    try {
+                foreach (DirectoryInfo dir in di.GetDirectories("*", SearchOption.AllDirectories))
+                {
+                    try
+                    {
                         PreviewCleanList.Add(dir.FullName);
                     }
                     catch { }
@@ -144,9 +153,12 @@ namespace Optimizer {
             catch { }
         }
 
-        internal static void Clean() {
-            foreach (string x in PreviewCleanList) {
-                try {
+        internal static void Clean()
+        {
+            foreach (string x in PreviewCleanList)
+            {
+                try
+                {
                     if (Directory.Exists(x)) Directory.Delete(x);
                     if (File.Exists(x)) File.Delete(x);
                 }
@@ -154,21 +166,25 @@ namespace Optimizer {
             }
         }
 
-        internal static void EmptyRecycleBin() {
+        internal static void EmptyRecycleBin()
+        {
             SHEmptyRecycleBin(IntPtr.Zero, null, RecycleFlag.SHERB_NOSOUND | RecycleFlag.SHERB_NOCONFIRMATION);
         }
 
-        internal static void PreviewTemp() {
+        internal static void PreviewTemp()
+        {
             PreviewFolder(TempFolder);
             PreviewSizeToBeFreed += CalculateSize(TempFolder);
         }
 
-        internal static void PreviewMinidumps() {
+        internal static void PreviewMinidumps()
+        {
             PreviewFolder(Path.Combine(OSDriveWindows, "Minidump"));
             PreviewSizeToBeFreed += CalculateSize(Path.Combine(OSDriveWindows, "Minidump"));
         }
 
-        internal static void PreviewErrorReports() {
+        internal static void PreviewErrorReports()
+        {
             PreviewFolder(Path.Combine(ProfileAppDataLocal, "Microsoft\\Windows\\WER\\ReportArchive"));
             PreviewFolder(Path.Combine(ProfileAppDataLocal, "Microsoft\\Windows\\WER\\ReportQueue"));
             PreviewFolder(Path.Combine(ProfileAppDataLocal, "Microsoft\\Windows\\WER\\Temp"));
@@ -188,16 +204,20 @@ namespace Optimizer {
             PreviewSizeToBeFreed += CalculateSize(Path.Combine(ProgramData, "Microsoft\\Windows\\WER\\ERC"));
         }
 
-        internal static ByteSize CalculateSize(string fileOrFolder) {
+        internal static ByteSize CalculateSize(string fileOrFolder)
+        {
             ByteSize totalSize = new ByteSize(0);
             bool isFolder = Directory.Exists(fileOrFolder);
 
-            try {
-                if (isFolder) {
+            try
+            {
+                if (isFolder)
+                {
                     DirectoryInfo dir = new DirectoryInfo(fileOrFolder);
                     totalSize += totalSize.AddBytes(dir.EnumerateFiles("*", SearchOption.AllDirectories).Sum(file => file.Length));
                 }
-                else {
+                else
+                {
                     FileInfo file = new FileInfo(fileOrFolder);
                     totalSize = totalSize.AddBytes(file.Length);
                 }
@@ -207,56 +227,73 @@ namespace Optimizer {
             return totalSize;
         }
 
-        internal static void PreviewEdgeClean(bool cache, bool cookies, bool seachHistory, bool session) {
-            if (cache) {
-                foreach (string x in edgeCache) {
+        internal static void PreviewEdgeClean(bool cache, bool cookies, bool seachHistory, bool session)
+        {
+            if (cache)
+            {
+                foreach (string x in edgeCache)
+                {
                     PreviewFolder(x);
                     PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
 
-            if (cookies) {
-                foreach (string x in edgeCookies) {
+            if (cookies)
+            {
+                foreach (string x in edgeCookies)
+                {
                     PreviewFolder(x);
                     PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
 
-            if (seachHistory) {
+            if (seachHistory)
+            {
                 PreviewFolder(edgeHistory);
                 PreviewSizeToBeFreed += CalculateSize(edgeHistory);
             }
 
-            if (session) {
-                foreach (string x in edgeSession) {
+            if (session)
+            {
+                foreach (string x in edgeSession)
+                {
                     PreviewFolder(x);
                     PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
         }
 
-        internal static void PreviewInternetExplorerCache() {
-            foreach (string x in ieCache) {
+        internal static void PreviewInternetExplorerCache()
+        {
+            foreach (string x in ieCache)
+            {
                 PreviewFolder(x);
                 PreviewSizeToBeFreed += CalculateSize(x);
             }
         }
 
-        internal static void PreviewFireFoxClean(bool cache, bool cookies, bool searchHistory) {
-            if (Directory.Exists(firefoxRoaming)) {
-                foreach (string x in Directory.EnumerateDirectories(firefoxRoaming)) {
-                    if (x.ToLowerInvariant().Contains("release")) {
-                        if (cookies) {
+        internal static void PreviewFireFoxClean(bool cache, bool cookies, bool searchHistory)
+        {
+            if (Directory.Exists(firefoxRoaming))
+            {
+                foreach (string x in Directory.EnumerateDirectories(firefoxRoaming))
+                {
+                    if (x.ToLowerInvariant().Contains("release"))
+                    {
+                        if (cookies)
+                        {
                             PreviewFolder(Path.Combine(x, "cookies.sqlite"));
                             PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "cookies.sqlite"));
                         }
 
-                        if (searchHistory) {
+                        if (searchHistory)
+                        {
                             PreviewFolder(Path.Combine(x, "places.sqlite"));
                             PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "places.sqlite"));
                         }
 
-                        if (cache) {
+                        if (cache)
+                        {
                             PreviewFolder(Path.Combine(x, "shader-cache"));
                             PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "shader-cache"));
                         }
@@ -264,10 +301,14 @@ namespace Optimizer {
                 }
             }
 
-            if (cache) {
-                if (Directory.Exists(firefoxLocal)) {
-                    foreach (string x in Directory.EnumerateDirectories(firefoxLocal)) {
-                        if (x.ToLowerInvariant().Contains("release")) {
+            if (cache)
+            {
+                if (Directory.Exists(firefoxLocal))
+                {
+                    foreach (string x in Directory.EnumerateDirectories(firefoxLocal))
+                    {
+                        if (x.ToLowerInvariant().Contains("release"))
+                        {
                             PreviewFolder(Path.Combine(x, "cache2"));
                             PreviewSizeToBeFreed += CalculateSize(Path.Combine(x, "cache2"));
                         }
@@ -276,71 +317,91 @@ namespace Optimizer {
             }
         }
 
-        internal static void PreviewBraveClean(bool cache, bool cookies, bool searchHistory, bool session, bool passwords) {
-            if (cache) {
-                foreach (string x in braveUserDataCacheDirs) {
+        internal static void PreviewBraveClean(bool cache, bool cookies, bool searchHistory, bool session, bool passwords)
+        {
+            if (cache)
+            {
+                foreach (string x in braveUserDataCacheDirs)
+                {
                     PreviewFolder(Path.Combine(braveFolder, x));
                     PreviewSizeToBeFreed += CalculateSize(Path.Combine(braveFolder, x));
                 }
             }
 
-            if (session) {
-                foreach (string x in braveSessionDirs) {
+            if (session)
+            {
+                foreach (string x in braveSessionDirs)
+                {
                     PreviewFolder(x);
                     PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
 
-            if (cookies) {
-                foreach (string x in braveCookiesDirs) {
+            if (cookies)
+            {
+                foreach (string x in braveCookiesDirs)
+                {
                     PreviewFolder(x);
                     PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
 
-            if (searchHistory) {
-                foreach (string x in braveHistoryDirs) {
+            if (searchHistory)
+            {
+                foreach (string x in braveHistoryDirs)
+                {
                     PreviewFolder(x);
                     PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
 
-            if (passwords) {
+            if (passwords)
+            {
                 PreviewFolder(bravePasswordsDir);
                 PreviewSizeToBeFreed += CalculateSize(bravePasswordsDir);
             }
         }
 
-        internal static void PreviewChromeClean(bool cache, bool cookies, bool searchHistory, bool session, bool passwords) {
-            if (cache) {
-                foreach (string x in chromeUserDataCacheDirs) {
+        internal static void PreviewChromeClean(bool cache, bool cookies, bool searchHistory, bool session, bool passwords)
+        {
+            if (cache)
+            {
+                foreach (string x in chromeUserDataCacheDirs)
+                {
                     PreviewFolder(Path.Combine(chromeFolder, x));
                     PreviewSizeToBeFreed += CalculateSize(Path.Combine(chromeFolder, x));
                 }
             }
 
-            if (session) {
-                foreach (string x in chromeSessionDirs) {
+            if (session)
+            {
+                foreach (string x in chromeSessionDirs)
+                {
                     PreviewFolder(x);
                     PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
 
-            if (cookies) {
-                foreach (string x in chromeCookiesDirs) {
+            if (cookies)
+            {
+                foreach (string x in chromeCookiesDirs)
+                {
                     PreviewFolder(x);
                     PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
 
-            if (searchHistory) {
-                foreach (string x in chromeHistoryDirs) {
+            if (searchHistory)
+            {
+                foreach (string x in chromeHistoryDirs)
+                {
                     PreviewFolder(x);
                     PreviewSizeToBeFreed += CalculateSize(x);
                 }
             }
 
-            if (passwords) {
+            if (passwords)
+            {
                 PreviewFolder(chromePasswordsDir);
                 PreviewSizeToBeFreed += CalculateSize(chromePasswordsDir);
             }

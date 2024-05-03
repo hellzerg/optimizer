@@ -6,11 +6,14 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Optimizer {
-    public sealed partial class FileUnlockForm : Form {
+namespace Optimizer
+{
+    public sealed partial class FileUnlockForm : Form
+    {
         List<Process> _lockingProcesses;
 
-        public FileUnlockForm() {
+        public FileUnlockForm()
+        {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
             OptionsHelper.ApplyTheme(this);
@@ -19,11 +22,13 @@ namespace Optimizer {
             btnKill.Text = OptionsHelper.TranslationList["btnKill"].ToString();
         }
 
-        private void FileUnlockForm_Load(object sender, EventArgs e) {
+        private void FileUnlockForm_Load(object sender, EventArgs e)
+        {
 
         }
 
-        private void btnFind_Click(object sender, EventArgs e) {
+        private void btnFind_Click(object sender, EventArgs e)
+        {
             if (string.IsNullOrEmpty(txtFile.Text)) return;
             if (!File.Exists(txtFile.Text)) return;
 
@@ -35,13 +40,17 @@ namespace Optimizer {
             listProcesses.Items.AddRange(_lockingProcesses.Select(x => $"[{x.Id}] {x.ProcessName}").ToArray());
         }
 
-        private void btnKill_Click(object sender, EventArgs e) {
+        private void btnKill_Click(object sender, EventArgs e)
+        {
             if (listProcesses.CheckedItems.Count <= 0) return;
 
-            foreach (string x in listProcesses.CheckedItems) {
+            foreach (string x in listProcesses.CheckedItems)
+            {
                 IEnumerable<Process> prs = Process.GetProcesses().Where(pr => pr.ProcessName == x.Replace(x.Substring(0, x.IndexOf("]") + 1), string.Empty).Trim());
-                foreach (Process z in prs) {
-                    try {
+                foreach (Process z in prs)
+                {
+                    try
+                    {
                         z.Kill();
                     }
                     catch { continue; }

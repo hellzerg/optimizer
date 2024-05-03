@@ -2,23 +2,28 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace Optimizer {
-    public sealed partial class AboutForm : Form {
-        public AboutForm() {
+namespace Optimizer
+{
+    public sealed partial class AboutForm : Form
+    {
+        public AboutForm()
+        {
             InitializeComponent();
             OptionsHelper.ApplyTheme(this);
 
             pictureBox1.BackColor = OptionsHelper.CurrentOptions.Theme;
         }
 
-        private void About_Load(object sender, EventArgs e) {
+        private void About_Load(object sender, EventArgs e)
+        {
             t1.Interval = 50;
             t2.Interval = 50;
 
             t1.Start();
         }
 
-        private void t1_Tick(object sender, EventArgs e) {
+        private void t1_Tick(object sender, EventArgs e)
+        {
             string s0 = "";
             string s1 = "O";
             string s2 = "Op";
@@ -30,7 +35,8 @@ namespace Optimizer {
             string s8 = "Optimize";
             string s9 = "Optimizer";
 
-            switch (l1.Text) {
+            switch (l1.Text)
+            {
                 case "":
                     l1.Text = s1;
                     break;
@@ -66,7 +72,8 @@ namespace Optimizer {
             }
         }
 
-        private void t2_Tick(object sender, EventArgs e) {
+        private void t2_Tick(object sender, EventArgs e)
+        {
             string s0 = "";
             string s1 = "d";
             string s2 = "de";
@@ -79,7 +86,8 @@ namespace Optimizer {
             string s9 = "deadmoon © ";
             string s10 = "deadmoon © ∞";
 
-            switch (l2.Text) {
+            switch (l2.Text)
+            {
                 case "":
                     l2.Text = s1;
                     break;
@@ -117,7 +125,8 @@ namespace Optimizer {
             }
         }
 
-        private void l2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+        private void l2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
             Process.Start("https://github.com/hellzerg/optimizer");
         }
     }

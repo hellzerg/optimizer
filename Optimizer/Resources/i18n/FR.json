@@ -440,10 +440,12 @@ Necessite l'ouverture d'un compte Microsoft.",
     "copilotTip": "Désactive complètement la fonctionnalité CoPilot AI.",
 	"btnReinforce": "Renforcer les politiques",
 	"msgReinforce": "Êtes-vous sûr de vouloir réappliquer vos politiques actuelles?",
-	"chkNewsInterest": "Désactiver les Actualités et les Centres d'Intérêt",
-	"chkAllTrayIcons": "Afficher toutes les icônes de la zone de notification",
-	"chkMenuDelays": "Supprimer les retards dans le menu",
-	"chkHideSearch": "Masquer la recherche",
-	"chkHideFeed": "Masquer la météo",
-	"autoUpdateToggle": "Mise à jour au lancement"
+	"newsInterestsSw": "Désactiver les actualités et les centres d'intérêt",
+	"allTrayIconsSw": "Afficher toutes les icônes de notification",
+	"noMenuDelaySw": "Supprimer le délai des menus",
+	"hideSearchSw": "Masquer la recherche dans la barre des tâches",
+	"hideWeatherSw": "Masquer la météo dans la barre des tâches",
+	"autoUpdateToggle": "Mise à jour au démarrage",
+	"enableUtcSw": "Activer l'heure UTC",
+	"modernStandbySw": "Désactiver le mode veille moderne"
 }

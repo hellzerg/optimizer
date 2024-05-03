@@ -466,10 +466,12 @@ It has negative effect on performance.",
 	"copilotTip": "Completely turns off CoPilot AI feature.",
 	"btnReinforce": "Reinforce policies",
 	"msgReinforce": "Are you sure you want to re-apply your current active policies?",
-	"chkNewsInterest": "Disable News && Interest",
-	"chkAllTrayIcons": "Show all tray icons",
-	"chkMenuDelays": "Remove menu delays",
-	"chkHideSearch": "Hide Search",
-	"chkHideFeed": "Hide Weather",
-	"autoUpdateToggle": "Update on launch"
+	"newsInterestsSw": "Disable News && Interests",
+	"allTrayIconsSw": "Show all notification icons",
+	"noMenuDelaySw": "Remove menus delay",
+	"hideSearchSw": "Hide Taskbar Search",
+	"hideWeatherSw": "Hide Taskbar Weather",
+	"autoUpdateToggle": "Update on launch",
+	"modernStandbySw": "Disable Modern Standby",
+	"enableUtcSw": "Enable UTC Time"
 }

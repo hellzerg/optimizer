@@ -464,11 +464,12 @@
 	"copilotSw": "CoPilot AI تایبه‌تییه‌کرن",
     "copilotTip": "ویژگی CoPilot AI تایبه‌تییه‌کرنەوەکی ته‌مامی.",
 	"btnReinforce": "سیاسهٔ بیشکوچین",
-	"msgReinforce": "داکۆ پێشەنگەتیە پێوستییە کرییە مە یانو دابەزەکیی نو رە بکە؟",
-	"chkNewsInterest": "شوێنەکردنی نووسراو و نواندن",
-	"chkAllTrayIcons": "نیشاندانی هەموو سیمبۆلەکانی تەخته",
-	"chkMenuDelays": "لابردنی داواکردنی مێنیو",
-	"chkHideSearch": "شارستنی پوشە",
-	"chkHideFeed": "شارستنی هەوا",
-	"autoUpdateToggle": "نوێکردنەوە لە چاڵاککردندا"
+	"newsInterestsSw": "بازنیشانیکردنی خۆبەخش و بەڵگەڕان",
+	"allTrayIconsSw": "پیشاندانی هەموو ئایکۆنەکانی ئاگەداری",
+	"noMenuDelaySw": "لابردنی داگیراوەی مێنوەکان",
+	"hideSearchSw": "شاردنەوەی گەڕان لە نواری کارەکوتنەکان",
+	"enableUtcSw": "فعال کردن زمان UTC",
+	"hideWeatherSw": "شاردنەوەی ئاستی هەوا لە نواری کارەکوتنەکان",
+	"autoUpdateToggle": "نوێکردنەوە لە دەستپێکردن",
+	"modernStandbySw": "بازنیشانیکردنی بەرزی نوێ"
 }

@@ -416,10 +416,12 @@
   "copilotTip": "Tắt hoàn toàn tính năng CoPilot AI.",
   "btnReinforce": "Củng cố các chính sách",
   "msgReinforce": "Bạn có chắc muốn áp dụng lại các chính sách hoạt động hiện tại của bạn không?",
-  "chkNewsInterest": "Tắt Tin tức && Sở thích",
-  "chkAllTrayIcons": "Hiển thị tất cả các biểu tượng khay",
-  "chkMenuDelays": "Loại bỏ độ trễ của menu",
-  "chkHideSearch": "Ẩn Tìm kiếm",
-  "chkHideFeed": "Ẩn Thời tiết",
-  "autoUpdateToggle": "Cập nhật khi khởi động"
+  "newsInterestsSw": "Tắt tin tức và sở thích",
+	"allTrayIconsSw": "Hiển thị tất cả biểu tượng thông báo",
+	"noMenuDelaySw": "Xóa độ trễ của menu",
+	"hideSearchSw": "Ẩn tìm kiếm trên thanh tác vụ",
+	"hideWeatherSw": "Ẩn thời tiết trên thanh tác vụ",
+  "enableUtcSw": "Kích hoạt thời gian UTC",
+	"autoUpdateToggle": "Cập nhật khi khởi động",
+	"modernStandbySw": "Tắt Chế độ chờ hiện đại"
 }

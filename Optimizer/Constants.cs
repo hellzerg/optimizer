@@ -1,5 +1,7 @@
-﻿namespace Optimizer {
-    internal static class Constants {
+﻿namespace Optimizer
+{
+    internal static class Constants
+    {
         internal static string INTERNAL_DNS = "1.1.1.1";
         internal static string THEME_FLAG = "themeable";
         internal static int CONTRAST_THRESHOLD = 149;
@@ -38,6 +40,7 @@
         internal static string NEPALI = "नेपाली";
         internal static string BULGARIAN = "български";
         internal static string VIETNAMESE = "Tiếng Việt";
+        internal static string URDU = "لشکری ‍زبان";
 
         internal static string CloudflareDNS = "Cloudflare";
         internal static string OpenDNS = "OpenDNS";

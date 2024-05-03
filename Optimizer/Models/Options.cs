@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Drawing;
 
-namespace Optimizer {
+namespace Optimizer
+{
     [Serializable]
-    public sealed class Options {
+    public sealed class Options
+    {
         /// <summary>
         /// Represents the theme color in RGB
         /// </summary>
@@ -81,6 +83,9 @@ namespace Optimizer {
         public bool DisableSMB2 { get; set; }
         public bool DisableNTFSTimeStamp { get; set; }
         public bool DisableSearch { get; set; }
+        public bool EnableUtcTime { get; set; }
+        public bool ShowAllTrayIcons { get; set; }
+        public bool RemoveMenusDelay { get; set; }
 
         /// <summary>
         /// The state of the apps telemetry tweaks
@@ -130,6 +135,10 @@ namespace Optimizer {
         public bool RemoveCastToDevice { get; set; }
         public bool EnableGamingMode { get; set; }
         public bool RestoreClassicPhotoViewer { get; set; }
+        public bool DisableModernStandby { get; set; }
+        public bool HideTaskbarWeather { get; set; }
+        public bool HideTaskbarSearch { get; set; }
+        public bool DisableNewsInterests { get; set; }
 
         /// <summary>
         /// The state of the Windows 11 tweaks

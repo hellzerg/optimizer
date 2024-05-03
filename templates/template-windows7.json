@@ -95,6 +95,9 @@
         "DisableFirefoxTemeletry": null,
         "DisableChromeTelemetry": null,
         "DisableNVIDIATelemetry": null,
-        "DisableSearch": null
+        "DisableSearch": null,
+        "EnableUtcTime": null,
+        "ShowAllTrayIcons": null,
+        "RemoveMenusDelay": null
     }
 }

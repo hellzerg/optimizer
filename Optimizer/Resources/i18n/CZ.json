@@ -466,10 +466,12 @@ Má to negativní vliv na výkon.",
     "copilotTip": "Úplně vypne funkci CoPilot AI.",
 	"btnReinforce": "Posílit politiky",
 	"msgReinforce": "Opravdu si přejete znovu použít své stávající politiky?",
-	"chkNewsInterest": "Vypnout Novinky a Zájmy",
-	"chkAllTrayIcons": "Zobrazit všechny ikony v oznamovací oblasti",
-	"chkMenuDelays": "Odstranit zpoždění v menu",
-	"chkHideSearch": "Skrýt vyhledávání",
-	"chkHideFeed": "Skrýt počasí",
-	"autoUpdateToggle": "Aktualizovat při spuštění"
+	"newsInterestsSw": "Zakázat zprávy a zájmy",
+	"allTrayIconsSw": "Zobrazit všechny ikony oznamování",
+	"noMenuDelaySw": "Odstranit zpoždění nabídek",
+	"hideSearchSw": "Skrýt vyhledávání v hlavní liště",
+	"hideWeatherSw": "Skrýt počasí v hlavní liště",
+	"autoUpdateToggle": "Aktualizovat při spuštění",
+	"enableUtcSw": "Aktivovat UTC Čas",
+	"modernStandbySw": "Zakázat moderní pohotovost"
 }

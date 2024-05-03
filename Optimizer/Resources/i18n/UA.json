@@ -467,10 +467,12 @@
     "copilotTip": "Повністю вимикає функцію CoPilot AI.",
 	"btnReinforce": "Підсилити політику",
 	"msgReinforce": "Ви впевнені, що хочете повторно застосувати поточну політику?",
-	"chkNewsInterest": "Вимкнути Новини та Інтереси",
-	"chkAllTrayIcons": "Показати всі значки на панелі задач",
-	"chkMenuDelays": "Видалити затримки у меню",
-	"chkHideSearch": "Приховати пошук",
-	"chkHideFeed": "Приховати погоду",
-	"autoUpdateToggle": "Оновити при запуску"
+	"newsInterestsSw": "Вимкнути новини та інтереси",
+	"allTrayIconsSw": "Показати всі піктограми сповіщень",
+	"noMenuDelaySw": "Видалити затримку меню",
+	"hideSearchSw": "Приховати пошук на панелі завдань",
+	"hideWeatherSw": "Приховати погоду на панелі завдань",
+	"autoUpdateToggle": "Оновлення при запуску",
+	"enableUtcSw": "Увімкнути UTC-час",
+	"modernStandbySw": "Вимкнути сучасний режим очікування"
 }

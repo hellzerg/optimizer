@@ -79,6 +79,10 @@ namespace Optimizer
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.radioBulgarian = new Optimizer.MoonRadio();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
+            this.radioVietnam = new Optimizer.MoonRadio();
+            this.pictureBox22 = new System.Windows.Forms.PictureBox();
+            this.radioUrdu = new Optimizer.MoonRadio();
+            this.pictureBox23 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox88)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox87)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox86)).BeginInit();
@@ -103,6 +107,8 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox88
@@ -151,10 +157,10 @@ namespace Optimizer
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.White;
-            this.btnStart.Location = new System.Drawing.Point(11, 401);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStart.Location = new System.Drawing.Point(11, 256);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(314, 31);
+            this.btnStart.Size = new System.Drawing.Size(663, 31);
             this.btnStart.TabIndex = 86;
             this.btnStart.Tag = "themeable";
             this.btnStart.Text = "✓";
@@ -277,7 +283,7 @@ namespace Optimizer
             this.radioKorean.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioKorean.ForeColor = System.Drawing.Color.White;
             this.radioKorean.Location = new System.Drawing.Point(222, 186);
-            this.radioKorean.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioKorean.Margin = new System.Windows.Forms.Padding(2);
             this.radioKorean.Name = "radioKorean";
             this.radioKorean.Size = new System.Drawing.Size(76, 25);
             this.radioKorean.TabIndex = 106;
@@ -292,7 +298,7 @@ namespace Optimizer
             this.radioTaiwan.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioTaiwan.ForeColor = System.Drawing.Color.White;
             this.radioTaiwan.Location = new System.Drawing.Point(222, 157);
-            this.radioTaiwan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioTaiwan.Margin = new System.Windows.Forms.Padding(2);
             this.radioTaiwan.Name = "radioTaiwan";
             this.radioTaiwan.Size = new System.Drawing.Size(96, 25);
             this.radioTaiwan.TabIndex = 104;
@@ -307,7 +313,7 @@ namespace Optimizer
             this.radioCzech.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioCzech.ForeColor = System.Drawing.Color.White;
             this.radioCzech.Location = new System.Drawing.Point(53, 156);
-            this.radioCzech.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioCzech.Margin = new System.Windows.Forms.Padding(2);
             this.radioCzech.Name = "radioCzech";
             this.radioCzech.Size = new System.Drawing.Size(81, 25);
             this.radioCzech.TabIndex = 102;
@@ -322,7 +328,7 @@ namespace Optimizer
             this.radioChinese.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioChinese.ForeColor = System.Drawing.Color.White;
             this.radioChinese.Location = new System.Drawing.Point(222, 127);
-            this.radioChinese.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioChinese.Margin = new System.Windows.Forms.Padding(2);
             this.radioChinese.Name = "radioChinese";
             this.radioChinese.Size = new System.Drawing.Size(96, 25);
             this.radioChinese.TabIndex = 100;
@@ -337,7 +343,7 @@ namespace Optimizer
             this.radioItalian.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioItalian.ForeColor = System.Drawing.Color.White;
             this.radioItalian.Location = new System.Drawing.Point(53, 127);
-            this.radioItalian.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioItalian.Margin = new System.Windows.Forms.Padding(2);
             this.radioItalian.Name = "radioItalian";
             this.radioItalian.Size = new System.Drawing.Size(82, 25);
             this.radioItalian.TabIndex = 98;
@@ -352,7 +358,7 @@ namespace Optimizer
             this.radioFrench.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioFrench.ForeColor = System.Drawing.Color.White;
             this.radioFrench.Location = new System.Drawing.Point(222, 96);
-            this.radioFrench.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioFrench.Margin = new System.Windows.Forms.Padding(2);
             this.radioFrench.Name = "radioFrench";
             this.radioFrench.Size = new System.Drawing.Size(86, 25);
             this.radioFrench.TabIndex = 96;
@@ -367,7 +373,7 @@ namespace Optimizer
             this.radioPortuguese.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioPortuguese.ForeColor = System.Drawing.Color.White;
             this.radioPortuguese.Location = new System.Drawing.Point(221, 67);
-            this.radioPortuguese.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioPortuguese.Margin = new System.Windows.Forms.Padding(2);
             this.radioPortuguese.Name = "radioPortuguese";
             this.radioPortuguese.Size = new System.Drawing.Size(102, 25);
             this.radioPortuguese.TabIndex = 94;
@@ -382,7 +388,7 @@ namespace Optimizer
             this.radioSpanish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioSpanish.ForeColor = System.Drawing.Color.White;
             this.radioSpanish.Location = new System.Drawing.Point(221, 38);
-            this.radioSpanish.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioSpanish.Margin = new System.Windows.Forms.Padding(2);
             this.radioSpanish.Name = "radioSpanish";
             this.radioSpanish.Size = new System.Drawing.Size(84, 25);
             this.radioSpanish.TabIndex = 92;
@@ -397,7 +403,7 @@ namespace Optimizer
             this.radioGerman.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioGerman.ForeColor = System.Drawing.Color.White;
             this.radioGerman.Location = new System.Drawing.Point(53, 98);
-            this.radioGerman.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioGerman.Margin = new System.Windows.Forms.Padding(2);
             this.radioGerman.Name = "radioGerman";
             this.radioGerman.Size = new System.Drawing.Size(87, 25);
             this.radioGerman.TabIndex = 90;
@@ -412,7 +418,7 @@ namespace Optimizer
             this.radioTurkish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioTurkish.ForeColor = System.Drawing.Color.White;
             this.radioTurkish.Location = new System.Drawing.Point(221, 9);
-            this.radioTurkish.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioTurkish.Margin = new System.Windows.Forms.Padding(2);
             this.radioTurkish.Name = "radioTurkish";
             this.radioTurkish.Size = new System.Drawing.Size(76, 25);
             this.radioTurkish.TabIndex = 88;
@@ -427,7 +433,7 @@ namespace Optimizer
             this.radioHellenic.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioHellenic.ForeColor = System.Drawing.Color.White;
             this.radioHellenic.Location = new System.Drawing.Point(53, 69);
-            this.radioHellenic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioHellenic.Margin = new System.Windows.Forms.Padding(2);
             this.radioHellenic.Name = "radioHellenic";
             this.radioHellenic.Size = new System.Drawing.Size(94, 25);
             this.radioHellenic.TabIndex = 84;
@@ -443,7 +449,7 @@ namespace Optimizer
             this.radioEnglish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Underline);
             this.radioEnglish.ForeColor = System.Drawing.Color.MediumOrchid;
             this.radioEnglish.Location = new System.Drawing.Point(53, 11);
-            this.radioEnglish.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioEnglish.Margin = new System.Windows.Forms.Padding(2);
             this.radioEnglish.Name = "radioEnglish";
             this.radioEnglish.Size = new System.Drawing.Size(79, 25);
             this.radioEnglish.TabIndex = 80;
@@ -459,7 +465,7 @@ namespace Optimizer
             this.radioRussian.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioRussian.ForeColor = System.Drawing.Color.White;
             this.radioRussian.Location = new System.Drawing.Point(53, 40);
-            this.radioRussian.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioRussian.Margin = new System.Windows.Forms.Padding(2);
             this.radioRussian.Name = "radioRussian";
             this.radioRussian.Size = new System.Drawing.Size(90, 25);
             this.radioRussian.TabIndex = 79;
@@ -474,7 +480,7 @@ namespace Optimizer
             this.radioPolish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioPolish.ForeColor = System.Drawing.Color.White;
             this.radioPolish.Location = new System.Drawing.Point(53, 185);
-            this.radioPolish.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioPolish.Margin = new System.Windows.Forms.Padding(2);
             this.radioPolish.Name = "radioPolish";
             this.radioPolish.Size = new System.Drawing.Size(69, 25);
             this.radioPolish.TabIndex = 108;
@@ -499,8 +505,8 @@ namespace Optimizer
             this.radioArabic.AutoSize = true;
             this.radioArabic.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioArabic.ForeColor = System.Drawing.Color.White;
-            this.radioArabic.Location = new System.Drawing.Point(53, 214);
-            this.radioArabic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioArabic.Location = new System.Drawing.Point(386, 101);
+            this.radioArabic.Margin = new System.Windows.Forms.Padding(2);
             this.radioArabic.Name = "radioArabic";
             this.radioArabic.Size = new System.Drawing.Size(71, 25);
             this.radioArabic.TabIndex = 110;
@@ -512,7 +518,7 @@ namespace Optimizer
             // pictureBox12
             // 
             this.pictureBox12.Image = global::Optimizer.Properties.Resources.egypt;
-            this.pictureBox12.Location = new System.Drawing.Point(13, 217);
+            this.pictureBox12.Location = new System.Drawing.Point(346, 104);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(32, 19);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -525,8 +531,8 @@ namespace Optimizer
             this.radioKurdish.AutoSize = true;
             this.radioKurdish.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioKurdish.ForeColor = System.Drawing.Color.White;
-            this.radioKurdish.Location = new System.Drawing.Point(222, 214);
-            this.radioKurdish.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioKurdish.Location = new System.Drawing.Point(555, 101);
+            this.radioKurdish.Margin = new System.Windows.Forms.Padding(2);
             this.radioKurdish.Name = "radioKurdish";
             this.radioKurdish.Size = new System.Drawing.Size(70, 25);
             this.radioKurdish.TabIndex = 112;
@@ -538,7 +544,7 @@ namespace Optimizer
             // pictureBox13
             // 
             this.pictureBox13.Image = global::Optimizer.Properties.Resources.kurdish;
-            this.pictureBox13.Location = new System.Drawing.Point(182, 217);
+            this.pictureBox13.Location = new System.Drawing.Point(515, 104);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(32, 19);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -551,8 +557,8 @@ namespace Optimizer
             this.radioHungarian.AutoSize = true;
             this.radioHungarian.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioHungarian.ForeColor = System.Drawing.Color.White;
-            this.radioHungarian.Location = new System.Drawing.Point(53, 242);
-            this.radioHungarian.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioHungarian.Location = new System.Drawing.Point(386, 129);
+            this.radioHungarian.Margin = new System.Windows.Forms.Padding(2);
             this.radioHungarian.Name = "radioHungarian";
             this.radioHungarian.Size = new System.Drawing.Size(83, 25);
             this.radioHungarian.TabIndex = 114;
@@ -564,7 +570,7 @@ namespace Optimizer
             // pictureBox14
             // 
             this.pictureBox14.Image = global::Optimizer.Properties.Resources.hungary;
-            this.pictureBox14.Location = new System.Drawing.Point(13, 245);
+            this.pictureBox14.Location = new System.Drawing.Point(346, 132);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(32, 19);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -577,8 +583,8 @@ namespace Optimizer
             this.radioRomanian.AutoSize = true;
             this.radioRomanian.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioRomanian.ForeColor = System.Drawing.Color.White;
-            this.radioRomanian.Location = new System.Drawing.Point(222, 243);
-            this.radioRomanian.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioRomanian.Location = new System.Drawing.Point(555, 130);
+            this.radioRomanian.Margin = new System.Windows.Forms.Padding(2);
             this.radioRomanian.Name = "radioRomanian";
             this.radioRomanian.Size = new System.Drawing.Size(87, 25);
             this.radioRomanian.TabIndex = 116;
@@ -590,7 +596,7 @@ namespace Optimizer
             // pictureBox15
             // 
             this.pictureBox15.Image = global::Optimizer.Properties.Resources.romania;
-            this.pictureBox15.Location = new System.Drawing.Point(182, 246);
+            this.pictureBox15.Location = new System.Drawing.Point(515, 133);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(32, 19);
             this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -603,8 +609,8 @@ namespace Optimizer
             this.radioDutch.AutoSize = true;
             this.radioDutch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioDutch.ForeColor = System.Drawing.Color.White;
-            this.radioDutch.Location = new System.Drawing.Point(53, 271);
-            this.radioDutch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioDutch.Location = new System.Drawing.Point(386, 158);
+            this.radioDutch.Margin = new System.Windows.Forms.Padding(2);
             this.radioDutch.Name = "radioDutch";
             this.radioDutch.Size = new System.Drawing.Size(112, 25);
             this.radioDutch.TabIndex = 118;
@@ -616,7 +622,7 @@ namespace Optimizer
             // pictureBox16
             // 
             this.pictureBox16.Image = global::Optimizer.Properties.Resources.dutch;
-            this.pictureBox16.Location = new System.Drawing.Point(13, 274);
+            this.pictureBox16.Location = new System.Drawing.Point(346, 161);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(32, 19);
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -627,7 +633,7 @@ namespace Optimizer
             // pictureBox17
             // 
             this.pictureBox17.Image = global::Optimizer.Properties.Resources.japan;
-            this.pictureBox17.Location = new System.Drawing.Point(182, 274);
+            this.pictureBox17.Location = new System.Drawing.Point(515, 161);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(32, 19);
             this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -640,8 +646,8 @@ namespace Optimizer
             this.radioJapanese.AutoSize = true;
             this.radioJapanese.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioJapanese.ForeColor = System.Drawing.Color.White;
-            this.radioJapanese.Location = new System.Drawing.Point(222, 272);
-            this.radioJapanese.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioJapanese.Location = new System.Drawing.Point(555, 159);
+            this.radioJapanese.Margin = new System.Windows.Forms.Padding(2);
             this.radioJapanese.Name = "radioJapanese";
             this.radioJapanese.Size = new System.Drawing.Size(79, 25);
             this.radioJapanese.TabIndex = 120;
@@ -655,8 +661,8 @@ namespace Optimizer
             this.radioFarsi.AutoSize = true;
             this.radioFarsi.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioFarsi.ForeColor = System.Drawing.Color.White;
-            this.radioFarsi.Location = new System.Drawing.Point(53, 300);
-            this.radioFarsi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioFarsi.Location = new System.Drawing.Point(386, 12);
+            this.radioFarsi.Margin = new System.Windows.Forms.Padding(2);
             this.radioFarsi.Name = "radioFarsi";
             this.radioFarsi.Size = new System.Drawing.Size(69, 25);
             this.radioFarsi.TabIndex = 122;
@@ -668,7 +674,7 @@ namespace Optimizer
             // pictureBox18
             // 
             this.pictureBox18.Image = global::Optimizer.Properties.Resources.iran;
-            this.pictureBox18.Location = new System.Drawing.Point(13, 302);
+            this.pictureBox18.Location = new System.Drawing.Point(346, 14);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(32, 19);
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -681,8 +687,8 @@ namespace Optimizer
             this.radioNepali.AutoSize = true;
             this.radioNepali.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioNepali.ForeColor = System.Drawing.Color.White;
-            this.radioNepali.Location = new System.Drawing.Point(222, 302);
-            this.radioNepali.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioNepali.Location = new System.Drawing.Point(555, 14);
+            this.radioNepali.Margin = new System.Windows.Forms.Padding(2);
             this.radioNepali.Name = "radioNepali";
             this.radioNepali.Size = new System.Drawing.Size(67, 25);
             this.radioNepali.TabIndex = 124;
@@ -694,7 +700,7 @@ namespace Optimizer
             // pictureBox19
             // 
             this.pictureBox19.Image = global::Optimizer.Properties.Resources.nepal;
-            this.pictureBox19.Location = new System.Drawing.Point(182, 304);
+            this.pictureBox19.Location = new System.Drawing.Point(515, 16);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(32, 19);
             this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -707,7 +713,7 @@ namespace Optimizer
             this.radioUkrainian.AutoSize = true;
             this.radioUkrainian.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioUkrainian.ForeColor = System.Drawing.Color.White;
-            this.radioUkrainian.Location = new System.Drawing.Point(222, 331);
+            this.radioUkrainian.Location = new System.Drawing.Point(555, 43);
             this.radioUkrainian.Margin = new System.Windows.Forms.Padding(2);
             this.radioUkrainian.Name = "radioUkrainian";
             this.radioUkrainian.Size = new System.Drawing.Size(67, 25);
@@ -720,7 +726,7 @@ namespace Optimizer
             // pictureBox20
             // 
             this.pictureBox20.Image = global::Optimizer.Properties.Resources.ukraine;
-            this.pictureBox20.Location = new System.Drawing.Point(182, 333);
+            this.pictureBox20.Location = new System.Drawing.Point(515, 45);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(32, 19);
             this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -732,7 +738,7 @@ namespace Optimizer
             this.radioBulgarian.AutoSize = true;
             this.radioBulgarian.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.radioBulgarian.ForeColor = System.Drawing.Color.White;
-            this.radioBulgarian.Location = new System.Drawing.Point(53, 329);
+            this.radioBulgarian.Location = new System.Drawing.Point(386, 41);
             this.radioBulgarian.Margin = new System.Windows.Forms.Padding(2);
             this.radioBulgarian.Name = "radioBulgarian";
             this.radioBulgarian.Size = new System.Drawing.Size(69, 25);
@@ -745,12 +751,64 @@ namespace Optimizer
             // pictureBox21
             // 
             this.pictureBox21.Image = global::Optimizer.Properties.Resources.bulgaria;
-            this.pictureBox21.Location = new System.Drawing.Point(13, 331);
+            this.pictureBox21.Location = new System.Drawing.Point(346, 43);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.Size = new System.Drawing.Size(32, 19);
             this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox21.TabIndex = 125;
             this.pictureBox21.TabStop = false;
+            // 
+            // radioVietnam
+            // 
+            this.radioVietnam.AutoSize = true;
+            this.radioVietnam.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioVietnam.ForeColor = System.Drawing.Color.White;
+            this.radioVietnam.Location = new System.Drawing.Point(386, 70);
+            this.radioVietnam.Margin = new System.Windows.Forms.Padding(2);
+            this.radioVietnam.Name = "radioVietnam";
+            this.radioVietnam.Size = new System.Drawing.Size(113, 25);
+            this.radioVietnam.TabIndex = 130;
+            this.radioVietnam.Tag = "";
+            this.radioVietnam.Text = "Vietnamese";
+            this.radioVietnam.UseVisualStyleBackColor = true;
+            this.radioVietnam.CheckedChanged += new System.EventHandler(this.radioVietnam_CheckedChanged);
+            // 
+            // pictureBox22
+            // 
+            this.pictureBox22.Image = global::Optimizer.Properties.Resources.vietnam;
+            this.pictureBox22.Location = new System.Drawing.Point(346, 72);
+            this.pictureBox22.Name = "pictureBox22";
+            this.pictureBox22.Size = new System.Drawing.Size(32, 19);
+            this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox22.TabIndex = 129;
+            this.pictureBox22.TabStop = false;
+            this.pictureBox22.Click += new System.EventHandler(this.pictureBox22_Click);
+            // 
+            // radioUrdu
+            // 
+            this.radioUrdu.AutoSize = true;
+            this.radioUrdu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.radioUrdu.ForeColor = System.Drawing.Color.White;
+            this.radioUrdu.Location = new System.Drawing.Point(554, 72);
+            this.radioUrdu.Margin = new System.Windows.Forms.Padding(2);
+            this.radioUrdu.Name = "radioUrdu";
+            this.radioUrdu.Size = new System.Drawing.Size(64, 25);
+            this.radioUrdu.TabIndex = 132;
+            this.radioUrdu.Tag = "";
+            this.radioUrdu.Text = "Urdu";
+            this.radioUrdu.UseVisualStyleBackColor = true;
+            this.radioUrdu.CheckedChanged += new System.EventHandler(this.radioUrdu_CheckedChanged);
+            // 
+            // pictureBox23
+            // 
+            this.pictureBox23.Image = global::Optimizer.Properties.Resources.pakistan;
+            this.pictureBox23.Location = new System.Drawing.Point(514, 74);
+            this.pictureBox23.Name = "pictureBox23";
+            this.pictureBox23.Size = new System.Drawing.Size(32, 19);
+            this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox23.TabIndex = 131;
+            this.pictureBox23.TabStop = false;
+            this.pictureBox23.Click += new System.EventHandler(this.pictureBox23_Click);
             // 
             // FirstRunForm
             // 
@@ -759,7 +817,11 @@ namespace Optimizer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnStart;
-            this.ClientSize = new System.Drawing.Size(336, 443);
+            this.ClientSize = new System.Drawing.Size(685, 298);
+            this.Controls.Add(this.radioUrdu);
+            this.Controls.Add(this.pictureBox23);
+            this.Controls.Add(this.radioVietnam);
+            this.Controls.Add(this.pictureBox22);
             this.Controls.Add(this.radioUkrainian);
             this.Controls.Add(this.pictureBox20);
             this.Controls.Add(this.radioBulgarian);
@@ -845,6 +907,8 @@ namespace Optimizer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -901,5 +965,9 @@ namespace Optimizer
         private System.Windows.Forms.PictureBox pictureBox20;
         private MoonRadio radioBulgarian;
         private System.Windows.Forms.PictureBox pictureBox21;
+        private MoonRadio radioVietnam;
+        private System.Windows.Forms.PictureBox pictureBox22;
+        private MoonRadio radioUrdu;
+        private System.Windows.Forms.PictureBox pictureBox23;
     }
 }

@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Optimizer {
-    public sealed partial class HostsEditorForm : Form {
+namespace Optimizer
+{
+    public sealed partial class HostsEditorForm : Form
+    {
         string[] _toSave = null;
 
-        public HostsEditorForm() {
+        public HostsEditorForm()
+        {
             InitializeComponent();
             OptionsHelper.ApplyTheme(this);
 
-            if (HostsHelper.GetReadOnly()) {
+            if (HostsHelper.GetReadOnly())
+            {
                 savebtn.Enabled = false;
             }
 
@@ -19,7 +23,8 @@ namespace Optimizer {
             if (OptionsHelper.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
         }
 
-        private void HostsEditor_Load(object sender, EventArgs e) {
+        private void HostsEditor_Load(object sender, EventArgs e)
+        {
             //foreach (string line in HostsHelper.ReadHosts())
             //{
             //    textBox1.Text += line + HostsHelper.NewLine;
@@ -30,13 +35,15 @@ namespace Optimizer {
             textBox1.Focus();
         }
 
-        private void Translate() {
+        private void Translate()
+        {
             this.Text = OptionsHelper.TranslationList["HostsEditorForm"];
             Dictionary<string, string> translationList = OptionsHelper.TranslationList.ToObject<Dictionary<string, string>>();
 
             Control element;
 
-            foreach (var x in translationList) {
+            foreach (var x in translationList)
+            {
                 if (x.Key == null || x.Key == string.Empty) continue;
                 element = this.Controls.Find(x.Key, true).FirstOrDefault();
 
@@ -46,11 +53,13 @@ namespace Optimizer {
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) {
+        private void button1_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
 
-        private void button7_Click(object sender, EventArgs e) {
+        private void button7_Click(object sender, EventArgs e)
+        {
             _toSave = textBox1.Lines;
             HostsHelper.SaveHosts(_toSave);
 

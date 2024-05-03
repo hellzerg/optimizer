@@ -448,10 +448,12 @@
     "copilotTip": "Dezactivează complet funcționalitatea CoPilot AI.",
 	"btnReinforce": "Consolidarea politicilor",
 	"msgReinforce": "Sunteți sigur că doriți să reaplicați politicile actuale?",
-	"chkNewsInterest": "Dezactivează Știri și Interese",
-	"chkAllTrayIcons": "Arată toate pictogramele din zona de notificare",
-	"chkMenuDelays": "Elimină întârzierile din meniu",
-	"chkHideSearch": "Ascunde căutarea",
-	"chkHideFeed": "Ascunde vremea",
-	"autoUpdateToggle": "Actualizare la pornire"
+	"newsInterestsSw": "Dezactivați știrile și interesele",
+	"allTrayIconsSw": "Afișați toate iconurile de notificare",
+	"noMenuDelaySw": "Eliminați întârzierea meniului",
+	"enableUtcSw": "Activare Timp UTC",
+	"hideSearchSw": "Ascundeți căutarea în bara de activități",
+	"hideWeatherSw": "Ascundeți vremea în bara de activități",
+	"autoUpdateToggle": "Actualizare la pornire",
+	"modernStandbySw": "Dezactivați Standby modern"
 }

@@ -2,12 +2,15 @@
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace Optimizer {
+namespace Optimizer
+{
     /*
      *  Allows clients to obtain a Windows token privilege for a well-defined scope simply by "using" an instance of this class.
      */
-    sealed class TokenPrivilegeHelper : IDisposable {
-        private enum PrivilegeAction : uint {
+    sealed class TokenPrivilegeHelper : IDisposable
+    {
+        private enum PrivilegeAction : uint
+        {
             Disable = 0x0,
             Enable = 0x2
         }
@@ -18,25 +21,29 @@ namespace Optimizer {
 
         private readonly string privilegeName;
 
-        private TokenPrivilegeHelper(string privilegeName) {
+        private TokenPrivilegeHelper(string privilegeName)
+        {
             this.privilegeName = privilegeName;
             Apply(PrivilegeAction.Enable);
         }
 
-        private void Apply(PrivilegeAction action) {
+        private void Apply(PrivilegeAction action)
+        {
             OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, out IntPtr tokenHandle);
             LookupPrivilegeValue(null, privilegeName, out Luid luid);
             var tokenPrivilege = new TokenPrivileges(luid, (uint)action);
             UpdateTokenPrivileges(tokenHandle, tokenPrivilege);
         }
 
-        private void UpdateTokenPrivileges(IntPtr tokenHandle, TokenPrivileges privilegeInfo) {
+        private void UpdateTokenPrivileges(IntPtr tokenHandle, TokenPrivileges privilegeInfo)
+        {
             bool successful = AdjustTokenPrivileges(tokenHandle, false, ref privilegeInfo, 0, IntPtr.Zero, IntPtr.Zero);
             if (!successful || Marshal.GetLastWin32Error() == ERROR_NOT_ALL_ASSIGNED)
                 throw new SecurityException($"Can't adjust token privilege {privilegeName}");
         }
 
-        public void Dispose() {
+        public void Dispose()
+        {
             Apply(PrivilegeAction.Disable);
         }
 
@@ -44,9 +51,11 @@ namespace Optimizer {
         private const int ERROR_NOT_ALL_ASSIGNED = 1300;
 
         [StructLayout(LayoutKind.Sequential)]
-        private struct TokenPrivileges {
+        private struct TokenPrivileges
+        {
             // We can use this struct only with one privilege since CLR doesn't support marshalling dynamic-sized arrays
-            public TokenPrivileges(Luid luid, uint attributes) {
+            public TokenPrivileges(Luid luid, uint attributes)
+            {
                 Count = 1;
                 Privileges = new[] {
                     new LuidAndAttributes(luid, attributes)
@@ -59,8 +68,10 @@ namespace Optimizer {
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        private readonly struct LuidAndAttributes {
-            public LuidAndAttributes(Luid luid, uint attributes) {
+        private readonly struct LuidAndAttributes
+        {
+            public LuidAndAttributes(Luid luid, uint attributes)
+            {
                 Luid = luid;
                 Attributes = attributes;
             }
@@ -70,7 +81,8 @@ namespace Optimizer {
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        private readonly struct Luid {
+        private readonly struct Luid
+        {
             private readonly uint LowPart;
             private readonly int HighPart;
         }

@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Management;
 
-namespace Optimizer {
-    public static class IndiciumHelper {
+namespace Optimizer
+{
+    public static class IndiciumHelper
+    {
         public static List<Volume> Volumes = new List<Volume>();
         public static List<Volume> Opticals = new List<Volume>();
         public static List<Volume> Removables = new List<Volume>();
@@ -15,13 +17,16 @@ namespace Optimizer {
         public static List<Keyboard> Keyboards = new List<Keyboard>();
         public static List<PointingDevice> PointingDevices = new List<PointingDevice>();
 
-        public static List<CPU> GetCPUs() {
+        public static List<CPU> GetCPUs()
+        {
             List<CPU> CPUs = new List<CPU>();
             CPU cpu;
 
-            try {
+            try
+            {
                 ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
-                foreach (ManagementObject mo in searcher.Get()) {
+                foreach (ManagementObject mo in searcher.Get())
+                {
                     cpu = new CPU();
 
                     cpu.Name = Convert.ToString(mo.Properties["Name"].Value);
@@ -34,25 +39,30 @@ namespace Optimizer {
 
                     cpu.LogicalCpus = Convert.ToUInt32(mo.Properties["NumberOfLogicalProcessors"].Value);
 
-                    if (Utilities.CurrentWindowsVersion != WindowsVersion.Windows7) {
+                    if (Utilities.CurrentWindowsVersion != WindowsVersion.Windows7)
+                    {
                         bool temp = Convert.ToBoolean(mo.Properties["VirtualizationFirmwareEnabled"].Value);
                         cpu.Virtualization = (temp) ? "Yes" : "No";
                     }
-                    else {
+                    else
+                    {
                         cpu.Virtualization = "-";
                     }
 
                     cpu.Stepping = Convert.ToString(mo.Properties["Description"].Value);
                     cpu.Revision = Convert.ToString(mo.Properties["Revision"].Value);
 
-                    try {
+                    try
+                    {
                         ManagementObjectSearcher searcher2 = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
-                        foreach (ManagementObject mo2 in searcher2.Get()) {
+                        foreach (ManagementObject mo2 in searcher2.Get())
+                        {
                             bool temp2 = Convert.ToBoolean(mo2.Properties["DataExecutionPrevention_Available"].Value);
                             cpu.DataExecutionPrevention = (temp2) ? "Yes" : "No";
                         }
                     }
-                    catch {
+                    catch
+                    {
                         cpu.DataExecutionPrevention = "-";
                     }
 
@@ -61,44 +71,54 @@ namespace Optimizer {
                     CPUs.Add(cpu);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("IndiciumHelper.GetCPUs", ex.Message, ex.StackTrace);
             }
 
             return CPUs;
         }
 
-        private static string GetCPUNameAlternative() {
-            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"HARDWARE\DESCRIPTION\System\CentralProcessor\0", false)) {
+        private static string GetCPUNameAlternative()
+        {
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"HARDWARE\DESCRIPTION\System\CentralProcessor\0", false))
+            {
                 return key.GetValue("ProcessorNameString").ToString();
             }
         }
 
-        public static VirtualMemory GetVM() {
+        public static VirtualMemory GetVM()
+        {
             VirtualMemory vm = new VirtualMemory();
 
-            try {
+            try
+            {
                 ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
-                foreach (ManagementObject mo in searcher.Get()) {
+                foreach (ManagementObject mo in searcher.Get())
+                {
                     vm.TotalVirtualMemory = ByteSize.FromKiloBytes(Convert.ToUInt64(mo.Properties["TotalVirtualMemorySize"].Value));
                     vm.AvailableVirtualMemory = ByteSize.FromKiloBytes(Convert.ToUInt64(mo.Properties["FreeVirtualMemory"].Value));
                     vm.UsedVirtualMemory = vm.TotalVirtualMemory.Subtract(vm.AvailableVirtualMemory);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("IndiciumHelper.GetVM", ex.Message, ex.StackTrace);
             }
 
             return vm;
         }
 
-        public static List<RAM> GetRAM() {
+        public static List<RAM> GetRAM()
+        {
             List<RAM> modules = new List<RAM>();
             RAM module;
 
-            try {
+            try
+            {
                 ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMemory");
-                foreach (ManagementObject mo in searcher.Get()) {
+                foreach (ManagementObject mo in searcher.Get())
+                {
                     module = new RAM();
 
                     module.BankLabel = Convert.ToString(mo.Properties["BankLabel"].Value);
@@ -113,19 +133,23 @@ namespace Optimizer {
                     modules.Add(module);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("IndiciumHelper.GetRAM", ex.Message, ex.StackTrace);
             }
 
             return modules;
         }
 
-        public static List<Motherboard> GetMotherboards() {
+        public static List<Motherboard> GetMotherboards()
+        {
             List<Motherboard> mobos = new List<Motherboard>();
 
-            try {
+            try
+            {
                 ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_BaseBoard");
-                foreach (ManagementObject mo in searcher.Get()) {
+                foreach (ManagementObject mo in searcher.Get())
+                {
                     Motherboard mobo = new Motherboard();
 
                     mobo.Model = Convert.ToString(mo.Properties["Model"].Value);
@@ -133,32 +157,39 @@ namespace Optimizer {
                     mobo.Product = Convert.ToString(mo.Properties["Product"].Value);
                     mobo.Version = Convert.ToString(mo.Properties["Version"].Value);
 
-                    try {
+                    try
+                    {
                         ManagementObjectSearcher searcher2 = new ManagementObjectSearcher("SELECT * FROM Win32_IDEController");
-                        foreach (ManagementObject mo2 in searcher2.Get()) {
+                        foreach (ManagementObject mo2 in searcher2.Get())
+                        {
                             mobo.Chipset = Convert.ToString(mo2.Properties["Description"].Value);
                         }
                     }
                     catch { }
 
-                    try {
+                    try
+                    {
                         ManagementObjectSearcher searcher3 = new ManagementObjectSearcher("SELECT * FROM Win32_IDEController");
-                        foreach (ManagementObject mo3 in searcher3.Get()) {
+                        foreach (ManagementObject mo3 in searcher3.Get())
+                        {
                             mobo.Revision = Convert.ToString(mo3.Properties["RevisionNumber"].Value);
                         }
                     }
                     catch { }
 
-                    try {
+                    try
+                    {
                         ManagementObjectSearcher searcher4 = new ManagementObjectSearcher("SELECT * FROM Win32_ComputerSystem");
-                        foreach (ManagementObject mo4 in searcher4.Get()) {
+                        foreach (ManagementObject mo4 in searcher4.Get())
+                        {
                             mobo.SystemModel = Convert.ToString(mo4.Properties["Model"].Value);
                         }
                     }
                     catch { }
 
                     ManagementObjectSearcher searcher5 = new ManagementObjectSearcher("SELECT * FROM Win32_BIOS");
-                    foreach (ManagementObject mo5 in searcher5.Get()) {
+                    foreach (ManagementObject mo5 in searcher5.Get())
+                    {
                         mobo.BIOSName = Convert.ToString(mo5.Properties["Name"].Value);
                         mobo.BIOSManufacturer = Convert.ToString(mo5.Properties["Manufacturer"].Value);
                         mobo.BIOSVersion = Convert.ToString(mo5.Properties["Version"].Value);
@@ -169,19 +200,23 @@ namespace Optimizer {
                     mobos.Add(mobo);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("IndiciumHelper.GetMotherboards", ex.Message, ex.StackTrace);
             }
 
             return mobos;
         }
 
-        public static List<Disk> GetDisks() {
+        public static List<Disk> GetDisks()
+        {
             List<Disk> disks = new List<Disk>();
 
-            try {
+            try
+            {
                 ManagementObjectSearcher searcher2 = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
-                foreach (ManagementObject mo2 in searcher2.Get()) {
+                foreach (ManagementObject mo2 in searcher2.Get())
+                {
                     Disk disk = new Disk();
 
                     disk.Model = Convert.ToString(mo2.Properties["Model"].Value);
@@ -193,17 +228,21 @@ namespace Optimizer {
                     disks.Add(disk);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("IndiciumHelper.GetDisks", ex.Message, ex.StackTrace);
             }
 
             return disks;
         }
 
-        public static void GetVolumes() {
-            try {
+        public static void GetVolumes()
+        {
+            try
+            {
                 ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Volume");
-                foreach (ManagementObject mo in searcher.Get()) {
+                foreach (ManagementObject mo in searcher.Get())
+                {
                     Volume volume = new Volume();
 
                     volume.BlockSize = Convert.ToUInt64(mo.Properties["BlockSize"].Value);
@@ -220,26 +259,33 @@ namespace Optimizer {
                     volume.Indexing = (temp2) ? "Yes" : "No";
                     volume.Label = Convert.ToString(mo.Properties["Label"].Value);
 
-                    if (i == 2) {
+                    if (i == 2)
+                    {
                         Removables.Add(volume);
                     }
-                    else if (i == 5) {
+                    else if (i == 5)
+                    {
                         Opticals.Add(volume);
                     }
-                    else {
+                    else
+                    {
                         Volumes.Add(volume);
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("IndiciumHelper.GetVolumes", ex.Message, ex.StackTrace);
             }
         }
 
-        public static void GetPeripherals() {
-            try {
+        public static void GetPeripherals()
+        {
+            try
+            {
                 ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Keyboard");
-                foreach (ManagementObject mo in searcher.Get()) {
+                foreach (ManagementObject mo in searcher.Get())
+                {
                     Keyboard keyboard = new Keyboard();
 
                     keyboard.Name = Convert.ToString(mo.Properties["Description"].Value);
@@ -252,13 +298,16 @@ namespace Optimizer {
                     Keyboards.Add(keyboard);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("IndiciumHelper.GetKeyboards", ex.Message, ex.StackTrace);
             }
 
-            try {
+            try
+            {
                 ManagementObjectSearcher searcher2 = new ManagementObjectSearcher("SELECT * FROM Win32_PointingDevice");
-                foreach (ManagementObject mo2 in searcher2.Get()) {
+                foreach (ManagementObject mo2 in searcher2.Get())
+                {
                     PointingDevice pointingDevice = new PointingDevice();
 
                     pointingDevice.Name = Convert.ToString(mo2.Properties["Description"].Value);
@@ -276,17 +325,21 @@ namespace Optimizer {
                     PointingDevices.Add(pointingDevice);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("IndiciumHelper.GetPointingDevices", ex.Message, ex.StackTrace);
             }
         }
 
-        public static List<GPU> GetGPUs() {
+        public static List<GPU> GetGPUs()
+        {
             List<GPU> GPUs = new List<GPU>();
 
-            try {
+            try
+            {
                 ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
-                foreach (ManagementObject mo in searcher.Get()) {
+                foreach (ManagementObject mo in searcher.Get())
+                {
                     GPU gpu = new GPU();
 
                     gpu.Name = Convert.ToString(mo.Properties["Name"].Value);
@@ -301,17 +354,21 @@ namespace Optimizer {
                     GPUs.Add(gpu);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("IndiciumHelper.GetGPUs", ex.Message, ex.StackTrace);
             }
 
             return GPUs;
         }
 
-        public static void GetNetworkAdapters() {
-            try {
+        public static void GetNetworkAdapters()
+        {
+            try
+            {
                 ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_NetworkAdapter");
-                foreach (ManagementObject mo in searcher.Get()) {
+                foreach (ManagementObject mo in searcher.Get())
+                {
                     NetworkDevice adapter = new NetworkDevice();
 
                     adapter.AdapterType = Convert.ToString(mo.Properties["AdapterType"].Value);
@@ -322,25 +379,31 @@ namespace Optimizer {
                     adapter.MacAddress = Convert.ToString(mo.Properties["MacAddress"].Value);
                     adapter.ServiceName = Convert.ToString(mo.Properties["ServiceName"].Value);
 
-                    if (temp) {
+                    if (temp)
+                    {
                         PhysicalAdapters.Add(adapter);
                     }
-                    else {
+                    else
+                    {
                         VirtualAdapters.Add(adapter);
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("IndiciumHelper.GetNetworkAdapters", ex.Message, ex.StackTrace);
             }
         }
 
-        public static List<AudioDevice> GetAudioDevices() {
+        public static List<AudioDevice> GetAudioDevices()
+        {
             List<AudioDevice> audioDevices = new List<AudioDevice>();
 
-            try {
+            try
+            {
                 ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_SoundDevice");
-                foreach (ManagementObject mo in searcher.Get()) {
+                foreach (ManagementObject mo in searcher.Get())
+                {
                     AudioDevice device = new AudioDevice();
 
                     device.ProductName = Convert.ToString(mo.Properties["ProductName"].Value);
@@ -350,17 +413,20 @@ namespace Optimizer {
                     audioDevices.Add(device);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("IndiciumHelper.GetAudioDevices", ex.Message, ex.StackTrace);
             }
 
             return audioDevices;
         }
 
-        private static string SanitizeDriveType(UInt32 i) {
+        private static string SanitizeDriveType(UInt32 i)
+        {
             string result = string.Empty;
 
-            switch (i) {
+            switch (i)
+            {
                 case 0:
                     result = "Unknown";
                     break;
@@ -387,10 +453,12 @@ namespace Optimizer {
             return result;
         }
 
-        private static string SanitizeVideoMemoryType(UInt16 i) {
+        private static string SanitizeVideoMemoryType(UInt16 i)
+        {
             string result = string.Empty;
 
-            switch (i) {
+            switch (i)
+            {
                 case 1:
                     result = "Other";
                     break;
@@ -435,10 +503,12 @@ namespace Optimizer {
             return result;
         }
 
-        private static string SanitizeFormFactor(UInt16 i) {
+        private static string SanitizeFormFactor(UInt16 i)
+        {
             string result = string.Empty;
 
-            switch (i) {
+            switch (i)
+            {
                 case 0:
                     result = "Unknown";
                     break;
@@ -516,10 +586,12 @@ namespace Optimizer {
             return result;
         }
 
-        private static string SanitizeMemoryType(UInt16 i) {
+        private static string SanitizeMemoryType(UInt16 i)
+        {
             string result = string.Empty;
 
-            switch (i) {
+            switch (i)
+            {
                 case 0:
                     result = "Unknown";
                     break;
@@ -600,10 +672,12 @@ namespace Optimizer {
             return result;
         }
 
-        private static string SanitizeDeviceInterface(UInt16 i) {
+        private static string SanitizeDeviceInterface(UInt16 i)
+        {
             string result = string.Empty;
 
-            switch (i) {
+            switch (i)
+            {
                 case 1:
                     result = "Other";
                     break;
@@ -642,10 +716,12 @@ namespace Optimizer {
             return result;
         }
 
-        private static string SanitizePointingType(UInt16 i) {
+        private static string SanitizePointingType(UInt16 i)
+        {
             string result = string.Empty;
 
-            switch (i) {
+            switch (i)
+            {
                 case 1:
                     result = "Other";
                     break;

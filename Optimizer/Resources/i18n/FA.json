@@ -453,10 +453,12 @@
     "copilotTip": "ویژگی CoPilot AI به طور کامل غیرفعال می‌شود.",
 	"btnReinforce": "تقویت سیاست‌ها",
 	"msgReinforce": "آیا مطمئن هستید که می‌خواهید سیاست‌های فعلی را مجدداً اعمال کنید؟",
-	"chkNewsInterest": "غیرفعال کردن اخبار و علاقه‌مندی‌ها",
-	"chkAllTrayIcons": "نمایش همه آیکون‌های سینی",
-	"chkMenuDelays": "حذف تأخیرهای منو",
-	"chkHideSearch": "مخفی کردن جستجو",
-	"chkHideFeed": "مخفی کردن هواشناسی",
-	"autoUpdateToggle": "به‌روزرسانی در زمان راه‌اندازی"
+	"newsInterestsSw": "غیرفعال کردن اخبار و علاقه‌مندی‌ها",
+	"allTrayIconsSw": "نمایش تمام آیکون‌های اطلاع‌رسانی",
+	"noMenuDelaySw": "حذف تأخیر منوها",
+	"hideSearchSw": "مخفی کردن جستجو در نوار وظایف",
+	"hideWeatherSw": "مخفی کردن آب و هوا در نوار وظایف",
+	"enableUtcSw": "فعال کردن زمان UTC",
+	"autoUpdateToggle": "به‌روزرسانی هنگام راه‌اندازی",
+	"modernStandbySw": "غیرفعال کردن حالت آماده مدرن"
 }

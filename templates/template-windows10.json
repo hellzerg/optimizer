@@ -124,6 +124,13 @@
         "DisableSearch": null,
         "DisableEdgeDiscoverBar": null,
         "DisableEdgeTelemetry": null,
-        "RestoreClassicPhotoViewer": null
+        "RestoreClassicPhotoViewer": null,
+        "EnableUtcTime": null,
+        "ShowAllTrayIcons": null,
+        "RemoveMenusDelay": null,
+        "DisableModernStandby": null,
+        "HideTaskbarWeather": null,
+        "HideTaskbarSearch": null,
+        "DisableNewsInterests": null
     }
 }

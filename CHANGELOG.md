@@ -1,3 +1,16 @@
+## [16.5] - 2024-05-03
+- New: Enable UTC time globally on Windows
+- New: Disable Modern Standby feature on Windows 10/11
+- New: Hide Search & Weather icons from taskbar
+- New: Disable News & Interests
+- New: Show all notification icons on taskbar
+- New: Remove menus delay
+- New: Vietnamese and Urdu languages
+- New: Disable CoPilot AI now applies to Edge as well
+- Improved: Localization updates
+- Improved: Many quality-of-life changes
+- Hotfix: Sorting deleting bug in Startup items (#489)
+
 ## [16.4] - 2023-12-29
 - New: FAQ section link in Options
 - New: Various performance improvements from code refactoring

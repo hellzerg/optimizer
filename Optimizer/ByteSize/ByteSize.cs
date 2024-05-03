@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Optimizer {
+namespace Optimizer
+{
     /// <summary>
     /// Represents a byte size value with support for decimal (KiloByte) and
     /// binary values (KibiByte).
     /// </summary>
-    public partial struct ByteSize : IComparable<ByteSize>, IEquatable<ByteSize> {
+    public partial struct ByteSize : IComparable<ByteSize>, IEquatable<ByteSize>
+    {
         public static readonly ByteSize MinValue = ByteSize.FromBits(long.MinValue);
         public static readonly ByteSize MaxValue = ByteSize.FromBits(long.MaxValue);
         public const long BitsInByte = 8;
@@ -15,8 +17,10 @@ namespace Optimizer {
         public long Bits { get; private set; }
         public double Bytes { get; private set; }
 
-        public string LargestWholeNumberBinarySymbol {
-            get {
+        public string LargestWholeNumberBinarySymbol
+        {
+            get
+            {
                 // Absolute value is used to deal with negative values
                 if (Math.Abs(this.PebiBytes) >= 1)
                     return PebiByteSymbol;
@@ -40,8 +44,10 @@ namespace Optimizer {
             }
         }
 
-        public string LargestWholeNumberDecimalSymbol {
-            get {
+        public string LargestWholeNumberDecimalSymbol
+        {
+            get
+            {
                 // Absolute value is used to deal with negative values
                 if (Math.Abs(this.PetaBytes) >= 1)
                     return PetaByteSymbol;
@@ -65,8 +71,10 @@ namespace Optimizer {
             }
         }
 
-        public double LargestWholeNumberBinaryValue {
-            get {
+        public double LargestWholeNumberBinaryValue
+        {
+            get
+            {
                 // Absolute value is used to deal with negative values
                 if (Math.Abs(this.PebiBytes) >= 1)
                     return this.PebiBytes;
@@ -90,8 +98,10 @@ namespace Optimizer {
             }
         }
 
-        public double LargestWholeNumberDecimalValue {
-            get {
+        public double LargestWholeNumberDecimalValue
+        {
+            get
+            {
                 // Absolute value is used to deal with negative values
                 if (Math.Abs(this.PetaBytes) >= 1)
                     return this.PetaBytes;
@@ -116,25 +126,29 @@ namespace Optimizer {
         }
 
         public ByteSize(long bits)
-            : this() {
+            : this()
+        {
             Bits = bits;
 
             Bytes = bits / BitsInByte;
         }
 
         public ByteSize(double bytes)
-            : this() {
+            : this()
+        {
             // Get ceiling because bits are whole units
             Bits = (long)Math.Ceiling(bytes * BitsInByte);
 
             Bytes = bytes;
         }
 
-        public static ByteSize FromBits(long value) {
+        public static ByteSize FromBits(long value)
+        {
             return new ByteSize(value);
         }
 
-        public static ByteSize FromBytes(double value) {
+        public static ByteSize FromBytes(double value)
+        {
             return new ByteSize(value);
         }
 
@@ -144,15 +158,18 @@ namespace Optimizer {
         /// largest prefix such that the corresponding value is greater than or
         /// equal to one.
         /// </summary>
-        public override string ToString() {
+        public override string ToString()
+        {
             return this.ToString("0.##", CultureInfo.CurrentCulture);
         }
 
-        public string ToString(string format) {
+        public string ToString(string format)
+        {
             return this.ToString(format, CultureInfo.CurrentCulture);
         }
 
-        public string ToString(string format, IFormatProvider provider, bool useBinaryByte = false) {
+        public string ToString(string format, IFormatProvider provider, bool useBinaryByte = false)
+        {
             if (!format.Contains("#") && !format.Contains("0"))
                 format = "0.## " + format;
 
@@ -192,15 +209,18 @@ namespace Optimizer {
             if (format.IndexOf(ByteSize.BitSymbol) != -1)
                 return output(this.Bits);
 
-            if (useBinaryByte) {
+            if (useBinaryByte)
+            {
                 return string.Format("{0} {1}", this.LargestWholeNumberBinaryValue.ToString(format, provider), this.LargestWholeNumberBinarySymbol);
             }
-            else {
+            else
+            {
                 return string.Format("{0} {1}", this.LargestWholeNumberDecimalValue.ToString(format, provider), this.LargestWholeNumberDecimalSymbol);
             }
         }
 
-        public override bool Equals(object value) {
+        public override bool Equals(object value)
+        {
             if (value == null)
                 return false;
 
@@ -213,86 +233,107 @@ namespace Optimizer {
             return Equals(other);
         }
 
-        public bool Equals(ByteSize value) {
+        public bool Equals(ByteSize value)
+        {
             return this.Bits == value.Bits;
         }
 
-        public override int GetHashCode() {
+        public override int GetHashCode()
+        {
             return this.Bits.GetHashCode();
         }
 
-        public int CompareTo(ByteSize other) {
+        public int CompareTo(ByteSize other)
+        {
             return this.Bits.CompareTo(other.Bits);
         }
 
-        public ByteSize Add(ByteSize bs) {
+        public ByteSize Add(ByteSize bs)
+        {
             return new ByteSize(this.Bytes + bs.Bytes);
         }
 
-        public ByteSize AddBits(long value) {
+        public ByteSize AddBits(long value)
+        {
             return this + FromBits(value);
         }
 
-        public ByteSize AddBytes(double value) {
+        public ByteSize AddBytes(double value)
+        {
             return this + ByteSize.FromBytes(value);
         }
 
-        public ByteSize Subtract(ByteSize bs) {
+        public ByteSize Subtract(ByteSize bs)
+        {
             return new ByteSize(this.Bytes - bs.Bytes);
         }
 
-        public static ByteSize operator +(ByteSize b1, ByteSize b2) {
+        public static ByteSize operator +(ByteSize b1, ByteSize b2)
+        {
             return new ByteSize(b1.Bytes + b2.Bytes);
         }
 
-        public static ByteSize operator ++(ByteSize b) {
+        public static ByteSize operator ++(ByteSize b)
+        {
             return new ByteSize(b.Bytes + 1);
         }
 
-        public static ByteSize operator -(ByteSize b) {
+        public static ByteSize operator -(ByteSize b)
+        {
             return new ByteSize(-b.Bytes);
         }
 
-        public static ByteSize operator -(ByteSize b1, ByteSize b2) {
+        public static ByteSize operator -(ByteSize b1, ByteSize b2)
+        {
             return new ByteSize(b1.Bytes - b2.Bytes);
         }
 
-        public static ByteSize operator --(ByteSize b) {
+        public static ByteSize operator --(ByteSize b)
+        {
             return new ByteSize(b.Bytes - 1);
         }
 
-        public static bool operator ==(ByteSize b1, ByteSize b2) {
+        public static bool operator ==(ByteSize b1, ByteSize b2)
+        {
             return b1.Bits == b2.Bits;
         }
 
-        public static bool operator !=(ByteSize b1, ByteSize b2) {
+        public static bool operator !=(ByteSize b1, ByteSize b2)
+        {
             return b1.Bits != b2.Bits;
         }
 
-        public static bool operator <(ByteSize b1, ByteSize b2) {
+        public static bool operator <(ByteSize b1, ByteSize b2)
+        {
             return b1.Bits < b2.Bits;
         }
 
-        public static bool operator <=(ByteSize b1, ByteSize b2) {
+        public static bool operator <=(ByteSize b1, ByteSize b2)
+        {
             return b1.Bits <= b2.Bits;
         }
 
-        public static bool operator >(ByteSize b1, ByteSize b2) {
+        public static bool operator >(ByteSize b1, ByteSize b2)
+        {
             return b1.Bits > b2.Bits;
         }
 
-        public static bool operator >=(ByteSize b1, ByteSize b2) {
+        public static bool operator >=(ByteSize b1, ByteSize b2)
+        {
             return b1.Bits >= b2.Bits;
         }
 
-        public static ByteSize Parse(string s) {
+        public static ByteSize Parse(string s)
+        {
             return Parse(s, NumberFormatInfo.CurrentInfo);
         }
-        public static ByteSize Parse(string s, IFormatProvider formatProvider) {
+        public static ByteSize Parse(string s, IFormatProvider formatProvider)
+        {
             return Parse(s, NumberStyles.Float | NumberStyles.AllowThousands, formatProvider);
         }
 
-        public static ByteSize Parse(string s, NumberStyles numberStyles, IFormatProvider formatProvider) {
+        public static ByteSize Parse(string s, NumberStyles numberStyles, IFormatProvider formatProvider)
+        {
 
             // Arg checking
             if (string.IsNullOrWhiteSpace(s))
@@ -310,7 +351,8 @@ namespace Optimizer {
 
             // Pick first non-digit number
             for (num = 0; num < s.Length; num++)
-                if (!(char.IsDigit(s[num]) || s[num] == decimalSeparator || s[num] == groupSeparator)) {
+                if (!(char.IsDigit(s[num]) || s[num] == decimalSeparator || s[num] == groupSeparator))
+                {
                     found = true;
                     break;
                 }
@@ -330,7 +372,8 @@ namespace Optimizer {
                 throw new FormatException($"No number found in value '{s}'.");
 
             // Get the magnitude part
-            switch (sizePart) {
+            switch (sizePart)
+            {
                 case "b":
                     if (number % 1 != 0) // Can't have partial bits
                         throw new FormatException($"Can't have partial bits for value '{s}'.");
@@ -341,7 +384,8 @@ namespace Optimizer {
                     return FromBytes(number);
             }
 
-            switch (sizePart.ToLowerInvariant()) {
+            switch (sizePart.ToLowerInvariant())
+            {
                 // Binary
                 case "kib":
                     return FromKibiBytes(number);
@@ -379,23 +423,29 @@ namespace Optimizer {
             }
         }
 
-        public static bool TryParse(string s, out ByteSize result) {
-            try {
+        public static bool TryParse(string s, out ByteSize result)
+        {
+            try
+            {
                 result = Parse(s);
                 return true;
             }
-            catch {
+            catch
+            {
                 result = new ByteSize();
                 return false;
             }
         }
 
-        public static bool TryParse(string s, NumberStyles numberStyles, IFormatProvider formatProvider, out ByteSize result) {
-            try {
+        public static bool TryParse(string s, NumberStyles numberStyles, IFormatProvider formatProvider, out ByteSize result)
+        {
+            try
+            {
                 result = Parse(s, numberStyles, formatProvider);
                 return true;
             }
-            catch {
+            catch
+            {
                 result = new ByteSize();
                 return false;
             }

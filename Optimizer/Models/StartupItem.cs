@@ -2,11 +2,13 @@
 using System;
 using System.IO;
 
-namespace Optimizer {
+namespace Optimizer
+{
     /// <summary>
     /// Represents a base Windows startup item
     /// </summary>
-    internal class StartupItem {
+    internal class StartupItem
+    {
         internal string Name { get; set; }
         internal string FileLocation { get; set; }
         internal StartupItemLocation RegistryLocation { get; set; }
@@ -16,71 +18,92 @@ namespace Optimizer {
         internal virtual void LocateFile() { }
         internal virtual void LocateKey() { }
 
-        public override string ToString() {
+        public override string ToString()
+        {
             if (RegistryLocation == StartupItemLocation.LMStartupFolder) return RegistryLocation.ToString();
             return string.Format("{0}:{1}", RegistryLocation, StartupType);
         }
     }
 
-    internal sealed class FolderStartupItem : StartupItem {
+    internal sealed class FolderStartupItem : StartupItem
+    {
         internal string Shortcut { get; set; }
 
-        internal override void Remove() {
-            try {
-                if (File.Exists(Shortcut)) {
+        internal override void Remove()
+        {
+            try
+            {
+                if (File.Exists(Shortcut))
+                {
                     File.Delete(Shortcut);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("FolderStartupItem.Remove", ex.Message, ex.StackTrace);
             }
         }
 
-        internal override void LocateFile() {
-            try {
+        internal override void LocateFile()
+        {
+            try
+            {
                 Utilities.FindFile(FileLocation);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("FolderStartupItem.LocateFile", ex.Message, ex.StackTrace);
             }
         }
     }
 
-    internal sealed class RegistryStartupItem : StartupItem {
+    internal sealed class RegistryStartupItem : StartupItem
+    {
         internal RegistryKey Key { get; set; }
 
-        internal override void LocateKey() {
-            try {
+        internal override void LocateKey()
+        {
+            try
+            {
                 Utilities.FindKeyInRegistry(Key.ToString());
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("RegistryStartupItem.LocateKey", ex.Message, ex.StackTrace);
             }
         }
 
-        internal override void Remove() {
-            try {
+        internal override void Remove()
+        {
+            try
+            {
                 Key.DeleteValue(Name, false);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("RegistryStartupItem.Remove", ex.Message, ex.StackTrace);
             }
         }
 
-        internal override void LocateFile() {
-            try {
+        internal override void LocateFile()
+        {
+            try
+            {
                 Utilities.FindFile(SanitizePath(FileLocation));
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Logger.LogError("RegistryStartupItem.LocateFile", ex.Message, ex.StackTrace);
             }
         }
 
-        internal string SanitizePath(string s) {
+        internal string SanitizePath(string s)
+        {
             s = s.Replace("\"", string.Empty);
             int i;
 
-            while (s.Contains("/")) {
+            while (s.Contains("/"))
+            {
                 i = s.LastIndexOf("/");
                 s = s.Substring(0, i);
             }

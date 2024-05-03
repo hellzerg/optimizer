@@ -14,7 +14,7 @@
 
 //        internal static HttpClient TelemetryClient;
 
-//        internal const string TELEMETRY_API_URL = "https://optimizer-telemetry-handler.azurewebsites.net/telemetry.php";
+//        internal const string TELEMETRY_API_URL = "";
 //        internal const string TELEMETRY_KEY = @"{OPTIMIZER-0EFC7B8A-D1FC-467F-B4B1-0117C643FE19-TELEMETRY}";
 
 //        internal static async void EnableTelemetryService()

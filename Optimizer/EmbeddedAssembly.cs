@@ -4,30 +4,36 @@ using System.IO;
 using System.Reflection;
 using System.Security.Cryptography;
 
-namespace Optimizer {
-    internal sealed class EmbeddedAssembly {
+namespace Optimizer
+{
+    internal sealed class EmbeddedAssembly
+    {
         static Dictionary<string, Assembly> _dictionary;
 
-        internal static void Load(string embeddedResource, string fileName) {
+        internal static void Load(string embeddedResource, string fileName)
+        {
             if (_dictionary == null) _dictionary = new Dictionary<string, Assembly>();
 
             byte[] bytes = null;
             Assembly assembly = null;
             Assembly currentAssembly = Assembly.GetExecutingAssembly();
 
-            using (Stream stream = currentAssembly.GetManifestResourceStream(embeddedResource)) {
+            using (Stream stream = currentAssembly.GetManifestResourceStream(embeddedResource))
+            {
                 if (stream == null) throw new Exception($"{embeddedResource} is not found in Embedded Resources.");
 
                 bytes = new byte[(int)stream.Length];
                 stream.Read(bytes, 0, (int)stream.Length);
 
-                try {
+                try
+                {
                     assembly = Assembly.Load(bytes);
 
                     _dictionary.Add(assembly.FullName, assembly);
                     return;
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     Logger.LogError("EmbeddedAssembly.Load", ex.Message, ex.StackTrace);
                 }
             }
@@ -35,25 +41,30 @@ namespace Optimizer {
             bool fileOk = false;
             string tempFile = string.Empty;
 
-            using (SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider()) {
+            using (SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider())
+            {
                 string fileHash = BitConverter.ToString(sha1.ComputeHash(bytes)).Replace("-", string.Empty);
 
                 tempFile = Path.GetTempPath() + fileName;
 
-                if (File.Exists(tempFile)) {
+                if (File.Exists(tempFile))
+                {
                     byte[] byteArray = File.ReadAllBytes(tempFile);
                     string fileHash2 = BitConverter.ToString(sha1.ComputeHash(byteArray)).Replace("-", string.Empty);
 
-                    if (fileHash == fileHash2) {
+                    if (fileHash == fileHash2)
+                    {
                         fileOk = true;
                     }
                 }
-                else {
+                else
+                {
                     fileOk = false;
                 }
             }
 
-            if (!fileOk) {
+            if (!fileOk)
+            {
                 File.WriteAllBytes(tempFile, bytes);
             }
 
@@ -61,7 +72,8 @@ namespace Optimizer {
             _dictionary.Add(assembly.FullName, assembly);
         }
 
-        internal static Assembly Get(string assemblyFullName) {
+        internal static Assembly Get(string assemblyFullName)
+        {
             if (_dictionary == null || _dictionary.Count == 0) return null;
             if (_dictionary.ContainsKey(assemblyFullName)) return _dictionary[assemblyFullName];
             return null;

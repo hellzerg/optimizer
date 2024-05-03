@@ -464,10 +464,12 @@
     "copilotTip": "Teljesen kikapcsolja a CoPilot AI funkciót.",
 	"btnReinforce": "Iránypontok erősítése",
 	"msgReinforce": "Biztos vagy benne, hogy újra alkalmazod az aktuális iránypontokat?",
-	"chkNewsInterest": "Hírek és Érdeklődés kikapcsolása",
-	"chkAllTrayIcons": "Az összes tálca ikon megjelenítése",
-	"chkMenuDelays": "Menü késleltetések eltávolítása",
-	"chkHideSearch": "Keresés elrejtése",
-	"chkHideFeed": "Időjárás elrejtése",
-	"autoUpdateToggle": "Frissítés indításkor"
+	"newsInterestsSw": "Hírek és érdeklődések kikapcsolása",
+	"allTrayIconsSw": "Összes értesítési ikon megjelenítése",
+	"noMenuDelaySw": "Menük késleltetésének eltávolítása",
+	"hideSearchSw": "Keresés elrejtése a feladatlista keresőmezőjében",
+	"hideWeatherSw": "Időjárás elrejtése a feladatlista területén",
+	"enableUtcSw": "UTC Idő Engedélyezése",
+	"autoUpdateToggle": "Frissítés indításkor",
+	"modernStandbySw": "Modern készenléti állapot kikapcsolása"
 }

@@ -466,10 +466,12 @@
 "copilotTip": "CoPilot AI فیچر کو مکمل طور پر بند کر دیتا ہے۔",
 "btnReinforce": "پالیسیوں کو تقویت دیں",
 "msgReinforce": "کیا آپ واقعی اپنی موجودہ فعال پالیسیوں کو دوبارہ لاگو کرنا چاہتے ہیں؟",
-"chkNewsInterest": "خبروں اور اور دلچسپی کو غیر فعال کریں",
-"chkAllTrayIcons": "تمام ٹرے شبیہیں دکھائیں",
-"chkMenuDelays": "مینو میں تاخیر ہٹائیں",
-"chkHideSearch": "تلاش چھپائیں",
-"chkHideFeed": "موسم چھپائیں",
-"autoUpdateToggle": "لانچ پر اپ ڈیٹ",
+"newsInterestsSw": "خبروں اور دلچسپیوں کو غیرفعال کریں",
+	"allTrayIconsSw": "تمام اطلاعیہ آئیکنز دکھائیں",
+	"noMenuDelaySw": "مینو کی دیر کو ختم کریں",
+	"hideSearchSw": "ٹاسک بار تلاش چھپائیں",
+	"hideWeatherSw": "ٹاسک بار موسم چھپائیں",
+	"autoUpdateToggle": "شروع میں اپ ڈیٹ",
+	"enableUtcSw": "یو ای ٹی سمت ان کریں",
+	"modernStandbySw": "جدید استعداد کو غیر فعال کریں"
 }

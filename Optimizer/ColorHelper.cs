@@ -2,9 +2,12 @@
 using System.Drawing;
 using System.Text;
 
-namespace Optimizer {
-    public static class ColorHelper {
-        public static void HSVFromRGB(Color color, out double hue, out double saturation, out double value) {
+namespace Optimizer
+{
+    public static class ColorHelper
+    {
+        public static void HSVFromRGB(Color color, out double hue, out double saturation, out double value)
+        {
             double min, max, delta, r, g, b;
             r = (double)color.R / 255d;
             g = (double)color.G / 255d;
@@ -16,7 +19,8 @@ namespace Optimizer {
             delta = max - min;
             if (max != 0)
                 saturation = delta / max;
-            else {
+            else
+            {
                 saturation = 0;
                 hue = -1;
                 return;
@@ -32,12 +36,15 @@ namespace Optimizer {
                 hue += 360;
         }
 
-        public static Color ColorFromHSV(double hue, double saturation, double value) {
-            try {
+        public static Color ColorFromHSV(double hue, double saturation, double value)
+        {
+            try
+            {
                 int i;
                 double f, p, q, t, r, g, b;
 
-                if (saturation == 0) {
+                if (saturation == 0)
+                {
                     r = g = b = value;
                     return Color.FromArgb((int)(255 * r), (int)(255 * g), (int)(255 * b));
                 }
@@ -47,7 +54,8 @@ namespace Optimizer {
                 p = value * (1 - saturation);
                 q = value * (1 - saturation * f);
                 t = value * (1 - saturation * (1 - f));
-                switch (i) {
+                switch (i)
+                {
                     case 0:
                         r = value;
                         g = t;
@@ -81,12 +89,14 @@ namespace Optimizer {
                 }
                 return Color.FromArgb((int)(255 * r), (int)(255 * g), (int)(255 * b));
             }
-            catch {
+            catch
+            {
             }
             return Color.Empty;
         }
 
-        public static Color ChangeColorBrightness(Color color, double darkenAmount) {
+        public static Color ChangeColorBrightness(Color color, double darkenAmount)
+        {
             HslColor hslColor = new HslColor(color);
             hslColor.L *= darkenAmount;
             return hslColor;
@@ -94,7 +104,8 @@ namespace Optimizer {
     }
 
     [Serializable]
-    public struct HslColor {
+    public struct HslColor
+    {
         #region Constants
 
         public static readonly HslColor Empty;
@@ -113,8 +124,10 @@ namespace Optimizer {
 
         #region Static Constructors
 
-        static HslColor() {
-            Empty = new HslColor {
+        static HslColor()
+        {
+            Empty = new HslColor
+            {
                 IsEmpty = true
             };
         }
@@ -126,7 +139,8 @@ namespace Optimizer {
         public HslColor(double h, double s, double l)
             : this(255, h, s, l) { }
 
-        public HslColor(int a, double h, double s, double l) {
+        public HslColor(int a, double h, double s, double l)
+        {
             this.alpha = a;
             this.hue = Math.Min(359, h);
             this.saturation = Math.Min(1, s);
@@ -134,7 +148,8 @@ namespace Optimizer {
             isEmpty = false;
         }
 
-        public HslColor(Color color) {
+        public HslColor(Color color)
+        {
             this.alpha = color.A;
             this.hue = color.GetHue();
             this.saturation = color.GetSaturation();
@@ -146,19 +161,23 @@ namespace Optimizer {
 
         #region Operators
 
-        public static bool operator ==(HslColor left, HslColor right) {
+        public static bool operator ==(HslColor left, HslColor right)
+        {
             return (((left.A == right.A) && (left.H == right.H)) && ((left.S == right.S) && (left.L == right.L)));
         }
 
-        public static bool operator !=(HslColor left, HslColor right) {
+        public static bool operator !=(HslColor left, HslColor right)
+        {
             return !(left == right);
         }
 
-        public static implicit operator HslColor(Color color) {
+        public static implicit operator HslColor(Color color)
+        {
             return new HslColor(color);
         }
 
-        public static implicit operator Color(HslColor color) {
+        public static implicit operator Color(HslColor color)
+        {
             return color.ToRgbColor();
         }
 
@@ -166,20 +185,25 @@ namespace Optimizer {
 
         #region Overridden Methods
 
-        public override bool Equals(object obj) {
-            if (obj is HslColor color) {
-                if (((this.A == color.A) && (this.H == color.H)) && ((this.S == color.S) && (this.L == color.L))) {
+        public override bool Equals(object obj)
+        {
+            if (obj is HslColor color)
+            {
+                if (((this.A == color.A) && (this.H == color.H)) && ((this.S == color.S) && (this.L == color.L)))
+                {
                     return true;
                 }
             }
             return false;
         }
 
-        public override int GetHashCode() {
+        public override int GetHashCode()
+        {
             return (((this.alpha.GetHashCode() ^ this.hue.GetHashCode()) ^ this.saturation.GetHashCode()) ^ this.luminance.GetHashCode());
         }
 
-        public override string ToString() {
+        public override string ToString()
+        {
             StringBuilder builder;
 
             builder = new StringBuilder();
@@ -200,44 +224,54 @@ namespace Optimizer {
 
         #region Public Members
 
-        public double H {
+        public double H
+        {
             get { return this.hue; }
-            set {
+            set
+            {
                 this.hue = value;
                 this.hue = (this.hue > 359.0) ? 0 : ((this.hue < 0.0) ? 359 : this.hue);
             }
         }
 
-        public double S {
+        public double S
+        {
             get { return this.saturation; }
             set { this.saturation = Math.Min(1, Math.Max(0, value)); }
         }
 
-        public double L {
+        public double L
+        {
             get { return this.luminance; }
             set { this.luminance = Math.Min(1, Math.Max(0, value)); }
         }
 
-        public int A {
+        public int A
+        {
             get { return this.alpha; }
             set { this.alpha = Math.Min(0, Math.Max(255, value)); }
         }
 
-        public bool IsEmpty {
+        public bool IsEmpty
+        {
             get { return isEmpty; }
             internal set { isEmpty = value; }
         }
 
-        public Color ToRgbColor() {
+        public Color ToRgbColor()
+        {
             return this.ToRgbColor(this.A);
         }
 
-        public Color ToRgbColor(int alpha) {
+        public Color ToRgbColor(int alpha)
+        {
             double q;
-            if (this.L < 0.5) {
+            if (this.L < 0.5)
+            {
                 q = this.L * (1 + this.S);
             }
-            else {
+            else
+            {
                 q = this.L + this.S - (this.L * this.S);
             }
             double p = 2 * this.L - q;
@@ -253,24 +287,31 @@ namespace Optimizer {
                           0.0, 0.0, 0.0
                         };
 
-            for (int color = 0; color < colors.Length; color++) {
-                if (tc[color] < 0) {
+            for (int color = 0; color < colors.Length; color++)
+            {
+                if (tc[color] < 0)
+                {
                     tc[color] += 1;
                 }
-                if (tc[color] > 1) {
+                if (tc[color] > 1)
+                {
                     tc[color] -= 1;
                 }
 
-                if (tc[color] < (1d / 6d)) {
+                if (tc[color] < (1d / 6d))
+                {
                     colors[color] = p + ((q - p) * 6 * tc[color]);
                 }
-                else if (tc[color] >= (1d / 6d) && tc[color] < (1d / 2d)) {
+                else if (tc[color] >= (1d / 6d) && tc[color] < (1d / 2d))
+                {
                     colors[color] = q;
                 }
-                else if (tc[color] >= (1d / 2d) && tc[color] < (2d / 3d)) {
+                else if (tc[color] >= (1d / 2d) && tc[color] < (2d / 3d))
+                {
                     colors[color] = p + ((q - p) * 6 * (2d / 3d - tc[color]));
                 }
-                else {
+                else
+                {
                     colors[color] = p;
                 }
 

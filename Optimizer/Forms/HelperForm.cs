@@ -3,31 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Optimizer {
-    public sealed partial class HelperForm : System.Windows.Forms.Form {
+namespace Optimizer
+{
+    public sealed partial class HelperForm : System.Windows.Forms.Form
+    {
         MainForm _main;
         MessageType _type;
 
-        private void Confirm() {
-            if (_type == MessageType.Error) {
+        private void Confirm()
+        {
+            if (_type == MessageType.Error)
+            {
                 this.Close();
             }
-            if (_type == MessageType.Startup) {
+            if (_type == MessageType.Startup)
+            {
                 _main.RemoveAllStartupItems();
             }
-            if (_type == MessageType.Restart) {
+            if (_type == MessageType.Restart)
+            {
                 OptionsHelper.SaveSettings();
                 Utilities.Reboot();
             }
-            if (_type == MessageType.Hosts) {
+            if (_type == MessageType.Hosts)
+            {
                 _main.RemoveAllHostsEntries();
             }
-            if (_type == MessageType.Integrator) {
+            if (_type == MessageType.Integrator)
+            {
                 _main.RemoveAllDesktopItems();
             }
         }
 
-        internal HelperForm(MainForm main, MessageType m, string text) {
+        internal HelperForm(MainForm main, MessageType m, string text)
+        {
             InitializeComponent();
             OptionsHelper.ApplyTheme(this);
 
@@ -36,7 +45,8 @@ namespace Optimizer {
 
             lblMessage.Text = text;
 
-            if (_type == MessageType.Error) {
+            if (_type == MessageType.Error)
+            {
                 btnNo.Visible = false;
                 btnYes.Text = OptionsHelper.TranslationList["btnOk"];
 
@@ -50,26 +60,31 @@ namespace Optimizer {
             if (OptionsHelper.CurrentOptions.LanguageCode != LanguageCode.EN) Translate();
         }
 
-        private void btnNo_Click(object sender, EventArgs e) {
+        private void btnNo_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
 
-        private void btnYes_Click(object sender, EventArgs e) {
+        private void btnYes_Click(object sender, EventArgs e)
+        {
             Confirm();
             this.Close();
         }
 
-        private void Messager_Load(object sender, EventArgs e) {
+        private void Messager_Load(object sender, EventArgs e)
+        {
             CheckForIllegalCrossThreadCalls = false;
             this.BringToFront();
         }
 
-        private void Translate() {
+        private void Translate()
+        {
             Dictionary<string, string> translationList = OptionsHelper.TranslationList.ToObject<Dictionary<string, string>>();
 
             Control element;
 
-            foreach (var x in translationList) {
+            foreach (var x in translationList)
+            {
                 if (x.Key == null || x.Key == string.Empty) continue;
                 element = this.Controls.Find(x.Key, true).FirstOrDefault();
 
