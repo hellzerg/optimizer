@@ -41,6 +41,7 @@
         internal static string BULGARIAN = "български";
         internal static string VIETNAMESE = "Tiếng Việt";
         internal static string URDU = "لشکری ‍زبان";
+        internal static string INDONESIA = "Bahasa Indonesia";
 
         internal static string CloudflareDNS = "Cloudflare";
         internal static string OpenDNS = "OpenDNS";
