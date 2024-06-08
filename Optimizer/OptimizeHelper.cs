@@ -941,12 +941,14 @@ namespace Optimizer
 
         internal static void DisableNewsInterests()
         {
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Dsh", "AllowNewsAndInterests", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds", "EnableFeeds", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\NewsAndInterests\AllowNewsAndInterests", "value", "0", RegistryValueKind.DWord);
         }
 
         internal static void EnableNewsInterests()
         {
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Dsh", "AllowNewsAndInterests");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\Windows Feeds", "EnableFeeds");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\PolicyManager\default\NewsAndInterests\AllowNewsAndInterests", "value");
         }
@@ -1247,10 +1249,6 @@ namespace Optimizer
                 k.SetValue("LaunchTo", 1, RegistryValueKind.DWord);
             }
 
-            // Disable Meet
-            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", "HideSCAMeetNow", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer", "HideSCAMeetNow", "1", RegistryValueKind.DWord);
-
             // Disable File History
             //Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\FileHistory", "Disabled", "1", RegistryValueKind.DWord);
             //Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\File History", "Disabled", "1", RegistryValueKind.DWord);
@@ -1275,13 +1273,16 @@ namespace Optimizer
 
             //Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\FileHistory", true).DeleteValue("Disabled", false);
             //Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\File History", true).DeleteValue("Disabled", false);
-
-            Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer", true).DeleteValue("HideSCAMeetNow", false);
-            Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer", true).DeleteValue(@"HideSCAMeetNow", false);
         }
 
         internal static void DisableStartMenuAds()
         {
+            // Disable Phone Link suggestions
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Mobility", "OptedIn", "0", RegistryValueKind.DWord);
+
+            // Disable "Suggested" app notifications (Ads for MS services)
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.Suggested", "Enabled", "0", RegistryValueKind.DWord);
+
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "SubscribedContent-88000326Enabled", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement", "ScoobeSystemSettingEnabled", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "ContentDeliveryAllowed", "0", RegistryValueKind.DWord);
@@ -1306,6 +1307,9 @@ namespace Optimizer
 
         internal static void EnableStartMenuAds()
         {
+            Utilities.TryDeleteRegistryValue(false, @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.Suggested", "Enabled");
+            Utilities.TryDeleteRegistryValue(false, @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Mobility", "OptedIn");
+
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "SubscribedContent-88000326Enabled");
             Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement", "ScoobeSystemSettingEnabled");
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "ContentDeliveryAllowed");
@@ -1645,11 +1649,16 @@ namespace Optimizer
 
         internal static void DisableChat()
         {
+            // Disable Meet
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", "HideSCAMeetNow", "1", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer", "HideSCAMeetNow", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarMn", "0", RegistryValueKind.DWord);
         }
 
         internal static void EnableChat()
         {
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer", "HideSCAMeetNow");
+            Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer", "HideSCAMeetNow");
             Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarMn");
         }
 
@@ -1783,13 +1792,23 @@ namespace Optimizer
 
         internal static void DisableCoPilotAI()
         {
+            // Disable Copilot+ Recall
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\WindowsAI", "DisableAIDataAnalysis", "1", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsAI", "DisableAIDataAnalysis", "1", RegistryValueKind.DWord);
+
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "ShowCopilotButton", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "DefaultBrowserSettingsCampaignEnabled", "0", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "ComposeInlineEnabled", "0", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsCopilot", "TurnOffWindowsCopilot", "1", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot", "TurnOffWindowsCopilot", "1", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot", "TurnOffWindowsCopilot", "1", RegistryValueKind.DWord);
         }
 
         internal static void EnableCoPilotAI()
         {
+            Utilities.TryDeleteRegistryValue(false, @"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "ShowCopilotButton");
+            Utilities.TryDeleteRegistryValue(false, @"Software\Policies\Microsoft\Windows\WindowsAI", "DisableAIDataAnalysis");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\WindowsAI", "DisableAIDataAnalysis");
+            Utilities.TryDeleteRegistryValue(false, @"Software\Policies\Microsoft\Windows\WindowsCopilot", "TurnOffWindowsCopilot");
             Utilities.TryDeleteRegistryValue(true, @"Software\Policies\Microsoft\Windows\WindowsCopilot", "TurnOffWindowsCopilot");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Edge", "DefaultBrowserSettingsCampaignEnabled");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Edge", "ComposeInlineEnabled");

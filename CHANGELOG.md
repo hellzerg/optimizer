@@ -1,3 +1,8 @@
+## [Unreleased]
+- New: Disable Copilot + Recall feature
+- New: Disable Phone Link suggestions
+- New: Disable Microsoft Services ads showing as suggestions
+
 ## [16.5] - 2024-05-03
 - New: Enable UTC time globally on Windows
 - New: Disable Modern Standby feature on Windows 10/11
