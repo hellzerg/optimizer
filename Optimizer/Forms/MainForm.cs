@@ -950,7 +950,8 @@ namespace Optimizer
                 Constants.NEPALI,
                 Constants.BULGARIAN,
                 Constants.VIETNAMESE,
-                Constants.URDU
+                Constants.URDU,
+                Constants.INDONESIA
             });
 
             _splashForm.LoadingStatus.Text = "checking for requirements";
@@ -1590,6 +1591,10 @@ namespace Optimizer
             if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.UR)
             {
                 boxLang.Text = Constants.URDU;
+            }
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.ID)
+            {
+                boxLang.Text = Constants.INDONESIA;
             }
         }
 
@@ -4677,6 +4682,11 @@ namespace Optimizer
             {
                 picFlag.Image = Properties.Resources.pakistan;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.UR;
+            }
+            else if (boxLang.Text == Constants.INDONESIA)
+            {
+                picFlag.Image = Properties.Resources.indonesia;
+                OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.ID;
             }
 
             OptionsHelper.SaveSettings();

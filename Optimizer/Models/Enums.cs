@@ -120,6 +120,7 @@
         NE, // nepali
         BG, // bulgarian
         VN, // vietnamese
-        UR // urdu
+        UR, // urdu
+        ID // indonesia
     }
 }
