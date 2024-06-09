@@ -58,4 +58,16 @@ You should reset the "Enhance Privacy" and restart your computer.
 ### **Should I disable Sensor Services?**
 If your device is a tablet, has various sensors (proximity, auto-brightness, etc.), or features a touch screen, it's recommended not to disable Sensor Services. These services likely contribute to the functionality of these features on your device.
 
+### **Is my Anti-Virus going to detect anything wrong?**
+Yes, it is possible. When disabling the telemetry services through this tool, one of the things it does is disables the Windows Malicious Software Removal Tool (MRT). You might get a Potentially Unwanted Modifications (PUM) alert from your anti-virus or malware scanner.
+
+MalwareBytes labels certain system modifications as "Potentially Unwanted Modifications" (PUM) when they change default system settings or disable security features. The "PUM.Optional.DisableMRT" detection specifically relates to disabling the Windows Malicious Software Removal Tool (MRT). This tool is designed to enhance system performance and user privacy by limiting telemetry and automatic data collection, but these changes can also affect system security and functionality. However, most consumers will not notice any functionality changes.
+
+Please keep in mind, this is only relevant for Windows Malicious Software Removal Tool and not Defender. You will still be able to run Defender quick-scans, full-scans, and etc. Microsoft most likely keeps MRT for redundancy, assurance, supplemental tool for recovery, and legacy support.
+
+References: 
+ - https://answers.microsoft.com/en-us/windows/forum/all/is-there-a-difference-between-windows-defender/ad27e697-8f96-4f0a-9731-58b132c2b9ab
+ - https://www.reddit.com/r/Windows10/comments/1b3evt1/is_windows_malicious_software_removal_tool_good/
+
+
 We hope these answers have provided clarity on common questions. If you require further assistance, please don't hesitate to reach out to our support team for personalized help.
