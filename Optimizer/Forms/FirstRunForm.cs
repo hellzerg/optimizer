@@ -348,5 +348,29 @@ namespace Optimizer
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
         }
+
+        private void pictureBox25_Click(object sender, EventArgs e)
+        {
+            radioCroatian.PerformClick();
+        }
+
+        private void pictureBox24_Click(object sender, EventArgs e)
+        {
+            radioIndonesian.PerformClick();
+        }
+
+        private void radioCroatian_CheckedChanged(object sender, EventArgs e)
+        {
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.HR;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
+        }
+
+        private void radioIndonesian_CheckedChanged(object sender, EventArgs e)
+        {
+            OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.ID;
+            OptionsHelper.SaveSettings();
+            OptionsHelper.LoadTranslation();
+        }
     }
 }

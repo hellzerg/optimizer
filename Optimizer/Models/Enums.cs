@@ -121,6 +121,7 @@
         BG, // bulgarian
         VN, // vietnamese
         UR, // urdu
-        ID // indonesia
+        ID, // indonesian
+        HR // croatian
     }
 }

@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Optimizer
@@ -286,6 +287,63 @@ namespace Optimizer
             {
                 Utilities.ImportRegistryScript(CoreHelper.ReadyMadeMenusFolder + "RemoveTakeOwnership.reg");
             }
+        }
+
+        /// <summary>
+        /// PATH System Variables functions
+        /// </summary>
+
+        const int HWND_BROADCAST = 0xffff;
+        const uint WM_SETTINGCHANGE = 0x001a;
+
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        static extern bool SendNotifyMessage(IntPtr hWnd, uint Msg, UIntPtr wParam, string lParam);
+
+        internal static string[] GetPathSystemVariables()
+        {
+            try
+            {
+                string basePathKey = @"SYSTEM\CurrentControlSet\Control\Session Manager\Environment";
+                using (var key = Registry.LocalMachine.OpenSubKey(basePathKey, false))
+                {
+                    string result = key.GetValue("Path", new string[] { }).ToString();
+                    return result.Split(';');
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("Integrator.GetPathSystemVariables", ex.Message, ex.StackTrace);
+                return new string[] { };
+            }
+        }
+
+        internal static void UpdatePathSystemVariables(string[] newValues)
+        {
+            if (newValues == null || newValues.Length <= 0)
+            {
+                return;
+            }
+
+            try
+            {
+                string basePathKey = @"SYSTEM\CurrentControlSet\Control\Session Manager\Environment";
+                using (var key = Registry.LocalMachine.OpenSubKey(basePathKey, true))
+                {
+                    string updatedSystemVariables = string.Join(";", newValues);
+                    key.SetValue("Path", updatedSystemVariables, RegistryValueKind.ExpandString);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("Integrator.UpdatePathSystemVariables", ex.Message, ex.StackTrace);
+            }
+        }
+
+        // Notifies the shell that System variables have been changed
+        // Otherwise, a restart is needed
+        internal static void ApplyPathSystemVariables()
+        {
+            SendNotifyMessage((IntPtr)HWND_BROADCAST, WM_SETTINGCHANGE, (UIntPtr)0, "Environment");
         }
     }
 }

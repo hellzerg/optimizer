@@ -464,5 +464,11 @@ SMBv3に置き換えられており、そちらのほうがより安全です。
 	"hideWeatherSw": "タスクバーの天気を非表示",
 	"enableUtcSw": "UTC 時間を有効にする",
 	"autoUpdateToggle": "起動時の更新",
-	"modernStandbySw": "モダンスタンバイの無効化"
+	"modernStandbySw": "モダンスタンバイの無効化",
+	"label24": "システム変数エディタ",
+    "label23": "新しいシステム変数パス:",
+    "button3": "追加",
+    "label21": "システム変数",
+    "button1": "削除",
+    "button2": "更新"
 }

@@ -468,5 +468,11 @@
 	"enableUtcSw": "Ενεργοποίηση UTC Ωρας",
 	"hideWeatherSw": "Απόκρυψη καιρού",
 	"autoUpdateToggle": "Ενημέρωση κατά την εκκίνηση",
-	"modernStandbySw": "Απενεργοποίηση Modern Standby"
+	"modernStandbySw": "Απενεργοποίηση Modern Standby",
+	"label24": "Επεξεργαστής Μεταβλητών Συστήματος",
+    "label23": "Νέα διαδρομή μεταβλητής συστήματος:",
+    "button3": "Προσθήκη",
+    "label21": "Μεταβλητές Συστήματος",
+    "button1": "Διαγραφή",
+    "button2": "Ανανέωση"
 }

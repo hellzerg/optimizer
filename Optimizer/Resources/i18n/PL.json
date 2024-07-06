@@ -442,5 +442,11 @@
 	"hideWeatherSw": "Ukryj pogodę na pasku zadań",
 	"enableUtcSw": "Włącz czas UTC",
 	"autoUpdateToggle": "Aktualizuj przy uruchomieniu",
-	"modernStandbySw": "Wyłącz nowoczesny tryb gotowości"
+	"modernStandbySw": "Wyłącz nowoczesny tryb gotowości",
+	"label24": "Edytor zmiennych systemowych",
+    "label23": "Nowa ścieżka zmiennej systemowej:",
+    "button3": "Dodaj",
+    "label21": "Zmienne systemowe",
+    "button1": "Usuń",
+    "button2": "Odśwież"
 }

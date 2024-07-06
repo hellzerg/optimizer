@@ -447,5 +447,11 @@
 	"hideWeatherSw": "Wetter in der Taskleiste ausblenden",
 	"autoUpdateToggle": "Aktualisierung beim Start",
 	"enableUtcSw": "UTC-Zeit aktivieren",
-	"modernStandbySw": "Modernen Standby deaktivieren"
+	"modernStandbySw": "Modernen Standby deaktivieren",
+	"label24": "Systemvariablen-Editor",
+    "label23": "Neuer Systemvariablenpfad:",
+    "button3": "Hinzufügen",
+    "label21": "Systemvariablen",
+    "button1": "Löschen",
+    "button2": "Aktualisieren"
 }

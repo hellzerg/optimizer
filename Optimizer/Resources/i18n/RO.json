@@ -455,5 +455,11 @@
 	"hideSearchSw": "Ascundeți căutarea în bara de activități",
 	"hideWeatherSw": "Ascundeți vremea în bara de activități",
 	"autoUpdateToggle": "Actualizare la pornire",
-	"modernStandbySw": "Dezactivați Standby modern"
+	"modernStandbySw": "Dezactivați Standby modern",
+	"label24": "Editor variabile de sistem",
+    "label23": "Noua cale a variabilei de sistem:",
+    "button3": "Adăugați",
+    "label21": "Variabile de sistem",
+    "button1": "Șterge",
+    "button2": "Actualizare"
 }

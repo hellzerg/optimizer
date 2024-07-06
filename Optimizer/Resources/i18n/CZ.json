@@ -473,5 +473,11 @@ Má to negativní vliv na výkon.",
 	"hideWeatherSw": "Skrýt počasí v hlavní liště",
 	"autoUpdateToggle": "Aktualizovat při spuštění",
 	"enableUtcSw": "Aktivovat UTC Čas",
-	"modernStandbySw": "Zakázat moderní pohotovost"
+	"modernStandbySw": "Zakázat moderní pohotovost",
+	"label24": "Editor systémových proměnných",
+    "label23": "Nová cesta systémové proměnné:",
+    "button3": "Přidat",
+    "label21": "Systémové proměnné",
+    "button1": "Smazat",
+    "button2": "Aktualizovat"
 }

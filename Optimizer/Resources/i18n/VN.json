@@ -423,5 +423,11 @@
 	"hideWeatherSw": "Ẩn thời tiết trên thanh taskbar",
   "enableUtcSw": "Bật thời gian UTC",
 	"autoUpdateToggle": "Cập nhật khi khởi động",
-	"modernStandbySw": "Tắt Chế độ chờ hiện đại"
+	"modernStandbySw": "Tắt Chế độ chờ hiện đại",
+  "label24": "Trình chỉnh sửa Biến hệ thống",
+  "label23": "Đường dẫn biến hệ thống mới:",
+  "button3": "Thêm",
+  "label21": "Biến hệ thống",
+  "button1": "Xóa",
+  "button2": "Làm mới"
 }

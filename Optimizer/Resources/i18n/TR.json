@@ -471,5 +471,11 @@ Performansa olumsuz etkisi vardır.",
 	"hideWeatherSw": "Görev çubuğundaki hava durumunu gizle",
 	"autoUpdateToggle": "Başlangıçta güncelle",
 	"enableUtcSw": "UTC Saati Etkinleştir",
-	"modernStandbySw": "Modern bekleme modunu devre dışı bırak"
+	"modernStandbySw": "Modern bekleme modunu devre dışı bırak",
+	"label24": "Sistem Değişkenleri düzenleyicisi",
+    "label23": "Yeni sistem değişkeni yolu:",
+    "button3": "Ekle",
+    "label21": "Sistem Değişkenleri",
+    "button1": "Sil",
+    "button2": "Yenile"
 }

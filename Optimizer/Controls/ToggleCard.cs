@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Optimizer
@@ -55,11 +56,13 @@ namespace Optimizer
         private void Label_MouseLeave(object sender, EventArgs e)
         {
             Label.Font = new System.Drawing.Font(Label.Font, System.Drawing.FontStyle.Regular);
+            Label.ForeColor = Color.White;
         }
 
         private void Label_MouseEnter(object sender, EventArgs e)
         {
             Label.Font = new System.Drawing.Font(Label.Font, System.Drawing.FontStyle.Underline);
+            Label.ForeColor = OptionsHelper.ForegroundColor;
         }
 
         private void Label_Click(object sender, EventArgs e)
@@ -72,6 +75,7 @@ namespace Optimizer
         private void Label_MouseHover(object sender, EventArgs e)
         {
             Label.Font = new System.Drawing.Font(Label.Font, System.Drawing.FontStyle.Underline);
+            Label.ForeColor = OptionsHelper.ForegroundColor;
         }
     }
 }

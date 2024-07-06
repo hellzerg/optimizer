@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/16.5/Optimizer-16.5.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/16.6/Optimizer-16.6.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -39,6 +39,7 @@ Welcome to Optimizer, an advanced configuration utility designed to enhance your
 - Flush DNS cache
 - Remove unwanted startup programs
 - Edit your HOSTS file
+- Edit your System Variables paths
 - Identify and terminate file lock handles
 - Hardware inspection tool
 - Add items to the desktop right-click menu
@@ -107,8 +108,8 @@ Learn about our security measures in the [Security Policy](https://github.com/he
 <h2> 📊 Details</h2> 
 </center>
 
-- Latest version: 16.5 (Released: May 03, 2024)
-- SHA256: 26C64C2FAFCD264B8130462FF6E40A6498EC6937FE95D5E83964388AE9597C4D
+- Latest version: 16.6 (Released: July 06, 2024)
+- SHA256: 8B29C9349E7A814E30CCE1CFB788F5A21740C798268B0A45AB805195FAAD9105
 
 <center>
 <h2> ☕ Buy me a delicious espresso</h2>
@@ -120,7 +121,7 @@ If you find this tool useful, consider showing your support by [donating through
 <h2> 🌐 Join our Community</h2>
 </center>
 
-Be a part of our [Discord](https://discord.gg/rZh8BhmmQv) community.
+Be a part of our [Discord](https://discord.gg/RmHYWMxWfJ) community.
 
 <center>
 <h2> ❤️ Credits and Acknowledgments</h2>
@@ -158,6 +159,8 @@ We'd like to extend our gratitude to the following contributors for their transl
 - Nepali: chapagetti
 - Hellenic
 - Bulgarian
+- Indonesian: ftrsndrya
+- Croatian: zZan54
 
 <center>
 <h2> ❤️ Contribute with a translation</h2>

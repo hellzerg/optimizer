@@ -473,5 +473,11 @@
 	"hideWeatherSw": "إخفاء الطقس في شريط المهام",
 	"autoUpdateToggle": "التحديث تلقائيًا عند التشغيل",
 	"enableUtcSw": "تمکين الوقت العالمي المنسق",
-	"modernStandbySw": "تعطيل Modern Standby"
+	"modernStandbySw": "تعطيل Modern Standby",
+	"label24": "محرر متغيرات النظام",
+    "label23": "مسار متغير النظام الجديد:",
+    "button3": "إضافة",
+    "label21": "متغيرات النظام",
+    "button1": "حذف",
+    "button2": "تحديث"
 }

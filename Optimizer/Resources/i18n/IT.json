@@ -467,5 +467,11 @@ Ha un effetto negativo sulle prestazioni.",
 	"hideWeatherSw": "Nascondi il meteo nella barra delle applicazioni",
 	"enableUtcSw": "Abilita ora UTC",
 	"autoUpdateToggle": "Aggiornamento all'avvio",
-	"modernStandbySw": "Disabilita Standby moderno"
+	"modernStandbySw": "Disabilita Standby moderno",
+	"label24": "Editor di variabili di sistema",
+    "label23": "Nuovo percorso variabile di sistema:",
+    "button3": "Aggiungi",
+    "label21": "Variabili di Sistema",
+    "button1": "Elimina",
+    "button2": "Aggiorna"
 }

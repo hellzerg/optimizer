@@ -447,5 +447,11 @@ Necessite l'ouverture d'un compte Microsoft.",
 	"hideWeatherSw": "Masquer la météo dans la barre des tâches",
 	"autoUpdateToggle": "Mise à jour au démarrage",
 	"enableUtcSw": "Activer l'heure UTC",
-	"modernStandbySw": "Désactiver le mode veille moderne"
+	"modernStandbySw": "Désactiver le mode veille moderne",
+	"label24": "Éditeur de variables système",
+    "label23": "Nouveau chemin de variable système:",
+    "button3": "Ajouter",
+    "label21": "Variables Système",
+    "button1": "Supprimer",
+    "button2": "Actualiser"
 }

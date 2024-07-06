@@ -471,5 +471,11 @@
 	"hideWeatherSw": "Időjárás elrejtése a feladatlista területén",
 	"enableUtcSw": "UTC Idő Engedélyezése",
 	"autoUpdateToggle": "Frissítés indításkor",
-	"modernStandbySw": "Modern készenléti állapot kikapcsolása"
+	"modernStandbySw": "Modern készenléti állapot kikapcsolása",
+	"label24": "Rendszerváltozók szerkesztője",
+    "label23": "Új rendszerváltozó útvonala:",
+    "button3": "Hozzáadás",
+    "label21": "Rendszerváltozók",
+    "button1": "Törlés",
+    "button2": "Frissítés"
 }

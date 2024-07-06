@@ -38,6 +38,7 @@ namespace Optimizer
             // Label
             // 
             this.Label.AutoSize = true;
+            this.Label.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Label.Location = new System.Drawing.Point(52, 1);
             this.Label.Name = "Label";
             this.Label.Size = new System.Drawing.Size(45, 19);

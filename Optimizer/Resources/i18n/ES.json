@@ -470,5 +470,11 @@ Tiene un efecto negativo en el rendimiento.",
 	"hideWeatherSw": "Ocultar el clima en la barra de tareas",
 	"autoUpdateToggle": "Actualizar al inicio",
 	"enableUtcSw": "Activar Hora UTC",
-	"modernStandbySw": "Desactivar el modo de espera moderno"
+	"modernStandbySw": "Desactivar el modo de espera moderno",
+	"label24": "Editor de variables del sistema",
+    "label23": "Nueva ruta de variable del sistema:",
+    "button3": "Añadir",
+    "label21": "Variables del Sistema",
+    "button1": "Eliminar",
+    "button2": "Actualizar"
 }

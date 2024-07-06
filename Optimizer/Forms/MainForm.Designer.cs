@@ -243,6 +243,15 @@ namespace Optimizer
             this.txtRunFile = new System.Windows.Forms.TextBox();
             this.ccFileL = new System.Windows.Forms.Label();
             this.ccL = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.txtSysVar = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.lblFontsNumber = new System.Windows.Forms.Label();
             this.lblFontsCount = new System.Windows.Forms.Label();
@@ -446,6 +455,7 @@ namespace Optimizer
             this.STB = new Optimizer.ToggleCard();
             this.PMB = new Optimizer.ToggleCard();
             this.listCustomCommands = new Optimizer.MoonList();
+            this.listSystemVariables = new Optimizer.MoonList();
             this.listFonts = new Optimizer.MoonList();
             this.boxLang = new Optimizer.MoonSelect();
             this.autoUpdateToggle = new Optimizer.ToggleCard();
@@ -508,6 +518,8 @@ namespace Optimizer
             this.tabPage10.SuspendLayout();
             this.tabPage11.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel8.SuspendLayout();
             this.optionsTab.SuspendLayout();
@@ -2968,6 +2980,7 @@ namespace Optimizer
             this.synapse.Controls.Add(this.tabPage9);
             this.synapse.Controls.Add(this.tabPage10);
             this.synapse.Controls.Add(this.tabPage11);
+            this.synapse.Controls.Add(this.tabPage4);
             this.synapse.Controls.Add(this.tabPage3);
             this.synapse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.synapse.Location = new System.Drawing.Point(2, 2);
@@ -3603,6 +3616,137 @@ namespace Optimizer
             this.ccL.TabIndex = 5;
             this.ccL.Tag = "themeable";
             this.ccL.Text = "Define your custom commands";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.AutoScroll = true;
+            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.tabPage4.Controls.Add(this.panel15);
+            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Controls.Add(this.button2);
+            this.tabPage4.Controls.Add(this.label21);
+            this.tabPage4.Controls.Add(this.button3);
+            this.tabPage4.Controls.Add(this.txtSysVar);
+            this.tabPage4.Controls.Add(this.label23);
+            this.tabPage4.Controls.Add(this.label24);
+            this.tabPage4.Location = new System.Drawing.Point(4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage4.Size = new System.Drawing.Size(1261, 640);
+            this.tabPage4.TabIndex = 6;
+            this.tabPage4.Text = "System Variables";
+            // 
+            // panel15
+            // 
+            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel15.Controls.Add(this.listSystemVariables);
+            this.panel15.Location = new System.Drawing.Point(11, 169);
+            this.panel15.Margin = new System.Windows.Forms.Padding(2);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(624, 313);
+            this.panel15.TabIndex = 84;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(307, 486);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(162, 27);
+            this.button1.TabIndex = 82;
+            this.button1.Text = "Delete";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(473, 486);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(162, 27);
+            this.button2.TabIndex = 81;
+            this.button2.Text = "Refresh";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label21.Location = new System.Drawing.Point(6, 132);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(165, 28);
+            this.label21.TabIndex = 80;
+            this.label21.Tag = "themeable";
+            this.label21.Text = "System Variables";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(473, 75);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(162, 29);
+            this.button3.TabIndex = 60;
+            this.button3.Text = "Add";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // txtSysVar
+            // 
+            this.txtSysVar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txtSysVar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSysVar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSysVar.ForeColor = System.Drawing.Color.White;
+            this.txtSysVar.Location = new System.Drawing.Point(11, 75);
+            this.txtSysVar.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSysVar.Name = "txtSysVar";
+            this.txtSysVar.Size = new System.Drawing.Size(458, 29);
+            this.txtSysVar.TabIndex = 7;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Silver;
+            this.label23.Location = new System.Drawing.Point(7, 50);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(200, 21);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "New system variable path:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label24.Location = new System.Drawing.Point(6, 10);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(225, 28);
+            this.label24.TabIndex = 5;
+            this.label24.Tag = "themeable";
+            this.label24.Text = "System Variables editor";
             // 
             // tabPage3
             // 
@@ -6518,6 +6662,23 @@ namespace Optimizer
             this.listCustomCommands.Size = new System.Drawing.Size(269, 311);
             this.listCustomCommands.TabIndex = 79;
             // 
+            // listSystemVariables
+            // 
+            this.listSystemVariables.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.listSystemVariables.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listSystemVariables.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listSystemVariables.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.listSystemVariables.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listSystemVariables.ForeColor = System.Drawing.Color.White;
+            this.listSystemVariables.FormattingEnabled = true;
+            this.listSystemVariables.HorizontalScrollbar = true;
+            this.listSystemVariables.ItemHeight = 21;
+            this.listSystemVariables.Location = new System.Drawing.Point(0, 0);
+            this.listSystemVariables.Margin = new System.Windows.Forms.Padding(2);
+            this.listSystemVariables.Name = "listSystemVariables";
+            this.listSystemVariables.Size = new System.Drawing.Size(622, 311);
+            this.listSystemVariables.TabIndex = 79;
+            // 
             // listFonts
             // 
             this.listFonts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -6718,6 +6879,9 @@ namespace Optimizer
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
             this.panel6.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.panel15.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -7152,6 +7316,16 @@ namespace Optimizer
         private ToggleCard modernStandbySw;
         private ToggleCard uODSw;
         private ToggleCard enableUtcSw;
+        private TabPage tabPage4;
+        private Panel panel15;
+        private MoonList listSystemVariables;
+        private Button button1;
+        private Button button2;
+        private Label label21;
+        private Button button3;
+        private TextBox txtSysVar;
+        private Label label23;
+        private Label label24;
     }
 }
 

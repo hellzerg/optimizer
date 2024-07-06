@@ -465,5 +465,11 @@ prije nego što se objave javnosti. Smatra se nepotrebnom uslugom za korisnike k
 	"hideWeatherSw": "Sakrij vrijeme na programskoj traci",
 	"autoUpdateToggle": "Ažuriraj pri pokretanju",
 	"modernStandbySw": "Onemogući moderni stanje mirovanja",
-	"enableUtcSw": "Omogući UTC vrijeme"
+	"enableUtcSw": "Omogući UTC vrijeme",
+	"label24": "Uređivač sistemskih varijabli",
+    "label23": "Nova putanja sistemske varijable:",
+    "button3": "Dodaj",
+    "label21": "Sistemske varijable",
+    "button1": "Izbriši",
+    "button2": "Osvježi"
 }

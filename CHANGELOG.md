@@ -1,7 +1,12 @@
-## [Unreleased]
+## [16.6] - 2024-07-06
+- New: System Variables editor in Integrator
 - New: Disable Copilot + Recall feature
 - New: Disable Phone Link suggestions
 - New: Disable Microsoft Services ads showing as suggestions
+- New: Indonesian and Croatian language added
+- Hotfix: Malware Tool Removal excluded completely, because of false positives
+- Improved: Localization updates
+- Improved: Visual changes
 
 ## [16.5] - 2024-05-03
 - New: Enable UTC time globally on Windows

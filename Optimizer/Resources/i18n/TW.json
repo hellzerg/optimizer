@@ -469,5 +469,11 @@
 	"enableUtcSw": "啟用協調世界時間",
 	"hideWeatherSw": "隱藏工作列天氣",
 	"autoUpdateToggle": "啟動時更新",
-	"modernStandbySw": "停用現代待機"
+	"modernStandbySw": "停用現代待機",
+	"label24": "系統變量編輯器",
+    "label23": "新系統變量路徑：",
+    "button3": "添加",
+    "label21": "系統變量",
+    "button1": "刪除",
+    "button2": "刷新"
 }

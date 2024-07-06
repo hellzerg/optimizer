@@ -472,5 +472,11 @@
 	"hideWeatherSw": "隐藏任务栏天气",
 	"autoUpdateToggle": "启动时更新",
 	"enableUtcSw": "启用协调世界时",
-	"modernStandbySw": "禁用现代待机"
+	"modernStandbySw": "禁用现代待机",
+	"label24": "系统变量编辑器",
+    "label23": "新系统变量路径：",
+    "button3": "添加",
+    "label21": "系统变量",
+    "button1": "删除",
+    "button2": "刷新"
 }

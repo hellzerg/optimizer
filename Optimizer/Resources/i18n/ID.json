@@ -472,5 +472,24 @@ Ini berdampak negatif pada kinerja.",
 	"hideWeatherSw": "Sembunyikan Cuaca Taskbar",
 	"autoUpdateToggle": "Pembaruan saat peluncuran",
 	"modernStandbySw": "Nonaktifkan Modern Standby",
-	"enableUtcSw": "Aktifkan Waktu UTC"
+	"enableUtcSw": "Aktifkan Waktu UTC",
+	"radioFile": "Mengajukan",
+	"installing": "Menginstal",
+	"volumes": "Partisi",
+	"keyboards": "Papan ketik",
+	"performanceTip": "Kumpulan pengaturan internal Windows untuk mengoptimalkan kinerja.
+Benar-benar aman untuk diterapkan.
+
+- Mengurangi waktu tunggu sebelum mematikan proses yang tidak responsif.
+- Mengurangi waktu tunda tampilan menu.
+- Menonaktifkan pemberitahuan pemeriksaan ruang disk rendah
+- Menonaktifkan fitur goyang untuk meminimalkan
+- Selalu menampilkan ekstensi file
+- Menampilkan file tersembunyi",
+	"label24": "Editor Variabel Sistem",
+	"label23": "Jalur variabel sistem baru:",
+	"button3": "Tambahkan",
+	"label21": "Variabel Sistem",
+	"button1": "Hapus",
+	"button2": "Segarkan"
 }

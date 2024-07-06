@@ -475,5 +475,11 @@ Microsoft 계정 로그인이 필요합니다.",
 	"hideWeatherSw": "작업 표시줄 날씨 숨기기",
 	"autoUpdateToggle": "시작 시 업데이트",
 	"enableUtcSw": "UTC 시간 활성화",
-	"modernStandbySw": "현대 대기 모드 비활성화"
+	"modernStandbySw": "현대 대기 모드 비활성화",
+	"label24": "시스템 변수 편집기",
+    "label23": "새 시스템 변수 경로:",
+    "button3": "추가",
+    "label21": "시스템 변수",
+    "button1": "삭제",
+    "button2": "새로 고침"
 }

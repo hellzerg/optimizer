@@ -96,6 +96,7 @@ namespace Optimizer
         {
             bMouseDown = true;
             SetDragState();
+            if (SelectedIndex == -1) return;
             Rectangle rectDrag = GetTabRect(SelectedIndex);
             ptPreviousLocation = new Point(rectDrag.X, rectDrag.Y);
             rectDrag.Width += 1; rectDrag.Height += 1;
@@ -179,6 +180,7 @@ namespace Optimizer
                     }
 
                     {
+                        if (SelectedIndex == -1) return;
                         Rectangle rectDivider = GetTabRect(SelectedIndex);
 
                         if (Alignment == TabAlignment.Top || Alignment == TabAlignment.Bottom)

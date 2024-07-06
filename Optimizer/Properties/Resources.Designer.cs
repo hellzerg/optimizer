@@ -205,6 +205,16 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap croatia {
+            get {
+                object obj = ResourceManager.GetObject("croatia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;subSystem&quot;: &quot;Systém&quot;,
         ///	&quot;subPrivacy&quot;: &quot;Soukromí&quot;,
@@ -682,6 +692,31 @@ namespace Optimizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;Sistem&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Privatnost&quot;,
+        ///	&quot;subGaming&quot;: &quot;Igre&quot;,
+        ///	&quot;subTouch&quot;: &quot;Dodir&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Taskbar&quot;,
+        ///	&quot;subExtras&quot;: &quot;Dodaci&quot;,
+        ///	&quot;btnAbout&quot;: &quot;OK&quot;,
+        ///	&quot;restartButton&quot;: &quot;Ponovno pokreni sad&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Ponovno pokreni sad&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Ponovno pokreni sad&quot;,
+        ///	&quot;btnFind&quot;: &quot;Pronađi&quot;,
+        ///	&quot;btnKill&quot;: &quot;Ubi&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;Držači datoteka&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Ponovno pokrenite za primjenu promjena&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Verzija: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Radite s {BITS [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string HR {
+            get {
+                return ResourceManager.GetString("HR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
         ///	&quot;subSystem&quot;: &quot;Rendszer&quot;,
         ///	&quot;subPrivacy&quot;: &quot;Adatvédelem&quot;,
         ///	&quot;subGaming&quot;: &quot;Játék&quot;,
@@ -710,6 +745,41 @@ namespace Optimizer.Properties {
         internal static System.Drawing.Bitmap hungary {
             get {
                 object obj = ResourceManager.GetObject("hungary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;subSystem&quot;: &quot;Sistem&quot;,
+        ///	&quot;subPrivacy&quot;: &quot;Privasi&quot;,
+        ///	&quot;subGaming&quot;: &quot;Gaming&quot;,
+        ///	&quot;subTouch&quot;: &quot;Sentuh&quot;,
+        ///	&quot;subTaskbar&quot;: &quot;Bilah Tugas&quot;,
+        ///	&quot;subExtras&quot;: &quot;Extra&quot;,
+        ///	&quot;btnAbout&quot;: &quot;OKE&quot;,
+        ///	&quot;restartButton&quot;: &quot;Mulai ulang sekarang&quot;,
+        ///	&quot;restartButton8&quot;: &quot;Mulai ulang sekarang&quot;,
+        ///	&quot;restartButton10&quot;: &quot;Mulai ulang sekarang&quot;,
+        ///	&quot;btnFind&quot;: &quot;Cari&quot;,
+        ///	&quot;btnKill&quot;: &quot;Hentikan&quot;,
+        ///	&quot;trayUnlocker&quot;: &quot;Menangani FIle&quot;,
+        ///	&quot;restartAndApply&quot;: &quot;Mulai ulang untuk menerapkan perubahan&quot;,
+        ///	&quot;txtVersion&quot;: &quot;Versi: {VN}&quot;,
+        ///	&quot;txtBitness&quot;: &quot;Kamu Bek [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ID {
+            get {
+                return ResourceManager.GetString("ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap indonesia {
+            get {
+                object obj = ResourceManager.GetObject("indonesia", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1381,10 +1451,10 @@ namespace Optimizer.Properties {
         ///   Looks up a localized string similar to {
         ///  &quot;subSystem&quot;: &quot;Hệ thống&quot;,
         ///  &quot;subPrivacy&quot;: &quot;Quyền riêng tư&quot;,
-        ///  &quot;subGaming&quot;: &quot;Dành cho Game&quot;,
+        ///  &quot;subGaming&quot;: &quot;Gaming&quot;,
         ///  &quot;subTouch&quot;: &quot;Cảm ứng&quot;,
-        ///  &quot;subTaskbar&quot;: &quot;Thanh tác vụ&quot;,
-        ///  &quot;subExtras&quot;: &quot;Mở rộng&quot;,
+        ///  &quot;subTaskbar&quot;: &quot;Taskbar&quot;,
+        ///  &quot;subExtras&quot;: &quot;Extras&quot;,
         ///  &quot;btnAbout&quot;: &quot;OK&quot;,
         ///  &quot;restartButton&quot;: &quot;Khởi động lại ngay&quot;,
         ///  &quot;restartButton8&quot;: &quot;Khởi động lại ngay&quot;,
@@ -1392,9 +1462,9 @@ namespace Optimizer.Properties {
         ///  &quot;btnFind&quot;: &quot;Tìm&quot;,
         ///  &quot;btnKill&quot;: &quot;Dừng&quot;,
         ///  &quot;trayUnlocker&quot;: &quot;Xử lý tệp&quot;,
-        ///  &quot;restartAndApply&quot;: &quot;Khởi động lại để lưu lại các thay đổi&quot;,
+        ///  &quot;restartAndApply&quot;: &quot;Khởi động lại để áp dụng thay đổi&quot;,
         ///  &quot;txtVersion&quot;: &quot;Phiên bản: {VN}&quot;,
-        ///  &quot; [rest of string was truncated]&quot;;.
+        ///  &quot;txtBitness&quot;: &quot;Bạn [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string VN {
             get {

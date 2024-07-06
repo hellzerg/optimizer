@@ -308,6 +308,7 @@
     <None Include="Resources\i18n\AR.json" />
     <None Include="Resources\i18n\BG.json" />
     <None Include="Resources\i18n\FA.json" />
+    <None Include="Resources\i18n\HR.json" />
     <None Include="Resources\i18n\HU.json" />
     <None Include="Resources\i18n\JA.json" />
     <None Include="Resources\i18n\NL.json" />
@@ -386,6 +387,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Flags\croatia.png" />
     <None Include="Resources\Flags\indonesia.png" />
     <None Include="Resources\Flags\pakistan.png" />
     <None Include="Resources\Flags\vietnam.png" />

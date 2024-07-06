@@ -436,7 +436,7 @@ Disabling it can reduce I/O operations on the disks.",
 	"vbsSw": "Disable Virtualization Based Security",
 	"vbsTip": "Kernel feature that prevents malicious drivers injection into processes.
 It has negative effect on performance.",
-	"winSearchSw": "Disable Search",
+	"winSearchSw": "Disable Search Indexing",
 	"winSearchTip": "Disables Windows search service.",
 	"btnRestoreUwp": "Restore all UWP",
 	"restoreUwpMessage": "Are you sure you want to do this?",
@@ -473,5 +473,11 @@ It has negative effect on performance.",
 	"hideWeatherSw": "Hide Taskbar Weather",
 	"autoUpdateToggle": "Update on launch",
 	"modernStandbySw": "Disable Modern Standby",
-	"enableUtcSw": "Enable UTC Time"
+	"enableUtcSw": "Enable UTC Time",
+	"label24": "System Variables editor",
+	"label23": "New system variable path:",
+	"button3": "Add",
+	"label21": "System Variables",
+	"button1": "Delete",
+	"button2": "Refresh"
 }

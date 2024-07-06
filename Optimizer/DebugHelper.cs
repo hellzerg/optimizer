@@ -13,7 +13,7 @@ namespace Optimizer
         internal static void FindDifferenceInTwoJsons()
         {
             JObject file1 = JObject.Parse(Properties.Resources.EN);
-            JObject file2 = JObject.Parse(Properties.Resources.BG);
+            JObject file2 = JObject.Parse(Properties.Resources.ID);
 
             var p1 = file1.Properties().ToList();
             var p2 = file2.Properties().ToList();

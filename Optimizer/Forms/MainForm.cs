@@ -38,7 +38,8 @@ namespace Optimizer
         string _shodanIP = string.Empty;
         PingReply tmpReply;
 
-        int _tabHeaderHeightMargin = 10;
+        int _tabHeaderHeightMargin = 6;
+        int _tabHeaderWidthMargin = 6;
 
         //NetworkMonitor _networkMonitor;
         //double uploadSpeed = 0;
@@ -53,7 +54,7 @@ namespace Optimizer
         readonly string _feedImages = "https://raw.githubusercontent.com/hellzerg/optimizer/master/images/feed.zip";
 
         readonly string _licenseLink = "https://www.gnu.org/licenses/gpl-3.0.en.html";
-        readonly string _discordLink = "https://discord.gg/rZh8BhmmQv";
+        readonly string _discordLink = "https://discord.gg/RmHYWMxWfJ";
         readonly string _githubProjectLink = "https://github.com/hellzerg/optimizer";
         readonly string _paypalSupportLink = "https://www.paypal.com/paypalme/supportoptimizer";
 
@@ -89,6 +90,7 @@ namespace Optimizer
 
         string[] _currentDNS;
         string[] _availableFonts;
+        List<string> _systemVariables = new List<string>();
 
         ColorOverrider _colorOverrider;
 
@@ -951,7 +953,8 @@ namespace Optimizer
                 Constants.BULGARIAN,
                 Constants.VIETNAMESE,
                 Constants.URDU,
-                Constants.INDONESIA
+                Constants.INDONESIAN,
+                Constants.CROATIAN
             });
 
             _splashForm.LoadingStatus.Text = "checking for requirements";
@@ -1126,6 +1129,7 @@ namespace Optimizer
                 GetDesktopItems();
                 GetCustomCommands();
                 LoadAvailableFonts();
+                LoadSystemVariables();
             }
             else
             {
@@ -1224,6 +1228,13 @@ namespace Optimizer
             WindowState = FormWindowState.Maximized;
         }
 
+        private void LoadSystemVariables()
+        {
+            listSystemVariables.Items.Clear();
+            _systemVariables = IntegratorHelper.GetPathSystemVariables().ToList();
+            listSystemVariables.Items.AddRange(_systemVariables.ToArray());
+        }
+
         private void LoadAvailableFonts()
         {
             listFonts.Items.Clear();
@@ -1234,18 +1245,20 @@ namespace Optimizer
             lblFontsNumber.Text = _availableFonts.Length.ToString();
         }
 
-        private void FixTabHeaderWidth()
+        private void FixTabHeaderWidth(TabControl tabControl)
         {
-            if (tabCollection.ItemSize == new Size(0, 0)) return;
-            int maxTextWidth = 0, maxTextHeight = 0;
-            for (int i = 0; i < tabCollection.TabPages.Count; i++)
+            int maxTextWidth = 0;
+            int maxTextHeight = 0;
+
+            for (int i = 0; i < tabControl.TabPages.Count; i++)
             {
-                var tabWidth = TextRenderer.MeasureText(tabCollection.TabPages[i]?.Text, tabCollection.TabPages[i]?.Font).Width;
-                var tabHeight = TextRenderer.MeasureText(tabCollection.TabPages[i]?.Text, tabCollection.TabPages[i]?.Font).Height;
+                var tabWidth = TextRenderer.MeasureText(tabControl.TabPages[i]?.Text, tabControl.TabPages[i]?.Font).Width;
+                var tabHeight = TextRenderer.MeasureText(tabControl.TabPages[i]?.Text, tabControl.TabPages[i]?.Font).Height;
                 if (tabWidth > maxTextWidth) maxTextWidth = tabWidth;
                 if (tabHeight > maxTextHeight) maxTextHeight = tabHeight;
             }
-            tabCollection.ItemSize = new Size(maxTextWidth, maxTextHeight + _tabHeaderHeightMargin);
+
+            tabControl.ItemSize = new Size(maxTextWidth + _tabHeaderWidthMargin, maxTextHeight + _tabHeaderHeightMargin);
         }
 
         private void LoadReadyMenusState()
@@ -1594,7 +1607,11 @@ namespace Optimizer
             }
             if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.ID)
             {
-                boxLang.Text = Constants.INDONESIA;
+                boxLang.Text = Constants.INDONESIAN;
+            }
+            if (OptionsHelper.CurrentOptions.LanguageCode == LanguageCode.HR)
+            {
+                boxLang.Text = Constants.CROATIAN;
             }
         }
 
@@ -2559,11 +2576,14 @@ namespace Optimizer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            FixTabHeaderWidth();
+            FixTabHeaderWidth(tabCollection);
+            FixTabHeaderWidth(synapse);
+
             if (OptionsHelper.CurrentOptions.AutoStart && OptionsHelper.CurrentOptions.EnableTray)
             {
                 this.Hide();
             }
+
             //DebugHelper.FindDifferenceInTwoJsons();
         }
 
@@ -4683,17 +4703,24 @@ namespace Optimizer
                 picFlag.Image = Properties.Resources.pakistan;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.UR;
             }
-            else if (boxLang.Text == Constants.INDONESIA)
+            else if (boxLang.Text == Constants.INDONESIAN)
             {
                 picFlag.Image = Properties.Resources.indonesia;
                 OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.ID;
+            }
+            else if (boxLang.Text == Constants.CROATIAN)
+            {
+                picFlag.Image = Properties.Resources.indonesia;
+                OptionsHelper.CurrentOptions.LanguageCode = LanguageCode.HR;
             }
 
             OptionsHelper.SaveSettings();
             OptionsHelper.LoadTranslation();
             Translate();
 
-            FixTabHeaderWidth();
+            FixTabHeaderWidth(tabCollection);
+            FixTabHeaderWidth(synapse);
+
             btnUpdate.Focus();
         }
 
@@ -5103,6 +5130,39 @@ namespace Optimizer
         private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(_faqSectionLink);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LoadSystemVariables();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtSysVar.Text))
+            {
+                listSystemVariables.Items.Add(txtSysVar.Text);
+                _systemVariables.Add(txtSysVar.Text);
+                IntegratorHelper.UpdatePathSystemVariables(_systemVariables.ToArray());
+                txtSysVar.Clear();
+                LoadSystemVariables();
+                IntegratorHelper.ApplyPathSystemVariables();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (listSystemVariables.SelectedItems.Count == 1)
+            {
+                var indexToDelete =_systemVariables.FindIndex(x => x.Equals(listSystemVariables.SelectedItem.ToString(), StringComparison.OrdinalIgnoreCase));
+                if (indexToDelete != -1)
+                {
+                    _systemVariables.RemoveAt(indexToDelete);
+                }
+                IntegratorHelper.UpdatePathSystemVariables(_systemVariables.ToArray());
+                LoadSystemVariables();
+                IntegratorHelper.ApplyPathSystemVariables();
+            }
         }
     }
 }
