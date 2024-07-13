@@ -1152,9 +1152,9 @@ namespace Optimizer
             this.startupTab.Controls.Add(this.backupStartupB);
             this.startupTab.Controls.Add(this.findInRegB);
             this.startupTab.Controls.Add(this.locateFileB);
+            this.startupTab.Controls.Add(this.removeStartupItemB);
             this.startupTab.Controls.Add(this.refreshStartupB);
             this.startupTab.Controls.Add(this.panel3);
-            this.startupTab.Controls.Add(this.removeStartupItemB);
             this.startupTab.Controls.Add(this.startupTitle);
             this.startupTab.Location = new System.Drawing.Point(4, 26);
             this.startupTab.Margin = new System.Windows.Forms.Padding(2);
@@ -1294,7 +1294,7 @@ namespace Optimizer
             this.locateFileB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.locateFileB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.locateFileB.ForeColor = System.Drawing.Color.White;
-            this.locateFileB.Location = new System.Drawing.Point(1078, 601);
+            this.locateFileB.Location = new System.Drawing.Point(883, 602);
             this.locateFileB.Margin = new System.Windows.Forms.Padding(2);
             this.locateFileB.Name = "locateFileB";
             this.locateFileB.Size = new System.Drawing.Size(190, 31);
@@ -1383,7 +1383,7 @@ namespace Optimizer
             this.removeStartupItemB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.removeStartupItemB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeStartupItemB.ForeColor = System.Drawing.Color.White;
-            this.removeStartupItemB.Location = new System.Drawing.Point(883, 601);
+            this.removeStartupItemB.Location = new System.Drawing.Point(1078, 602);
             this.removeStartupItemB.Margin = new System.Windows.Forms.Padding(2);
             this.removeStartupItemB.Name = "removeStartupItemB";
             this.removeStartupItemB.Size = new System.Drawing.Size(190, 31);
