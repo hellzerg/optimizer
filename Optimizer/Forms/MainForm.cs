@@ -111,6 +111,11 @@ namespace Optimizer
         bool _disableIntegrator;
         bool _disablePinger;
 
+        private int GetItemPadding()
+        {
+            return Program.DPI_PREFERENCE / 2;
+        }
+
         private string NewDownloadLink(string latestVersion)
         {
             return string.Format("https://github.com/hellzerg/optimizer/releases/download/{0}/Optimizer-{0}.exe", latestVersion);
@@ -293,6 +298,7 @@ namespace Optimizer
             modernStandbySw.ToggleClicked += ModernStandbySw_ToggleClicked;
             newsInterestsSw.ToggleClicked += NewsInterestsSw_ToggleClicked;
             enableUtcSw.ToggleClicked += EnableUtcSw_ToggleClicked;
+            regBackupSw.ToggleClicked += RegBackupSw_ToggleClicked;
 
             PMB.ToggleClicked += PMB_ToggleClicked;
             SSB.ToggleClicked += SSB_ToggleClicked;
@@ -301,6 +307,19 @@ namespace Optimizer
             DSB.ToggleClicked += DSB_ToggleClicked;
             AddCMDB.ToggleClicked += AddCMDB_ToggleClicked;
             AddOwnerB.ToggleClicked += AddOwnerB_ToggleClicked;
+        }
+
+        private void RegBackupSw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (regBackupSw.ToggleChecked)
+            {
+                OptimizeHelper.EnablePeriodicRegistryBackup();
+            }
+            else
+            {
+                OptimizeHelper.DisablePeriodicRegistryBackup();
+            }
+            OptionsHelper.CurrentOptions.EnableRegistryBackups = regBackupSw.ToggleChecked;
         }
 
         private void EnableUtcSw_ToggleClicked(object sender, EventArgs e)
@@ -804,6 +823,7 @@ namespace Optimizer
                 hideSearchSw.Label.Tag = OptionsHelper.TranslationList["hideSearchSw"].ToString();
                 newsInterestsSw.Label.Tag = OptionsHelper.TranslationList["newsInterestsSw"].ToString();
                 enableUtcSw.Label.Tag = OptionsHelper.TranslationList["enableUtcSw"].ToString();
+                regBackupSw.Label.Tag = OptionsHelper.TranslationList["regBackupSw"].ToString();
             }
             catch (Exception err)
             {
@@ -2340,19 +2360,19 @@ namespace Optimizer
                             switch (x.Group)
                             {
                                 case "SystemTools":
-                                    appCard.Location = new Point(0, groupSystemTools.Controls.Count * (Program.DPI_PREFERENCE / 3));
+                                    appCard.Location = new Point(0, groupSystemTools.Controls.Count * GetItemPadding());
                                     groupSystemTools.Controls.Add(appCard);
                                     break;
                                 case "Internet":
-                                    appCard.Location = new Point(0, groupInternet.Controls.Count * (Program.DPI_PREFERENCE / 3));
+                                    appCard.Location = new Point(0, groupInternet.Controls.Count * GetItemPadding());
                                     groupInternet.Controls.Add(appCard);
                                     break;
                                 case "Coding":
-                                    appCard.Location = new Point(0, groupCoding.Controls.Count * (Program.DPI_PREFERENCE / 3));
+                                    appCard.Location = new Point(0, groupCoding.Controls.Count * GetItemPadding());
                                     groupCoding.Controls.Add(appCard);
                                     break;
                                 case "GraphicsSound":
-                                    appCard.Location = new Point(0, groupSoundVideo.Controls.Count * (Program.DPI_PREFERENCE / 3));
+                                    appCard.Location = new Point(0, groupSoundVideo.Controls.Count * GetItemPadding());
                                     groupSoundVideo.Controls.Add(appCard);
                                     break;
                                 default:
@@ -2489,6 +2509,7 @@ namespace Optimizer
         {
             hpetSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableHPET;
             loginVerboseSw.ToggleChecked = OptionsHelper.CurrentOptions.EnableLoginVerbose;
+            regBackupSw.ToggleChecked = OptionsHelper.CurrentOptions.EnableRegistryBackups;
         }
 
         private void LoadUniversalToggleStates()
@@ -2697,7 +2718,7 @@ namespace Optimizer
                     }
                 }
 
-                appCard.Location = new Point(0, panelUwp.Controls.Count * (Program.DPI_PREFERENCE / 3));
+                appCard.Location = new Point(0, panelUwp.Controls.Count * GetItemPadding());
                 panelUwp.Controls.Add(appCard);
             }
 

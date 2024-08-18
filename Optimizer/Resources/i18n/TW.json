@@ -13,6 +13,7 @@
 	"onedriveM": "您確定要移除 OneDrive 嗎？這將刪除您的桌面和文件檔案！僅在本機帳戶上使用此選項！",
 	"txtVersion": "版本：{VN}",
 	"systemRestoreM": "您確定要停用系統還原嗎？這將刪除您目前的備份映像！",
+	"regBackupSw": "啟用註冊表備份",
 	"txtBitness": "您正在使用 {BITS}",
 	"btnFind": "尋找",
 	"btnKill": "結束",

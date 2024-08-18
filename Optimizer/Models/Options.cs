@@ -161,5 +161,6 @@ namespace Optimizer
         /// </summary>
         public bool DisableHPET { get; set; }
         public bool EnableLoginVerbose { get; set; }
+        public bool EnableRegistryBackups { get; set; }
     }
 }

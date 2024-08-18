@@ -13,6 +13,7 @@
 	"btnKill": "Terminati",
 	"trayUnlocker": "Mânere de fișiere",
 	"restartAndApply": "Reporniți pentru a aplica modificările",
+	"regBackupSw": "Activați copiile de rezervă ale registrului",
 	"txtVersion": "Versiunea: {VN}",
 	"txtBitness": "Tu esti pe {BITS}",
 	"linkUpdate": "Actualizare disponibilă!",

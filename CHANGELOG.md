@@ -1,3 +1,8 @@
+## [16.7] - 2024-08-18
+- New: Disable Edge and Chrome telemetry options now extends Manifest v2 support
+- New: Enable Registry Periodic Backups
+- Hotfix: Various UI bugs
+
 ## [16.6] - 2024-07-06
 - New: System Variables editor in Integrator
 - New: Disable Copilot + Recall feature

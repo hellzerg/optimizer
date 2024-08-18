@@ -49,6 +49,9 @@ namespace Optimizer
         [JsonProperty("UnlockAllCores", NullValueHandling = NullValueHandling.Ignore)]
         public bool? UnlockAllCores { get; set; }
 
+        [JsonProperty("EnableRegistryBackups", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? EnableRegistryBackups { get; set; }
+
         [JsonProperty("SvchostProcessSplitting", NullValueHandling = NullValueHandling.Ignore)]
         public SvchostProcessSplitting SvchostProcessSplitting { get; set; }
     }

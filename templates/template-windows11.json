@@ -69,6 +69,7 @@
     "AdvancedTweaks": {
         "UnlockAllCores": null,
         "DisableHPET": null,
+        "EnableRegistryBackups": null,
         "EnableLoginVerbose": null,
         "SvchostProcessSplitting": {
             "Disable": null,

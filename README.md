@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/hellzerg/optimizer/releases/download/16.6/Optimizer-16.6.exe" target="_blank">
+	<a href="https://github.com/hellzerg/optimizer/releases/download/16.7/Optimizer-16.7.exe" target="_blank">
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/download-button.png">
 		<br>
 		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/flags.png">
@@ -108,8 +108,8 @@ Learn about our security measures in the [Security Policy](https://github.com/he
 <h2> 📊 Details</h2> 
 </center>
 
-- Latest version: 16.6 (Released: July 06, 2024)
-- SHA256: 8B29C9349E7A814E30CCE1CFB788F5A21740C798268B0A45AB805195FAAD9105
+- Latest version: 16.7 (Released: August 18, 2024)
+- SHA256: 03A234060541B686AC4265754AFF43DF9325C21383F90E17F831E67965D717F8
 
 <center>
 <h2> ☕ Buy me a delicious espresso</h2>

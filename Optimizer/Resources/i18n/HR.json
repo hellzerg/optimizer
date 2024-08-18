@@ -13,6 +13,7 @@
 	"btnKill": "Ubi",
 	"trayUnlocker": "Držači datoteka",
 	"restartAndApply": "Ponovno pokrenite za primjenu promjena",
+	"regBackupSw": "Omogućite sigurnosne kopije registra",
 	"txtVersion": "Verzija: {VN}",
 	"txtBitness": "Radite s {BITS}",
 	"linkUpdate": "Dostupno ažuriranje",

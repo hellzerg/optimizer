@@ -211,6 +211,7 @@ namespace Optimizer
                     CurrentOptions.DisableCoPilotAI = false;
 
                     CurrentOptions.DisableHPET = false;
+                    CurrentOptions.EnableRegistryBackups = false;
                     CurrentOptions.EnableLoginVerbose = false;
 
                     CurrentOptions.RemoveMenusDelay = false;

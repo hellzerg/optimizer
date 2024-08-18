@@ -93,6 +93,7 @@ To automate a range of operations using a provided template, follow these steps:
 - `UnlockAllCores`: Leave `null` or `false`.
 - `DisableHPET`: Enable or disable High Precision Event Timer.
 - `EnableLoginVerbose`: Enable or disable Detailed Login Screen.
+- `EnableRegistryBackups`: Enable periodic backups of Registry.
 
 #### SvchostProcessSplitting
 - Mark `true` to reduce svchost.exe processes for optimal memory.

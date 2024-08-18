@@ -14,6 +14,7 @@
 	"txtBitness": "Te {BITS}-el dolgozol",
 	"linkUpdate": "Frissítés elérhető",
 	"lblLab": "Kísérleti verzió\n(töröld tesztelés után!)",
+	"regBackupSw": "Nyilvántartási biztonsági mentések engedélyezése",
 	"performanceSw": "Teljesítményjavítások engedélyezése",
 	"networkSw": "Hálózati korlátozás letiltása",
 	"defenderSw": "Windows Defender kikapcsolása",

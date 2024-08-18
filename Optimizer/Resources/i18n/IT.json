@@ -10,6 +10,7 @@
 	"restartButton8": "riavvia ora",
 	"restartButton10": "riavvia ora",
 	"restartAndApply": "Riavviare per applicare le modifiche",
+	"regBackupSw": "Abilita i backup del registro",
 	"txtVersion": "Versione: {VN}",
 	"btnFind": "Trova",
 	"btnKill": "Uccisione",

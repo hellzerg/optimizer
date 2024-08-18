@@ -11,6 +11,7 @@
 	"restartButton10": "今すぐ再起動",
 	"btnFind": "検索",
 	"btnKill": "強制終了",
+	"regBackupSw": "レジストリバックアップを有効にする",
 	"trayUnlocker": "ファイル ハンドル",
 	"restartAndApply": "再起動して変更を適用",
 	"txtVersion": "バージョン: {VN}",

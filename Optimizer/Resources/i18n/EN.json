@@ -479,5 +479,6 @@ It has negative effect on performance.",
 	"button3": "Add",
 	"label21": "System Variables",
 	"button1": "Delete",
-	"button2": "Refresh"
+	"button2": "Refresh",
+	"regBackupSw": "Enable Registry Backups"
 }

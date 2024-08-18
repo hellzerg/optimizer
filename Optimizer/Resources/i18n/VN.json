@@ -17,6 +17,7 @@
   "txtBitness": "Bạn đang sử dụng {BITS}",
   "linkUpdate": "Có phiên bản mới",
   "lblLab": "Phiên bản thử nghiệm\n(sẽ xoá sau khi đã test)",
+  "regBackupSw": "Bật sao lưu sổ đăng ký",
   "performanceSw": "Tối ưu hiệu năng",
   "networkSw": "Tối ưu mạng",
   "defenderSw": "Tắt Windows Defender",

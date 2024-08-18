@@ -11,6 +11,7 @@
 	"restartButton10": "지금 다시 시작",
 	"btnFind": "찾기",
 	"btnKill": "죽이기",
+	"regBackupSw": "레지스트리 백업 활성화",
 	"trayUnlocker": "파일 핸들",
 	"restartAndApply": "다시 시작하여 변경 사항 적용",
 	"txtVersion": "버전: {VN}",

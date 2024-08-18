@@ -11,6 +11,7 @@
 	"restartButton10": "şimdi yeniden başlat",
 	"restartAndApply": "Değişiklikleri uygulamak için yeniden başlatılsın mı",
 	"onedriveM": "OneDrive'ı kaldırmak istediğinizden emin misiniz? Bu, Masaüstü ve Belge dosyalarınızı siler! Bu seçeneği yalnızca yerel bir hesapta kullanın!",
+	"regBackupSw": "Kayıt Yedeklemelerini Etkinleştir",
 	"txtVersion": "Versiyon: {VN}",
 	"txtBitness": "{BITS} ile çalışıyor.",
 	"btnFind": "Bulmak",

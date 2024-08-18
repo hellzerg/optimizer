@@ -70,6 +70,7 @@
         "UnlockAllCores": null,
         "DisableHPET": null,
         "EnableLoginVerbose": null,
+        "EnableRegistryBackups": null,
         "SvchostProcessSplitting": {
             "Disable": null,
             "RAM": null

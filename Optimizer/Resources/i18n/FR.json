@@ -13,6 +13,7 @@
 	"btnKill": "Tuer",
 	"trayUnlocker": "Poignées de fichier",
 	"restartAndApply": "Redemarrer pour appliquer les changements",
+	"regBackupSw": "Activer les sauvegardes du registre",
 	"onedriveM": "Voulez-vous vraiment désinstaller OneDrive? Cela supprimera vos fichiers de bureau et de document! N'utilisez cette option que sur un compte local!",
 	"txtVersion": "Version: {VN}",
 	"systemRestoreM": "Voulez-vous vraiment désactiver la restauration du système? Cela supprimera vos images de sauvegarde actuelles!",

@@ -372,6 +372,18 @@ namespace Optimizer
                 }
                 OptionsHelper.CurrentOptions.EnableLoginVerbose = CurrentSilentConfig.AdvancedTweaks.EnableLoginVerbose.Value;
             }
+
+            if (CurrentSilentConfig.AdvancedTweaks.EnableRegistryBackups.HasValue)
+            {
+                if (CurrentSilentConfig.AdvancedTweaks.EnableRegistryBackups.Value)
+                {
+                    OptimizeHelper.EnablePeriodicRegistryBackup();
+                }
+                else
+                {
+                    OptimizeHelper.DisablePeriodicRegistryBackup();
+                }
+            }
         }
 
 
