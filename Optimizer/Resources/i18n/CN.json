@@ -2,7 +2,7 @@
 	"subSystem": "系统",
 	"subPrivacy": "隐私",
 	"subGaming": "游戏",
-	"subTouch": "触碰",
+	"subTouch": "输入",
 	"regBackupSw": "啟用註冊表備份",
 	"subTaskbar": "任务栏",
 	"subExtras": "附加功能",
@@ -22,14 +22,14 @@
 	"lblLab": "实验构建\n(删除后测试)",
 	"performanceSw": "启用性能调整",
 	"networkSw": "禁用网络节流",
-	"defenderSw": "禁用 Windows 安全中心",
+	"defenderSw": "禁用 Windows Defender（安全中心）",
 	"systemRestoreSw": "禁用系统还原",
 	"printSw": "禁用打印服务",
 	"mediaSharingSw": "禁用媒体播放器共享",
 	"faxSw": "禁用传真服务",
 	"reportingSw": "禁用错误报告",
 	"homegroupSw": "禁用家庭组",
-	"superfetchSw": "禁用 Superfetch",
+	"superfetchSw": "禁用操作缓存 (Superfetch)",
 	"telemetryTasksSw": "禁用遥测任务",
 	"officeTelemetrySw": "禁用 Office 遥测",
 	"vsSW": "禁用 Visual Studio 遥测",
@@ -48,7 +48,7 @@
 	"integratorTab": "菜单集成",
 	"CleanPreviewForm": "清除预览",
 	"optionsTab": "偏好选项",
-	"oldMixerSw": "启用经典音量混合器",
+	"oldMixerSw": "启用经典音量合成器",
 	"oldExplorerSw": "恢复经典文件资源管理器",
 	"adsSw": "禁用开始菜单广告",
 	"uODSw": "卸载 OneDrive",
@@ -67,13 +67,13 @@
 	"xboxSw": "禁用 Xbox Live 服务",
 	"gameBarSw": "禁用游戏栏功能",
 	"insiderSw": "禁用参与内部计划",
-	"actionSw": "禁用通知中心",
+	"actionSw": "禁用通知中心（操作中心）",
 	"disableOneDriveSw": "禁用 OneDrive",
 	"tpmSw": "禁用 TPM 2.0 检测",
 	"leftTaskbarSw": "任务栏靠左对齐",
-	"snapAssistSw": "禁用快速协助",
+	"snapAssistSw": "禁用贴靠布局协助",
 	"widgetsSw": "禁用小组件服务",
-	"chatSw": "禁用聊天",
+	"chatSw": "禁用 Team 聊天",
 	"stickersSw": "禁用贴纸",
 	"smallerTaskbarSw": "让任务栏图标变小",
 	"classicRibbonSw": "在资源管理器中启用经典色带",
@@ -176,9 +176,9 @@
 	"btnChangelog": "查看更新日志",
 	"lblUpdateDisabled": "在实验构建中禁用",
 	"lblTroubleshoot": "故障排除",
-	"btnViewLog": "查看错误",
+	"btnViewLog": "查看错误日志",
 	"btnOpenConf": "显示配置文件夹",
-	"btnResetConfig": "修理",
+	"btnResetConfig": "程序自修复",
 	"integrator1": "集成器能够添加完全定制\n项目在桌面右键菜单:",
 	"integrator2": "• 任何程序",
 	"integrator3": "• 快捷方式到文件夹",
@@ -237,7 +237,7 @@
 	"btnCreateCustomCommand": "创建",
 	"ccKeywordL": "关键字",
 	"ccFileL": "文件位置",
-	"ccL": "定义自定义的Run命令",
+	"ccL": "设置自定义的Run命令",
 	"btnYes": "是",
 	"btnNo": "否",
 	"btnOk": "确定",
@@ -324,28 +324,28 @@
 	"virtualAdapters": "虚拟适配器",
 	"keyboards": "键盘",
 	"pointings": "鼠标设备",
-	"performanceTip": "收集内部Windows设置以优化性能.
-	完全安全使用.
+	"performanceTip": "用于提高性能的 Windows 本地优化设置组合.
+	使用完全安全.
 
-- 减少杀死无响应进程之前的等待时间.
-- 减少菜单显示延迟时间.
-- 禁用低磁盘空间检查通知
-- 禁用shake-to-minimize特性
+- 减少了杀死无响应进程之前的等待时间.
+- 缩短了菜单显示延迟时间.
+- 禁用了低磁盘空间检查通知
+- 禁用了 shake-to-minimize 特性
 - 总是显示文件扩展名
 - 显示隐藏文件",
-	"networkTip": "Windows实现了一个网络节流机制，该机制将进行限制
-	运行多媒体应用程序时的网络流量。它还可以减少网络的占用
-	玩网络游戏时的表现.",
-	"defenderTip": "Windows 安全中心是Windows系统内置的防病毒软件.",
-	"smartScreenTip": "SmartScreen 是自动扫描文件，下载和网站，阻止
-	已知的危险内容，并在运行它们之前警告您的功能.",
+	"networkTip": "Windows 实现了一个网络节流机制，该机制将限制
+	- 运行多媒体应用程序时的网络流量，以减少网络的占用
+	- 玩在线游戏时的网络性能.",
+	"defenderTip": "Windows Defender （安全中心） 是 Windows 系统内置的防病毒软件.",
+	"smartScreenTip": "SmartScreen 是一个自动扫描文件，下载的内容和网站，
+	并在访问已知危险内容前警告您的功能.",
 	"systemRestoreTip": "系统还原是一个功能，允许还原 Windows 的状态
 	从故障或其他问题中恢复.",
-	"reportingTip": "错误报告收集应用程序崩溃和错误并将它们发送给微软.",
-	"telemetryTasksTip": "遥测服务定期向微软发送使用和性能数据，
-	以备将来改进.",
-	"officeTelemetryTip": "Office 遥测系统定期发送使用情况和
-	性能数据到微软，以备将来改进.",
+	"reportingTip": "错误报告会收集应用程序的崩溃与错误日志并将它们发送给微软.",
+	"telemetryTasksTip": "遥测服务会定期发送使用和性能数据给微软，
+	以改进功能.",
+	"officeTelemetryTip": "Office 遥测系统会定期发送使用情况和
+	性能数据给微软，以改进功能.",
 	"ffTelemetryTip": "禁用 Mozilla Firefox 遥测和数据报告服务.",
 	"vsTip": "禁用 Visual Studio 遥测和反馈功能，包括 SQM 客户端.",
 	"chromeTelemetryTip": "禁用 Google Chrome 遥测和软件报告工具
@@ -355,70 +355,72 @@
 	"mediaSharingTip": "媒体播放器共享为Windows媒体播放器提供家庭媒体共享.",
 	"stickyTip": "Sticky Keys是一个帮助Windows用户使用的辅助功能
 	对于身体残疾用户减少了与之相关的运动以避免重复性劳损.",
-	"homegroupTip": "HomeGroup是一个允许共享文件的功能
-	在家庭网络中使用 Windows 资源管理器.",
-	"superfetchTip": "Superfetch会将常用应用预加载到内存中，导致磁盘占用率高，
+	"homegroupTip": "HomeGroup 是一个在家庭网络中使用 Windows 资源管理器时
+	允许共享文件的功能.",
+	"superfetchTip": "Superfetch 会将常用应用预加载到内存中，会导致磁盘占用率增高，
 	尤其是在机械硬盘上更为明显.",
 	"compatTip": "兼容性助手服务检测旧程序中的已知兼容性问题.",
-	"disableOneDriveTip": "禁用OneDrive云存储集成.",
-	"oldMixerTip": "恢复经典的音量混合器控制面板.",
-	"oldExplorerTip": "- 禁用快速访问历史记录
-	-将文件资源管理器默认视图设置为“此PC”
-	-禁用最近文件
-	-从任务栏移除搜索，任务和天气
-	-禁用“文件历史记录”功能",
+	"disableOneDriveTip": "禁用 OneDrive 云存储集成.",
+	"oldMixerTip": "恢复经典的音量合成器控制面板.",
+	"oldExplorerTip": "- 禁用了快速访问历史记录
+	-将文件资源管理器默认视图设置为“此电脑”
+	-禁用了最近使用的文件
+	-从任务栏移除了搜索，任务和天气
+	-禁用了“文件历史记录”功能",
 	"adsTip": "阻止广告显示在开始菜单.",
 	"uODTip": "完全移除 OneDrive 云存储集成.",
-	"peopleTip": "My pepole是一个在任务栏显示最近联系人的新功能.",
-	"longPathsTip": "删除256个字符的最大路径长度限制.",
-	"inkTip": "Windows Ink支持数字笔在屏幕上绘制.",
+	"peopleTip": "My Pepole 是一个在任务栏显示最近联系人的新功能.",
+	"longPathsTip": "删除了最多256个字符的最大路径长度的限制.",
+	"inkTip": "Windows Ink 为数位笔在屏幕上绘制提供辅助.",
 	"spellTip": "仅使用触摸键盘的功能包括:
 	—自动校对功能
 	—文本建议
 	—拼写检查",
-	"xboxTip": "Xbox Live服务为Xbox游戏提供流媒体、录音和社交功能.",
-	"actionTip": "通知中心是一个通知和快速动作瓷贴的功能，
-	比如Wi-Fi、蓝牙等。",
-	"autoUpdatesTip": "禁用自动下载和安装Windows更新。
-	相反，当有新的更新可用时，会有一个通知.
-	它还禁用了交付优化服务.",
-	"driversTip": "当Windows更新不断替换一个适当的
-	有故障的工作磁盘.",
-	"telemetryServicesTip": "遥测服务跟踪并记录使用数据，发送反馈
-	供微软分析.",
-	"privacyTip": "额外的隐私调整禁用以下:
+	"xboxTip": "Xbox Live 为 Xbox 游戏中的流媒体、录音和社交功能提供服务.",
+	"actionTip": "通知中心（操作中心）是一个显示通知和快速操作磁帖的功能，
+	比如Wi-Fi、蓝牙等。
+	在 Windows 10 中他被集中放在通知图标中。
+	在 Windows 11 中他被分为了两个独立的部分，分别显示快速操作与时间和通知。",
+	"autoUpdatesTip": "禁用自动下载并安装Windows更新。
+	相反，如有新的更新可用时，会有一个弹窗通知您.
+	它还禁用了传递优化服务.",
+	"driversTip": "当 Windows 更新不断的用故障的驱动程序替换正常的驱动程序的时候启用。",
+	"telemetryServicesTip": "遥测服务会跟踪并记录使用日志，发送数据反馈
+	给微软进行分析.",
+	"privacyTip": "额外的隐私调整会禁用以下:
 	- 生物识别技术
-	- 地理位置
-	- 跨设备共享应用程序
+	- 地理位置定位
+	- 跨设备共享应用
 	- 文本日志记录器
-	- 诊断",
-	"ccTip": "云剪贴板在您的设备上共享剪贴板数据。
-	它允许在一个设备上复制并粘贴到另一个设备上。
-	需要微软帐户登录.",
-	"cortanaTip": "Cortana是一个基于人工智能的虚拟助手。
-	- 禁用Cortana。
+	- 诊断数据",
+	"ccTip": "云剪贴板会在您的所有设备上共享剪贴板数据。
+	它允许在其中一个设备上复制内容并在其他设备上粘贴。
+	需要登录微软帐户。",
+	"cortanaTip": "Cortana 是一个基于人工智能的虚拟助手。
+	- 禁用 Cortana。
 	- 禁用开始菜单中的网络搜索
 	- 禁止保留搜索历史记录",
 	"sensorTip": "管理传感器功能的服务，
 	如自动旋转，自动亮度等。
 	仅适用于平板电脑或带有触摸屏的设备.",
-	"castTip": "删除右键以共享媒体内容到Miracast设备.",
-	"gameBarTip": "游戏栏是Xbox游戏服务的快速访问菜单.",
-	"insiderTip": "Windows Insider程序允许你测试测试版 Windows 的最新的功能。
+	"castTip": "删除右键以分享媒体内容到 Miracast 设备.",
+	"gameBarTip": "GameBar 是 Xbox 游戏服务的快捷操作菜单.",
+	"insiderTip": "Windows Insider 计划允许你测试预览版 Windows 的最新功能。
 	对于不想参与的用户来说，它被认为是不必要的服务.",
-	"tpmTip": "绕过安全启动和TPM 2.0要求，允许升级到 Windows 11.",
+	"tpmTip": "绕过安全启动和TPM 2.0硬件要求，以允许升级到 Windows 11.",
 	"leftTaskbarTip": "将任务栏图标向左对齐.",
-	"snapAssistTip": "当鼠标悬停最大化按钮时禁用Snap Assist Flyout.",
-	"widgetsTip": "禁用小部件特性并从任务栏移除小部件图标.",
-	"chatTip": "从任务栏移除聊天图标.",
-	"smallerTaskbarTip": "使任务栏大小和图标更小.",
-	"classicRibbonTip": "在文件资源管理器中恢复Windows 10的经典色带条.",
-	"classicContextTip": "恢复经典的右键菜单，删除 “显示更多选项”.",
+	"snapAssistTip": "当鼠标悬停在最大化按钮上时禁止显示贴靠布局弹窗.",
+	"widgetsTip": "禁用小部件功能并从任务栏移除小部件图标.",
+	"chatTip": "从任务栏移除 Microsoft Team 的聊天图标.",
+	"smallerTaskbarTip": "使任务栏的尺寸和图标更小.",
+	"classicRibbonTip": "在文件资源管理器中恢复 Windows 10 的经典色带.",
+	"classicContextTip": "恢复经典的右键菜单，删除了 “显示更多选项”.",
 	"gameModeSw": "启用游戏模式",
-	"gameModeTip": "结合硬件加速 GPU 调度启用游戏模式",
+	"gameModeTip": "启用游戏模式，并结合硬件加速的 GPU 调度功能。",
 	"compactModeSw": "在资源管理器中启用紧凑模式",
 	"compactModeTip": "减少文件资源管理器中文件之间的额外空间和填充。",
-	"stickersTip": "贴纸是出现在壁纸上的大型表情符号，用于社交信使。",
+	"stickersTip": "贴纸是贴在桌面壁纸上的大型表情符号，用于社交通讯。
+	该功能默认启用于教育版中。",
 	"hibernateSw": "禁用休眠",
 	"hibernateTip": "禁用 Windows 休眠功能。",
 	"smb1Sw": "禁用 SMBv1 协议",
@@ -428,7 +430,7 @@
 	"ntfsStampSw": "禁用 NTFS 时间戳",
 	"ntfsStampTip": "指示文件的最后一次访问时间戳。
 	禁用它可以减少磁盘上的 I/O 操作。",
-	"autoStartToggle": "从 Windows 开始",
+	"autoStartToggle": "跟随 Windows 启动",
 	"nvidiaTelemetrySw": "禁用 NVIDIA 遥测",
 	"dnsTitle": "快速更换DNS服务器",
 	"vbsSw": "禁用基于虚拟化的安全性",
@@ -447,7 +449,7 @@
 	"edgeTelemetryTip": "在 Edge 中禁用 SmartScreen、Spotlight 和遥测服务。",
 	"hpetSw": "禁用 HPET",
 	"loginVerboseSw": "启用详细登录屏幕",
-	"advancedTab": "先进的",
+	"advancedTab": "高级选项",
 	"btnRestartSafe": "以安全模式重启",
 	"btnRestart": "以正常模式重启",
 	"btnRestartDisableDefender": "重新启动 && 禁用 Defender",
@@ -464,15 +466,15 @@
 	"btnSetDns": "设置DNS",
 	"copilotSw": "禁用 CoPilot AI",
     "copilotTip": "完全关闭 CoPilot AI 功能。",
-	"btnReinforce": "强化政策",
-	"msgReinforce": "您确定要重新应用当前的政策吗?",
+	"btnReinforce": "加强策略",
+	"msgReinforce": "您确定要重新应用当前的策略吗?",
 	"newsInterestsSw": "禁用新闻和兴趣",
-	"allTrayIconsSw": "显示所有通知图标",
+	"allTrayIconsSw": "显示所有通知栏图标",
 	"noMenuDelaySw": "删除菜单延迟",
 	"hideSearchSw": "隐藏任务栏搜索",
 	"hideWeatherSw": "隐藏任务栏天气",
-	"autoUpdateToggle": "启动时更新",
-	"enableUtcSw": "启用协调世界时",
+	"autoUpdateToggle": "启动时安装更新",
+	"enableUtcSw": "启用UTC（协调世界时）",
 	"modernStandbySw": "禁用现代待机",
 	"label24": "系统变量编辑器",
     "label23": "新系统变量路径：",
