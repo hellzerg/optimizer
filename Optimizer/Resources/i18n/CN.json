@@ -16,11 +16,11 @@
 	"trayUnlocker": "查找文件句柄",
 	"txtVersion": "版本: {VN}",
 	"txtBitness": "您使用的是{BITS}",
-	"onedriveM": "确定要卸载 OneDrive 吗？ 这将删除您的桌面和文档文件！ 仅在本地帐户上使用此选项！",
-	"systemRestoreM": "您确定要禁用系统还原吗？ 这将删除您当前的备份图像！",
-	"linkUpdate": "更新可用",
+	"onedriveM": "确定要卸载 OneDrive 吗？ 这将删除您的桌面和文档文件！ 仅在本地帐户上启用此选项！",
+	"systemRestoreM": "您确定要禁用系统还原吗？ 这将删除您当前的备份镜像！",
+	"linkUpdate": "有更新可用",
 	"lblLab": "实验构建\n(删除后测试)",
-	"performanceSw": "启用性能调整",
+	"performanceSw": "启用性能调节",
 	"networkSw": "禁用网络节流",
 	"defenderSw": "禁用 Windows Defender（安全中心）",
 	"systemRestoreSw": "禁用系统还原",
@@ -29,7 +29,7 @@
 	"faxSw": "禁用传真服务",
 	"reportingSw": "禁用错误报告",
 	"homegroupSw": "禁用家庭组",
-	"superfetchSw": "禁用操作缓存 (Superfetch)",
+	"superfetchSw": "禁用应用缓存 (Superfetch)",
 	"telemetryTasksSw": "禁用遥测任务",
 	"officeTelemetrySw": "禁用 Office 遥测",
 	"vsSW": "禁用 Visual Studio 遥测",
@@ -119,17 +119,17 @@
 	"cleanDriveB": "清除",
 	"lblPretext": "可释放的文件大小:",
 	"cleanerTitle": "清理您的系统驱动器",
-	"pingerTitle": "Ping IP地址和评估您的延迟",
+	"pingerTitle": "Ping IP 地址和评估您的延迟",
 	"lblPinger": "IP / 域名",
 	"btnOpenNetwork": "打开网络连接设置",
 	"copyIPB": "复制",
 	"copyB": "复制 IP",
-	"btnShodan": "在网站检测IP",
+	"btnShodan": "在网站检测 IP",
 	"btnPing": "Ping",
 	"lblResults": "结果",
-	"flushCacheB": "刷新DNS缓存",
+	"flushCacheB": "刷新 DNS 缓存",
 	"btnExport": "导出",
-	"hostsTitle": "地编辑主机hosts文件",
+	"hostsTitle": "地编辑主机 hosts 文件",
 	"linkLocate": "定位",
 	"analyzeDriveB": "分析",
 	"linkAdvancedEdit": "高级编辑",
@@ -138,7 +138,7 @@
 	"lblDomain": "域名",
 	"chkBlock": "域名阻止",
 	"addHostB": "添加",
-	"lblLock": "通过锁定来保护您的HOSTS文件",
+	"lblLock": "通过锁定来保护您的 HOSTS 文件",
 	"chkReadOnly": "只读",
 	"lblAdblock": "预置广告阻止",
 	"lblAdblockSub": "(将删除您当前的配置)",
@@ -178,7 +178,7 @@
 	"lblTroubleshoot": "故障排除",
 	"btnViewLog": "查看错误日志",
 	"btnOpenConf": "显示配置文件夹",
-	"btnResetConfig": "程序自修复",
+	"btnResetConfig": "修复",
 	"integrator1": "集成器能够添加完全定制\n项目在桌面右键菜单:",
 	"integrator2": "• 任何程序",
 	"integrator3": "• 快捷方式到文件夹",
@@ -208,13 +208,13 @@
 	"checkDefaultFolderIcon": "使用默认文件夹图标",
 	"checkFavicon": "下载网站图标",
 	"checkNoIcon": "无图标",
-	"dnsCacheM": "正在生成DNS缓存，请稍候再试!",
+	"dnsCacheM": "正在生成 DNS 缓存，请稍候再试!",
 	"itemposition": "项目位置",
 	"radioTop": "顶部",
 	"radioMiddle": "中间",
 	"radioBottom": "底部",
 	"security": "安全",
-	"checkShift": "仅当按下SHIFT时显示",
+	"checkShift": "仅当按下 SHIFT 时显示",
 	"itemnamegroup": "菜单中的项目名称",
 	"btnAddItem": "添加/修改",
 	"removeIntegratorItemsL": "删除现有桌面项目",
@@ -327,12 +327,12 @@
 	"performanceTip": "用于提高性能的 Windows 本地优化设置组合.
 	使用完全安全.
 
-- 减少了杀死无响应进程之前的等待时间.
-- 缩短了菜单显示延迟时间.
-- 禁用了低磁盘空间检查通知
-- 禁用了 shake-to-minimize 特性
-- 总是显示文件扩展名
-- 显示隐藏文件",
+	- 减少了杀死无响应进程之前的等待时间.
+	- 缩短了菜单显示延迟时间.
+	- 禁用了低磁盘空间检查通知
+	- 禁用了窗口抖动最小化（Aero Shake）功能
+	- 总是显示文件扩展名
+	- 显示隐藏文件",
 	"networkTip": "Windows 实现了一个网络节流机制，该机制将限制
 	- 运行多媒体应用程序时的网络流量，以减少网络的占用
 	- 玩在线游戏时的网络性能.",
@@ -349,7 +349,7 @@
 	"ffTelemetryTip": "禁用 Mozilla Firefox 遥测和数据报告服务.",
 	"vsTip": "禁用 Visual Studio 遥测和反馈功能，包括 SQM 客户端.",
 	"chromeTelemetryTip": "禁用 Google Chrome 遥测和软件报告工具
-（可能会导致CPU使用率变高).",
+	（可能会导致CPU使用率变高).",
 	"printTip": "打印服务负责检测、安装和使用打印机.",
 	"faxTip": "传真业务负责发送和接收传真.",
 	"mediaSharingTip": "媒体播放器共享为Windows媒体播放器提供家庭媒体共享.",
@@ -413,7 +413,7 @@
 	"widgetsTip": "禁用小部件功能并从任务栏移除小部件图标.",
 	"chatTip": "从任务栏移除 Microsoft Team 的聊天图标.",
 	"smallerTaskbarTip": "使任务栏的尺寸和图标更小.",
-	"classicRibbonTip": "在文件资源管理器中恢复 Windows 10 的经典色带.",
+	"classicRibbonTip": "在文件资源管理器中恢复 Windows 10 的经典色带条.",
 	"classicContextTip": "恢复经典的右键菜单，删除了 “显示更多选项”.",
 	"gameModeSw": "启用游戏模式",
 	"gameModeTip": "启用游戏模式，并结合硬件加速的 GPU 调度功能。",
@@ -428,14 +428,14 @@
 	"smbTip": "SMB{v} 协议负责 Windows 计算机之间的文件共享。
 	它已被更安全的 SMBv3 取代。",
 	"ntfsStampSw": "禁用 NTFS 时间戳",
-	"ntfsStampTip": "指示文件的最后一次访问时间戳。
+	"ntfsStampTip": "指示文件的最后访问时间戳。
 	禁用它可以减少磁盘上的 I/O 操作。",
 	"autoStartToggle": "跟随 Windows 启动",
 	"nvidiaTelemetrySw": "禁用 NVIDIA 遥测",
-	"dnsTitle": "快速更换DNS服务器",
+	"dnsTitle": "快速更换 DNS 服务器",
 	"vbsSw": "禁用基于虚拟化的安全性",
-	"vbsTip": "防止恶意驱动程序注入进程的内核功能。
-它对性能有负面影响。",
+	"vbsTip": "用于防止恶意驱动程序注入进程的内核功能。
+	它对性能有负面影响。",
 	"winSearchSw": "禁用搜索",
 	"winSearchTip": "禁用 Windows 搜索服务。",
 	"storeUpdatesSw": "禁用 Microsoft Store 更新",
@@ -443,11 +443,11 @@
 	"btnRestoreUwp": "恢复所有 UWP",
 	"restoreUwpMessage": "你确定要这么做吗？",
 	"telemetrySvcToggle": "禁用优化器遥测",
-	"edgeAiSw": "禁用 Edge 发现栏",
+	"edgeAiSw": "禁用 Edge Discover",
 	"edgeTelemetrySw": "禁用 Edge 遥测",
-	"edgeAiTip": "删除 Edge 中的发现栏。",
-	"edgeTelemetryTip": "在 Edge 中禁用 SmartScreen、Spotlight 和遥测服务。",
-	"hpetSw": "禁用 HPET",
+	"edgeAiTip": "删除 Edge 中 Discover 功能。",
+	"edgeTelemetryTip": "禁用 Edge 中的 SmartScreen、Spotlight 和遥测服务。",
+	"hpetSw": "禁用高精度事件计时器（HPET）",
 	"loginVerboseSw": "启用详细登录屏幕",
 	"advancedTab": "高级选项",
 	"btnRestartSafe": "以安全模式重启",
@@ -464,10 +464,10 @@
 	"chkAllNics": "为所有网络适配器设置",
 	"chkCustomDns": "设置自定义 DNS",
 	"btnSetDns": "设置DNS",
-	"copilotSw": "禁用 CoPilot AI",
-    "copilotTip": "完全关闭 CoPilot AI 功能。",
+	"copilotSw": "禁用 Copilot AI",
+    "copilotTip": "完全关闭 Copilot AI 功能。",
 	"btnReinforce": "加强策略",
-	"msgReinforce": "您确定要重新应用当前的策略吗?",
+	"msgReinforce": "您确定要重新应用当前启用的策略吗?",
 	"newsInterestsSw": "禁用新闻和兴趣",
 	"allTrayIconsSw": "显示所有通知栏图标",
 	"noMenuDelaySw": "删除菜单延迟",
