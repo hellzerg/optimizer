@@ -34,7 +34,7 @@
         internal static string HUNGARIAN = "Magyar";
         internal static string ROMANIAN = "Română";
         internal static string DUTCH = "Nederlands";
-        internal static string UKRAINIAN = "українська";
+        internal static string UKRAINIAN = "Українська";
         internal static string JAPANESE = "日本語";
         internal static string PERSIAN = "فارسی";
         internal static string NEPALI = "नेपाली";
