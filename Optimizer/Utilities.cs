@@ -430,6 +430,7 @@ namespace Optimizer
         {
             try
             {
+                Utilities.BackupRegistryKey(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit");
                 Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit", "LastKey", key);
                 Process.Start("regedit");
             }
@@ -496,6 +497,66 @@ namespace Optimizer
                 if (!localMachine) Registry.CurrentUser.OpenSubKey(path, true).DeleteValue(valueName, false);
             }
             catch { }
+        }
+
+        internal static void BackupRegistryKey(string keyPath)
+        {
+            try
+            {
+                // Clean up the key path to use as a filename
+                string cleanFileName = keyPath.Replace('\\', '_').Replace('/', '_').Replace(':', '_');
+                string backupFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Backups");
+                string backupPath = Path.Combine(backupFolder, cleanFileName + ".reg");
+
+                // Create the Backups folder if it doesn't exist
+                if (!Directory.Exists(backupFolder))
+                {
+                    Directory.CreateDirectory(backupFolder);
+                }
+
+                // Build the reg export command
+                string command = $"reg.exe export \"{keyPath}\" \"{backupPath}\" /y";
+
+                // Execute the command
+                using (Process p = new Process())
+                {
+                    p.StartInfo.CreateNoWindow = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.FileName = "cmd.exe";
+                    p.StartInfo.Arguments = $"/c {command}";
+
+                    p.Start();
+                    p.WaitForExit();
+
+                    // Check if the backup failed
+                    if (p.ExitCode != 0)
+                    {
+                        throw new Exception("Registry backup failed");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("Utilities.BackupRegistryKey", ex.Message, ex.StackTrace);
+                throw;
+            }
+        }
+
+        internal static void SetRegistryValue(string keyName, string valueName, object value, RegistryValueKind valueKind = RegistryValueKind.String)
+        {
+            try
+            {
+                // 1. 先执行备份
+                BackupRegistryKey(keyName);
+
+                // 2. 再执行原生的设置值操作
+                Registry.SetValue(keyName, valueName, value, valueKind);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("Utilities.SetRegistryValue", ex.Message, ex.StackTrace);
+                throw;
+            }
         }
 
         internal static void TryDeleteRegistryValueDefaultUsers(string path, string valueName)
@@ -683,6 +744,7 @@ namespace Optimizer
         {
             try
             {
+                Utilities.BackupRegistryKey(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System");
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "verbosestatus", 1, RegistryValueKind.DWord);
             }
             catch (Exception ex)
@@ -701,6 +763,7 @@ namespace Optimizer
         {
             try
             {
+                Utilities.BackupRegistryKey(@"HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583");
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583", "ValueMax", 0, RegistryValueKind.DWord);
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583", "ValueMin", 0, RegistryValueKind.DWord);
             }
@@ -715,6 +778,7 @@ namespace Optimizer
         {
             try
             {
+                Utilities.BackupRegistryKey(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control");
                 ramInGb = ramInGb * 1024 * 1024;
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control", "SvcHostSplitThresholdInKB", ramInGb, RegistryValueKind.DWord);
             }
@@ -729,6 +793,7 @@ namespace Optimizer
         {
             try
             {
+                Utilities.BackupRegistryKey(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control");
                 Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control", "SvcHostSplitThresholdInKB", 380000, RegistryValueKind.DWord);
             }
             catch (Exception ex)
