@@ -1,11 +1,11 @@
+> ⚠ **Optimizer is now deprecated and replaced by OptimizerNXT!**
+
+---
+
 <p align="center">
 	<a href="https://github.com/hellzerg/optimizerNXT" target="_blank">
    		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/new-optimizerNXT.png">
 	</a>
-</p>
-
-<p align="center">
-   <img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/banner.png">
 </p>
 
 <p align="center">
