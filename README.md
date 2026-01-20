@@ -1,4 +1,5 @@
 > ⚠ **Optimizer is now deprecated and replaced by OptimizerNXT!**
+> Click on the banner below to go to the new project!
 
 ---
 
