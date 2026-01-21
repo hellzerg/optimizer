@@ -853,7 +853,7 @@ namespace Optimizer
             this.radioCroatian.Size = new System.Drawing.Size(69, 25);
             this.radioCroatian.TabIndex = 136;
             this.radioCroatian.Tag = "";
-            this.radioCroatian.Text = "Hrvat";
+            this.radioCroatian.Text = "Hrvatski";
             this.radioCroatian.UseVisualStyleBackColor = true;
             this.radioCroatian.CheckedChanged += new System.EventHandler(this.radioCroatian_CheckedChanged);
             // 
