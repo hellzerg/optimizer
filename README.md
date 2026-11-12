@@ -100,7 +100,7 @@ Learn about our security measures in the [Security Policy](https://github.com/he
 </center>
 
 - Latest version: 17.0 (Released: November 12, 2026)
-- SHA256: 2CBF86D7259E72A37EE7F3F00B9D33CAD147EEBF74C73FCCBD9EBFCD7328AB20
+- SHA256: EEB367F0B8C651C10934D985BFA53A94CA56F7C6BFF39A44D9BD944514A6DAFB
 
 <center>
 <h2> ☕ Buy me a delicious espresso</h2>
