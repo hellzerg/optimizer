@@ -314,22 +314,6 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to rem USE AT OWN RISK AS IS WITHOUT WARRANTY OF ANY KIND !!!!!
-        ///
-        ///rem https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/security-malware-windows-defender-disableantispyware
-        ///rem &quot;DisableAntiSpyware&quot; is discontinued and will be ignored on client devices, as of the August 2020 (version 4.18.2007.8) update to Microsoft Defender Antivirus.
-        ///
-        ///rem Disable Tamper Protection First !!!!!
-        ///rem https://www.tenforums.com/tutorials/123792-turn-off-tamper-protection-windows-defender-antivirus.html
-        ///reg [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string DisableDefenderSafeMode1903Plus {
-            get {
-                return ResourceManager.GetString("DisableDefenderSafeMode1903Plus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
         ///
         ///[HKEY_CURRENT_USER\Software\Policies\microsoft\office\16.0\osm\preventedapplications]
@@ -463,23 +447,6 @@ namespace Optimizer.Properties {
         internal static string EN {
             get {
                 return ResourceManager.GetString("EN", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to reg add &quot;HKLM\Software\Microsoft\Windows Defender\Features&quot; /v &quot;TamperProtection&quot; /t REG_DWORD /d &quot;1&quot; /f
-        ///
-        ///reg add &quot;HKLM\System\CurrentControlSet\Services\SgrmBroker&quot; /v &quot;Start&quot; /t REG_DWORD /d &quot;2&quot; /f
-        ///
-        ///reg add &quot;HKLM\System\CurrentControlSet\Services\SecurityHealthService&quot; /v &quot;Start&quot; /t REG_DWORD /d &quot;2&quot; /f
-        ///
-        ///rem 1 - Disable Real-time protection
-        ///reg delete &quot;HKLM\Software\Policies\Microsoft\Windows Defender&quot; /f
-        ///reg add &quot;HKLM\Software\Policies\Microsoft\Windows Defender&quot; /v &quot;DisableAntiSpyware&quot; /t REG_DWO [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string EnableDefenderSafeMode1903Plus {
-            get {
-                return ResourceManager.GetString("EnableDefenderSafeMode1903Plus", resourceCulture);
             }
         }
         

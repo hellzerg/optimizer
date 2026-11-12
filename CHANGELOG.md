@@ -8,6 +8,7 @@
 - New: Disk Activity tool
 - Improved: Apps feed links updated, discontinued apps removed
 - Improved: Newtonsoft.Json updated to 13.0.4
+- Removed: Safe-mode Defender disable/enable scripts (`/disabledefender`, `/restart=disabledefender`, `/restart=enabledefender`, "Restart & Disable Defender" button and `DisableDefender`/`EnableDefender` template restart types), because they caused issues with Windows Security
 
 ## [16.7] - 2024-08-18
 - New: Disable Edge and Chrome telemetry options now extends Manifest v2 support

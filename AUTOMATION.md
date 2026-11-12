@@ -108,6 +108,6 @@ To automate a range of operations using a provided template, follow these steps:
 - Final action after template execution:
 - Mark `Restart` as `true` to restart and apply changes.
 - Configure `RestartType` for different restart types (`Normal` or `SafeMode`).
-- Use `DisableDefender` and `EnableDefender` for automated Windows Defender control.
+- The `DisableDefender` and `EnableDefender` restart types have been removed in version 17.0 because they caused issues with Windows Security.
 
 **Note**: Review and customize the template configuration carefully before executing.

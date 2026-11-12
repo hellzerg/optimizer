@@ -175,42 +175,6 @@ namespace Optimizer {
                     RestartInNormalMode();
                 }
 
-                // disable defender automatically
-                if (arg == "/restart=disabledefender")
-                {
-                    SetRunOnceDisableDefender();
-                }
-
-                // enable defender automatically
-                if (arg == "/restart=enabledefender")
-                {
-                    SetRunOnceEnableDefender();
-                }
-
-                // return from safe-mode automatically
-                if (arg == "/silentdisabledefender")
-                {
-                    DisableDefenderInSafeMode();
-                    RestartInNormalMode();
-                }
-
-                if (arg == "/silentenabledefender")
-                {
-                    EnableDefenderInSafeMode();
-                    RestartInNormalMode();
-                }
-
-                // disables Defender in SAFE MODE (for Windows 10 1903+ / works in Windows 11 as well)
-                if (arg == "/disabledefender")
-                {
-                    DisableDefenderInSafeMode();
-
-                    MessageBox.Show("Windows Defender has been completely disabled successfully.", "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Environment.Exit(0);
-                    return;
-                }
-
-
                 // other options for disabling specific tools
                 if (arg.StartsWith("/disable="))
                 {
@@ -335,44 +299,6 @@ namespace Optimizer {
             Utilities.Reboot();
 
             Environment.Exit(0);
-        }
-
-        private static void DisableDefenderInSafeMode()
-        {
-            File.WriteAllText("DisableDefenderSafeMode.bat", Properties.Resources.DisableDefenderSafeMode1903Plus);
-
-            Utilities.RunBatchFile("DisableDefenderSafeMode.bat");
-            Thread.Sleep(1000);
-            Utilities.RunBatchFile("DisableDefenderSafeMode.bat");
-            Thread.Sleep(1000);
-
-            File.Delete("DisableDefenderSafeMode.bat");
-        }
-
-        private static void EnableDefenderInSafeMode()
-        {
-            File.WriteAllText("EnableDefenderSafeMode.bat", Properties.Resources.EnableDefenderSafeMode1903Plus);
-
-            Utilities.RunBatchFile("EnableDefenderSafeMode.bat");
-            Thread.Sleep(1000);
-            Utilities.RunBatchFile("EnableDefenderSafeMode.bat");
-            Thread.Sleep(1000);
-
-            File.Delete("EnableDefenderSafeMode.bat");
-        }
-
-        internal static void SetRunOnceDisableDefender()
-        {
-            // set RunOnce instruction
-            Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce", "*OptimizerDisableDefender", Assembly.GetExecutingAssembly().Location + " /silentdisabledefender", Microsoft.Win32.RegistryValueKind.String);
-            RestartInSafeMode();
-        }
-
-        internal static void SetRunOnceEnableDefender()
-        {
-            // set RunOnce instruction
-            Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce", "*OptimizerEnableDefender", Assembly.GetExecutingAssembly().Location + " /silentenabledefender", Microsoft.Win32.RegistryValueKind.String);
-            RestartInSafeMode();
         }
 
         private static void StartMainForm()

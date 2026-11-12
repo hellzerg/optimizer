@@ -83,14 +83,6 @@ namespace Optimizer {
                     {
                         Program.RestartInSafeMode();
                     }
-                    if (restartType == RestartType.DisableDefender.ToString())
-                    {
-                        Program.SetRunOnceDisableDefender();
-                    }
-                    if (restartType == RestartType.EnableDefender.ToString())
-                    {
-                        Program.SetRunOnceEnableDefender();
-                    }
                 }
             }
         }

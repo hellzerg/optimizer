@@ -24,7 +24,7 @@ namespace Optimizer {
 
         public enum Glyph {
             Default, Shield, Windows, Gear, Apps, Rocket, Download, Broom, Pulse, Globe, Wrench, Chip, Puzzle, Options,
-            Refresh, Search, Power, Help, Heart, Code, Chat, Document,             Bug, Bulb, User, Lock, Eye, Drive
+            Refresh, Search, Power, Help, Heart, Code, Chat, Document, Bug, Bulb, User, Lock, Eye, Drive
         }
 
         public SidebarNav()

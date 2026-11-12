@@ -12,12 +12,7 @@ No, you don't need to keep the app running in the background. Once you've enable
 If you've experienced unexpected file and document deletions on your Desktop, it's possible that these deletions are related to uninstalling OneDrive. It's crucial to avoid uninstalling OneDrive on a Windows 10/11 system with a Microsoft-synced account setup. It's recommended to uninstall OneDrive only on a fresh Windows installation, before setting up your Microsoft account.
 
 ### **How can I disable Windows Defender on Windows 10/11?**
-Please note that the "Disable Windows Defender" toggle is only functional on Windows 7/8/8.1 systems. To effectively disable Windows Defender on Windows 10/11, follow these steps:
-
-1. Execute the app with the command `/restart=disabledefender`.
-2. This will initiate a restart in safe mode, during which Windows Defender will be disabled.
-3. After the safe mode restart, your system will restart in normal mode with Windows Defender disabled.
-4. You can re-enable Windows Defender at any time using the command `/restart=enabledefender`.
+Please note that the "Disable Windows Defender" toggle is only functional on Windows 7/8/8.1 systems. The safe-mode scripts previously used for Windows 10/11 (`/restart=disabledefender` and `/restart=enabledefender`) have been removed in version 17.0 because they caused issues with Windows Security.
 
 ### **My games stopped working or I am experiencing issues with them!**
 You should reset "Enhance Privacy", "Disable Xbox Live", "Disable Game Bar" and restart your computer.

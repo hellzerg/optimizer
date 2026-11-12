@@ -58,12 +58,10 @@ Find the latest release of Optimizer on the [Releases](https://github.com/hellze
 View Optimizer in action through our [Screenshots](https://github.com/hellzerg/optimizer/blob/master/IMAGES.md) collection.
 
 <center>
-<h2> 🆘 How to Disable Defender in Windows 10 1903 and Later</h2> 
+<h2> 🆘 Disabling Defender in Windows 10 1903 and Later</h2> 
 </center>
 
-- Restart in SAFE-MODE and run Optimizer with `/disabledefender` switch
-- OR -
-- Execute Optimizer with `/restart=disabledefender` switch for automated disabling
+- The safe-mode Defender scripts (`/disabledefender`, `/restart=disabledefender`, `/restart=enabledefender`) have been removed in version 17.0 because they caused issues with Windows Security
 
 <center>
 <h2>🔨 Automation using Templating</h2> 

@@ -193,9 +193,6 @@
   <data name="PT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\i18n\PT.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="DisableDefenderSafeMode1903Plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Scripts\DisableDefenderSafeMode1903Plus.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
   <data name="FR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\i18n\FR.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
@@ -264,9 +261,6 @@
   </data>
   <data name="egypt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Flags\egypt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="EnableDefenderSafeMode1903Plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Scripts\EnableDefenderSafeMode1903Plus.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="kurdish" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Flags\kurdish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

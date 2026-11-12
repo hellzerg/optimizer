@@ -77,7 +77,6 @@ namespace Optimizer
             this.regBackupSw = new Optimizer.ToggleCard();
             this.btnRestartSafe = new Optimizer.FluentButton();
             this.btnRestart = new Optimizer.FluentButton();
-            this.btnRestartDisableDefender = new Optimizer.FluentButton();
             this.advancedTabLayout = new Optimizer.ColumnsPanel();
             this.win11Section2 = new Optimizer.StackPanel();
             this.label20 = new System.Windows.Forms.Label();
@@ -1002,7 +1001,6 @@ namespace Optimizer
             this.advancedTabSection1.Controls.Add(this.regBackupSw);
             this.advancedTabSection1.Controls.Add(this.btnRestartSafe);
             this.advancedTabSection1.Controls.Add(this.btnRestart);
-            this.advancedTabSection1.Controls.Add(this.btnRestartDisableDefender);
             this.advancedTabSection1.Location = new System.Drawing.Point(22, 6);
             this.advancedTabSection1.Margin = new System.Windows.Forms.Padding(0);
             this.advancedTabSection1.Name = "advancedTabSection1";
@@ -1113,20 +1111,6 @@ namespace Optimizer
             this.btnRestart.Text = "Restart in Normal Mode";
             this.btnRestart.UseVisualStyleBackColor = false;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
-            // 
-            // btnRestartDisableDefender
-            // 
-            this.btnRestartDisableDefender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnRestartDisableDefender.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestartDisableDefender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestartDisableDefender.Location = new System.Drawing.Point(0, 262);
-            this.btnRestartDisableDefender.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.btnRestartDisableDefender.Name = "btnRestartDisableDefender";
-            this.btnRestartDisableDefender.Size = new System.Drawing.Size(288, 34);
-            this.btnRestartDisableDefender.TabIndex = 88;
-            this.btnRestartDisableDefender.Text = "Restart && Disable Defender";
-            this.btnRestartDisableDefender.UseVisualStyleBackColor = false;
-            this.btnRestartDisableDefender.Click += new System.EventHandler(this.btnRestartDisableDefender_Click);
             // 
             // advancedTabLayout
             // 
@@ -7764,7 +7748,6 @@ namespace Optimizer
         private Optimizer.FluentButton btnOpenNetwork;
         private Optimizer.FluentButton flushCacheB;
         private Optimizer.FluentButton btnRestoreUwp;
-        private Optimizer.FluentButton btnRestartDisableDefender;
         private Optimizer.FluentButton btnRestart;
         private Optimizer.FluentButton btnRestartSafe;
         private ToggleCard classicPhotoViewerSw;

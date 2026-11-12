@@ -197,42 +197,55 @@
     </Compile>
     <Compile Include="Forms\MainForm.ModernTabs.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.Cleaner.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.CleanerLogic.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.Dns.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.Startup.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.Options.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.Registry.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.Pinger.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.Apps.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.Integrator.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.Hosts.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.FileHandles.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.DiskActivity.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Controls\LockerList.cs">
       <SubType>Component</SubType>
@@ -376,10 +389,8 @@
     <None Include="Resources\i18n\DE.json" />
     <None Include="Resources\Scripts\DesktopShortcuts.reg" />
     <None Include="Resources\Scripts\DisableClassicPhotoViewer.reg" />
-    <None Include="Resources\Scripts\DisableDefenderSafeMode1903Plus.bat" />
     <None Include="Resources\Scripts\DisableOfficeTelemetry.reg" />
     <None Include="Resources\i18n\EN.json" />
-    <None Include="Resources\Scripts\EnableDefenderSafeMode1903Plus.bat" />
     <None Include="Resources\Scripts\EnableOfficeTelemetry.reg" />
     <None Include="Resources\Scripts\EnableOfficeTelemetryTasks.bat" />
     <None Include="Resources\Scripts\EnableTelemetryTasks.bat" />

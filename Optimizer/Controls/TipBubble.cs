@@ -435,8 +435,7 @@ namespace Optimizer {
             internal struct SIZE { public int cx, cy; }
 
             [StructLayout(LayoutKind.Sequential, Pack = 1)]
-            internal struct BLENDFUNCTION
-            {
+            internal struct BLENDFUNCTION {
                 public byte BlendOp, BlendFlags, SourceConstantAlpha, AlphaFormat;
             }
 

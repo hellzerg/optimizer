@@ -2,24 +2,9 @@
 #### Some options might not work properly ####
 - ```optimizer.exe /unsafe```
 
-## How to disable Windows Defender in Windows 10 1903 and later ##
-#### https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/security-malware-windows-defender-disableantispyware "DisableAntiSpyware" is discontinued and will be ignored on client devices, as of version 1903. ####
+## Disabling Windows Defender in Windows 10 1903 and later ##
 
-- Restart in SAFE MODE
-- Execute: ```optimizer.exe /disabledefender```
-
--OR-
-
-- Execute: ```optimizer.exe /restart=disabledefender``` and let Optimizer do the rest automatically
-
-## How to re-enable Windows Defender ##
-
-- Restart in SAFE MODE
-- Execute: ```optimizer.exe /enabledefender```
-
--OR-
-
-- Execute: ```optimizer.exe /restart=enabledefender``` and let Optimizer do the rest automatically
+- The safe-mode Defender switches (```/disabledefender```, ```/restart=disabledefender```, ```/enabledefender```, ```/restart=enabledefender```) have been removed in version 17.0 because they caused issues with Windows Security
 
 ## How to restart in SAFE MODE / NORMAL easily ##
 

@@ -6,7 +6,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -2332,8 +2331,7 @@ namespace Optimizer {
             }
         }
 
-        sealed class FeedWebClient : WebClient
-        {
+        sealed class FeedWebClient : WebClient {
             protected override WebRequest GetWebRequest(Uri address)
             {
                 WebRequest request = base.GetWebRequest(address);
@@ -5611,12 +5609,6 @@ namespace Optimizer {
         private void btnRestart_Click(object sender, EventArgs e)
         {
             Program.RestartInNormalMode();
-        }
-
-        private void btnRestartDisableDefender_Click(object sender, EventArgs e)
-        {
-            Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce", "*OptimizerDisableDefender", Assembly.GetExecutingAssembly().Location + " /silentdisabledefender", Microsoft.Win32.RegistryValueKind.String);
-            Program.RestartInSafeMode();
         }
 
         private void ConfirmAndReboot()

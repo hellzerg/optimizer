@@ -75,9 +75,7 @@
 
     public enum RestartType {
         Normal,
-        SafeMode,
-        DisableDefender,
-        EnableDefender
+        SafeMode
     }
 
     public enum LanguageCode {
