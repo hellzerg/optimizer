@@ -1,7 +1,7 @@
-<img src="https://raw.githubusercontent.com/hellzerg/optimizer/refs/heads/main/images/banner.png">
+<img src="https://raw.githubusercontent.com/hellzerg/optimizer/refs/heads/master/banner.png">
 
 <a href="https://github.com/hellzerg/optimizer/releases/download/16.7/Optimizer-16.7.exe">
-    <img src="https://raw.githubusercontent.com/hellzerg/optimizer/refs/heads/main/images/download-button.png">
+    <img src="https://github.com/hellzerg/optimizer/blob/master/download-button.png?raw=true">
 </a>
 
 <center>
