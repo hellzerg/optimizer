@@ -1,4 +1,4 @@
-## [17.0] - 2026-11-11
+## [17.0] - 2026-11-12
 - New: Complete visual redesign with a modern Fluent look
 - New: Theme engine with dark and light modes and accent color support
 - New: Modern typography

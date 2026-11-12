@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/hellzerg/optimizer/releases/download/16.7/Optimizer-16.7.exe">
+  <a href="https://github.com/hellzerg/optimizer/releases/download/17.0/Optimizer-17.0.exe">
     <img src="https://github.com/hellzerg/optimizer/blob/master/download-button.png?raw=true">
   </a>
 </p>
@@ -58,12 +58,6 @@ Find the latest release of Optimizer on the [Releases](https://github.com/hellze
 View Optimizer in action through our [Screenshots](https://github.com/hellzerg/optimizer/blob/master/IMAGES.md) collection.
 
 <center>
-<h2> 🆘 Disabling Defender in Windows 10 1903 and Later</h2> 
-</center>
-
-- The safe-mode Defender scripts (`/disabledefender`, `/restart=disabledefender`, `/restart=enabledefender`) have been removed in version 17.0 because they caused issues with Windows Security
-
-<center>
 <h2>🔨 Automation using Templating</h2> 
 </center>
 
@@ -106,7 +100,7 @@ Learn about our security measures in the [Security Policy](https://github.com/he
 </center>
 
 - Latest version: 17.0 (Released: November 12, 2026)
-- SHA256: -
+- SHA256: 2CBF86D7259E72A37EE7F3F00B9D33CAD147EEBF74C73FCCBD9EBFCD7328AB20
 
 <center>
 <h2> ☕ Buy me a delicious espresso</h2>

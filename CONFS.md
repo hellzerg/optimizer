@@ -2,10 +2,6 @@
 #### Some options might not work properly ####
 - ```optimizer.exe /unsafe```
 
-## Disabling Windows Defender in Windows 10 1903 and later ##
-
-- The safe-mode Defender switches (```/disabledefender```, ```/restart=disabledefender```, ```/enabledefender```, ```/restart=enabledefender```) have been removed in version 17.0 because they caused issues with Windows Security
-
 ## How to restart in SAFE MODE / NORMAL easily ##
 
 - ```optimizer.exe /restart=safemode```
