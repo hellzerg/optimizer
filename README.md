@@ -1,8 +1,12 @@
-<img src="https://raw.githubusercontent.com/hellzerg/optimizer/refs/heads/master/banner.png">
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hellzerg/optimizer/refs/heads/master/banner.png">
+</p>
 
-<a href="https://github.com/hellzerg/optimizer/releases/download/16.7/Optimizer-16.7.exe">
+<p align="center">
+  <a href="https://github.com/hellzerg/optimizer/releases/download/16.7/Optimizer-16.7.exe">
     <img src="https://github.com/hellzerg/optimizer/blob/master/download-button.png?raw=true">
-</a>
+  </a>
+</p>
 
 <center>
 <h2>ℹ️ Advanced Privacy and Security Configuration Utility</h2> 
