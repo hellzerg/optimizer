@@ -113,16 +113,6 @@ namespace Optimizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap banner {
-            get {
-                object obj = ResourceManager.GetObject("banner", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;subSystem&quot;: &quot;Система&quot;,
         ///	&quot;subPrivacy&quot;: &quot;Анонимност&quot;,
@@ -1084,16 +1074,6 @@ namespace Optimizer.Properties {
             get {
                 object obj = ResourceManager.GetObject("poland", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] Poppins_Regular {
-            get {
-                object obj = ResourceManager.GetObject("Poppins_Regular", resourceCulture);
-                return ((byte[])(obj));
             }
         }
         

@@ -8,10 +8,8 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public static class IntegratorHelper
-    {
+namespace Optimizer {
+    public static class IntegratorHelper {
         internal static string FolderDefaultIcon = @"%systemroot%\system32\imageres.dll,-112";
 
         internal static void CreateCustomCommand(string file, string keyword)

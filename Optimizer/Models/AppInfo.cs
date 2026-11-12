@@ -1,5 +1,4 @@
-﻿namespace Optimizer
-{
+﻿namespace Optimizer {
     /// <summary>
     /// Represents an app from feed, containing:
     /// - Title
@@ -7,8 +6,7 @@
     /// - Image
     /// - Group
     /// </summary>
-    public sealed class AppInfo
-    {
+    public sealed class AppInfo {
         public string Title { get; set; }
         public string Link64 { get; set; }
         public string Link { get; set; }

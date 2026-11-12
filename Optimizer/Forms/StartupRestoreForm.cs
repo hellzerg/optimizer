@@ -6,10 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public sealed partial class StartupRestoreForm : Form
-    {
+namespace Optimizer {
+    public sealed partial class StartupRestoreForm : Form {
         string[] _backups;
 
         public StartupRestoreForm()

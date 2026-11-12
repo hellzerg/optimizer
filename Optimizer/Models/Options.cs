@@ -1,15 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 
-namespace Optimizer
-{
+namespace Optimizer {
+    public enum ThemeMode {
+        Dark = 0,
+        Light = 1
+    }
+
     [Serializable]
-    public sealed class Options
-    {
+    public sealed class Options {
         /// <summary>
         /// Represents the theme color in RGB
         /// </summary>
         public Color Theme { get; set; }
+
+        /// <summary>
+        /// Light or dark appearance (defaults to dark for existing settings files)
+        /// </summary>
+        public ThemeMode ThemeMode { get; set; }
 
         /// <summary>
         /// The folder in which the apps are downloaded from Apps tool
@@ -162,5 +171,16 @@ namespace Optimizer
         public bool DisableHPET { get; set; }
         public bool EnableLoginVerbose { get; set; }
         public bool EnableRegistryBackups { get; set; }
+
+        /// <summary>
+        /// Disk Activity page (null flags mean "on", so older settings files keep the defaults)
+        /// </summary>
+        public string ObserverPath { get; set; }
+        public bool? ObserverCreated { get; set; }
+        public bool? ObserverModified { get; set; }
+        public bool? ObserverDeleted { get; set; }
+        public bool? ObserverRenamed { get; set; }
+        public bool? ObserverExclusionsEnabled { get; set; }
+        public List<string> ObserverExclusions { get; set; }
     }
 }

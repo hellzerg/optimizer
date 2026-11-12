@@ -2,16 +2,14 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public sealed partial class AboutForm : Form
-    {
+namespace Optimizer {
+    public sealed partial class AboutForm : Form {
         public AboutForm()
         {
             InitializeComponent();
             OptionsHelper.ApplyTheme(this);
 
-            pictureBox1.BackColor = OptionsHelper.CurrentOptions.Theme;
+            LogoArt.Apply(pictureBox1);
         }
 
         private void About_Load(object sender, EventArgs e)

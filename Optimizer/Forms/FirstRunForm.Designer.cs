@@ -33,7 +33,7 @@ namespace Optimizer
             this.pictureBox88 = new System.Windows.Forms.PictureBox();
             this.pictureBox87 = new System.Windows.Forms.PictureBox();
             this.pictureBox86 = new System.Windows.Forms.PictureBox();
-            this.btnStart = new System.Windows.Forms.Button();
+            this.btnStart = new Optimizer.FluentButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -154,23 +154,16 @@ namespace Optimizer
             // 
             this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnStart.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnStart.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrchid;
-            this.btnStart.FlatAppearance.BorderSize = 0;
-            this.btnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrchid;
-            this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrchid;
-            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.ForeColor = System.Drawing.Color.White;
             this.btnStart.Location = new System.Drawing.Point(11, 464);
             this.btnStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnStart.Name = "btnStart";
+            this.btnStart.Kind = Optimizer.ButtonKind.Primary;
             this.btnStart.Size = new System.Drawing.Size(406, 31);
             this.btnStart.TabIndex = 86;
             this.btnStart.Tag = "themeable";
             this.btnStart.Text = "✓";
-            this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // pictureBox1
@@ -986,7 +979,7 @@ namespace Optimizer
         private MoonRadio radioEnglish;
         private MoonRadio radioRussian;
         private System.Windows.Forms.PictureBox pictureBox86;
-        private System.Windows.Forms.Button btnStart;
+        private Optimizer.FluentButton btnStart;
         private System.Windows.Forms.PictureBox pictureBox1;
         private MoonRadio radioTurkish;
         private MoonRadio radioGerman;

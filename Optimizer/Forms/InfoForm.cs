@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public sealed partial class InfoForm : Form
-    {
+namespace Optimizer {
+    public sealed partial class InfoForm : Form {
         public InfoForm(string info)
         {
             InitializeComponent();

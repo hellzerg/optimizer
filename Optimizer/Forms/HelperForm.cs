@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public sealed partial class HelperForm : System.Windows.Forms.Form
-    {
+namespace Optimizer {
+    public sealed partial class HelperForm : System.Windows.Forms.Form {
         MainForm _main;
         MessageType _type;
 

@@ -3,10 +3,8 @@ using System;
 using System.Diagnostics;
 using System.IO;
 
-namespace Optimizer
-{
-    public static class OptimizeHelper
-    {
+namespace Optimizer {
+    public static class OptimizeHelper {
         readonly static string DiagnosisAutoLoggerFolder = Path.Combine(CleanHelper.ProgramData, @"Microsoft\Diagnosis\ETLLogs\AutoLogger");
 
         internal static void DisableTelemetryRunner()

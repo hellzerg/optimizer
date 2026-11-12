@@ -1,15 +1,12 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    internal static class OptionsHelper
-    {
+namespace Optimizer {
+    internal static class OptionsHelper {
         internal static Color ForegroundColor = Color.FromArgb(153, 102, 204);
         internal static Color ForegroundAccentColor = Color.FromArgb(134, 89, 179);
         internal static Color BackgroundColor = Color.FromArgb(10, 10, 10);
@@ -30,52 +27,24 @@ namespace Optimizer
 
         internal static void ApplyTheme(Form f)
         {
-            SetTheme(f, CurrentOptions.Theme, ColorHelper.ChangeColorBrightness(CurrentOptions.Theme, 0.7));
+            SyncPalette();
+            ThemeManager.Apply(f);
         }
 
-        private static void SetTheme(Form f, Color c1, Color c2)
+        /// <summary>
+        /// Rebuilds the palette from the saved options and keeps the legacy color fields in sync with it.
+        /// </summary>
+        internal static void SyncPalette()
         {
-            dynamic c;
-            ForegroundColor = c1;
-            ForegroundAccentColor = c2;
-            TextColor = GetContrastColor(CurrentOptions.Theme);
+            ThemeManager.SetTheme(CurrentOptions.ThemeMode, CurrentOptions.Theme);
+            Palette p = ThemeManager.Current;
 
-            Utilities.GetSelfAndChildrenRecursive(f).ToList().ForEach(x =>
-            {
-                c = x;
-
-                if (x is Button)
-                {
-                    c.ForeColor = TextColor;
-                    c.BackColor = c1;
-                    c.FlatAppearance.BorderColor = c1;
-                    c.FlatAppearance.MouseDownBackColor = c2;
-                    c.FlatAppearance.MouseOverBackColor = c2;
-                    c.FlatAppearance.BorderSize = 0;
-                }
-
-                if (x is LinkLabel)
-                {
-                    if ((string)c.Tag == Constants.THEME_FLAG)
-                    {
-                        c.LinkColor = c1;
-                        c.VisitedLinkColor = c1;
-                        c.ActiveLinkColor = c2;
-                    }
-                }
-
-                if (x is CheckBox || x is RadioButton || x is Label)
-                {
-                    if ((string)c.Tag == Constants.THEME_FLAG)
-                    {
-                        c.ForeColor = c1;
-                    }
-                }
-
-                c.Invalidate();
-            });
+            ForegroundColor = p.Accent;
+            ForegroundAccentColor = p.AccentPressed;
+            BackgroundColor = p.WindowBg;
+            BackAccentColor = p.ControlFill;
+            TextColor = p.OnAccent;
         }
-
         internal static void LegacyCheck()
         {
             if (File.Exists(SettingsFile))

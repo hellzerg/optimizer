@@ -5,12 +5,10 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace Optimizer.Controls
-{
+namespace Optimizer.Controls {
     [DefaultProperty("Color")]
     [DefaultEvent("ColorChanged")]
-    public partial class ColorPicker : Control
-    {
+    public sealed partial class ColorPicker : Control {
         #region Fields
 
         private Brush _brush;
@@ -250,7 +248,7 @@ namespace Optimizer.Controls
 
         [Category("Appearance")]
         [DefaultValue(typeof(Color), "Black")]
-        public virtual Color Color
+        public Color Color
         {
             get { return _color; }
             set
@@ -266,7 +264,7 @@ namespace Optimizer.Controls
 
         [Category("Appearance")]
         [DefaultValue(4)]
-        public virtual int ColorStep
+        public int ColorStep
         {
             get { return _colorStep; }
             set
@@ -289,7 +287,7 @@ namespace Optimizer.Controls
         [DefaultValue(typeof(HslColor), "0, 0, 0")]
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public virtual HslColor HslColor
+        public HslColor HslColor
         {
             get { return _hslColor; }
             set
@@ -305,7 +303,7 @@ namespace Optimizer.Controls
 
         [Category("Behavior")]
         [DefaultValue(5)]
-        public virtual int LargeChange
+        public int LargeChange
         {
             get { return _largeChange; }
             set
@@ -321,7 +319,7 @@ namespace Optimizer.Controls
 
         [Category("Appearance")]
         [DefaultValue(10)]
-        public virtual int SelectionSize
+        public int SelectionSize
         {
             get { return _selectionSize; }
             set
@@ -337,7 +335,7 @@ namespace Optimizer.Controls
 
         [Category("Behavior")]
         [DefaultValue(1)]
-        public virtual int SmallChange
+        public int SmallChange
         {
             get { return _smallChange; }
             set
@@ -355,29 +353,29 @@ namespace Optimizer.Controls
 
         #region Protected Properties
 
-        protected virtual bool AllowPainting
+        private bool AllowPainting
         {
             get { return _updateCount == 0; }
         }
 
-        protected Color[] Colors { get; set; }
+        private Color[] Colors { get; set; }
 
-        protected bool LockUpdates { get; set; }
+        private bool LockUpdates { get; set; }
 
-        protected PointF[] Points { get; set; }
+        private PointF[] Points { get; set; }
 
-        protected Image SelectionGlyph { get; set; }
+        private Image SelectionGlyph { get; set; }
 
         #endregion
 
         #region Public Members
 
-        public virtual void BeginUpdate()
+        public void BeginUpdate()
         {
             _updateCount++;
         }
 
-        public virtual void EndUpdate()
+        public void EndUpdate()
         {
             if (_updateCount > 0)
             {
@@ -394,7 +392,7 @@ namespace Optimizer.Controls
 
         #region Protected Members
 
-        protected virtual void CalculateWheel()
+        private void CalculateWheel()
         {
             List<PointF> points;
             List<Color> colors;
@@ -429,7 +427,7 @@ namespace Optimizer.Controls
             this.Points = points.ToArray();
             this.Colors = colors.ToArray();
         }
-        protected virtual Brush CreateGradientBrush()
+        private Brush CreateGradientBrush()
         {
             Brush result;
 
@@ -450,13 +448,13 @@ namespace Optimizer.Controls
             return result;
         }
 
-        protected virtual Color GetContrastColor(Color c)
+        private Color GetContrastColor(Color c)
         {
             double brightness = c.R * 0.299 + c.G * 0.587 + c.B * 0.114;
             return brightness > 149 ? Color.Black : Color.White;
         }
 
-        protected virtual Image CreateSelectionGlyph()
+        private Image CreateSelectionGlyph()
         {
             Image image;
             int halfSize;
@@ -477,12 +475,12 @@ namespace Optimizer.Controls
             return image;
         }
 
-        protected PointF GetColorLocation(Color color)
+        private PointF GetColorLocation(Color color)
         {
             return this.GetColorLocation(new HslColor(color));
         }
 
-        protected virtual PointF GetColorLocation(HslColor color)
+        private PointF GetColorLocation(HslColor color)
         {
             double angle;
             double radius;
@@ -493,7 +491,7 @@ namespace Optimizer.Controls
             return this.GetColorLocation(angle, radius);
         }
 
-        protected PointF GetColorLocation(double angleR, double radius)
+        private PointF GetColorLocation(double angleR, double radius)
         {
             double x;
             double y;
@@ -504,12 +502,12 @@ namespace Optimizer.Controls
             return new PointF((float)x, (float)y);
         }
 
-        protected float GetRadius(PointF centerPoint)
+        private float GetRadius(PointF centerPoint)
         {
             return Math.Min(centerPoint.X, centerPoint.Y) - (Math.Max(this.Padding.Horizontal, this.Padding.Vertical) + (this.SelectionSize / 2));
         }
 
-        protected bool IsPointInWheel(Point point)
+        private bool IsPointInWheel(Point point)
         {
             PointF normalized;
 
@@ -518,7 +516,7 @@ namespace Optimizer.Controls
             return (normalized.X * normalized.X + normalized.Y * normalized.Y) <= (_radius * _radius);
         }
 
-        protected virtual void OnColorChanged(EventArgs e)
+        private void OnColorChanged(EventArgs e)
         {
             EventHandler handler;
 
@@ -538,7 +536,7 @@ namespace Optimizer.Controls
             }
         }
 
-        protected virtual void OnColorStepChanged(EventArgs e)
+        private void OnColorStepChanged(EventArgs e)
         {
             EventHandler handler;
 
@@ -552,7 +550,7 @@ namespace Optimizer.Controls
             }
         }
 
-        protected virtual void OnHslColorChanged(EventArgs e)
+        private void OnHslColorChanged(EventArgs e)
         {
             EventHandler handler;
 
@@ -570,7 +568,7 @@ namespace Optimizer.Controls
             }
         }
 
-        protected virtual void OnLargeChangeChanged(EventArgs e)
+        private void OnLargeChangeChanged(EventArgs e)
         {
             EventHandler handler;
 
@@ -582,7 +580,7 @@ namespace Optimizer.Controls
             }
         }
 
-        protected virtual void OnSelectionSizeChanged(EventArgs e)
+        private void OnSelectionSizeChanged(EventArgs e)
         {
             EventHandler handler;
 
@@ -602,7 +600,7 @@ namespace Optimizer.Controls
             }
         }
 
-        protected virtual void OnSmallChangeChanged(EventArgs e)
+        private void OnSmallChangeChanged(EventArgs e)
         {
             EventHandler handler;
 
@@ -614,12 +612,12 @@ namespace Optimizer.Controls
             }
         }
 
-        protected void PaintColor(PaintEventArgs e, HslColor color)
+        private void PaintColor(PaintEventArgs e, HslColor color)
         {
             this.PaintColor(e, color, false);
         }
 
-        protected virtual void PaintColor(PaintEventArgs e, HslColor color, bool includeFocus)
+        private void PaintColor(PaintEventArgs e, HslColor color, bool includeFocus)
         {
             PointF location;
 
@@ -644,12 +642,12 @@ namespace Optimizer.Controls
             }
         }
 
-        protected virtual void PaintCurrentColor(PaintEventArgs e)
+        private void PaintCurrentColor(PaintEventArgs e)
         {
             this.PaintColor(e, this.HslColor, true);
         }
 
-        protected virtual void SetColor(Point point)
+        private void SetColor(Point point)
         {
             double dx;
             double dy;

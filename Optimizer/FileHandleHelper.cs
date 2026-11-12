@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace Optimizer
-{
-    public static class FileHandleHelper
-    {
+namespace Optimizer {
+    public static class FileHandleHelper {
         public static List<Process> GetProcessesLockingFile(string path)
         {
             uint handle;
@@ -44,8 +42,7 @@ namespace Optimizer
 
 
         [StructLayout(LayoutKind.Sequential)]
-        public struct RM_UNIQUE_PROCESS
-        {
+        public struct RM_UNIQUE_PROCESS {
             public int dwProcessId;
             public System.Runtime.InteropServices.ComTypes.FILETIME ProcessStartTime;
         }
@@ -54,8 +51,7 @@ namespace Optimizer
         const int CCH_RM_MAX_APP_NAME = 255;
         const int CCH_RM_MAX_SVC_NAME = 63;
 
-        public enum RM_APP_TYPE
-        {
+        public enum RM_APP_TYPE {
             RmUnknownApp = 0,
             RmMainWindow = 1,
             RmOtherWindow = 2,
@@ -66,8 +62,7 @@ namespace Optimizer
         }
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-        public struct RM_PROCESS_INFO
-        {
+        public struct RM_PROCESS_INFO {
             public RM_UNIQUE_PROCESS Process;
 
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst = CCH_RM_MAX_APP_NAME + 1)] public string strAppName;

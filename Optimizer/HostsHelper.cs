@@ -6,10 +6,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    internal static class HostsHelper
-    {
+namespace Optimizer {
+    internal static class HostsHelper {
         internal static string NewLine = Environment.NewLine;
         internal static readonly string HostsFile = CleanHelper.System32Folder + "\\drivers\\etc\\hosts";
 

@@ -3,10 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Management;
 
-namespace Optimizer
-{
-    public static class IndiciumHelper
-    {
+namespace Optimizer {
+    public static class IndiciumHelper {
         public static List<Volume> Volumes = new List<Volume>();
         public static List<Volume> Opticals = new List<Volume>();
         public static List<Volume> Removables = new List<Volume>();

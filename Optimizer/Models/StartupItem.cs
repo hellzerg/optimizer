@@ -2,17 +2,19 @@
 using System;
 using System.IO;
 
-namespace Optimizer
-{
+namespace Optimizer {
     /// <summary>
     /// Represents a base Windows startup item
     /// </summary>
-    internal class StartupItem
-    {
+    internal class StartupItem {
         internal string Name { get; set; }
         internal string FileLocation { get; set; }
         internal StartupItemLocation RegistryLocation { get; set; }
         internal StartupItemType StartupType { get; set; }
+
+        /// <summary>True when Windows tracks an Enabled/Disabled state for this item (Windows 8+, non-RunOnce).</summary>
+        internal bool CanToggle { get; set; }
+        internal bool Enabled { get; set; } = true;
 
         internal virtual void Remove() { }
         internal virtual void LocateFile() { }
@@ -25,8 +27,7 @@ namespace Optimizer
         }
     }
 
-    internal sealed class FolderStartupItem : StartupItem
-    {
+    internal sealed class FolderStartupItem : StartupItem {
         internal string Shortcut { get; set; }
 
         internal override void Remove()
@@ -57,8 +58,7 @@ namespace Optimizer
         }
     }
 
-    internal sealed class RegistryStartupItem : StartupItem
-    {
+    internal sealed class RegistryStartupItem : StartupItem {
         internal RegistryKey Key { get; set; }
 
         internal override void LocateKey()

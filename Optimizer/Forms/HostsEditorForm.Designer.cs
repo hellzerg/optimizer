@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.bpanel = new System.Windows.Forms.Panel();
-            this.closebtn = new System.Windows.Forms.Button();
-            this.savebtn = new System.Windows.Forms.Button();
+            this.closebtn = new Optimizer.FluentButton();
+            this.savebtn = new Optimizer.FluentButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.RichTextBox();
             this.bpanel.SuspendLayout();
@@ -51,14 +51,8 @@
             // closebtn
             // 
             this.closebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.closebtn.BackColor = System.Drawing.Color.DodgerBlue;
             this.closebtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.closebtn.FlatAppearance.BorderSize = 0;
-            this.closebtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.closebtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.closebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closebtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closebtn.ForeColor = System.Drawing.Color.White;
             this.closebtn.Location = new System.Drawing.Point(277, 8);
             this.closebtn.Margin = new System.Windows.Forms.Padding(2);
             this.closebtn.Name = "closebtn";
@@ -66,27 +60,20 @@
             this.closebtn.TabIndex = 35;
             this.closebtn.Tag = "themeable";
             this.closebtn.Text = "Close";
-            this.closebtn.UseVisualStyleBackColor = false;
             this.closebtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // savebtn
             // 
             this.savebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.savebtn.BackColor = System.Drawing.Color.DodgerBlue;
-            this.savebtn.FlatAppearance.BorderSize = 0;
-            this.savebtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.savebtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.savebtn.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.savebtn.ForeColor = System.Drawing.Color.White;
             this.savebtn.Location = new System.Drawing.Point(443, 8);
             this.savebtn.Margin = new System.Windows.Forms.Padding(2);
             this.savebtn.Name = "savebtn";
+            this.savebtn.Kind = Optimizer.ButtonKind.Primary;
             this.savebtn.Size = new System.Drawing.Size(162, 31);
             this.savebtn.TabIndex = 34;
             this.savebtn.Tag = "themeable";
             this.savebtn.Text = "Save";
-            this.savebtn.UseVisualStyleBackColor = false;
             this.savebtn.Click += new System.EventHandler(this.button7_Click);
             // 
             // panel1
@@ -140,8 +127,8 @@
         #endregion
 
         private System.Windows.Forms.Panel bpanel;
-        private System.Windows.Forms.Button closebtn;
-        private System.Windows.Forms.Button savebtn;
+        private Optimizer.FluentButton closebtn;
+        private Optimizer.FluentButton savebtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox textBox1;
     }

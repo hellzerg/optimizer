@@ -4,10 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public sealed partial class StartupPreviewForm : Form
-    {
+namespace Optimizer {
+    public sealed partial class StartupPreviewForm : Form {
         string _token = string.Empty;
 
         public StartupPreviewForm(List<BackupStartupItem> items)

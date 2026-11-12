@@ -1,7 +1,5 @@
-﻿namespace Optimizer
-{
-    internal static class Constants
-    {
+﻿namespace Optimizer {
+    internal static class Constants {
         internal static string INTERNAL_DNS = "1.1.1.1";
         internal static string THEME_FLAG = "themeable";
         internal static int CONTRAST_THRESHOLD = 149;

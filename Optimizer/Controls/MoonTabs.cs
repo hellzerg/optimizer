@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -6,14 +6,12 @@ using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
+namespace Optimizer {
     [
         ComVisible(true), ClassInterface(ClassInterfaceType.AutoDispatch),
         DefaultProperty("TabPages"), DefaultEvent("SelectedIndexChanged")
     ]
-    public sealed class MoonTabs : TabControl
-    {
+    public sealed class MoonTabs : TabControl, IThemeable, IThemeContainer {
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
 
@@ -41,6 +39,11 @@ namespace Optimizer
 
         [Category("Custom"), Description("Indicates whether or not you can rearrange the components Tabpages.  CLICK on the Tabpages HEADER with the LEFT mousebutton and HOLD DOWN the <SHIFT> KEY, to drag it LEFT or RIGHT."), DefaultValue(false)]
         public bool CanDrag { get; set; }
+
+        [Category("Custom"), Description("Hides the tab headers at runtime (navigation is provided by another control)."), DefaultValue(false)]
+        public bool HideHeaders { get; set; }
+
+        private int _hoverIndex = -1;
 
         StringFormat format = new StringFormat { Alignment = StringAlignment.Center };
 
@@ -96,21 +99,32 @@ namespace Optimizer
         {
             bMouseDown = true;
             SetDragState();
-            if (SelectedIndex == -1) return;
+            if (SelectedIndex == -1 || !CanDrag || HideHeaders) return;
             Rectangle rectDrag = GetTabRect(SelectedIndex);
             ptPreviousLocation = new Point(rectDrag.X, rectDrag.Y);
             rectDrag.Width += 1; rectDrag.Height += 1;
-            Bitmap src = new Bitmap(Width, Height);
-            DrawToBitmap(src, ClientRectangle);
 
-            using (Graphics g = Graphics.FromImage(bitDrag = new Bitmap(rectDrag.Width, rectDrag.Height)))
+            // the drag ghost is only ever drawn while dragging, so capture it only when dragging is possible
+            using (Bitmap src = new Bitmap(Width, Height))
             {
-                g.DrawImage(src, new Rectangle(0, 0, bitDrag.Width, bitDrag.Height), rectDrag, GraphicsUnit.Pixel);
+                DrawToBitmap(src, ClientRectangle);
+                if (bitDrag != null) bitDrag.Dispose();
+                using (Graphics g = Graphics.FromImage(bitDrag = new Bitmap(rectDrag.Width, rectDrag.Height)))
+                {
+                    g.DrawImage(src, new Rectangle(0, 0, bitDrag.Width, bitDrag.Height), rectDrag, GraphicsUnit.Pixel);
+                }
             }
         }
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
+            int hover = -1;
+            for (int i = 0; i < TabCount; i++)
+            {
+                if (GetTabRect(i).Contains(e.Location)) { hover = i; break; }
+            }
+            if (hover != _hoverIndex) { _hoverIndex = hover; Invalidate(); }
+
             if (bDrag)
             {
                 if (Alignment == TabAlignment.Top || Alignment == TabAlignment.Bottom)
@@ -161,178 +175,140 @@ namespace Optimizer
 
         protected override void OnKeyUp(KeyEventArgs e) { bDrag = bShiftKey = false; SetDragState(); }
 
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            if (_hoverIndex != -1)
+            {
+                _hoverIndex = -1;
+                Invalidate();
+            }
+            base.OnMouseLeave(e);
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            // TCM_ADJUSTRECT: let the pages cover the whole control when headers are hidden (sidebar navigation)
+            if (m.Msg == 0x1328 && HideHeaders && !DesignMode)
+            {
+                m.Result = (IntPtr)1;
+                return;
+            }
+            base.WndProc(ref m);
+        }
+
+        public void ApplyTheme(Palette palette)
+        {
+            Invalidate();
+        }
+
+        Color IThemeContainer.ChildSurface
+        {
+            get { return Parent != null ? Parent.BackColor : ThemeManager.Current.WindowBg; }
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             if (DesignMode) return;
 
-            e.Graphics.Clear(Color.FromArgb(40, 40, 40));
+            Palette p = ThemeManager.Current;
+            Graphics g = e.Graphics;
+            g.Clear(Parent != null ? Parent.BackColor : p.WindowBg);
 
-            Rectangle container = new Rectangle(0, 0, Width - (BorderSize % 2), Height - (BorderSize % 2));
-            Rectangle containerHead = default(Rectangle);
+            if (HideHeaders || TabCount == 0) return;
 
-            if (TabCount > 0)
+            bool vertical = Alignment == TabAlignment.Left || Alignment == TabAlignment.Right;
+
+            // hairline separating the pivot from the page content
+            using (Pen line = new Pen(p.Stroke))
             {
-                using (SolidBrush brushBackgroundTab = new SolidBrush(Color.FromArgb(40, 40, 40)))
-                using (SolidBrush brushDivider = new SolidBrush(OptionsHelper.ForegroundColor))
-                {
-                    {
-                        e.Graphics.FillRectangle(brushBackgroundTab, DisplayRectangle);
-                    }
-
-                    {
-                        if (SelectedIndex == -1) return;
-                        Rectangle rectDivider = GetTabRect(SelectedIndex);
-
-                        if (Alignment == TabAlignment.Top || Alignment == TabAlignment.Bottom)
-                        {
-                            e.Graphics.FillRectangle(brushDivider,
-                                                     0,
-                                                     (((Alignment == TabAlignment.Top) ? (TabPages[SelectedIndex].Top - DividerSize - (DividerSize % 2)) :
-                                                     (TabPages[SelectedIndex].Bottom + (DividerSize % 2)))),
-                                                     (Width - BorderSize), DividerSize
-                                                    );
-                        }
-
-                        if (Alignment == TabAlignment.Right || Alignment == TabAlignment.Left)
-                        {
-                            e.Graphics.FillRectangle(brushDivider,
-                                                     ((Alignment == TabAlignment.Right) ? (TabPages[SelectedIndex].Right + (DividerSize % 2)) : TabPages[SelectedIndex].Left - DividerSize - (DividerSize % 2)),
-                                                     BorderSize,
-                                                     DividerSize,
-                                                     (Height - (BorderSize * 2))
-                                                     );
-                        }
-                    }
-                }
+                Rectangle display = DisplayRectangle;
+                if (Alignment == TabAlignment.Top) g.DrawLine(line, 0, display.Top - 1, Width, display.Top - 1);
+                else if (Alignment == TabAlignment.Bottom) g.DrawLine(line, 0, display.Bottom, Width, display.Bottom);
             }
 
-            SolidBrush brushActiveText;
+            ptMaxDrag = new Point(0, 0);
 
-            using (Pen penActive = new Pen(OptionsHelper.ForegroundColor))
-            using (Pen penBorder = new Pen(Color.FromArgb(40, 40, 40), 0))
-            using (SolidBrush brushActive = new SolidBrush(OptionsHelper.ForegroundColor))
-            using (SolidBrush brushInActive = new SolidBrush(Color.FromArgb(40, 40, 40)))
-            using (SolidBrush brushAlternative = new SolidBrush(OptionsHelper.ForegroundColor))
-            using (SolidBrush brushActiveIndicator = new SolidBrush(ControlPaint.Light(OptionsHelper.ForegroundColor)))
-            using (SolidBrush brushInActiveIndicator = new SolidBrush(OptionsHelper.ForegroundColor))
-            using (brushActiveText = new SolidBrush(OptionsHelper.TextColor))
-            using (SolidBrush brushInActiveText = new SolidBrush(Color.White))
-            using (SolidBrush brushDrag = new SolidBrush(ControlPaint.Dark(OptionsHelper.ForegroundColor)))
+            for (int i = 0; i < TabCount; i++)
             {
-                //if (MoonManager.THEME_PREFERENCE == THEME.LIGHT) brushActiveText = new SolidBrush(Color.White);
+                Rectangle head = GetTabRect(i);
+                bool selected = i == SelectedIndex;
 
-                penBorder.Alignment = penActive.Alignment = PenAlignment.Inset;
-                e.Graphics.DrawRectangle(penBorder, container);
-
-                if (TabCount > 0)
+                if (!selected && i == _hoverIndex)
                 {
-                    ptMaxDrag = new Point(0, 0);
-
-                    for (int i = 0; i < TabCount; i++)
+                    g.SmoothingMode = SmoothingMode.AntiAlias;
+                    using (GraphicsPath path = Draw.RoundedRect(RectangleF.Inflate(head, -2, -3), Draw.S(4)))
+                    using (SolidBrush b = new SolidBrush(p.ControlHover))
                     {
-                        containerHead = GetTabRect(i);
+                        g.FillPath(b, path);
+                    }
+                    g.SmoothingMode = SmoothingMode.None;
+                }
 
-                        e.Graphics.FillRectangle((SelectedIndex == i) ? (bDrag ? brushDrag : brushActive) : brushInActive, containerHead);
+                if (!(bDrag && selected))
+                {
+                    Color text = selected ? p.TextPrimary : (i == _hoverIndex ? p.TextPrimary : p.TextSecondary);
 
-                        if (BorderEdges && (i == SelectedIndex))
+                    if (vertical)
+                    {
+                        float angle = Alignment == TabAlignment.Right ? 90 : 270;
+                        Size textSize = g.MeasureString(TabPages[i].Text, Font).ToSize();
+                        g.TranslateTransform(head.X + head.Width / 2f, head.Y + head.Height / 2f);
+                        g.RotateTransform(angle);
+                        using (SolidBrush b = new SolidBrush(text))
                         {
-                            Point ptA = new Point(0, 0); Point ptB = new Point(0, 0);
-                            Point ptC = new Point(0, 0); Point ptD = new Point(0, 0);
-
-                            ptA.X = ptB.X = ptD.X = containerHead.X;
-                            ptA.Y = ptB.Y = ptC.Y = containerHead.Y;
-                            ptA.Y = ptC.Y = ptD.Y = containerHead.Y + containerHead.Height - 1;
-
-                            if (Alignment == TabAlignment.Top || Alignment == TabAlignment.Bottom)
-                            {
-                                ptD.X = ptC.X = containerHead.X + containerHead.Width;
-                                ptC.Y = containerHead.Y;
-
-                                if (Alignment == TabAlignment.Bottom)
-                                {
-                                    MoonTabHelper.Swap(ref ptA, ref ptB); MoonTabHelper.Swap(ref ptC, ref ptD);
-                                }
-                            }
-
-                            if (Alignment == TabAlignment.Right || Alignment == TabAlignment.Left)
-                            {
-                                ptA.Y = containerHead.Y;
-                                ptB.X = ptC.X = containerHead.X + containerHead.Width - 1;
-
-                                if (Alignment == TabAlignment.Left)
-                                {
-                                    MoonTabHelper.Swap(ref ptA, ref ptC); MoonTabHelper.Swap(ref ptB, ref ptD);
-                                }
-                            }
-
-                            e.Graphics.DrawLine(new Pen(ControlPaint.Light(brushActive.Color)), ptA, ptB);
-                            e.Graphics.DrawLine(new Pen(ControlPaint.Light(brushActive.Color)), ptB, ptC);
-                            e.Graphics.DrawLine(new Pen(ControlPaint.Dark(brushActive.Color)), ptC, ptD);
+                            g.DrawString(TabPages[i].Text, Font, b, new PointF(-textSize.Width / 2f, -textSize.Height / 2f));
                         }
-
-                        {
-                            Rectangle rectDivider = default(Rectangle);
-
-                            if (Alignment == TabAlignment.Top || Alignment == TabAlignment.Bottom)
-                            {
-                                rectDivider = new Rectangle(containerHead.X, containerHead.Y + ((Alignment == TabAlignment.Top) ? containerHead.Height : -DividerSize), containerHead.Width, DividerSize);
-                            }
-                            if (Alignment == TabAlignment.Right || Alignment == TabAlignment.Left)
-                            {
-                                rectDivider = new Rectangle(containerHead.X - ((Alignment == TabAlignment.Right) ? DividerSize : -containerHead.Width), containerHead.Y, DividerSize, containerHead.Height);
-                            }
-
-                            e.Graphics.FillRectangle(((MoonTabHelper.TagToInt(TabPages[i]) == 1) ? brushAlternative : ((i == SelectedIndex) ? brushActiveIndicator : brushInActiveIndicator)), rectDivider);
-                        }
-
-                        if (!(bDrag && i == SelectedIndex))
-                        {
-                            int angle = 0;
-                            {
-                                if (Alignment == TabAlignment.Right) angle = 90;
-                                if (Alignment == TabAlignment.Left) angle = 270;
-                            }
-
-                            float w, h;
-
-                            w = h = 0f;
-
-                            if (Alignment == TabAlignment.Top || Alignment == TabAlignment.Bottom) { w = containerHead.X + (containerHead.Width / 2); }
-                            if (Alignment == TabAlignment.Right || Alignment == TabAlignment.Left) { w = containerHead.X; h = containerHead.Y + (containerHead.Height / 2); }
-
-                            if (Alignment == TabAlignment.Top || Alignment == TabAlignment.Bottom) { h = containerHead.Y + ((Alignment == TabAlignment.Top) ? IndicatorSize : 0) + ((containerHead.Height - IndicatorSize) / 2); }
-                            if (Alignment == TabAlignment.Right || Alignment == TabAlignment.Left) { w += (((Alignment == TabAlignment.Right) ? 0 : IndicatorSize) + ((containerHead.Width - IndicatorSize) / 2)); }
-
-                            e.Graphics.TranslateTransform(w, h);
-                            {
-                                Size textSize = e.Graphics.MeasureString(TabPages[i].Text, Font).ToSize();
-
-                                e.Graphics.RotateTransform(angle);
-                                e.Graphics.DrawString(TabPages[i].Text, Font, ((SelectedIndex == i) ? brushActiveText : brushInActiveText), new PointF((-textSize.Width / 2f), (-textSize.Height / 2f)));
-                            }
-                            e.Graphics.ResetTransform();
-                        }
-
-                        if (bMouseDown)
-                        {
-                            if (Alignment == TabAlignment.Top || Alignment == TabAlignment.Bottom) { if (i > 0) { ptMaxDrag.X += GetTabRect(i).Width; } }
-                            if (Alignment == TabAlignment.Top) { ptMaxDrag.Y = BorderSize; }
-                            if (Alignment == TabAlignment.Bottom) { ptMaxDrag.Y = containerHead.Y; };
-
-                            if (Alignment == TabAlignment.Right || Alignment == TabAlignment.Left) { ptMaxDrag.X = containerHead.X; if (i > 0) { ptMaxDrag.Y += containerHead.Height; } }
-                        }
-
-                        if (bDrag && (bitDrag != null)) { e.Graphics.DrawImage(bitDrag, new Point(ptPreviousLocation.X, ptPreviousLocation.Y)); }
+                        g.ResetTransform();
+                    }
+                    else
+                    {
+                        TextRenderer.DrawText(g, TabPages[i].Text, Font, head, text,
+                            TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.SingleLine | TextFormatFlags.EndEllipsis | TextFormatFlags.NoPrefix);
                     }
                 }
+
+                if (selected)
+                {
+                    g.SmoothingMode = SmoothingMode.AntiAlias;
+                    float thickness = Draw.S(3);
+                    RectangleF bar;
+
+                    if (vertical)
+                    {
+                        float len = Math.Min(head.Height * 0.5f, Draw.S(24));
+                        float x = Alignment == TabAlignment.Left ? head.Right - thickness - 1 : head.X + 1;
+                        bar = new RectangleF(x, head.Y + (head.Height - len) / 2f, thickness, len);
+                    }
+                    else
+                    {
+                        int textWidth = TextRenderer.MeasureText(g, TabPages[i].Text, Font).Width;
+                        float len = Math.Max(Draw.S(16), Math.Min(head.Width - Draw.S(8), textWidth * 0.6f));
+                        float y = Alignment == TabAlignment.Top ? head.Bottom - thickness - 1 : head.Y + 1;
+                        bar = new RectangleF(head.X + (head.Width - len) / 2f, y, len, thickness);
+                    }
+
+                    using (GraphicsPath path = Draw.RoundedRect(bar, thickness / 2f))
+                    using (SolidBrush b = new SolidBrush(bDrag ? p.AccentPressed : p.Accent))
+                    {
+                        g.FillPath(b, path);
+                    }
+                    g.SmoothingMode = SmoothingMode.None;
+                }
+
+                if (bMouseDown)
+                {
+                    if (Alignment == TabAlignment.Top || Alignment == TabAlignment.Bottom) { if (i > 0) { ptMaxDrag.X += GetTabRect(i).Width; } }
+                    if (Alignment == TabAlignment.Top) { ptMaxDrag.Y = BorderSize; }
+                    if (Alignment == TabAlignment.Bottom) { ptMaxDrag.Y = head.Y; }
+
+                    if (vertical) { ptMaxDrag.X = head.X; if (i > 0) { ptMaxDrag.Y += head.Height; } }
+                }
+
+                if (bDrag && (bitDrag != null)) { g.DrawImage(bitDrag, new Point(ptPreviousLocation.X, ptPreviousLocation.Y)); }
             }
         }
-
-
     }
-
-    public static class MoonTabHelper
-    {
+    public static class MoonTabHelper {
         public static int LimitToRange(this int value, int inclusiveMinimum, int inclusiveMaximum)
         {
             if (value < inclusiveMinimum) { return inclusiveMinimum; }

@@ -1,13 +1,11 @@
 ﻿using System;
 
-namespace Optimizer
-{
+namespace Optimizer {
     /// <summary>
     /// Represents a backup of a Windows base startup item
     /// </summary>
     [Serializable]
-    public sealed class BackupStartupItem
-    {
+    public sealed class BackupStartupItem {
         public string Name { get; set; }
         public string FileLocation { get; set; }
         public string RegistryLocation { get; set; }

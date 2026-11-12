@@ -12,10 +12,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    internal static class Utilities
-    {
+namespace Optimizer {
+    internal static class Utilities {
         // DEPRECATED
         //internal readonly static string DefaultEdgeDownloadFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
 

@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Optimizer
-{
+namespace Optimizer {
     /// <summary>
     /// Represents a byte size value with support for decimal (KiloByte) and
     /// binary values (KibiByte).
     /// </summary>
-    public partial struct ByteSize : IComparable<ByteSize>, IEquatable<ByteSize>
-    {
+    public partial struct ByteSize : IComparable<ByteSize>, IEquatable<ByteSize> {
         public static readonly ByteSize MinValue = ByteSize.FromBits(long.MinValue);
         public static readonly ByteSize MaxValue = ByteSize.FromBits(long.MaxValue);
         public const long BitsInByte = 8;

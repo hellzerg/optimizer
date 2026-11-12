@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Optimizer
-{
-    internal static class StartupHelper
-    {
+namespace Optimizer {
+    internal static class StartupHelper {
         internal static readonly string LocalMachineRun = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
         internal static readonly string LocalMachineRunOnce = "Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce";
         internal static readonly string LocalMachineRunWoW = "Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run";
@@ -174,6 +172,8 @@ namespace Optimizer
 
                 GetFolderStartupItemsHelper(ref startupItems, localMachineFiles, localMachineShortcuts, StartupItemLocation.LMStartupFolder);
             }
+
+            foreach (StartupItem item in startupItems) StartupApproval.Refresh(item);
 
             return startupItems;
         }

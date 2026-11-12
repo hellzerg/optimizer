@@ -2,10 +2,8 @@
 using System.IO;
 using System.Text;
 
-namespace Optimizer
-{
-    internal static class Logger
-    {
+namespace Optimizer {
+    internal static class Logger {
         internal static string ErrorLogFile = Path.Combine(CoreHelper.CoreFolder, "Optimizer.log");
 
         static StringBuilder _silentReportLog;

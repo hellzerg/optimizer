@@ -1,4 +1,4 @@
-﻿
+
 namespace Optimizer
 {
     partial class ToggleCard
@@ -37,11 +37,13 @@ namespace Optimizer
             // 
             // Label
             // 
-            this.Label.AutoSize = true;
+            this.Label.AutoEllipsis = true;
             this.Label.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Label.Location = new System.Drawing.Point(52, 1);
+            this.Label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Label.Location = new System.Drawing.Point(0, 0);
             this.Label.Name = "Label";
-            this.Label.Size = new System.Drawing.Size(45, 19);
+            this.Label.Size = new System.Drawing.Size(266, 32);
+            this.Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Label.TabIndex = 1;
             this.Label.Text = "label1";
             this.Label.Click += new System.EventHandler(this.Label_Click);
@@ -54,19 +56,18 @@ namespace Optimizer
             this.Panel.Controls.Add(this.Label);
             this.Panel.Controls.Add(this.Toggle);
             this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel.Location = new System.Drawing.Point(0, 0);
+            this.Panel.Location = new System.Drawing.Point(14, 4);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(334, 25);
+            this.Panel.Size = new System.Drawing.Size(312, 32);
             this.Panel.TabIndex = 0;
             // 
             // Toggle
             // 
-            this.Toggle.AutoSize = true;
-            this.Toggle.ForeColor = System.Drawing.Color.White;
-            this.Toggle.Location = new System.Drawing.Point(0, 1);
+            this.Toggle.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Toggle.Location = new System.Drawing.Point(266, 0);
             this.Toggle.MinimumSize = new System.Drawing.Size(46, 22);
             this.Toggle.Name = "Toggle";
-            this.Toggle.Size = new System.Drawing.Size(46, 22);
+            this.Toggle.Size = new System.Drawing.Size(46, 32);
             this.Toggle.TabIndex = 2;
             this.Toggle.UseVisualStyleBackColor = true;
             this.Toggle.CheckedChanged += new System.EventHandler(this.Toggle_CheckedChanged);
@@ -75,13 +76,13 @@ namespace Optimizer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Controls.Add(this.Panel);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.White;
+            this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.Name = "ToggleCard";
-            this.Size = new System.Drawing.Size(334, 25);
+            this.Padding = new System.Windows.Forms.Padding(14, 4, 8, 4);
+            this.Size = new System.Drawing.Size(334, 40);
             this.Panel.ResumeLayout(false);
             this.Panel.PerformLayout();
             this.ResumeLayout(false);

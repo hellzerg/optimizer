@@ -28,30 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOK = new System.Windows.Forms.Button();
+            this.btnOK = new Optimizer.FluentButton();
             this.txtInfo = new System.Windows.Forms.TextBox();
-            this.copyIPB = new System.Windows.Forms.Button();
+            this.copyIPB = new Optimizer.FluentButton();
             this.SuspendLayout();
             // 
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnOK.FlatAppearance.BorderSize = 0;
-            this.btnOK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.ForeColor = System.Drawing.Color.White;
             this.btnOK.Location = new System.Drawing.Point(522, 492);
             this.btnOK.Margin = new System.Windows.Forms.Padding(2);
             this.btnOK.Name = "btnOK";
+            this.btnOK.Kind = Optimizer.ButtonKind.Primary;
             this.btnOK.Size = new System.Drawing.Size(159, 31);
             this.btnOK.TabIndex = 32;
             this.btnOK.Tag = "themeable";
             this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // txtInfo
@@ -76,14 +70,8 @@
             // copyIPB
             // 
             this.copyIPB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.copyIPB.BackColor = System.Drawing.Color.DodgerBlue;
             this.copyIPB.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.copyIPB.FlatAppearance.BorderSize = 0;
-            this.copyIPB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.copyIPB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.copyIPB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.copyIPB.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.copyIPB.ForeColor = System.Drawing.Color.White;
             this.copyIPB.Location = new System.Drawing.Point(359, 492);
             this.copyIPB.Margin = new System.Windows.Forms.Padding(2);
             this.copyIPB.Name = "copyIPB";
@@ -91,7 +79,6 @@
             this.copyIPB.TabIndex = 34;
             this.copyIPB.Tag = "themeable";
             this.copyIPB.Text = "Copy";
-            this.copyIPB.UseVisualStyleBackColor = false;
             this.copyIPB.Click += new System.EventHandler(this.copyIPB_Click);
             // 
             // InfoForm
@@ -122,8 +109,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnOK;
+        private Optimizer.FluentButton btnOK;
         private System.Windows.Forms.TextBox txtInfo;
-        private System.Windows.Forms.Button copyIPB;
+        private Optimizer.FluentButton copyIPB;
     }
 }

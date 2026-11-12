@@ -1,7 +1,5 @@
-﻿namespace Optimizer
-{
-    public partial struct ByteSize
-    {
+﻿namespace Optimizer {
+    public partial struct ByteSize {
         public const long BytesInKiloByte = 1_000;
         public const long BytesInMegaByte = 1_000_000;
         public const long BytesInGigaByte = 1_000_000_000;

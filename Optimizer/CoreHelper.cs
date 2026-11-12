@@ -1,10 +1,8 @@
 ﻿using System.IO;
 using System.Text;
 
-namespace Optimizer
-{
-    internal static class CoreHelper
-    {
+namespace Optimizer {
+    internal static class CoreHelper {
         internal readonly static string CoreFolder = CleanHelper.ProgramData + "\\Optimizer\\";
         internal readonly static string ReadyMadeMenusFolder = CleanHelper.ProgramData + "\\Optimizer\\ReadyMadeMenus\\";
         internal readonly static string ScriptsFolder = CleanHelper.ProgramData + "\\Optimizer\\Required\\";

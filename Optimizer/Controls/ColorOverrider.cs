@@ -7,10 +7,8 @@ using System.Linq;
 using System.Reflection;
 
 
-namespace Optimizer
-{
-    public sealed class ColorOverrider
-    {
+namespace Optimizer {
+    public sealed class ColorOverrider {
         public static event Action SystemColorsChanging;
         public static event Action SystemColorsChanged;
 

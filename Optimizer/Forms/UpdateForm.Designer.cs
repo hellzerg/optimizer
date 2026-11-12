@@ -30,8 +30,8 @@ namespace Optimizer
         private void InitializeComponent()
         {
             this.txtMessage = new System.Windows.Forms.Label();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.btnNo = new System.Windows.Forms.Button();
+            this.btnOK = new Optimizer.FluentButton();
+            this.btnNo = new Optimizer.FluentButton();
             this.txtVersions = new System.Windows.Forms.Label();
             this.txtChanges = new System.Windows.Forms.Label();
             this.txtInfo = new System.Windows.Forms.TextBox();
@@ -54,38 +54,25 @@ namespace Optimizer
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnOK.FlatAppearance.BorderSize = 0;
-            this.btnOK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.ForeColor = System.Drawing.Color.White;
             this.btnOK.Location = new System.Drawing.Point(442, 464);
             this.btnOK.Margin = new System.Windows.Forms.Padding(2);
             this.btnOK.Name = "btnOK";
+            this.btnOK.Kind = Optimizer.ButtonKind.Primary;
             this.btnOK.Size = new System.Drawing.Size(131, 31);
             this.btnOK.TabIndex = 63;
             this.btnOK.Text = "Yes";
-            this.btnOK.UseVisualStyleBackColor = false;
             // 
             // btnNo
             // 
             this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNo.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnNo.FlatAppearance.BorderSize = 0;
-            this.btnNo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNo.ForeColor = System.Drawing.Color.White;
             this.btnNo.Location = new System.Drawing.Point(307, 464);
             this.btnNo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(131, 31);
             this.btnNo.TabIndex = 64;
             this.btnNo.Text = "No";
-            this.btnNo.UseVisualStyleBackColor = false;
             // 
             // txtVersions
             // 
@@ -164,8 +151,8 @@ namespace Optimizer
         #endregion
 
         private System.Windows.Forms.Label txtMessage;
-        private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.Button btnNo;
+        private Optimizer.FluentButton btnOK;
+        private Optimizer.FluentButton btnNo;
         private System.Windows.Forms.Label txtVersions;
         private System.Windows.Forms.Label txtChanges;
         private System.Windows.Forms.TextBox txtInfo;

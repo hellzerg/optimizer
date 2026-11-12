@@ -4,10 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 
-namespace Optimizer
-{
-    internal static class CleanHelper
-    {
+namespace Optimizer {
+    internal static class CleanHelper {
         [DllImport("Shell32.dll")]
         static extern int SHEmptyRecycleBin(IntPtr hwnd, string pszRootPath, RecycleFlag dwFlags);
 

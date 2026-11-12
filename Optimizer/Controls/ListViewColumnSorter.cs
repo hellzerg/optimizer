@@ -2,10 +2,8 @@
 using System.Collections;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    internal sealed class ListViewColumnSorter : IComparer
-    {
+namespace Optimizer {
+    internal sealed class ListViewColumnSorter : IComparer {
         int _columnToSort;
         SortOrder _sortOrder;
         CaseInsensitiveComparer _comparer;

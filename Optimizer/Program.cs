@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -6,15 +6,13 @@ using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    static class Program
-    {
+namespace Optimizer {
+    static class Program {
         /// <summary>
         /// Version properties. Do NOT leave them empty
         /// </summary>
-        internal readonly static float Major = 16;
-        internal readonly static float Minor = 7;
+        internal readonly static float Major = 17;
+        internal readonly static float Minor = 0;
         internal readonly static bool EXPERIMENTAL_BUILD = false;
 
         internal static string GetCurrentVersionTostring()
@@ -37,7 +35,6 @@ namespace Optimizer
         const string _jsonAssembly = @"Optimizer.Newtonsoft.Json.dll";
 
         internal static MainForm _MainForm;
-        internal static SplashForm _SplashForm;
 
         static string _adminMissingMessage = "Optimizer needs to be run as administrator!\nApp will now close...";
         static string _unsupportedMessage = "Optimizer works with Windows 7 and higher!\nApp will now close...";
@@ -102,7 +99,6 @@ namespace Optimizer
             }
 
             CoreHelper.Deploy();
-            FontHelper.LoadFont();
 
             if (switches.Length == 1)
             {
@@ -382,9 +378,7 @@ namespace Optimizer
         private static void StartMainForm()
         {
             LoadSettings();
-            StartSplashForm();
-
-            _MainForm = new MainForm(_SplashForm);
+            _MainForm = new MainForm();
             _MainForm.Load += MainForm_Load;
             Application.Run(_MainForm);
         }
@@ -392,28 +386,13 @@ namespace Optimizer
         private static void StartMainForm(bool?[] codes)
         {
             LoadSettings();
-            StartSplashForm();
-
-            _MainForm = new MainForm(_SplashForm, codes[0], codes[3], codes[2], codes[1], codes[4], codes[5], codes[6], codes[7]);
+            _MainForm = new MainForm(codes[0], codes[3], codes[2], codes[1], codes[4], codes[5], codes[6], codes[7]);
             _MainForm.Load += MainForm_Load;
             Application.Run(_MainForm);
         }
 
-        private static void StartSplashForm()
-        {
-            _SplashForm = new SplashForm();
-            var splashThread = new Thread(new ThreadStart(
-                () => Application.Run(_SplashForm)));
-
-            splashThread.SetApartmentState(ApartmentState.STA);
-            splashThread.Start();
-        }
-
         private static void MainForm_Load(object sender, EventArgs e)
         {
-            if (_SplashForm != null && !_SplashForm.Disposing && !_SplashForm.IsDisposed)
-                _SplashForm.Invoke(new Action(() => _SplashForm.Close()));
-
             _MainForm.TopMost = true;
             _MainForm.Activate();
             _MainForm.TopMost = false;

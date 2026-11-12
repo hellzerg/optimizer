@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Optimizer</RootNamespace>
     <AssemblyName>Optimizer</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -63,7 +63,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -106,6 +106,9 @@
     <Compile Include="Controls\MoonTree.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\TipBubble.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Controls\ToggleCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,6 +123,9 @@
     </Compile>
     <Compile Include="Forms\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StartupCard.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\AppCard.cs">
       <SubType>UserControl</SubType>
@@ -148,12 +154,6 @@
     </Compile>
     <Compile Include="EmbeddedAssembly.cs" />
     <Compile Include="Models\Enums.cs" />
-    <Compile Include="Forms\FileUnlockForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FileUnlockForm.Designer.cs">
-      <DependentUpon>FileUnlockForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FirstRunForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,12 +165,6 @@
     </Compile>
     <Compile Include="Forms\HelperForm.designer.cs">
       <DependentUpon>HelperForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\SubForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SubForm.Designer.cs">
-      <DependentUpon>SubForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UpdateForm.cs">
       <SubType>Form</SubType>
@@ -201,6 +195,55 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainForm.ModernTabs.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.Cleaner.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.CleanerLogic.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.Dns.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.Startup.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.Options.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.Registry.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.Pinger.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.Apps.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.Integrator.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.Hosts.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.FileHandles.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.DiskActivity.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LockerList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ActivityList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DiskActivityMonitor.cs" />
+    <Compile Include="Controls\ModernTabControls.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="Models\Options.cs" />
     <Compile Include="Models\WorkEvent.cs" />
@@ -209,6 +252,23 @@
     <Compile Include="NetworkMonitor.cs" />
     <Compile Include="OptimizeHelper.cs" />
     <Compile Include="OptionsHelper.cs" />
+    <Compile Include="Theme\Palette.cs" />
+    <Compile Include="Theme\ThemeManager.cs" />
+    <Compile Include="Theme\GlyphTint.cs" />
+    <Compile Include="Theme\Typography.cs" />
+    <Compile Include="Theme\LogoArt.cs" />
+    <Compile Include="Theme\WindowChrome.cs" />
+    <Compile Include="Theme\TextBoxChrome.cs" />
+    <Compile Include="Controls\ChoicePainter.cs" />
+    <Compile Include="Controls\FluentButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\LayoutPanels.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SidebarNav.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PingerHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -220,12 +280,6 @@
     <Compile Include="CoreHelper.cs" />
     <Compile Include="Models\SilentConfig.cs" />
     <Compile Include="SilentOps.cs" />
-    <Compile Include="Forms\SplashForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SplashForm.Designer.cs">
-      <DependentUpon>SplashForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\StartupPreviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,13 +293,19 @@
       <DependentUpon>StartupRestoreForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\StartupBackupItem.cs" />
+    <Compile Include="StartupApproval.cs" />
     <Compile Include="StartupHelper.cs" />
     <Compile Include="Models\StartupItem.cs" />
     <Compile Include="Models\TelemetryData.cs" />
+    <Compile Include="Models\UwpApp.cs" />
     <Compile Include="TelemetryHelper.cs" />
     <Compile Include="TokenPrivilegeHelper.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="UWPHelper.cs" />
+    <EmbeddedResource Include="..\feed.json">
+      <Link>Feed\feed.json</Link>
+      <LogicalName>Optimizer.Feed.feed.json</LogicalName>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ToggleCard.resx">
       <DependentUpon>ToggleCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,9 +315,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\AppCard.resx">
       <DependentUpon>AppCard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FileUnlockForm.resx">
-      <DependentUpon>FileUnlockForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FirstRunForm.resx">
       <DependentUpon>FirstRunForm.cs</DependentUpon>
@@ -275,9 +332,6 @@
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SubForm.resx">
-      <DependentUpon>SubForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateForm.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,9 +339,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SplashForm.resx">
-      <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StartupPreviewForm.resx">
       <DependentUpon>StartupPreviewForm.cs</DependentUpon>
@@ -315,7 +366,6 @@
     <None Include="Resources\i18n\PL.json" />
     <None Include="Resources\i18n\KU.json" />
     <None Include="Resources\i18n\RO.json" />
-    <None Include="Resources\Fonts\Poppins-Regular.ttf" />
     <None Include="Resources\i18n\UA.json" />
     <None Include="Resources\i18n\ID.json" />
     <None Include="Resources\i18n\UR.json" />
@@ -397,7 +447,6 @@
     <None Include="Resources\Flags\japan.png" />
     <None Include="Resources\Flags\ukraine.png" />
     <None Include="Resources\Assets\logo.png" />
-    <None Include="Resources\Assets\banner.png" />
     <None Include="Resources\Flags\dutch.png" />
     <None Include="Resources\Flags\romania.png" />
     <None Include="Resources\Flags\hungary.png" />

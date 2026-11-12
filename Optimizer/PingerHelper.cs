@@ -5,10 +5,8 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 
-namespace Optimizer
-{
-    internal static class PingerHelper
-    {
+namespace Optimizer {
+    internal static class PingerHelper {
         internal static string[] DNSOptions =
         {
             "Automatic",

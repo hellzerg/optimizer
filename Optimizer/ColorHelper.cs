@@ -2,10 +2,8 @@
 using System.Drawing;
 using System.Text;
 
-namespace Optimizer
-{
-    public static class ColorHelper
-    {
+namespace Optimizer {
+    public static class ColorHelper {
         public static void HSVFromRGB(Color color, out double hue, out double saturation, out double value)
         {
             double min, max, delta, r, g, b;
@@ -104,8 +102,7 @@ namespace Optimizer
     }
 
     [Serializable]
-    public struct HslColor
-    {
+    public struct HslColor {
         #region Constants
 
         public static readonly HslColor Empty;

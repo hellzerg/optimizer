@@ -3,10 +3,8 @@ using System;
 using System.IO;
 using System.Linq;
 
-namespace Optimizer
-{
-    internal static class SilentOps
-    {
+namespace Optimizer {
+    internal static class SilentOps {
         internal static SilentConfig CurrentSilentConfig;
 
         internal static SilentConfig GetSilentConfig(string path)

@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
+namespace Optimizer {
     // Collection of useful debugging methods and utilities
-    internal sealed class DebugHelper
-    {
+    internal sealed class DebugHelper {
         // For comparing and detecting missing keys between two translation JSON files
         internal static void FindDifferenceInTwoJsons()
         {

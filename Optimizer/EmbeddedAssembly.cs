@@ -4,10 +4,8 @@ using System.IO;
 using System.Reflection;
 using System.Security.Cryptography;
 
-namespace Optimizer
-{
-    internal sealed class EmbeddedAssembly
-    {
+namespace Optimizer {
+    internal sealed class EmbeddedAssembly {
         static Dictionary<string, Assembly> _dictionary;
 
         internal static void Load(string embeddedResource, string fileName)

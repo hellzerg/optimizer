@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public sealed partial class FirstRunForm : Form
-    {
+namespace Optimizer {
+    public sealed partial class FirstRunForm : Form {
         public FirstRunForm()
         {
             InitializeComponent();

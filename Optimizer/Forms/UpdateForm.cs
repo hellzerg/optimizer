@@ -2,10 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public sealed partial class UpdateForm : Form
-    {
+namespace Optimizer {
+    public sealed partial class UpdateForm : Form {
         public UpdateForm(string message, bool newUpdate, string changelog, string latestVersion)
         {
             InitializeComponent();

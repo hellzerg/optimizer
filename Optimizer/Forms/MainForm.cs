@@ -16,13 +16,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Optimizer
-{
-    public sealed partial class MainForm : Form
-    {
+namespace Optimizer {
+    public sealed partial class MainForm : Form {
         Dictionary<string, string> translationList;
-
-        ListViewColumnSorter _columnSorter;
 
         List<StartupItem> _startUpItems = new List<StartupItem>();
         List<BackupStartupItem> _backupItems = new List<BackupStartupItem>();
@@ -30,16 +26,16 @@ namespace Optimizer
         List<string> _hostsEntries = new List<string>();
         List<string> _customCommands = new List<string>();
         List<string> _desktopItems = new List<string>();
-        List<KeyValuePair<string, string>> _modernApps = new List<KeyValuePair<string, string>>();
+        List<UwpApp> _modernApps = new List<UwpApp>();
+        int _modernAppsLoad;
 
         bool _trayMenu = false;
 
         List<PingReply> _pingResults;
         string _shodanIP = string.Empty;
-        PingReply tmpReply;
 
-        int _tabHeaderHeightMargin = 6;
-        int _tabHeaderWidthMargin = 6;
+        int _tabHeaderHeightMargin = Draw.SI(18);
+        int _tabHeaderWidthMargin = Draw.SI(32);
 
         //NetworkMonitor _networkMonitor;
         //double uploadSpeed = 0;
@@ -98,7 +94,6 @@ namespace Optimizer
         TreeNode[] _hwSummarized;
 
         bool _cleanSelectAll = true;
-        List<string> _cleanPreviewList;
 
         UpdateForm _updateForm;
 
@@ -936,9 +931,10 @@ namespace Optimizer
         }
 
         //ROOT
-        public MainForm(SplashForm _splashForm, bool? disableIndicium = null, bool? disableHostsEditor = null, bool? disableCommonApps = null, bool? disableUWPApps = null, bool? disableStartups = null, bool? disableCleaner = null, bool? disableIntegrator = null, bool? disablePinger = null)
+        public MainForm(bool? disableIndicium = null, bool? disableHostsEditor = null, bool? disableCommonApps = null, bool? disableUWPApps = null, bool? disableStartups = null, bool? disableCleaner = null, bool? disableIntegrator = null, bool? disablePinger = null)
         {
             InitializeComponent();
+            InitModernTabs();
 
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
             CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-US");
@@ -977,8 +973,6 @@ namespace Optimizer
                 Constants.CROATIAN
             });
 
-            _splashForm.LoadingStatus.Text = "checking for requirements";
-
             // override tool launch configurations
             _disableStartupTool = (disableStartups.HasValue) ? disableStartups.Value : OptionsHelper.CurrentOptions.DisableStartupTool;
             _disableUWPApps = (disableUWPApps.HasValue) ? disableUWPApps.Value : OptionsHelper.CurrentOptions.DisableUWPApps;
@@ -991,14 +985,17 @@ namespace Optimizer
 
             // theming
             OptionsHelper.ApplyTheme(this);
-            pictureBox1.BackColor = OptionsHelper.CurrentOptions.Theme;
+            LogoArt.Apply(pictureBox1);
+            // the theme was just applied; only re-theme if the picker normalized the stored color
+            colorPicker1.ColorChanged -= colorPicker1_ColorChanged;
             colorPicker1.Color = OptionsHelper.CurrentOptions.Theme;
+            colorPicker1.ColorChanged += colorPicker1_ColorChanged;
+            if (colorPicker1.Color.ToArgb() != OptionsHelper.CurrentOptions.Theme.ToArgb()) colorPicker1_ColorChanged(colorPicker1, EventArgs.Empty);
 
-            launcherMenu.Renderer = new MoonMenuRenderer();
-            indiciumMenu.Renderer = new MoonMenuRenderer();
-
-            progressDownloader.BackColor = OptionsHelper.ForegroundColor;
-            progressDownloader.ForeColor = OptionsHelper.ForegroundAccentColor;
+            TagMenuGlyphs();
+            ThemeManager.ApplyMenu(launcherMenu);
+            ThemeManager.ApplyMenu(indiciumMenu);
+            SetupNavigation();
 
             // quick access
             _trayMenu = OptionsHelper.CurrentOptions.EnableTray;
@@ -1006,6 +1003,7 @@ namespace Optimizer
             launcherIcon.Visible = OptionsHelper.CurrentOptions.EnableTray;
             autoStartToggle.ToggleChecked = OptionsHelper.CurrentOptions.AutoStart;
             autoUpdateToggle.ToggleChecked = OptionsHelper.CurrentOptions.UpdateOnLaunch;
+            themeModeToggle.ToggleChecked = OptionsHelper.CurrentOptions.ThemeMode == ThemeMode.Dark;
             //telemetrySvcToggle.ToggleChecked = Options.CurrentOptions.DisableOptimizerTelemetry;
 
             //seperatorNetMon.Visible = Options.CurrentOptions.EnableTray;
@@ -1030,8 +1028,7 @@ namespace Optimizer
 
             // system color overriding
             _colorOverrider = new ColorOverrider();
-            _colorOverrider.SetColor(KnownColor.Highlight, Color.FromArgb(50, 50, 50).ToArgb());
-            _colorOverrider.SetColor(KnownColor.HighlightText, Color.White.ToArgb());
+            ApplySystemColors();
 
             if (Utilities.CurrentWindowsVersion == WindowsVersion.Unsupported)
             {
@@ -1113,10 +1110,7 @@ namespace Optimizer
                 txtOS.Text += string.Format(" ({0})", Utilities.GetWindows10Build());
             }
 
-            _splashForm.LoadingStatus.Text = "loading startup && hosts items";
-
-            _columnSorter = new ListViewColumnSorter();
-            listStartupItems.ListViewItemSorter = _columnSorter;
+            InitStartupUi();
 
             specsTree.ImageList = imagesHw;
 
@@ -1156,12 +1150,10 @@ namespace Optimizer
                 tabCollection.TabPages.Remove(integratorTab);
             }
 
-            _splashForm.LoadingStatus.Text = "fetching feed";
-
             // APPS DOWNLOADER
             if (!_disableAppsTool)
             {
-                GetFeed();
+                GetFeedAsync();
                 txtDownloadFolder.ReadOnly = true;
             }
             else
@@ -1181,12 +1173,10 @@ namespace Optimizer
                 launcherMenu.Items.RemoveByKey("trayCleaner");
             }
 
-            _splashForm.LoadingStatus.Text = "inspecting hardware";
-
             // INDICIUM
             if (!_disableIndicium)
             {
-                GetHardwareSpecs();
+                LoadHardwareSpecsAsync();
             }
             else
             {
@@ -1229,9 +1219,9 @@ namespace Optimizer
 
             if (OptionsHelper.CurrentOptions.UpdateOnLaunch)
             {
-                if (!Program.EXPERIMENTAL_BUILD && PingerHelper.IsInternetAvailable())
+                if (!Program.EXPERIMENTAL_BUILD)
                 {
-                    CheckForUpdate(true);
+                    CheckForUpdateOnLaunchAsync();
                 }
             }
 
@@ -1253,6 +1243,7 @@ namespace Optimizer
             listSystemVariables.Items.Clear();
             _systemVariables = IntegratorHelper.GetPathSystemVariables().ToList();
             listSystemVariables.Items.AddRange(_systemVariables.ToArray());
+            UpdateIntegratorCounts();
         }
 
         private void LoadAvailableFonts()
@@ -1263,6 +1254,7 @@ namespace Optimizer
             string currentFont = FontHelper.GetCurrentGlobalFont();
             lblCurrentFont.Text = !string.IsNullOrEmpty(currentFont) ? currentFont : "-";
             lblFontsNumber.Text = _availableFonts.Length.ToString();
+            UpdateIntegratorCounts();
         }
 
         private void FixTabHeaderWidth(TabControl tabControl)
@@ -1316,96 +1308,73 @@ namespace Optimizer
             PingerHelper.GetActiveNetworkAdapters();
             if (PingerHelper.NetworkAdapters == null) return;
             if (PingerHelper.NetworkAdapters.Length == 0) return;
+            if (boxAdapter.SelectedIndex < 0 || boxAdapter.SelectedIndex >= PingerHelper.NetworkAdapters.Length) return;
 
             _currentDNS = PingerHelper.GetDNSFromNetworkAdapter(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex]).ToArray();
-            if (_currentDNS == null) return;
-            if (_currentDNS.Length == 0) return;
+            ShowCurrentDNS();
+            if (_currentDNS == null || _currentDNS.Length == 0) return;
 
-            if (Array.Exists(PingerHelper.CloudflareDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
+            string provider = MatchDnsProvider(_currentDNS);
+            if (provider != null)
             {
-                boxDNS.Text = Constants.CloudflareDNS;
+                boxDNS.Text = provider;
+                chkCustomDns.Checked = false;
                 return;
             }
-            else if (Array.Exists(PingerHelper.OpenDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
-                boxDNS.Text = Constants.OpenDNS;
-                return;
-            }
-            else if (Array.Exists(PingerHelper.Quad9DNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
-                boxDNS.Text = Constants.Quad9DNS;
-                return;
-            }
-            else if (Array.Exists(PingerHelper.GoogleDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
-                boxDNS.Text = Constants.GoogleDNS;
-                return;
-            }
-            else if (Array.Exists(PingerHelper.AlternateDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
-                boxDNS.Text = Constants.AlternateDNS;
-                return;
-            }
-            else if (Array.Exists(PingerHelper.AdguardDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
-                boxDNS.Text = Constants.AdguardDNS;
-                return;
-            }
-            else if (Array.Exists(PingerHelper.CleanBrowsingDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
-                boxDNS.Text = Constants.CleanBrowsingDNS;
-                return;
-            }
-            else if (Array.Exists(PingerHelper.CleanBrowsingAdultDNSv4, x => _currentDNS.Select(y => y.ToString()).Contains(x)))
-            {
-                boxDNS.Text = Constants.CleanBrowsingAdultFilterDNS;
-                return;
-            }
-            else
-            {
-                boxDNS.Text = Constants.CustomDNS;
-                chkCustomDns.Checked = true;
-                try
-                {
-                    if (_currentDNS.Length == 1)
-                    {
-                        linkDNSv4.Text = _currentDNS[0];
-                        txtDns4A.Text = _currentDNS[0];
-                    }
-                    else if (_currentDNS.Length == 2)
-                    {
-                        linkDNSv4.Text = _currentDNS[0];
-                        linkDNSv4A.Text = _currentDNS[1];
-                        txtDns4A.Text = _currentDNS[0];
-                        txtDns4B.Text = _currentDNS[1];
-                    }
-                    else if (_currentDNS.Length == 3)
-                    {
-                        linkDNSv6.Text = _currentDNS[0];
-                        linkDNSv4.Text = _currentDNS[1];
-                        linkDNSv4A.Text = _currentDNS[2];
-                        txtDns6A.Text = _currentDNS[0];
-                        txtDns4A.Text = _currentDNS[1];
-                        txtDns4B.Text = _currentDNS[2];
-                    }
-                    else if (_currentDNS.Length == 4)
-                    {
-                        linkDNSv4.Text = _currentDNS[2];
-                        linkDNSv4A.Text = _currentDNS[3];
-                        linkDNSv6.Text = _currentDNS[0];
-                        linkDNSv6A.Text = _currentDNS[1];
 
-                        txtDns6A.Text = _currentDNS[2];
-                        txtDns6B.Text = _currentDNS[3];
-                        txtDns6A.Text = _currentDNS[0];
-                        txtDns6B.Text = _currentDNS[1];
-                    }
-                }
-                catch { }
-                return;
-            }
+            boxDNS.Text = Constants.CustomDNS;
+            chkCustomDns.Checked = true;
+            string[] v4, v6;
+            SplitDnsByFamily(_currentDNS, out v4, out v6);
+            txtDns4A.Text = v4.Length > 0 ? v4[0] : string.Empty;
+            txtDns4B.Text = v4.Length > 1 ? v4[1] : string.Empty;
+            txtDns6A.Text = v6.Length > 0 ? v6[0] : string.Empty;
+            txtDns6B.Text = v6.Length > 1 ? v6[1] : string.Empty;
         }
 
+        internal static string MatchDnsProvider(string[] current)
+        {
+            foreach (KeyValuePair<string, string[]> p in new[]
+            {
+                new KeyValuePair<string, string[]>(Constants.CloudflareDNS, PingerHelper.CloudflareDNSv4),
+                new KeyValuePair<string, string[]>(Constants.OpenDNS, PingerHelper.OpenDNSv4),
+                new KeyValuePair<string, string[]>(Constants.Quad9DNS, PingerHelper.Quad9DNSv4),
+                new KeyValuePair<string, string[]>(Constants.GoogleDNS, PingerHelper.GoogleDNSv4),
+                new KeyValuePair<string, string[]>(Constants.AlternateDNS, PingerHelper.AlternateDNSv4),
+                new KeyValuePair<string, string[]>(Constants.AdguardDNS, PingerHelper.AdguardDNSv4),
+                new KeyValuePair<string, string[]>(Constants.CleanBrowsingDNS, PingerHelper.CleanBrowsingDNSv4),
+                new KeyValuePair<string, string[]>(Constants.CleanBrowsingAdultFilterDNS, PingerHelper.CleanBrowsingAdultDNSv4),
+            })
+            {
+                if (Array.Exists(p.Value, x => current.Contains(x))) return p.Key;
+            }
+            return null;
+        }
+
+        internal static void SplitDnsByFamily(string[] all, out string[] v4, out string[] v6)
+        {
+            List<string> a = new List<string>(), b = new List<string>();
+            foreach (string s in all ?? new string[0])
+            {
+                IPAddress ip;
+                if (!IPAddress.TryParse(s, out ip)) continue;
+                if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6) b.Add(s);
+                else a.Add(s);
+            }
+            v4 = a.ToArray();
+            v6 = b.ToArray();
+        }
+
+        private void ShowCurrentDNS()
+        {
+            string[] v4, v6;
+            SplitDnsByFamily(_currentDNS, out v4, out v6);
+            linkDNSv4.Text = v4.Length > 0 ? v4[0] : "-";
+            linkDNSv4A.Text = v4.Length > 1 ? v4[1] : "-";
+            linkDNSv6.Text = v6.Length > 0 ? v6[0] : "-";
+            linkDNSv6A.Text = v6.Length > 1 ? v6[1] : "-";
+            if (_dnsCurrentCard != null) LayoutDnsTab();
+        }
         private void SetDNS(string[] v4, string[] v6)
         {
             if (chkAllNics.Checked)
@@ -1635,16 +1604,17 @@ namespace Optimizer
             }
         }
 
-        private void GetHardwareSpecs()
+        private void BuildHardwareTree(HardwareSnapshot hw)
         {
-            GetCPUs();
-            GetRAM();
-            GetGPUs();
-            GetMotherboards();
-            GetStorage();
-            GetNetworkAdapters();
-            GetAudioDevices();
-            GetPeripherals();
+            specsTree.BeginUpdate();
+            GetCPUs(hw);
+            GetRAM(hw);
+            GetGPUs(hw);
+            GetMotherboards(hw);
+            GetStorage(hw);
+            GetNetworkAdapters(hw);
+            GetAudioDevices(hw);
+            GetPeripherals(hw);
             GetOSInfo();
 
             _hwDetailed = specsTree.Nodes.Cast<TreeNode>().ToList();
@@ -1652,6 +1622,7 @@ namespace Optimizer
 
             specsTree.ExpandAll();
             if (specsTree.Nodes.Count > 0) specsTree.Nodes[0].EnsureVisible();
+            specsTree.EndUpdate();
 
         }
 
@@ -1723,9 +1694,9 @@ namespace Optimizer
             }
         }
 
-        private void GetAudioDevices()
+        private void GetAudioDevices(HardwareSnapshot hw)
         {
-            List<AudioDevice> audios = IndiciumHelper.GetAudioDevices();
+            List<AudioDevice> audios = hw.Audio;
 
             if (audios.Count > 0)
             {
@@ -1741,9 +1712,8 @@ namespace Optimizer
             }
         }
 
-        private void GetPeripherals()
+        private void GetPeripherals(HardwareSnapshot hw)
         {
-            IndiciumHelper.GetPeripherals();
 
             if (IndiciumHelper.Keyboards.Count > 0)
             {
@@ -1785,9 +1755,8 @@ namespace Optimizer
             }
         }
 
-        private void GetNetworkAdapters()
+        private void GetNetworkAdapters(HardwareSnapshot hw)
         {
-            IndiciumHelper.GetNetworkAdapters();
 
             if (IndiciumHelper.PhysicalAdapters.Count > 0)
             {
@@ -1831,10 +1800,9 @@ namespace Optimizer
             }
         }
 
-        private void GetStorage()
+        private void GetStorage(HardwareSnapshot hw)
         {
-            List<Disk> disks = IndiciumHelper.GetDisks();
-            IndiciumHelper.GetVolumes();
+            List<Disk> disks = hw.Disks;
 
             if (disks.Count > 0)
             {
@@ -2030,9 +1998,9 @@ namespace Optimizer
             }
         }
 
-        private void GetCPUs()
+        private void GetCPUs(HardwareSnapshot hw)
         {
-            List<CPU> cpus = IndiciumHelper.GetCPUs();
+            List<CPU> cpus = hw.CPUs;
 
             if (cpus.Count > 0)
             {
@@ -2057,9 +2025,9 @@ namespace Optimizer
             }
         }
 
-        private void GetMotherboards()
+        private void GetMotherboards(HardwareSnapshot hw)
         {
-            List<Motherboard> mobos = IndiciumHelper.GetMotherboards();
+            List<Motherboard> mobos = hw.Motherboards;
 
             if (mobos.Count > 0)
             {
@@ -2091,9 +2059,9 @@ namespace Optimizer
             }
         }
 
-        private void GetGPUs()
+        private void GetGPUs(HardwareSnapshot hw)
         {
-            List<GPU> gpus = IndiciumHelper.GetGPUs();
+            List<GPU> gpus = hw.GPUs;
 
             if (gpus.Count > 0)
             {
@@ -2115,10 +2083,10 @@ namespace Optimizer
             }
         }
 
-        private void GetRAM()
+        private void GetRAM(HardwareSnapshot hw)
         {
-            List<RAM> ramInfo = IndiciumHelper.GetRAM();
-            VirtualMemory vm = IndiciumHelper.GetVM();
+            List<RAM> ramInfo = hw.RAM;
+            VirtualMemory vm = hw.VM;
 
             ByteSize totalRAM = new ByteSize(0);
             string memoryType = string.Empty;
@@ -2255,9 +2223,14 @@ namespace Optimizer
                 _reinforcePoliciesMessage = OptionsHelper.TranslationList["msgReinforce"];
                 _flushDNSMessage = OptionsHelper.TranslationList["flushDNSMessage"];
 
-                listStartupItems.Columns[0].Text = translationList["startupItemName"];
-                listStartupItems.Columns[1].Text = translationList["startupItemLocation"];
-                listStartupItems.Columns[2].Text = translationList["startupItemType"];
+                _startupSortNames = new[] { translationList["startupItemName"], translationList["startupItemLocation"], translationList["startupItemType"] };
+                ApplyStartupSortNames();
+                chkStartupSelectAll.Text = translationList["chkSelectAllModernApps"];
+                StartupCard.LocateFileText = translationList["locateFileB"];
+                StartupCard.LocateKeyText = translationList["findInRegB"];
+                StartupCard.DeleteText = translationList["removeStartupItemB"];
+                LayoutStartupTab();
+                RefreshModernTabStrings();
 
                 trayStartup.Text = translationList["trayStartup"];
                 trayCleaner.Text = translationList["trayCleaner"];
@@ -2313,141 +2286,135 @@ namespace Optimizer
             else lblFootprint.Text = "-";
         }
 
-        private void GetFeed()
+        private void PopulateEmbeddedFeed()
         {
-            WebClient client = new WebClient
-            {
-                Encoding = Encoding.UTF8
-            };
-
-            client.Headers.Add("Cache-Control", "no-cache");
-
+            // online feed unavailable: fall back to the copy embedded at build time
             try
             {
-                byte[] feedData;
-                string tmpImageFileName = string.Empty;
-
-                feedData = client.DownloadData(_feedImages);
-
-                using (ZipArchive zip = new ZipArchive(new MemoryStream(feedData)))
+                var assembly = typeof(MainForm).Assembly;
+                string feed;
+                using (StreamReader reader = new StreamReader(assembly.GetManifestResourceStream(EmbeddedFeedResource), Encoding.UTF8))
                 {
-                    var zipEntries = zip.Entries;
-
-                    try
-                    {
-                        string feed = client.DownloadString(_feedLink);
-                        AppsFromFeed = JsonConvert.DeserializeObject<List<AppInfo>>(feed);
-
-                        AppCard appCard;
-                        groupSystemTools.Controls.Clear();
-                        groupInternet.Controls.Clear();
-                        groupCoding.Controls.Clear();
-                        groupSoundVideo.Controls.Clear();
-
-                        foreach (AppInfo x in AppsFromFeed)
-                        {
-                            appCard = new AppCard();
-                            appCard.AutoSize = true;
-                            appCard.Anchor = AnchorStyles.None;
-                            appCard.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-                            appCard.appTitle.Text = x.Title;
-                            appCard.appTitle.Name = x.Tag;
-                            appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
-
-                            tmpImageFileName = x.Image.Substring(x.Image.LastIndexOf("/") + 1, x.Image.Length - (x.Image.LastIndexOf("/") + 1));
-                            appCard.appImage.Image = Image.FromStream(zipEntries.First(ifn => ifn.Name == tmpImageFileName).Open());
-
-                            switch (x.Group)
-                            {
-                                case "SystemTools":
-                                    appCard.Location = new Point(0, groupSystemTools.Controls.Count * GetItemPadding());
-                                    groupSystemTools.Controls.Add(appCard);
-                                    break;
-                                case "Internet":
-                                    appCard.Location = new Point(0, groupInternet.Controls.Count * GetItemPadding());
-                                    groupInternet.Controls.Add(appCard);
-                                    break;
-                                case "Coding":
-                                    appCard.Location = new Point(0, groupCoding.Controls.Count * GetItemPadding());
-                                    groupCoding.Controls.Add(appCard);
-                                    break;
-                                case "GraphicsSound":
-                                    appCard.Location = new Point(0, groupSoundVideo.Controls.Count * GetItemPadding());
-                                    groupSoundVideo.Controls.Add(appCard);
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-
-                        // UI handling
-                        btnDownloadApps.Enabled = true;
-                        txtFeedError.Visible = false;
-                    }
-                    catch (Exception ex)
-                    {
-                        btnDownloadApps.Enabled = false;
-                        txtFeedError.Visible = true;
-
-                        Logger.LogError("MainForm.GetFeed", ex.Message, ex.StackTrace);
-                    }
+                    feed = reader.ReadToEnd();
                 }
+                PopulateFeed(feed, null);
             }
             catch (Exception ex)
             {
                 btnDownloadApps.Enabled = false;
                 txtFeedError.Visible = true;
+                LayoutAppsTab();
 
-                Logger.LogError("MainForm.GetFeed-DownloadImages", ex.Message, ex.StackTrace);
+                Logger.LogError("MainForm.GetFeed-Embedded", ex.Message, ex.StackTrace);
             }
         }
 
-        private void PreviewCleanPC()
+        const string EmbeddedFeedResource = "Optimizer.Feed.feed.json";
+
+        static Bitmap _placeholderAppIcon;
+
+        // The embedded feed ships without icons; a white glyph lets GlyphTint recolor it per theme.
+        static Bitmap PlaceholderAppIcon
         {
+            get
+            {
+                if (_placeholderAppIcon == null)
+                {
+                    Bitmap bmp = new Bitmap(64, 64, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+                    using (Graphics g = Graphics.FromImage(bmp))
+                    {
+                        g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                        SidebarNav.PaintGlyph(g, SidebarNav.Glyph.Apps, new Rectangle(8, 8, 48, 48), Color.White);
+                    }
+                    _placeholderAppIcon = bmp;
+                }
+                return _placeholderAppIcon;
+            }
+        }
+
+        sealed class FeedWebClient : WebClient
+        {
+            protected override WebRequest GetWebRequest(Uri address)
+            {
+                WebRequest request = base.GetWebRequest(address);
+                request.Timeout = 15000;
+                return request;
+            }
+        }
+
+        private void PopulateFeed(string feed, Func<string, Stream> openImage)
+        {
+            AppsFromFeed = JsonConvert.DeserializeObject<List<AppInfo>>(feed);
+            string tmpImageFileName;
+
+            AppCard appCard;
+            Control[] feedGroups = { groupSystemTools, groupInternet, groupCoding, groupSoundVideo };
+            foreach (Control group in feedGroups) group.SuspendLayout();
             try
             {
-                if (checkTemp.Checked) CleanHelper.PreviewTemp();
-                if (checkMiniDumps.Checked) CleanHelper.PreviewMinidumps();
-                if (checkErrorReports.Checked) CleanHelper.PreviewErrorReports();
-                CleanHelper.PreviewChromeClean(chromeCache.Checked, chromeCookies.Checked, chromeHistory.Checked, chromeSession.Checked, chromePws.Checked);
-                CleanHelper.PreviewFireFoxClean(firefoxCache.Checked, firefoxCookies.Checked, firefoxHistory.Checked);
-                CleanHelper.PreviewEdgeClean(edgeCache.Checked, edgeCookies.Checked, edgeHistory.Checked, edgeSession.Checked);
-                CleanHelper.PreviewBraveClean(braveCache.Checked, braveCookies.Checked, braveHistory.Checked, braveSession.Checked, bravePasswords.Checked);
-                if (IECache.Checked) CleanHelper.PreviewInternetExplorerCache();
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError("MainForm.CleanPC", ex.Message, ex.StackTrace);
+                groupSystemTools.Controls.Clear();
+                groupInternet.Controls.Clear();
+                groupCoding.Controls.Clear();
+                groupSoundVideo.Controls.Clear();
+
+                foreach (AppInfo x in AppsFromFeed)
+                {
+                    appCard = new AppCard();
+                    appCard.AutoSize = true;
+                    appCard.Anchor = AnchorStyles.None;
+                    appCard.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                    appCard.appTitle.Text = x.Title;
+                    appCard.appTitle.Name = x.Tag;
+                    appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
+
+                    if (openImage == null)
+                    {
+                        appCard.appImage.Image = PlaceholderAppIcon;
+                        GlyphTint.Apply(appCard.appImage, ThemeManager.Current);
+                    }
+                    else
+                    {
+                        tmpImageFileName = x.Image.Substring(x.Image.LastIndexOf("/") + 1, x.Image.Length - (x.Image.LastIndexOf("/") + 1));
+                        using (Stream entry = openImage(tmpImageFileName))
+                        using (Image loaded = Image.FromStream(entry))
+                        {
+                            // GDI+ decodes lazily, so detach the image from the zip stream
+                            appCard.appImage.Image = new Bitmap(loaded);
+                        }
+                    }
+
+                    switch (x.Group)
+                    {
+                        case "SystemTools":
+                            appCard.Location = new Point(0, groupSystemTools.Controls.Count * GetItemPadding());
+                            groupSystemTools.Controls.Add(appCard);
+                            break;
+                        case "Internet":
+                            appCard.Location = new Point(0, groupInternet.Controls.Count * GetItemPadding());
+                            groupInternet.Controls.Add(appCard);
+                            break;
+                        case "Coding":
+                            appCard.Location = new Point(0, groupCoding.Controls.Count * GetItemPadding());
+                            groupCoding.Controls.Add(appCard);
+                            break;
+                        case "GraphicsSound":
+                            appCard.Location = new Point(0, groupSoundVideo.Controls.Count * GetItemPadding());
+                            groupSoundVideo.Controls.Add(appCard);
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
             finally
             {
-                _cleanPreviewList = CleanHelper.PreviewCleanList;
-
-                _cleanPreviewList.Sort();
-                listCleanPreview.Items.AddRange(_cleanPreviewList.ToArray());
-
-                for (int i = 0; i < listCleanPreview.Items.Count; i++)
-                {
-                    listCleanPreview.SetItemChecked(i, true);
-                }
-
-                GetFootprint();
-            }
-        }
-
-        private void CleanPC()
-        {
-            for (int i = 0; i < listCleanPreview.CheckedItems.Count; i++)
-            {
-                CleanHelper.PreviewCleanList.Add(listCleanPreview.CheckedItems[i].ToString());
+                foreach (Control group in feedGroups) group.ResumeLayout();
             }
 
-            if (checkBin.Checked) CleanHelper.EmptyRecycleBin();
-
-            CleanHelper.Clean();
-
-            listCleanPreview.Items.Clear();
-            CleanHelper.PreviewCleanList.Clear();
+            // UI handling
+            btnDownloadApps.Enabled = true;
+            txtFeedError.Visible = false;
+            OnAppsFeedPopulated();
         }
 
         private bool FixRegistry()
@@ -2599,6 +2566,7 @@ namespace Optimizer
         {
             FixTabHeaderWidth(tabCollection);
             FixTabHeaderWidth(synapse);
+            FixTabHeaderWidth(netTools);
 
             if (OptionsHelper.CurrentOptions.AutoStart && OptionsHelper.CurrentOptions.EnableTray)
             {
@@ -2608,9 +2576,157 @@ namespace Optimizer
             //DebugHelper.FindDifferenceInTwoJsons();
         }
 
+        // launch reveal: keep the window off-screen until its first themed frame is painted (no white flash)
+        bool _revealPending = true, _launchCloaked, _launchFaded;
+
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            // the window is created already visible (Load fires later), so hide it as soon as the HWND exists
+            if (_revealPending && !_launchCloaked && !_launchFaded)
+            {
+                _launchCloaked = WindowChrome.Cloak(this, true);
+                if (!_launchCloaked)
+                {
+                    Opacity = 0;
+                    _launchFaded = true;
+                }
+            }
+            base.OnHandleCreated(e);
+        }
+
+        protected override void OnVisibleChanged(EventArgs e)
+        {
+            base.OnVisibleChanged(e);
+            // queued messages run before WM_PAINT, so this reveals right after the first real paint
+            if (_revealPending && Visible && IsHandleCreated) BeginInvoke(new Action(RevealAfterFirstPaint));
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            RevealAfterFirstPaint();
+        }
+
+        void RevealAfterFirstPaint()
+        {
+            if (!_revealPending || IsDisposed || !Visible) return;
+            _revealPending = false;
+            try
+            {
+                WindowChrome.PaintNow(this);
+            }
+            finally
+            {
+                if (_launchCloaked) WindowChrome.Cloak(this, false);
+                if (_launchFaded) Opacity = 1;
+            }
+        }
+
+        private void SetupNavigation()
+        {
+            sidebarNav.SetGlyph(universalTab, SidebarNav.Glyph.Shield);
+            sidebarNav.SetGlyph(windows10Tab, SidebarNav.Glyph.Windows);
+            sidebarNav.SetGlyph(advancedTab, SidebarNav.Glyph.Gear);
+            sidebarNav.SetGlyph(modernAppsTab, SidebarNav.Glyph.Apps);
+            sidebarNav.SetGlyph(startupTab, SidebarNav.Glyph.Rocket);
+            sidebarNav.SetGlyph(appsTab, SidebarNav.Glyph.Download);
+            sidebarNav.SetGlyph(cleanerTab, SidebarNav.Glyph.Broom);
+            sidebarNav.SetGlyph(fileHandlesTab, SidebarNav.Glyph.Lock);
+            sidebarNav.SetGlyph(diskActivityTab, SidebarNav.Glyph.Drive);
+            sidebarNav.SetGlyph(pingerTab, SidebarNav.Glyph.Pulse);
+            sidebarNav.SetGlyph(hostsEditorTab, SidebarNav.Glyph.Globe);
+            sidebarNav.SetGlyph(registryFixerTab, SidebarNav.Glyph.Wrench);
+            sidebarNav.SetGlyph(indiciumTab, SidebarNav.Glyph.Chip);
+            sidebarNav.SetGlyph(integratorTab, SidebarNav.Glyph.Puzzle);
+            sidebarNav.SetGlyph(optionsTab, SidebarNav.Glyph.Options);
+
+            foreach (TabPage page in tabCollection.TabPages)
+            {
+                page.TextChanged += (s, e) => UpdatePageTitle();
+            }
+            tabCollection.SelectedIndexChanged += (s, e) => UpdatePageTitle();
+
+            _titleIconInset = lblPageTitle.Padding.Left;
+            Padding titlePadding = lblPageTitle.Padding;
+            titlePadding.Left = _titleIconInset + TitleIconSize + Draw.SI(14);
+            lblPageTitle.Padding = titlePadding;
+            lblPageTitle.Paint += LblPageTitle_Paint;
+
+            UpdatePageTitle();
+        }
+
+        private int _titleIconInset;
+        private static int TitleIconSize { get { return Draw.SI(28); } }
+
+        private void LblPageTitle_Paint(object sender, PaintEventArgs e)
+        {
+            TabPage page = tabCollection.SelectedTab;
+            if (page == null) return;
+
+            int size = TitleIconSize;
+            Rectangle bounds = new Rectangle(_titleIconInset, (lblPageTitle.Height - size) / 2, size, size);
+            SidebarNav.PaintGlyph(e.Graphics, sidebarNav.GetGlyph(page), bounds, ThemeManager.Current.AccentText);
+        }
+
+        private void UpdatePageTitle()
+        {
+            lblPageTitle.Text = tabCollection.SelectedTab != null ? tabCollection.SelectedTab.Text : string.Empty;
+            lblPageTitle.Invalidate();
+        }
+
+        private void TagMenuGlyphs()
+        {
+            trayStartup.Tag = SidebarNav.Glyph.Rocket;
+            trayCleaner.Tag = SidebarNav.Glyph.Broom;
+            trayPinger.Tag = SidebarNav.Glyph.Pulse;
+            trayHosts.Tag = SidebarNav.Glyph.Globe;
+            trayAD.Tag = SidebarNav.Glyph.Download;
+            trayHW.Tag = SidebarNav.Glyph.Chip;
+            trayRegistry.Tag = SidebarNav.Glyph.Wrench;
+            trayOptions.Tag = SidebarNav.Glyph.Options;
+            trayRestartExplorer.Tag = SidebarNav.Glyph.Refresh;
+            trayUnlocker.Tag = SidebarNav.Glyph.Lock;
+            trayExit.Tag = SidebarNav.Glyph.Power;
+            toolHWCopy.Tag = SidebarNav.Glyph.Document;
+            toolHWGoogle.Tag = SidebarNav.Glyph.Search;
+            toolHWDuck.Tag = SidebarNav.Glyph.Search;
+
+            toolStripSeparator1.BackColor = Color.Empty;
+            toolStripSeparator2.BackColor = Color.Empty;
+        }
+
+        private void ApplySystemColors()
+        {
+            if (_colorOverrider == null) return;
+            _colorOverrider.SetColor(KnownColor.Highlight, ThemeManager.Current.Selection.ToArgb());
+            _colorOverrider.SetColor(KnownColor.HighlightText, ThemeManager.Current.TextPrimary.ToArgb());
+        }
+
+        private void RefreshTheme()
+        {
+            OptionsHelper.ApplyTheme(this);
+            LogoArt.Apply(pictureBox1);
+            ThemeManager.ApplyMenu(launcherMenu);
+            ThemeManager.ApplyMenu(indiciumMenu);
+            ApplySystemColors();
+            // The bubble bakes its colors into a layered bitmap; reopen it fresh instead of re-theming it.
+            TipBubble.CloseAll();
+
+            Form[] openForms;
+            try { openForms = Application.OpenForms.Cast<Form>().ToArray(); }
+            catch (InvalidOperationException) { openForms = new Form[0]; }
+
+            foreach (Form form in openForms)
+            {
+                if (form == this || form.IsDisposed || form is TipBubble || form.InvokeRequired) continue;
+                OptionsHelper.ApplyTheme(form);
+            }
+        }
+
         private void GetDesktopItems()
         {
             _desktopItems = IntegratorHelper.GetDesktopItems();
+            listDesktopItems.BeginUpdate();
             listDesktopItems.Items.Clear();
 
             for (int i = 0; i < _desktopItems.Count; i++)
@@ -2620,8 +2736,10 @@ namespace Optimizer
                     listDesktopItems.Items.Add(_desktopItems[i]);
                 }
             }
+            listDesktopItems.EndUpdate();
 
             if (_desktopItems.Count > 0) listDesktopItems.SelectedIndex = 0;
+            UpdateIntegratorCounts();
         }
 
         private void GetHostsEntries()
@@ -2629,9 +2747,7 @@ namespace Optimizer
             ((Control)this.hostsEditorTab).Enabled = false;
 
             _hostsEntries = HostsHelper.GetHostsEntries();
-            listHostEntries.Items.Clear();
-
-            listHostEntries.Items.AddRange(_hostsEntries.ToArray());
+            ApplyHostsFilter();
 
             chkReadOnly.Checked = HostsHelper.GetReadOnly();
 
@@ -2646,96 +2762,672 @@ namespace Optimizer
 
             ((Control)this.hostsEditorTab).Enabled = true;
 
-            if (_hostsEntries.Count > 0) listHostEntries.SelectedIndex = 0;
+            if (listHostEntries.Items.Count > 0) listHostEntries.SelectedIndex = 0;
         }
 
         private void GetStartupItems()
         {
             _startUpItems = StartupHelper.GetStartupItems();
-            listStartupItems.Items.Clear();
+            PopulateStartupCards();
+        }
 
-            for (int i = 0; i < _startUpItems.Count; i++)
+        #region Startup tab UI
+
+        static class StartupNative {
+            internal const int EM_SETCUEBANNER = 0x1501;
+
+            [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Unicode)]
+            internal static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, string lParam);
+        }
+
+        readonly List<StartupCard> _startupCards = new List<StartupCard>();
+        readonly HashSet<string> _startupMissing = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        ToolTip _startupTips;
+        string[] _startupSortNames = { "Name", "Location", "Type" };
+        bool _startupSortDescending;
+        bool _startupSyncingSelectAll;
+        bool _startupBackupOpen;
+        int _startupIconLoad;
+
+        private void InitStartupUi()
+        {
+            _startupTips = new ToolTip { InitialDelay = 400, ReshowDelay = 100, AutoPopDelay = 10000 };
+
+            cmbStartupFilter.Items.AddRange(new object[]
             {
-                ListViewItem list = new ListViewItem(_startUpItems[i].Name);
-                list.SubItems.Add(_startUpItems[i].FileLocation);
-                list.SubItems.Add(_startUpItems[i].ToString());
+                "All sources",
+                "Current user (HKCU)",
+                "Local machine (HKLM)",
+                "Local machine 32-bit",
+                "Startup folder (user)",
+                "Startup folder (all users)"
+            });
+            cmbStartupFilter.SelectedIndex = 0;
 
-                listStartupItems.Items.Add(list);
+            cmbStartupStatus.Items.AddRange(new object[] { "Any status", "Enabled", "Disabled" });
+            cmbStartupStatus.SelectedIndex = 0;
+
+            // Windows 7 has no per-item enable/disable state (StartupApproved), so the controls are hidden there
+            bool toggles = StartupApproval.IsSupported;
+            cmbStartupStatus.Visible = toggles;
+            enableStartupB.Visible = toggles;
+            disableStartupB.Visible = toggles;
+
+            cmbStartupSort.Items.AddRange(_startupSortNames);
+            cmbStartupSort.SelectedIndex = 0;
+            UpdateStartupSortGlyph();
+
+            txtStartupSearch.HandleCreated += (s, e) => SetStartupSearchCue();
+            if (txtStartupSearch.IsHandleCreated) SetStartupSearchCue();
+
+            panelStartup.EmptyText = "No startup items found";
+            UpdateStartupFooter();
+        }
+
+        private void SetStartupSearchCue()
+        {
+            StartupNative.SendMessage(txtStartupSearch.Handle, StartupNative.EM_SETCUEBANNER, (IntPtr)1, "Search startup items");
+        }
+
+        private void ApplyStartupSortNames()
+        {
+            if (cmbStartupSort.Items.Count != _startupSortNames.Length) return;
+
+            int selected = cmbStartupSort.SelectedIndex;
+            for (int i = 0; i < _startupSortNames.Length; i++)
+            {
+                cmbStartupSort.Items[i] = _startupSortNames[i];
+            }
+            cmbStartupSort.SelectedIndex = selected;
+        }
+
+        private void UpdateStartupSortGlyph()
+        {
+            sortDirStartupB.Text = _startupSortDescending ? "\u2193" : "\u2191";
+            _startupTips.SetToolTip(sortDirStartupB, _startupSortDescending ? "Descending" : "Ascending");
+        }
+
+        private void PopulateStartupCards()
+        {
+            panelStartup.SuspendLayout();
+            try
+            {
+                foreach (StartupCard old in _startupCards)
+                {
+                    old.CheckedChanged -= StartupCard_CheckedChanged;
+                    old.ActionInvoked -= StartupCard_ActionInvoked;
+                    _startupTips.SetToolTip(old, null);
+                    old.Dispose();
+                }
+                _startupCards.Clear();
+                panelStartup.Controls.Clear();
+
+                StartupCard[] cards = new StartupCard[_startUpItems.Count];
+                for (int i = 0; i < _startUpItems.Count; i++)
+                {
+                    StartupCard card = new StartupCard(_startUpItems[i]) { Tips = _startupTips };
+                    card.CheckedChanged += StartupCard_CheckedChanged;
+                    card.ActionInvoked += StartupCard_ActionInvoked;
+                    cards[i] = card;
+                }
+                _startupCards.AddRange(cards);
+                panelStartup.Controls.AddRange(cards);
+
+                if (ThemeManager.Current != null)
+                {
+                    foreach (StartupCard card in cards) card.ApplyTheme(ThemeManager.Current);
+                }
+            }
+            finally
+            {
+                panelStartup.ResumeLayout(false);
             }
 
-            foreach (ColumnHeader column in listStartupItems.Columns)
+            panelStartup.AutoScrollPosition = Point.Empty;
+            ApplyStartupView();
+            LoadStartupIcons();
+        }
+
+        private void LoadStartupIcons()
+        {
+            int load = ++_startupIconLoad;
+            Dictionary<StartupCard, string> pending = new Dictionary<StartupCard, string>();
+
+            foreach (StartupCard card in _startupCards)
             {
-                column.AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
+                string path = StartupIcons.ResolvePath(card.Item);
+                Image icon;
+                if (path != null && StartupIcons.TryGetCached(path, out icon))
+                {
+                    card.SetIcon(icon, _startupMissing.Contains(path));
+                }
+                else if (path != null)
+                {
+                    pending[card] = path;
+                }
+            }
+
+            if (pending.Count == 0) return;
+
+            if (SynchronizationContext.Current == null)
+            {
+                if (!IsHandleCreated)
+                {
+                    EventHandler onHandle = null;
+                    onHandle = (s, e) => { HandleCreated -= onHandle; if (load == _startupIconLoad) LoadStartupIcons(); };
+                    HandleCreated += onHandle;
+                    return;
+                }
+                BeginInvoke(new Action(() => { if (load == _startupIconLoad) LoadStartupIcons(); }));
+                return;
+            }
+
+            string[] paths = pending.Values.Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
+            Task.Run(() => paths.Select(StartupIcons.Load).ToList()).ContinueWith(t =>
+            {
+                if (t.IsFaulted || IsDisposed) return;
+
+                Dictionary<string, Image> icons = new Dictionary<string, Image>(StringComparer.OrdinalIgnoreCase);
+                foreach (StartupIcons.Result r in t.Result)
+                {
+                    icons[r.Path] = StartupIcons.Store(r.Path, r.Icon);
+                    if (r.Missing) _startupMissing.Add(r.Path);
+                    else _startupMissing.Remove(r.Path);
+                }
+
+                if (load != _startupIconLoad) return;
+                foreach (KeyValuePair<StartupCard, string> kv in pending)
+                {
+                    Image icon;
+                    if (!kv.Key.IsDisposed && icons.TryGetValue(kv.Value, out icon))
+                    {
+                        kv.Key.SetIcon(icon, _startupMissing.Contains(kv.Value));
+                    }
+                }
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+        }
+
+        private bool StartupMatchesFilter(StartupItem item)
+        {
+            if (StartupApproval.IsSupported)
+            {
+                bool enabled = !item.CanToggle || item.Enabled;
+                if (cmbStartupStatus.SelectedIndex == 1 && !enabled) return false;
+                if (cmbStartupStatus.SelectedIndex == 2 && enabled) return false;
+            }
+
+            switch (cmbStartupFilter.SelectedIndex)
+            {
+                case 1: return item.RegistryLocation == StartupItemLocation.HKCU;
+                case 2: return item.RegistryLocation == StartupItemLocation.HKLM;
+                case 3: return item.RegistryLocation == StartupItemLocation.HKLMWoW;
+                case 4: return item.RegistryLocation == StartupItemLocation.CUStartupFolder;
+                case 5: return item.RegistryLocation == StartupItemLocation.LMStartupFolder;
+                default: return true;
             }
         }
 
-        private void GetModernApps(bool showAll)
+        private static bool ContainsText(string haystack, string needle)
         {
+            return !string.IsNullOrEmpty(haystack) && haystack.IndexOf(needle, StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        private void ApplyStartupView()
+        {
+            string query = txtStartupSearch.Text.Trim();
+            bool searching = query.Length > 0;
+            int sort = cmbStartupSort.SelectedIndex;
+
+            Func<StartupCard, string> key;
+            if (sort == 1) key = c => c.Item.FileLocation ?? string.Empty;
+            else if (sort == 2) key = c => c.Badge;
+            else key = c => c.Item.Name ?? string.Empty;
+
+            IEnumerable<StartupCard> ordered = _startupSortDescending
+                ? _startupCards.OrderByDescending(key, StringComparer.CurrentCultureIgnoreCase)
+                : _startupCards.OrderBy(key, StringComparer.CurrentCultureIgnoreCase);
+            if (sort != 0)
+            {
+                ordered = ((IOrderedEnumerable<StartupCard>)ordered).ThenBy(c => c.Item.Name ?? string.Empty, StringComparer.CurrentCultureIgnoreCase);
+            }
+            List<StartupCard> order = ordered.ToList();
+
+            panelStartup.SuspendLayout();
+            foreach (StartupCard card in order)
+            {
+                StartupItem item = card.Item;
+                bool visible = StartupMatchesFilter(item)
+                    && (!searching || ContainsText(item.Name, query) || ContainsText(item.FileLocation, query) || ContainsText(card.Badge, query)
+                        || (!card.IsItemEnabled && ContainsText(StartupCard.DisabledText, query)));
+                card.Visible = visible;
+            }
+            panelStartup.ResumeLayout(false);
+
+            panelStartup.EmptyText = (searching || cmbStartupFilter.SelectedIndex > 0 || cmbStartupStatus.SelectedIndex > 0) && _startupCards.Count > 0
+                ? "No items match your search"
+                : "No startup items found";
+            panelStartup.SetOrder(order.Cast<Control>());
+            UpdateStartupFooter();
+        }
+
+        private void UpdateStartupFooter()
+        {
+            int visible = 0, checkedVisible = 0, checkedTotal = 0, disabledVisible = 0, checkedOn = 0, checkedOff = 0;
+            foreach (StartupCard card in _startupCards)
+            {
+                bool shown = LayoutUtil.IsShown(card);
+                if (shown)
+                {
+                    visible++;
+                    if (!card.IsItemEnabled) disabledVisible++;
+                }
+                if (card.Checked)
+                {
+                    checkedTotal++;
+                    if (shown) checkedVisible++;
+                    if (card.CanToggle)
+                    {
+                        if (card.Item.Enabled) checkedOn++;
+                        else checkedOff++;
+                    }
+                }
+            }
+
+            string text = checkedTotal > 0
+                ? string.Format(checkedTotal > checkedVisible ? "{0} selected ({1} hidden by filter)" : "{0} selected", checkedTotal, checkedTotal - checkedVisible)
+                : string.Format(visible == 1 ? "{0} item" : "{0} items", visible);
+            if (checkedTotal == 0 && disabledVisible > 0) text += string.Format("  \u00b7  {0} disabled", disabledVisible);
+            lblStartupSelected.Text = text;
+            removeStartupItemB.Enabled = checkedTotal > 0;
+            clearStartupSelB.Visible = checkedTotal > 0;
+
+            if (StartupApproval.IsSupported)
+            {
+                bool anyToggleable = checkedOn + checkedOff > 0;
+                enableStartupB.Visible = anyToggleable;
+                disableStartupB.Visible = anyToggleable;
+                enableStartupB.Enabled = checkedOff > 0;
+                disableStartupB.Enabled = checkedOn > 0;
+            }
+            chkStartupSelectAll.Enabled = visible > 0;
+
+            _startupSyncingSelectAll = true;
+            chkStartupSelectAll.Checked = visible > 0 && checkedVisible == visible;
+            _startupSyncingSelectAll = false;
+
+            LayoutStartupFooter();
+        }
+
+        private List<StartupCard> CheckedStartupCards()
+        {
+            return _startupCards.Where(c => c.Checked).ToList();
+        }
+
+        private void StartupCard_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!_startupSyncingSelectAll) UpdateStartupFooter();
+        }
+
+        private void StartupCard_ActionInvoked(object sender, StartupCardActionEventArgs e)
+        {
+            StartupCard card = sender as StartupCard;
+            if (card == null) return;
+
+            switch (e.Action)
+            {
+                case StartupCardAction.LocateFile:
+                    card.Item.LocateFile();
+                    break;
+                case StartupCardAction.LocateKey:
+                    card.Item.LocateKey();
+                    break;
+                case StartupCardAction.Toggle:
+                    SetStartupEnabled(new[] { card }, !card.Item.Enabled);
+                    break;
+                case StartupCardAction.Delete:
+                    if (MessageBox.Show(_removeStartupItemsMessage + Environment.NewLine + Environment.NewLine + card.Item.Name + Environment.NewLine, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        card.Item.Remove();
+                        GetStartupItems();
+                    }
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Writes the Task Manager enabled/disabled state for the given cards, then re-reads it so the UI
+        /// always reflects what Windows actually stored.
+        /// </summary>
+        private void SetStartupEnabled(IEnumerable<StartupCard> cards, bool enabled)
+        {
+            int failed = 0;
+            foreach (StartupCard card in cards)
+            {
+                if (!card.CanToggle || card.Item.Enabled == enabled) continue;
+                if (!StartupApproval.SetEnabled(card.Item, enabled)) failed++;
+                StartupApproval.Refresh(card.Item);
+                card.RefreshState();
+            }
+
+            if (cmbStartupStatus.SelectedIndex > 0 || txtStartupSearch.TextLength > 0) ApplyStartupView();
+            else UpdateStartupFooter();
+
+            if (failed > 0)
+            {
+                MessageBox.Show(string.Format("Could not change the state of {0} item(s). See the error log for details.", failed),
+                    "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void enableStartupB_Click(object sender, EventArgs e)
+        {
+            SetStartupEnabled(CheckedStartupCards(), true);
+        }
+
+        private void disableStartupB_Click(object sender, EventArgs e)
+        {
+            SetStartupEnabled(CheckedStartupCards(), false);
+        }
+
+        private void cmbStartupStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyStartupView();
+        }
+
+        private void chkStartupSelectAll_Click(object sender, EventArgs e)
+        {
+            if (_startupSyncingSelectAll) return;
+
+            bool check = chkStartupSelectAll.Checked;
+            _startupSyncingSelectAll = true;
+            foreach (StartupCard card in _startupCards)
+            {
+                if (LayoutUtil.IsShown(card)) card.Checked = check;
+            }
+            _startupSyncingSelectAll = false;
+            UpdateStartupFooter();
+        }
+
+        private void clearStartupSelB_Click(object sender, EventArgs e)
+        {
+            _startupSyncingSelectAll = true;
+            foreach (StartupCard card in _startupCards) card.Checked = false;
+            _startupSyncingSelectAll = false;
+            UpdateStartupFooter();
+        }
+
+        private void txtStartupSearch_TextChanged(object sender, EventArgs e)
+        {
+            ApplyStartupView();
+        }
+
+        private void txtStartupSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape && txtStartupSearch.TextLength > 0)
+            {
+                txtStartupSearch.Clear();
+                e.Handled = e.SuppressKeyPress = true;
+            }
+        }
+
+        private void cmbStartupFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyStartupView();
+        }
+
+        private void cmbStartupSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyStartupView();
+        }
+
+        private void sortDirStartupB_Click(object sender, EventArgs e)
+        {
+            _startupSortDescending = !_startupSortDescending;
+            UpdateStartupSortGlyph();
+            ApplyStartupView();
+        }
+
+        private void txtBackupTitle_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button13_Click(doBackup, EventArgs.Empty);
+                e.Handled = e.SuppressKeyPress = true;
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                HideBackupConfirm();
+                e.Handled = e.SuppressKeyPress = true;
+            }
+        }
+
+        private void startupTab_Layout(object sender, LayoutEventArgs e)
+        {
+            LayoutStartupTab();
+        }
+
+        private static int ButtonWidth(Control b, int min)
+        {
+            return Math.Max(min, TextRenderer.MeasureText(b.Text, b.Font).Width + Draw.SI(36));
+        }
+
+        private void LayoutStartupTab()
+        {
+            Size area = startupTab.ClientSize;
+            if (area.Width <= 0 || area.Height <= 0) return;
+
+            int margin = Draw.SI(16), gap = Draw.SI(8), rowH = Draw.SI(36);
+            int left = margin, right = area.Width - margin;
+            int top = startupTitle.Bottom + Draw.SI(14);
+
+            int x = right;
+            foreach (Control b in new Control[] { backupStartupB, restoreStartupB, refreshStartupB })
+            {
+                int w = ButtonWidth(b, Draw.SI(96));
+                x -= w;
+                b.SetBounds(x, top, w, rowH);
+                x -= gap;
+            }
+
+            int toolsRight = x - Draw.SI(16);
+            bool status = StartupApproval.IsSupported;
+            int filterW = Draw.SI(210), statusW = status ? Draw.SI(140) : 0, sortW = Draw.SI(150), dirW = rowH;
+            int gaps = gap * (status ? 4 : 3);
+            int searchW = toolsRight - left - filterW - statusW - sortW - dirW - gaps;
+            if (searchW < Draw.SI(140))
+            {
+                int deficit = Draw.SI(140) - searchW;
+                filterW = Math.Max(Draw.SI(140), filterW - deficit);
+                searchW = Math.Max(Draw.SI(100), toolsRight - left - filterW - statusW - sortW - dirW - gaps);
+            }
+
+            txtStartupSearch.SetBounds(left, top + (rowH - txtStartupSearch.Height) / 2, searchW, txtStartupSearch.Height);
+            x = left + searchW + gap;
+            cmbStartupFilter.SetBounds(x, top + (rowH - cmbStartupFilter.Height) / 2, filterW, cmbStartupFilter.Height);
+            x += filterW + gap;
+            if (status)
+            {
+                cmbStartupStatus.SetBounds(x, top + (rowH - cmbStartupStatus.Height) / 2, statusW, cmbStartupStatus.Height);
+                x += statusW + gap;
+            }
+            cmbStartupSort.SetBounds(x, top + (rowH - cmbStartupSort.Height) / 2, sortW, cmbStartupSort.Height);
+            x += sortW + gap;
+            sortDirStartupB.SetBounds(x, top, dirW, rowH);
+
+            int y = top + rowH + Draw.SI(14);
+
+            if (_startupBackupOpen)
+            {
+                int stripH = Draw.SI(56);
+                startupBackupStrip.SetBounds(left, y, right - left, stripH);
+                LayoutStartupBackupStrip();
+                y += stripH + gap;
+            }
+
+            int footerH = Draw.SI(56);
+            int footerTop = area.Height - margin - footerH;
+            startupFooter.SetBounds(left, footerTop, right - left, footerH);
+            LayoutStartupFooter();
+
+            panelStartup.SetBounds(left, y, right - left, Math.Max(Draw.SI(60), footerTop - gap - y));
+        }
+
+        private void LayoutStartupBackupStrip()
+        {
+            Size s = startupBackupStrip.ClientSize;
+            int pad = Draw.SI(16), gap = Draw.SI(10), btnH = Draw.SI(36);
+            int mid = s.Height / 2;
+
+            lblBackupTitle.Location = new Point(pad, mid - lblBackupTitle.Height / 2);
+            int x = lblBackupTitle.Right + Draw.SI(12);
+
+            int cancelW = ButtonWidth(cancelBackup, Draw.SI(96));
+            int okW = ButtonWidth(doBackup, Draw.SI(96));
+            int txtW = Math.Max(Draw.SI(140), Math.Min(Draw.SI(380), s.Width - x - okW - cancelW - gap * 2 - pad));
+
+            txtBackupTitle.SetBounds(x, mid - txtBackupTitle.Height / 2, txtW, txtBackupTitle.Height);
+            x += txtW + gap;
+            doBackup.SetBounds(x, mid - btnH / 2, okW, btnH);
+            x += okW + gap;
+            cancelBackup.SetBounds(x, mid - btnH / 2, cancelW, btnH);
+        }
+
+        private void LayoutStartupFooter()
+        {
+            Size s = startupFooter.ClientSize;
+            if (s.Width <= 0) return;
+
+            int pad = Draw.SI(16), gap = Draw.SI(8), btnH = Draw.SI(36);
+            int mid = s.Height / 2;
+
+            chkStartupSelectAll.Location = new Point(pad, mid - chkStartupSelectAll.Height / 2);
+            lblStartupSelected.Location = new Point(chkStartupSelectAll.Right + Draw.SI(20), mid - lblStartupSelected.Height / 2);
+
+            int x = s.Width - pad;
+            int delW = ButtonWidth(removeStartupItemB, Draw.SI(110));
+            x -= delW;
+            removeStartupItemB.SetBounds(x, mid - btnH / 2, delW, btnH);
+
+            int clearW = ButtonWidth(clearStartupSelB, Draw.SI(88));
+            x -= gap + clearW;
+            clearStartupSelB.SetBounds(x, mid - btnH / 2, clearW, btnH);
+
+            // Enable/Disable sit apart from the destructive actions
+            x -= Draw.SI(20);
+            foreach (Control b in new Control[] { disableStartupB, enableStartupB })
+            {
+                int w = ButtonWidth(b, Draw.SI(96));
+                x -= w;
+                b.SetBounds(x, mid - btnH / 2, w, btnH);
+                x -= gap;
+            }
+        }
+
+        #endregion
+
+        private async void GetModernApps(bool showAll)
+        {
+            int load = ++_modernAppsLoad;
             uninstallModernAppsButton.Enabled = false;
             refreshModernAppsButton.Enabled = false;
 
-            panelUwp.Controls.Clear();
-            _modernApps = UWPHelper.GetUWPApps(showAll);
-
-            AppCard appCard;
-            FileInfo pngTmp;
-
-            foreach (var x in _modernApps)
+            List<UwpApp> apps;
+            try
             {
-                appCard = new AppCard();
-                appCard.AutoSize = true;
-                appCard.Anchor = AnchorStyles.None;
-                appCard.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-                appCard.appTitle.Text = x.Key;
-                appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
-
-                // gets largest picture
-                try
-                {
-                    pngTmp = new DirectoryInfo(x.Value)
-                        .EnumerateFiles("*.png", SearchOption.AllDirectories)
-                        .OrderByDescending(f => f.Length)
-                        .FirstOrDefault();
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogError("MainForm.GetModernApps-ImageSearch", ex.Message, ex.StackTrace);
-                    pngTmp = null;
-                }
-
-                if (pngTmp != null)
-                {
-                    try
-                    {
-                        using (FileStream fs = new FileStream(pngTmp.FullName, FileMode.Open, FileAccess.Read))
-                        {
-                            appCard.appImage.Image = Image.FromStream(fs);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Logger.LogError("MainForm.GetModernApps-ImageLoad", ex.Message, ex.StackTrace);
-                    }
-                }
-
-                appCard.Location = new Point(0, panelUwp.Controls.Count * GetItemPadding());
-                panelUwp.Controls.Add(appCard);
+                apps = await Task.Run(() => UWPHelper.GetUWPApps(showAll)
+                    .OrderBy(a => a.Title, StringComparer.CurrentCultureIgnoreCase)
+                    .ToList());
             }
+            catch (Exception ex)
+            {
+                Logger.LogError("MainForm.GetModernApps", ex.Message, ex.StackTrace);
+                apps = new List<UwpApp>();
+            }
+
+            // a newer refresh started meanwhile, or the window is gone
+            if (load != _modernAppsLoad || IsDisposed)
+            {
+                DisposeLogos(apps);
+                return;
+            }
+
+            PopulateModernApps(apps);
 
             uninstallModernAppsButton.Enabled = true;
             refreshModernAppsButton.Enabled = true;
         }
 
+        private static void DisposeLogos(List<UwpApp> apps)
+        {
+            foreach (UwpApp app in apps)
+            {
+                if (app.Logo != null) app.Logo.Dispose();
+                app.Logo = null;
+            }
+        }
+
+        private void PopulateModernApps(List<UwpApp> apps)
+        {
+            List<UwpApp> previous = _modernApps;
+            _modernApps = apps;
+
+            AppCard[] cards = new AppCard[apps.Count];
+
+            panelUwp.SuspendLayout();
+            try
+            {
+                Control[] old = new Control[panelUwp.Controls.Count];
+                panelUwp.Controls.CopyTo(old, 0);
+                panelUwp.Controls.Clear();
+                foreach (Control c in old) c.Dispose();
+                panelUwp.AutoScrollPosition = Point.Empty;
+
+                for (int i = 0; i < apps.Count; i++)
+                {
+                    AppCard appCard = new AppCard();
+                    appCard.AutoSize = true;
+                    appCard.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                    appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
+                    appCard.App = apps[i];
+                    cards[i] = appCard;
+                }
+                panelUwp.Controls.AddRange(cards);
+            }
+            finally
+            {
+                panelUwp.ResumeLayout();
+            }
+
+            // stack by the real (auto-sized, DPI-scaled) card height
+            panelUwp.SuspendLayout();
+            try
+            {
+                int y = 0;
+                int gap = Draw.SI(6);
+                foreach (AppCard appCard in cards)
+                {
+                    appCard.Location = new Point(0, y);
+                    y += appCard.Height + gap;
+                }
+            }
+            finally
+            {
+                panelUwp.ResumeLayout();
+            }
+
+            if (!ReferenceEquals(previous, apps)) DisposeLogos(previous);
+        }
+
         private async void UninstallModernApps()
         {
-            List<string> selectedApps = new List<string>();
+            List<UwpApp> selectedApps = new List<UwpApp>();
 
-            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(panelUwp))
+            foreach (Control c in panelUwp.Controls)
             {
-                //if ((c.Name == "chkSelectAllModernApps") || (c.Name == "chkOnlyRemovable")) continue;
-                if (c is MoonCheck && ((MoonCheck)c).Checked)
+                AppCard card = c as AppCard;
+                if (card != null && card.App != null && card.appTitle.Checked)
                 {
-                    selectedApps.Add(c.Text);
+                    selectedApps.Add(card.App);
                 }
             }
 
@@ -2746,16 +3438,15 @@ namespace Optimizer
                 uninstallModernAppsButton.Enabled = false;
                 refreshModernAppsButton.Enabled = false;
 
-                bool errorOccured = false;
                 string failedApps = string.Empty;
 
-                foreach (string app in selectedApps)
+                foreach (UwpApp app in selectedApps)
                 {
-                    await Task.Run(() => errorOccured = UWPHelper.UninstallUWPApp(app));
+                    bool errorOccured = await Task.Run(() => UWPHelper.UninstallUWPApp(app));
 
                     if (errorOccured)
                     {
-                        failedApps += Environment.NewLine + app;
+                        failedApps += Environment.NewLine + app.Title;
                     }
                 }
 
@@ -2771,14 +3462,17 @@ namespace Optimizer
         private void GetCustomCommands()
         {
             _customCommands = IntegratorHelper.GetCustomCommands();
+            listCustomCommands.BeginUpdate();
             listCustomCommands.Items.Clear();
 
             foreach (string s in _customCommands)
             {
                 listCustomCommands.Items.Add(s);
             }
+            listCustomCommands.EndUpdate();
 
             if (_customCommands.Count > 0) listCustomCommands.SelectedIndex = 0;
+            UpdateIntegratorCounts();
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -2797,23 +3491,20 @@ namespace Optimizer
 
         private void button32_Click(object sender, EventArgs e)
         {
-            if (listStartupItems.CheckedItems.Count <= 0) return;
+            List<StartupCard> selected = CheckedStartupCards();
+            if (selected.Count <= 0) return;
 
             string report = string.Empty;
 
-            foreach (ListViewItem i in listStartupItems.CheckedItems)
+            foreach (StartupCard card in selected)
             {
-                report += i.Text + Environment.NewLine;
+                report += card.Item.Name + Environment.NewLine;
             }
             if (MessageBox.Show(_removeStartupItemsMessage + Environment.NewLine + Environment.NewLine + report, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                foreach (ListViewItem x in listStartupItems.CheckedItems)
+                foreach (StartupCard card in selected)
                 {
-                    var item = _startUpItems.Find(y => y.Name == x.Text);
-                    if (item != null)
-                    {
-                        item.Remove();
-                    }
+                    card.Item.Remove();
                 }
 
                 GetStartupItems();
@@ -2822,20 +3513,12 @@ namespace Optimizer
 
         internal void RemoveAllStartupItems()
         {
-            foreach (ListViewItem i in listStartupItems.Items)
+            foreach (StartupItem item in _startUpItems)
             {
-                _startUpItems[i.Index].Remove();
+                item.Remove();
             }
 
             GetStartupItems();
-        }
-
-        private void button31_Click(object sender, EventArgs e)
-        {
-            if (listStartupItems.SelectedItems.Count == 1)
-            {
-                _startUpItems[listStartupItems.SelectedIndices[0]].LocateFile();
-            }
         }
 
         private void checkEnableAll_CheckedChanged(object sender, EventArgs e)
@@ -2904,6 +3587,7 @@ namespace Optimizer
             {
                 string ip = txtIP.Text.Trim();
                 string domain = txtDomain.Text.Trim();
+                if (!ValidateHostsInput(ip, domain)) return;
 
                 HostsHelper.AddEntry(HostsHelper.SanitizeEntry(ip) + " " + HostsHelper.SanitizeEntry(domain));
                 if (chkIncludeWww.Checked)
@@ -2933,6 +3617,14 @@ namespace Optimizer
                 HostsHelper.RemoveEntry(listHostEntries.SelectedItem.ToString().Replace(" : ", " "));
                 GetHostsEntries();
             }
+            else if (listHostEntries.SelectedItems.Count > 1)
+            {
+                List<string> selected = listHostEntries.SelectedItems.Cast<object>().Select(x => x.ToString().Replace(" : ", " ")).ToList();
+                string msg = string.Format(T("hostsRemoveSelected", "Remove {0} selected entries from the hosts file?"), selected.Count);
+                if (MessageBox.Show(this, msg, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+                HostsHelper.RemoveAllEntries(selected);
+                GetHostsEntries();
+            }
         }
 
         private void button46_Click(object sender, EventArgs e)
@@ -2948,7 +3640,7 @@ namespace Optimizer
         {
             List<string> collection = new List<string>();
 
-            foreach (string item in listHostEntries.Items)
+            foreach (string item in _hostsEntries)
             {
                 collection.Add(item.Replace(" : ", " "));
             }
@@ -3350,36 +4042,6 @@ namespace Optimizer
             {
                 txtItem.Text = "http://";
             }
-        }
-
-        private void button64_Click(object sender, EventArgs e)
-        {
-            if (listStartupItems.SelectedItems.Count == 1)
-            {
-                _startUpItems[listStartupItems.SelectedIndices[0]].LocateKey();
-            }
-        }
-
-        private void listStartupItems_ColumnClick(object sender, ColumnClickEventArgs e)
-        {
-            if (e.Column == _columnSorter.CurrentColumn)
-            {
-                if (_columnSorter.SortOrder == SortOrder.Ascending)
-                {
-                    _columnSorter.SortOrder = SortOrder.Descending;
-                }
-                else
-                {
-                    _columnSorter.SortOrder = SortOrder.Ascending;
-                }
-            }
-            else
-            {
-                _columnSorter.CurrentColumn = e.Column;
-                _columnSorter.SortOrder = SortOrder.Ascending;
-            }
-
-            listStartupItems.Sort();
         }
 
         private void chkBlock_CheckedChanged(object sender, EventArgs e)
@@ -3958,7 +4620,8 @@ namespace Optimizer
                         txtDownloadStatus.Text = string.Format("{0}/{1} - {2} {3} ...", count, maxCount, OptionsHelper.TranslationList["installing"], Path.GetFileNameWithoutExtension(a));
 
                         await p.RunAsync();
-                    };
+                    }
+                    ;
                 }
             }
 
@@ -4089,7 +4752,7 @@ namespace Optimizer
 
         private void btnGetFeed_Click(object sender, EventArgs e)
         {
-            GetFeed();
+            GetFeedAsync();
         }
 
         private void l2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -4118,66 +4781,7 @@ namespace Optimizer
 
         private void btnPing_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPingInput.Text)) return;
-
-            _pingResults = new List<PingReply>();
-
-            listPingResults.Items.Clear();
-
-            if (PingerHelper.PingHost(txtPingInput.Text) == null)
-            {
-                listPingResults.Items.Add(string.Format("{0} [{1}]", OptionsHelper.TranslationList["hostNotFound"], txtPingInput.Text));
-                return;
-            }
-
-            Task pinger = new Task(() =>
-            {
-                btnShodan.Enabled = false;
-                btnPing.Enabled = false;
-
-                listPingResults.Items.Add(string.Format("{0}", OptionsHelper.TranslationList["pinging"]));
-                listPingResults.Items.Add("");
-
-                for (int i = 0; i < 9; i++)
-                {
-                    // wait before each pinging
-                    Thread.Sleep(1000);
-
-                    tmpReply = PingerHelper.PingHost(txtPingInput.Text);
-
-                    if (tmpReply.Address == null)
-                    {
-                        listPingResults.Items.Add(tmpReply.Status);
-                    }
-                    else
-                    {
-                        _pingResults.Add(tmpReply);
-                        _shodanIP = _pingResults[i].Address.ToString();
-                        listPingResults.Items.Add(string.Format("{0} - {1}: {2} ms - TTL: {3}", _pingResults[i].Status, OptionsHelper.TranslationList["latency"], _pingResults[i].RoundtripTime, _pingResults[i].Options.Ttl));
-                    }
-                }
-
-                listPingResults.Items.Add("");
-
-                // calculate statistics
-                if (_pingResults.Count > 0)
-                {
-                    long maxLatency = _pingResults.Max(x => x.RoundtripTime);
-                    long minLatency = _pingResults.Min(x => x.RoundtripTime);
-                    double averageLatency = _pingResults.Average(x => x.RoundtripTime);
-
-                    listPingResults.Items.Add(string.Format("{0} = {1}, {2} = {3}, {4} = {5:F2}", OptionsHelper.TranslationList["min"], minLatency, OptionsHelper.TranslationList["max"], maxLatency, OptionsHelper.TranslationList["avg"], averageLatency));
-                }
-                else
-                {
-                    listPingResults.Items.Add(OptionsHelper.TranslationList["timeout"]);
-                }
-
-                btnPing.Enabled = true;
-                btnShodan.Enabled = true;
-            });
-
-            pinger.Start();
+            TogglePing();
         }
 
         private void btnShodan_Click(object sender, EventArgs e)
@@ -4225,7 +4829,7 @@ namespace Optimizer
             {
                 try
                 {
-                    File.WriteAllLines(ExportDialog.FileName, listPingResults.Items.Cast<string>());
+                    File.WriteAllLines(ExportDialog.FileName, listPingResults.Items.Cast<object>().Select(x => x.ToString()));
                 }
                 catch (Exception ex)
                 {
@@ -4323,32 +4927,20 @@ namespace Optimizer
 
         private void ShowBackupConfirm()
         {
-            removeStartupItemB.Visible = false;
-            locateFileB.Visible = false;
-            findInRegB.Visible = false;
-            refreshStartupB.Visible = false;
-            restoreStartupB.Visible = false;
-            backupStartupB.Visible = false;
-
-            lblBackupTitle.Visible = true;
-            doBackup.Visible = true;
-            cancelBackup.Visible = true;
-            txtBackupTitle.Visible = true;
+            _startupBackupOpen = true;
+            backupStartupB.Enabled = false;
+            startupBackupStrip.Visible = true;
+            LayoutStartupTab();
+            txtBackupTitle.Focus();
+            txtBackupTitle.SelectAll();
         }
 
         private void HideBackupConfirm()
         {
-            removeStartupItemB.Visible = true;
-            locateFileB.Visible = true;
-            findInRegB.Visible = true;
-            refreshStartupB.Visible = true;
-            restoreStartupB.Visible = true;
-            backupStartupB.Visible = true;
-
-            lblBackupTitle.Visible = false;
-            doBackup.Visible = false;
-            cancelBackup.Visible = false;
-            txtBackupTitle.Visible = false;
+            _startupBackupOpen = false;
+            backupStartupB.Enabled = true;
+            startupBackupStrip.Visible = false;
+            LayoutStartupTab();
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -4393,18 +4985,6 @@ namespace Optimizer
             Process.Start("NCPA.cpl");
         }
 
-        private void listStartupItems_ItemChecked(object sender, ItemCheckedEventArgs e)
-        {
-            if (e.Item.Checked)
-            {
-                e.Item.ForeColor = OptionsHelper.ForegroundColor;
-            }
-            else
-            {
-                e.Item.ForeColor = Color.White;
-            }
-        }
-
         private void trayOptions_Click(object sender, EventArgs e)
         {
             tabCollection.SelectedTab = optionsTab;
@@ -4442,6 +5022,9 @@ namespace Optimizer
 
         private void hwDetailed_ToggleClicked(object sender, EventArgs e)
         {
+            if (_hwDetailed == null || _hwSummarized == null) return;
+
+            specsTree.BeginUpdate();
             specsTree.Nodes.Clear();
 
             if (hwDetailed.ToggleChecked)
@@ -4455,7 +5038,8 @@ namespace Optimizer
 
             //TranslateIndicium();
             specsTree.ExpandAll();
-            specsTree.Nodes[0].EnsureVisible();
+            specsTree.EndUpdate();
+            if (specsTree.Nodes.Count > 0) specsTree.Nodes[0].EnsureVisible();
         }
 
         private void trayHW_Click(object sender, EventArgs e)
@@ -4741,20 +5325,21 @@ namespace Optimizer
 
             FixTabHeaderWidth(tabCollection);
             FixTabHeaderWidth(synapse);
+            FixTabHeaderWidth(netTools);
 
             btnUpdate.Focus();
         }
 
         private void cleanDriveB_Click(object sender, EventArgs e)
         {
-            CleanPC();
+            CleanSelectedAsync();
         }
 
         private void checkSelectAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (listCleanPreview.Items.Count < 1)
             {
-                foreach (CheckBox x in panel1.Controls.OfType<CheckBox>())
+                foreach (CheckBox x in CleanerBoxes())
                 {
                     x.Checked = !x.Checked;
                 }
@@ -4762,18 +5347,20 @@ namespace Optimizer
             }
 
             _cleanSelectAll = !_cleanSelectAll;
+            _cleanBulk = true;
+            listCleanPreview.BeginUpdate();
             for (int i = 0; i < listCleanPreview.Items.Count; i++)
             {
                 listCleanPreview.SetItemChecked(i, _cleanSelectAll);
             }
+            listCleanPreview.EndUpdate();
+            _cleanBulk = false;
+            UpdateCleanSelection();
         }
 
         private void analyzeDriveB_Click(object sender, EventArgs e)
         {
-            CleanHelper.PreviewSizeToBeFreed = new ByteSize(0);
-            CleanHelper.PreviewCleanList.Clear();
-            listCleanPreview.Items.Clear();
-            PreviewCleanPC();
+            AnalyzeCleanerAsync();
         }
 
         private void linkLabel3_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
@@ -4785,7 +5372,10 @@ namespace Optimizer
         {
             try
             {
-                Clipboard.SetText(((LinkLabel)sender).Text);
+                string ip = ((LinkLabel)sender).Text;
+                if (string.IsNullOrWhiteSpace(ip) || ip == "-") return;
+                Clipboard.SetText(ip);
+                FlashDnsCopied();
             }
             catch { }
         }
@@ -4794,59 +5384,40 @@ namespace Optimizer
         {
             if (boxAdapter.Items.Count <= 0) return;
             if (boxAdapter.SelectedIndex <= -1) return;
-
-            _currentDNS = PingerHelper.GetDNSFromNetworkAdapter(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex]).ToArray();
-
-            if (_currentDNS == null) return;
-            if (_currentDNS.Length == 0) return;
+            if (PingerHelper.NetworkAdapters == null || boxAdapter.SelectedIndex >= PingerHelper.NetworkAdapters.Length) return;
 
             try
             {
-                if (_currentDNS.Length == 1)
-                {
-                    linkDNSv4.Text = _currentDNS[0];
-                }
-                else if (_currentDNS.Length == 2)
-                {
-                    linkDNSv4.Text = _currentDNS[0];
-                    linkDNSv4A.Text = _currentDNS[1];
-                }
-                else if (_currentDNS.Length == 3)
-                {
-                    linkDNSv6.Text = _currentDNS[0];
-                    linkDNSv4.Text = _currentDNS[1];
-                    linkDNSv4A.Text = _currentDNS[2];
-                }
-                else if (_currentDNS.Length == 4)
-                {
-                    linkDNSv4.Text = _currentDNS[2];
-                    linkDNSv4A.Text = _currentDNS[3];
-                    linkDNSv6.Text = _currentDNS[0];
-                    linkDNSv6A.Text = _currentDNS[1];
-                }
+                _currentDNS = PingerHelper.GetDNSFromNetworkAdapter(PingerHelper.NetworkAdapters[boxAdapter.SelectedIndex]).ToArray();
+                ShowCurrentDNS();
             }
             catch { }
             finally { pingerTab.Focus(); }
         }
-
         private void boxAdapter_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadNetworkAdapterConfig();
             pingerTab.Focus();
         }
 
-        // FIX FOR LAGGING WHEN MOVING THE FORM
+        // Freeze the content layout while the window is dragged or resized: the pages keep their last layout
+        // (clipped or padded with the background) instead of re-flowing hundreds of controls per mouse move,
+        // and everything re-flows once when the drag ends.
+        bool _sizeMoveFrozen;
+
         private void MainForm_ResizeBegin(object sender, EventArgs e)
         {
-            bpanel.Controls.Remove(tabCollection);
+            if (_sizeMoveFrozen) return;
+            _sizeMoveFrozen = true;
+            bpanel.SuspendLayout();
         }
 
         private void MainForm_ResizeEnd(object sender, EventArgs e)
         {
-            bpanel.Controls.Add(tabCollection);
-            tabCollection.Dock = DockStyle.Fill;
+            if (!_sizeMoveFrozen) return;
+            _sizeMoveFrozen = false;
+            bpanel.ResumeLayout(true);
         }
-        // END FIX
 
         private void PMB_ToggleClicked(object sender, EventArgs e)
         {
@@ -4948,8 +5519,8 @@ namespace Optimizer
 
         private void trayUnlocker_Click(object sender, EventArgs e)
         {
-            FileUnlockForm fuf = new FileUnlockForm();
-            fuf.ShowDialog(this);
+            tabCollection.SelectedTab = fileHandlesTab;
+            RestoreWindow();
         }
 
         private void picRestartNeeded_Click(object sender, EventArgs e)
@@ -4970,17 +5541,17 @@ namespace Optimizer
 
         private void restartAndApply_MouseLeave(object sender, EventArgs e)
         {
-            restartAndApply.Font = new Font(restartAndApply.Font, FontStyle.Regular);
+            restartAndApply.Font = Typography.WithStyle(restartAndApply.Font, FontStyle.Regular);
         }
 
         private void restartAndApply_MouseHover(object sender, EventArgs e)
         {
-            restartAndApply.Font = new Font(restartAndApply.Font, FontStyle.Underline);
+            restartAndApply.Font = Typography.WithStyle(restartAndApply.Font, FontStyle.Underline);
         }
 
         private void restartAndApply_MouseEnter(object sender, EventArgs e)
         {
-            restartAndApply.Font = new Font(restartAndApply.Font, FontStyle.Underline);
+            restartAndApply.Font = Typography.WithStyle(restartAndApply.Font, FontStyle.Underline);
         }
 
         private void restartAndApply_Click(object sender, EventArgs e)
@@ -4990,9 +5561,16 @@ namespace Optimizer
 
         private void colorPicker1_ColorChanged(object sender, EventArgs e)
         {
-            pictureBox1.BackColor = colorPicker1.Color;
             OptionsHelper.CurrentOptions.Theme = colorPicker1.Color;
-            OptionsHelper.ApplyTheme(this);
+            RefreshTheme();
+
+            OptionsHelper.SaveSettings();
+        }
+
+        private void themeModeToggle_ToggleClicked(object sender, EventArgs e)
+        {
+            OptionsHelper.CurrentOptions.ThemeMode = themeModeToggle.ToggleChecked ? ThemeMode.Dark : ThemeMode.Light;
+            RefreshTheme();
 
             OptionsHelper.SaveSettings();
         }
@@ -5014,9 +5592,7 @@ namespace Optimizer
 
         private void picLab_Click(object sender, EventArgs e)
         {
-            SubForm sf = new SubForm();
-            sf.SetTip(translationList["lblLab"].ToString());
-            sf.ShowDialog(this);
+            TipBubble.Toggle(picLab, null, translationList["lblLab"].ToString());
         }
 
         private void btnRestoreUwp_Click(object sender, EventArgs e)
@@ -5094,8 +5670,12 @@ namespace Optimizer
         {
             if (!string.IsNullOrEmpty(txtSearchFonts.Text))
             {
+                string query = txtSearchFonts.Text.ToLowerInvariant().Trim();
+                listFonts.BeginUpdate();
                 listFonts.Items.Clear();
-                listFonts.Items.AddRange(_availableFonts.Where(x => x.ToLowerInvariant().Contains(txtSearchFonts.Text.ToLowerInvariant().Trim())).ToArray());
+                listFonts.Items.AddRange(_availableFonts.Where(x => x.ToLowerInvariant().Contains(query)).ToArray());
+                listFonts.EndUpdate();
+                UpdateIntegratorCounts();
             }
             else
             {
@@ -5175,7 +5755,7 @@ namespace Optimizer
         {
             if (listSystemVariables.SelectedItems.Count == 1)
             {
-                var indexToDelete =_systemVariables.FindIndex(x => x.Equals(listSystemVariables.SelectedItem.ToString(), StringComparison.OrdinalIgnoreCase));
+                var indexToDelete = _systemVariables.FindIndex(x => x.Equals(listSystemVariables.SelectedItem.ToString(), StringComparison.OrdinalIgnoreCase));
                 if (indexToDelete != -1)
                 {
                     _systemVariables.RemoveAt(indexToDelete);
