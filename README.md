@@ -1,15 +1,3 @@
-> ⚠ **Optimizer is now deprecated and replaced by OptimizerNXT!**
-
-> **Click on the banner below to go to the new project!**
-
----
-
-<p align="center">
-	<a href="https://github.com/hellzerg/optimizerNXT" target="_blank">
-   		<img src="https://raw.githubusercontent.com/hellzerg/optimizer/master/new-optimizerNXT.png">
-	</a>
-</p>
-
 <center>
 <h2>ℹ️ Advanced Privacy and Security Configuration Utility</h2> 
 </center>
@@ -40,6 +28,7 @@ Welcome to Optimizer, an advanced configuration utility designed to enhance your
 - Remove unwanted startup programs
 - Edit your HOSTS file
 - Edit your System Variables paths
+- Monitor your disk activity
 - Identify and terminate file lock handles
 - Hardware inspection tool
 - Add items to the desktop right-click menu
@@ -100,7 +89,7 @@ Learn about our security measures in the [Security Policy](https://github.com/he
 <h2> 💻 Compatibility</h2> 
 </center>
 
-- Requires .NET Framework 4.8.1
+- Requires .NET Framework 4.8
 - Compatible with Windows 7, 8, 8.1, 10, 11
 - Can run on Windows Server 2008, 2012, 2016, 2019, 2022 using `/unsafe` switch
 
@@ -108,8 +97,8 @@ Learn about our security measures in the [Security Policy](https://github.com/he
 <h2> 📊 Details</h2> 
 </center>
 
-- Latest version: 16.7 (Released: August 18, 2024)
-- SHA256: 03A234060541B686AC4265754AFF43DF9325C21383F90E17F831E67965D717F8
+- Latest version: 17.0 (Released: November 12, 2026)
+- SHA256: -
 
 <center>
 <h2> ☕ Buy me a delicious espresso</h2>

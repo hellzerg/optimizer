@@ -1,3 +1,14 @@
+## [17.0] - 2026-11-11
+- New: Complete visual redesign with a modern Fluent look
+- New: Theme engine with dark and light modes and accent color support
+- New: Modern typography
+- New: Startup items redesigned as cards with search, filtering
+- New: Startup items now show and toggle their Task Manager enabled/disabled state
+- New: Modern Apps are now listed and removed via the WinRT PackageManager API
+- New: Disk Activity tool
+- Improved: Apps feed links updated, discontinued apps removed
+- Improved: Newtonsoft.Json updated to 13.0.4
+
 ## [16.7] - 2024-08-18
 - New: Disable Edge and Chrome telemetry options now extends Manifest v2 support
 - New: Enable Registry Periodic Backups
