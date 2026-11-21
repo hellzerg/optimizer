@@ -22,7 +22,6 @@
 	"lblLab": "Experimentální sestavení\n(po testování smazat)",
 	"performanceSw": "Povolit Vylepšení výkonu",
 	"networkSw": "Zakázat Omezení sítě",
-	"defenderSw": "Zakázat Windows Defender",
 	"systemRestoreSw": "Zakázat Obnovení systému",
 	"printSw": "Zakázat Tiskovou službu",
 	"mediaSharingSw": "Zakázat sdílení Media Player",
@@ -30,6 +29,7 @@
 	"reportingSw": "Zakázat Hlášení chyb",
 	"homegroupSw": "Zakázat Domácí skupinu (HomeGroup)",
 	"superfetchSw": "Zakázat Superfetch",
+	"defenderTelemetrySw": "Zakázat telemetrii Microsoft Defender",
 	"telemetryTasksSw": "Zakázat Telemetrii",
 	"officeTelemetrySw": "Zakázat Telemetrii v aplikaci Office",
 	"vsSW": "Zakázat Telemetrii v aplikaci Visual Studio",
@@ -333,12 +333,12 @@ Lze zcela bezpečně aplikovat.
 	"networkTip": "Systém Windows implementoval mechanismus síťového omezení, který omezuje
 síťový provoz při spouštění multimediálních aplikací. Může také snížit síťový
 výkon při hraní online her.",
-	"defenderTip": "Windows Defender je integrovaný antivirový program v systémech Windows.",
 	"smartScreenTip": "SmartScreen automaticky skenuje soubory, stahování a webové stránky, blokuje
 již známý nebezpečný obsah a varuje vás před jeho spuštěním.",
 	"systemRestoreTip": "Obnovení systému je funkce, která umožňuje vrátit stav systému Windows do původního stavu
 aby bylo možné zotavit se z poruch nebo jiných problémů.",
 	"reportingTip": "Služba Hlášení chyb shromažďuje pády a chyby aplikací a odesílá je společnosti Microsoft.",
+	"defenderTelemetryTip": "Zakáže hlášení MAPS, odesílání vzorků souborů a hlášení infekcí nástrojem pro odstranění škodlivého softwaru, stejně jako funkci Block at First Sight a ochranu před potenciálně nežádoucími aplikacemi. Tím se omezí některé cloudové ochrany.",
 	"telemetryTasksTip": "Telemetrické služby pravidelně odesílají údaje o používání a výkonu Microsoftu,
 pro budoucí zlepšení.",
 	"officeTelemetryTip": "Office telemetrie pravidelně odesílá údaje o používání a výkonu
@@ -426,6 +426,7 @@ Je považována za zbytečnou službu pro uživatele, kteří se jí nechtějí 
 	"smb2Sw": "Zakázat protokol SMBv2",
 	"smbTip": "Protokol SMB{v} je zodpovědný za sdílení souborů mezi počítači se systémem Windows.
 	Byl nahrazen SMBv3, který je bezpečnější.",
+	"smb2Warning": "Zakázání SMBv2 zakáže také SMBv3, protože obě verze používají stejný zásobník protokolů.",
 	"ntfsStampSw": "Zakázat časové razítko NTFS",
 	"ntfsStampTip": "Označuje razítko posledního přístupu k souboru.
 	Jeho zakázáním můžete snížit I/O operace na discích.",

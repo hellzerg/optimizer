@@ -166,7 +166,7 @@ namespace Optimizer
             this.stickySw = new Optimizer.ToggleCard();
             this.smartScreenSw = new Optimizer.ToggleCard();
             this.enableUtcSw = new Optimizer.ToggleCard();
-            this.defenderSw = new Optimizer.ToggleCard();
+            this.defenderTelemetrySw = new Optimizer.ToggleCard();
             this.universalTabLayout = new Optimizer.ColumnsPanel();
             this.lblPageTitle = new System.Windows.Forms.Label();
             this.sidebarNav = new Optimizer.SidebarNav();
@@ -2180,10 +2180,11 @@ namespace Optimizer
             this.universalTabSection3.Controls.Add(this.smb1Sw);
             this.universalTabSection3.Controls.Add(this.smb2Sw);
             this.universalTabSection3.Controls.Add(this.disableOneDriveSw);
+            this.universalTabSection3.Controls.Add(this.defenderTelemetrySw);
             this.universalTabSection3.Location = new System.Drawing.Point(521, 292);
             this.universalTabSection3.Margin = new System.Windows.Forms.Padding(0);
             this.universalTabSection3.Name = "universalTabSection3";
-            this.universalTabSection3.Size = new System.Drawing.Size(475, 308);
+            this.universalTabSection3.Size = new System.Drawing.Size(475, 354);
             this.universalTabSection3.TabIndex = 0;
             // 
             // label13
@@ -2312,6 +2313,25 @@ namespace Optimizer
             this.disableOneDriveSw.TabIndex = 232;
             this.disableOneDriveSw.Tag = "themeable";
             this.disableOneDriveSw.ToggleChecked = false;
+            //
+            // defenderTelemetrySw
+            //
+            this.defenderTelemetrySw.AccessibleName = "Disable Defender Telemetry";
+            this.defenderTelemetrySw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
+            this.defenderTelemetrySw.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.defenderTelemetrySw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.defenderTelemetrySw.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.defenderTelemetrySw.ForeColor = System.Drawing.Color.White;
+            this.defenderTelemetrySw.LabelText = "Disable Defender Telemetry";
+            this.defenderTelemetrySw.Location = new System.Drawing.Point(0, 308);
+            this.defenderTelemetrySw.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.defenderTelemetrySw.Name = "defenderTelemetrySw";
+            this.defenderTelemetrySw.Padding = new System.Windows.Forms.Padding(11, 3, 6, 3);
+            this.defenderTelemetrySw.Size = new System.Drawing.Size(475, 42);
+            this.defenderTelemetrySw.TabIndex = 236;
+            this.defenderTelemetrySw.Tag = "themeable";
+            this.defenderTelemetrySw.ToggleChecked = false;
             // 
             // universalTabSection2
             // 
@@ -2449,7 +2469,6 @@ namespace Optimizer
             this.universalTabSection1.Controls.Add(this.stickySw);
             this.universalTabSection1.Controls.Add(this.smartScreenSw);
             this.universalTabSection1.Controls.Add(this.enableUtcSw);
-            this.universalTabSection1.Controls.Add(this.defenderSw);
             this.universalTabSection1.Location = new System.Drawing.Point(22, 6);
             this.universalTabSection1.Margin = new System.Windows.Forms.Padding(0);
             this.universalTabSection1.Name = "universalTabSection1";
@@ -2677,25 +2696,6 @@ namespace Optimizer
             this.enableUtcSw.TabIndex = 235;
             this.enableUtcSw.Tag = "themeable";
             this.enableUtcSw.ToggleChecked = false;
-            // 
-            // defenderSw
-            // 
-            this.defenderSw.AccessibleName = "Disable Windows Defender";
-            this.defenderSw.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
-            this.defenderSw.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.defenderSw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.defenderSw.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.defenderSw.ForeColor = System.Drawing.Color.White;
-            this.defenderSw.LabelText = "Disable Windows Defender";
-            this.defenderSw.Location = new System.Drawing.Point(0, 538);
-            this.defenderSw.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.defenderSw.Name = "defenderSw";
-            this.defenderSw.Padding = new System.Windows.Forms.Padding(11, 3, 6, 3);
-            this.defenderSw.Size = new System.Drawing.Size(475, 42);
-            this.defenderSw.TabIndex = 210;
-            this.defenderSw.Tag = "themeable";
-            this.defenderSw.ToggleChecked = false;
             // 
             // universalTabLayout
             // 
@@ -7770,7 +7770,7 @@ namespace Optimizer
         private ToggleCard smartScreenSw;
         private ToggleCard networkSw;
         private ToggleCard telemetryTasksSw;
-        private ToggleCard defenderSw;
+        private ToggleCard defenderTelemetrySw;
         private ToggleCard homegroupSw;
         private ToggleCard stickySw;
         private ToggleCard compatSw;

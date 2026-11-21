@@ -20,7 +20,6 @@
 	"lblLab": "Pembuatan eksperimental\n(Hapus  setelah pengujian)",
 	"performanceSw": "Optimalkan Performa",
 	"networkSw": "Pengoptimalisasi Jaringan",
-	"defenderSw": "Nonaktifkan Windows Defender",
 	"systemRestoreSw": "Nonaktifkan Pemulihan Sistem",
 	"printSw": "Nonaktifkan Print Service",
 	"mediaSharingSw": "Nonaktifkan Media Player Sharing",
@@ -28,6 +27,7 @@
 	"reportingSw": "Nonaktifkan Error Reporting",
 	"homegroupSw": "Nonaktifkan HomeGroup",
 	"superfetchSw": "Nonaktifkan Superfetch",
+	"defenderTelemetrySw": "Nonaktifkan telemetri Microsoft Defender",
 	"telemetryTasksSw": "Nonaktifkan Telemetry Tasks",
 	"officeTelemetrySw": "Nonaktifkan Office Telemetry",
 	"vsSW": "Nonaktifkan Visual Studio Telemetry",
@@ -331,12 +331,12 @@ Benar-benar aman untuk diterapkan.
 	"networkTip": "Windows menerapkan mekanisme pembatasan jaringan yang akan membatasi
 lalu lintas jaringan saat menjalankan aplikasi multimedia. Hal ini juga dapat mengurangi jaringan
 performa saat bermain game online.",
-  	"defenderTip": "Windows Defender adalah antivirus bawaan pada sistem Windows.",
 	"smartScreenTip": "SmartScreen secara otomatis memindai file, unduhan, dan situs web, memblokir
 konten berbahaya yang sudah diketahui dan memperingatkan Anda sebelum menjalankannya.",
 	"systemRestoreTip": "System Kembalikan adalah fitur yang memungkinkan untuk mengembalikan status Windows
 ke yang sebelumnya untuk memulihkan malfungsi atau masalah lainnya.",
  	"reportingTip": "Pelaporan Kesalahan mengumpulkan kerusakan dan kesalahan aplikasi dan mengirimkannya ke Microsoft.",
+	"defenderTelemetryTip": "Menonaktifkan pelaporan MAPS, pengiriman sampel file, dan pelaporan infeksi Alat Penghapus Perangkat Lunak Berbahaya, serta Block at First Sight dan perlindungan aplikasi yang mungkin tidak diinginkan. Perubahan ini mengurangi beberapa perlindungan berbasis cloud.",
 	"telemetryTasksTip": "Layanan telemetri mengirimkan data penggunaan dan kinerja secara berkala ke Microsoft,
 untuk perbaikan di masa depan.",
 	"officeTelemetryTip": "Telemetri kantor mengirimkan penggunaan dan
@@ -427,6 +427,7 @@ Ini dianggap sebagai layanan yang tidak perlu bagi pengguna yang tidak ingin ber
 	"smb2Sw": "Nonaktifkan Protokol SMBv2",
 	"smbTip": "Protokol SMB{v} bertanggung jawab untuk berbagi file antar komputer Windows.
 Telah diganti dengan SMBv3, yang lebih aman.",
+	"smb2Warning": "Menonaktifkan SMBv2 juga menonaktifkan SMBv3 karena keduanya menggunakan tumpukan protokol yang sama.",
 	"ntfsStampSw": "Nonaktifkan Stempel Waktu NTFS",
 	"ntfsStampTip": "Menunjukkan stempel file yang terakhir kali diakses.
 Menonaktifkannya dapat mengurangi operasi I/O pada disk.",

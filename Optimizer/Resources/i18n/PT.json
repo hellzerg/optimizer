@@ -23,7 +23,6 @@
 	"lblLab": "Experimentar nova implementação\n(deletar após teste)",
 	"performanceSw": "Habilitar ajustes de desempenho",
 	"networkSw": "Desativar limitações de rede",
-	"defenderSw": "Desabilitar Windows Defender",
 	"systemRestoreSw": "Desabilitar Recuperação do Sistema",
 	"printSw": "Desabilitar Serviço de PrintScreen",
 	"mediaSharingSw": "Desabilitar compartilhamento de mídia",
@@ -31,6 +30,7 @@
 	"reportingSw": "Desativar Serviço de Relatório de Erros",
 	"homegroupSw": "Desabilitar Grupo Home",
 	"superfetchSw": "Desabilitar Superfetch",
+	"defenderTelemetrySw": "Desativar a telemetria do Microsoft Defender",
 	"telemetryTasksSw": "Desabilitar tarefas de Telemetria",
 	"officeTelemetrySw": "Desabilitar Telemetria para o Office",
 	"vsSW": "Desabilitar a Telemetria do Visual Studio",
@@ -333,12 +333,12 @@ Completamente seguro para aplicar.
 	"networkTip": "O Windows implementa um mecanismo de limitação de rede que restringe
 tráfego de rede ao executar aplicativos de multimídia. Ele também pode reduzir o
 desempenho da rede ao jogar jogos online.",
-	"defenderTip": "O Windows Defender é o antivírus integrado nos sistemas Windows.",
 	"smartScreenTip": "O SmartScreen verifica automaticamente arquivos, downloads e sites, bloqueando
 conteúdo perigoso já conhecido e avisa antes de abrir/executar.",
 	"systemRestoreTip": "A Restauração do Sistema é um recurso que permite reverter o estado do Windows
 para uma versão anterior para se recuperar de vários ou outros problemas.",
 	"reportingTip": "O Relatador de Erros/Problemas coleta travamentos e erros do aplicativo e os envia para a Microsoft.",
+	"defenderTelemetryTip": "Desativa os relatórios MAPS, o envio de amostras de ficheiros e os relatórios de infeção da Ferramenta de Remoção de Software Malicioso, bem como o Bloqueio à Primeira Vista e a proteção contra aplicações potencialmente indesejadas. Estas alterações reduzem algumas proteções na cloud.",
 	"telemetryTasksTip": "Os serviços de Telemetria enviam periodicamente dados de uso e desempenho para a Microsoft,
 para melhorias futuras.",
 	"officeTelemetryTip": "A Telemetria do Office envia periodicamente o uso e
@@ -423,6 +423,7 @@ antes de serem divulgados ao público.
 	"smb2Sw": "Desativar protocolo SMBv2",
 	"smbTip": "O protocolo SMB{v} é responsável pelo compartilhamento de arquivos entre computadores Windows.
 	Ele foi substituído pelo SMBv3, que é mais seguro.",
+	"smb2Warning": "Desativar o SMBv2 também desativa o SMBv3, pois ambos usam a mesma pilha de protocolos.",
 	"ntfsStampSw": "Desativar carimbo de data/hora NTFS",
 	"ntfsStampTip": "Indica o último carimbo de acesso do arquivo.
 	Desabilitar pode reduzir as operações de E/S nos discos.",

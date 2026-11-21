@@ -163,7 +163,7 @@
     <Compile Include="Forms\HelperForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\HelperForm.designer.cs">
+    <Compile Include="Forms\HelperForm.Designer.cs">
       <DependentUpon>HelperForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UpdateForm.cs">
@@ -276,6 +276,7 @@
     <Compile Include="Controls\FluentButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\FluentMessageBox.cs" />
     <Compile Include="Controls\LayoutPanels.cs">
       <SubType>Component</SubType>
     </Compile>

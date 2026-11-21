@@ -184,10 +184,8 @@ namespace Optimizer {
             RectangleF r = new RectangleF(0.5f, 0.5f, Width - 1.5f, Height - 1.5f);
             using (GraphicsPath path = Draw.RoundedRect(r, Draw.S(7)))
             using (SolidBrush b = new SolidBrush(p.Layer1))
-            using (Pen pen = new Pen(p.IsDark ? ColorMath.Blend(p.Layer1, Color.Black, 0.35) : p.Stroke))
             {
                 g.FillPath(b, path);
-                g.DrawPath(pen, path);
             }
 
             int pad = Draw.SI(14);

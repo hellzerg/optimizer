@@ -187,15 +187,25 @@ namespace Optimizer {
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(batchFile) || !File.Exists(batchFile))
+                    throw new FileNotFoundException("Batch file was not found.", batchFile);
+
+                string fullPath = Path.GetFullPath(batchFile);
+                string commandProcessor = Environment.GetEnvironmentVariable("ComSpec");
+                if (string.IsNullOrWhiteSpace(commandProcessor)) commandProcessor = "cmd.exe";
+
                 using (Process p = new Process())
                 {
                     p.StartInfo.CreateNoWindow = true;
-                    p.StartInfo.FileName = batchFile;
                     p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.FileName = commandProcessor;
+                    p.StartInfo.WorkingDirectory = Path.GetDirectoryName(fullPath);
+                    p.StartInfo.Arguments = "/d /s /c \"\"" + fullPath + "\"\"";
 
-                    p.Start();
+                    if (!p.Start()) throw new InvalidOperationException("The command processor could not be started.");
                     p.WaitForExit();
-                    p.Close();
+                    if (p.ExitCode != 0)
+                        Logger.LogError("Utilities.RunBatchFile", "Batch file exited with code " + p.ExitCode + ": " + fullPath, null);
                 }
             }
             catch (Exception ex)
@@ -792,8 +802,25 @@ namespace Optimizer {
                     {
                         if (k == null) return;
 
+                        using (RegistryKey existingKey = k.OpenSubKey(pName, false))
+                        {
+                            if (existingKey == null) return;
+
+                            string debugger = existingKey.GetValue("Debugger", null, RegistryValueOptions.DoNotExpandEnvironmentNames) as string;
+                            if (!string.Equals(debugger, @"%windir%\System32\taskkill.exe", StringComparison.OrdinalIgnoreCase)) return;
+                        }
+
                         k.GrantFullControlOnSubKey(pName);
-                        k.DeleteSubKey(pName);
+
+                        bool removeKey;
+                        using (RegistryKey processKey = k.OpenSubKeyWritable(pName, RegistryRights.FullControl))
+                        {
+                            if (processKey == null) return;
+                            processKey.DeleteValue("Debugger", false);
+                            removeKey = processKey.ValueCount == 0 && processKey.SubKeyCount == 0;
+                        }
+
+                        if (removeKey) k.DeleteSubKey(pName, false);
                     }
                 }
             }
@@ -860,7 +887,6 @@ namespace Optimizer {
             silentConfig.Tweaks.ShowAllTrayIcons = OptionsHelper.CurrentOptions.ShowAllTrayIcons ? true : (bool?)null;
             silentConfig.Tweaks.RemoveMenusDelay = OptionsHelper.CurrentOptions.RemoveMenusDelay ? true : (bool?)null;
             silentConfig.Tweaks.DisableNetworkThrottling = OptionsHelper.CurrentOptions.DisableNetworkThrottling ? true : (bool?)null;
-            silentConfig.Tweaks.DisableWindowsDefender = OptionsHelper.CurrentOptions.DisableWindowsDefender ? true : (bool?)null;
             silentConfig.Tweaks.DisableSystemRestore = OptionsHelper.CurrentOptions.DisableSystemRestore ? true : (bool?)null;
             silentConfig.Tweaks.DisablePrintService = OptionsHelper.CurrentOptions.DisablePrintService ? true : (bool?)null;
             silentConfig.Tweaks.DisableMediaPlayerSharing = OptionsHelper.CurrentOptions.DisableMediaPlayerSharing ? true : (bool?)null;
@@ -868,6 +894,7 @@ namespace Optimizer {
             silentConfig.Tweaks.DisableHomeGroup = OptionsHelper.CurrentOptions.DisableHomeGroup ? true : (bool?)null;
             silentConfig.Tweaks.DisableSuperfetch = OptionsHelper.CurrentOptions.DisableSuperfetch ? true : (bool?)null;
             silentConfig.Tweaks.DisableTelemetryTasks = OptionsHelper.CurrentOptions.DisableTelemetryTasks ? true : (bool?)null;
+            silentConfig.Tweaks.DisableDefenderTelemetry = OptionsHelper.CurrentOptions.DisableDefenderTelemetry ? true : (bool?)null;
             silentConfig.Tweaks.DisableOffice2016Telemetry = OptionsHelper.CurrentOptions.DisableOffice2016Telemetry ? true : (bool?)null;
             silentConfig.Tweaks.DisableCompatibilityAssistant = OptionsHelper.CurrentOptions.DisableCompatibilityAssistant ? true : (bool?)null;
             silentConfig.Tweaks.DisableHibernation = OptionsHelper.CurrentOptions.DisableHibernation ? true : (bool?)null;

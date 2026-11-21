@@ -11,10 +11,14 @@ namespace Optimizer {
         public event EventHandler ToggleClicked;
 
         bool _hover;
+        readonly Timer _hoverTimer;
 
         public ToggleCard()
         {
             InitializeComponent();
+            _hoverTimer = new Timer { Interval = 50 };
+            _hoverTimer.Tick += HoverTimer_Tick;
+            Disposed += ToggleCard_Disposed;
             SetStyle(ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw, true);
             this.DoubleBuffered = true;
 
@@ -32,6 +36,7 @@ namespace Optimizer {
             {
                 c.MouseEnter += Card_MouseEnter;
                 c.MouseLeave += Card_MouseLeave;
+                c.MouseMove += Card_MouseMove;
             }
 
             ApplyTheme(ThemeManager.Current);
@@ -82,10 +87,8 @@ namespace Optimizer {
             RectangleF r = new RectangleF(0.5f, 0.5f, Width - 1.5f, Height - 1.5f);
             using (GraphicsPath path = Draw.RoundedRect(r, Draw.S(5)))
             using (SolidBrush b = new SolidBrush(CardFill))
-            using (Pen pen = new Pen(p.IsDark ? ColorMath.Blend(p.Layer1, Color.Black, 0.35) : p.Stroke))
             {
                 g.FillPath(b, path);
-                g.DrawPath(pen, path);
             }
         }
 
@@ -97,8 +100,16 @@ namespace Optimizer {
 
         void SetHover(bool hover)
         {
-            if (_hover == hover) return;
+            if (_hover == hover)
+            {
+                if (hover && !_hoverTimer.Enabled) _hoverTimer.Start();
+                else if (!hover && _hoverTimer.Enabled) _hoverTimer.Stop();
+                return;
+            }
+
             _hover = hover;
+            if (hover) _hoverTimer.Start();
+            else _hoverTimer.Stop();
             ApplyTheme(ThemeManager.Current);
         }
 
@@ -107,13 +118,56 @@ namespace Optimizer {
             SetHover(true);
         }
 
-        private void Card_MouseLeave(object sender, EventArgs e)
+        private void Card_MouseMove(object sender, MouseEventArgs e)
         {
-            SetHover(ClientRectangle.Contains(PointToClient(Cursor.Position)));
+            RefreshHoverFromCursor();
         }
 
-        protected override void OnMouseEnter(EventArgs e) { SetHover(true); base.OnMouseEnter(e); }
-        protected override void OnMouseLeave(EventArgs e) { Card_MouseLeave(this, e); base.OnMouseLeave(e); }
+        private void Card_MouseLeave(object sender, EventArgs e)
+        {
+            RefreshHoverFromCursor();
+        }
+
+        void RefreshHoverFromCursor()
+        {
+            if (IsDisposed || Disposing || !IsHandleCreated)
+            {
+                SetHover(false);
+                return;
+            }
+
+            SetHover(RectangleToScreen(ClientRectangle).Contains(Cursor.Position));
+        }
+
+        private void HoverTimer_Tick(object sender, EventArgs e)
+        {
+            RefreshHoverFromCursor();
+        }
+
+        private void ToggleCard_Disposed(object sender, EventArgs e)
+        {
+            _hoverTimer.Stop();
+            _hoverTimer.Tick -= HoverTimer_Tick;
+            _hoverTimer.Dispose();
+        }
+
+        protected override void OnMouseEnter(EventArgs e)
+        {
+            SetHover(true);
+            base.OnMouseEnter(e);
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            RefreshHoverFromCursor();
+            base.OnMouseMove(e);
+        }
+
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            RefreshHoverFromCursor();
+            base.OnMouseLeave(e);
+        }
 
         private void Toggle_CheckedChanged(object sender, EventArgs e)
         {

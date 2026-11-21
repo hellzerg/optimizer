@@ -2,7 +2,6 @@
 using System;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 
 namespace Optimizer {
     // Collection of useful debugging methods and utilities
@@ -23,7 +22,7 @@ namespace Optimizer {
             {
                 sb.Append(x.Name + Environment.NewLine);
             }
-            MessageBox.Show(sb.ToString());
+            FluentMessageBox.Show(sb.ToString());
         }
     }
 }

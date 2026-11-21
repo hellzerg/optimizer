@@ -22,7 +22,6 @@
 	"onedriveM": "Sei sicuro di voler disinstallare OneDrive? Questo cancellerà i tuoi file desktop e documenti! Usa questa opzione solo su un account locale!",
 	"performanceSw": "Abilita miglioramento prestazioni",
 	"networkSw": "Disabilita rallentamento della rete",
-	"defenderSw": "Disabilita Windows Defender",
 	"systemRestoreSw": "Disabilita ripristino di sistema",
 	"printSw": "Disabilita servizio stampa",
 	"mediaSharingSw": "Disabilita condivisione Media Player",
@@ -30,6 +29,7 @@
 	"reportingSw": "Disabilita segnalazione errori",
 	"homegroupSw": "Disabilita Gruppo Home",
 	"superfetchSw": "Disabilita Superfetch",
+	"defenderTelemetrySw": "Disabilita la telemetria di Microsoft Defender",
 	"telemetryTasksSw": "Disabilita processi telemetria",
 	"officeTelemetrySw": "Disabilita telemetrica Office",
 	"vsSW": "Disabilita la telemetria di Visual Studio",
@@ -324,12 +324,12 @@ Sicura da applicare.
 della rete che limiterà il traffico di
 rete durante l'esecuzione di app multimediali. 
 Può anche ridurre le prestazioni di rete mentre si gioca online.",
-	"defenderTip": "Windows Defender è l'antivirus intrinseco di Windows.",
 	"smartScreenTip": "SmartScreen scansiona automaticamente file, download e siti, bloccando
 contenuti pericolosi già conosciuti e avvisa l'utente prima che vengano avviati.",
 	"systemRestoreTip": "Il ripristino di sistema è una funzionalità che permette di ripristinare uno stato precedente
 di Windows per ovviare a problemi e malfunzionamenti.",
 	"reportingTip": "La segnalazione errori colleziona i dati dei crash delle app e gli errori e li invia a Microsoft.",
+	"defenderTelemetryTip": "Disabilita la segnalazione MAPS, l’invio di campioni di file e le segnalazioni di infezione dello Strumento di rimozione malware, oltre a Block at First Sight e alla protezione dalle applicazioni potenzialmente indesiderate. Queste modifiche riducono alcune protezioni cloud.",
 	"telemetryTasksTip": "I servizi di telemetria inviano periodicamente dai di uso e performance a Microsoft, per futuri miglioramenti.",
 	"officeTelemetryTip": "La telemetria di Office invia periodicamente dati di uso e
 performance a Microsoft, per futuri miglioramenti.",
@@ -421,6 +421,7 @@ prima che vengano rilasciate al pubblico.
 	"smb2Sw": "Disabilita il protocollo SMBv2",
 	"smbTip": "Il protocollo SMB{v} è responsabile della condivisione di file tra computer Windows.
 	È stato sostituito con SMBv3, che è più sicuro.",
+	"smb2Warning": "La disattivazione di SMBv2 disattiva anche SMBv3, poiché entrambi utilizzano lo stesso stack di protocolli.",
 	"ntfsStampSw": "Disabilita il timestamp NTFS",
 	"ntfsStampTip": "Indica l'ultima volta che si è avuto accesso al file.
 	La disabilitazione può ridurre le operazioni di I/O sui dischi.",

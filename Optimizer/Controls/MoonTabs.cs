@@ -45,8 +45,6 @@ namespace Optimizer {
 
         private int _hoverIndex = -1;
 
-        StringFormat format = new StringFormat { Alignment = StringAlignment.Center };
-
         private Bitmap bitDrag = default(Bitmap);
 
         private bool bDrag, bMouseDown, bShiftKey;
@@ -78,6 +76,17 @@ namespace Optimizer {
             Size textSize = TextRenderer.MeasureText(maxTitle, this.Font);
 
             SendMessage(this.Handle, 0x1300 + 49, IntPtr.Zero, (IntPtr)textSize.Width);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && bitDrag != null)
+            {
+                bitDrag.Dispose();
+                bitDrag = null;
+            }
+
+            base.Dispose(disposing);
         }
 
         public MoonTabs()
@@ -169,6 +178,11 @@ namespace Optimizer {
 
             SetDragState();
             Invalidate();
+            if (bitDrag != null)
+            {
+                bitDrag.Dispose();
+                bitDrag = null;
+            }
         }
 
         protected override void OnKeyDown(KeyEventArgs ke) { bShiftKey = ke.Shift; SetDragState(); }

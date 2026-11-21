@@ -21,6 +21,7 @@ namespace Optimizer {
     /// </summary>
     internal sealed class DiskActivityMonitor : IDisposable {
         internal const int MaxEntries = 50000;
+        internal const int MaxPendingEvents = 20000;
 
         struct RawEvent {
             internal ActivityKind Kind;
@@ -30,6 +31,8 @@ namespace Optimizer {
         }
 
         readonly ConcurrentQueue<RawEvent> _queue = new ConcurrentQueue<RawEvent>();
+        int _pendingCount;
+        long _pendingDropped;
         readonly Dictionary<string, ActivityEntry> _map = new Dictionary<string, ActivityEntry>(StringComparer.OrdinalIgnoreCase);
         readonly List<ActivityEntry> _entries = new List<ActivityEntry>();
         readonly Timer _pump = new Timer { Interval = 250 };
@@ -86,7 +89,7 @@ namespace Optimizer {
             w.Changed += (s, e) => { if (_modified) Enqueue(ActivityKind.Modified, e.FullPath, null); };
             w.Deleted += (s, e) => { if (_deleted) Enqueue(ActivityKind.Deleted, e.FullPath, null); };
             w.Renamed += (s, e) => { if (_renamed) Enqueue(ActivityKind.Renamed, e.FullPath, e.OldFullPath); };
-            w.Error += (s, e) => _queue.Enqueue(new RawEvent { Error = e.GetException() ?? new IOException() });
+            w.Error += (s, e) => Enqueue(new RawEvent { Error = e.GetException() ?? new IOException() });
 
             WatchedPath = path;
             StartedAt = DateTime.Now;
@@ -111,7 +114,8 @@ namespace Optimizer {
         internal void Clear()
         {
             RawEvent ignored;
-            while (_queue.TryDequeue(out ignored)) { }
+            while (_queue.TryDequeue(out ignored)) System.Threading.Interlocked.Decrement(ref _pendingCount);
+            System.Threading.Interlocked.Exchange(ref _pendingDropped, 0);
             _map.Clear();
             _entries.Clear();
             TotalEvents = 0;
@@ -123,7 +127,26 @@ namespace Optimizer {
         void Enqueue(ActivityKind kind, string path, string oldPath)
         {
             if (IsExcluded(path)) return;
-            _queue.Enqueue(new RawEvent { Kind = kind, Path = path, OldPath = oldPath, Time = DateTime.Now });
+            Enqueue(new RawEvent { Kind = kind, Path = path, OldPath = oldPath, Time = DateTime.Now });
+        }
+
+        void Enqueue(RawEvent rawEvent)
+        {
+            while (true)
+            {
+                int pending = System.Threading.Volatile.Read(ref _pendingCount);
+                if (pending >= MaxPendingEvents)
+                {
+                    System.Threading.Interlocked.Increment(ref _pendingDropped);
+                    return;
+                }
+
+                if (System.Threading.Interlocked.CompareExchange(ref _pendingCount, pending + 1, pending) == pending)
+                {
+                    _queue.Enqueue(rawEvent);
+                    return;
+                }
+            }
         }
 
         bool IsExcluded(string path)
@@ -141,11 +164,14 @@ namespace Optimizer {
 
         void Drain()
         {
-            bool changed = false, overflow = false, fault = false;
+            bool changed = false, overflow = System.Threading.Interlocked.Exchange(ref _pendingDropped, 0) > 0, fault = false;
             RawEvent ev;
-            // bound the work per tick so a burst can't freeze the UI
-            for (int n = 0; n < 20000 && _queue.TryDequeue(out ev); n++)
+            // Bound both queued memory and the amount of work performed per UI tick.
+            for (int n = 0; n < MaxPendingEvents; n++)
             {
+                if (!_queue.TryDequeue(out ev)) break;
+                System.Threading.Interlocked.Decrement(ref _pendingCount);
+
                 if (ev.Error != null)
                 {
                     if (ev.Error is InternalBufferOverflowException) overflow = true;

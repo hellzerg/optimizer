@@ -79,7 +79,6 @@
     "Tweaks": {
         "EnablePerformanceTweaks": null,
         "DisableNetworkThrottling": null,
-        "DisableWindowsDefender": null,
         "DisableSystemRestore": null,
         "DisablePrintService": null,
         "DisableMediaPlayerSharing": null,

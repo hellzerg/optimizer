@@ -23,7 +23,6 @@
 	"lblLab": "Deneysel Yapı\n(Testten sonra silin)",
 	"performanceSw": "Performans Ayarlarını Etkinleştir",
 	"networkSw": "Ağ Kısıtlamasını Devre Dışı Bırak",
-	"defenderSw": "Windows Defender'ı Devre Dışı Bırakın",
 	"systemRestoreSw": "Sistem Geri Yüklemeyi Devre Dışı Bırak",
 	"printSw": "Print(Yazdırma) Hizmetini Devre Dışı Bırak",
 	"mediaSharingSw": "Medya Oynatıcı Paylaşımını Devre Dışı Bırak",
@@ -31,6 +30,7 @@
 	"reportingSw": "Hata Raporunu Devre Dışı Bırak",
 	"homegroupSw": "Ev Grubunu Devre Dışı Bırak",
 	"superfetchSw": "Superfetch'i Devre Dışı Bırak",
+	"defenderTelemetrySw": "Microsoft Defender telemetrisini devre dışı bırak",
 	"telemetryTasksSw": "Telemetri Görevlerini Devre Dışı Bırak",
 	"officeTelemetrySw": "Office Telemetrisini Devre Dışı Bırak",
 	"vsSW": "Visual Studio Telemetrisini Devre Dışı Bırak",
@@ -333,12 +333,12 @@ Uygulanması tamamen güvenlidir.
 	"networkTip": "Windows, multimedya uygulamalarını çalıştırırken
 ağ trafiğini kısıtlayacak bir ağ kısıtlama mekanizması uygular.
 Ayrıca çevrimiçi oyunlar oynarken ağın performansını da düşürebilir.",
-	"defenderTip": "Windows Defender, Windows sistemlerinde yerleşik antivirüs yazılımıdır.",
 	"smartScreenTip": "SmartScreen dosyaları, indirmeleri ve web sitelerini otomatik olarak tarar.
 Zaten bilinen tehlikeli içeriği engeller ve çalıştırmadan önce sizi uyarır.",
 	"systemRestoreTip": "Sistem Geri Yükleme, arızalardan veya diğer sorunlardan kurtulmak için
 Windows'un durumunu bir öncekine döndürmeyi sağlayan bir özelliktir.",
 	"reportingTip": "Hata Raporlama, uygulama çökmelerini ve hatalarını toplar ve bunları Microsoft'a gönderir.",
+	"defenderTelemetryTip": "MAPS raporlamasını, dosya örneği gönderimini ve Kötü Amaçlı Yazılımları Temizleme Aracı enfeksiyon raporlamasını; ayrıca İlk Görüşte Engelleme ve istenmeyebilecek uygulamalara karşı korumayı devre dışı bırakır. Bu değişiklikler bazı bulut tabanlı korumaları azaltır.",
 	"telemetryTasksTip": "Telemetri hizmetleri, gelecekteki iyileştirmeler için düzenli aralıklarla
 kullanım ve performans verilerini Microsoft'a gönderir.",
 	"officeTelemetryTip": "Office telemetrisi, gelecekteki iyileştirmeler için düzenli aralıklarla
@@ -424,6 +424,7 @@ Katılmak istemeyen kullanıcılar için gereksiz bir hizmet olarak kabul edilir
 	"smb2Sw": "SMBv2 Protokolünü Devre Dışı Bırak",
 	"smbTip": "SMB{v} protokolü, Windows bilgisayarlar arasında dosya paylaşımından sorumludur.
 	Daha güvenli olan SMBv3 ile değiştirildi.",
+	"smb2Warning": "SMBv2'yi devre dışı bırakmak, her ikisi de aynı protokol yığınını kullandığından SMBv3'ü de devre dışı bırakır.",
 	"ntfsStampSw": "NTFS Zaman Damgasını Devre Dışı Bırak",
 	"ntfsStampTip": "Dosyanın en son erişilen damgasını gösterir.
 	Devre dışı bırakmak, disklerdeki G/Ç işlemlerini azaltabilir.",

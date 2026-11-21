@@ -20,7 +20,6 @@
 	"lblLab": "Experimentelle Version\n(nach Test löschen)",
 	"performanceSw": "Leistung optimieren",
 	"networkSw": "Netzwerk optimieren",
-	"defenderSw": "Windows Defender deaktivieren",
 	"systemRestoreSw": "Systemwiederherstellung deaktivieren",
 	"printSw": "Druckdienst deaktivieren",
 	"mediaSharingSw": "Medienfreigabe deaktivieren",
@@ -28,6 +27,7 @@
 	"reportingSw": "Fehlerberichterstattung deaktivieren",
 	"homegroupSw": "Heimnetzgruppe deaktivieren",
 	"superfetchSw": "Superfetch deaktivieren",
+	"defenderTelemetrySw": "Microsoft-Defender-Telemetrie deaktivieren",
 	"telemetryTasksSw": "Telemetrie-Aufgaben deaktivieren",
 	"officeTelemetrySw": "Office-Telemetrie deaktivieren",
 	"vsSW": "Visual Studio-Telemetrie deaktivieren",
@@ -328,10 +328,10 @@
 	- Zeigt immer Dateierweiterungen an
 	- Zeigt versteckte Dateien",
 	"networkTip": "Windows implementiert einen Mechanismus zur Netzwerkdrosselung, der den Netzwerkverkehr einschränkt, wenn Multimedia-Anwendungen ausgeführt werden. Dies kann auch die Netzwerkleistung verringern, wenn Sie Online-Spiele spielen.",
-	"defenderTip": "Windows Defender ist der integrierte Virenschutz in Windows - Systemen.",
 	"smartScreenTip": "SmartScreen scannt automatisch Dateien, Downloads und Websites, blockiert bereits bekannte gefährliche Inhalte und warnt Sie, bevor Sie diese ausführen.",
 	"systemRestoreTip": "Die Systemwiederherstellung ist eine Funktion, mit der der jetzige Zustand von Windows auf einen früheren Zustand zurückgesetzt werden kann, um Fehlfunktionen oder anderen Problemen zu lösen.",
 	"reportingTip": "Die Fehlerberichterstattung sammelt Anwendungsabstürze und -fehler und sendet sie an Microsoft.",
+	"defenderTelemetryTip": "Deaktiviert MAPS-Berichte, die Übermittlung von Dateibeispielen und Infektionsberichte des Tools zum Entfernen bösartiger Software sowie Block at First Sight und den Schutz vor potenziell unerwünschten Anwendungen. Dadurch werden einige cloudbasierte Schutzfunktionen reduziert.",
 	"telemetryTasksTip": "Telemetrie-Dienste senden in regelmäßigen Abständen Nutzungs- und Leistungsdaten an Microsoft, um zukünftige Verbesserungen zu ermöglichen.",
 	"officeTelemetryTip": "Office-Telemetrie-Dienste senden regelmäßig Nutzungs- und Leistungsdaten an Microsoft, für künftige Verbesserungen.",
 	"ffTelemetryTip": "Deaktiviert Mozilla Firefox Telemetrie- und Datenberichtsdienste.",
@@ -400,6 +400,7 @@
 	"smb2Sw": "Deaktiviere das SMBv2-Protokoll",
 	"smbTip": "Das SMB{v}-Protokoll ist für die Dateifreigabe zwischen Windows-Computern verantwortlich.
 	Es wurde durch SMBv3 ersetzt, das sicherer ist.",
+	"smb2Warning": "Durch das Deaktivieren von SMBv2 wird auch SMBv3 deaktiviert, da beide denselben Protokollstapel verwenden.",
 	"ntfsStampSw": "Deaktiviere den NTFS-Zeitstempel",
 	"ntfsStampTip": "Gibt den Zeitpunkt des letzten Zugriffs auf die Datei an.
 	Durch Deaktivieren können die E/A-Vorgänge auf den Festplatten reduziert werden.",

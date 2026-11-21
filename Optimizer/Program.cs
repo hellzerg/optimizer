@@ -74,7 +74,7 @@ namespace Optimizer {
 
             if (!_notRunning)
             {
-                MessageBox.Show(_alreadyRunningMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FluentMessageBox.Show(_alreadyRunningMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Environment.Exit(0);
                 return;
             }
@@ -157,8 +157,8 @@ namespace Optimizer {
 
                 if (arg == "/version")
                 {
-                    if (!EXPERIMENTAL_BUILD) MessageBox.Show($"Optimizer: {GetCurrentVersionTostring()}\n\nCoded by: deadmoon © ∞\n\nhttps://github.com/hellzerg/optimizer", "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else MessageBox.Show("Optimizer: EXPERIMENTAL BUILD. PLEASE DELETE AFTER TESTING.\n\nCoded by: deadmoon © ∞\n\nhttps://github.com/hellzerg/optimizer", "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!EXPERIMENTAL_BUILD) FluentMessageBox.Show($"Optimizer: {GetCurrentVersionTostring()}\n\nCoded by: deadmoon © ∞\n\nhttps://github.com/hellzerg/optimizer", "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else FluentMessageBox.Show("Optimizer: EXPERIMENTAL BUILD. PLEASE DELETE AFTER TESTING.\n\nCoded by: deadmoon © ∞\n\nhttps://github.com/hellzerg/optimizer", "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Environment.Exit(0);
                     return;
@@ -202,7 +202,7 @@ namespace Optimizer {
 
                     if (!File.Exists(fileName))
                     {
-                        MessageBox.Show(_confNotFoundMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FluentMessageBox.Show(_confNotFoundMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Environment.Exit(0);
                         return;
                     }
@@ -211,13 +211,13 @@ namespace Optimizer {
 
                     if (SilentOps.CurrentSilentConfig == null)
                     {
-                        MessageBox.Show(_confInvalidFormatMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FluentMessageBox.Show(_confInvalidFormatMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Environment.Exit(0);
                         return;
                     }
                     if (!SilentOps.ProcessWindowsVersionCompatibility())
                     {
-                        MessageBox.Show(_confInvalidVersionMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FluentMessageBox.Show(_confInvalidVersionMsg, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Environment.Exit(0);
                         return;
                     }

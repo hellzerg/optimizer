@@ -25,9 +25,20 @@ namespace Optimizer {
             {
                 using (InstalledFontCollection fonts = new InstalledFontCollection())
                 {
-                    foreach (FontFamily f in fonts.Families)
+                    FontFamily[] families = fonts.Families;
+                    try
                     {
-                        if (string.Equals(f.Name, family, StringComparison.OrdinalIgnoreCase)) return true;
+                        foreach (FontFamily fontFamily in families)
+                        {
+                            if (string.Equals(fontFamily.Name, family, StringComparison.OrdinalIgnoreCase)) return true;
+                        }
+                    }
+                    finally
+                    {
+                        foreach (FontFamily fontFamily in families)
+                        {
+                            if (fontFamily != null) fontFamily.Dispose();
+                        }
                     }
                 }
             }
@@ -48,7 +59,7 @@ namespace Optimizer {
         internal static Font Get(float sizeInPoints, Weight weight, FontStyle extra = FontStyle.Regular)
         {
             string family = FamilyFor(weight);
-            extra &= FontStyle.Underline | FontStyle.Strikeout;
+            extra &= FontStyle.Italic | FontStyle.Underline | FontStyle.Strikeout;
             string key = family + "|" + sizeInPoints.ToString(System.Globalization.CultureInfo.InvariantCulture) + "|" + (int)extra;
 
             Font font;
@@ -120,7 +131,12 @@ namespace Optimizer {
         {
             Font f = item.Font;
             if (f == null || IsModern(f) || !IsLegacy(f)) return;
-            Font target = Get(f.SizeInPoints, Weight.Regular, f.Style);
+
+            bool heavy = f.FontFamily.Name == "Segoe UI Semibold" || f.Bold;
+            Weight weight = heavy && f.SizeInPoints >= 14f
+                ? Weight.Display
+                : (heavy ? Weight.Semibold : Weight.Regular);
+            Font target = Get(f.SizeInPoints, weight, f.Style);
             if (target.FontFamily.Name != f.FontFamily.Name || target.Style != f.Style) item.Font = target;
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -17,6 +18,14 @@ namespace Optimizer {
         LinkLabel _appsClear;
         int _appsTileW;
         bool _appsLayingOut, _appsBulk;
+
+        bool UpdateGoToDownloadsButtonState()
+        {
+            string folder = txtDownloadFolder.Text;
+            bool available = !string.IsNullOrWhiteSpace(folder) && Directory.Exists(folder);
+            goToDownloadsB.Enabled = available;
+            return available;
+        }
 
         void InitAppsUi()
         {
@@ -74,6 +83,7 @@ namespace Optimizer {
 
             _appsBar = NewCard(appsTab);
             foreach (Control c in panelCommonApps.Controls.Cast<Control>().ToArray()) Reparent(c, _appsBar);
+            txtDownloadFolder.TextChanged += (s, e) => UpdateGoToDownloadsButtonState();
             btnDownloadApps.Kind = ButtonKind.Primary;
             foreach (Label l in new[] { setDownDirLbl, bitPref })
             {

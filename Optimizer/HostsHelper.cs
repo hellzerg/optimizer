@@ -15,17 +15,12 @@ namespace Optimizer {
         {
             try
             {
-                if (File.Exists(HostsFile))
-                {
-                    File.Delete(HostsFile);
-                }
-
-                File.WriteAllBytes(HostsFile, Properties.Resources.hosts);
+                WriteHostsAtomically(Properties.Resources.hosts);
             }
             catch (Exception ex)
             {
                 Logger.LogError("HostsHelper.RestoreDefaultHosts", ex.Message, ex.StackTrace);
-                MessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FluentMessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -75,23 +70,17 @@ namespace Optimizer {
 
         internal static void SaveHosts(string[] lines)
         {
-            for (int i = 0; i < lines.Length; i++)
-            {
-                if (!lines[i].StartsWith("#") && (!string.IsNullOrEmpty(lines[i])))
-                {
-                    lines[i] = SanitizeEntry(lines[i]);
-                }
-            }
-
             try
             {
-                File.WriteAllText(HostsFile, string.Empty);
-                File.WriteAllLines(HostsFile, lines);
+                string[] sanitized = (lines ?? new string[0])
+                    .Select(line => string.IsNullOrEmpty(line) || line.StartsWith("#", StringComparison.Ordinal) ? line ?? string.Empty : SanitizeEntry(line))
+                    .ToArray();
+                WriteHostsLinesAtomically(sanitized);
             }
             catch (Exception ex)
             {
                 Logger.LogError("HostsHelper.SaveHosts", ex.Message, ex.StackTrace);
-                MessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FluentMessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -117,12 +106,13 @@ namespace Optimizer {
         {
             try
             {
-                File.AppendAllText(HostsFile, NewLine + $"{entry}");
+                string current = File.Exists(HostsFile) ? File.ReadAllText(HostsFile) : string.Empty;
+                WriteHostsTextAtomically(current + NewLine + entry);
             }
             catch (Exception ex)
             {
                 Logger.LogError("HostsHelper.AddEntry", ex.Message, ex.StackTrace);
-                MessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FluentMessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -130,12 +120,12 @@ namespace Optimizer {
         {
             try
             {
-                File.WriteAllLines(HostsFile, File.ReadLines(HostsFile).Where(x => x != entry).ToList());
+                WriteHostsLinesAtomically(File.ReadAllLines(HostsFile).Where(line => !string.Equals(line, entry, StringComparison.Ordinal)));
             }
             catch (Exception ex)
             {
                 Logger.LogError("HostsHelper.RemoveEntry", ex.Message, ex.StackTrace);
-                MessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FluentMessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -143,7 +133,17 @@ namespace Optimizer {
         {
             try
             {
-                File.WriteAllLines(HostsFile, File.ReadLines(HostsFile).Where(x => !x.Contains(domain)).ToList());
+                string normalizedDomain = NormalizeHostName(domain);
+                if (normalizedDomain.Length == 0) return;
+
+                List<string> lines = new List<string>();
+                foreach (string line in File.ReadAllLines(HostsFile))
+                {
+                    string updatedLine = RemoveHostName(line, normalizedDomain);
+                    if (updatedLine != null) lines.Add(updatedLine);
+                }
+
+                WriteHostsLinesAtomically(lines);
             }
             catch (Exception ex)
             {
@@ -155,15 +155,82 @@ namespace Optimizer {
         {
             try
             {
-                foreach (string text in collection)
-                {
-                    File.WriteAllLines(HostsFile, File.ReadLines(HostsFile).Where(l => l != text).ToList());
-                }
+                if (collection == null || collection.Count == 0) return;
+
+                HashSet<string> entries = new HashSet<string>(collection, StringComparer.Ordinal);
+                WriteHostsLinesAtomically(File.ReadAllLines(HostsFile).Where(line => !entries.Contains(line)));
             }
             catch (Exception ex)
             {
                 Logger.LogError("HostsHelper.RemoveAllEntries", ex.Message, ex.StackTrace);
-                MessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FluentMessageBox.Show(OptionsHelper.TranslationList("dnsCacheM").ToString(), "DNS Cache is running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        static string NormalizeHostName(string hostName)
+        {
+            return string.IsNullOrWhiteSpace(hostName) ? string.Empty : hostName.Trim().TrimEnd('.');
+        }
+
+        static string RemoveHostName(string line, string domain)
+        {
+            if (string.IsNullOrWhiteSpace(line) || line.TrimStart().StartsWith("#", StringComparison.Ordinal)) return line;
+
+            int commentIndex = line.IndexOf('#');
+            string mapping = commentIndex >= 0 ? line.Substring(0, commentIndex) : line;
+            string comment = commentIndex >= 0 ? line.Substring(commentIndex) : string.Empty;
+            string[] tokens = mapping.Split((char[])null, StringSplitOptions.RemoveEmptyEntries);
+            if (tokens.Length < 2) return line;
+
+            List<string> hostNames = new List<string>();
+            bool removed = false;
+            for (int i = 1; i < tokens.Length; i++)
+            {
+                if (string.Equals(NormalizeHostName(tokens[i]), domain, StringComparison.OrdinalIgnoreCase))
+                    removed = true;
+                else
+                    hostNames.Add(tokens[i]);
+            }
+
+            if (!removed) return line;
+            if (hostNames.Count == 0) return null;
+
+            string updated = tokens[0] + " " + string.Join(" ", hostNames);
+            return comment.Length == 0 ? updated : updated + " " + comment;
+        }
+
+        static void WriteHostsLinesAtomically(IEnumerable<string> lines)
+        {
+            string[] values = lines == null ? new string[0] : lines.ToArray();
+            string content = values.Length == 0 ? string.Empty : string.Join(Environment.NewLine, values) + Environment.NewLine;
+            WriteHostsTextAtomically(content);
+        }
+
+        static void WriteHostsTextAtomically(string content)
+        {
+            WriteHostsAtomically(new System.Text.UTF8Encoding(false).GetBytes(content ?? string.Empty));
+        }
+
+        static void WriteHostsAtomically(byte[] contents)
+        {
+            string directory = Path.GetDirectoryName(HostsFile);
+            string temporaryFile = Path.Combine(directory, ".hosts." + Guid.NewGuid().ToString("N") + ".tmp");
+            try
+            {
+                using (FileStream stream = new FileStream(temporaryFile, FileMode.CreateNew, FileAccess.Write, FileShare.None, 4096, FileOptions.WriteThrough))
+                {
+                    stream.Write(contents, 0, contents.Length);
+                    stream.Flush(true);
+                }
+
+                if (File.Exists(HostsFile))
+                    File.Replace(temporaryFile, HostsFile, null);
+                else
+                    File.Move(temporaryFile, HostsFile);
+            }
+            finally
+            {
+                if (File.Exists(temporaryFile)) File.Delete(temporaryFile);
             }
         }
 

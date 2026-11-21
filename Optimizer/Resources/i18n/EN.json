@@ -19,7 +19,6 @@
 	"lblLab": "Experimental build\n(delete after testing)",
 	"performanceSw": "Optimize Performance",
 	"networkSw": "Optimizer Network",
-	"defenderSw": "Disable Windows Defender",
 	"systemRestoreSw": "Disable System Restore",
 	"printSw": "Disable Print Service",
 	"mediaSharingSw": "Disable Media Player Sharing",
@@ -27,6 +26,7 @@
 	"reportingSw": "Disable Error Reporting",
 	"homegroupSw": "Disable HomeGroup",
 	"superfetchSw": "Disable Superfetch",
+	"defenderTelemetrySw": "Disable Defender Telemetry",
 	"telemetryTasksSw": "Disable Telemetry Tasks",
 	"officeTelemetrySw": "Disable Office Telemetry",
 	"vsSW": "Disable Visual Studio Telemetry",
@@ -331,12 +331,12 @@ Completely safe to apply.
 	"networkTip": "Windows implements a network throttling mechanism that will restrict
 network traffic when running multimedia apps. It can also reduce network's
 performance when playing online games.",
-	"defenderTip": "Windows Defender is the built-in antivirus in Windows systems.",
 	"smartScreenTip": "SmartScreen automatically scans files, downloads and websites, blocking
 already-known dangerous content and warns you before running them.",
 	"systemRestoreTip": "System Restore is a feature that allows to revert Windows' state
 to a previous one to recover from malfunctions or other problems.",
 	"reportingTip": "Error Reporting collects application crashes and errors and send them to Microsoft.",
+	"defenderTelemetryTip": "Disables MAPS reporting, file sample submission, Malicious Software Removal Tool infection reporting, Block at First Sight, and potentially unwanted application protection. These changes reduce some cloud-assisted protection.",
 	"telemetryTasksTip": "Telemetry services periodically sends usage and performance data to Microsoft,
 for future improvement.",
 	"officeTelemetryTip": "Office telemetry periodically sends usage and
@@ -427,6 +427,7 @@ It's considered an unnecessary service for users who don't wish to participate."
 	"smb2Sw": "Disable SMBv2 Protocol",
 	"smbTip": "SMB{v} protocol is responsible for file-sharing between Windows computers.
 It has been replaced with SMBv3, which is more secure.",
+	"smb2Warning": "Disabling SMBv2 also disables SMBv3 because both use the same protocol stack.",
 	"ntfsStampSw": "Disable NTFS Timestamp",
 	"ntfsStampTip": "Indicates the file's last time accessed stamp.
 Disabling it can reduce I/O operations on the disks.",

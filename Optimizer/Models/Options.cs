@@ -74,7 +74,6 @@ namespace Optimizer {
         /// </summary>
         public bool EnablePerformanceTweaks { get; set; }
         public bool DisableNetworkThrottling { get; set; }
-        public bool DisableWindowsDefender { get; set; }
         public bool DisableSystemRestore { get; set; }
         public bool DisablePrintService { get; set; }
         public bool DisableMediaPlayerSharing { get; set; }
@@ -82,6 +81,7 @@ namespace Optimizer {
         public bool DisableHomeGroup { get; set; }
         public bool DisableSuperfetch { get; set; }
         public bool DisableTelemetryTasks { get; set; }
+        public bool DisableDefenderTelemetry { get; set; }
         public bool DisableCompatibilityAssistant { get; set; }
         public bool DisableFaxService { get; set; }
         public bool DisableSmartScreen { get; set; }

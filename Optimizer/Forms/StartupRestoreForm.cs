@@ -68,7 +68,7 @@ namespace Optimizer {
         {
             if (listRestoreItems.SelectedIndex > -1)
             {
-                if (MessageBox.Show("Do you really want to delete this backup?", "Delete Backup?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (FluentMessageBox.Show("Do you really want to delete this backup?", "Delete Backup?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     try
                     {

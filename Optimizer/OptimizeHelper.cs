@@ -1,7 +1,9 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Optimizer {
     public static class OptimizeHelper {
@@ -362,77 +364,28 @@ namespace Optimizer {
             Utilities.StartService("VSS");
         }
 
-        internal static void DisableDefender()
+        internal static void DisableDefenderTelemetry()
         {
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender", "DisableAntiVirus", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender", "DisableSpecialRunningModes", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender", "DisableRoutinelyTakingAction", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender", "ServiceKeepAlive", "0", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection", "DisableRealtimeMonitoring", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Signature Updates", "ForceUpdateFromMU", 0);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet", "DisableBlockAtFirstSeen", 1);
+            const string spynetPath = @"SOFTWARE\Policies\Microsoft\Windows Defender\Spynet";
 
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\MpEngine", "MpEnablePus", "0", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender", "PUAProtection", "0", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Policy Manager", "DisableScanningNetworkFiles", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender", "DisableAntiSpyware", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender", "DisableRealtimeMonitoring", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\Spynet", "SpyNetReporting", "0", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\Spynet", "SubmitSamplesConsent", "0", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\MRT", "DontReportInfectionInformation", "1", RegistryValueKind.DWord);
-            Registry.ClassesRoot.DeleteSubKeyTree(@"\CLSID\{09A47860-11B0-4DA5-AFA5-26D86198A780}", false);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection", "DisableBehaviorMonitoring", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection", "DisableOnAccessProtection", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection", "DisableScanOnRealtimeEnable", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection", "DisableIOAVProtection", "1", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\" + spynetPath, "SpynetReporting", 0, RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\" + spynetPath, "SubmitSamplesConsent", 2, RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MRT", "DontReportInfectionInformation", 1, RegistryValueKind.DWord);
 
-            RegistryKey k = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
-
-            using (RegistryKey tmp = k.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true))
+            if (Utilities.CurrentWindowsVersion >= WindowsVersion.Windows10)
             {
-                tmp.DeleteValue("WindowsDefender", false);
-                tmp.DeleteValue("SecurityHealth", false);
+                Registry.SetValue(@"HKEY_LOCAL_MACHINE\" + spynetPath, "DisableBlockAtFirstSeen", 1, RegistryValueKind.DWord);
+                Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\MpEngine", "MpEnablePus", 0, RegistryValueKind.DWord);
             }
-
-            string rootPath;
-            if (Environment.Is64BitOperatingSystem)
-            {
-                rootPath = Environment.ExpandEnvironmentVariables("%ProgramW6432%");
-            }
-            else
-            {
-                rootPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
-            }
-
-            //Utilities.RunCommand(@"regsvr32 /u /s """ + rootPath + "\"");
-            //Utilities.RunCommand("Gpupdate /Force");
         }
 
-        internal static void EnableDefender()
+        internal static void EnableDefenderTelemetry()
         {
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\MpEngine", "MpEnablePus", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender", "PUAProtection", "1", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Policy Manager", "DisableScanningNetworkFiles", "0", RegistryValueKind.DWord);
-            Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender", true).DeleteValue("DisableRealtimeMonitoring", false);
-            Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender", true).DeleteValue("DisableAntiSpyware", false);
-            Registry.LocalMachine.OpenSubKey(@"Software\Policies\Microsoft\Windows Defender\Spynet", true).DeleteValue("SpyNetReporting", false);
-            Registry.LocalMachine.OpenSubKey(@"Software\Policies\Microsoft\Windows Defender\Spynet", true).DeleteValue("SubmitSamplesConsent", false);
-            Registry.LocalMachine.OpenSubKey(@"Software\Policies\Microsoft\MRT", true).DeleteValue("DontReportInfectionInformation", false);
-
-            Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection", true).DeleteValue("DisableBehaviorMonitoring", false);
-            Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection", true).DeleteValue("DisableOnAccessProtection", false);
-            Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection", true).DeleteValue("DisableScanOnRealtimeEnable", false);
-            Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection", true).DeleteValue("DisableIOAVProtection", false);
-
-            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows Defender", "DisableAntiVirus");
-            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows Defender", "DisableSpecialRunningModes");
-            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows Defender", "DisableRoutinelyTakingAction");
-            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows Defender", "ServiceKeepAlive");
-            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection", "DisableRealtimeMonitoring");
-            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows Defender\Signature Updates", "ForceUpdateFromMU");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows Defender\Spynet", "SpynetReporting");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows Defender\Spynet", "SubmitSamplesConsent");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\MRT", "DontReportInfectionInformation");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows Defender\Spynet", "DisableBlockAtFirstSeen");
-
-            //Utilities.RunCommand("Gpupdate /Force");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows Defender\MpEngine", "MpEnablePus");
         }
 
         internal static void DisableSearch()
@@ -449,12 +402,160 @@ namespace Optimizer {
 
         internal static void DisableSMB(string v)
         {
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters", $"SMB{v}", 0, RegistryValueKind.DWord);
+            SetSmbServerProtocol(v, false);
+            SetSmbClientProtocol(v, false);
         }
 
         internal static void EnableSMB(string v)
         {
-            Utilities.TryDeleteRegistryValue(true, @"SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters", $"SMB{v}");
+            SetSmbServerProtocol(v, true);
+            SetSmbClientProtocol(v, true);
+        }
+
+        private static void SetSmbServerProtocol(string version, bool enabled)
+        {
+            ValidateSmbVersion(version);
+
+            if (Utilities.CurrentWindowsVersion >= WindowsVersion.Windows8)
+            {
+                string protocol = version == "1" ? "EnableSMB1Protocol" : "EnableSMB2Protocol";
+                string state = enabled ? "$true" : "$false";
+                string featureCheck = version == "1"
+                    ? "$smb1ServerFeature = $null; try { $smb1ServerFeature = Get-WindowsOptionalFeature -Online -FeatureName 'SMB1Protocol-Server' -ErrorAction Stop } catch {}; if (($null -ne $smb1ServerFeature) -and ($smb1ServerFeature.State -ne 'Enabled') -and ($smb1ServerFeature.State -ne 'EnablePending')) { exit 0 }; "
+                    : string.Empty;
+                string script = "try { Import-Module SmbShare -ErrorAction Stop; " + featureCheck + "Set-SmbServerConfiguration -" + protocol + " " + state + " -Force -Confirm:$false -ErrorAction Stop; exit 0 } catch { $message = $_.Exception.Message; if ($message -match '(?i)specified service does not exist') { exit 0 }; [Console]::Error.WriteLine($message); exit 1 }";
+
+                RunSmbPowerShellCommand(script);
+                return;
+            }
+
+            const string parametersPath = @"SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters";
+            if (enabled)
+            {
+                Utilities.TryDeleteRegistryValue(true, parametersPath, "SMB" + version);
+            }
+            else
+            {
+                using (RegistryKey key = Registry.LocalMachine.CreateSubKey(parametersPath))
+                {
+                    key.SetValue("SMB" + version, 0, RegistryValueKind.DWord);
+                }
+            }
+        }
+
+        private static void SetSmbClientProtocol(string version, bool enabled)
+        {
+            ValidateSmbVersion(version);
+
+            string driverName = "MRxSmb" + version + "0";
+            string driverPath = @"SYSTEM\CurrentControlSet\Services\" + driverName;
+            const string workstationPath = @"SYSTEM\CurrentControlSet\Services\LanmanWorkstation";
+
+            using (RegistryKey workstation = Registry.LocalMachine.OpenSubKey(workstationPath, true))
+            {
+                if (workstation == null)
+                    throw new InvalidOperationException("The LanmanWorkstation service registry key is unavailable.");
+
+                string[] currentDependencies = workstation.GetValue("DependOnService") as string[];
+                List<string> dependencies = currentDependencies == null || currentDependencies.Length == 0
+                    ? new List<string> { "Bowser", "MRxSmb10", "MRxSmb20", "NSI" }
+                    : new List<string>(currentDependencies);
+
+                using (RegistryKey driver = Registry.LocalMachine.OpenSubKey(driverPath, true))
+                {
+                    if (driver != null)
+                    {
+                        driver.SetValue("Start", enabled ? 2 : 4, RegistryValueKind.DWord);
+                    }
+
+                    bool shouldBeDependency = enabled && driver != null;
+                    bool dependencyExists = dependencies.Exists(x => x.Equals(driverName, StringComparison.OrdinalIgnoreCase));
+
+                    if (!shouldBeDependency)
+                    {
+                        dependencies.RemoveAll(x => x.Equals(driverName, StringComparison.OrdinalIgnoreCase));
+                    }
+                    else if (!dependencyExists)
+                    {
+                        int insertAt = -1;
+                        if (version == "1")
+                        {
+                            insertAt = dependencies.FindIndex(x => x.Equals("MRxSmb20", StringComparison.OrdinalIgnoreCase));
+                        }
+
+                        if (insertAt < 0)
+                        {
+                            insertAt = dependencies.FindIndex(x => x.Equals("NSI", StringComparison.OrdinalIgnoreCase));
+                        }
+
+                        if (insertAt < 0)
+                        {
+                            dependencies.Add(driverName);
+                        }
+                        else
+                        {
+                            dependencies.Insert(insertAt, driverName);
+                        }
+                    }
+
+                    if (!SmbDependenciesEqual(currentDependencies, dependencies))
+                    {
+                        workstation.SetValue("DependOnService", dependencies.ToArray(), RegistryValueKind.MultiString);
+                    }
+                }
+            }
+        }
+
+        private static bool SmbDependenciesEqual(string[] current, List<string> updated)
+        {
+            if (current == null || current.Length != updated.Count)
+                return false;
+
+            for (int i = 0; i < current.Length; i++)
+            {
+                if (!current[i].Equals(updated[i], StringComparison.OrdinalIgnoreCase))
+                    return false;
+            }
+
+            return true;
+        }
+
+        private static void RunSmbPowerShellCommand(string script)
+        {
+            string powerShellPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), @"WindowsPowerShell\v1.0\powershell.exe");
+
+            using (Process process = new Process())
+            {
+                process.StartInfo.FileName = File.Exists(powerShellPath) ? powerShellPath : "powershell.exe";
+                process.StartInfo.Arguments = "-NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command \"" + script + "\"";
+                process.StartInfo.CreateNoWindow = true;
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.RedirectStandardError = true;
+
+                if (!process.Start())
+                    throw new InvalidOperationException("Windows PowerShell could not be started.");
+
+                Task<string> standardOutput = process.StandardOutput.ReadToEndAsync();
+                Task<string> standardError = process.StandardError.ReadToEndAsync();
+                process.WaitForExit();
+                Task.WaitAll(standardOutput, standardError);
+
+                if (process.ExitCode != 0)
+                {
+                    string error = standardError.Result.Trim();
+                    if (string.IsNullOrEmpty(error)) error = standardOutput.Result.Trim();
+                    throw new InvalidOperationException(string.IsNullOrEmpty(error)
+                        ? "The SMB server configuration command failed with exit code " + process.ExitCode + "."
+                        : error);
+                }
+            }
+        }
+
+        private static void ValidateSmbVersion(string version)
+        {
+            if (version != "1" && version != "2")
+                throw new ArgumentOutOfRangeException("version", version, "Only SMBv1 and SMBv2 are supported.");
         }
 
         internal static void DisableNTFSTimeStamp()
@@ -1747,6 +1848,7 @@ namespace Optimizer {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "HubsSidebarEnabled", 0, RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge", "HubsSidebarEnabled", 0, RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "WebWidgetAllowed", 0, RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "DefaultBrowserSettingsCampaignEnabled", 0, RegistryValueKind.DWord);
         }
 
         internal static void EnableEdgeDiscoverBar()
@@ -1754,6 +1856,7 @@ namespace Optimizer {
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Edge", "HubsSidebarEnabled");
             Utilities.TryDeleteRegistryValue(false, @"SOFTWARE\Policies\Microsoft\Edge", "HubsSidebarEnabled");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Edge", "WebWidgetAllowed");
+            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Edge", "DefaultBrowserSettingsCampaignEnabled");
         }
 
         internal static void DisableEdgeTelemetry()
@@ -1808,8 +1911,7 @@ namespace Optimizer {
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsAI", "DisableAIDataAnalysis", "1", RegistryValueKind.DWord);
 
             Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "ShowCopilotButton", "0", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "DefaultBrowserSettingsCampaignEnabled", "0", RegistryValueKind.DWord);
-            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "ComposeInlineEnabled", "0", RegistryValueKind.DWord);
+            Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "ComposeInlineEnabled", 0, RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot", "TurnOffWindowsCopilot", "1", RegistryValueKind.DWord);
             Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot", "TurnOffWindowsCopilot", "1", RegistryValueKind.DWord);
         }
@@ -1821,7 +1923,6 @@ namespace Optimizer {
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Windows\WindowsAI", "DisableAIDataAnalysis");
             Utilities.TryDeleteRegistryValue(false, @"Software\Policies\Microsoft\Windows\WindowsCopilot", "TurnOffWindowsCopilot");
             Utilities.TryDeleteRegistryValue(true, @"Software\Policies\Microsoft\Windows\WindowsCopilot", "TurnOffWindowsCopilot");
-            Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Edge", "DefaultBrowserSettingsCampaignEnabled");
             Utilities.TryDeleteRegistryValue(true, @"SOFTWARE\Policies\Microsoft\Edge", "ComposeInlineEnabled");
         }
 

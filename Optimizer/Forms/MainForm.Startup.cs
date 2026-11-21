@@ -267,7 +267,7 @@ namespace Optimizer {
                     {
                         Exception ex = t.Exception.GetBaseException();
                         Logger.LogError("MainForm.CheckForUpdate", ex.Message, ex.StackTrace);
-                        MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FluentMessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
                     string latestVersion = t.Result;

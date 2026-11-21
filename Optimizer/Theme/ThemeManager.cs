@@ -117,6 +117,7 @@ namespace Optimizer {
         static readonly System.Reflection.MethodInfo _setStyle = typeof(Control).GetMethod("SetStyle", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
         static readonly System.Reflection.PropertyInfo _doubleBuffered = typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
         static readonly ConditionalWeakTable<Control, object> _buffered = new ConditionalWeakTable<Control, object>();
+        static readonly object _bufferMarker = new object();
         const ControlStyles BufferStyles = ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint;
 
         /// <summary>
@@ -128,7 +129,7 @@ namespace Optimizer {
         {
             object marker;
             if (c == null || _buffered.TryGetValue(c, out marker)) return;
-            _buffered.Add(c, null);
+            _buffered.Add(c, _bufferMarker);
 
             try
             {
@@ -159,7 +160,10 @@ namespace Optimizer {
             Typography.Modernize(c);
             ApplyControl(c, p, surface);
 
-            Color childSurface = (c is TabControl) ? surface : c.BackColor;
+            IThemeContainer themeContainer = c as IThemeContainer;
+            Color childSurface = themeContainer != null
+                ? themeContainer.ChildSurface
+                : (c is TabControl ? surface : c.BackColor);
             if (childSurface.A < 255) childSurface = surface;
 
             foreach (Control child in c.Controls)
@@ -221,6 +225,7 @@ namespace Optimizer {
                 box.FlatStyle = FlatStyle.Flat;
                 box.BackColor = p.InputFill;
                 box.ForeColor = p.TextPrimary;
+                WhenHandleCreated(box, () => WindowChrome.ApplyComboTheme(box, _current));
                 return;
             }
 
@@ -336,6 +341,7 @@ namespace Optimizer {
         /// Applies the palette to context menus / tool strips (these are components, not part of the control tree).
         /// </summary>
         static readonly ConditionalWeakTable<Image, object> _menuGlyphImages = new ConditionalWeakTable<Image, object>();
+        static readonly object _menuGlyphMarker = new object();
 
         internal static void ApplyMenu(ToolStrip strip)
         {
@@ -406,9 +412,21 @@ namespace Optimizer {
             if (old != null && old.Size == slot && _menuGlyphImages.TryGetValue(old, out _)) return;
 
             Bitmap placeholder = new Bitmap(slot.Width, slot.Height);
-            _menuGlyphImages.Add(placeholder, null);
+            _menuGlyphImages.Add(placeholder, _menuGlyphMarker);
+            item.Disposed -= MenuGlyphItem_Disposed;
+            item.Disposed += MenuGlyphItem_Disposed;
             item.Image = placeholder;
             if (old != null && _menuGlyphImages.TryGetValue(old, out _)) old.Dispose();
+        }
+
+        static void MenuGlyphItem_Disposed(object sender, EventArgs e)
+        {
+            ToolStripItem item = sender as ToolStripItem;
+            if (item == null) return;
+
+            Image image = item.Image;
+            object marker;
+            if (image != null && _menuGlyphImages.TryGetValue(image, out marker)) image.Dispose();
         }
     }
 

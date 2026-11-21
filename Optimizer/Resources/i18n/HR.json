@@ -20,7 +20,6 @@
 	"lblLab": "Eksperimentalna verzija\n(izbrisati nakon testiranja)",
 	"performanceSw": "Optimiziraj performanse",
 	"networkSw": "Optimizer Mreže",
-	"defenderSw": "Onemogući Windows Defender",
 	"systemRestoreSw": "Onemogući sistemsko vraćanje",
 	"printSw": "Onemogući servis printanja",
 	"mediaSharingSw": "Onemogući djeljenje Media Playera",
@@ -28,6 +27,7 @@
 	"reportingSw": "Onemogući prijavljivanje grešaka",
 	"homegroupSw": "Onemogući HomeGroup",
 	"superfetchSw": "Onemogući Superfetch",
+	"defenderTelemetrySw": "Onemogući telemetriju programa Microsoft Defender",
 	"telemetryTasksSw": "Onemogući telemetriju zadataka",
 	"officeTelemetrySw": "Onemogući telemetriju Offica",
 	"vsSW": "Onemogući telemetriju Visual Studia",
@@ -332,12 +332,12 @@ Potpuno je sigurno primijeniti ih.
 	"networkTip": "Windows implementira mehanizam ograničavanja mreže koji će ograničiti
 mrežni promet kada se pokreću multimedijske aplikacije. Također može smanjiti performanse mreže
 pri igranju online igara.",
-	"defenderTip": "Windows Defender je ugrađeni antivirusni program u Windows sustavima.",
 	"smartScreenTip": "SmartScreen automatski skenira datoteke, preuzimanja i web stranice,
 blokirajući već poznati opasan sadržaj i upozorava vas prije njihovog pokretanja.",
 	"systemRestoreTip": "Vraćanje sustava je funkcija koja vam omogućuje vraćanje stanja
 Windowsa na prethodno kako biste se oporavili od kvara ili drugih problema.",
 	"reportingTip": "Izvješćivanje o greškama prikuplja rušenja aplikacija i greške te ih šalje Microsoftu.",
+	"defenderTelemetryTip": "Onemogućuje MAPS izvješćivanje, slanje uzoraka datoteka i izvješćivanje o zarazama alata za uklanjanje zlonamjernog softvera, kao i blokiranje pri prvom susretu i zaštitu od potencijalno neželjenih aplikacija. Time se smanjuju neke zaštite u oblaku.",
 	"telemetryTasksTip": "Telemetrijske usluge periodično šalju podatke o korištenju i performansama
 Microsoftu, za buduća poboljšanja.",
 	"officeTelemetryTip": "Office telemetrija periodično šalje Microsoftu podatke o korištenju
@@ -422,6 +422,7 @@ prije nego što se objave javnosti. Smatra se nepotrebnom uslugom za korisnike k
 	"smb1Sw": "Onemogući SMBv1 protokol",
 	"smb2Sw": "Onemogući SMBv2 protokol",
 	"smbTip": "SMB{v} protokol je odgovoran za dijeljenje datoteka između Windows računala. Zamijenjen je sa SMBv3, koji je sigurniji.",
+	"smb2Warning": "Onemogućavanje SMBv2 onemogućuje i SMBv3 jer oba koriste isti skup protokola.",
 	"ntfsStampSw": "Onemogući NTFS vremenske žigove",
 	"ntfsStampTip": "Označava posljednje vrijeme pristupa datoteci. Onemogućavanjem se mogu smanjiti I/O operacije na diskovima.",
 	"autoStartToggle": "Pokreni s Windowsom",

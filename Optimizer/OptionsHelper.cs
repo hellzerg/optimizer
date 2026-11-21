@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Drawing;
@@ -58,25 +58,35 @@ namespace Optimizer {
 
         internal static void SaveSettings()
         {
+            string jsonMemory = JsonConvert.SerializeObject(CurrentOptions, Formatting.Indented);
+
             if (File.Exists(SettingsFile))
             {
                 string jsonFile = File.ReadAllText(SettingsFile);
-                string jsonMemory = JsonConvert.SerializeObject(CurrentOptions);
-
-                // check to see if no changes have been made
                 if (JToken.DeepEquals(JObject.Parse(jsonFile), JObject.Parse(jsonMemory))) return;
+            }
 
-                File.Delete(SettingsFile);
+            string directory = Path.GetDirectoryName(SettingsFile);
+            Directory.CreateDirectory(directory);
 
-                using (FileStream fs = File.Open(SettingsFile, FileMode.OpenOrCreate))
-                using (StreamWriter sw = new StreamWriter(fs))
-                using (JsonWriter jw = new JsonTextWriter(sw))
+            string temporaryFile = Path.Combine(directory, Path.GetFileName(SettingsFile) + "." + Guid.NewGuid().ToString("N") + ".tmp");
+            try
+            {
+                byte[] contents = new System.Text.UTF8Encoding(false).GetBytes(jsonMemory);
+                using (FileStream stream = new FileStream(temporaryFile, FileMode.CreateNew, FileAccess.Write, FileShare.None, 4096, FileOptions.WriteThrough))
                 {
-                    jw.Formatting = Formatting.Indented;
-
-                    JsonSerializer serializer = new JsonSerializer();
-                    serializer.Serialize(jw, CurrentOptions);
+                    stream.Write(contents, 0, contents.Length);
+                    stream.Flush(true);
                 }
+
+                if (File.Exists(SettingsFile))
+                    File.Replace(temporaryFile, SettingsFile, null);
+                else
+                    File.Move(temporaryFile, SettingsFile);
+            }
+            finally
+            {
+                if (File.Exists(temporaryFile)) File.Delete(temporaryFile);
             }
         }
 
@@ -117,7 +127,6 @@ namespace Optimizer {
 
                     CurrentOptions.EnablePerformanceTweaks = false;
                     CurrentOptions.DisableNetworkThrottling = false;
-                    CurrentOptions.DisableWindowsDefender = false;
                     CurrentOptions.DisableSystemRestore = false;
                     CurrentOptions.DisablePrintService = false;
                     CurrentOptions.DisableMediaPlayerSharing = false;
@@ -125,6 +134,7 @@ namespace Optimizer {
                     CurrentOptions.DisableHomeGroup = false;
                     CurrentOptions.DisableSuperfetch = false;
                     CurrentOptions.DisableTelemetryTasks = false;
+                    CurrentOptions.DisableDefenderTelemetry = false;
                     CurrentOptions.DisableOffice2016Telemetry = false;
                     CurrentOptions.DisableCompatibilityAssistant = false;
                     CurrentOptions.DisableFaxService = false;
@@ -191,15 +201,7 @@ namespace Optimizer {
                     CurrentOptions.HideTaskbarSearch = false;
                     CurrentOptions.HideTaskbarWeather = false;
 
-                    using (FileStream fs = File.Open(SettingsFile, FileMode.CreateNew))
-                    using (StreamWriter sw = new StreamWriter(fs))
-                    using (JsonWriter jw = new JsonTextWriter(sw))
-                    {
-                        jw.Formatting = Formatting.Indented;
-
-                        JsonSerializer serializer = new JsonSerializer();
-                        serializer.Serialize(jw, CurrentOptions);
-                    }
+                    SaveSettings();
                 }
             }
             else

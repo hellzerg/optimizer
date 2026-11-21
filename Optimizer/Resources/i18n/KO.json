@@ -20,7 +20,6 @@
 	"lblLab": "실험 빌드\n(테스트 후 삭제)",
 	"performanceSw": "성능 최적화",
 	"networkSw": "네트워크 최적화",
-	"defenderSw": "Windows Defender 사용 안 함",
 	"systemRestoreSw": "시스템 복원 사용 안 함",
 	"printSw": "인쇄 서비스 사용 안 함",
 	"mediaSharingSw": "Media Player 공유 사용 안 함",
@@ -28,6 +27,7 @@
 	"reportingSw": "오류 보고 사용 안 함",
 	"homegroupSw": "홈그룹 사용 안 함",
 	"superfetchSw": "Superfetch 사용 안 함",
+	"defenderTelemetrySw": "Microsoft Defender 원격 분석 사용 안 함",
 	"telemetryTasksSw": "원격 측정 작업 사용 안 함",
 	"officeTelemetrySw": "Office 2016 원격 측정 사용 안 함",
 	"vsSW": "Visual Studio 원격 측정 사용 안 함",
@@ -332,12 +332,12 @@
 	"networkTip": "Windows에서는 멀티미디어 앱을 실행할 때 네트워크 트래픽을 제한하는
 네트워크 조절 메커니즘을 구현합니다. 또한 온라인 게임을 할 때
 네트워크 성능을 저하시킬 수 있습니다.",
-	"defenderTip": "Windows Defender는 Windows 시스템에 내장된 바이러스 백신입니다.",
 	"smartScreenTip": "SmartScreen은 파일, 다운로드 및 웹 사이트를 자동으로 검색하여
 이미 알려진 위험한 콘텐츠를 차단하고 이를 실행하기 전에 경고합니다.",
 	"systemRestoreTip": "시스템 복원은 Windows 상태를 이전 상태로 되돌려 오작동이나
 기타 문제로부터 복구할 수 있는 기능입니다.",
 	"reportingTip": "오류 보고는 응용 프로그램 충돌 및 오류를 수집하여 Microsoft로 보냅니다.",
+	"defenderTelemetryTip": "MAPS 보고, 파일 샘플 제출, 악성 소프트웨어 제거 도구 감염 보고와 함께 최초 탐지 차단 및 사용자 동의 없이 설치될 수 있는 앱 보호를 사용하지 않습니다. 이 변경으로 일부 클라우드 기반 보호 기능이 약화됩니다.",
 	"telemetryTasksTip": "원격 측정 서비스는 향후 개선을 위해 사용 및 성능 데이터를 정기적으로
 Microsoft로 전송합니다.",
 	"officeTelemetryTip": "Office 원격 측정 기능은 향후 개선을 위해 사용량 및 성능 데이터를
@@ -428,6 +428,7 @@ Microsoft 계정 로그인이 필요합니다.",
 	"smb2Sw": "SMBv2 프로토콜 사용 안 함",
 	"smbTip": "SMB{v} 프로토콜은 Windows 시스템 간의 파일 공유를 담당합니다.
 더 안전한 SMBv3로 대체되었습니다.",
+	"smb2Warning": "SMBv2를 비활성화하면 동일한 프로토콜 스택을 사용하는 SMBv3도 비활성화됩니다.",
 	"ntfsStampSw": "NTFS 타임스탬프 사용 안 함",
 	"ntfsStampTip": "파일의 마지막으로 액세스한 스탬프를 나타냅니다.
 사용하지 않도록 설정하면 디스크의 I/O 작업을 줄일 수 있습니다.",

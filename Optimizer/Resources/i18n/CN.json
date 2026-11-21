@@ -22,7 +22,6 @@
 	"lblLab": "实验构建\n(删除后测试)",
 	"performanceSw": "启用性能调整",
 	"networkSw": "禁用网络节流",
-	"defenderSw": "禁用 Windows 安全中心",
 	"systemRestoreSw": "禁用系统还原",
 	"printSw": "禁用打印服务",
 	"mediaSharingSw": "禁用媒体播放器共享",
@@ -30,6 +29,7 @@
 	"reportingSw": "禁用错误报告",
 	"homegroupSw": "禁用家庭组",
 	"superfetchSw": "禁用 Superfetch",
+	"defenderTelemetrySw": "禁用 Microsoft Defender 遥测",
 	"telemetryTasksSw": "禁用遥测任务",
 	"officeTelemetrySw": "禁用 Office 遥测",
 	"vsSW": "禁用 Visual Studio 遥测",
@@ -336,12 +336,12 @@
 	"networkTip": "Windows实现了一个网络节流机制，该机制将进行限制
 	运行多媒体应用程序时的网络流量。它还可以减少网络的占用
 	玩网络游戏时的表现.",
-	"defenderTip": "Windows 安全中心是Windows系统内置的防病毒软件.",
 	"smartScreenTip": "SmartScreen 是自动扫描文件，下载和网站，阻止
 	已知的危险内容，并在运行它们之前警告您的功能.",
 	"systemRestoreTip": "系统还原是一个功能，允许还原 Windows 的状态
 	从故障或其他问题中恢复.",
 	"reportingTip": "错误报告收集应用程序崩溃和错误并将它们发送给微软.",
+	"defenderTelemetryTip": "禁用 MAPS 报告、文件样本提交、恶意软件删除工具感染报告，以及首次拦截和潜在不需要应用的防护。这些更改会降低部分云端防护能力。",
 	"telemetryTasksTip": "遥测服务定期向微软发送使用和性能数据，
 	以备将来改进.",
 	"officeTelemetryTip": "Office 遥测系统定期发送使用情况和
@@ -425,6 +425,7 @@
 	"smb2Sw": "禁用 SMBv2 协议",
 	"smbTip": "SMB{v} 协议负责 Windows 计算机之间的文件共享。
 	它已被更安全的 SMBv3 取代。",
+	"smb2Warning": "禁用 SMBv2 也会禁用 SMBv3，因为两者使用相同的协议栈。",
 	"ntfsStampSw": "禁用 NTFS 时间戳",
 	"ntfsStampTip": "指示文件的最后一次访问时间戳。
 	禁用它可以减少磁盘上的 I/O 操作。",

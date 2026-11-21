@@ -9,6 +9,132 @@ namespace Optimizer {
         Control _host;
         UwpApp _app;
 
+        internal bool OwnsImage { get; set; }
+
+        internal static Bitmap CreateThemeAwareImage(Image source)
+        {
+            if (source == null) throw new ArgumentNullException(nameof(source));
+
+            Bitmap result = new Bitmap(source.Width, source.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+            try
+            {
+                using (Graphics graphics = Graphics.FromImage(result))
+                {
+                    graphics.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceCopy;
+                    graphics.DrawImage(source, new Rectangle(0, 0, source.Width, source.Height));
+                }
+
+                int width = result.Width;
+                int height = result.Height;
+                if ((long)width * height > 4L * 1024L * 1024L || !HasOpaqueBlackCorners(result)) return result;
+
+                int length = checked(width * height);
+                System.Drawing.Imaging.BitmapData data = null;
+                try
+                {
+                    data = result.LockBits(new Rectangle(0, 0, width, height), System.Drawing.Imaging.ImageLockMode.ReadWrite, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+                    int[] pixels = new int[length];
+                    int[] row = new int[width];
+                    for (int y = 0; y < height; y++)
+                    {
+                        System.Runtime.InteropServices.Marshal.Copy(IntPtr.Add(data.Scan0, y * data.Stride), row, 0, width);
+                        Array.Copy(row, 0, pixels, y * width, width);
+                    }
+
+                    bool[] visited = new bool[length];
+                    int[] queue = new int[length];
+                    int head = 0;
+                    int tail = 0;
+
+                    for (int x = 0; x < width; x++)
+                    {
+                        EnqueueMattePixel(x, pixels, visited, queue, ref tail);
+                        EnqueueMattePixel((height - 1) * width + x, pixels, visited, queue, ref tail);
+                    }
+                    for (int y = 1; y < height - 1; y++)
+                    {
+                        EnqueueMattePixel(y * width, pixels, visited, queue, ref tail);
+                        EnqueueMattePixel(y * width + width - 1, pixels, visited, queue, ref tail);
+                    }
+
+                    while (head < tail)
+                    {
+                        int index = queue[head++];
+                        int pixel = pixels[index];
+                        int red = (pixel >> 16) & 0xFF;
+                        int green = (pixel >> 8) & 0xFF;
+                        int blue = pixel & 0xFF;
+                        int alpha = Math.Max(red, Math.Max(green, blue));
+
+                        if (alpha == 0)
+                        {
+                            pixels[index] = 0;
+                        }
+                        else
+                        {
+                            red = Math.Min(255, (red * 255 + alpha / 2) / alpha);
+                            green = Math.Min(255, (green * 255 + alpha / 2) / alpha);
+                            blue = Math.Min(255, (blue * 255 + alpha / 2) / alpha);
+                            pixels[index] = (alpha << 24) | (red << 16) | (green << 8) | blue;
+                        }
+
+                        int x = index % width;
+                        int y = index / width;
+                        if (x > 0) EnqueueMattePixel(index - 1, pixels, visited, queue, ref tail);
+                        if (x + 1 < width) EnqueueMattePixel(index + 1, pixels, visited, queue, ref tail);
+                        if (y > 0) EnqueueMattePixel(index - width, pixels, visited, queue, ref tail);
+                        if (y + 1 < height) EnqueueMattePixel(index + width, pixels, visited, queue, ref tail);
+                    }
+
+                    for (int y = 0; y < height; y++)
+                    {
+                        Array.Copy(pixels, y * width, row, 0, width);
+                        System.Runtime.InteropServices.Marshal.Copy(row, 0, IntPtr.Add(data.Scan0, y * data.Stride), width);
+                    }
+                }
+                finally
+                {
+                    if (data != null) result.UnlockBits(data);
+                }
+
+                return result;
+            }
+            catch
+            {
+                result.Dispose();
+                throw;
+            }
+        }
+
+        static bool HasOpaqueBlackCorners(Bitmap image)
+        {
+            return IsBlackCorner(image.GetPixel(0, 0))
+                && IsBlackCorner(image.GetPixel(image.Width - 1, 0))
+                && IsBlackCorner(image.GetPixel(0, image.Height - 1))
+                && IsBlackCorner(image.GetPixel(image.Width - 1, image.Height - 1));
+        }
+
+        static bool IsBlackCorner(Color color)
+        {
+            return color.A >= 240 && Math.Max(color.R, Math.Max(color.G, color.B)) <= 16;
+        }
+
+        static void EnqueueMattePixel(int index, int[] pixels, bool[] visited, int[] queue, ref int tail)
+        {
+            if (visited[index] || !IsBlackMattePixel(pixels[index])) return;
+            visited[index] = true;
+            queue[tail++] = index;
+        }
+
+        static bool IsBlackMattePixel(int pixel)
+        {
+            int alpha = (pixel >> 24) & 0xFF;
+            int red = (pixel >> 16) & 0xFF;
+            int green = (pixel >> 8) & 0xFF;
+            int blue = pixel & 0xFF;
+            return alpha >= 240 && Math.Max(red, Math.Max(green, blue)) <= 128;
+        }
+
         public AppCard()
         {
             InitializeComponent();
@@ -92,7 +218,7 @@ namespace Optimizer {
         public void ApplyTheme(Palette palette)
         {
             BackColor = CardFill;
-            appImage.BackColor = BackColor;
+            appImage.BackColor = Color.Transparent;
             appSubtitle.BackColor = BackColor;
             appSubtitle.ForeColor = palette.TextSecondary;
             appTitle.ApplyTheme(palette);
@@ -140,13 +266,10 @@ namespace Optimizer {
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
             RectangleF r = new RectangleF(0.5f, 0.5f, Width - 1.5f, Height - 1.5f);
-            Color stroke = appTitle.Checked ? p.Accent : (p.IsDark ? ColorMath.Blend(p.Layer1, Color.Black, 0.35) : p.Stroke);
             using (GraphicsPath path = Draw.RoundedRect(r, Draw.S(5)))
             using (SolidBrush b = new SolidBrush(CardFill))
-            using (Pen pen = new Pen(stroke))
             {
                 g.FillPath(b, path);
-                g.DrawPath(pen, path);
             }
         }
     }

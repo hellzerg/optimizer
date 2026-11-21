@@ -406,19 +406,6 @@ namespace Optimizer {
                 OptionsHelper.CurrentOptions.DisableNetworkThrottling = CurrentSilentConfig.Tweaks.DisableNetworkThrottling.Value;
             }
 
-            if (CurrentSilentConfig.Tweaks.DisableWindowsDefender.HasValue)
-            {
-                if (CurrentSilentConfig.Tweaks.DisableWindowsDefender.Value)
-                {
-                    OptimizeHelper.DisableDefender();
-                }
-                else
-                {
-                    OptimizeHelper.EnableDefender();
-                }
-                OptionsHelper.CurrentOptions.DisableWindowsDefender = CurrentSilentConfig.Tweaks.DisableWindowsDefender.Value;
-            }
-
             if (CurrentSilentConfig.Tweaks.DisableSystemRestore.HasValue)
             {
                 if (CurrentSilentConfig.Tweaks.DisableSystemRestore.Value)
@@ -495,6 +482,19 @@ namespace Optimizer {
                     OptimizeHelper.EnableSuperfetch();
                 }
                 OptionsHelper.CurrentOptions.DisableSuperfetch = CurrentSilentConfig.Tweaks.DisableSuperfetch.Value;
+            }
+
+            if (CurrentSilentConfig.Tweaks.DisableDefenderTelemetry.HasValue)
+            {
+                if (CurrentSilentConfig.Tweaks.DisableDefenderTelemetry.Value)
+                {
+                    OptimizeHelper.DisableDefenderTelemetry();
+                }
+                else
+                {
+                    OptimizeHelper.EnableDefenderTelemetry();
+                }
+                OptionsHelper.CurrentOptions.DisableDefenderTelemetry = CurrentSilentConfig.Tweaks.DisableDefenderTelemetry.Value;
             }
 
             if (CurrentSilentConfig.Tweaks.DisableTelemetryTasks.HasValue)

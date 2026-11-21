@@ -293,15 +293,12 @@ namespace Optimizer {
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
             Color fill = _hover ? p.Layer1Hover : p.Layer1;
-            Color stroke = _checked ? p.Accent : (p.IsDark ? ColorMath.Blend(p.Layer1, Color.Black, 0.35) : p.Stroke);
 
             RectangleF r = new RectangleF(0.5f, 0.5f, Width - 1.5f, Height - 1.5f);
             using (GraphicsPath path = Draw.RoundedRect(r, Draw.S(6)))
             using (SolidBrush b = new SolidBrush(fill))
-            using (Pen pen = new Pen(stroke))
             {
                 g.FillPath(b, path);
-                g.DrawPath(pen, path);
             }
 
             if (Focused && ShowFocusCues)
@@ -450,10 +447,8 @@ namespace Optimizer {
             RectangleF r = new RectangleF(_badgeRect.X + 0.5f, _badgeRect.Y + 0.5f, _badgeRect.Width - 1f, _badgeRect.Height - 1f);
             using (GraphicsPath path = Draw.RoundedRect(r, r.Height / 2f))
             using (SolidBrush b = new SolidBrush(fill))
-            using (Pen pen = new Pen(p.Stroke))
             {
                 g.FillPath(b, path);
-                g.DrawPath(pen, path);
             }
 
             TextRenderer.DrawText(g, _badge, BadgeFont, _badgeRect, p.TextSecondary, fill,

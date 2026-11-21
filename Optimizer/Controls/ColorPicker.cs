@@ -35,7 +35,6 @@ namespace Optimizer.Controls {
             this.SelectionSize = 10;
             this.SmallChange = 1;
             this.LargeChange = 5;
-            this.SelectionGlyph = this.CreateSelectionGlyph();
         }
 
         #endregion
@@ -454,25 +453,30 @@ namespace Optimizer.Controls {
             return brightness > 149 ? Color.Black : Color.White;
         }
 
-        private Image CreateSelectionGlyph()
+        private void UpdateSelectionGlyph()
         {
-            Image image;
-            int halfSize;
-
-            halfSize = this.SelectionSize / 2;
-            image = new Bitmap(this.SelectionSize + 1, this.SelectionSize + 1);
-
-            using (Graphics g = Graphics.FromImage(image))
+            int size = this.SelectionSize + 1;
+            Image image = this.SelectionGlyph;
+            if (image == null || image.Width != size || image.Height != size)
             {
+                Image previous = image;
+                image = new Bitmap(size, size);
+                this.SelectionGlyph = image;
+                if (previous != null) previous.Dispose();
+            }
+
+            int halfSize = this.SelectionSize / 2;
+            using (Graphics g = Graphics.FromImage(image))
+            using (Pen pen = new Pen(GetContrastColor(Color)))
+            using (SolidBrush brush = new SolidBrush(this.Color))
+            {
+                g.Clear(Color.Transparent);
                 g.SmoothingMode = SmoothingMode.AntiAlias;
                 g.PixelOffsetMode = PixelOffsetMode.HighQuality;
                 g.InterpolationMode = InterpolationMode.High;
-
-                g.DrawEllipse(new Pen(GetContrastColor(Color)), halfSize - 4.5f, halfSize - 4.5f, 4.5f + 4.5f, 4.5f + 4.5f);
-                g.FillEllipse(new SolidBrush(this.Color), halfSize - 4, halfSize - 4, 4 + 4, 4 + 4);
+                g.DrawEllipse(pen, halfSize - 4.5f, halfSize - 4.5f, 9f, 9f);
+                g.FillEllipse(brush, halfSize - 4, halfSize - 4, 8, 8);
             }
-
-            return image;
         }
 
         private PointF GetColorLocation(Color color)
@@ -525,7 +529,7 @@ namespace Optimizer.Controls {
                 this.HslColor = new HslColor(this.Color);
             }
 
-            this.SelectionGlyph = this.CreateSelectionGlyph();
+            this.UpdateSelectionGlyph();
             this.Refresh();
 
             handler = this.ColorChanged;
@@ -584,12 +588,7 @@ namespace Optimizer.Controls {
         {
             EventHandler handler;
 
-            if (this.SelectionGlyph != null)
-            {
-                this.SelectionGlyph.Dispose();
-            }
-
-            this.SelectionGlyph = this.CreateSelectionGlyph();
+            this.UpdateSelectionGlyph();
             this.RefreshWheel();
 
             handler = this.SelectionSizeChanged;

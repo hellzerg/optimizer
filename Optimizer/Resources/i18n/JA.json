@@ -20,7 +20,6 @@
 	"lblLab": "実験的ビルド\n(テスト後に削除されます)",
 	"performanceSw": "パフォーマンスを最適化",
 	"networkSw": "ネットワークを最適化",
-	"defenderSw": "Windows Defenderを無効化",
 	"systemRestoreSw": "システムの復元を無効化",
 	"printSw": "印刷 サービスを無効化",
 	"mediaSharingSw": "Media Player Sharingを無効化",
@@ -28,6 +27,7 @@
 	"reportingSw": "Error Reportingを無効化",
 	"homegroupSw": "ホームグループを無効化",
 	"superfetchSw": "Superfetchを無効化",
+	"defenderTelemetrySw": "Microsoft Defender のテレメトリを無効化",
 	"telemetryTasksSw": "テレメトリ タスクを無効化",
 	"officeTelemetrySw": "Office テレメトリを無効化",
 	"vsSW": "Visual Studio テレメトリを無効化",
@@ -333,10 +333,10 @@
 	"networkTip": "Windowsはマルチメディアアプリの実行時にネットワークを制限する、 ネットワークスロットリングを実装しています。
 これはオンラインゲームのプレイ中のパフォーマンスに
 悪影響を及ぼす可能性があります。",
-	"defenderTip": "Windows DefenderはWindows内蔵のアンチウイルスソフトです。",
 	"smartScreenTip": "SmartScreen はファイルやウェブサイトを自動でスキャンし、既知の脅威をブロックして実行前に警告を表示します。",
 	"systemRestoreTip": "システムの復元はWindowsを以前の状態に戻して誤動作などの問題を修正するための機能です。",
 	"reportingTip": "エラーレポートはアプリケーションのクラッシュログとエラーを収集してMicrosoftに送信します。",
+	"defenderTelemetryTip": "MAPS レポート、ファイル サンプルの送信、悪意のあるソフトウェアの削除ツールの感染レポートに加え、初見ブロックと望ましくない可能性のあるアプリの保護を無効にします。これらの変更により、一部のクラウド支援型保護が低下します。",
 	"telemetryTasksTip": "テレメトリ サービスは機能改善のため、使用状況とパフォーマンスデータを定期的にMicrosoftに送信します。",
 	"officeTelemetryTip": "Office テレメトリは定期的に使用状況とパフォーマンスデータを機能改善のためにMicrosoftに送信します",
 	"ffTelemetryTip": "Mozilla Firefox テレメトリ と データレポートサービスを無効化します。",
@@ -419,6 +419,7 @@ Microsoftアカウントへのサインインが必要です。",
 	"smb2Sw": "SMBv2 プロトコルを無効化",
 	"smbTip": "SMB{v}プロトコルはWindowsコンピュータ間でファイル共有を行うプロトコルです。
 SMBv3に置き換えられており、そちらのほうがより安全です。",
+	"smb2Warning": "SMBv2 を無効にすると、同じプロトコルスタックを使用する SMBv3 も無効になります。",
 	"ntfsStampSw": "NTFS タイムスタンプを無効化",
 	"ntfsStampTip": "ファイルの最終アクセス時刻を示します。
 無効にすることで、ディスクのI/O操作が減少します。",

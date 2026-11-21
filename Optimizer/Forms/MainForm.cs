@@ -130,7 +130,7 @@ namespace Optimizer {
             catch (Exception ex)
             {
                 Logger.LogError("MainForm.CheckForUpdate", ex.Message, ex.StackTrace);
-                MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FluentMessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -199,7 +199,7 @@ namespace Optimizer {
                         catch (Exception ex)
                         {
                             Logger.LogError("MainForm.CheckForUpdate", ex.Message, ex.StackTrace);
-                            MessageBox.Show(ex.Message);
+                            FluentMessageBox.Show(ex.Message);
                         }
                     }
                 }
@@ -226,6 +226,7 @@ namespace Optimizer {
         {
             officeTelemetrySw.ToggleClicked += new EventHandler(toggleSwitch12_Click);
             telemetryTasksSw.ToggleClicked += new EventHandler(toggleSwitch11_Click);
+            defenderTelemetrySw.ToggleClicked += new EventHandler(DefenderTelemetrySw_ToggleClicked);
             superfetchSw.ToggleClicked += new EventHandler(toggleSwitch10_Click);
             homegroupSw.ToggleClicked += new EventHandler(toggleSwitch9_Click);
             reportingSw.ToggleClicked += new EventHandler(toggleSwitch8_Click);
@@ -235,7 +236,6 @@ namespace Optimizer {
             performanceSw.ToggleClicked += new EventHandler(toggleSwitch1_Click);
             noMenuDelaySw.ToggleClicked += new EventHandler(NoMenuDelaySw_ToggleClicked);
             allTrayIconsSw.ToggleClicked += new EventHandler(AllTrayIconsSw_ToggleClicked);
-            defenderSw.ToggleClicked += new EventHandler(toggleSwitch3_Click);
             networkSw.ToggleClicked += new EventHandler(toggleSwitch2_Click);
             spellSw.ToggleClicked += new EventHandler(toggleSwitch28_Click);
             inkSw.ToggleClicked += new EventHandler(toggleSwitch29_Click);
@@ -750,11 +750,11 @@ namespace Optimizer {
                 noMenuDelaySw.Label.Tag = OptionsHelper.TranslationList["noMenuDelaySw"].ToString();
                 allTrayIconsSw.Label.Tag = OptionsHelper.TranslationList["allTrayIconsSw"].ToString();
                 networkSw.Label.Tag = OptionsHelper.TranslationList["networkTip"].ToString();
-                defenderSw.Label.Tag = OptionsHelper.TranslationList["defenderTip"].ToString();
                 smartScreenSw.Label.Tag = OptionsHelper.TranslationList["smartScreenTip"].ToString();
                 systemRestoreSw.Label.Tag = OptionsHelper.TranslationList["systemRestoreTip"].ToString();
                 reportingSw.Label.Tag = OptionsHelper.TranslationList["reportingTip"].ToString();
                 telemetryTasksSw.Label.Tag = OptionsHelper.TranslationList["telemetryTasksTip"].ToString();
+                defenderTelemetrySw.Label.Tag = OptionsHelper.TranslationList["defenderTelemetryTip"].ToString();
                 officeTelemetrySw.Label.Tag = OptionsHelper.TranslationList["officeTelemetryTip"].ToString();
                 printSw.Label.Tag = OptionsHelper.TranslationList["printTip"].ToString();
                 faxSw.Label.Tag = OptionsHelper.TranslationList["faxTip"].ToString();
@@ -804,7 +804,10 @@ namespace Optimizer {
                 hibernateSw.Label.Tag = OptionsHelper.TranslationList["hibernateTip"].ToString();
                 winSearchSw.Label.Tag = OptionsHelper.TranslationList["winSearchTip"].ToString();
                 smb1Sw.Label.Tag = OptionsHelper.TranslationList["smbTip"].ToString().Replace("{v}", "v1");
-                smb2Sw.Label.Tag = OptionsHelper.TranslationList["smbTip"].ToString().Replace("{v}", "v2");
+                smb2Sw.Label.Tag =
+                    OptionsHelper.TranslationList["smbTip"].ToString().Replace("{v}", "v2") +
+                    Environment.NewLine + Environment.NewLine +
+                    OptionsHelper.TranslationList["smb2Warning"].ToString();
                 ntfsStampSw.Label.Tag = OptionsHelper.TranslationList["ntfsStampTip"].ToString();
                 nvidiaTelemetrySw.Label.Tag = OptionsHelper.TranslationList["nvidiaTelemetrySw"].ToString();
                 vbsSw.Label.Tag = OptionsHelper.TranslationList["vbsTip"].ToString();
@@ -821,7 +824,7 @@ namespace Optimizer {
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                FluentMessageBox.Show(err.Message);
             }
         }
 
@@ -1067,8 +1070,6 @@ namespace Optimizer {
             {
                 LoadUniversalToggleStates();
                 LoadWindows10ToggleStates();
-
-                defenderSw.Visible = false;
                 vbsSw.Visible = false;
                 oldMixerSw.Visible = true;
                 this.Controls.Remove(panelWin11Tweaks);
@@ -1092,7 +1093,6 @@ namespace Optimizer {
                 LoadWindows11ToggleStates();
 
                 windows10Tab.Text = "Windows 11";
-                defenderSw.Visible = false;
                 vbsSw.Visible = true;
                 panelWin11Tweaks.Visible = true;
                 oldMixerSw.Visible = false;
@@ -1215,6 +1215,9 @@ namespace Optimizer {
                 OptionsHelper.CurrentOptions.AppsFolder = string.Empty;
                 OptionsHelper.SaveSettings();
             }
+
+            txtDownloadFolder.Text = OptionsHelper.CurrentOptions.AppsFolder ?? string.Empty;
+            UpdateGoToDownloadsButtonState();
 
             if (OptionsHelper.CurrentOptions.UpdateOnLaunch)
             {
@@ -2340,6 +2343,19 @@ namespace Optimizer {
             }
         }
 
+        private void ClearFeedGroup(Control group)
+        {
+            Control[] oldControls = group.Controls.Cast<Control>().ToArray();
+            group.Controls.Clear();
+
+            foreach (Control control in oldControls)
+            {
+                AppCard card = control as AppCard;
+                if (card != null) GlyphTint.Release(card.appImage, card.OwnsImage);
+                control.Dispose();
+            }
+        }
+
         private void PopulateFeed(string feed, Func<string, Stream> openImage)
         {
             AppsFromFeed = JsonConvert.DeserializeObject<List<AppInfo>>(feed);
@@ -2350,10 +2366,7 @@ namespace Optimizer {
             foreach (Control group in feedGroups) group.SuspendLayout();
             try
             {
-                groupSystemTools.Controls.Clear();
-                groupInternet.Controls.Clear();
-                groupCoding.Controls.Clear();
-                groupSoundVideo.Controls.Clear();
+                foreach (Control group in feedGroups) ClearFeedGroup(group);
 
                 foreach (AppInfo x in AppsFromFeed)
                 {
@@ -2364,6 +2377,7 @@ namespace Optimizer {
                     appCard.appTitle.Text = x.Title;
                     appCard.appTitle.Name = x.Tag;
                     appCard.appImage.SizeMode = PictureBoxSizeMode.Zoom;
+                    appCard.OwnsImage = openImage != null;
 
                     if (openImage == null)
                     {
@@ -2376,8 +2390,7 @@ namespace Optimizer {
                         using (Stream entry = openImage(tmpImageFileName))
                         using (Image loaded = Image.FromStream(entry))
                         {
-                            // GDI+ decodes lazily, so detach the image from the zip stream
-                            appCard.appImage.Image = new Bitmap(loaded);
+                            appCard.appImage.Image = AppCard.CreateThemeAwareImage(loaded);
                         }
                     }
 
@@ -2400,6 +2413,8 @@ namespace Optimizer {
                             groupSoundVideo.Controls.Add(appCard);
                             break;
                         default:
+                            GlyphTint.Release(appCard.appImage, appCard.OwnsImage);
+                            appCard.Dispose();
                             break;
                     }
                 }
@@ -2409,7 +2424,6 @@ namespace Optimizer {
                 foreach (Control group in feedGroups) group.ResumeLayout();
             }
 
-            // UI handling
             btnDownloadApps.Enabled = true;
             txtFeedError.Visible = false;
             OnAppsFeedPopulated();
@@ -2483,7 +2497,6 @@ namespace Optimizer {
             allTrayIconsSw.ToggleChecked = OptionsHelper.CurrentOptions.ShowAllTrayIcons;
             noMenuDelaySw.ToggleChecked = OptionsHelper.CurrentOptions.RemoveMenusDelay;
             networkSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableNetworkThrottling;
-            defenderSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableWindowsDefender;
             systemRestoreSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableSystemRestore;
             printSw.ToggleChecked = OptionsHelper.CurrentOptions.DisablePrintService;
             mediaSharingSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableMediaPlayerSharing;
@@ -2491,6 +2504,7 @@ namespace Optimizer {
             homegroupSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableHomeGroup;
             superfetchSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableSuperfetch;
             telemetryTasksSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableTelemetryTasks;
+            defenderTelemetrySw.ToggleChecked = OptionsHelper.CurrentOptions.DisableDefenderTelemetry;
             officeTelemetrySw.ToggleChecked = OptionsHelper.CurrentOptions.DisableOffice2016Telemetry;
             compatSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableCompatibilityAssistant;
             faxSw.ToggleChecked = OptionsHelper.CurrentOptions.DisableFaxService;
@@ -3083,7 +3097,7 @@ namespace Optimizer {
                     SetStartupEnabled(new[] { card }, !card.Item.Enabled);
                     break;
                 case StartupCardAction.Delete:
-                    if (MessageBox.Show(_removeStartupItemsMessage + Environment.NewLine + Environment.NewLine + card.Item.Name + Environment.NewLine, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (FluentMessageBox.Show(_removeStartupItemsMessage + Environment.NewLine + Environment.NewLine + card.Item.Name + Environment.NewLine, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         card.Item.Remove();
                         GetStartupItems();
@@ -3112,7 +3126,7 @@ namespace Optimizer {
 
             if (failed > 0)
             {
-                MessageBox.Show(string.Format("Could not change the state of {0} item(s). See the error log for details.", failed),
+                FluentMessageBox.Show(string.Format("Could not change the state of {0} item(s). See the error log for details.", failed),
                     "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -3431,7 +3445,7 @@ namespace Optimizer {
 
             if (selectedApps.Count <= 0) return;
 
-            if (MessageBox.Show(_removeModernAppsMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (FluentMessageBox.Show(_removeModernAppsMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 uninstallModernAppsButton.Enabled = false;
                 refreshModernAppsButton.Enabled = false;
@@ -3450,7 +3464,7 @@ namespace Optimizer {
 
                 if (!string.IsNullOrEmpty(failedApps))
                 {
-                    MessageBox.Show(_errorModernAppsMessage + failedApps, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FluentMessageBox.Show(_errorModernAppsMessage + failedApps, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 GetModernApps(!chkOnlyRemovable.Checked);
@@ -3498,7 +3512,7 @@ namespace Optimizer {
             {
                 report += card.Item.Name + Environment.NewLine;
             }
-            if (MessageBox.Show(_removeStartupItemsMessage + Environment.NewLine + Environment.NewLine + report, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (FluentMessageBox.Show(_removeStartupItemsMessage + Environment.NewLine + Environment.NewLine + report, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 foreach (StartupCard card in selected)
                 {
@@ -3619,7 +3633,7 @@ namespace Optimizer {
             {
                 List<string> selected = listHostEntries.SelectedItems.Cast<object>().Select(x => x.ToString().Replace(" : ", " ")).ToList();
                 string msg = string.Format(T("hostsRemoveSelected", "Remove {0} selected entries from the hosts file?"), selected.Count);
-                if (MessageBox.Show(this, msg, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+                if (FluentMessageBox.Show(this, msg, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
                 HostsHelper.RemoveAllEntries(selected);
                 GetHostsEntries();
             }
@@ -4090,7 +4104,7 @@ namespace Optimizer {
 
         private void btnResetConfig_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(_repairMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (FluentMessageBox.Show(_repairMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Utilities.Repair();
             }
@@ -4123,24 +4137,11 @@ namespace Optimizer {
             OptionsHelper.CurrentOptions.DisableNetworkThrottling = networkSw.ToggleChecked;
         }
 
-        private void toggleSwitch3_Click(object sender, EventArgs e)
-        {
-            if (defenderSw.ToggleChecked)
-            {
-                OptimizeHelper.DisableDefender();
-            }
-            else
-            {
-                OptimizeHelper.EnableDefender();
-            }
-            OptionsHelper.CurrentOptions.DisableWindowsDefender = defenderSw.ToggleChecked;
-        }
-
         private void toggleSwitch4_Click(object sender, EventArgs e)
         {
             if (systemRestoreSw.ToggleChecked)
             {
-                if (MessageBox.Show(OptionsHelper.TranslationList["systemRestoreM"].ToString(), "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                if (FluentMessageBox.Show(OptionsHelper.TranslationList["systemRestoreM"].ToString(), "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {
                     _skipSystemRestore = true;
                     systemRestoreSw.ToggleChecked = false;
@@ -4237,6 +4238,19 @@ namespace Optimizer {
             OptionsHelper.CurrentOptions.DisableTelemetryTasks = telemetryTasksSw.ToggleChecked;
         }
 
+        private void DefenderTelemetrySw_ToggleClicked(object sender, EventArgs e)
+        {
+            if (defenderTelemetrySw.ToggleChecked)
+            {
+                OptimizeHelper.DisableDefenderTelemetry();
+            }
+            else
+            {
+                OptimizeHelper.EnableDefenderTelemetry();
+            }
+            OptionsHelper.CurrentOptions.DisableDefenderTelemetry = defenderTelemetrySw.ToggleChecked;
+        }
+
         private void toggleSwitch12_Click(object sender, EventArgs e)
         {
             if (officeTelemetrySw.ToggleChecked)
@@ -4294,7 +4308,7 @@ namespace Optimizer {
         {
             if (uODSw.ToggleChecked)
             {
-                if (MessageBox.Show(OptionsHelper.TranslationList["onedriveM"].ToString(), "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                if (FluentMessageBox.Show(OptionsHelper.TranslationList["onedriveM"].ToString(), "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {
                     _skipOneDrive = true;
                     uODSw.ToggleChecked = false;
@@ -4526,6 +4540,7 @@ namespace Optimizer {
             btnDownloadApps.Enabled = true;
             changeDownDirB.Enabled = true;
             txtDownloadFolder.ReadOnly = false;
+            UpdateGoToDownloadsButtonState();
 
             linkWarnings.Visible = !string.IsNullOrEmpty(downloadLog);
 
@@ -4535,154 +4550,172 @@ namespace Optimizer {
         string appNameTemp = string.Empty;
         int maxCount = 0;
         int count = 0;
-        Process p;
         string downloadLog = string.Empty;
 
         private async void btnDownloadApps_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtDownloadFolder.Text) || !Directory.Exists(txtDownloadFolder.Text))
             {
-                MessageBox.Show(OptionsHelper.TranslationList["downloadDirInvalid"].ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FluentMessageBox.Show(OptionsHelper.TranslationList["downloadDirInvalid"].ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             RenderAppDownloaderBusy();
-
             maxCount = 0;
             count = 0;
             downloadLog = string.Empty;
 
-            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
-            {
-                if (c.Name == "cAutoInstall") continue;
-                if (c is MoonCheck && ((MoonCheck)c).Checked) maxCount++;
-            }
-
-            MoonCheck currentCheck;
-            Control[] temp;
-
-            foreach (AppInfo x in AppsFromFeed)
-            {
-                if (string.IsNullOrEmpty(x.Tag)) continue;
-                temp = appsTab.Controls.Find(x.Tag, true);
-                if (!temp.Any()) continue;
-                currentCheck = (MoonCheck)temp[0];
-                if (currentCheck == null) continue;
-                if (!currentCheck.Checked) continue;
-
-                appNameTemp = x.Title;
-
-                if (c64.Checked)
-                {
-                    count++;
-                    if (string.IsNullOrEmpty(x.Link64))
-                    {
-                        downloadLog += "• " + x.Title + ":" + Environment.NewLine + OptionsHelper.TranslationList["no64Download"] + Environment.NewLine + Environment.NewLine;
-                        await DownloadApp(x, false);
-                    }
-                    else
-                    {
-                        await DownloadApp(x, true);
-                    }
-                }
-                else
-                {
-                    count++;
-                    if (!string.IsNullOrEmpty(x.Link))
-                    {
-                        await DownloadApp(x, false);
-                    }
-                    else
-                    {
-                        downloadLog += "• " + x.Title + ":" + Environment.NewLine + OptionsHelper.TranslationList["no32Download"] + Environment.NewLine + Environment.NewLine;
-                    }
-                }
-            }
-
-            if (cAutoInstall.Checked)
-            {
-                count = 0;
-                foreach (string a in Directory.GetFiles(txtDownloadFolder.Text, "*.*", SearchOption.TopDirectoryOnly))
-                {
-                    using (p = new Process())
-                    {
-                        count++;
-                        p.StartInfo.FileName = a;
-                        p.EnableRaisingEvents = true;
-                        p.StartInfo.WorkingDirectory = txtDownloadFolder.Text;
-
-                        // APP-SPECIFIC HACKS //
-                        if (a.ToLowerInvariant().Contains("sumatra")) p.StartInfo.Arguments = " -install";
-                        // *** //
-
-                        txtDownloadStatus.Text = string.Format("{0}/{1} - {2} {3} ...", count, maxCount, OptionsHelper.TranslationList["installing"], Path.GetFileNameWithoutExtension(a));
-
-                        await p.RunAsync();
-                    }
-                    ;
-                }
-            }
-
-            // reset all checkboxes
-            foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
-            {
-                if (c.Name == "cAutoInstall") continue;
-                if (c is MoonCheck && ((MoonCheck)c).Checked) ((MoonCheck)c).Checked = false;
-            }
-
-            RenderAppDownloaderFree();
-        }
-
-        string fileExtension = ".exe";
-        private async Task DownloadApp(AppInfo app, bool pref64)
-        {
             try
             {
-                using (WebClient downloader = new WebClient())
+                List<string> downloadedInstallers = new List<string>();
+
+                foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
                 {
-                    downloader.Headers.Add("User-Agent: Other");
-                    downloader.Encoding = Encoding.UTF8;
+                    if (c.Name == "cAutoInstall") continue;
+                    if (c is MoonCheck && ((MoonCheck)c).Checked) maxCount++;
+                }
 
-                    downloader.DownloadProgressChanged += Downloader_DownloadProgressChanged;
-                    downloader.DownloadFileCompleted += Downloader_DownloadFileCompleted;
+                foreach (AppInfo x in AppsFromFeed)
+                {
+                    if (string.IsNullOrEmpty(x.Tag)) continue;
+                    Control[] matches = appsTab.Controls.Find(x.Tag, true);
+                    if (matches.Length == 0) continue;
 
-                    if (pref64)
+                    MoonCheck currentCheck = matches[0] as MoonCheck;
+                    if (currentCheck == null || !currentCheck.Checked) continue;
+
+                    appNameTemp = x.Title;
+                    string downloadedFile = null;
+
+                    if (c64.Checked)
                     {
-                        if (app.Link64.Contains(".msi"))
+                        count++;
+                        if (string.IsNullOrEmpty(x.Link64))
                         {
-                            fileExtension = ".msi";
+                            downloadLog += "• " + x.Title + ":" + Environment.NewLine + OptionsHelper.TranslationList["no64Download"] + Environment.NewLine + Environment.NewLine;
+                            downloadedFile = await DownloadApp(x, false);
                         }
                         else
                         {
-                            fileExtension = ".exe";
+                            downloadedFile = await DownloadApp(x, true);
                         }
-
-                        await downloader.DownloadFileTaskAsync(new Uri(app.Link64), Path.Combine(txtDownloadFolder.Text, app.Title + "-x64" + fileExtension));
                     }
                     else
                     {
-                        if (app.Link.Contains(".msi"))
-                        {
-                            fileExtension = ".msi";
-                        }
+                        count++;
+                        if (!string.IsNullOrEmpty(x.Link))
+                            downloadedFile = await DownloadApp(x, false);
                         else
-                        {
-                            fileExtension = ".exe";
-                        }
+                            downloadLog += "• " + x.Title + ":" + Environment.NewLine + OptionsHelper.TranslationList["no32Download"] + Environment.NewLine + Environment.NewLine;
+                    }
 
-                        await downloader.DownloadFileTaskAsync(new Uri(app.Link), Path.Combine(txtDownloadFolder.Text, app.Title + "-x86" + fileExtension));
+                    if (!string.IsNullOrEmpty(downloadedFile) && !downloadedInstallers.Contains(downloadedFile, StringComparer.OrdinalIgnoreCase))
+                        downloadedInstallers.Add(downloadedFile);
+                }
+
+                if (cAutoInstall.Checked)
+                {
+                    count = 0;
+                    foreach (string installer in downloadedInstallers)
+                    {
+                        string extension = Path.GetExtension(installer);
+                        if (!string.Equals(extension, ".exe", StringComparison.OrdinalIgnoreCase) &&
+                            !string.Equals(extension, ".msi", StringComparison.OrdinalIgnoreCase)) continue;
+
+                        try
+                        {
+                            using (Process process = new Process())
+                            {
+                                count++;
+                                process.StartInfo.FileName = installer;
+                                process.StartInfo.UseShellExecute = true;
+                                process.StartInfo.WorkingDirectory = Path.GetDirectoryName(installer);
+
+                                if (Path.GetFileNameWithoutExtension(installer).IndexOf("sumatra", StringComparison.OrdinalIgnoreCase) >= 0)
+                                    process.StartInfo.Arguments = " -install";
+
+                                txtDownloadStatus.Text = string.Format("{0}/{1} - {2} {3} ...", count, downloadedInstallers.Count, OptionsHelper.TranslationList["installing"], Path.GetFileNameWithoutExtension(installer));
+                                await process.RunAsync();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Logger.LogError("MainForm.AutoInstall", installer + Environment.NewLine + ex.Message, ex.StackTrace);
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
+                Logger.LogError("MainForm.btnDownloadApps_Click", ex.Message, ex.StackTrace);
+            }
+            finally
+            {
+                foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
+                {
+                    if (c.Name == "cAutoInstall") continue;
+                    MoonCheck check = c as MoonCheck;
+                    if (check != null && check.Checked) check.Checked = false;
+                }
+
+                RenderAppDownloaderFree();
+            }
+        }
+
+        private async Task<string> DownloadApp(AppInfo app, bool pref64)
+        {
+            string temporaryFile = null;
+            try
+            {
+                string downloadLink = pref64 ? app.Link64 : app.Link;
+                if (string.IsNullOrWhiteSpace(downloadLink)) throw new InvalidOperationException("No download URL was provided.");
+
+                Uri downloadUri = new Uri(downloadLink, UriKind.Absolute);
+                if (downloadUri.Scheme != Uri.UriSchemeHttp && downloadUri.Scheme != Uri.UriSchemeHttps)
+                    throw new InvalidOperationException("Only HTTP and HTTPS installer downloads are supported.");
+
+                string extension = downloadLink.IndexOf(".msi", StringComparison.OrdinalIgnoreCase) >= 0 ? ".msi" : ".exe";
+                string safeTitle = Utilities.SanitizeFileFolderName(app.Title).Trim();
+                if (string.IsNullOrWhiteSpace(safeTitle)) throw new InvalidOperationException("The application name cannot be used as a file name.");
+
+                string folder = Path.GetFullPath(txtDownloadFolder.Text);
+                string architecture = pref64 ? "-x64" : "-x86";
+                string destinationFile = Path.GetFullPath(Path.Combine(folder, safeTitle + architecture + extension));
+                string folderPrefix = folder.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar) + Path.DirectorySeparatorChar;
+                if (!destinationFile.StartsWith(folderPrefix, StringComparison.OrdinalIgnoreCase))
+                    throw new InvalidOperationException("The installer path is outside the download directory.");
+
+                temporaryFile = Path.Combine(folder, "." + Guid.NewGuid().ToString("N") + ".download");
+                using (WebClient downloader = new WebClient())
+                {
+                    downloader.Headers.Add("User-Agent: Other");
+                    downloader.Encoding = Encoding.UTF8;
+                    downloader.DownloadProgressChanged += Downloader_DownloadProgressChanged;
+                    downloader.DownloadFileCompleted += Downloader_DownloadFileCompleted;
+                    await downloader.DownloadFileTaskAsync(downloadUri, temporaryFile);
+                }
+
+                if (File.Exists(destinationFile))
+                    File.Replace(temporaryFile, destinationFile, null);
+                else
+                    File.Move(temporaryFile, destinationFile);
+
+                temporaryFile = null;
+                return destinationFile;
+            }
+            catch (Exception ex)
+            {
                 Logger.LogError("MainForm.DownloadApp", ex.Message, ex.StackTrace);
                 downloadLog += "• " + app.Title + ":" + Environment.NewLine + OptionsHelper.TranslationList["linkInvalid"] + Environment.NewLine + Environment.NewLine;
-
-                if (pref64) try { File.Delete(Path.Combine(txtDownloadFolder.Text, app.Title + "-x64.exe")); } catch { }
-                if (!pref64) try { File.Delete(Path.Combine(txtDownloadFolder.Text, app.Title + "-x86.exe")); } catch { }
-                if (pref64) try { File.Delete(Path.Combine(txtDownloadFolder.Text, app.Title + "-x64.msi")); } catch { }
-                if (!pref64) try { File.Delete(Path.Combine(txtDownloadFolder.Text, app.Title + "-x86.msi")); } catch { }
+                return null;
+            }
+            finally
+            {
+                if (!string.IsNullOrEmpty(temporaryFile) && File.Exists(temporaryFile))
+                {
+                    try { File.Delete(temporaryFile); }
+                    catch (Exception ex) { Logger.LogError("MainForm.DownloadApp.Cleanup", ex.Message, ex.StackTrace); }
+                }
             }
         }
 
@@ -4728,12 +4761,15 @@ namespace Optimizer {
             {
                 txtDownloadFolder.Text = d.SelectedPath;
                 OptionsHelper.CurrentOptions.AppsFolder = d.SelectedPath;
+                UpdateGoToDownloadsButtonState();
                 OptionsHelper.SaveSettings();
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            if (!UpdateGoToDownloadsButtonState()) return;
+
             Process.Start(txtDownloadFolder.Text);
         }
 
@@ -4768,7 +4804,7 @@ namespace Optimizer {
             }
             else
             {
-                MessageBox.Show(OptionsHelper.TranslationList["noErrorsM"].ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FluentMessageBox.Show(OptionsHelper.TranslationList["noErrorsM"].ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -4832,7 +4868,7 @@ namespace Optimizer {
                 catch (Exception ex)
                 {
                     Logger.LogError("btnExport.Click", ex.Message, ex.StackTrace);
-                    MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FluentMessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -4912,7 +4948,7 @@ namespace Optimizer {
 
         private void flushCacheB_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(_flushDNSMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (FluentMessageBox.Show(_flushDNSMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 PingerHelper.FlushDNSCache();
             }
@@ -5146,7 +5182,7 @@ namespace Optimizer {
             catch (Exception ex)
             {
                 Logger.LogError("MainForm.ParseChangelog", ex.Message, ex.StackTrace);
-                MessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FluentMessageBox.Show(ex.Message, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return string.Empty;
             }
 
@@ -5167,7 +5203,7 @@ namespace Optimizer {
 
             if (changelogText.Count <= 0)
             {
-                MessageBox.Show(_noNewVersionMessage, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FluentMessageBox.Show(_noNewVersionMessage, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return string.Empty;
             }
 
@@ -5595,7 +5631,7 @@ namespace Optimizer {
 
         private void btnRestoreUwp_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (FluentMessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 UWPHelper.RestoreAllUWPApps();
             }
@@ -5613,7 +5649,7 @@ namespace Optimizer {
 
         private void ConfirmAndReboot()
         {
-            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (FluentMessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 OptionsHelper.SaveSettings();
                 Utilities.Reboot();
@@ -5637,7 +5673,7 @@ namespace Optimizer {
 
         private void btnRestoreFont_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (FluentMessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 FontHelper.RestoreDefaultGlobalFont();
                 ShowRestartNeeded();
@@ -5650,7 +5686,7 @@ namespace Optimizer {
             {
                 return;
             }
-            if (MessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (FluentMessageBox.Show(_uwpRestoreMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 string fontName = listFonts.SelectedItem.ToString();
                 FontHelper.ChangeGlobalFont(fontName);
@@ -5700,7 +5736,7 @@ namespace Optimizer {
 
         private void btnReinforce_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(_reinforcePoliciesMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (FluentMessageBox.Show(_reinforcePoliciesMessage, "Optimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Utilities.ReinforceCurrentTweaks();
 

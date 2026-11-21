@@ -152,7 +152,7 @@ namespace Optimizer {
             {
                 long total = idx.Sum(i => i < _cleanItemSize.Length ? _cleanItemSize[i] : 0);
                 string msg = string.Format(T("cleanerConfirm", "Permanently delete {0} selected items ({1})?"), idx.Count, ByteSize.FromBytes(total));
-                if (MessageBox.Show(this, msg, cleanDriveB.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+                if (FluentMessageBox.Show(this, msg, cleanDriveB.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
             }
 
             string[] targets = idx.Select(i => listCleanPreview.Items[i].ToString())

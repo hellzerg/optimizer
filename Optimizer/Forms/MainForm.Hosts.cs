@@ -128,7 +128,6 @@ namespace Optimizer {
             int split = entry.IndexOf(" : ", StringComparison.Ordinal);
             if (split < 0) return null;
             string ip = entry.Substring(0, split).Trim();
-            string domain = entry.Substring(split + 3).Trim();
 
             if (ip == "0.0.0.0" || ip == "::" || ip == "::0")
             {
@@ -136,11 +135,7 @@ namespace Optimizer {
                 return T("hostsBlocked", "Blocked");
             }
             if (ip == "127.0.0.1" || ip == "::1")
-            {
-                if (domain.Equals("localhost", StringComparison.OrdinalIgnoreCase)) return T("hostsLoopback", "Loopback");
-                danger = true;
-                return T("hostsBlocked", "Blocked");
-            }
+                return T("hostsLoopback", "Loopback");
             return null;
         }
 
@@ -210,7 +205,7 @@ namespace Optimizer {
             }
             if (error != null)
             {
-                if (_hostsError == null) MessageBox.Show(this, error, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (_hostsError == null) FluentMessageBox.Show(this, error, "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 (parsed == null ? txtIP : txtDomain).Focus();
                 return false;
             }

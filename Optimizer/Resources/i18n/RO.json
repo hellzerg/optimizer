@@ -20,7 +20,6 @@
 	"lblLab": "Construcție experimentală\n(șterge după testare.)",
 	"performanceSw": "Activează trucuri de performanță",
 	"networkSw": "Dezactivati Limitare Retea",
-	"defenderSw": "Dezactivează Securitatea Windows",
 	"systemRestoreSw": "Dezactivati Restaurarea Sistemului",
 	"printSw": "Dezactivati Serviciul de Printare",
 	"mediaSharingSw": "Dezactivati Partajarea Programului de Video-uri",
@@ -28,6 +27,7 @@
 	"reportingSw": "Dezactivati Rapoarte De Eroare",
 	"homegroupSw": "Dezactivati Grupul de Domiciliu",
 	"superfetchSw": "Dezactivati Superfetch",
+	"defenderTelemetrySw": "Dezactivează telemetria Microsoft Defender",
 	"telemetryTasksSw": "Dezactivati Sarcini Telemetrie",
 	"officeTelemetrySw": "Dezactivati Telemetria Office-ului",
 	"vsSW": "Dezactivati Telemetria Visual Studio-ului",
@@ -330,10 +330,10 @@
 	- Afișează întotdeauna extensiile de fișiere
 	- Afișează fișierele ascunse",
 	"networkTip": "Windows implementează un mecanism de limitare a rețelei care va restricționa traficul în rețea atunci când rulează aplicații multimedia. De asemenea, poate reduce performanța rețelei atunci când jucați jocuri online.",
-	"defenderTip": "Windows Defendor este un antivirus încorporat în sistemele Windows.",
 	"smartScreenTip": "SmartScreenul scanează automat fișierele, descărcările și site-urile web, blocând. Conținut periculos deja cunoscut și vă avertizează înainte de a le rula.",
 	"systemRestoreTip": "Restaurarea sistemului este o caracteristică care permite revenirea la starea Windows. La una anterioară pentru a recupera de la defecțiuni sau alte probleme.",
 	"reportingTip": "Raportarea erorilor colectează blocările și erorile aplicațiilor și le trimite la Microsoft.",
+	"defenderTelemetryTip": "Dezactivează raportarea MAPS, trimiterea mostrelor de fișiere și raportarea infecțiilor de către Instrumentul de eliminare a software-ului rău intenționat, precum și funcția Block at First Sight și protecția împotriva aplicațiilor potențial nedorite. Aceste modificări reduc unele protecții bazate pe cloud.",
 	"telemetryTasksTip": "Serviciile de telemetrie trimit periodic date de utilizare și performanță către Microsoft, pentru îmbunătățirea ulterioară.",
 	"officeTelemetryTip": "Telemetria de Office Microsoft trimite periodic date de utilizare și performanță la Microsoft, pentru îmbunătățirea ulterioară.",
 	"ffTelemetryTip": "Dezactivează serviciile de telemetrie și raportare a datelor Mozilla Firefox.",
@@ -408,6 +408,7 @@
 	"smb2Sw": "Dezactivați protocolul SMBv2",
 	"smbTip": "Protocolul SMB{v} este responsabil pentru partajarea fișierelor între computerele Windows.
 	A fost înlocuit cu SMBv3, care este mai sigur.",
+	"smb2Warning": "Dezactivarea SMBv2 dezactivează și SMBv3, deoarece ambele folosesc aceeași stivă de protocoale.",
 	"ntfsStampSw": "Dezactivați marcajul de timp NTFS",
 	"ntfsStampTip": "Indică ștampila la care a fost accesat ultima dată fișierul.
 	Dezactivarea acestuia poate reduce operațiunile I/O pe discuri.",

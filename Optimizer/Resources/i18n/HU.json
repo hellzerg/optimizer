@@ -17,7 +17,6 @@
 	"regBackupSw": "Nyilvántartási biztonsági mentések engedélyezése",
 	"performanceSw": "Teljesítményjavítások engedélyezése",
 	"networkSw": "Hálózati korlátozás letiltása",
-	"defenderSw": "Windows Defender kikapcsolása",
 	"systemRestoreSw": "Rendszer-visszaállítás letiltása",
 	"printSw": "Nyomtatási szolgáltatás letiltása",
 	"mediaSharingSw": "Médialejátszó megosztásának letiltása",
@@ -25,6 +24,7 @@
 	"reportingSw": "Hibajelentés kikapcsolása",
 	"homegroupSw": "Családi Csoport letiltása",
 	"superfetchSw": "Superfetch letiltása",
+	"defenderTelemetrySw": "Microsoft Defender telemetria letiltása",
 	"telemetryTasksSw": "Telemetriai feladatok letiltása",
 	"officeTelemetrySw": "Office telemetria letiltása",
 	"vsSW": "Visual Studio telemetria letiltása",
@@ -329,12 +329,12 @@
 	"networkTip": "A Windows olyan hálózati szabályozási mechanizmust valósít meg, amely korlátozza
 	hálózati forgalom multimédiás alkalmazások futtatásakor. Ez is csökkentheti a hálózatot
 	teljesítmény online játékok közben.",
-	"defenderTip": "A Windows Defender a Windows rendszerek beépített víruskeresője.",
 	"smartScreenTip": "A SmartScreen automatikusan átvizsgálja a fájlokat, letöltéseket és webhelyeket, blokkolva
 	már ismert veszélyes tartalomat, és figyelmeztet, mielőtt futtatná őket.",
 	"systemRestoreTip": "A rendszer-visszaállítás egy olyan szolgáltatás, amely lehetővé teszi a Windows állapotának visszaállítását
 	egy előzőhöz, hogy helyreálljon a meghibásodások vagy egyéb problémák után.",
 	"reportingTip": "A hibajelentés összegyűjti az alkalmazások összeomlását és a hibákat, és elküldi a Microsoftnak.",
+	"defenderTelemetryTip": "Letiltja a MAPS-jelentéseket, a fájlminták beküldését és a kártevő-eltávolító eszköz fertőzési jelentéseit, valamint az első észleléskori blokkolást és a potenciálisan kéretlen alkalmazások elleni védelmet. Ezzel egyes felhőalapú védelmi funkciók csökkennek.",
 	"telemetryTasksTip": "A telemetriai szolgáltatások időszakonként használati és teljesítményadatokat küldenek a Microsoftnak,
 	a jövőbeni fejlesztés érdekében.",
 	"officeTelemetryTip": "Az irodai telemetria rendszeresen küld használati és
@@ -424,6 +424,7 @@
 	"smb2Sw": "Az SMBv2 protokoll letiltása",
 	"smbTip": "Az SMB{v} protokoll felelős a Windows számítógépek közötti fájlmegosztásért.
 	Lecserélték SMBv3-ra, ami biztonságosabb.",
+	"smb2Warning": "Az SMBv2 letiltása az SMBv3-at is letiltja, mivel ugyanazt a protokollvermet használják.",
 	"ntfsStampSw": "Az NTFS időbélyegző letiltása",
 	"ntfsStampTip": "A fájl utolsó elérési időpontjának bélyegzőjét jelzi.
 	Kikapcsolása csökkentheti a lemezeken végzett I/O műveleteket.",

@@ -1,3 +1,4 @@
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.CompilerServices;
@@ -14,6 +15,7 @@ namespace Optimizer {
             public Image Original;
             public Image Tinted;
             public Color TintColor;
+            public bool Hooked;
         }
 
         sealed class GlyphInfo { public bool IsWhiteGlyph; }
@@ -23,15 +25,27 @@ namespace Optimizer {
 
         internal static void Apply(PictureBox box, Palette palette)
         {
-            Image current = box.Image;
-            if (current == null) return;
+            if (box == null || box.IsDisposed) return;
 
-            State state = _states.GetValue(box, k => new State());
-            if (current != state.Tinted)
+            State state = _states.GetValue(box, key => new State());
+            if (!state.Hooked)
             {
-                // the image was replaced by code, so it becomes the new original
+                state.Hooked = true;
+                box.Disposed += Box_Disposed;
+            }
+
+            Image current = box.Image;
+            if (current == null)
+            {
+                DisposeTinted(state);
+                state.Original = null;
+                return;
+            }
+
+            if (current != state.Tinted && current != state.Original)
+            {
+                DisposeTinted(state);
                 state.Original = current;
-                state.Tinted = null;
             }
 
             if (!IsWhiteGlyph(state.Original)) return;
@@ -44,10 +58,56 @@ namespace Optimizer {
 
             if (state.Tinted == null || state.TintColor != palette.TextPrimary)
             {
+                Image previous = state.Tinted;
                 state.Tinted = Tint(state.Original, palette.TextPrimary);
                 state.TintColor = palette.TextPrimary;
+                box.Image = state.Tinted;
+                if (previous != null) previous.Dispose();
+                return;
             }
-            box.Image = state.Tinted;
+
+            if (box.Image != state.Tinted) box.Image = state.Tinted;
+        }
+
+        internal static void Release(PictureBox box, bool disposeOriginal)
+        {
+            if (box == null) return;
+
+            State state;
+            if (_states.TryGetValue(box, out state))
+            {
+                Image original = state.Original;
+                Image tinted = state.Tinted;
+                state.Original = null;
+                state.Tinted = null;
+                box.Image = null;
+
+                if (tinted != null) tinted.Dispose();
+                if (disposeOriginal && original != null && !ReferenceEquals(original, tinted)) original.Dispose();
+                return;
+            }
+
+            if (disposeOriginal)
+            {
+                Image image = box.Image;
+                box.Image = null;
+                if (image != null) image.Dispose();
+            }
+        }
+
+        static void Box_Disposed(object sender, System.EventArgs e)
+        {
+            State state;
+            if (!_states.TryGetValue((PictureBox)sender, out state)) return;
+            DisposeTinted(state);
+            state.Original = null;
+        }
+
+        static void DisposeTinted(State state)
+        {
+            if (state.Tinted == null) return;
+            state.Tinted.Dispose();
+            state.Tinted = null;
         }
 
         static bool IsWhiteGlyph(Image image)
@@ -56,7 +116,6 @@ namespace Optimizer {
             if (_glyphs.TryGetValue(image, out info)) return info.IsWhiteGlyph;
 
             info = Analyze(image);
-            // a failed read (image busy or backed by a closed stream) is not cached, so the next theme pass retries
             if (info == null) return false;
 
             try { _glyphs.Add(image, info); }
@@ -70,7 +129,7 @@ namespace Optimizer {
             int[] px;
             try
             {
-                if (image.Width * image.Height > 1024 * 1024) return info;
+                if ((long)image.Width * image.Height > 1024L * 1024L) return info;
                 px = ReadPixels(image);
             }
             catch (System.Exception)
@@ -97,22 +156,55 @@ namespace Optimizer {
             for (int i = 0; i < px.Length; i++) px[i] = (px[i] & unchecked((int)0xFF000000)) | rgb;
 
             Bitmap result = new Bitmap(source.Width, source.Height, PixelFormat.Format32bppArgb);
-            BitmapData data = result.LockBits(new Rectangle(0, 0, result.Width, result.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
-            Marshal.Copy(px, 0, data.Scan0, px.Length);
-            result.UnlockBits(data);
+            BitmapData data = null;
+            try
+            {
+                try
+                {
+                    data = result.LockBits(new Rectangle(0, 0, result.Width, result.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+                    int[] row = new int[result.Width];
+                    for (int y = 0; y < result.Height; y++)
+                    {
+                        System.Array.Copy(px, y * result.Width, row, 0, row.Length);
+                        Marshal.Copy(row, 0, IntPtr.Add(data.Scan0, y * data.Stride), row.Length);
+                    }
+                }
+                finally
+                {
+                    if (data != null) result.UnlockBits(data);
+                }
+            }
+            catch
+            {
+                result.Dispose();
+                throw;
+            }
             return result;
         }
 
         static int[] ReadPixels(Image image)
         {
             using (Bitmap bmp = new Bitmap(image.Width, image.Height, PixelFormat.Format32bppArgb))
+            using (Graphics g = Graphics.FromImage(bmp))
             {
-                using (Graphics g = Graphics.FromImage(bmp)) g.DrawImage(image, 0, 0, image.Width, image.Height);
-                BitmapData data = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
-                int[] px = new int[bmp.Width * bmp.Height];
-                Marshal.Copy(data.Scan0, px, 0, px.Length);
-                bmp.UnlockBits(data);
-                return px;
+                g.DrawImage(image, 0, 0, image.Width, image.Height);
+                BitmapData data = null;
+                try
+                {
+                    data = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                    int[] px = new int[bmp.Width * bmp.Height];
+                    int[] row = new int[bmp.Width];
+                    for (int y = 0; y < bmp.Height; y++)
+                    {
+                        Marshal.Copy(IntPtr.Add(data.Scan0, y * data.Stride), row, 0, row.Length);
+                        System.Array.Copy(row, 0, px, y * bmp.Width, row.Length);
+                    }
+                    return px;
+                }
+                finally
+                {
+                    if (data != null) bmp.UnlockBits(data);
+                }
             }
         }
     }

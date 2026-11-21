@@ -22,7 +22,6 @@
 	"lblLab": "實驗性建置\n（測試後刪除）",
 	"performanceSw": "最佳化效能",
 	"networkSw": "停用網路節流",
-	"defenderSw": "停用 Windows Defender",
 	"systemRestoreSw": "停用系統還原",
 	"printSw": "停用列印服務",
 	"mediaSharingSw": "停用媒體播放器共享",
@@ -30,6 +29,7 @@
 	"reportingSw": "停用錯誤報告",
 	"homegroupSw": "停用家庭群組",
 	"superfetchSw": "停用 Superfetch",
+	"defenderTelemetrySw": "停用 Microsoft Defender 遙測",
 	"telemetryTasksSw": "停用遙測任務",
 	"officeTelemetrySw": "停用 Office 遙測",
 	"vsSW": "停用 Visual Studio 遙測",
@@ -333,12 +333,12 @@
 	"networkTip": "Windows 實現了一個網路節流機制，該機制將限制
 	執行多媒體應用程式時的網路流量。它還可以降低網路的佔用
 	在玩網路遊戲時的表現。",
-	"defenderTip": "Windows Defender 是 Windows 系統內建的防病毒軟體。",
 	"smartScreenTip": "SmartScreen 自動掃描檔案、下載和網站，阻擋
 	已知的危險內容，並在執行它們之前警告您。",
 	"systemRestoreTip": "系統還原是一個功能，允許將 Windows 的狀態
 	還原到先前的狀態以還原故障或其他問題。",
 	"reportingTip": "錯誤報告收集應用程式崩潰和錯誤並將它們傳送給微軟。",
+	"defenderTelemetryTip": "停用 MAPS 回報、檔案範例提交、惡意軟體移除工具感染回報，以及首次封鎖和潛在不需要應用程式防護。這些變更會降低部分雲端輔助防護能力。",
 	"telemetryTasksTip": "遙測服務定期向微軟傳送使用和效能資料，
 	以便未來改進。",
 	"officeTelemetryTip": "Office 遙測定期傳送使用情況和
@@ -422,6 +422,7 @@
 	"smb2Sw": "停用 SMBv2 協定",
 	"smbTip": "SMB{v} 協定負責 Windows 系統之間的檔案共享。
 	它已被更安全的 SMBv3 取代。",
+	"smb2Warning": "停用 SMBv2 也會停用 SMBv3，因為兩者使用相同的通訊協定堆疊。",
 	"ntfsStampSw": "停用 NTFS 時間戳記",
 	"ntfsStampTip": "指示檔案的最後一次存取時間戳記。
 	停用它可以減少磁碟上的 I/O 操作。",

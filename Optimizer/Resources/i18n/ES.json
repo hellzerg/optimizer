@@ -23,7 +23,6 @@
 	"CleanPreviewForm": "Vista Previa Limpia",
 	"performanceSw": "Habilitar ajustes de rendimiento",
 	"networkSw": "Deshabilitar la limitación de la red",
-	"defenderSw": "Deshabilitar Windows Defender ⚠️",
 	"systemRestoreSw": "Deshabilitar Restaurar sistema",
 	"printSw": "Deshabilitar Servicio de impresión",
 	"mediaSharingSw": "Desactivar Media Player Sharing",
@@ -31,6 +30,7 @@
 	"reportingSw": "Deshabilitar el informe de errores",
 	"homegroupSw": "Desactivar grupo de hogar",
 	"superfetchSw": "Desactivar Superfetch",
+	"defenderTelemetrySw": "Desactivar la telemetría de Microsoft Defender",
 	"telemetryTasksSw": "Deshabilitar tareas de telemetría",
 	"officeTelemetrySw": "Deshabilitar la telemetría de Office",
 	"vsSW": "Deshabilitar la telemetría de Visual Studio",
@@ -333,12 +333,12 @@ Completamente seguro de aplicar.
 	"networkTip": "Windows implementa un mecanismo de limitación de la red que restringirá
 tráfico de red al ejecutar aplicaciones multimedia. También puede reducir la red
 rendimiento al jugar juegos en línea.",
-	"defenderTip": "Windows Defender es el antivirus integrado en los sistemas Windows.",
 	"smartScreenTip": "SmartScreen analiza automáticamente archivos, descargas y sitios web, bloqueando
 contenido peligroso ya conocido y le advierte antes de ejecutarlos.",
 	"systemRestoreTip": "Restaurar sistema es una función que permite revertir el estado de Windows
 a uno anterior para recuperarse de averías u otros problemas.",
 	"reportingTip": "Error Reporting recopila fallos y errores de aplicaciones y los envía a Microsoft.",
+	"defenderTelemetryTip": "Desactiva los informes de MAPS, el envío de muestras de archivos y los informes de infección de la Herramienta de eliminación de software malintencionado, así como Bloqueo a primera vista y la protección frente a aplicaciones potencialmente no deseadas. Estos cambios reducen algunas protecciones en la nube.",
 	"telemetryTasksTip": "Los servicios de telemetría envían periódicamente datos de uso y rendimiento a Microsoft,
 para futuras mejoras.",
 	"officeTelemetryTip": "La telemetría de Office envía periódicamente el uso y
@@ -423,6 +423,7 @@ Se considera un servicio innecesario para los usuarios que no desean participar.
 	"smb2Sw": "Deshabilitar el protocolo SMBv2",
 	"smbTip": "El protocolo SMB{v} es responsable de compartir archivos entre computadoras con Windows.
 	Ha sido reemplazado por SMBv3, que es más seguro.",
+	"smb2Warning": "Deshabilitar SMBv2 también deshabilita SMBv3 porque ambos utilizan la misma pila de protocolos.",
 	"ntfsStampSw": "Deshabilitar marca de tiempo NTFS",
 	"ntfsStampTip": "Indica la marca de la última vez que se accedió al archivo.
 	Deshabilitarlo puede reducir las operaciones de E/S en los discos.",

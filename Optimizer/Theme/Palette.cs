@@ -40,55 +40,56 @@ namespace Optimizer {
             accent = Color.FromArgb(255, accent);
 
             Palette p = new Palette { Mode = mode, Accent = accent };
+            p.OnAccent = ColorMath.Contrast(accent, Color.Black) >= ColorMath.Contrast(accent, Color.White) ? Color.Black : Color.White;
+            Color accentStateTarget = p.OnAccent == Color.White ? Color.Black : Color.White;
 
             if (mode == ThemeMode.Light)
             {
                 p.WindowBg = Color.FromArgb(243, 243, 243);
-                p.Sidebar = Color.FromArgb(235, 235, 235);
+                p.Sidebar = Color.FromArgb(232, 232, 232);
                 p.Layer1 = Color.FromArgb(251, 251, 251);
-                p.Layer1Hover = Color.FromArgb(245, 245, 245);
+                p.Layer1Hover = Color.FromArgb(238, 238, 238);
                 p.Layer2 = Color.FromArgb(255, 255, 255);
                 p.ControlFill = Color.FromArgb(253, 253, 253);
-                p.ControlHover = Color.FromArgb(243, 243, 243);
-                p.ControlPressed = Color.FromArgb(234, 234, 234);
+                p.ControlHover = Color.FromArgb(238, 238, 238);
+                p.ControlPressed = Color.FromArgb(228, 228, 228);
                 p.InputFill = Color.FromArgb(255, 255, 255);
-                p.Stroke = Color.FromArgb(225, 225, 225);
-                p.StrokeStrong = Color.FromArgb(190, 190, 190);
+                p.Stroke = Color.FromArgb(140, 140, 140);
+                p.StrokeStrong = Color.FromArgb(110, 110, 110);
                 p.TextPrimary = Color.FromArgb(27, 27, 27);
-                p.TextSecondary = Color.FromArgb(96, 96, 96);
-                p.TextDisabled = Color.FromArgb(160, 160, 160);
-                p.Selection = Color.FromArgb(225, 225, 225);
-                p.ToggleOff = Color.FromArgb(135, 135, 135);
+                p.TextSecondary = Color.FromArgb(88, 88, 88);
+                p.TextDisabled = Color.FromArgb(136, 136, 136);
+                p.Selection = Color.FromArgb(212, 212, 212);
+                p.ToggleOff = Color.FromArgb(126, 126, 126);
                 p.Danger = Color.FromArgb(196, 43, 28);
-                p.AccentHover = ColorMath.Blend(accent, Color.Black, 0.10);
-                p.AccentPressed = ColorMath.Blend(accent, Color.Black, 0.20);
+                p.AccentHover = ColorMath.Blend(accent, accentStateTarget, 0.10);
+                p.AccentPressed = ColorMath.Blend(accent, accentStateTarget, 0.20);
                 p.AccentText = ColorMath.EnsureContrast(accent, p.Layer1, 4.5, Color.Black);
             }
             else
             {
                 p.WindowBg = Color.FromArgb(32, 32, 32);
-                p.Sidebar = Color.FromArgb(26, 26, 26);
-                p.Layer1 = Color.FromArgb(43, 43, 43);
-                p.Layer1Hover = Color.FromArgb(50, 50, 50);
-                p.Layer2 = Color.FromArgb(39, 39, 39);
-                p.ControlFill = Color.FromArgb(55, 55, 55);
-                p.ControlHover = Color.FromArgb(64, 64, 64);
-                p.ControlPressed = Color.FromArgb(47, 47, 47);
-                p.InputFill = Color.FromArgb(30, 30, 30);
-                p.Stroke = Color.FromArgb(58, 58, 58);
-                p.StrokeStrong = Color.FromArgb(90, 90, 90);
+                p.Sidebar = Color.FromArgb(24, 24, 24);
+                p.Layer1 = Color.FromArgb(46, 46, 46);
+                p.Layer1Hover = Color.FromArgb(58, 58, 58);
+                p.Layer2 = Color.FromArgb(42, 42, 42);
+                p.ControlFill = Color.FromArgb(58, 58, 58);
+                p.ControlHover = Color.FromArgb(74, 74, 74);
+                p.ControlPressed = Color.FromArgb(48, 48, 48);
+                p.InputFill = Color.FromArgb(34, 34, 34);
+                p.Stroke = Color.FromArgb(120, 120, 120);
+                p.StrokeStrong = Color.FromArgb(150, 150, 150);
                 p.TextPrimary = Color.FromArgb(255, 255, 255);
-                p.TextSecondary = Color.FromArgb(200, 200, 200);
-                p.TextDisabled = Color.FromArgb(120, 120, 120);
-                p.Selection = Color.FromArgb(64, 64, 64);
+                p.TextSecondary = Color.FromArgb(190, 190, 190);
+                p.TextDisabled = Color.FromArgb(148, 148, 148);
+                p.Selection = Color.FromArgb(72, 72, 72);
                 p.ToggleOff = Color.FromArgb(160, 160, 160);
                 p.Danger = Color.FromArgb(255, 153, 164);
-                p.AccentHover = ColorMath.Blend(accent, Color.White, 0.10);
-                p.AccentPressed = ColorMath.Blend(accent, Color.Black, 0.15);
+                p.AccentHover = ColorMath.Blend(accent, accentStateTarget, 0.10);
+                p.AccentPressed = ColorMath.Blend(accent, accentStateTarget, 0.20);
                 p.AccentText = ColorMath.EnsureContrast(accent, p.Layer1, 4.5, Color.White);
             }
 
-            p.OnAccent = ColorMath.Luminance(accent) > 0.40 ? Color.Black : Color.White;
             return p;
         }
     }
