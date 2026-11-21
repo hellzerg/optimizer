@@ -68,6 +68,7 @@ jobs:
           output-artifact-directory: signed
           skip-decompress: true
 
+      
       - name: Verify signed executable
         shell: pwsh
         run: |
@@ -79,11 +80,51 @@ jobs:
 
           $signature = Get-AuthenticodeSignature -LiteralPath $file
 
-          $signature | Format-List Status, StatusMessage, SignerCertificate
-
-          if ($signature.Status -ne "Valid") {
-              throw "Invalid Authenticode signature: $($signature.Status)"
+          if ($null -eq $signature.SignerCertificate) {
+              throw "The executable does not contain a valid signer certificate."
           }
+
+          $expectedThumbprint = "9BECB195F8F1D4185E08D8BA5B605E44056466CD"
+          $expectedSubject = "CN=Test certificate for 'Optimizer [OSS]'"
+
+          $certificate = $signature.SignerCertificate
+
+          if ($certificate.Thumbprint -ne $expectedThumbprint) {
+              throw "Unexpected certificate thumbprint: $($certificate.Thumbprint)"
+          }
+
+          if ($certificate.Subject -ne $expectedSubject) {
+              throw "Unexpected certificate subject: $($certificate.Subject)"
+          }
+
+          if ($certificate.Subject -ne $certificate.Issuer) {
+              throw "Expected a self-signed test certificate."
+          }
+
+          $now = [DateTime]::UtcNow
+
+          if ($now -lt $certificate.NotBefore.ToUniversalTime() -or
+              $now -gt $certificate.NotAfter.ToUniversalTime()) {
+              throw "The signing certificate is outside its validity period."
+          }
+
+          if ($signature.Status -eq "Valid") {
+              Write-Host "Authenticode signature successfully verified."
+          }
+          elseif (
+              $signature.Status -eq "UnknownError" -and
+              $signature.StatusMessage -match '(?is)root certificate.*not trusted by the trust provider'
+          ) {
+              Write-Warning "Signature uses the expected SignPath self-signed test certificate."
+              Write-Warning "Windows does not trust this test certificate. This is expected."
+          }
+          else {
+              throw "Unexpected Authenticode verification result: $($signature.Status) - $($signature.StatusMessage)"
+          }
+
+          Write-Host "Signer: $($certificate.Subject)"
+          Write-Host "Thumbprint: $($certificate.Thumbprint)"
+          Write-Host "Signature verification completed."
 
       - name: Upload signed executable
         uses: actions/upload-artifact@v7
