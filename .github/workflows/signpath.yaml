@@ -1,0 +1,94 @@
+
+name: Build and sign Optimizer
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build-and-sign:
+    name: Build and sign
+    runs-on: windows-2022
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v3
+
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v3
+
+      - name: Restore NuGet packages
+        run: nuget restore Optimizer.sln -NonInteractive
+
+      - name: Build Optimizer
+        run: >
+          msbuild Optimizer.sln
+          /m
+          /p:Configuration=Release
+          /verbosity:minimal
+
+      - name: Verify build output
+        shell: pwsh
+        run: |
+          $file = "bin/release/Optimizer.exe"
+
+          if (!(Test-Path -LiteralPath $file)) {
+              throw "Build output not found: $file"
+          }
+
+          Get-Item $file | Format-List FullName, Length
+
+      - name: Upload unsigned executable
+        id: upload-unsigned
+        uses: actions/upload-artifact@v7
+        with:
+          path: bin/release/Optimizer.exe
+          archive: false
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Sign with SignPath
+        id: signpath
+        uses: signpath/github-action-submit-signing-request@v3
+        with:
+          api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+          organization-id: ${{ vars.SIGNPATH_ORGANIZATION_ID }}
+          project-slug: ${{ vars.SIGNPATH_PROJECT_SLUG }}
+          signing-policy-slug: ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+          artifact-configuration-slug: ${{ vars.SIGNPATH_ARTIFACT_CONFIGURATION_SLUG }}
+          github-artifact-id: ${{ steps.upload-unsigned.outputs.artifact-id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-for-completion: true
+          output-artifact-directory: signed
+          skip-decompress: true
+
+      - name: Verify signed executable
+        shell: pwsh
+        run: |
+          $file = "signed/Optimizer.exe"
+
+          if (!(Test-Path -LiteralPath $file)) {
+              throw "Signed executable not found: $file"
+          }
+
+          $signature = Get-AuthenticodeSignature -LiteralPath $file
+
+          $signature | Format-List Status, StatusMessage, SignerCertificate
+
+          if ($signature.Status -ne "Valid") {
+              throw "Invalid Authenticode signature: $($signature.Status)"
+          }
+
+      - name: Upload signed executable
+        uses: actions/upload-artifact@v7
+        with:
+          name: Optimizer-signed-${{ github.ref_name }}
+          path: signed/Optimizer.exe
+          if-no-files-found: error
+          retention-days: 30
