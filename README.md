@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/hellzerg/optimizer/releases/download/17.0/Optimizer-17.0.exe">
+  <a href="https://github.com/hellzerg/optimizer/releases/download/17.1/Optimizer-17.1.exe">
     <img src="https://github.com/hellzerg/optimizer/blob/master/download-button.png?raw=true">
   </a>
 </p>
