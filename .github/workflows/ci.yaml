@@ -1,0 +1,62 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.x. 4.0)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: microsoft/setup-msbuild@v3
+
+      - uses: NuGet/setup-nuget@v4
+
+      - name: Build
+        shell: pwsh
+        run: |
+          nuget restore .\Optimizer.sln -NonInteractive
+          if ($LASTEXITCODE -ne 0) { throw 'NuGet restore failed.' }
+
+          msbuild .\Optimizer.sln /t:Rebuild /m /p:Configuration=Release '/p:Platform=Any CPU' /verbosity:minimal
+          if ($LASTEXITCODE -ne 0) { throw 'Build failed.' }
+
+      - name: Rename executable
+        shell: pwsh
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          if ($env:RELEASE_TAG -notmatch '^\d+\.\d+$') {
+            throw 'Enter the release tag in X.X format, for example 4.0.'
+          }
+
+          $source = Join-Path $env:GITHUB_WORKSPACE 'bin\Release\Optimizer.exe'
+          $destination = Join-Path $env:GITHUB_WORKSPACE "Optimizer-$($env:RELEASE_TAG).exe"
+
+          if (-not (Test-Path -LiteralPath $source)) {
+            throw "Build output not found: $source"
+          }
+
+          Move-Item -LiteralPath $source -Destination $destination
+          "RELEASE_EXE=$destination" >> $env:GITHUB_ENV
+
+      - name: Publish GitHub Release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          gh release create $env:RELEASE_TAG $env:RELEASE_EXE `
+            --title "Optimizer" `
+            --target $env:GITHUB_SHA
+
+          if ($LASTEXITCODE -ne 0) { throw 'GitHub Release creation failed.' }

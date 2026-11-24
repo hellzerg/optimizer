@@ -1,3 +1,7 @@
+## [17.1] - 2026-11-24
+- Improved: Various bug fixes and reliability improvements
+- Removed: Completely removed the ability to disable Defender and Security on all Windows versions
+
 ## [17.0] - 2026-11-12
 - New: Complete visual redesign with a modern Fluent look
 - New: Theme engine with dark and light modes and accent color support
