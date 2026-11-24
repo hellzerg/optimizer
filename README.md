@@ -96,13 +96,6 @@ Learn about our security measures in the [Security Policy](https://github.com/he
 - Can run on Windows Server 2008, 2012, 2016, 2019, 2022 using `/unsafe` switch
 
 <center>
-<h2> 📊 Details</h2> 
-</center>
-
-- Latest version: 17.0 (Released: November 12, 2026)
-- SHA256: EEB367F0B8C651C10934D985BFA53A94CA56F7C6BFF39A44D9BD944514A6DAFB
-
-<center>
 <h2> ☕ Buy me a delicious espresso</h2>
 </center>
 
