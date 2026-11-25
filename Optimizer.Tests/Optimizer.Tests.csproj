@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+    <IsTestProject>true</IsTestProject>
+    <IsPackable>false</IsPackable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Compile Include="..\Optimizer\AppDownloadProgress.cs" Link="Production\AppDownloadProgress.cs" />
+    <Compile Include="..\Optimizer\AppDownloadState.cs" Link="Production\AppDownloadState.cs" />
+    <Compile Include="..\Optimizer\Models\AppInfo.cs" Link="Production\AppInfo.cs" />
+  </ItemGroup>
+</Project>

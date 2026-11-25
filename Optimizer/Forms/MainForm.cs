@@ -2303,7 +2303,8 @@ namespace Optimizer {
             }
             catch (Exception ex)
             {
-                btnDownloadApps.Enabled = false;
+                _appsFeedAvailable = false;
+                UpdateAppDownloaderControls();
                 txtFeedError.Visible = true;
                 LayoutAppsTab();
 
@@ -2424,7 +2425,8 @@ namespace Optimizer {
                 foreach (Control group in feedGroups) group.ResumeLayout();
             }
 
-            btnDownloadApps.Enabled = true;
+            _appsFeedAvailable = true;
+            UpdateAppDownloaderControls();
             txtFeedError.Visible = false;
             OnAppsFeedPopulated();
         }
@@ -4528,18 +4530,14 @@ namespace Optimizer {
 
         private void RenderAppDownloaderBusy()
         {
-            btnDownloadApps.Enabled = false;
-            changeDownDirB.Enabled = false;
-            txtDownloadFolder.ReadOnly = true;
+            UpdateAppDownloaderControls();
 
             linkWarnings.Visible = false;
         }
 
         private void RenderAppDownloaderFree()
         {
-            btnDownloadApps.Enabled = true;
-            changeDownDirB.Enabled = true;
-            txtDownloadFolder.ReadOnly = false;
+            UpdateAppDownloaderControls();
             UpdateGoToDownloadsButtonState();
 
             linkWarnings.Visible = !string.IsNullOrEmpty(downloadLog);
@@ -4554,70 +4552,73 @@ namespace Optimizer {
 
         private async void btnDownloadApps_Click(object sender, EventArgs e)
         {
+            if (_appDownloads.IsBusy || !_appsFeedAvailable) return;
+
             if (string.IsNullOrWhiteSpace(txtDownloadFolder.Text) || !Directory.Exists(txtDownloadFolder.Text))
             {
                 FluentMessageBox.Show(OptionsHelper.TranslationList["downloadDirInvalid"].ToString(), "Optimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            RenderAppDownloaderBusy();
-            maxCount = 0;
+            AppInfo[] selectedApps = AppsFromFeed.Where(app =>
+            {
+                if (app == null || string.IsNullOrEmpty(app.Tag)) return false;
+                MoonCheck check = appsTab.Controls.Find(app.Tag, true).FirstOrDefault() as MoonCheck;
+                return check != null && check.Checked;
+            }).ToArray();
+            AppDownloadState.Batch batch = _appDownloads.TryBeginDownload(selectedApps, txtDownloadFolder.Text, c64.Checked, cAutoInstall.Checked);
+            if (batch == null) return;
+
+            maxCount = batch.Apps.Count;
             count = 0;
             downloadLog = string.Empty;
 
             try
             {
+                RenderAppDownloaderBusy();
                 List<string> downloadedInstallers = new List<string>();
 
-                foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
+                foreach (AppInfo x in batch.Apps)
                 {
-                    if (c.Name == "cAutoInstall") continue;
-                    if (c is MoonCheck && ((MoonCheck)c).Checked) maxCount++;
-                }
-
-                foreach (AppInfo x in AppsFromFeed)
-                {
-                    if (string.IsNullOrEmpty(x.Tag)) continue;
-                    Control[] matches = appsTab.Controls.Find(x.Tag, true);
-                    if (matches.Length == 0) continue;
-
-                    MoonCheck currentCheck = matches[0] as MoonCheck;
-                    if (currentCheck == null || !currentCheck.Checked) continue;
-
+                    if (IsDisposed || Disposing) return;
                     appNameTemp = x.Title;
                     string downloadedFile = null;
+                    count++;
+                    progressDownloader.Value = 0;
+                    progressDownloader.Style = ProgressBarStyle.Marquee;
+                    txtDownloadStatus.Text = string.Format("({1}/{2}) - {0} ...", appNameTemp, count, maxCount);
 
-                    if (c64.Checked)
+                    if (batch.Prefer64)
                     {
-                        count++;
                         if (string.IsNullOrEmpty(x.Link64))
                         {
                             downloadLog += "• " + x.Title + ":" + Environment.NewLine + OptionsHelper.TranslationList["no64Download"] + Environment.NewLine + Environment.NewLine;
-                            downloadedFile = await DownloadApp(x, false);
+                            downloadedFile = await DownloadApp(x, false, batch.Folder);
                         }
                         else
                         {
-                            downloadedFile = await DownloadApp(x, true);
+                            downloadedFile = await DownloadApp(x, true, batch.Folder);
                         }
                     }
                     else
                     {
-                        count++;
                         if (!string.IsNullOrEmpty(x.Link))
-                            downloadedFile = await DownloadApp(x, false);
+                            downloadedFile = await DownloadApp(x, false, batch.Folder);
                         else
                             downloadLog += "• " + x.Title + ":" + Environment.NewLine + OptionsHelper.TranslationList["no32Download"] + Environment.NewLine + Environment.NewLine;
                     }
 
+                    if (IsDisposed || Disposing) return;
                     if (!string.IsNullOrEmpty(downloadedFile) && !downloadedInstallers.Contains(downloadedFile, StringComparer.OrdinalIgnoreCase))
                         downloadedInstallers.Add(downloadedFile);
                 }
 
-                if (cAutoInstall.Checked)
+                if (batch.AutoInstall)
                 {
                     count = 0;
                     foreach (string installer in downloadedInstallers)
                     {
+                        if (IsDisposed || Disposing) return;
                         string extension = Path.GetExtension(installer);
                         if (!string.Equals(extension, ".exe", StringComparison.OrdinalIgnoreCase) &&
                             !string.Equals(extension, ".msi", StringComparison.OrdinalIgnoreCase)) continue;
@@ -4651,18 +4652,24 @@ namespace Optimizer {
             }
             finally
             {
-                foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
+                _appDownloads.EndDownload(batch);
+                if (!IsDisposed && !Disposing)
                 {
-                    if (c.Name == "cAutoInstall") continue;
-                    MoonCheck check = c as MoonCheck;
-                    if (check != null && check.Checked) check.Checked = false;
-                }
+                    foreach (Control c in Utilities.GetSelfAndChildrenRecursive(appsTab))
+                    {
+                        if (c.Name == "cAutoInstall") continue;
+                        MoonCheck check = c as MoonCheck;
+                        if (check != null && check.Checked) check.Checked = false;
+                    }
 
-                RenderAppDownloaderFree();
+                    progressDownloader.Style = ProgressBarStyle.Continuous;
+                    progressDownloader.Value = 0;
+                    RenderAppDownloaderFree();
+                }
             }
         }
 
-        private async Task<string> DownloadApp(AppInfo app, bool pref64)
+        private async Task<string> DownloadApp(AppInfo app, bool pref64, string downloadFolder)
         {
             string temporaryFile = null;
             try
@@ -4678,7 +4685,7 @@ namespace Optimizer {
                 string safeTitle = Utilities.SanitizeFileFolderName(app.Title).Trim();
                 if (string.IsNullOrWhiteSpace(safeTitle)) throw new InvalidOperationException("The application name cannot be used as a file name.");
 
-                string folder = Path.GetFullPath(txtDownloadFolder.Text);
+                string folder = downloadFolder;
                 string architecture = pref64 ? "-x64" : "-x86";
                 string destinationFile = Path.GetFullPath(Path.Combine(folder, safeTitle + architecture + extension));
                 string folderPrefix = folder.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar) + Path.DirectorySeparatorChar;
@@ -4691,7 +4698,6 @@ namespace Optimizer {
                     downloader.Headers.Add("User-Agent: Other");
                     downloader.Encoding = Encoding.UTF8;
                     downloader.DownloadProgressChanged += Downloader_DownloadProgressChanged;
-                    downloader.DownloadFileCompleted += Downloader_DownloadFileCompleted;
                     await downloader.DownloadFileTaskAsync(downloadUri, temporaryFile);
                 }
 
@@ -4719,39 +4725,22 @@ namespace Optimizer {
             }
         }
 
-        private void Downloader_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-            this.BeginInvoke((MethodInvoker)delegate
-            {
-                //txtDownloadStatus.Text = "Finished";
-            });
-        }
-
-        int tempProgress;
         private void Downloader_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            this.BeginInvoke((MethodInvoker)delegate
+            if (IsDisposed || Disposing || !_appDownloads.IsDownloading) return;
+
+            int? percentage = AppDownloadProgress.Percentage(e.BytesReceived, e.TotalBytesToReceive);
+            if (!percentage.HasValue)
             {
-                double bytesIn = double.Parse(e.BytesReceived.ToString());
-                double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
-                double percentage = bytesIn / totalBytes * 100;
-
-                tempProgress = int.Parse(Math.Truncate(percentage).ToString());
-
-                // if Content-Length header is missing, just show an animation
-                if (Math.Abs(tempProgress) > 100)
-                {
-                    txtDownloadStatus.Text = string.Format("({1}/{2}) - {0} ...", appNameTemp, count, maxCount);
-                    progressDownloader.Style = ProgressBarStyle.Marquee;
-                }
-                // if not, show actual progress
-                else
-                {
-                    txtDownloadStatus.Text = string.Format("({1}/{2}) - {0} - {3} / {4}", appNameTemp, count, maxCount, ByteSize.FromBytes(e.BytesReceived).ToString("MB"), ByteSize.FromBytes(e.TotalBytesToReceive).ToString("MB"));
-                    progressDownloader.Style = ProgressBarStyle.Continuous;
-                    progressDownloader.Value = tempProgress;
-                }
-            });
+                txtDownloadStatus.Text = string.Format("({1}/{2}) - {0} ...", appNameTemp, count, maxCount);
+                progressDownloader.Style = ProgressBarStyle.Marquee;
+            }
+            else
+            {
+                txtDownloadStatus.Text = string.Format("({1}/{2}) - {0} - {3} / {4}", appNameTemp, count, maxCount, ByteSize.FromBytes(e.BytesReceived).ToString("MB"), ByteSize.FromBytes(e.TotalBytesToReceive).ToString("MB"));
+                progressDownloader.Style = ProgressBarStyle.Continuous;
+                progressDownloader.Value = percentage.Value;
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
