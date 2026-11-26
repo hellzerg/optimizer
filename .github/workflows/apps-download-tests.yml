@@ -1,0 +1,45 @@
+name: Apps download checks
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - "Optimizer/AppDownload*.cs"
+      - "Optimizer/Models/AppInfo.cs"
+      - "Optimizer/Forms/MainForm*.cs"
+      - "Optimizer/Optimizer.csproj"
+      - "Optimizer/packages.config"
+      - "Optimizer.sln"
+      - "Optimizer.Tests/**"
+      - ".github/workflows/apps-download-tests.yml"
+  push:
+    branches: [master]
+    paths:
+      - "Optimizer/AppDownload*.cs"
+      - "Optimizer/Models/AppInfo.cs"
+      - "Optimizer/Forms/MainForm*.cs"
+      - "Optimizer/Optimizer.csproj"
+      - "Optimizer/packages.config"
+      - "Optimizer.sln"
+      - "Optimizer.Tests/**"
+      - ".github/workflows/apps-download-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: "8.0.x"
+      - uses: microsoft/setup-msbuild@v3
+      - uses: NuGet/setup-nuget@v4
+      - name: Restore application packages
+        run: nuget restore Optimizer.sln -NonInteractive
+      - name: Build application
+        run: msbuild Optimizer.sln /t:Rebuild /m /p:Configuration=Release '/p:Platform=Any CPU' /verbosity:minimal
+      - name: Run isolated download tests
+        run: dotnet test Optimizer.Tests/Optimizer.Tests.csproj --configuration Release

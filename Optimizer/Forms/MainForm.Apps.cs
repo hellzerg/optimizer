@@ -18,6 +18,26 @@ namespace Optimizer {
         LinkLabel _appsClear;
         int _appsTileW;
         bool _appsLayingOut, _appsBulk;
+        bool _appsFeedAvailable;
+        readonly AppDownloadState _appDownloads = new AppDownloadState();
+
+        void UpdateAppDownloaderControls()
+        {
+            bool downloading = _appDownloads.IsDownloading;
+            btnGetFeed.Enabled = !_appDownloads.IsBusy;
+            btnDownloadApps.Enabled = !_appDownloads.IsBusy && _appsFeedAvailable && AppsFromFeed.Count > 0;
+            changeDownDirB.Enabled = !downloading;
+            txtDownloadFolder.ReadOnly = downloading;
+            c64.Enabled = !downloading;
+            c32.Enabled = !downloading;
+            cAutoInstall.Enabled = !downloading;
+
+            if (_appsGroups != null)
+                foreach (Panel group in _appsGroups) group.Enabled = !downloading;
+            if (_appsCatToggles != null)
+                foreach (LinkLabel toggle in _appsCatToggles) toggle.Enabled = !downloading;
+            if (_appsClear != null) _appsClear.Enabled = !downloading;
+        }
 
         bool UpdateGoToDownloadsButtonState()
         {

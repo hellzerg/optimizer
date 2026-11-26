@@ -147,14 +147,14 @@ namespace Optimizer {
             }
         }
 
-        bool _appsLoading;
+        bool _appsLoading { get { return _appDownloads.IsLoadingFeed; } }
         FluentLabel _appsLoadingText;
         BusyBar _appsBusy;
 
         /// <summary>Downloads the online feed in the background, falling back to the embedded copy.</summary>
         void GetFeedAsync()
         {
-            if (_appsLoading) return;
+            if (!_appDownloads.TryBeginFeedLoad()) return;
             CaptureUi();
             SetAppsLoading(true);
 
@@ -214,9 +214,8 @@ namespace Optimizer {
 
         void SetAppsLoading(bool loading)
         {
-            _appsLoading = loading;
-            btnGetFeed.Enabled = !loading;
-            if (loading) btnDownloadApps.Enabled = false;
+            if (!loading) _appDownloads.EndFeedLoad();
+            UpdateAppDownloaderControls();
 
             if (_appsHost == null) return;
             if (_appsLoadingText == null)
